@@ -18,6 +18,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Previeni scroll orizzontale */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -150,34 +156,37 @@
 
     <!-- Header -->
     <header class="bg-white border-b-2 border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="max-w-7xl mx-auto px-4 py-3 md:py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
-                <div class="flex items-center space-x-2">
-                    <span class="lobster-font text-5xl text-teal-500">A</span>
+                <div class="flex items-center space-x-1 md:space-x-2">
+                    <span class="lobster-font text-3xl md:text-5xl text-teal-500">A</span>
                     <div class="montserrat-font">
-                        <div class="text-2xl font-bold text-gray-900">lma Finanza</div>
+                        <div class="text-lg md:text-2xl font-bold text-gray-900">lma Finanza</div>
                     </div>
                 </div>
-                
-                <!-- Vertical Switcher -->
-                <div class="vertical-switch">
+
+                <!-- Vertical Switcher - Hidden on small mobile -->
+                <div class="vertical-switch hidden sm:flex">
                     <button class="active">Finanza</button>
                     <button onclick="window.location.href='in-costruzione.html'">Sport</button>
                 </div>
 
-                <!-- Date -->
-                <div class="text-sm text-gray-600 montserrat-font">
-                    <strong>Martedì, 4 Febbraio 2026</strong> • Aggiornato oggi
+                <!-- Date - Compact on mobile -->
+                <div class="text-xs md:text-sm text-gray-600 montserrat-font">
+                    <strong class="hidden md:inline">Martedì, 4 Febbraio 2026</strong>
+                    <strong class="md:hidden">4 Feb 2026</strong>
+                    <span class="hidden md:inline"> • Aggiornato oggi</span>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Navigation Bar - Sezioni e Risorse -->
-    <nav class="bg-gray-50 border-b border-gray-200 py-3">
+    <nav class="bg-gray-50 border-b border-gray-200 py-3 overflow-x-auto">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex items-center justify-between">
+            <!-- Desktop Layout -->
+            <div class="hidden md:flex items-center justify-between">
                 <!-- Sezioni -->
                 <div class="flex items-center space-x-6">
                     <span class="text-sm font-bold text-gray-900 montserrat-font">📂 Sezioni:</span>
@@ -195,6 +204,27 @@
                     <a href="in-costruzione.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Analisi Tecnica</a>
                 </div>
             </div>
+
+            <!-- Mobile Layout - Compact Grid -->
+            <div class="md:hidden grid grid-cols-2 gap-3">
+                <div>
+                    <span class="text-xs font-bold text-gray-900 montserrat-font block mb-2">📂 Sezioni</span>
+                    <div class="space-y-1">
+                        <a href="categoria-wall-street.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Wall Street</a>
+                        <a href="categoria-borsa-milano.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Borsa Milano</a>
+                        <a href="categoria-crypto.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Crypto</a>
+                        <a href="categoria-commodities.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Commodities</a>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-gray-900 montserrat-font block mb-2">📚 Risorse</span>
+                    <div class="space-y-1">
+                        <a href="impara-finanza.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Impara la Finanza</a>
+                        <a href="in-costruzione.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Glossario</a>
+                        <a href="in-costruzione.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Analisi Tecnica</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -204,34 +234,34 @@
         <!-- Hero Article -->
         <article class="bg-white rounded-lg shadow-lg overflow-hidden mb-8 article-card hover:shadow-2xl transition-shadow">
             <div class="grid md:grid-cols-2 gap-0">
-                <div class="bg-gradient-to-br from-purple-700 to-indigo-900 p-8 text-white flex items-center">
-                    <div>
+                <div class="bg-gradient-to-br from-purple-700 to-indigo-900 p-6 md:p-8 text-white flex items-center">
+                    <div class="w-full">
                         <span class="category-badge bg-white text-purple-700 mb-3">Tech Sell-Off</span>
-                        <h1 class="text-4xl font-bold mb-4 montserrat-font leading-tight">
+                        <h1 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4 montserrat-font leading-tight">
                             Comprendere il sell-off tech: anatomia di una giornata di panic selling
                         </h1>
-                        <p class="text-lg mb-4 text-purple-100">
-                            4 Febbraio 2026: giornata cruciale per tech stocks. Salesforce -6.97%, IBM -6.28%, Microsoft -2.86%, Nasdaq -1.25%. Analizziamo le cause: timori automazione AI, rotazione settoriale, dinamiche di margin call. Cosa ci insegnano questi movimenti sui meccanismi di mercato.
+                        <p class="text-sm md:text-lg mb-4 text-purple-100">
+                            4 Febbraio 2026: giornata cruciale per tech stocks. Salesforce -6.97%, IBM -6.28%, Microsoft -2.86%, Nasdaq -1.25%. Analizziamo le cause: timori automazione AI, rotazione settoriale, dinamiche di margin call.
                         </p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center space-x-4 text-sm">
+                        <div class="flex items-center justify-between flex-wrap gap-3">
+                            <div class="flex items-center space-x-3 text-xs md:text-sm">
                                 <span>📊 Redazione</span>
-                                <span>⏱ 4 Feb 2026</span>
-                                <span>👁 32.1K</span>
+                                <span class="hidden sm:inline">⏱ 4 Feb 2026</span>
+                                <span class="hidden sm:inline">👁 32.1K</span>
                             </div>
-                            <a href="articolo-sell-off-tech.html" class="inline-block bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-2.5 rounded-full font-bold text-sm uppercase tracking-wide hover:from-teal-600 hover:to-teal-700 transition shadow-lg hover:shadow-xl transform hover:scale-105">
+                            <a href="articolo-sell-off-tech.html" class="inline-block bg-gradient-to-r from-teal-500 to-teal-600 text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full font-bold text-xs md:text-sm uppercase tracking-wide hover:from-teal-600 hover:to-teal-700 transition shadow-lg hover:shadow-xl transform hover:scale-105">
                                 Leggi →
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="h-80 md:h-auto bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                    <div class="text-center text-white p-8">
-                        <div class="text-5xl font-bold mb-2 text-purple-400">-$285Bn</div>
-                        <div class="text-2xl font-semibold mb-4">SOFTWARE STOCKS</div>
-                        <div class="text-sm text-gray-300">AI disruption fears</div>
-                        <div class="text-sm text-gray-300 mt-2">Salesforce -7% • IBM -6.3%</div>
-                        <div class="text-sm text-purple-400 mt-3">Nasdaq -1.25%</div>
+                <div class="h-64 md:h-auto bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                    <div class="text-center text-white p-6 md:p-8">
+                        <div class="text-4xl md:text-5xl font-bold mb-2 text-purple-400">-$285Bn</div>
+                        <div class="text-xl md:text-2xl font-semibold mb-3 md:mb-4">SOFTWARE STOCKS</div>
+                        <div class="text-xs md:text-sm text-gray-300">AI disruption fears</div>
+                        <div class="text-xs md:text-sm text-gray-300 mt-2">Salesforce -7% • IBM -6.3%</div>
+                        <div class="text-xs md:text-sm text-purple-400 mt-2 md:mt-3">Nasdaq -1.25%</div>
                     </div>
                 </div>
             </div>
