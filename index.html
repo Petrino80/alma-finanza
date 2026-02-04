@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alma Finanza - Notizie Mercati Finanziari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .lobster-font {
+            font-family: 'Lobster', cursive;
+        }
+        .montserrat-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .ticker-tape {
+            overflow: hidden;
+            background: linear-gradient(to right, #0f172a, #1e293b);
+            border-bottom: 2px solid #14b8a6;
+        }
+        .ticker-content {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .ticker-item {
+            padding: 0 2rem;
+            white-space: nowrap;
+            color: white;
+            font-weight: 600;
+        }
+        .positive { color: #10b981; }
+        .negative { color: #ef4444; }
+        .article-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #14b8a6;
+        }
+        .category-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cat-wall-street { background: #dbeafe; color: #1e40af; }
+        .cat-milano { background: #dcfce7; color: #166534; }
+        .cat-crypto { background: #fef3c7; color: #92400e; }
+        .cat-europa { background: #e0e7ff; color: #3730a3; }
+        .cat-macro { background: #fce7f3; color: #9f1239; }
+        .cat-tech { background: #f3e8ff; color: #6b21a8; }
+        .cat-commodities { background: #fef3c7; color: #92400e; }
+
+        .read-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
+            animation: pulse-green 2s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes pulse-green {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+                box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
+            }
+            50% {
+                opacity: 0.85;
+                transform: scale(1.05);
+                box-shadow: 0 6px 12px rgba(20, 184, 166, 0.5);
+            }
+        }
+        
+        .vertical-switch {
+            display: inline-flex;
+            background: #f1f5f9;
+            border-radius: 9999px;
+            padding: 0.25rem;
+        }
+        .vertical-switch button {
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        .vertical-switch button.active {
+            background: #14b8a6;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Ticker Tape -->
+    <div class="ticker-tape">
+        <div class="ticker-content">
+            <div class="ticker-item">S&P 500 <span class="negative">-0.63%</span></div>
+            <div class="ticker-item">Dow <span class="negative">-96 (-0.19%)</span></div>
+            <div class="ticker-item">Nasdaq <span class="negative">-1.25%</span></div>
+            <div class="ticker-item">BTC <span class="negative">$73.111 (-1.9%)</span></div>
+            <div class="ticker-item">Oro <span class="positive">$5.012</span></div>
+            <div class="ticker-item">Salesforce <span class="negative">-6.97%</span></div>
+            <div class="ticker-item">Novo Nordisk <span class="negative">-18%</span></div>
+            <!-- Duplicate for seamless loop -->
+            <div class="ticker-item">S&P 500 <span class="negative">-0.63%</span></div>
+            <div class="ticker-item">Dow <span class="negative">-96 (-0.19%)</span></div>
+            <div class="ticker-item">Nasdaq <span class="negative">-1.25%</span></div>
+            <div class="ticker-item">BTC <span class="negative">$73.111 (-1.9%)</span></div>
+            <div class="ticker-item">Oro <span class="positive">$5.012</span></div>
+            <div class="ticker-item">Salesforce <span class="negative">-6.97%</span></div>
+            <div class="ticker-item">Novo Nordisk <span class="negative">-18%</span></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white border-b-2 border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <span class="lobster-font text-5xl text-teal-500">A</span>
+                    <div class="montserrat-font">
+                        <div class="text-2xl font-bold text-gray-900">lma Finanza</div>
+                    </div>
+                </div>
+                
+                <!-- Vertical Switcher -->
+                <div class="vertical-switch">
+                    <button class="active">Finanza</button>
+                    <button onclick="window.location.href='in-costruzione.html'">Sport</button>
+                </div>
+
+                <!-- Date -->
+                <div class="text-sm text-gray-600 montserrat-font">
+                    <strong>Martedì, 4 Febbraio 2026</strong> • Aggiornato oggi
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        
+        <!-- Hero Article -->
+        <article class="bg-white rounded-lg shadow-lg overflow-hidden mb-8 article-card hover:shadow-2xl transition-shadow cursor-pointer">
+            <div class="grid md:grid-cols-2 gap-0">
+                <div class="bg-gradient-to-br from-purple-700 to-indigo-900 p-8 text-white flex items-center">
+                    <div>
+                        <span class="category-badge bg-white text-purple-700 mb-3">Tech Sell-Off</span>
+                        <h1 class="text-4xl font-bold mb-4 montserrat-font leading-tight">
+                            Comprendere il sell-off tech: anatomia di una giornata di panic selling
+                        </h1>
+                        <p class="text-lg mb-4 text-purple-100">
+                            4 Febbraio 2026: giornata cruciale per tech stocks. Salesforce -6.97%, IBM -6.28%, Microsoft -2.86%, Nasdaq -1.25%. Analizziamo le cause: timori automazione AI, rotazione settoriale, dinamiche di margin call. Cosa ci insegnano questi movimenti sui meccanismi di mercato.
+                        </p>
+                        <div class="flex items-center space-x-4 text-sm">
+                            <span>📊 Redazione</span>
+                            <span>⏱ 4 Febbraio 2026 - Oggi</span>
+                            <span>👁 32.1K views</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-80 md:h-auto bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                    <div class="text-center text-white p-8">
+                        <div class="text-5xl font-bold mb-2 text-purple-400">-$285Bn</div>
+                        <div class="text-2xl font-semibold mb-4">SOFTWARE STOCKS</div>
+                        <div class="text-sm text-gray-300">AI disruption fears</div>
+                        <div class="text-sm text-gray-300 mt-2">Salesforce -7% • IBM -6.3%</div>
+                        <div class="text-sm text-purple-400 mt-3">Nasdaq -1.25%</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Breaking News Badge -->
+        <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-2xl font-bold montserrat-font text-gray-900">📰 Notizie di Oggi - 4 Febbraio 2026</h2>
+            <span class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse">🔴 LIVE</span>
+        </div>
+
+        <!-- Articles Grid -->
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <!-- Article 1 - Feb 4 -->
+            <a href="articolo-salesforce-crash-ai.html" class="block">
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                    <span class="read-badge">Leggi</span>
+                    <div class="p-6">
+                        <span class="category-badge cat-tech">AI Panic</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Salesforce -7%: analisi del sell-off e dinamiche SaaS
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Crollo software stocks del 3 febbraio. Analisi delle cause: timori automazione AI, valutazioni multiple, rotazione settoriale. Spiegazione del business model SaaS e dei fattori di rischio strutturali.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 3 Feb 2026</span>
+                            <span>👁 27.8K</span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+
+            <!-- Article 2 - Feb 4 -->
+            <a href="articolo-bitcoin-74570.html" class="block">
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                    <span class="read-badge">Leggi</span>
+                    <div class="p-6">
+                        <span class="category-badge cat-crypto">Bitcoin</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Bitcoin a $73.111: analisi tecnica e pattern di mercato
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            BTC rompe supporto chiave $73K. Spiegazione dei livelli tecnici, pattern di correzione, correlazione con risk assets. Analisi delle metriche on-chain e comportamento degli holder di lungo periodo.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 21.5K</span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+
+            <!-- Article 3 - Feb 4 -->
+            <a href="articolo-novo-nordisk-crash.html" class="block">
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                    <span class="read-badge">Leggi</span>
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Pharma</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Novo Nordisk -18%: leggere gli earnings report pharma
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Crollo post-guidance Novo Nordisk. Come interpretare gli outlook aziendali, le metriche pharma (pipeline, pricing power, patent cliff), e l'impatto della competizione nel settore GLP-1.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 4 Feb 2026 - Oggi</span>
+                            <span>👁 22.4K</span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+
+            <!-- Article 4 - Feb 4 - Tesla -->
+            <a href="articolo-tesla-produzione-q1.html" class="block">
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                    <span class="read-badge">Leggi</span>
+                    <div class="p-6">
+                        <span class="category-badge cat-tech">Tesla</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Tesla -3.2%: come interpretare i dati di produzione Q1
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Tesla pubblica numeri produzione Q1 2026 sotto attese. Spiegazione delle metriche chiave: deliveries vs production, mix geografico, margini per modello. Analisi dell'impatto competitivo EV cinesi.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 19.7K</span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+
+            <!-- Article 5 - Feb 4 - SpaceX & xAI -->
+            <a href="articolo-spacex-xai-ecosistema.html" class="block">
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                    <span class="read-badge">Leggi</span>
+                    <div class="p-6">
+                        <span class="category-badge cat-tech">Space & AI</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            SpaceX e xAI: ecosistema Musk e strategie di integrazione
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Analisi delle sinergie tra SpaceX, xAI e Tesla. Come funziona il modello Grok AI di xAI. Valutazione privata $50Bn: metriche e comparabili. Starlink come infrastruttura per AI training.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 17.3K</span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+
+            <!-- Article 6 - Feb 4 - Unity Software -->
+            <a href="articolo-unity-software-gaming.html" class="block">
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                    <span class="read-badge">Leggi</span>
+                    <div class="p-6">
+                        <span class="category-badge cat-tech">Gaming Tech</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Unity Software -8.5%: analisi del business model gaming
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Unity crolla post-earnings. Spiegazione del revenue model: licensing vs advertising. Competizione con Unreal Engine. Impatto della strategia pricing su developer retention e metriche operative.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 14.8K</span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+
+            <!-- Article 7 - Feb 4 (with extended article) -->
+            <a href="articolo-argento-crash-30.html" class="block">
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                    <span class="read-badge">Leggi</span>
+                    <div class="p-6">
+                        <span class="category-badge cat-commodities">Commodities</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Argento -30%: biggest crash since 1980, analisi del crollo
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Venerdì nero per argento: peggior giorno in 44 anni. Analisi tecnica del deleveraging massiccio. Cosa ci insegna questo crash estremo sui margin calls e gestione rischio.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 28.3K</span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+
+            <!-- Article 8 - Feb 4 -->
+            <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                <div class="p-6">
+                    <span class="category-badge cat-tech">Microsoft</span>
+                    <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                        Microsoft -2.86%: come l'AI automation impatta il cloud
+                    </h2>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Analisi del sell-off Microsoft. Come gli strumenti di automazione AI potrebbero modificare il mercato cloud. Spiegazione del business model Azure e delle dinamiche competitive nel cloud computing.
+                    </p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>🕐 4 Feb 2026</span>
+                        <span>👁 18.4K</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 9 - Feb 4 -->
+            <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                <div class="p-6">
+                    <span class="category-badge cat-tech">AI Revolution</span>
+                    <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                        Capire l'AI automation: perché Wall Street reagisce così
+                    </h2>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Spiegazione delle tecnologie di automazione AI. Come funzionano i workflow end-to-end. Analisi del potenziale impatto sui modelli di business SaaS e cloud. Cosa significa per il futuro del software.
+                    </p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>🕐 4 Feb 2026</span>
+                        <span>👁 24.1K</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 10 - Feb 4 -->
+            <a href="articolo-palantir-surge.html" class="block">
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                    <span class="read-badge">Leggi</span>
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Tech Winner</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Palantir +10%: analisi di un'azienda controcorrente
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Mentre il tech crolla, Palantir resiste. Spiegazione del business model AIP e perché non è minacciato dall'automazione AI. Analisi dei driver di crescita e delle metriche chiave.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 22.6K</span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+
+        </div>
+
+        <!-- Mission Section -->
+        <section class="bg-white rounded-lg shadow-xl overflow-hidden my-16 border-t-4 border-teal-500">
+            <div class="grid md:grid-cols-5 gap-0">
+                <!-- Mission Content -->
+                <div class="md:col-span-3 p-12 lg:p-16">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-2 h-2 bg-teal-500 rounded-full"></div>
+                        <h2 class="text-sm font-medium text-teal-600 tracking-wide montserrat-font">Perché Alma Finanza</h2>
+                    </div>
+                    
+                    <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 montserrat-font leading-tight">
+                        La finanza non dovrebbe essere un privilegio riservato a pochi
+                    </h3>
+                    
+                    <div class="prose prose-lg max-w-none mb-8">
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            Ogni giorno, milioni di italiani prendono decisioni finanziarie importanti. Eppure, le informazioni di qualità sono spesso disponibili solo in inglese, dietro paywall inaccessibili, o scritte in un linguaggio incomprensibile.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            <strong class="text-gray-900">Noi crediamo in qualcosa di diverso.</strong>
+                        </p>
+                        <p class="text-xl text-gray-900 font-medium leading-relaxed">
+                            Crediamo che ogni italiano abbia il diritto di comprendere i mercati finanziari <span class="text-teal-600 font-semibold">nella propria lingua</span>, con informazioni accessibili, chiare e di qualità.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-teal-50 to-blue-50 rounded-xl p-6 mb-8 border-l-4 border-teal-500">
+                        <p class="text-gray-800 italic text-lg leading-relaxed">
+                            "La competenza finanziaria non è un lusso — è uno strumento di libertà. E la libertà inizia dalla comprensione, che inizia dalla lingua che parliamo ogni giorno."
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-3 h-3 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-700"><strong class="text-gray-900">100% in italiano</strong> — Ogni parola, ogni analisi, ogni numero. Nessuna traduzione automatica, nessun compromesso linguistico.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-3 h-3 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-700"><strong class="text-gray-900">Informazione accessibile</strong> — Le notizie essenziali dei mercati e le analisi fondamentali disponibili per tutti, perché l'informazione di base è un diritto.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-3 h-3 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-700"><strong class="text-gray-900">Qualità professionale</strong> — Aggiornamenti quotidiani, analisi approfondite e contenuti curati con la stessa attenzione delle migliori pubblicazioni internazionali.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Visual Side -->
+                <div class="md:col-span-2 bg-gradient-to-br from-teal-600 via-teal-700 to-blue-800 p-12 lg:p-16 flex items-center justify-center relative overflow-hidden">
+                    <!-- Decorative elements -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-32 -mt-32"></div>
+                    <div class="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full -ml-24 -mb-24"></div>
+                    
+                    <div class="text-center text-white relative z-10">
+                        <div class="text-7xl mb-6 animate-pulse">🇮🇹</div>
+                        <div class="text-3xl font-bold mb-6 montserrat-font leading-tight">
+                            Finanza.<br/>In Italiano.<br/>Per tutti.
+                        </div>
+                        <div class="w-16 h-1 bg-white opacity-50 mx-auto mb-6"></div>
+                        <p class="text-teal-100 text-lg leading-relaxed mb-8">
+                            Perché la conoscenza finanziaria non dovrebbe mai essere un privilegio riservato a chi parla inglese
+                        </p>
+                        <div class="grid grid-cols-2 gap-8 mt-12 pt-8 border-t border-teal-400 border-opacity-30">
+                            <div>
+                                <div class="text-4xl font-bold montserrat-font">20+</div>
+                                <div class="text-sm text-teal-200 mt-2 uppercase tracking-wide">Articoli<br/>al giorno</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl font-bold montserrat-font">100%</div>
+                                <div class="text-sm text-teal-200 mt-2 uppercase tracking-wide">Italiano<br/>autentico</div>
+                            </div>
+                        </div>
+                        <p class="text-teal-200 text-xs mt-8 italic">
+                            Contenuti essenziali sempre accessibili.<br/>Analisi premium per chi vuole andare oltre.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Financial Education Disclaimer -->
+        <section class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg shadow-lg p-8 mt-12 border-l-4 border-amber-500">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start space-x-4">
+                    <div class="text-5xl">⚖️</div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 montserrat-font">Disclaimer Legale (ma amichevole)</h3>
+                        <div class="space-y-3 text-gray-700">
+                            <p class="text-lg leading-relaxed">
+                                <strong>🎓 Siamo educatori, non consulenti finanziari.</strong> Gli articoli su Alma Finanza hanno scopo puramente <strong>informativo ed educativo</strong>. Spieghiamo cosa succede nei mercati e le tecniche di analisi, ma non diciamo "compra questo" o "vendi quello".
+                            </p>
+                            <p class="leading-relaxed">
+                                <strong>💡 Perché?</strong> Perché non conosciamo la tua situazione personale: quanto rischio puoi permetterti, quali sono i tuoi obiettivi, il tuo orizzonte temporale, la tua tolleranza alle perdite. Solo tu (magari con l'aiuto di un consulente finanziario professionista che ti conosce) puoi prendere decisioni di investimento adatte a te.
+                            </p>
+                            <p class="leading-relaxed">
+                                <strong>📊 Cosa trovi qui:</strong> Analisi di mercato, spiegazioni di tecniche di investimento, contesto macroeconomico, trend e dati. <strong>Cosa NON trovi:</strong> Raccomandazioni personalizzate, sollecitazioni all'investimento, promesse di rendimenti.
+                            </p>
+                            <p class="text-sm italic text-gray-600 mt-4 p-4 bg-white rounded border-l-2 border-amber-400">
+                                ⚠️ <strong>Nota importante:</strong> Investire comporta rischi, inclusa la possibile perdita totale del capitale. I rendimenti passati non garantiscono risultati futuri. Fai sempre le tue ricerche e, se necessario, consulta un professionista autorizzato prima di prendere decisioni finanziarie.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-gradient-to-r from-teal-500 to-teal-600 rounded-lg shadow-lg p-8 mt-12 text-white text-center">
+            <h2 class="text-3xl font-bold mb-4 montserrat-font">Non perdere nessuna notizia</h2>
+            <p class="text-lg mb-6 opacity-90">Iscriviti alla newsletter per ricevere le breaking news direttamente nella tua email</p>
+            <div class="max-w-md mx-auto flex gap-2">
+                <input type="email" placeholder="La tua email" class="flex-1 px-4 py-3 rounded-lg text-gray-900">
+                <button class="bg-white text-teal-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                    Iscriviti
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="lobster-font text-4xl text-teal-500">A</span>
+                        <span class="montserrat-font text-xl font-bold">lma Finanza</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Le notizie dei mercati finanziari, aggiornate in tempo reale.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font">Sezioni</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="categoria-wall-street.html" class="hover:text-teal-400">Wall Street</a></li>
+                        <li><a href="categoria-borsa-milano.html" class="hover:text-teal-400">Borsa Milano</a></li>
+                        <li><a href="categoria-crypto.html" class="hover:text-teal-400">Crypto</a></li>
+                        <li><a href="categoria-commodities.html" class="hover:text-teal-400">Commodities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font">Risorse</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Guida Investimenti</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Glossario Finanza</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Analisi Tecnica</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font">Legal</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Privacy Policy</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Cookie Policy</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Disclaimer</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Contatti</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2026 Alma Finanza. Tutti i diritti riservati.</p>
+                <p class="mt-4 text-xs max-w-3xl mx-auto leading-relaxed">
+                    ⚠️ <strong>Disclaimer:</strong> Alma Finanza è una piattaforma di informazione ed educazione finanziaria. I contenuti pubblicati hanno scopo esclusivamente informativo, educativo e giornalistico. Non costituiscono consulenza finanziaria, raccomandazioni di investimento o sollecitazioni all'acquisto/vendita di strumenti finanziari. Le analisi presentate non tengono conto della situazione personale del lettore. Gli investimenti comportano rischi, inclusa la perdita del capitale. I rendimenti passati non garantiscono risultati futuri. Prima di prendere decisioni finanziarie, consulta sempre un professionista autorizzato.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

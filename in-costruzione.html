@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina in Costruzione - Alma Finanza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .lobster-font { font-family: 'Lobster', cursive; }
+        .montserrat-font { font-family: 'Montserrat', sans-serif; }
+        body { font-family: 'Inter', sans-serif; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .pulse-animation {
+            animation: pulse-slow 2s ease-in-out infinite;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #14b8a6 0%, #0891b2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-teal-50 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-2xl w-full">
+        <!-- Logo -->
+        <div class="text-center mb-12">
+            <a href="index.html" class="inline-block">
+                <h1 class="text-4xl md:text-5xl">
+                    <span class="lobster-font text-teal-500">A</span><span class="montserrat-font font-bold text-gray-800">lma Finanza</span>
+                </h1>
+            </a>
+        </div>
+
+        <!-- Main Card -->
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <!-- Header with gradient -->
+            <div class="bg-gradient-to-r from-teal-500 to-teal-600 p-8 text-center">
+                <div class="text-6xl mb-4 float-animation">🏗️</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2 montserrat-font">
+                    Ops! Questa pagina<br/>è ancora in cantiere
+                </h2>
+            </div>
+
+            <!-- Content -->
+            <div class="p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <p class="text-xl text-gray-700 mb-4">
+                        Stiamo lavorando duramente per portarti contenuti di qualità.
+                    </p>
+                    <p class="text-gray-600">
+                        Come i mercati finanziari, anche Alma Finanza è in continua evoluzione! 📈
+                    </p>
+                </div>
+
+                <!-- Progress bar animata -->
+                <div class="mb-8">
+                    <div class="flex items-center justify-between text-sm text-gray-600 mb-2">
+                        <span class="font-medium">Progresso completamento:</span>
+                        <span class="font-bold text-teal-600">75%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                        <div class="bg-gradient-to-r from-teal-500 to-teal-600 h-3 rounded-full pulse-animation" style="width: 75%"></div>
+                    </div>
+                </div>
+
+                <!-- Fun facts -->
+                <div class="bg-gradient-to-r from-teal-50 to-blue-50 rounded-xl p-6 mb-8 border-l-4 border-teal-500">
+                    <p class="text-sm text-gray-700 italic">
+                        <strong class="text-teal-700">Lo sapevi?</strong> Mentre aspetti, i mercati globali muovono circa <strong>$6,6 trilioni</strong> al giorno. Noi stiamo preparando gli strumenti per aiutarti a comprenderli meglio! 💰
+                    </p>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold rounded-lg hover:from-teal-600 hover:to-teal-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 montserrat-font">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        Torna alla Home
+                    </a>
+                    <a href="index.html#newsletter" class="inline-flex items-center justify-center px-8 py-4 bg-white text-teal-600 font-semibold rounded-lg border-2 border-teal-500 hover:bg-teal-50 transition-all montserrat-font">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Iscriviti alla Newsletter
+                    </a>
+                </div>
+
+                <!-- Timeline motivazionale -->
+                <div class="mt-12 pt-8 border-t border-gray-200">
+                    <h3 class="text-center text-sm font-semibold text-gray-500 uppercase tracking-wide mb-6 montserrat-font">Cosa stiamo preparando per te</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-900">Analisi approfondite quotidiane</p>
+                                <p class="text-sm text-gray-600">Mercati globali spiegati in italiano</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-900">Guide educative complete</p>
+                                <p class="text-sm text-gray-600">Dalla A alla Z della finanza personale</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0 pulse-animation">
+                                <svg class="w-4 h-4 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-900">Strumenti interattivi</p>
+                                <p class="text-sm text-gray-600">Calcolatori, grafici e molto altro... 🚀</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="bg-gray-50 px-8 py-6 text-center border-t border-gray-200">
+                <p class="text-sm text-gray-600">
+                    Nel frattempo, seguici sui social per rimanere aggiornato! 
+                    <span class="inline-block ml-2">
+                        📱 <a href="#" class="text-teal-600 hover:text-teal-700 font-medium">LinkedIn</a> | 
+                        <a href="#" class="text-teal-600 hover:text-teal-700 font-medium">Twitter</a> | 
+                        <a href="#" class="text-teal-600 hover:text-teal-700 font-medium">Instagram</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center mt-8">
+            <p class="text-sm text-gray-600">
+                © 2026 Alma Finanza. Informazione finanziaria 100% in italiano.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

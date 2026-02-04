@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall Street - Alma Finanza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .lobster-font {
+            font-family: 'Lobster', cursive;
+        }
+        .montserrat-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .article-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #14b8a6;
+        }
+        .category-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cat-wall-street { background: #dbeafe; color: #1e40af; }
+
+        .read-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
+            animation: pulse-green 2s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes pulse-green {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+                box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
+            }
+            50% {
+                opacity: 0.85;
+                transform: scale(1.05);
+                box-shadow: 0 6px 12px rgba(20, 184, 166, 0.5);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white border-b-2 border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <span class="lobster-font text-5xl text-teal-500">A</span>
+                    <div class="montserrat-font">
+                        <div class="text-2xl font-bold text-gray-900">lma Finanza</div>
+                    </div>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="flex space-x-6 text-sm font-semibold">
+                    <a href="categoria-wall-street.html" class="text-teal-600 border-b-2 border-teal-600 pb-1">Wall Street</a>
+                    <a href="categoria-borsa-milano.html" class="text-gray-600 hover:text-teal-600">Borsa Milano</a>
+                    <a href="categoria-crypto.html" class="text-gray-600 hover:text-teal-600">Crypto</a>
+                    <a href="categoria-commodities.html" class="text-gray-600 hover:text-teal-600">Commodities</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 montserrat-font mb-2">Wall Street</h1>
+            <p class="text-lg text-gray-600">Tutte le notizie sui mercati USA, earnings, indici e azioni americane</p>
+        </div>
+
+        <!-- Articles by Date -->
+
+        <!-- 3 Febbraio 2026 -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 montserrat-font">Lunedì, 3 Febbraio 2026</h2>
+                <div class="ml-4 flex-1 h-px bg-gray-300"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Markets</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            S&P 500 vicino a record: futures +0.2%, Dow +1.05% lunedì
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Mercati mondiali in rialzo. S&P 500 a 7.003 punti (+0.38%). Dow salta 515 punti lunedì. Rimbalzo dopo weekend turbolento. Volatilità si attenua.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 Oggi</span>
+                            <span>👁 8.9K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <a href="articolo-palantir-surge.html" class="block">
+                    <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                        <span class="read-badge">Leggi</span>
+                        <div class="p-6">
+                            <span class="category-badge cat-wall-street">Tech</span>
+                            <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                                Palantir +10% in pre-market: outlook vendite supera attese
+                            </h2>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Palantir Technologies surge dopo guidance Q1 forte. Teradyne +20% su outlook solido. Samsung Electronics +10% (massimo rialzo Kospi dal 2020).
+                            </p>
+                            <div class="flex items-center justify-between text-xs text-gray-500">
+                                <span>🕐 Pre-market</span>
+                                <span>👁 11.2K</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Tech</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Teradyne +20%: outlook Q1 forte per robotics play
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Teradyne surge dopo guidance solida primo trimestre. Settore robotics e automation in crescita. Investitori scommettono su AI-driven manufacturing.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 Pre-market</span>
+                            <span>👁 6.2K</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 2 Febbraio 2026 -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 montserrat-font">Domenica-Lunedì, 2 Febbraio 2026</h2>
+                <div class="ml-4 flex-1 h-px bg-gray-300"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Earnings</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Disney -7% nonostante beat: EPS $1.63 batte ma giù 7% YoY
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Gigante media supera attese Q1 ma earnings calano. Azioni scivolano 7%. Oltre 100 S&P 500 companies reporting settimana. AMD, Pfizer attesi martedì.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 2 Feb</span>
+                            <span>👁 9.6K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Tech</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Nvidia -2%: deal $100B con OpenAI in stallo
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Wall Street Journal: piani Nvidia per $100B in OpenAI bloccati. Executives esprimono dubbi. Oracle annuncia $50B raise per cloud capacity 2026.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 2 Feb</span>
+                            <span>👁 12.1K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Volatility</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            "Giorni strani a Wall Street": CNN su weekend turbolento
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Weekend caratterizzato da volatilità estrema in commodities e crypto. Questioni su risk appetite e contagion. VIX in rialzo. Mercati si stabilizzano lunedì.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 2 Feb</span>
+                            <span>👁 15.8K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Earnings Season</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Earnings: consensus stima crescita EPS +10.1% YoY
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            43.5% market cap già reportato. Energy leader settore +14.37% grazie petrolio. Healthcare, tech, financials negativi in gennaio. Oltre 100 S&P 500 questa settimana.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 2 Feb</span>
+                            <span>👁 6.9K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Markets</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Dow +515 punti lunedì: S&P 500 +0.5%, Nasdaq +0.6%
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Tutti gli indici in rialzo per aprire febbraio. Dow +1.05%, S&P 500 +0.54%, Nasdaq +0.56%. Mercati si riprendono dopo volatilità weekend.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 2 Feb</span>
+                            <span>👁 9.2K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">S&P 500</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            S&P 500 YTD: +1.37%, energy leader +14.37%
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Energy miglior settore 2026 grazie a petrolio in rialzo. Healthcare, tech, financials negativi da inizio anno. S&P vicino a record storici.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 2 Feb</span>
+                            <span>👁 5.4K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Oracle</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Oracle punta a raise $50B per cloud capacity 2026
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Oracle annuncia piani per raccogliere fino a $50 miliardi nel 2026. Obiettivo: costruire capacity aggiuntiva per Oracle Cloud Infrastructure. Domanda clienti enterprise.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 2 Feb</span>
+                            <span>👁 7.3K</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 31 Gennaio 2026 -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 montserrat-font">Venerdì, 31 Gennaio 2026</h2>
+                <div class="ml-4 flex-1 h-px bg-gray-300"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <!-- Article 1 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Earnings</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Verizon vola +12%: miglior seduta dal 2008
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Trimestrale batte su tutta la linea: revenues ed earnings sopra attese, subscriber growth solido. Guidance forte. Miglior performer Dow Jones.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 1 ora fa</span>
+                            <span>👁 5.8K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Markets</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            S&P 500 futures -0.8%, tech sotto pressione per yields
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Pre-market negativo: Nasdaq futures -1%. Treasury yields in rialzo. Investitori digeriscono nomina Warsh. Gennaio chiude +1.4% per S&P.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 Pre-market</span>
+                            <span>👁 7.2K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Energy</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Exxon Mobil -2% in pre-market nonostante trimestrale solida
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            EPS $1.71 vs $1.68 atteso, revenues $82.31B battono $81.43B consensus. Azioni cedono per profit-taking. Q4 sopra aspettative ma mercato vende.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 Pre-market</span>
+                            <span>👁 4.1K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Retail</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Starbucks -1% pre-market: traffic +4% ma earnings miss
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Prima crescita traffico in 2 anni non basta. Profitti sotto attese. Analisti: "Piano Niccol inizia a funzionare". Green Apron Service driver chiave.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 Pre-market</span>
+                            <span>👁 3.7K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Tech</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Apple oscilla tra guadagni e perdite nonostante beat
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Trimestrale supera consensus ma azione volatile. Dopo -10% Microsoft giovedì, investitori tech cauti. Revenues ed earnings sopra attese.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 Ieri sera</span>
+                            <span>👁 8.4K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Index</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            S&P 500 chiude gennaio a 6,939: +1.4% nel mese
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Venerdì -0.43% a 6,939.03. Dow +1.7% nel mese, Nasdaq +1%. Settimo mese consecutivo positivo. VIX sale con incertezza Fed Chair.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 Chiusura ieri</span>
+                            <span>👁 7.1K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 7 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Tech</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Microsoft -10% giovedì: $350B market cap evaporati
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Worst day dal 2020 per MSFT. Azure 39% vs 39.4% atteso scatena panic selling. Venerdì recupera stabilità. Wells Fargo: "Manteniamo overweight".
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 Ieri</span>
+                            <span>👁 15.2K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 8 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-wall-street">Volatilità</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            VIX sale con incertezza Fed: investitori in attesa di chiarezza
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Indice di volatilità in rialzo dopo nomina Warsh. Mercati si abituano a nuova voce Fed. Comunicazione Chairman cruciale per sentiment 2026.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 2 ore fa</span>
+                            <span>👁 3.1K</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="lobster-font text-4xl text-teal-500">A</span>
+                        <span class="montserrat-font text-xl font-bold">lma Finanza</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Le notizie dei mercati finanziari, aggiornate in tempo reale.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font">Sezioni</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="categoria-wall-street.html" class="hover:text-teal-400">Wall Street</a></li>
+                        <li><a href="categoria-borsa-milano.html" class="hover:text-teal-400">Borsa Milano</a></li>
+                        <li><a href="categoria-crypto.html" class="hover:text-teal-400">Crypto</a></li>
+                        <li><a href="categoria-commodities.html" class="hover:text-teal-400">Commodities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font">Risorse</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Guida Investimenti</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Glossario Finanza</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Analisi Tecnica</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font">Legal</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Privacy Policy</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Cookie Policy</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Disclaimer</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Contatti</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2026 Alma Finanza. Tutti i diritti riservati.</p>
+                <p class="mt-2 text-xs">
+                    ⚠️ Le informazioni fornite hanno scopo puramente informativo e non costituiscono consulenza finanziaria.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

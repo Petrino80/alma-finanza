@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borsa Milano - Alma Finanza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .lobster-font {
+            font-family: 'Lobster', cursive;
+        }
+        .montserrat-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .article-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #14b8a6;
+        }
+        .category-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cat-milano { background: #dcfce7; color: #166534; }
+
+        .read-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
+            animation: pulse-green 2s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes pulse-green {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+                box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
+            }
+            50% {
+                opacity: 0.85;
+                transform: scale(1.05);
+                box-shadow: 0 6px 12px rgba(20, 184, 166, 0.5);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white border-b-2 border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <span class="lobster-font text-5xl text-teal-500">A</span>
+                    <div class="montserrat-font">
+                        <div class="text-2xl font-bold text-gray-900">lma Finanza</div>
+                    </div>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="flex space-x-6 text-sm font-semibold">
+                    <a href="categoria-wall-street.html" class="text-gray-600 hover:text-teal-600">Wall Street</a>
+                    <a href="categoria-borsa-milano.html" class="text-teal-600 border-b-2 border-teal-600 pb-1">Borsa Milano</a>
+                    <a href="categoria-crypto.html" class="text-gray-600 hover:text-teal-600">Crypto</a>
+                    <a href="categoria-commodities.html" class="text-gray-600 hover:text-teal-600">Commodities</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 montserrat-font mb-2">Borsa Milano</h1>
+            <p class="text-lg text-gray-600">FTSE MIB, Piazza Affari, titoli italiani e mercati europei</p>
+        </div>
+
+        <!-- Articles by Date -->
+
+        <!-- 31 Gennaio 2026 -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 montserrat-font">Venerdì, 31 Gennaio 2026</h2>
+                <div class="ml-4 flex-1 h-px bg-gray-300"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <!-- Article 1 -->
+                <a href="articolo-ftse-mib-45847.html" class="block">
+                    <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                        <span class="read-badge">Leggi</span>
+                        <div class="p-6">
+                            <span class="category-badge cat-milano">FTSE MIB</span>
+                            <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                                FTSE MIB chiude gennaio a 45.847: +1.8% nel mese
+                            </h2>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Settimo mese positivo consecutivo. Miglior performer Europa. Campari, Mediobanca, Intesa sul podio. S&P conferma BBB+ Italia, spread 61bp.
+                            </p>
+                            <div class="flex items-center justify-between text-xs text-gray-500">
+                                <span>🕐 Chiusura ieri</span>
+                                <span>👁 6.7K</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- 30 Gennaio 2026 -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 montserrat-font">Giovedì, 30 Gennaio 2026</h2>
+                <div class="ml-4 flex-1 h-px bg-gray-300"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <!-- Article from previous day -->
+                <a href="articolo-ftse-mib-45847.html" class="block">
+                    <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                        <span class="read-badge">Leggi</span>
+                        <div class="p-6">
+                            <span class="category-badge cat-milano">Milano</span>
+                            <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                                FTSE MIB chiude a 45.847 (+1.04%): settimo mese positivo consecutivo
+                            </h2>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Miglior performer Europa. Campari, Mediobanca, Intesa sul podio. S&P conferma BBB+ Italia. Spread stabile 61bp. Gennaio +1.8%.
+                            </p>
+                            <div class="flex items-center justify-between text-xs text-gray-500">
+                                <span>🕐 Chiusura</span>
+                                <span>👁 8.2K</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Article 2 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-milano">Banche</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Intesa Sanpaolo e Caltagirone smentiscono rumors su Generali
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            "Priva di fondamento" notizia cessione quota. CdA 1° febbraio esamina solo bilancio 2025 e piano 2026-2029. Intesa +1.2% in Borsa.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 5 ore fa</span>
+                            <span>👁 3.8K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-milano">Earnings</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Campari leader FTSE MIB, Mediobanca e banche sul podio
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Top performer: Campari, Mediobanca, Intesa. Male Fincantieri -3.9% dopo downgrade Intesa Sanpaolo (neutral, target €16.9).
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 1 ora fa</span>
+                            <span>👁 2.9K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-milano">Italia</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            S&P conferma BBB+ sull'Italia: outlook stabile, PIL 2025 +0.7%
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Rating invariato, primo appuntamento 2026 con agenzie. Spread BTP-Bund a 61bp. Governo: "Fiducia mercati confermata".
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 6 ore fa</span>
+                            <span>👁 3.2K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-milano">Aerospace</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Avio vola +6%: portafoglio ordini rivisto al rialzo a €2.1-2.2Bn
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Da €1.7-1.8Bn precedenti. Ricavi netti 2025: €510-540M vs €450-480M guidance precedente. Settore difesa/spazio in crescita.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 3 ore fa</span>
+                            <span>👁 1.6K</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="lobster-font text-4xl text-teal-500">A</span>
+                        <span class="montserrat-font text-xl font-bold">lma Finanza</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Le notizie dei mercati finanziari, aggiornate in tempo reale.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font">Sezioni</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="categoria-wall-street.html" class="hover:text-teal-400">Wall Street</a></li>
+                        <li><a href="categoria-borsa-milano.html" class="hover:text-teal-400">Borsa Milano</a></li>
+                        <li><a href="categoria-crypto.html" class="hover:text-teal-400">Crypto</a></li>
+                        <li><a href="categoria-commodities.html" class="hover:text-teal-400">Commodities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font">Risorse</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Guida Investimenti</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Glossario Finanza</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Analisi Tecnica</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font">Legal</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Privacy Policy</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Cookie Policy</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Disclaimer</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Contatti</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2026 Alma Finanza. Tutti i diritti riservati.</p>
+                <p class="mt-2 text-xs">
+                    ⚠️ Le informazioni fornite hanno scopo puramente informativo e non costituiscono consulenza finanziaria.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

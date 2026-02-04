@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commodities - Alma Finanza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .lobster-font {
+            font-family: 'Lobster', cursive;
+        }
+        .montserrat-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .article-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #14b8a6;
+        }
+        .category-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cat-commodities { background: #fef3c7; color: #92400e; }
+
+        .read-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
+            animation: pulse-green 2s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes pulse-green {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+                box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
+            }
+            50% {
+                opacity: 0.85;
+                transform: scale(1.05);
+                box-shadow: 0 6px 12px rgba(20, 184, 166, 0.5);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white border-b-2 border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <span class="lobster-font text-5xl text-teal-500">A</span>
+                    <div class="montserrat-font">
+                        <div class="text-2xl font-bold text-gray-900">lma Finanza</div>
+                    </div>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="flex space-x-6 text-sm font-semibold">
+                    <a href="categoria-wall-street.html" class="text-gray-600 hover:text-teal-600">Wall Street</a>
+                    <a href="categoria-borsa-milano.html" class="text-gray-600 hover:text-teal-600">Borsa Milano</a>
+                    <a href="categoria-crypto.html" class="text-gray-600 hover:text-teal-600">Crypto</a>
+                    <a href="categoria-commodities.html" class="text-teal-600 border-b-2 border-teal-600 pb-1">Commodities</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 montserrat-font mb-2">Commodities</h1>
+            <p class="text-lg text-gray-600">Oro, argento, petrolio, materie prime e mercati energetici</p>
+        </div>
+
+        <!-- Articles by Date -->
+
+        <!-- 3 Febbraio 2026 -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 montserrat-font">Lunedì, 3 Febbraio 2026</h2>
+                <div class="ml-4 flex-1 h-px bg-gray-300"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-commodities">Commodities</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Oro rimbalza +6% a $4.938: argento +10% a $86.96
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Metalli preziosi recuperano dopo sell-off storico venerdì. Oro spot +6%, argento +10%. Investitori rientrano dopo margin calls. Volatilità resta elevata.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 1 ora fa</span>
+                            <span>👁 14.7K</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 2 Febbraio 2026 -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 montserrat-font">Domenica-Lunedì, 2 Febbraio 2026</h2>
+                <div class="ml-4 flex-1 h-px bg-gray-300"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <a href="articolo-argento-crash-30.html" class="block">
+                    <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                        <span class="read-badge">Leggi</span>
+                        <div class="p-6">
+                            <span class="category-badge cat-commodities">Argento</span>
+                            <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                                Argento -30% venerdì: biggest drop since 1980
+                            </h2>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Crollo epocale per argento venerdì. Peggior giorno in 44 anni. Oro futures -11%. Lunedì rimbalzo selvaggio. Deleveraging massiccio e margin calls.
+                            </p>
+                            <div class="flex items-center justify-between text-xs text-gray-500">
+                                <span>🕐 1-2 Feb</span>
+                                <span>👁 22.3K</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-commodities">Markets</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Contagion risk da oro, argento e Bitcoin minaccia S&P 500
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Analisti avvertono su rischio contagio da commodities e crypto. Volatilità estrema si diffonde. Margin calls massicci. Deleveraging in corso.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 2 Feb</span>
+                            <span>👁 13.6K</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-commodities">Deleveraging</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Analisti: "Massive deleveraging, big margin calls in arrivo"
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Esperti identificano deleveraging massiccio in commodities e crypto. Margin calls forzano vendite. Weekend turbolento riflette unwinding posizioni leverage.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 2 Feb</span>
+                            <span>👁 9.4K</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 31 Gennaio 2026 -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 montserrat-font">Venerdì, 31 Gennaio 2026</h2>
+                <div class="ml-4 flex-1 h-px bg-gray-300"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <!-- Article 1 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-commodities">Commodities</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Oro -4% dopo nomina Warsh: da $5,090 a $4,900
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Sell-off dopo annuncio Fed Chair. Dopo nuovi massimi storici lunedì (+2.23% a $5,090), metallo prezioso cede. Dollaro rimbalza da minimi 4 anni.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 1 ora fa</span>
+                            <span>👁 9.8K</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 30 Gennaio 2026 -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 montserrat-font">Giovedì, 30 Gennaio 2026</h2>
+                <div class="ml-4 flex-1 h-px bg-gray-300"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <!-- Article from previous day -->
+                <a href="articolo-oro-crash-816.html" class="block">
+                    <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                        <span class="read-badge">Leggi</span>
+                        <div class="p-6">
+                            <span class="category-badge cat-commodities">Breaking</span>
+                            <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                                Oro crolla -8.16%: da $5,600 a $4,918 in 24 ore - Peggior crash dal 2020
+                            </h2>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Crollo epocale dopo rally del 20% da inizio anno. Profit-taking massivo dopo record $5,595. Argento -5.7%. Trump nomina Warsh Fed Chair, dollaro rimbalza.
+                            </p>
+                            <div class="flex items-center justify-between text-xs text-gray-500">
+                                <span>🕐 Chiusura mercati</span>
+                                <span>👁 18.7K</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Article 2 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-commodities">Commodities</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Oro: crollo storico -8.16% a $4,918, argento -5.7%
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Profit-taking devastante dopo rally 20% YTD. Da record $5,595 a $4,918 in poche ore. Dollaro rimbalza, Warsh nominato Fed Chair.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 Chiusura</span>
+                            <span>👁 12.1K</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 26 Gennaio 2026 -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 montserrat-font">Lunedì, 26 Gennaio 2026</h2>
+                <div class="ml-4 flex-1 h-px bg-gray-300"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <!-- Article 1 -->
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
+                    <div class="p-6">
+                        <span class="category-badge cat-commodities">Gold</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            Oro raggiunge nuovi massimi storici: +2.23% a $5,090
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Metallo prezioso continua rally spettacolare. Investitori cercano beni rifugio. Timori geopolitici USA alimentano domanda. Argento sale in scia.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 Chiusura</span>
+                            <span>👁 14.2K</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="lobster-font text-4xl text-teal-500">A</span>
+                        <span class="montserrat-font text-xl font-bold">lma Finanza</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Le notizie dei mercati finanziari, aggiornate in tempo reale.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font">Sezioni</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="categoria-wall-street.html" class="hover:text-teal-400">Wall Street</a></li>
+                        <li><a href="categoria-borsa-milano.html" class="hover:text-teal-400">Borsa Milano</a></li>
+                        <li><a href="categoria-crypto.html" class="hover:text-teal-400">Crypto</a></li>
+                        <li><a href="categoria-commodities.html" class="hover:text-teal-400">Commodities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font">Risorse</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Guida Investimenti</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Glossario Finanza</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Analisi Tecnica</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font">Legal</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Privacy Policy</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Cookie Policy</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Disclaimer</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Contatti</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2026 Alma Finanza. Tutti i diritti riservati.</p>
+                <p class="mt-2 text-xs">
+                    ⚠️ Le informazioni fornite hanno scopo puramente informativo e non costituiscono consulenza finanziaria.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
