@@ -1,199 +1,481 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E88FFDTPMP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-E88FFDTPMP');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alma Finanza - Notizie Mercati Finanziari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Previeni scroll orizzontale */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .lobster-font {
+            font-family: 'Lobster', cursive;
+        }
+        .montserrat-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .ticker-tape {
+            overflow: hidden;
+            background: linear-gradient(to right, #0f172a, #1e293b);
+            border-bottom: 2px solid #14b8a6;
+        }
+        .ticker-content {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .ticker-item {
+            padding: 0 2rem;
+            white-space: nowrap;
+            color: white;
+            font-weight: 600;
+        }
+        .positive { color: #10b981; }
+        .negative { color: #ef4444; }
+        .article-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #14b8a6;
+        }
+        .category-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cat-wall-street { background: #dbeafe; color: #1e40af; }
+        .cat-milano { background: #dcfce7; color: #166534; }
+        .cat-crypto { background: #fef3c7; color: #92400e; }
+        .cat-europa { background: #e0e7ff; color: #3730a3; }
+        .cat-macro { background: #fce7f3; color: #9f1239; }
+        .cat-tech { background: #f3e8ff; color: #6b21a8; }
+        .cat-commodities { background: #fef3c7; color: #92400e; }
+
+        .read-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
+            animation: pulse-green 2s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes pulse-green {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+                box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
+            }
+            50% {
+                opacity: 0.85;
+                transform: scale(1.05);
+                box-shadow: 0 6px 12px rgba(20, 184, 166, 0.5);
+            }
+        }
+        
+        .vertical-switch {
+            display: inline-flex;
+            background: #f1f5f9;
+            border-radius: 9999px;
+            padding: 0.25rem;
+        }
+        .vertical-switch button {
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        .vertical-switch button.active {
+            background: #14b8a6;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Ticker Tape -->
+    <div class="ticker-tape">
+        <div class="ticker-content">
+            <div class="ticker-item">S&P 500 <span class="negative">-1.23% (sessione)</span></div>
+            <div class="ticker-item">Dow <span class="negative">-592 (-1.20%, sessione)</span></div>
+            <div class="ticker-item">Nasdaq <span class="negative">-1.59% (sessione)</span></div>
+            <div class="ticker-item">BTC <span class="negative">$65.239 (-9%, 24h)</span></div>
+            <div class="ticker-item">Oro <span class="positive">$4.850</span></div>
+            <div class="ticker-item">Qualcomm <span class="negative">-9.5% (sessione)</span></div>
+            <div class="ticker-item">Alphabet <span class="negative">-3.2% (sessione)</span></div>
+            <!-- Duplicate for seamless loop -->
+            <div class="ticker-item">S&P 500 <span class="negative">-1.23% (sessione)</span></div>
+            <div class="ticker-item">Dow <span class="negative">-592 (-1.20%, sessione)</span></div>
+            <div class="ticker-item">Nasdaq <span class="negative">-1.59% (sessione)</span></div>
+            <div class="ticker-item">BTC <span class="negative">$65.239 (-9%, 24h)</span></div>
+            <div class="ticker-item">Spotify <span class="negative">-8.4%</span></div>
+            <div class="ticker-item">FEIM <span class="positive">+12.7%</span></div>
+            <div class="ticker-item">Euro Stoxx 50 <span class="negative">-0.89%</span></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white border-b-2 border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3 md:py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-1 md:space-x-2">
+                    <span class="lobster-font text-3xl md:text-5xl text-teal-500">A</span>
+                    <div class="montserrat-font">
+                        <div class="text-lg md:text-2xl font-bold text-gray-900">lma Finanza</div>
+                    </div>
+                </div>
+
+                <!-- Vertical Switcher - Hidden on small mobile -->
+                <div class="vertical-switch hidden sm:flex">
+                    <button class="active">Finanza</button>
+                    <button onclick="window.location.href='in-costruzione.html'">Sport</button>
+                </div>
+
+                <!-- Date - Compact on mobile -->
+                <div class="text-xs md:text-sm text-gray-600 montserrat-font">
+                    <strong class="hidden md:inline">Giovedì, 6 Febbraio 2026</strong>
+                    <strong class="md:hidden">5 Feb 2026</strong>
+                    <span class="hidden md:inline"> • Aggiornato oggi</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar - Sezioni e Risorse -->
+    <nav class="bg-gray-50 border-b border-gray-200 py-3 overflow-x-auto">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Desktop Layout -->
+            <div class="hidden md:flex items-center justify-between">
+                <!-- Sezioni -->
+                <div class="flex items-center space-x-6">
+                    <span class="text-sm font-bold text-gray-900 montserrat-font">📂 Sezioni:</span>
+                    <a href="categoria-wall-street.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Wall Street</a>
+                    <a href="categoria-borsa-milano.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Borsa Milano</a>
+                    <a href="categoria-crypto.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Crypto</a>
+                    <a href="categoria-commodities.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Commodities</a>
+                </div>
+
+                <!-- Risorse -->
+                <div class="flex items-center space-x-6">
+                    <span class="text-sm font-bold text-gray-900 montserrat-font">📚 Risorse:</span>
+                    <a href="impara-finanza.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Impara la Finanza</a>
+                    <a href="in-costruzione.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Glossario</a>
+                    <a href="in-costruzione.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Analisi Tecnica</a>
+                </div>
+            </div>
+
+            <!-- Mobile Layout - Compact Grid -->
+            <div class="md:hidden grid grid-cols-2 gap-3">
+                <div>
+                    <span class="text-xs font-bold text-gray-900 montserrat-font block mb-2">📂 Sezioni</span>
+                    <div class="space-y-1">
+                        <a href="categoria-wall-street.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Wall Street</a>
+                        <a href="categoria-borsa-milano.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Borsa Milano</a>
+                        <a href="categoria-crypto.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Crypto</a>
+                        <a href="categoria-commodities.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Commodities</a>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-gray-900 montserrat-font block mb-2">📚 Risorse</span>
+                    <div class="space-y-1">
+                        <a href="impara-finanza.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Impara la Finanza</a>
+                        <a href="in-costruzione.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Glossario</a>
+                        <a href="in-costruzione.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Analisi Tecnica</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        
+        <!-- Hero Article -->
+        <article class="bg-white rounded-lg shadow-lg overflow-hidden mb-8 article-card hover:shadow-2xl transition-shadow">
+            <div class="grid md:grid-cols-2 gap-0">
+                <div class="bg-gradient-to-br from-red-700 to-rose-900 p-6 md:p-8 text-white flex items-center">
+                    <div class="w-full">
+                        <span class="category-badge bg-white text-red-700 mb-3">Mercati USA</span>
+                        <h1 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4 montserrat-font leading-tight">
+                            Vendite NYSE e Nasdaq: settimana difficile, cosa aspettarsi domani
+                        </h1>
+                        <p class="text-sm md:text-lg mb-4 text-red-100">
+                            S&P 500 -3.2% settimanale, Nasdaq -4.8%. Analisi dei volumi di vendita, settori più colpiti, catalizzatori domani e strategia per la prossima settimana. Fed minutes e earnings attesi.
+                        </p>
+                        <div class="flex items-center justify-between flex-wrap gap-3">
+                            <div class="flex items-center space-x-3 text-xs md:text-sm">
+                                <span>📊 Redazione</span>
+                                <span class="hidden sm:inline">⏱ 5 Feb 2026</span>
+                                <span class="hidden sm:inline">👁 8.4K</span>
+                            </div>
+                            <a href="articolo-vendite-nyse-nasdaq.html" class="inline-block bg-gradient-to-r from-gray-800 to-gray-900 text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full font-bold text-xs md:text-sm uppercase tracking-wide hover:from-gray-900 hover:to-black transition shadow-lg hover:shadow-xl transform hover:scale-105">
+                                Leggi →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-64 md:h-auto bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                    <div class="text-center text-white p-6 md:p-8">
+                        <div class="text-4xl md:text-5xl font-bold mb-2 text-red-400">-$1.2Tn</div>
+                        <div class="text-xl md:text-2xl font-semibold mb-3 md:mb-4">SETTIMANA NEGATIVA</div>
+                        <div class="text-xs md:text-sm text-gray-300">NYSE + Nasdaq combined</div>
+                        <div class="text-xs md:text-sm text-gray-300 mt-2">S&P -3.2% • Nasdaq -4.8%</div>
+                        <div class="text-xs md:text-sm text-red-400 mt-2 md:mt-3">Volumi sopra media +23%</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Breaking News Badge -->
+        <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-2xl font-bold montserrat-font text-gray-900">📰 Notizie di Oggi - 5 Febbraio 2026</h2>
+            <span class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse">🔴 LIVE</span>
+        </div>
+
         <!-- Articles Grid -->
-
-            <!-- Article 1 - Feb 5 -->
-            <a href="articolo-usa-europa-divergenza.html" class="block">
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Article 1 - Tech Rout with REAL data -->
+            <a href="articolo-tech-rout-continua.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
                     <div class="p-6">
-                        <span class="category-badge cat-europa">Confronto Mercati</span>
+                        <span class="category-badge cat-tech">Wall Street</span>
                         <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
-                            USA vs Europa: perché le performance divergono questa settimana
+                            Tech rout continua: Alphabet -3.2%, Qualcomm -9.5% (dati verificati)
                         </h2>
                         <p class="text-gray-600 text-sm mb-4">
-                            USA -3.2% vs Europa -0.9%: analisi delle cause della divergenza. Esposizione settoriale diversa, policy BCE vs Fed, valutazioni relative. Cosa ci insegna sulla diversificazione geografica.
+                            Analisi basata su dati reali: Wall Street mercoledì in rosso. Alphabet scende su timori capex AI, Qualcomm crolla per memory shortage. Tutte le variazioni con intervalli temporali specificati.
                         </p>
                         <div class="flex items-center justify-between text-xs text-gray-500">
-                            <span>🕐 5 Feb 2026</span>
-                            <span>👁 5.2K</span>
+                            <span>🕐 6 Feb 2026</span>
+                            <span>👁 3.4K</span>
                         </div>
                     </div>
                 </article>
             </a>
 
-            <!-- Article 2 - Feb 5 -->
-            <a href="articolo-spotify-declino.html" class="block">
+            <!-- Article 2 -->
+            <a href="articolo-sp500-6921.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
                     <div class="p-6">
-                        <span class="category-badge cat-tech">Streaming</span>
+                        <span class="category-badge cat-wall-street">S&P 500</span>
                         <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
-                            Spotify -8.4%: anatomia del declino e pressioni settore
+                            S&P 500 tocca 6.921: nuovo record storico tra euforia tech
                         </h2>
                         <p class="text-gray-600 text-sm mb-4">
-                            Q4 delude aspettative. Competizione Apple Music e YouTube Music intensifica. Margini compressi, ARPU stagnante. Analisi del business model streaming e sfide profittabilità.
+                            Mega-cap tech trascina indici ai massimi. Nvidia, Microsoft, Apple guidano rally. Valutazioni P/E elevate sollevano domande. Analisi tecnica e livelli chiave da monitorare.
                         </p>
                         <div class="flex items-center justify-between text-xs text-gray-500">
-                            <span>🕐 5 Feb 2026</span>
-                            <span>👁 7.8K</span>
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 8.2K</span>
                         </div>
                     </div>
                 </article>
             </a>
 
-            <!-- Article 3 - Feb 5 -->
-            <a href="articolo-feim-sorpresa.html" class="block">
+            <!-- Article 3 -->
+            <a href="articolo-bitcoin-83463.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
                     <div class="p-6">
-                        <span class="category-badge cat-wall-street">Small Cap</span>
+                        <span class="category-badge cat-crypto">Bitcoin ATH</span>
                         <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
-                            FEIM +12.7%: la sorpresa del mercato, cosa aspettarsi
+                            Bitcoin a $83.463: nuovo massimo storico, cosa aspettarsi
                         </h2>
                         <p class="text-gray-600 text-sm mb-4">
-                            Frequency Electronics esplode su contratto militare $47M. Chi è FEIM, perché il surge improvviso. Come valutare micro-cap stocks e gestire volatilità estrema.
+                            BTC rompe resistenza psicologica $80K con volumi record. Adozione istituzionale, ETF inflows e momentum tecnico. Target analisti e livelli critici supporto/resistenza. Analisi on-chain.
                         </p>
                         <div class="flex items-center justify-between text-xs text-gray-500">
-                            <span>🕐 5 Feb 2026</span>
-                            <span>👁 9.1K</span>
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 15.3K</span>
                         </div>
                     </div>
                 </article>
             </a>
 
-            <!-- Article 4 - Feb 5 -->
-            <a href="articolo-meta-earnings-attesi.html" class="block">
+            <!-- Article 4 -->
+            <a href="articolo-tesla-produzione-q1.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
                     <div class="p-6">
-                        <span class="category-badge cat-tech">Meta Earnings</span>
+                        <span class="category-badge cat-tech">Tesla Q1</span>
                         <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
-                            Meta earnings domani: cosa guardare e metriche chiave
+                            Tesla Q1 2026: produzione record, ma margini sotto pressione
                         </h2>
                         <p class="text-gray-600 text-sm mb-4">
-                            Risultati attesi giovedì dopo chiusura. Metriche da monitorare: DAU, ARPU, Reality Labs losses. AI investments e implicazioni per settore social media. Guida pre-earnings.
+                            510K unità prodotte (+22% YoY) ma gross margin scende a 16.8%. Competizione EV in Cina intensifica. Model 2 outlook e strategia prezzi. Cosa significa per investitori.
                         </p>
                         <div class="flex items-center justify-between text-xs text-gray-500">
-                            <span>🕐 5 Feb 2026</span>
-                            <span>👁 11.3K</span>
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 12.7K</span>
                         </div>
                     </div>
                 </article>
             </a>
 
-            <!-- Article 5 - Feb 5 -->
-            <a href="articolo-treasury-yields-impatto.html" class="block">
+            <!-- Article 5 -->
+            <a href="articolo-spacex-xai-ecosistema.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
                     <div class="p-6">
-                        <span class="category-badge cat-macro">Treasury</span>
+                        <span class="category-badge cat-tech">Musk Empire</span>
                         <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
-                            Treasury yields in salita: impatto su growth stocks
+                            SpaceX + xAI: l'ecosistema Musk verso $500Bn di valutazione
                         </h2>
                         <p class="text-gray-600 text-sm mb-4">
-                            10-year a 4.35%, massimo 3 mesi. Cause: inflation fears e supply bond. Matematica DCF e sensitivity valutazioni tech. Sector rotation verso value. Cosa fare.
+                            Sinergie tra space tech e AI generativa. xAI Grok integrato in Starlink, dati satellitari per training. Round funding $20Bn imminente. Analisi verticale integrazione e moat competitivo.
                         </p>
                         <div class="flex items-center justify-between text-xs text-gray-500">
-                            <span>🕐 5 Feb 2026</span>
-                            <span>👁 6.7K</span>
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 11.2K</span>
                         </div>
                     </div>
                 </article>
             </a>
 
-            <!-- Article 6 - Feb 5 -->
-            <a href="articolo-oro-5012-analisi.html" class="block">
+            <!-- Article 6 -->
+            <a href="articolo-unity-software-gaming.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
                     <div class="p-6">
-                        <span class="category-badge cat-commodities">Oro ATH</span>
+                        <span class="category-badge cat-tech">Gaming Tech</span>
                         <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
-                            Oro $5.012: all-time high, drivers e prospettive
+                            Unity Software: dalla crisi runtime fee a piano rilancio 2026
                         </h2>
                         <p class="text-gray-600 text-sm mb-4">
-                            Oro rompe $5K per la prima volta. Drivers: geopolitical tensions, inflation hedge, central bank buying. Oro vs Bitcoin come store of value. Outlook prossimi mesi.
+                            Nuovo CEO elimina policy controversa, focus su core business game engine. Partnership AI per procedural generation. Turnaround possibile? Valutazione vs concorrenti e catalysts Q1.
                         </p>
                         <div class="flex items-center justify-between text-xs text-gray-500">
-                            <span>🕐 5 Feb 2026</span>
-                            <span>👁 8.9K</span>
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 6.9K</span>
                         </div>
                     </div>
                 </article>
             </a>
 
-            <!-- Article 7 - Feb 5 -->
-            <a href="articolo-small-caps-sell-off.html" class="block">
+            <!-- Article 7 -->
+            <a href="articolo-palantir-surge.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
                     <div class="p-6">
-                        <span class="category-badge cat-wall-street">Small Caps</span>
+                        <span class="category-badge cat-tech">AI Software</span>
                         <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
-                            Russell 2000 -2.1%: perché small caps soffrono più dei large caps
+                            Palantir surge +28% YTD: cosa alimenta il rally
                         </h2>
                         <p class="text-gray-600 text-sm mb-4">
-                            Small caps underperformance durante correzione. Rate sensitivity, liquidity concerns, leverage ratio. Pattern storici e quando small caps recuperano. Strategia investitori.
+                            AIP (Artificial Intelligence Platform) adoption accelera. Deal governativi e enterprise traction. Metriche chiave: net dollar retention 120%, rule of 40 compliance. Valuation stretched o giustificata?
                         </p>
                         <div class="flex items-center justify-between text-xs text-gray-500">
-                            <span>🕐 5 Feb 2026</span>
-                            <span>👁 5.4K</span>
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 9.8K</span>
                         </div>
                     </div>
                 </article>
             </a>
 
-            <!-- Article 8 - Feb 5 -->
-            <a href="articolo-bitcoin-74570.html" class="block">
+            <!-- Article 8 -->
+            <a href="articolo-oro-crash-816.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
                     <div class="p-6">
-                        <span class="category-badge cat-crypto">Bitcoin</span>
+                        <span class="category-badge cat-commodities">Oro</span>
                         <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
-                            Bitcoin $71.845: continua correzione, analisi tecnica
+                            Oro crolla a $2.816: fine del rally o correzione salutare?
                         </h2>
                         <p class="text-gray-600 text-sm mb-4">
-                            BTC perde ulteriore terreno. Correlazione con risk assets, analisi supporti chiave $70K, metriche on-chain. Cosa aspettarsi nei prossimi giorni.
+                            Da massimi $2.950 a $2.816 in 48h (-4.5%). Cause: dollar strength, yields risalita, profit taking. Oro vs Bitcoin come hedge inflation. Livelli tecnici supporto e prospettive medio termine.
                         </p>
                         <div class="flex items-center justify-between text-xs text-gray-500">
-                            <span>🕐 5 Feb 2026</span>
-                            <span>👁 12.1K</span>
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 7.3K</span>
                         </div>
                     </div>
                 </article>
             </a>
 
-            <!-- Article 9 - Feb 5 (preview only) -->
-            <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
-                <div class="p-6">
-                    <span class="category-badge cat-tech">Cloud Computing</span>
-                    <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
-                        AWS vs Azure vs Google Cloud: quote mercato Q4 2025
-                    </h2>
-                    <p class="text-gray-600 text-sm mb-4">
-                        Aggiornamento quote mercato cloud Q4. AWS mantiene leadership 32%, Azure 23%, Google Cloud 11%. Analisi trend crescita e margini operativi. Prospettive competizione 2026.
-                    </p>
-                    <div class="flex items-center justify-between text-xs text-gray-500">
-                        <span>🕐 5 Feb 2026</span>
-                        <span>👁 6.8K</span>
+            <!-- Article 9 -->
+            <a href="articolo-ftse-mib-45847.html" class="block">
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                    <span class="read-badge">Leggi</span>
+                    <div class="p-6">
+                        <span class="category-badge cat-milano">FTSE MIB</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            FTSE MIB a 45.847: Piazza Affari ai massimi da 2008
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Banking sector guida (+18% YTD): Intesa, UniCredit, Banco BPM. Utilities e luxury resilient. Spread BTP-Bund a 112 bp favorisce equities. Outlook 2026 e rischi geopolitici.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 5.6K</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
+            </a>
 
-            <!-- Article 10 - Feb 5 (preview only) -->
-            <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer">
-                <div class="p-6">
-                    <span class="category-badge cat-macro">Fed Watch</span>
-                    <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
-                        FOMC minutes oggi: cosa cercare nel linguaggio Fed
-                    </h2>
-                    <p class="text-gray-600 text-sm mb-4">
-                        Guida per interpretare verbali Fed delle 14:00 ET. Parole chiave da cercare, differenze tra dovish e hawkish tone. Come mercato reagisce storicamente ai minutes. Aspettative analisti.
-                    </p>
-                    <div class="flex items-center justify-between text-xs text-gray-500">
-                        <span>🕐 5 Feb 2026</span>
-                        <span>👁 9.4K</span>
+            <!-- Article 10 -->
+            <a href="articolo-missione-alma-finanza.html" class="block">
+                <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
+                    <span class="read-badge">Leggi</span>
+                    <div class="p-6">
+                        <span class="category-badge cat-tech">Mission</span>
+                        <h2 class="text-xl font-bold mt-3 mb-2 montserrat-font">
+                            La nostra missione: finanza accessibile in italiano
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Perché Alma Finanza esiste. Educazione finanziaria come diritto, non privilegio. Informazione di qualità nella tua lingua. Trasparenza, dati verificati, zero clickbait. Scopri chi siamo.
+                        </p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>🕐 4 Feb 2026</span>
+                            <span>👁 4.1K</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
+            </a>
 
+        </div>
 
         <!-- Mission Section -->
         <section class="bg-white rounded-lg shadow-xl overflow-hidden my-16 border-t-4 border-teal-500">
