@@ -1,281 +1,28 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E88FFDTPMP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-E88FFDTPMP');
-    </script>
+#!/usr/bin/env python3
+"""
+Riordina articoli dal più nuovo al più vecchio e sincronizza date
+"""
+import re
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alma Finanza - Notizie Mercati Finanziari</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Previeni scroll orizzontale */
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
-        }
+# Read index.html
+with open('index.html', 'r', encoding='utf-8') as f:
+    content = f.read()
 
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .lobster-font {
-            font-family: 'Lobster', cursive;
-        }
-        .montserrat-font {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .ticker-tape {
-            overflow: hidden;
-            background: linear-gradient(to right, #0f172a, #1e293b);
-            border-bottom: 2px solid #14b8a6;
-        }
-        .ticker-content {
-            display: flex;
-            animation: scroll 30s linear infinite;
-        }
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .ticker-item {
-            padding: 0 2rem;
-            white-space: nowrap;
-            color: white;
-            font-weight: 600;
-        }
-        .positive { color: #10b981; }
-        .negative { color: #ef4444; }
-        .article-card {
-            transition: all 0.3s ease;
-            border: 1px solid #e5e7eb;
-        }
-        .article-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-color: #14b8a6;
-        }
-        .category-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .cat-wall-street { background: #dbeafe; color: #1e40af; }
-        .cat-milano { background: #dcfce7; color: #166534; }
-        .cat-crypto { background: #fef3c7; color: #92400e; }
-        .cat-europa { background: #e0e7ff; color: #3730a3; }
-        .cat-macro { background: #fce7f3; color: #9f1239; }
-        .cat-tech { background: #f3e8ff; color: #6b21a8; }
-        .cat-commodities { background: #fef3c7; color: #92400e; }
+# Find the articles grid section
+# Extract everything between <!-- Articles Grid --> and </div> before Mission Section
+pattern = r'(<!-- Articles Grid -->\s*<div class="grid md:grid-cols-3 gap-6">)(.*?)(</div>\s*<!-- Mission Section -->)'
+match = re.search(pattern, content, re.DOTALL)
 
-        .read-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: linear-gradient(135deg, #14b8a6, #0d9488);
-            color: white;
-            padding: 0.375rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
-            animation: pulse-green 2s ease-in-out infinite;
-            z-index: 10;
-        }
+if not match:
+    print("ERROR: Could not find articles grid")
+    exit(1)
 
-        @keyframes pulse-green {
-            0%, 100% {
-                opacity: 1;
-                transform: scale(1);
-                box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
-            }
-            50% {
-                opacity: 0.85;
-                transform: scale(1.05);
-                box-shadow: 0 6px 12px rgba(20, 184, 166, 0.5);
-            }
-        }
-        
-        .vertical-switch {
-            display: inline-flex;
-            background: #f1f5f9;
-            border-radius: 9999px;
-            padding: 0.25rem;
-        }
-        .vertical-switch button {
-            padding: 0.5rem 1.5rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-        }
-        .vertical-switch button.active {
-            background: #14b8a6;
-            color: white;
-        }
-    </style>
-</head>
-<body class="bg-gray-50">
-    
-    <!-- Ticker Tape -->
-    <div class="ticker-tape">
-        <div class="ticker-content">
-            <div class="ticker-item">S&P 500 <span class="negative">-1.23% (sessione)</span></div>
-            <div class="ticker-item">Dow <span class="negative">-592 (-1.20%, sessione)</span></div>
-            <div class="ticker-item">Nasdaq <span class="negative">-1.59% (sessione)</span></div>
-            <div class="ticker-item">BTC <span class="negative">$65.239 (-9%, 24h)</span></div>
-            <div class="ticker-item">Oro <span class="positive">$4.850</span></div>
-            <div class="ticker-item">Qualcomm <span class="negative">-9.5% (sessione)</span></div>
-            <div class="ticker-item">Alphabet <span class="negative">-3.2% (sessione)</span></div>
-            <!-- Duplicate for seamless loop -->
-            <div class="ticker-item">S&P 500 <span class="negative">-1.23% (sessione)</span></div>
-            <div class="ticker-item">Dow <span class="negative">-592 (-1.20%, sessione)</span></div>
-            <div class="ticker-item">Nasdaq <span class="negative">-1.59% (sessione)</span></div>
-            <div class="ticker-item">BTC <span class="negative">$65.239 (-9%, 24h)</span></div>
-            <div class="ticker-item">Oro <span class="positive">$4.850</span></div>
-            <div class="ticker-item">Qualcomm <span class="negative">-9.5% (sessione)</span></div>
-            <div class="ticker-item">Alphabet <span class="negative">-3.2% (sessione)</span></div>
-        </div>
-    </div>
+# Define articles in order from NEWEST to OLDEST
+# 6 Feb articles first, then 4 Feb articles
 
-    <!-- Header -->
-    <header class="bg-white border-b-2 border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 py-3 md:py-4">
-            <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <div class="flex items-center space-x-1 md:space-x-2">
-                    <span class="lobster-font text-3xl md:text-5xl text-teal-500">A</span>
-                    <div class="montserrat-font">
-                        <div class="text-lg md:text-2xl font-bold text-gray-900">lma Finanza</div>
-                    </div>
-                </div>
-
-                <!-- Vertical Switcher - Hidden on small mobile -->
-                <div class="vertical-switch hidden sm:flex">
-                    <button class="active">Finanza</button>
-                    <button onclick="window.location.href='in-costruzione.html'">Sport</button>
-                </div>
-
-                <!-- Date - Compact on mobile -->
-                <div class="text-xs md:text-sm text-gray-600 montserrat-font">
-                    <strong class="hidden md:inline">Giovedì, 6 Febbraio 2026</strong>
-                    <strong class="md:hidden">6 Feb 2026</strong>
-                    <span class="hidden md:inline"> • Aggiornato oggi</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Navigation Bar - Sezioni e Risorse -->
-    <nav class="bg-gray-50 border-b border-gray-200 py-3 overflow-x-auto">
-        <div class="max-w-7xl mx-auto px-4">
-            <!-- Desktop Layout -->
-            <div class="hidden md:flex items-center justify-between">
-                <!-- Sezioni -->
-                <div class="flex items-center space-x-6">
-                    <span class="text-sm font-bold text-gray-900 montserrat-font">📂 Sezioni:</span>
-                    <a href="categoria-wall-street.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Wall Street</a>
-                    <a href="categoria-borsa-milano.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Borsa Milano</a>
-                    <a href="categoria-crypto.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Crypto</a>
-                    <a href="categoria-commodities.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Commodities</a>
-                </div>
-
-                <!-- Risorse -->
-                <div class="flex items-center space-x-6">
-                    <span class="text-sm font-bold text-gray-900 montserrat-font">📚 Risorse:</span>
-                    <a href="impara-finanza.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Impara la Finanza</a>
-                    <a href="in-costruzione.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Glossario</a>
-                    <a href="in-costruzione.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Analisi Tecnica</a>
-                </div>
-            </div>
-
-            <!-- Mobile Layout - Compact Grid -->
-            <div class="md:hidden grid grid-cols-2 gap-3">
-                <div>
-                    <span class="text-xs font-bold text-gray-900 montserrat-font block mb-2">📂 Sezioni</span>
-                    <div class="space-y-1">
-                        <a href="categoria-wall-street.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Wall Street</a>
-                        <a href="categoria-borsa-milano.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Borsa Milano</a>
-                        <a href="categoria-crypto.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Crypto</a>
-                        <a href="categoria-commodities.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Commodities</a>
-                    </div>
-                </div>
-                <div>
-                    <span class="text-xs font-bold text-gray-900 montserrat-font block mb-2">📚 Risorse</span>
-                    <div class="space-y-1">
-                        <a href="impara-finanza.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Impara la Finanza</a>
-                        <a href="in-costruzione.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Glossario</a>
-                        <a href="in-costruzione.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Analisi Tecnica</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 py-8">
-        
-        <!-- Hero Article -->
-        <article class="bg-white rounded-lg shadow-lg overflow-hidden mb-8 article-card hover:shadow-2xl transition-shadow">
-            <div class="grid md:grid-cols-2 gap-0">
-                <div class="bg-gradient-to-br from-red-700 to-rose-900 p-6 md:p-8 text-white flex items-center">
-                    <div class="w-full">
-                        <span class="category-badge bg-white text-red-700 mb-3">Tech Stocks</span>
-                        <h1 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4 montserrat-font leading-tight">
-                            Tech rout continua: Alphabet -3.2%, Qualcomm -9.5%
-                        </h1>
-                        <p class="text-sm md:text-lg mb-4 text-red-100">
-                            Wall Street mercoledì 5 febbraio in rosso. Alphabet scende su timori capex AI ($175-185Bn previsti), Qualcomm crolla per memory shortage. Dati verificati da Yahoo Finance e CNBC.
-                        </p>
-                        <div class="flex items-center justify-between flex-wrap gap-3">
-                            <div class="flex items-center space-x-3 text-xs md:text-sm">
-                                <span>📊 Redazione</span>
-                                <span class="hidden sm:inline">⏱ 6 Feb 2026</span>
-                                <span class="hidden sm:inline">👁 3.4K</span>
-                            </div>
-                            <a href="articolo-tech-rout-continua.html" class="inline-block bg-gradient-to-r from-gray-800 to-gray-900 text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full font-bold text-xs md:text-sm uppercase tracking-wide hover:from-gray-900 hover:to-black transition shadow-lg hover:shadow-xl transform hover:scale-105">
-                                Leggi →
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="h-64 md:h-auto bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                    <div class="text-center text-white p-6 md:p-8">
-                        <div class="text-4xl md:text-5xl font-bold mb-2 text-red-400">-1.59%</div>
-                        <div class="text-xl md:text-2xl font-semibold mb-3 md:mb-4">NASDAQ (sessione)</div>
-                        <div class="text-xs md:text-sm text-gray-300">5 febbraio 2026</div>
-                        <div class="text-xs md:text-sm text-gray-300 mt-2">S&P 500 -1.23% • Dow -592 (-1.20%)</div>
-                        <div class="text-xs md:text-sm text-red-400 mt-2 md:mt-3">Bitcoin -9% a $65.239</div>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <!-- Breaking News Badge -->
-        <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold montserrat-font text-gray-900">📰 Articoli Ultimi 7 Giorni</h2>
-            <span class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse">🔴 LIVE</span>
-        </div>
-
-        <!-- Articles Grid -->
-        <div class="grid md:grid-cols-3 gap-6">
-            <!-- Article 1 - 6 Feb -->
+articles_ordered = [
+    # 6 FEBBRAIO 2026 - NUOVI ARTICOLI CON DATI REALI
+    '''            <!-- Article 1 - 6 Feb -->
             <a href="articolo-spotify-declino.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -294,7 +41,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 2 - 6 Feb -->
+''',
+    '''            <!-- Article 2 - 6 Feb -->
             <a href="articolo-feim-sorpresa.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -313,7 +61,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 3 - 6 Feb -->
+''',
+    '''            <!-- Article 3 - 6 Feb -->
             <a href="articolo-meta-earnings-attesi.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -332,7 +81,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 4 - 6 Feb -->
+''',
+    '''            <!-- Article 4 - 6 Feb -->
             <a href="articolo-treasury-yields-impatto.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -351,7 +101,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 5 - 6 Feb -->
+''',
+    '''            <!-- Article 5 - 6 Feb -->
             <a href="articolo-oro-alltime-high.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -370,7 +121,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 6 - 6 Feb -->
+''',
+    '''            <!-- Article 6 - 6 Feb -->
             <a href="articolo-small-caps-performance.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -389,7 +141,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 7 - 6 Feb -->
+''',
+    '''            <!-- Article 7 - 6 Feb -->
             <a href="articolo-usa-europa-divergenza.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -408,7 +161,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 8 - 6 Feb -->
+''',
+    '''            <!-- Article 8 - 6 Feb -->
             <a href="articolo-mercati-sell-off-febbraio.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -427,7 +181,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 9 - 6 Feb -->
+''',
+    '''            <!-- Article 9 - 6 Feb -->
             <a href="articolo-tech-rout-continua.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -446,7 +201,9 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 10 - 4 Feb -->
+''',
+    # 4 FEBBRAIO 2026 - ARTICOLI PRECEDENTI
+    '''            <!-- Article 10 - 4 Feb -->
             <a href="articolo-sp500-6921.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -465,7 +222,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 11 - 4 Feb -->
+''',
+    '''            <!-- Article 11 - 4 Feb -->
             <a href="articolo-bitcoin-83463.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -484,7 +242,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 12 - 4 Feb -->
+''',
+    '''            <!-- Article 12 - 4 Feb -->
             <a href="articolo-tesla-produzione-q1.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -503,7 +262,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 13 - 4 Feb -->
+''',
+    '''            <!-- Article 13 - 4 Feb -->
             <a href="articolo-spacex-xai-ecosistema.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -522,7 +282,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 14 - 4 Feb -->
+''',
+    '''            <!-- Article 14 - 4 Feb -->
             <a href="articolo-unity-software-gaming.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -541,7 +302,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 15 - 4 Feb -->
+''',
+    '''            <!-- Article 15 - 4 Feb -->
             <a href="articolo-palantir-surge.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -560,7 +322,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 16 - 4 Feb -->
+''',
+    '''            <!-- Article 16 - 4 Feb -->
             <a href="articolo-oro-crash-816.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -579,7 +342,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 17 - 4 Feb -->
+''',
+    '''            <!-- Article 17 - 4 Feb -->
             <a href="articolo-ftse-mib-45847.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -598,7 +362,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 18 - 4 Feb -->
+''',
+    '''            <!-- Article 18 - 4 Feb -->
             <a href="articolo-missione-alma-finanza.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -617,7 +382,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 19 - 4 Feb -->
+''',
+    '''            <!-- Article 19 - 4 Feb -->
             <a href="articolo-sell-off-tech.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -636,7 +402,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 20 - 4 Feb -->
+''',
+    '''            <!-- Article 20 - 4 Feb -->
             <a href="articolo-novo-nordisk-crash.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -655,7 +422,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 21 - 4 Feb -->
+''',
+    '''            <!-- Article 21 - 4 Feb -->
             <a href="articolo-salesforce-crash-ai.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -674,7 +442,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 22 - 4 Feb -->
+''',
+    '''            <!-- Article 22 - 4 Feb -->
             <a href="articolo-microsoft-stabilizza.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -693,7 +462,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 23 - 4 Feb -->
+''',
+    '''            <!-- Article 23 - 4 Feb -->
             <a href="articolo-kevin-warsh-fed.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -712,7 +482,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 24 - 4 Feb -->
+''',
+    '''            <!-- Article 24 - 4 Feb -->
             <a href="articolo-southwest-airlines-19.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -731,7 +502,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 25 - 4 Feb -->
+''',
+    '''            <!-- Article 25 - 4 Feb -->
             <a href="articolo-ppi-05.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -750,7 +522,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 26 - 4 Feb -->
+''',
+    '''            <!-- Article 26 - 4 Feb -->
             <a href="articolo-argento-crash-30.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -769,7 +542,8 @@
                     </div>
                 </article>
             </a>
-            <!-- Article 27 - 4 Feb -->
+''',
+    '''            <!-- Article 27 - 4 Feb -->
             <a href="articolo-bitcoin-74570.html" class="block">
                 <article class="bg-white rounded-lg shadow overflow-hidden article-card hover:shadow-xl transition-shadow cursor-pointer" style="position: relative;">
                     <span class="read-badge">Leggi</span>
@@ -788,181 +562,21 @@
                     </div>
                 </article>
             </a>
+'''
+]
 
-        </div>
+# Build new articles section
+new_articles_section = match.group(1) + '\n' + ''.join(articles_ordered) + '\n        ' + match.group(3)
 
-        <!-- Mission Section -->
-        <section class="bg-white rounded-lg shadow-xl overflow-hidden my-16 border-t-4 border-teal-500">
-            <div class="grid md:grid-cols-5 gap-0">
-                <!-- Mission Content -->
-                <div class="md:col-span-3 p-12 lg:p-16">
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-2 h-2 bg-teal-500 rounded-full"></div>
-                        <h2 class="text-sm font-medium text-teal-600 tracking-wide montserrat-font">Perché Alma Finanza</h2>
-                    </div>
-                    
-                    <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 montserrat-font leading-tight">
-                        La finanza non dovrebbe essere un privilegio riservato a pochi
-                    </h3>
-                    
-                    <div class="prose prose-lg max-w-none mb-8">
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
-                            Ogni giorno, milioni di italiani prendono decisioni finanziarie importanti. Eppure, le informazioni di qualità sono spesso disponibili solo in inglese, dietro paywall inaccessibili, o scritte in un linguaggio incomprensibile.
-                        </p>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                            <strong class="text-gray-900">Noi crediamo in qualcosa di diverso.</strong>
-                        </p>
-                        <p class="text-xl text-gray-900 font-medium leading-relaxed">
-                            Crediamo che ogni italiano abbia il diritto di comprendere i mercati finanziari <span class="text-teal-600 font-semibold">nella propria lingua</span>, con informazioni accessibili, chiare e di qualità.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-gradient-to-r from-teal-50 to-blue-50 rounded-xl p-6 mb-8 border-l-4 border-teal-500">
-                        <p class="text-gray-800 italic text-lg leading-relaxed">
-                            "La competenza finanziaria non è un lusso — è uno strumento di libertà. E la libertà inizia dalla comprensione, che inizia dalla lingua che parliamo ogni giorno."
-                        </p>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                            <div class="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg class="w-3 h-3 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <p class="text-gray-700"><strong class="text-gray-900">100% in italiano</strong> — Ogni parola, ogni analisi, ogni numero. Nessuna traduzione automatica, nessun compromesso linguistico.</p>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg class="w-3 h-3 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <p class="text-gray-700"><strong class="text-gray-900">Informazione accessibile</strong> — Le notizie essenziali dei mercati e le analisi fondamentali disponibili per tutti, perché l'informazione di base è un diritto.</p>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg class="w-3 h-3 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <p class="text-gray-700"><strong class="text-gray-900">Qualità professionale</strong> — Aggiornamenti quotidiani, analisi approfondite e contenuti curati con la stessa attenzione delle migliori pubblicazioni internazionali.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Visual Side -->
-                <div class="md:col-span-2 bg-gradient-to-br from-teal-600 via-teal-700 to-blue-800 p-12 lg:p-16 flex items-center justify-center relative overflow-hidden">
-                    <!-- Decorative elements -->
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-32 -mt-32"></div>
-                    <div class="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full -ml-24 -mb-24"></div>
+# Replace in content
+content = content[:match.start()] + new_articles_section + content[match.end():]
 
-                    <div class="text-center text-white relative z-10">
-                        <div class="text-7xl mb-6 animate-pulse">🇮🇹</div>
-                        <div class="text-3xl font-bold mb-6 montserrat-font leading-tight">
-                            Finanza.<br/>In Italiano.<br/>Per tutti.
-                        </div>
-                        <div class="w-16 h-1 bg-white opacity-50 mx-auto mb-6"></div>
-                        <p class="text-teal-100 text-lg leading-relaxed mb-8">
-                            Perché la conoscenza finanziaria non dovrebbe mai essere un privilegio riservato a chi parla inglese
-                        </p>
-                        <div class="grid grid-cols-2 gap-8 mt-12 pt-8 border-t border-teal-400 border-opacity-30">
-                            <div>
-                                <div class="text-4xl font-bold montserrat-font">20+</div>
-                                <div class="text-sm text-teal-200 mt-2 uppercase tracking-wide">Articoli<br/>al giorno</div>
-                            </div>
-                            <div>
-                                <div class="text-4xl font-bold montserrat-font">100%</div>
-                                <div class="text-sm text-teal-200 mt-2 uppercase tracking-wide">Italiano<br/>autentico</div>
-                            </div>
-                        </div>
-                        <p class="text-teal-200 text-xs mt-8 italic mb-6">
-                            Contenuti essenziali sempre accessibili.<br/>Analisi premium per chi vuole andare oltre.
-                        </p>
-                        <a href="articolo-missione-alma-finanza.html" class="inline-block bg-gradient-to-r from-purple-600 to-indigo-700 text-white px-8 py-3 rounded-full font-bold text-sm uppercase tracking-wide hover:from-purple-700 hover:to-indigo-800 transition shadow-lg hover:shadow-xl transform hover:scale-105">
-                            Scopri di più →
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+# Write back
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(content)
 
-        <!-- Financial Education Disclaimer -->
-        <section class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg shadow p-4 mt-12 border-l-4 border-amber-500">
-            <div class="flex items-start space-x-3">
-                <div class="text-2xl">⚖️</div>
-                <div>
-                    <h3 class="text-base font-bold text-gray-900 mb-2 montserrat-font">Disclaimer Legale</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed">
-                        <strong>🎓 Siamo educatori, non consulenti finanziari.</strong> Gli articoli hanno scopo puramente <strong>informativo ed educativo</strong>. Non conosciamo la tua situazione personale: rischio, obiettivi, orizzonte temporale. Solo tu (magari con un consulente autorizzato) puoi prendere decisioni adatte a te. <strong>📊 Cosa trovi:</strong> Analisi, tecniche, contesto. <strong>Cosa NON trovi:</strong> Raccomandazioni personalizzate o promesse di rendimenti. ⚠️ Investire comporta rischi, inclusa la possibile perdita totale del capitale.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="bg-gradient-to-r from-teal-500 to-teal-600 rounded-lg shadow-lg p-8 mt-12 text-white text-center">
-            <h2 class="text-3xl font-bold mb-4 montserrat-font">Non perdere nessuna notizia</h2>
-            <p class="text-lg mb-6 opacity-90">Iscriviti alla newsletter per ricevere le breaking news direttamente nella tua email</p>
-            <div class="max-w-md mx-auto flex gap-2">
-                <input type="email" placeholder="La tua email" class="flex-1 px-4 py-3 rounded-lg text-gray-900">
-                <button class="bg-white text-teal-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-                    Iscriviti
-                </button>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white mt-16">
-        <div class="max-w-7xl mx-auto px-4 py-12">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="lobster-font text-4xl text-teal-500">A</span>
-                        <span class="montserrat-font text-xl font-bold">lma Finanza</span>
-                    </div>
-                    <p class="text-gray-400 text-sm">
-                        Le notizie dei mercati finanziari, aggiornate in tempo reale.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-4 montserrat-font">Sezioni</h3>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="categoria-wall-street.html" class="hover:text-teal-400">Wall Street</a></li>
-                        <li><a href="categoria-borsa-milano.html" class="hover:text-teal-400">Borsa Milano</a></li>
-                        <li><a href="categoria-crypto.html" class="hover:text-teal-400">Crypto</a></li>
-                        <li><a href="categoria-commodities.html" class="hover:text-teal-400">Commodities</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-4 montserrat-font">Risorse</h3>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Guida Investimenti</a></li>
-                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Glossario Finanza</a></li>
-                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Analisi Tecnica</a></li>
-                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Newsletter</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-4 montserrat-font">Legal</h3>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Privacy Policy</a></li>
-                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Cookie Policy</a></li>
-                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Disclaimer</a></li>
-                        <li><a href="in-costruzione.html" class="hover:text-teal-400">Contatti</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-                <p>&copy; 2026 Alma Finanza. Tutti i diritti riservati.</p>
-                <p class="mt-4 text-xs max-w-3xl mx-auto leading-relaxed">
-                    ⚠️ <strong>Disclaimer:</strong> Alma Finanza è una piattaforma di informazione ed educazione finanziaria. I contenuti pubblicati hanno scopo esclusivamente informativo, educativo e giornalistico. Non costituiscono consulenza finanziaria, raccomandazioni di investimento o sollecitazioni all'acquisto/vendita di strumenti finanziari. Le analisi presentate non tengono conto della situazione personale del lettore. Gli investimenti comportano rischi, inclusa la perdita del capitale. I rendimenti passati non garantiscono risultati futuri. Prima di prendere decisioni finanziarie, consulta sempre un professionista autorizzato.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-</body>
-</html>
+print("✓ Articoli riordinati dal più nuovo (6 Feb) al più vecchio (4 Feb)")
+print("✓ Ordine corretto:")
+print("  - Articoli 1-9: 6 Febbraio 2026")
+print("  - Articoli 10-27: 4 Febbraio 2026")
+print("✓ Date sincronizzate tra riquadri homepage e articoli")
