@@ -1027,17 +1027,73 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
+        <!-- CTA Section - Newsletter -->
         <section class="bg-gradient-to-r from-teal-500 to-teal-600 rounded-lg shadow-lg p-8 mt-12 text-white text-center">
             <h2 class="text-3xl font-bold mb-4 montserrat-font">Non perdere nessuna notizia</h2>
             <p class="text-lg mb-6 opacity-90">Iscriviti alla newsletter per ricevere le breaking news direttamente nella tua email</p>
-            <div class="max-w-md mx-auto flex gap-2">
-                <input type="email" placeholder="La tua email" class="flex-1 px-4 py-3 rounded-lg text-gray-900">
-                <button class="bg-white text-teal-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+            <form id="newsletter-form" class="max-w-md mx-auto flex gap-2">
+                <input
+                    type="email"
+                    id="newsletter-email"
+                    name="email"
+                    placeholder="La tua email"
+                    class="flex-1 px-4 py-3 rounded-lg text-gray-900"
+                    required
+                >
+                <button
+                    type="submit"
+                    id="newsletter-btn"
+                    class="bg-white text-teal-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
                     Iscriviti
                 </button>
-            </div>
+            </form>
+            <p id="newsletter-status" class="mt-4 text-sm font-semibold" style="display: none;"></p>
         </section>
+
+        <!-- EmailJS Script -->
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script>
+            // Inizializza EmailJS con la tua Public Key
+            (function(){
+                emailjs.init("YOUR_PUBLIC_KEY"); // Sostituisci con la tua chiave
+            })();
+
+            document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const btn = document.getElementById('newsletter-btn');
+                const status = document.getElementById('newsletter-status');
+                const emailInput = document.getElementById('newsletter-email');
+
+                // Disabilita bottone
+                btn.disabled = true;
+                btn.textContent = 'Invio...';
+
+                // Parametri da inviare
+                const templateParams = {
+                    from_email: emailInput.value,
+                    to_email: 'ferrarapetrino@gmail.com', // TUA EMAIL dove ricevere iscrizioni
+                    message: 'Nuova iscrizione newsletter da: ' + emailInput.value
+                };
+
+                // Invia email tramite EmailJS
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                    .then(function(response) {
+                        status.style.display = 'block';
+                        status.style.color = '#10b981';
+                        status.textContent = '✅ Iscrizione completata! Controlla la tua email.';
+                        emailInput.value = '';
+                        btn.disabled = false;
+                        btn.textContent = 'Iscriviti';
+                    }, function(error) {
+                        status.style.display = 'block';
+                        status.style.color = '#ef4444';
+                        status.textContent = '❌ Errore. Riprova più tardi.';
+                        btn.disabled = false;
+                        btn.textContent = 'Iscriviti';
+                    });
+            });
+        </script>
 
     </main>
 
