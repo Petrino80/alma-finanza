@@ -82,7 +82,7 @@ emailjs.send('service_abc123', 'template_xyz789', templateParams)
 ## ✅ Cosa succede quando qualcuno si iscrive?
 
 1. Utente inserisce email nel form
-2. EmailJS invia email a **ferrarapetrino@gmail.com**
+2. EmailJS invia email a **newsletter@almafinanza.com**
 3. Ricevi: "Nuova iscrizione da: nome@example.com"
 4. Puoi copiare le email e aggiungerle manualmente a una lista
 
