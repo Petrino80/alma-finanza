@@ -1325,7 +1325,7 @@
         <script>
             // Inizializza EmailJS con la tua Public Key
             (function(){
-                emailjs.init("YOUR_PUBLIC_KEY"); // Sostituisci con la tua chiave
+                emailjs.init("7AmMkNnmEBwPed3x4"); // Public Key Alma Finanza
             })();
 
             document.getElementById('newsletter-form').addEventListener('submit', function(event) {
@@ -1342,12 +1342,11 @@
                 // Parametri da inviare
                 const templateParams = {
                     from_email: emailInput.value,
-                    to_email: 'newsletter@almafinanza.com', // Email dove ricevere iscrizioni
-                    message: 'Nuova iscrizione newsletter da: ' + emailInput.value
+                    reply_to: new Date().toLocaleString('it-IT')
                 };
 
                 // Invia email tramite EmailJS
-                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                emailjs.send('service_djf7pm4', 'template_j2e3mxm', templateParams)
                     .then(function(response) {
                         status.style.display = 'block';
                         status.style.color = '#10b981';
