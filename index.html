@@ -1345,21 +1345,28 @@
                     reply_to: new Date().toLocaleString('it-IT')
                 };
 
-                // Invia email tramite EmailJS
-                emailjs.send('service_djf7pm4', 'template_j2e3mxm', templateParams)
-                    .then(function(response) {
+                // Invia 2 email: 1) Notifica a te, 2) Benvenuto all'utente
+                Promise.all([
+                    // Email 1: Notifica a newsletter@almafinanza.com
+                    emailjs.send('service_djf7pm4', 'template_j2e3mxm', templateParams),
+                    // Email 2: Benvenuto all'utente
+                    emailjs.send('service_djf7pm4', 'template_y9y3zd1', templateParams)
+                ])
+                    .then(function(responses) {
                         status.style.display = 'block';
                         status.style.color = '#10b981';
                         status.textContent = '✅ Iscrizione completata! Controlla la tua email.';
                         emailInput.value = '';
                         btn.disabled = false;
                         btn.textContent = 'Iscriviti';
-                    }, function(error) {
+                    })
+                    .catch(function(error) {
                         status.style.display = 'block';
                         status.style.color = '#ef4444';
                         status.textContent = '❌ Errore. Riprova più tardi.';
                         btn.disabled = false;
                         btn.textContent = 'Iscriviti';
+                        console.error('Errore invio email:', error);
                     });
             });
         </script>
