@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E88FFDTPMP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-E88FFDTPMP');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Quote - Alma Finanza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .lobster-font {
+            font-family: 'Lobster', cursive;
+        }
+        .positive { color: #10b981; }
+        .negative { color: #ef4444; }
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .7; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="https://almafinanza.com/" class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-lg flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-2xl">AF</span>
+                </div>
+                <span class="lobster-font text-3xl bg-gradient-to-r from-teal-600 to-emerald-600 text-transparent bg-clip-text">
+                    Alma Finanza
+                </span>
+            </a>
+            <a href="https://almafinanza.com/" class="text-gray-600 hover:text-teal-600 font-semibold">← Torna alla Home</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 max-w-7xl">
+
+        <!-- Loading State -->
+        <div id="loading" class="text-center py-12">
+            <div class="inline-block animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-teal-600"></div>
+            <p class="mt-4 text-gray-600 text-lg">Caricamento dati real-time...</p>
+        </div>
+
+        <!-- Quote Content (Hidden until loaded) -->
+        <div id="quote-content" class="hidden">
+
+            <!-- Header Section -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-6">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h1 id="stock-name" class="text-4xl font-bold text-gray-900 mb-2">Loading...</h1>
+                        <p id="stock-symbol" class="text-xl text-gray-500">-</p>
+                    </div>
+                    <div class="text-right">
+                        <div id="stock-price" class="text-5xl font-bold text-gray-900 mb-2">$0.00</div>
+                        <div id="stock-change" class="text-2xl font-semibold">
+                            <span class="positive">+0.00 (+0.00%)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-200 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div>
+                        <p class="text-sm text-gray-500">Apertura</p>
+                        <p id="stock-open" class="text-lg font-semibold">-</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Max Giornaliero</p>
+                        <p id="stock-high" class="text-lg font-semibold">-</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Min Giornaliero</p>
+                        <p id="stock-low" class="text-lg font-semibold">-</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Volume</p>
+                        <p id="stock-volume" class="text-lg font-semibold">-</p>
+                    </div>
+                </div>
+                <div class="mt-4 text-sm text-gray-500 flex items-center gap-2">
+                    <span class="inline-block w-2 h-2 bg-green-500 rounded-full pulse-animation"></span>
+                    Aggiornato in tempo reale | Ultimo update: <span id="last-update">-</span>
+                </div>
+            </div>
+
+            <!-- Chart Section -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Grafico Intraday</h2>
+                <div class="h-96">
+                    <canvas id="price-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- TradingView Widget -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Analisi Tecnica Avanzata</h2>
+                <div id="tradingview-widget" class="h-96"></div>
+            </div>
+
+            <!-- Company Info -->
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Informazioni Titolo</h2>
+                <div class="prose max-w-none">
+                    <p class="text-gray-600 mb-4">
+                        Visualizza i dati finanziari real-time, grafici interattivi e analisi tecniche per questo titolo.
+                        I dati sono forniti da Alpha Vantage e aggiornati automaticamente.
+                    </p>
+                    <div class="mt-6 p-4 bg-teal-50 border-l-4 border-teal-600 rounded">
+                        <p class="text-sm text-teal-900">
+                            <strong>💡 Prossimamente:</strong> Aggiungeremo dati fondamentali, notizie correlate, earnings reports e sentiment analysis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Error State -->
+        <div id="error-state" class="hidden text-center py-12">
+            <div class="text-6xl mb-4">⚠️</div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">Errore nel caricamento dei dati</h2>
+            <p class="text-gray-600 mb-6">Impossibile recuperare i dati per questo simbolo. Verifica il simbolo o riprova più tardi.</p>
+            <a href="https://almafinanza.com/" class="inline-block bg-teal-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-teal-700 transition">
+                ← Torna alla Home
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-gray-900 to-black text-white py-12 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p>&copy; 2026 Alma Finanza. Tutti i diritti riservati.</p>
+                <p class="mt-4 text-xs text-gray-400 max-w-3xl mx-auto">
+                    ⚠️ <strong>Disclaimer:</strong> I contenuti hanno scopo esclusivamente informativo. Non costituiscono consulenza finanziaria.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/quote-page.js"></script>
+
+</body>
+</html>

@@ -62,6 +62,9 @@
             color: #14b8a6;
             text-shadow: 0 0 8px rgba(20, 184, 166, 0.6);
         }
+        .ticker-item {
+            transition: background-color 0.5s ease;
+        }
         .positive { color: #10b981; }
         .negative { color: #ef4444; }
         .article-card {
@@ -146,33 +149,33 @@
     <!-- Ticker Tape -->
     <div class="ticker-tape">
         <div class="ticker-content">
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EDJI" target="_blank">🇺🇸 Dow <span class="negative">50.121 (-0.13%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EGSPC" target="_blank">🇺🇸 S&P 500 <span class="negative">6.941 (-0.01%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EIXIC" target="_blank">🇺🇸 Nasdaq <span class="negative">23.066 (-0.16%)</span></a></div>
+            <div class="ticker-item" data-ticker="dow"><a href="quote.html?symbol=DIA" target="_blank">🇺🇸 Dow <span class="negative">50.121 (-0.13%)</span></a></div>
+            <div class="ticker-item" data-ticker="sp500"><a href="quote.html?symbol=SPY" target="_blank">🇺🇸 S&P 500 <span class="negative">6.941 (-0.01%)</span></a></div>
+            <div class="ticker-item" data-ticker="nasdaq"><a href="quote.html?symbol=QQQ" target="_blank">🇺🇸 Nasdaq <span class="negative">23.066 (-0.16%)</span></a></div>
             <div class="ticker-item"><a href="https://finance.yahoo.com/quote/FTSEMIB.MI" target="_blank">🇮🇹 FTSE MIB <span class="positive">46.456 (+0.28%)</span></a></div>
             <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EN225" target="_blank">🇯🇵 Nikkei <span class="positive">57.000+ (ATH)</span></a></div>
             <div class="ticker-item"><a href="https://finance.yahoo.com/quote/000001.SS" target="_blank">🇨🇳 Shanghai <span class="positive">4.123 (+1.41%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/KD" target="_blank">🚨 Kyndryl <span class="negative">$10.80 (-54%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/NVDA" target="_blank">Nvidia <span class="positive">+3.3% ($180)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/STM" target="_blank">STMicroelectronics <span class="positive">+8%</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/RACE" target="_blank">🏎️ Ferrari RACE <span class="positive">$378 (+12%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/GEV" target="_blank">GE Vernova <span class="positive">$796 ATH</span></a></div>
+            <div class="ticker-item" data-ticker="kd"><a href="quote.html?symbol=KD" target="_blank">🚨 Kyndryl <span class="negative">$10.80 (-54%)</span></a></div>
+            <div class="ticker-item" data-ticker="nvda"><a href="quote.html?symbol=NVDA" target="_blank">Nvidia <span class="positive">+3.3% ($180)</span></a></div>
+            <div class="ticker-item" data-ticker="stm"><a href="quote.html?symbol=STM" target="_blank">STMicroelectronics <span class="positive">+8%</span></a></div>
+            <div class="ticker-item" data-ticker="race"><a href="quote.html?symbol=RACE" target="_blank">🏎️ Ferrari RACE <span class="positive">$378 (+12%)</span></a></div>
+            <div class="ticker-item" data-ticker="gev"><a href="quote.html?symbol=GEV" target="_blank">GE Vernova <span class="positive">$796 ATH</span></a></div>
             <div class="ticker-item"><a href="https://finance.yahoo.com/quote/RR.L" target="_blank">Rolls-Royce <span class="positive">£12.68</span></a></div>
             <div class="ticker-item"><a href="https://finance.yahoo.com/quote/GC%3DF" target="_blank">Oro <span class="positive">$5.500+ (ATH)</span></a></div>
             <div class="ticker-item"><a href="https://finance.yahoo.com/quote/BTC-USD" target="_blank">BTC <span class="negative">$70.000 (-15% YTD)</span></a></div>
             <div class="ticker-item"><a href="https://www.cnbc.com/quotes/US10Y" target="_blank">🇨🇳 China: curb T-Bond USA</a></div>
             <!-- Duplicate for seamless loop -->
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EDJI" target="_blank">🇺🇸 Dow <span class="negative">50.121 (-0.13%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EGSPC" target="_blank">🇺🇸 S&P 500 <span class="negative">6.941 (-0.01%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EIXIC" target="_blank">🇺🇸 Nasdaq <span class="negative">23.066 (-0.16%)</span></a></div>
+            <div class="ticker-item" data-ticker="dow"><a href="quote.html?symbol=DIA" target="_blank">🇺🇸 Dow <span class="negative">50.121 (-0.13%)</span></a></div>
+            <div class="ticker-item" data-ticker="sp500"><a href="quote.html?symbol=SPY" target="_blank">🇺🇸 S&P 500 <span class="negative">6.941 (-0.01%)</span></a></div>
+            <div class="ticker-item" data-ticker="nasdaq"><a href="quote.html?symbol=QQQ" target="_blank">🇺🇸 Nasdaq <span class="negative">23.066 (-0.16%)</span></a></div>
             <div class="ticker-item"><a href="https://finance.yahoo.com/quote/FTSEMIB.MI" target="_blank">🇮🇹 FTSE MIB <span class="positive">46.456 (+0.28%)</span></a></div>
             <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EN225" target="_blank">🇯🇵 Nikkei <span class="positive">57.000+ (ATH)</span></a></div>
             <div class="ticker-item"><a href="https://finance.yahoo.com/quote/000001.SS" target="_blank">🇨🇳 Shanghai <span class="positive">4.123 (+1.41%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/KD" target="_blank">🚨 Kyndryl <span class="negative">$10.80 (-54%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/NVDA" target="_blank">Nvidia <span class="positive">+3.3% ($180)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/STM" target="_blank">STMicroelectronics <span class="positive">+8%</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/RACE" target="_blank">🏎️ Ferrari RACE <span class="positive">$378 (+12%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/GEV" target="_blank">GE Vernova <span class="positive">$796 ATH</span></a></div>
+            <div class="ticker-item" data-ticker="kd"><a href="quote.html?symbol=KD" target="_blank">🚨 Kyndryl <span class="negative">$10.80 (-54%)</span></a></div>
+            <div class="ticker-item" data-ticker="nvda"><a href="quote.html?symbol=NVDA" target="_blank">Nvidia <span class="positive">+3.3% ($180)</span></a></div>
+            <div class="ticker-item" data-ticker="stm"><a href="quote.html?symbol=STM" target="_blank">STMicroelectronics <span class="positive">+8%</span></a></div>
+            <div class="ticker-item" data-ticker="race"><a href="quote.html?symbol=RACE" target="_blank">🏎️ Ferrari RACE <span class="positive">$378 (+12%)</span></a></div>
+            <div class="ticker-item" data-ticker="gev"><a href="quote.html?symbol=GEV" target="_blank">GE Vernova <span class="positive">$796 ATH</span></a></div>
             <div class="ticker-item"><a href="https://finance.yahoo.com/quote/RR.L" target="_blank">Rolls-Royce <span class="positive">£12.68</span></a></div>
             <div class="ticker-item"><a href="https://finance.yahoo.com/quote/GC%3DF" target="_blank">Oro <span class="positive">$5.500+ (ATH)</span></a></div>
             <div class="ticker-item"><a href="https://finance.yahoo.com/quote/BTC-USD" target="_blank">BTC <span class="negative">$70.000 (-15% YTD)</span></a></div>
@@ -1432,6 +1435,9 @@
             </div>
         </div>
     </footer>
+
+    <!-- Ticker Real-Time con Alpha Vantage API -->
+    <script src="js/ticker-realtime.js"></script>
 
 </body>
 </html>
