@@ -67,9 +67,9 @@ async function fetchQuote(symbol) {
         }
 
         if (data['Note'] || data['Information']) {
-            console.warn(`⚠️ API rate limit per ${symbol}`);
+            console.warn(`⚠️ API rate limit per ${symbol} - limite 25 chiamate/giorno raggiunto`);
         }
-        return null;
+        return null; // mantieni valori statici HTML se API non risponde
     } catch (err) {
         console.error(`❌ Fetch error ${symbol}:`, err);
         return null;

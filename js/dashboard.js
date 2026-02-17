@@ -4,47 +4,36 @@
  */
 
 const ALPHA_VANTAGE_API_KEY = '6WCELVI7XTDMD2E5';
-const REFRESH_INTERVAL = 300000; // 5 minuti per dashboard
-const API_DELAY = 1500; // 1.5 secondi tra chiamate API
+const REFRESH_INTERVAL = 600000; // 10 minuti per dashboard (risparmia quota API)
+const API_DELAY = 13000; // 13 secondi tra chiamate (max 5/min = 1 ogni 12s)
 
-// Market symbols by category
+// Market symbols by category - RIDOTTI per rispettare limite 25 chiamate/giorno
 const MARKET_SYMBOLS = {
     us: [
         { symbol: 'AAPL', name: 'Apple' },
         { symbol: 'MSFT', name: 'Microsoft' },
-        { symbol: 'GOOGL', name: 'Alphabet' },
-        { symbol: 'AMZN', name: 'Amazon' },
         { symbol: 'NVDA', name: 'Nvidia' },
         { symbol: 'META', name: 'Meta' },
         { symbol: 'TSLA', name: 'Tesla' },
         { symbol: 'JPM', name: 'JPMorgan' },
-        { symbol: 'V', name: 'Visa' },
-        { symbol: 'WMT', name: 'Walmart' },
-        { symbol: 'JNJ', name: 'Johnson&Johnson' },
-        { symbol: 'PG', name: 'Procter&Gamble' }
     ],
     tech: [
         { symbol: 'NVDA', name: 'Nvidia' },
         { symbol: 'AAPL', name: 'Apple' },
         { symbol: 'MSFT', name: 'Microsoft' },
-        { symbol: 'GOOGL', name: 'Alphabet' },
         { symbol: 'META', name: 'Meta' },
-        { symbol: 'TSLA', name: 'Tesla' },
         { symbol: 'AMD', name: 'AMD' },
         { symbol: 'AVGO', name: 'Broadcom' }
     ],
     energy: [
         { symbol: 'XOM', name: 'Exxon' },
         { symbol: 'CVX', name: 'Chevron' },
-        { symbol: 'COP', name: 'ConocoPhillips' },
-        { symbol: 'SLB', name: 'Schlumberger' },
         { symbol: 'GEV', name: 'GE Vernova' },
         { symbol: 'NEE', name: 'NextEra' }
     ],
     europe: [
         { symbol: 'RACE', name: 'Ferrari' },
         { symbol: 'STM', name: 'STMicro' },
-        { symbol: 'NVS', name: 'Novartis' },
         { symbol: 'ASML', name: 'ASML' }
     ],
     asia: [
@@ -84,11 +73,40 @@ async function fetchQuote(symbol) {
                 volume: parseInt(quote['06. volume'])
             };
         }
+
+        // API limit raggiunto - mostra avviso
+        if (data['Note'] || data['Information']) {
+            console.warn(`⚠️ API limit raggiunto per ${symbol}`);
+            showApiLimitWarning();
+        }
         return null;
     } catch (error) {
         console.error(`Error fetching ${symbol}:`, error);
         return null;
     }
+}
+
+/**
+ * Mostra avviso limite API
+ */
+function showApiLimitWarning() {
+    const existing = document.getElementById('api-limit-warning');
+    if (existing) return; // già mostrato
+
+    const warning = document.createElement('div');
+    warning.id = 'api-limit-warning';
+    warning.className = 'fixed bottom-4 right-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-lg shadow-lg z-50 max-w-sm';
+    warning.innerHTML = `
+        <div class="flex items-start gap-3">
+            <span class="text-2xl">⚠️</span>
+            <div>
+                <p class="font-bold">Limite API raggiunto</p>
+                <p class="text-sm mt-1">Alpha Vantage: max 25 chiamate/giorno (piano gratuito). I dati si aggiorneranno domani o aggiorna la key.</p>
+                <button onclick="this.parentElement.parentElement.parentElement.remove()" class="mt-2 text-xs underline">Chiudi</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(warning);
 }
 
 /**
