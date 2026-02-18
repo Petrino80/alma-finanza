@@ -1,50 +1,63 @@
 /**
  * Alma Finanza - Dashboard Mercati
- * Heatmap, Top Gainers, Top Losers con Alpha Vantage API
+ * Heatmap, Top Gainers, Top Losers
+ * USA: Twelve Data API (demo key - 1 req alla volta, gratis)
  */
 
-const ALPHA_VANTAGE_API_KEY = '6WCELVI7XTDMD2E5';
-const REFRESH_INTERVAL = 600000; // 10 minuti per dashboard (risparmia quota API)
-const API_DELAY = 13000; // 13 secondi tra chiamate (max 5/min = 1 ogni 12s)
+const TWELVEDATA_KEY = 'demo';  // chiave demo gratuita Twelve Data
+const REFRESH_INTERVAL = 300000; // 5 minuti
+const API_DELAY = 800; // 800ms tra chiamate per rispettare rate limit
 
-// Market symbols by category - RIDOTTI per rispettare limite 25 chiamate/giorno
+// Simboli per categoria
 const MARKET_SYMBOLS = {
     us: [
-        { symbol: 'AAPL', name: 'Apple' },
-        { symbol: 'MSFT', name: 'Microsoft' },
-        { symbol: 'NVDA', name: 'Nvidia' },
-        { symbol: 'META', name: 'Meta' },
-        { symbol: 'TSLA', name: 'Tesla' },
-        { symbol: 'JPM', name: 'JPMorgan' },
+        { symbol: 'AAPL',  name: 'Apple' },
+        { symbol: 'MSFT',  name: 'Microsoft' },
+        { symbol: 'NVDA',  name: 'Nvidia' },
+        { symbol: 'META',  name: 'Meta' },
+        { symbol: 'TSLA',  name: 'Tesla' },
+        { symbol: 'JPM',   name: 'JPMorgan' },
+        { symbol: 'AMZN',  name: 'Amazon' },
+        { symbol: 'GOOGL', name: 'Alphabet' },
     ],
     tech: [
-        { symbol: 'NVDA', name: 'Nvidia' },
-        { symbol: 'AAPL', name: 'Apple' },
-        { symbol: 'MSFT', name: 'Microsoft' },
-        { symbol: 'META', name: 'Meta' },
-        { symbol: 'AMD', name: 'AMD' },
-        { symbol: 'AVGO', name: 'Broadcom' }
+        { symbol: 'NVDA',  name: 'Nvidia' },
+        { symbol: 'AAPL',  name: 'Apple' },
+        { symbol: 'MSFT',  name: 'Microsoft' },
+        { symbol: 'META',  name: 'Meta' },
+        { symbol: 'AMD',   name: 'AMD' },
+        { symbol: 'AVGO',  name: 'Broadcom' },
+        { symbol: 'INTC',  name: 'Intel' },
+        { symbol: 'QCOM',  name: 'Qualcomm' },
     ],
     energy: [
-        { symbol: 'XOM', name: 'Exxon' },
-        { symbol: 'CVX', name: 'Chevron' },
-        { symbol: 'GEV', name: 'GE Vernova' },
-        { symbol: 'NEE', name: 'NextEra' }
+        { symbol: 'XOM',   name: 'Exxon' },
+        { symbol: 'CVX',   name: 'Chevron' },
+        { symbol: 'GEV',   name: 'GE Vernova' },
+        { symbol: 'NEE',   name: 'NextEra' },
+        { symbol: 'BP',    name: 'BP' },
+        { symbol: 'SHEL',  name: 'Shell' },
     ],
     europe: [
-        { symbol: 'RACE', name: 'Ferrari' },
-        { symbol: 'STM', name: 'STMicro' },
-        { symbol: 'ASML', name: 'ASML' }
+        { symbol: 'RACE',  name: 'Ferrari' },
+        { symbol: 'STM',   name: 'STMicro' },
+        { symbol: 'ASML',  name: 'ASML' },
+        { symbol: 'SAP',   name: 'SAP' },
+        { symbol: 'NVO',   name: 'Novo Nordisk' },
+        { symbol: 'LVMUY', name: 'LVMH' },
     ],
     asia: [
-        { symbol: 'TSM', name: 'TSMC' },
-        { symbol: 'SONY', name: 'Sony' },
-        { symbol: 'TM', name: 'Toyota' }
+        { symbol: 'TSM',   name: 'TSMC' },
+        { symbol: 'SONY',  name: 'Sony' },
+        { symbol: 'TM',    name: 'Toyota' },
+        { symbol: 'BABA',  name: 'Alibaba' },
+        { symbol: 'TCEHY', name: 'Tencent' },
     ]
 };
 
 let currentMarket = 'us';
 let marketData = {};
+let isLoading = false;
 
 /**
  * Sleep utility
@@ -54,75 +67,70 @@ function sleep(ms) {
 }
 
 /**
- * Fetch quote from Alpha Vantage
+ * Fetch quote da Twelve Data (demo key, 1 simbolo alla volta)
  */
 async function fetchQuote(symbol) {
     try {
-        const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${ALPHA_VANTAGE_API_KEY}`;
+        const url = `https://api.twelvedata.com/quote?symbol=${encodeURIComponent(symbol)}&apikey=${TWELVEDATA_KEY}`;
         const response = await fetch(url);
+
+        if (!response.ok) {
+            console.warn(`⚠️ HTTP ${response.status} per ${symbol}`);
+            return null;
+        }
+
         const data = await response.json();
 
-        if (data['Global Quote'] && Object.keys(data['Global Quote']).length > 0) {
-            const quote = data['Global Quote'];
+        // Se c'è un errore (es. troppe richieste o simbolo non trovato)
+        if (data.code || data.status === 'error') {
+            console.warn(`⚠️ ${symbol}: ${data.message}`);
+            return null;
+        }
+
+        // Verifica che ci siano dati validi
+        if (data.close && parseFloat(data.close) > 0) {
+            const price = parseFloat(data.close);
+            const prevClose = parseFloat(data.previous_close) || price;
+            const change = parseFloat(data.change) || (price - prevClose);
+            const changePercent = parseFloat(data.percent_change) || ((change / prevClose) * 100);
+
+            console.log(`✅ ${symbol}: $${price.toFixed(2)} (${changePercent >= 0 ? '+' : ''}${changePercent.toFixed(2)}%)`);
+
             return {
-                symbol: quote['01. symbol'],
-                name: symbol,
-                price: parseFloat(quote['05. price']),
-                change: parseFloat(quote['09. change']),
-                changePercent: parseFloat(quote['10. change percent'].replace('%', '')),
-                volume: parseInt(quote['06. volume'])
+                symbol: symbol,
+                price: price,
+                change: change,
+                changePercent: changePercent,
+                high: parseFloat(data.high) || price,
+                low: parseFloat(data.low) || price,
+                open: parseFloat(data.open) || price,
+                previousClose: prevClose,
+                volume: parseInt(data.volume) || 0,
             };
         }
 
-        // API limit raggiunto - mostra avviso
-        if (data['Note'] || data['Information']) {
-            console.warn(`⚠️ API limit raggiunto per ${symbol}`);
-            showApiLimitWarning();
-        }
+        console.warn(`⚠️ Dati non disponibili per ${symbol}:`, data);
         return null;
     } catch (error) {
-        console.error(`Error fetching ${symbol}:`, error);
+        console.error(`❌ Fetch error ${symbol}:`, error);
         return null;
     }
 }
 
 /**
- * Mostra avviso limite API
- */
-function showApiLimitWarning() {
-    const existing = document.getElementById('api-limit-warning');
-    if (existing) return; // già mostrato
-
-    const warning = document.createElement('div');
-    warning.id = 'api-limit-warning';
-    warning.className = 'fixed bottom-4 right-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-lg shadow-lg z-50 max-w-sm';
-    warning.innerHTML = `
-        <div class="flex items-start gap-3">
-            <span class="text-2xl">⚠️</span>
-            <div>
-                <p class="font-bold">Limite API raggiunto</p>
-                <p class="text-sm mt-1">Alpha Vantage: max 25 chiamate/giorno (piano gratuito). I dati si aggiorneranno domani o aggiorna la key.</p>
-                <button onclick="this.parentElement.parentElement.parentElement.remove()" class="mt-2 text-xs underline">Chiudi</button>
-            </div>
-        </div>
-    `;
-    document.body.appendChild(warning);
-}
-
-/**
- * Get color class based on change percent
+ * Colore celle heatmap in base alla variazione
  */
 function getColorClass(changePercent) {
-    if (changePercent >= 5) return 'gain-strong';
-    if (changePercent >= 2) return 'gain-moderate';
-    if (changePercent > 0) return 'gain-light';
-    if (changePercent > -2) return 'loss-light';
-    if (changePercent > -5) return 'loss-moderate';
+    if (changePercent >= 5)  return 'gain-strong';
+    if (changePercent >= 2)  return 'gain-moderate';
+    if (changePercent > 0)   return 'gain-light';
+    if (changePercent > -2)  return 'loss-light';
+    if (changePercent > -5)  return 'loss-moderate';
     return 'loss-strong';
 }
 
 /**
- * Create heatmap cell
+ * Crea cella heatmap
  */
 function createHeatmapCell(stock) {
     const colorClass = getColorClass(stock.changePercent);
@@ -149,7 +157,7 @@ function createHeatmapCell(stock) {
 }
 
 /**
- * Create gainer/loser row
+ * Crea riga gainer/loser
  */
 function createStockRow(stock, rank) {
     const isPositive = stock.changePercent >= 0;
@@ -180,44 +188,54 @@ function createStockRow(stock, rank) {
 }
 
 /**
- * Load market data
+ * Carica dati mercato
  */
 async function loadMarketData(market) {
-    console.log(`📊 Loading ${market} market data...`);
+    if (isLoading) return;
+    isLoading = true;
+
+    console.log(`📊 Loading ${market} via Twelve Data...`);
 
     const symbols = MARKET_SYMBOLS[market];
     const container = document.getElementById('heatmap-container');
-    container.innerHTML = '<div class="col-span-full text-center py-8 text-gray-600">Caricamento dati...</div>';
+    container.innerHTML = '<div class="col-span-full text-center py-8 text-gray-600">⏳ Caricamento dati di mercato...</div>';
 
     marketData[market] = [];
 
-    // Fetch all stocks with delay between calls
     for (let i = 0; i < symbols.length; i++) {
         const stock = symbols[i];
         const quote = await fetchQuote(stock.symbol);
 
         if (quote) {
-            marketData[market].push({
-                ...quote,
-                name: stock.name
-            });
-
-            // Update heatmap progressively
-            renderHeatmap(market);
+            marketData[market].push({ ...quote, name: stock.name });
+            renderHeatmap(market); // aggiorna progressivamente
         }
 
-        // Delay between API calls (except last one)
         if (i < symbols.length - 1) {
             await sleep(API_DELAY);
         }
     }
 
-    // Sort and render gainers/losers
+    // Messaggio se nessun dato
+    if (marketData[market].length === 0) {
+        container.innerHTML = `
+            <div class="col-span-full text-center py-12">
+                <p class="text-2xl mb-2">⚠️</p>
+                <p class="text-gray-600 font-semibold mb-1">Nessun dato disponibile</p>
+                <p class="text-gray-400 text-sm mb-4">I mercati potrebbero essere chiusi o i dati non ancora aggiornati.</p>
+                <button onclick="location.reload()" class="px-6 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition text-sm">
+                    🔄 Aggiorna pagina
+                </button>
+            </div>
+        `;
+    }
+
     renderGainersLosers(market);
     updateStats(market);
     updateTimestamp();
 
-    console.log(`✅ ${market} market data loaded!`);
+    isLoading = false;
+    console.log(`✅ ${market}: ${marketData[market].length}/${symbols.length} simboli caricati`);
 }
 
 /**
@@ -226,116 +244,97 @@ async function loadMarketData(market) {
 function renderHeatmap(market) {
     const container = document.getElementById('heatmap-container');
     const data = marketData[market] || [];
-
     if (data.length === 0) return;
 
-    // Sort by change percent (descending)
     const sorted = [...data].sort((a, b) => b.changePercent - a.changePercent);
-
     container.innerHTML = sorted.map(stock => createHeatmapCell(stock)).join('');
 }
 
 /**
- * Render gainers and losers
+ * Render gainers e losers
  */
 function renderGainersLosers(market) {
     const data = marketData[market] || [];
-
     if (data.length === 0) return;
 
-    // Top 5 gainers
-    const gainers = [...data]
-        .filter(s => s.changePercent > 0)
-        .sort((a, b) => b.changePercent - a.changePercent)
-        .slice(0, 5);
+    const gainers = [...data].filter(s => s.changePercent > 0)
+        .sort((a, b) => b.changePercent - a.changePercent).slice(0, 5);
 
-    // Top 5 losers
-    const losers = [...data]
-        .filter(s => s.changePercent < 0)
-        .sort((a, b) => a.changePercent - b.changePercent)
-        .slice(0, 5);
+    const losers = [...data].filter(s => s.changePercent < 0)
+        .sort((a, b) => a.changePercent - b.changePercent).slice(0, 5);
 
-    // Render gainers
     const gainersContainer = document.getElementById('top-gainers');
-    if (gainers.length > 0) {
-        gainersContainer.innerHTML = gainers.map((stock, i) => createStockRow(stock, i + 1)).join('');
-    } else {
-        gainersContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Nessun gainer disponibile</p>';
-    }
+    gainersContainer.innerHTML = gainers.length > 0
+        ? gainers.map((s, i) => createStockRow(s, i + 1)).join('')
+        : '<p class="text-gray-500 text-center py-8">Nessun titolo in rialzo</p>';
 
-    // Render losers
     const losersContainer = document.getElementById('top-losers');
-    if (losers.length > 0) {
-        losersContainer.innerHTML = losers.map((stock, i) => createStockRow(stock, i + 1)).join('');
-    } else {
-        losersContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Nessun loser disponibile</p>';
-    }
+    losersContainer.innerHTML = losers.length > 0
+        ? losers.map((s, i) => createStockRow(s, i + 1)).join('')
+        : '<p class="text-gray-500 text-center py-8">Nessun titolo in ribasso</p>';
 }
 
 /**
- * Update market stats
+ * Aggiorna statistiche mercato
  */
 function updateStats(market) {
     const data = marketData[market] || [];
 
-    const advancing = data.filter(s => s.changePercent > 0).length;
-    const declining = data.filter(s => s.changePercent < 0).length;
-    const unchanged = data.filter(s => s.changePercent === 0).length;
-    const totalVolume = data.reduce((sum, s) => sum + s.volume, 0);
+    document.getElementById('advancing-count').textContent = data.filter(s => s.changePercent > 0).length;
+    document.getElementById('declining-count').textContent = data.filter(s => s.changePercent < 0).length;
+    document.getElementById('unchanged-count').textContent = data.filter(s => s.changePercent === 0).length;
 
-    document.getElementById('advancing-count').textContent = advancing;
-    document.getElementById('declining-count').textContent = declining;
-    document.getElementById('unchanged-count').textContent = unchanged;
-    document.getElementById('total-volume').textContent = formatVolume(totalVolume);
+    const totalVolume = data.reduce((sum, s) => sum + (s.volume || 0), 0);
+    const volEl = document.getElementById('total-volume');
+    if (volEl) volEl.textContent = formatVolume(totalVolume);
 }
 
 /**
- * Format volume
+ * Formatta volume
  */
-function formatVolume(volume) {
-    if (volume >= 1e9) return (volume / 1e9).toFixed(2) + 'B';
-    if (volume >= 1e6) return (volume / 1e6).toFixed(2) + 'M';
-    if (volume >= 1e3) return (volume / 1e3).toFixed(2) + 'K';
-    return volume.toString();
+function formatVolume(v) {
+    if (v >= 1e9) return (v / 1e9).toFixed(2) + 'B';
+    if (v >= 1e6) return (v / 1e6).toFixed(2) + 'M';
+    if (v >= 1e3) return (v / 1e3).toFixed(2) + 'K';
+    return v > 0 ? v.toString() : '-';
 }
 
 /**
- * Update timestamp
+ * Aggiorna timestamp
  */
 function updateTimestamp() {
-    const now = new Date();
-    document.getElementById('last-update').textContent = now.toLocaleString('it-IT');
+    const el = document.getElementById('last-update');
+    if (el) el.textContent = new Date().toLocaleString('it-IT');
 }
 
 /**
- * Initialize dashboard
+ * Inizializza dashboard
  */
 async function initDashboard() {
-    console.log('🚀 Initializing dashboard...');
+    console.log('🚀 Alma Finanza Dashboard avviata');
 
-    // Load default market
     await loadMarketData(currentMarket);
 
-    // Setup market filter buttons
+    // Setup filtri mercato
     document.querySelectorAll('.market-filter').forEach(btn => {
         btn.addEventListener('click', async (e) => {
-            const market = e.target.dataset.market;
+            const market = e.currentTarget.dataset.market;
+            if (!market || isLoading) return;
 
-            // Update active button
+            // Aggiorna stile pulsanti
             document.querySelectorAll('.market-filter').forEach(b => {
                 b.classList.remove('active');
                 b.style.background = '';
                 b.style.color = '';
                 b.classList.add('bg-gray-100', 'hover:bg-gray-200');
             });
-            e.target.classList.add('active');
-            e.target.classList.remove('bg-gray-100', 'hover:bg-gray-200');
-            e.target.style.background = '#14b8a6';
-            e.target.style.color = 'white';
+            e.currentTarget.classList.add('active');
+            e.currentTarget.classList.remove('bg-gray-100', 'hover:bg-gray-200');
+            e.currentTarget.style.background = '#14b8a6';
+            e.currentTarget.style.color = 'white';
 
             currentMarket = market;
 
-            // Load new market data if not cached
             if (!marketData[market] || marketData[market].length === 0) {
                 await loadMarketData(market);
             } else {
@@ -346,16 +345,17 @@ async function initDashboard() {
         });
     });
 
-    // Auto-refresh every 5 minutes
+    // Auto-refresh ogni 5 minuti
     setInterval(async () => {
-        console.log('🔄 Auto-refreshing dashboard...');
+        console.log('🔄 Auto-refresh dashboard...');
+        marketData[currentMarket] = [];
         await loadMarketData(currentMarket);
     }, REFRESH_INTERVAL);
 
-    console.log('✅ Dashboard initialized!');
+    console.log('✅ Dashboard pronta!');
 }
 
-// Start when DOM is ready
+// Avvia al caricamento DOM
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initDashboard);
 } else {
