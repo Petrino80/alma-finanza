@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.almafinanza.com/sitemap.xml
+
+# Pagine da non indicizzare
+Disallow: /quote.html
+Disallow: /in-costruzione.html
+Disallow: /email-template-newsletter.html
+
+# Crawl-delay (opzionale, rallenta bot aggressivi)
+Crawl-delay: 1
