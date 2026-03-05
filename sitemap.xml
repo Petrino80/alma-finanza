@@ -5,9 +5,66 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 28 Febbraio 2026 -->
+  <url>
+    <loc>https://www.almafinanza.com/articolo-iran-operation-epic-fury-28feb-usa-israele-attacco.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+      <news:publication_date>2026-02-28</news:publication_date>
+      <news:title>Operation Epic Fury: USA e Israele attaccano l'Iran, Khamenei riportato ucciso</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-petrolio-stretto-hormuz-28feb-iran-spike-oil.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+      <news:publication_date>2026-02-28</news:publication_date>
+      <news:title>Petrolio e Stretto di Hormuz: Iran chiude il passaggio, WTI verso $120?</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-bitcoin-oro-28feb-iran-guerra-safe-haven.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+      <news:publication_date>2026-02-28</news:publication_date>
+      <news:title>Bitcoin crolla a $63.000, oro vola a $5.464: la guerra Iran spacca i mercati</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-wall-street-28feb-settimana-mese-febbraio-chiusura.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+      <news:publication_date>2026-02-28</news:publication_date>
+      <news:title>Wall Street chiude febbraio in rosso: Dow -521, Nasdaq -3,3% nel mese</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-ftse-mib-28feb-record-storico-eni-stellantis.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+      <news:publication_date>2026-02-28</news:publication_date>
+      <news:title>FTSE MIB chiude febbraio a +3,6%: record sfiorato, Eni brilla, Stellantis -25%</news:title>
+    </news:news>
   </url>
 
   <!-- Pagine Categoria -->
