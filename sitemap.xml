@@ -5,9 +5,66 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 6 Marzo 2026 -->
+  <url>
+    <loc>https://www.almafinanza.com/articolo-wall-street-6mar-jobs-report-petrolio-90.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+      <news:publication_date>2026-03-06</news:publication_date>
+      <news:title>Wall Street 6 marzo: Dow -453, Jobs Report shock (-92K) e petrolio a $90</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-ftse-mib-6mar-difesa-leonardo-avio.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+      <news:publication_date>2026-03-06</news:publication_date>
+      <news:title>FTSE MIB 6 marzo: -1% a 44.152, settimana -6,5% — Difesa in controtendenza</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-petrolio-6mar-wti-90-record-settimana-hormuz.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+      <news:publication_date>2026-03-06</news:publication_date>
+      <news:title>Petrolio WTI a $90,90: settimana record +35%, la più grande dal 1983</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-jobs-report-6mar-nfp-92k-disoccupazione.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+      <news:publication_date>2026-03-06</news:publication_date>
+      <news:title>Jobs Report shock: USA perdono 92.000 posti, disoccupazione al 4,4%</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-marvell-6mar-earnings-ai-chip-16-percento.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+      <news:publication_date>2026-03-06</news:publication_date>
+      <news:title>Marvell Technology vola +16%: earnings record, chip AI da $1,5 miliardi</news:title>
+    </news:news>
   </url>
 
   <!-- Articoli 5 Marzo 2026 -->
