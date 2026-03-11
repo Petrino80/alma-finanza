@@ -269,6 +269,7 @@
                 <a href="categoria-borsa-milano.html" class="text-sm text-gray-500 dark:text-slate-500 hover:text-gray-900 dark:hover:text-white font-medium transition">Milano</a>
                 <a href="categoria-crypto.html" class="text-sm text-gray-500 dark:text-slate-500 hover:text-gray-900 dark:hover:text-white font-medium transition">Crypto</a>
                 <a href="categoria-commodities.html" class="text-sm text-gray-500 dark:text-slate-500 hover:text-gray-900 dark:hover:text-white font-medium transition">Commodities</a>
+                <a href="impara-finanza.html" class="text-sm text-gray-500 dark:text-slate-500 hover:text-gray-900 dark:hover:text-white font-medium transition">Impara</a>
                 <a href="dashboard.html" class="text-sm px-4 py-2 bg-gray-900 dark:bg-teal-600 text-white rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-teal-500 transition">Dashboard</a>
             </div>
             <div class="flex items-center gap-4">
@@ -281,6 +282,51 @@
             </div>
         </div>
     </header>
+
+    <!-- Navigation Bar - Sezioni e Risorse -->
+    <nav class="bg-gray-50 dark:bg-[#0f1520] border-b border-gray-200 dark:border-slate-800/20 py-3 overflow-x-auto transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4">
+            <!-- Desktop Layout -->
+            <div class="hidden md:flex items-center justify-between">
+                <!-- Sezioni -->
+                <div class="flex items-center space-x-6">
+                    <span class="text-sm font-bold text-gray-900 dark:text-slate-300 montserrat-font">Sezioni:</span>
+                    <a href="dashboard.html" class="text-sm font-semibold bg-gradient-to-r from-teal-600 to-emerald-600 text-white px-3 py-1 rounded-full hover:shadow-lg transition">Dashboard Live</a>
+                    <a href="categoria-wall-street.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Wall Street</a>
+                    <a href="categoria-borsa-milano.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Borsa Milano</a>
+                    <a href="categoria-crypto.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Crypto</a>
+                    <a href="categoria-commodities.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Commodities</a>
+                </div>
+                <!-- Risorse -->
+                <div class="flex items-center space-x-6">
+                    <span class="text-sm font-bold text-gray-900 dark:text-slate-300 montserrat-font">Risorse:</span>
+                    <a href="impara-finanza.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Impara la Finanza</a>
+                    <a href="in-costruzione.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Glossario</a>
+                    <a href="in-costruzione.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Analisi Tecnica</a>
+                </div>
+            </div>
+            <!-- Mobile Layout - Compact Grid -->
+            <div class="md:hidden grid grid-cols-2 gap-3">
+                <div>
+                    <span class="text-xs font-bold text-gray-900 dark:text-slate-300 montserrat-font block mb-2">Sezioni</span>
+                    <div class="space-y-1">
+                        <a href="categoria-wall-street.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Wall Street</a>
+                        <a href="categoria-borsa-milano.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Borsa Milano</a>
+                        <a href="categoria-crypto.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Crypto</a>
+                        <a href="categoria-commodities.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Commodities</a>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-gray-900 dark:text-slate-300 montserrat-font block mb-2">Risorse</span>
+                    <div class="space-y-1">
+                        <a href="impara-finanza.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Impara la Finanza</a>
+                        <a href="in-costruzione.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Glossario</a>
+                        <a href="in-costruzione.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Analisi Tecnica</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <!-- Stats Bar -->
     <div class="max-w-6xl mx-auto px-4 pt-8">
@@ -1831,18 +1877,18 @@
                         <h2 class="text-sm font-medium text-teal-600 tracking-wide montserrat-font">Perché Alma Finanza</h2>
                     </div>
                     
-                    <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 montserrat-font leading-tight">
+                    <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6 montserrat-font leading-tight">
                         La finanza non dovrebbe essere un privilegio riservato a pochi
                     </h3>
                     
                     <div class="prose prose-lg max-w-none mb-8">
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        <p class="text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4">
                             Ogni giorno, milioni di italiani prendono decisioni finanziarie importanti. Eppure, le informazioni di qualità sono spesso disponibili solo in inglese, dietro paywall inaccessibili, o scritte in un linguaggio incomprensibile.
                         </p>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                            <strong class="text-gray-900">Noi crediamo in qualcosa di diverso.</strong>
+                        <p class="text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-6">
+                            <strong class="text-gray-900 dark:text-white">Noi crediamo in qualcosa di diverso.</strong>
                         </p>
-                        <p class="text-xl text-gray-900 font-medium leading-relaxed">
+                        <p class="text-xl text-gray-900 dark:text-white font-medium leading-relaxed">
                             Crediamo che ogni italiano abbia il diritto di comprendere i mercati finanziari <span class="text-teal-600 font-semibold">nella propria lingua</span>, con informazioni accessibili, chiare e di qualità.
                         </p>
                     </div>
@@ -1860,7 +1906,7 @@
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <p class="text-gray-700"><strong class="text-gray-900">100% in italiano</strong> — Ogni parola, ogni analisi, ogni numero. Nessuna traduzione automatica, nessun compromesso linguistico.</p>
+                            <p class="text-gray-700 dark:text-slate-300"><strong class="text-gray-900 dark:text-white">100% in italiano</strong> — Ogni parola, ogni analisi, ogni numero. Nessuna traduzione automatica, nessun compromesso linguistico.</p>
                         </div>
                         <div class="flex items-start space-x-3">
                             <div class="w-6 h-6 bg-teal-100 dark:bg-teal-900/40 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
@@ -1868,7 +1914,7 @@
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <p class="text-gray-700"><strong class="text-gray-900">Informazione accessibile</strong> — Le notizie essenziali dei mercati e le analisi fondamentali disponibili per tutti, perché l'informazione di base è un diritto.</p>
+                            <p class="text-gray-700 dark:text-slate-300"><strong class="text-gray-900 dark:text-white">Informazione accessibile</strong> — Le notizie essenziali dei mercati e le analisi fondamentali disponibili per tutti, perché l'informazione di base è un diritto.</p>
                         </div>
                         <div class="flex items-start space-x-3">
                             <div class="w-6 h-6 bg-teal-100 dark:bg-teal-900/40 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
@@ -1876,7 +1922,7 @@
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <p class="text-gray-700"><strong class="text-gray-900">Qualità professionale</strong> — Aggiornamenti quotidiani, analisi approfondite e contenuti curati con la stessa attenzione delle migliori pubblicazioni internazionali.</p>
+                            <p class="text-gray-700 dark:text-slate-300"><strong class="text-gray-900 dark:text-white">Qualità professionale</strong> — Aggiornamenti quotidiani, analisi approfondite e contenuti curati con la stessa attenzione delle migliori pubblicazioni internazionali.</p>
                         </div>
                     </div>
                 </div>
@@ -2007,22 +2053,52 @@
     </main>
 
     <!-- Footer -->
-    <footer class="mt-16 py-12 bg-white dark:bg-transparent border-t border-gray-100 dark:border-slate-800/20 transition-colors">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-8">
-                <span class="lobster-font text-4xl text-teal-500">A</span>
-                <span class="montserrat-font text-2xl font-black text-gray-900 dark:text-white ml-1">LMA FINANZA</span>
+    <footer class="bg-white dark:bg-transparent border-t border-gray-100 dark:border-slate-800/20 text-gray-900 dark:text-white transition-colors duration-300 mt-16">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="lobster-font text-4xl text-teal-500">A</span>
+                        <span class="montserrat-font text-xl font-bold dark:text-white">lma Finanza</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-slate-500 text-sm">
+                        Le notizie dei mercati finanziari, aggiornate in tempo reale.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font dark:text-white">Sezioni</h3>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-slate-500">
+                        <li><a href="categoria-wall-street.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Wall Street</a></li>
+                        <li><a href="categoria-borsa-milano.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Borsa Milano</a></li>
+                        <li><a href="categoria-crypto.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Crypto</a></li>
+                        <li><a href="categoria-commodities.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Commodities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font dark:text-white">Risorse</h3>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-slate-500">
+                        <li><a href="impara-finanza.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Impara la Finanza</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Glossario Finanza</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Analisi Tecnica</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font dark:text-white">Legal</h3>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-slate-500">
+                        <li><a href="in-costruzione.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Privacy Policy</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Cookie Policy</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Disclaimer</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Contatti</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="flex flex-wrap justify-center gap-6 md:gap-8 mb-8 text-sm">
-                <a href="categoria-wall-street.html" class="text-gray-400 dark:text-slate-600 hover:text-teal-500 transition">Wall Street</a>
-                <a href="categoria-borsa-milano.html" class="text-gray-400 dark:text-slate-600 hover:text-teal-500 transition">Borsa Milano</a>
-                <a href="categoria-crypto.html" class="text-gray-400 dark:text-slate-600 hover:text-teal-500 transition">Crypto</a>
-                <a href="categoria-commodities.html" class="text-gray-400 dark:text-slate-600 hover:text-teal-500 transition">Commodities</a>
-                <a href="dashboard.html" class="text-gray-400 dark:text-slate-600 hover:text-teal-500 transition">Dashboard</a>
-                <a href="impara-finanza.html" class="text-gray-400 dark:text-slate-600 hover:text-teal-500 transition">Impara</a>
+            <div class="border-t border-gray-100 dark:border-slate-800/20 mt-8 pt-8 text-center text-sm text-gray-500 dark:text-slate-500">
+                <p>&copy; 2026 Alma Finanza. Tutti i diritti riservati.</p>
+                <p class="mt-4 text-xs max-w-3xl mx-auto leading-relaxed text-gray-400 dark:text-slate-600">
+                    Alma Finanza è una piattaforma di informazione ed educazione finanziaria. I contenuti pubblicati hanno scopo esclusivamente informativo, educativo e giornalistico. Non costituiscono consulenza finanziaria, raccomandazioni di investimento o sollecitazioni all'acquisto/vendita di strumenti finanziari. Le analisi presentate non tengono conto della situazione personale del lettore. Gli investimenti comportano rischi, inclusa la perdita del capitale. I rendimenti passati non garantiscono risultati futuri. Prima di prendere decisioni finanziarie, consulta sempre un professionista autorizzato.
+                </p>
             </div>
-            <p class="text-gray-300 dark:text-slate-700 text-center text-sm">&copy; 2026 Alma Finanza. Tutti i diritti riservati.</p>
-            <p class="text-gray-200 dark:text-slate-700 text-center text-xs mt-2 max-w-2xl mx-auto">Le informazioni fornite sono a scopo informativo e non costituiscono consulenza finanziaria. Investire comporta rischi.</p>
         </div>
     </footer>
 
