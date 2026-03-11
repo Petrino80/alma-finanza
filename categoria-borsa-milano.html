@@ -9,11 +9,13 @@
         gtag('js', new Date());
         gtag('config', 'G-E88FFDTPMP');
     </script>
+    <script>(function(){var t=localStorage.getItem("alma-theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")})()</script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Borsa Milano - Alma Finanza</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={darkMode:"class"}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -76,12 +78,40 @@
                 box-shadow: 0 6px 12px rgba(20, 184, 166, 0.5);
             }
         }
+
+        /* === DARK MODE === */
+        .dark .ticker-tape{background:linear-gradient(to right,#0c1017,#0f1520)!important;border-color:rgba(20,184,166,0.2)!important;}
+        .dark .ticker-item{color:#64748b;}
+        .dark .ticker-item a{color:#64748b;}
+        .dark .ticker-item a:hover{color:#14b8a6;}
+        .dark .positive{color:#34d399!important;}
+        .dark .negative{color:#f87171!important;}
+        .dark .article-card{background:rgba(15,23,42,0.6)!important;border-color:rgba(51,65,85,0.3)!important;}
+        .dark .article-card:hover{border-color:rgba(20,184,166,0.4)!important;box-shadow:0 4px 24px rgba(0,0,0,0.3)!important;}
+        .dark .article-card p{color:#94a3b8!important;}
+        .dark .article-card h3{color:#f1f5f9!important;}
+        .dark .shadow-sm,.dark .shadow-md,.dark .shadow-lg{box-shadow:0 4px 24px rgba(0,0,0,0.3)!important;}
+        .dark .bg-gray-50{background:#0c1017!important;}
+        .dark .bg-white{background:rgba(15,23,42,0.6)!important;}
+        .dark .text-gray-900{color:#f1f5f9!important;}
+        .dark .text-gray-600,.dark .text-gray-700{color:#94a3b8!important;}
+        .dark .text-gray-500{color:#64748b!important;}
+        .dark .text-gray-400{color:#475569!important;}
+        .dark .border-gray-200,.dark .border-gray-100{border-color:rgba(51,65,85,0.2)!important;}
+        .dark .vertical-switch{background:rgba(30,41,59,0.6)!important;}
+        .dark .vertical-switch button{color:#94a3b8;}
+        .dark .vertical-switch button.active{background:#14b8a6;color:white;}
+        .dark .category-badge{opacity:0.9;}
+        .dark .read-badge{box-shadow:0 4px 6px rgba(20,184,166,0.2)!important;}
+        .theme-toggle{position:relative;width:52px;height:28px;border-radius:14px;cursor:pointer;transition:background 0.4s;display:inline-flex;align-items:center;}
+        .theme-toggle .toggle-circle{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;transition:transform 0.4s cubic-bezier(0.68,-0.55,0.27,1.55),background 0.4s;display:flex;align-items:center;justify-content:center;font-size:12px;}
+        .dark .theme-toggle .toggle-circle{transform:translateX(24px);}
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-white dark:bg-[#0c1017] transition-colors duration-300">
 
     <!-- Header -->
-    <header class="bg-white border-b-2 border-gray-200 sticky top-0 z-50 shadow-sm">
+    <header class="bg-white/92 dark:bg-[#0c1017]/92 backdrop-blur-xl border-b border-gray-100 dark:border-slate-800/20 sticky top-0 z-50 shadow-sm dark:shadow-none transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
@@ -92,13 +122,20 @@
                     </div>
                 </a>
 
-                <!-- Navigation -->
-                <nav class="flex space-x-6 text-sm font-semibold">
-                    <a href="categoria-wall-street.html" class="text-gray-600 hover:text-teal-600">Wall Street</a>
-                    <a href="categoria-borsa-milano.html" class="text-teal-600 border-b-2 border-teal-600 pb-1">Borsa Milano</a>
-                    <a href="categoria-crypto.html" class="text-gray-600 hover:text-teal-600">Crypto</a>
-                    <a href="categoria-commodities.html" class="text-gray-600 hover:text-teal-600">Commodities</a>
-                </nav>
+                <!-- Navigation + Toggle -->
+                <div class="flex items-center gap-4">
+                    <nav class="flex space-x-6 text-sm font-semibold">
+                        <a href="categoria-wall-street.html" class="text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400">Wall Street</a>
+                        <a href="categoria-borsa-milano.html" class="text-teal-600 border-b-2 border-teal-600 pb-1">Borsa Milano</a>
+                        <a href="categoria-crypto.html" class="text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400">Crypto</a>
+                        <a href="categoria-commodities.html" class="text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400">Commodities</a>
+                    </nav>
+                    <div class="theme-toggle bg-gray-200 dark:bg-slate-700" onclick="toggleTheme()" title="Cambia tema">
+                        <div class="toggle-circle bg-white dark:bg-slate-900 shadow-md">
+                            <span class="ico-sun">☀️</span><span class="ico-moon" style="display:none">🌙</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -249,7 +286,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white mt-16">
+    <footer class="bg-white dark:bg-transparent border-t border-gray-100 dark:border-slate-800/20 text-gray-900 dark:text-white transition-colors duration-300 mt-16">
         <div class="max-w-7xl mx-auto px-4 py-12">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
@@ -298,5 +335,11 @@
         </div>
     </footer>
 
+    <script>
+    function toggleTheme(){var h=document.documentElement,d=h.classList.contains('dark');if(d){h.classList.remove('dark');localStorage.setItem('alma-theme','light')}else{h.classList.add('dark');localStorage.setItem('alma-theme','dark')}updateIcons()}
+    function updateIcons(){var d=document.documentElement.classList.contains('dark');document.querySelectorAll('.ico-sun').forEach(function(e){e.style.display=d?'none':'inline'});document.querySelectorAll('.ico-moon').forEach(function(e){e.style.display=d?'inline':'none'})}
+    window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){if(!localStorage.getItem('alma-theme')){if(e.matches)document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark');updateIcons()}});
+    updateIcons();
+    </script>
 </body>
 </html>

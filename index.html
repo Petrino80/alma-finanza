@@ -9,6 +9,7 @@
         gtag('js', new Date());
         gtag('config', 'G-E88FFDTPMP');
     </script>
+    <script>(function(){var t=localStorage.getItem('alma-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')})()</script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,6 +56,7 @@
     }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={darkMode:"class"}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -183,9 +185,37 @@
             background: #14b8a6;
             color: white;
         }
+
+        /* === DARK MODE === */
+        .dark .ticker-tape{background:linear-gradient(to right,#0c1017,#0f1520)!important;border-color:rgba(20,184,166,0.2)!important;}
+        .dark .ticker-item{color:#64748b;}
+        .dark .ticker-item a{color:#64748b;}
+        .dark .ticker-item a:hover{color:#14b8a6;}
+        .dark .positive{color:#34d399!important;}
+        .dark .negative{color:#f87171!important;}
+        .dark .article-card{background:rgba(15,23,42,0.6)!important;border-color:rgba(51,65,85,0.3)!important;}
+        .dark .article-card:hover{border-color:rgba(20,184,166,0.4)!important;box-shadow:0 4px 24px rgba(0,0,0,0.3)!important;}
+        .dark .article-card p{color:#94a3b8!important;}
+        .dark .article-card h3{color:#f1f5f9!important;}
+        .dark .shadow-sm,.dark .shadow-md,.dark .shadow-lg{box-shadow:0 4px 24px rgba(0,0,0,0.3)!important;}
+        .dark .bg-gray-50{background:#0c1017!important;}
+        .dark .bg-white{background:rgba(15,23,42,0.6)!important;}
+        .dark .text-gray-900{color:#f1f5f9!important;}
+        .dark .text-gray-600,.dark .text-gray-700{color:#94a3b8!important;}
+        .dark .text-gray-500{color:#64748b!important;}
+        .dark .text-gray-400{color:#475569!important;}
+        .dark .border-gray-200,.dark .border-gray-100{border-color:rgba(51,65,85,0.2)!important;}
+        .dark .vertical-switch{background:rgba(30,41,59,0.6)!important;}
+        .dark .vertical-switch button{color:#94a3b8;}
+        .dark .vertical-switch button.active{background:#14b8a6;color:white;}
+        .dark .category-badge{opacity:0.9;}
+        .dark .read-badge{box-shadow:0 4px 6px rgba(20,184,166,0.2)!important;}
+        .theme-toggle{position:relative;width:52px;height:28px;border-radius:14px;cursor:pointer;transition:background 0.4s;display:inline-flex;align-items:center;}
+        .theme-toggle .toggle-circle{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;transition:transform 0.4s cubic-bezier(0.68,-0.55,0.27,1.55),background 0.4s;display:flex;align-items:center;justify-content:center;font-size:12px;}
+        .dark .theme-toggle .toggle-circle{transform:translateX(24px);}
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-white dark:bg-[#0c1017] transition-colors duration-300">
     
     <!-- Ticker Tape -->
     <div class="ticker-tape" style="position:relative;">
@@ -220,14 +250,14 @@
     </div>
 
     <!-- Header -->
-    <header class="bg-white border-b-2 border-gray-200 sticky top-0 z-50 shadow-sm">
+    <header class="bg-white/92 dark:bg-[#0c1017]/92 backdrop-blur-xl border-b border-gray-100 dark:border-slate-800/20 sticky top-0 z-50 shadow-sm dark:shadow-none transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 py-3 md:py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <div class="flex items-center space-x-1 md:space-x-2">
                     <span class="lobster-font text-3xl md:text-5xl text-teal-500">A</span>
                     <div class="montserrat-font">
-                        <div class="text-lg md:text-2xl font-bold text-gray-900">lma Finanza</div>
+                        <div class="text-lg md:text-2xl font-bold text-gray-900 dark:text-white">lma Finanza</div>
                     </div>
                 </div>
 
@@ -237,57 +267,60 @@
                     <button onclick="window.location.href='in-costruzione.html'">Sport</button>
                 </div>
 
-                <!-- Date - Compact on mobile -->
-                <div class="text-xs md:text-sm text-gray-600 montserrat-font">
+                <!-- Theme Toggle + Date -->
+                <div class="flex items-center gap-3">
+                    <div class="theme-toggle bg-gray-200 dark:bg-slate-700" onclick="toggleTheme()" title="Cambia tema"><div class="toggle-circle bg-white dark:bg-slate-900 shadow-md"><span class="ico-sun">☀️</span><span class="ico-moon" style="display:none">🌙</span></div></div>
+                    <div class="text-xs md:text-sm text-gray-600 dark:text-slate-500 montserrat-font">
                     <strong class="hidden md:inline">Venerdì, 6 Marzo 2026</strong>
                     <strong class="md:hidden">6 Mar 2026</strong>
                     <span class="hidden md:inline"> • Aggiornato oggi</span>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Navigation Bar - Sezioni e Risorse -->
-    <nav class="bg-gray-50 border-b border-gray-200 py-3 overflow-x-auto">
+    <nav class="bg-gray-50 dark:bg-[#0f1520] border-b border-gray-200 dark:border-slate-800/20 py-3 overflow-x-auto">
         <div class="max-w-7xl mx-auto px-4">
             <!-- Desktop Layout -->
             <div class="hidden md:flex items-center justify-between">
                 <!-- Sezioni -->
                 <div class="flex items-center space-x-6">
-                    <span class="text-sm font-bold text-gray-900 montserrat-font">📂 Sezioni:</span>
+                    <span class="text-sm font-bold text-gray-900 dark:text-slate-300 montserrat-font">📂 Sezioni:</span>
                     <a href="dashboard.html" class="text-sm font-semibold bg-gradient-to-r from-teal-600 to-emerald-600 text-white px-3 py-1 rounded-full hover:shadow-lg transition">📊 Dashboard Live</a>
-                    <a href="categoria-wall-street.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Wall Street</a>
-                    <a href="categoria-borsa-milano.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Borsa Milano</a>
-                    <a href="categoria-crypto.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Crypto</a>
-                    <a href="categoria-commodities.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Commodities</a>
+                    <a href="categoria-wall-street.html" class="text-sm text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Wall Street</a>
+                    <a href="categoria-borsa-milano.html" class="text-sm text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Borsa Milano</a>
+                    <a href="categoria-crypto.html" class="text-sm text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Crypto</a>
+                    <a href="categoria-commodities.html" class="text-sm text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Commodities</a>
                 </div>
 
                 <!-- Risorse -->
                 <div class="flex items-center space-x-6">
-                    <span class="text-sm font-bold text-gray-900 montserrat-font">📚 Risorse:</span>
-                    <a href="impara-finanza.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Impara la Finanza</a>
-                    <a href="in-costruzione.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Glossario</a>
-                    <a href="in-costruzione.html" class="text-sm text-gray-700 hover:text-teal-600 transition">Analisi Tecnica</a>
+                    <span class="text-sm font-bold text-gray-900 dark:text-slate-300 montserrat-font">📚 Risorse:</span>
+                    <a href="impara-finanza.html" class="text-sm text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Impara la Finanza</a>
+                    <a href="in-costruzione.html" class="text-sm text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Glossario</a>
+                    <a href="in-costruzione.html" class="text-sm text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Analisi Tecnica</a>
                 </div>
             </div>
 
             <!-- Mobile Layout - Compact Grid -->
             <div class="md:hidden grid grid-cols-2 gap-3">
                 <div>
-                    <span class="text-xs font-bold text-gray-900 montserrat-font block mb-2">📂 Sezioni</span>
+                    <span class="text-xs font-bold text-gray-900 dark:text-slate-300 montserrat-font block mb-2">📂 Sezioni</span>
                     <div class="space-y-1">
-                        <a href="categoria-wall-street.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Wall Street</a>
-                        <a href="categoria-borsa-milano.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Borsa Milano</a>
-                        <a href="categoria-crypto.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Crypto</a>
-                        <a href="categoria-commodities.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Commodities</a>
+                        <a href="categoria-wall-street.html" class="text-xs text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Wall Street</a>
+                        <a href="categoria-borsa-milano.html" class="text-xs text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Borsa Milano</a>
+                        <a href="categoria-crypto.html" class="text-xs text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Crypto</a>
+                        <a href="categoria-commodities.html" class="text-xs text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Commodities</a>
                     </div>
                 </div>
                 <div>
-                    <span class="text-xs font-bold text-gray-900 montserrat-font block mb-2">📚 Risorse</span>
+                    <span class="text-xs font-bold text-gray-900 dark:text-slate-300 montserrat-font block mb-2">📚 Risorse</span>
                     <div class="space-y-1">
-                        <a href="impara-finanza.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Impara la Finanza</a>
-                        <a href="in-costruzione.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Glossario</a>
-                        <a href="in-costruzione.html" class="text-xs text-gray-700 hover:text-teal-600 transition block">Analisi Tecnica</a>
+                        <a href="impara-finanza.html" class="text-xs text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Impara la Finanza</a>
+                        <a href="in-costruzione.html" class="text-xs text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Glossario</a>
+                        <a href="in-costruzione.html" class="text-xs text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Analisi Tecnica</a>
                     </div>
                 </div>
             </div>
@@ -334,7 +367,7 @@
 
         <!-- Breaking News Badge -->
         <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold montserrat-font text-gray-900">📰 Articoli Ultimi 7 Giorni</h2>
+            <h2 class="text-2xl font-bold montserrat-font text-gray-900 dark:text-white">📰 Articoli Ultimi 7 Giorni</h2>
             <span class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse">🔴 LIVE</span>
         </div>
 
@@ -2051,7 +2084,7 @@
         </div>
 
         <!-- Mission Section -->
-        <section class="bg-white rounded-lg shadow-xl overflow-hidden my-16 border-t-4 border-teal-500">
+        <section class="bg-white dark:bg-[#0f172a]/60 rounded-lg shadow-xl dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)] overflow-hidden my-16 border-t-4 border-teal-500 transition-colors duration-300">
             <div class="grid md:grid-cols-5 gap-0">
                 <!-- Mission Content -->
                 <div class="md:col-span-3 p-12 lg:p-16">
@@ -2076,15 +2109,15 @@
                         </p>
                     </div>
                     
-                    <div class="bg-gradient-to-r from-teal-50 to-blue-50 rounded-xl p-6 mb-8 border-l-4 border-teal-500">
-                        <p class="text-gray-800 italic text-lg leading-relaxed">
+                    <div class="bg-gradient-to-r from-teal-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-xl p-6 mb-8 border-l-4 border-teal-500 transition-colors duration-300">
+                        <p class="text-gray-800 dark:text-slate-300 italic text-lg leading-relaxed">
                             "La competenza finanziaria non è un lusso — è uno strumento di libertà. E la libertà inizia dalla comprensione, che inizia dalla lingua che parliamo ogni giorno."
                         </p>
                     </div>
                     
                     <div class="space-y-4">
                         <div class="flex items-start space-x-3">
-                            <div class="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <div class="w-6 h-6 bg-teal-100 dark:bg-teal-900/40 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                                 <svg class="w-3 h-3 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
@@ -2092,7 +2125,7 @@
                             <p class="text-gray-700"><strong class="text-gray-900">100% in italiano</strong> — Ogni parola, ogni analisi, ogni numero. Nessuna traduzione automatica, nessun compromesso linguistico.</p>
                         </div>
                         <div class="flex items-start space-x-3">
-                            <div class="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <div class="w-6 h-6 bg-teal-100 dark:bg-teal-900/40 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                                 <svg class="w-3 h-3 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
@@ -2100,7 +2133,7 @@
                             <p class="text-gray-700"><strong class="text-gray-900">Informazione accessibile</strong> — Le notizie essenziali dei mercati e le analisi fondamentali disponibili per tutti, perché l'informazione di base è un diritto.</p>
                         </div>
                         <div class="flex items-start space-x-3">
-                            <div class="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <div class="w-6 h-6 bg-teal-100 dark:bg-teal-900/40 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                                 <svg class="w-3 h-3 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
@@ -2147,12 +2180,12 @@
         </section>
 
         <!-- Financial Education Disclaimer -->
-        <section class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg shadow p-4 mt-12 border-l-4 border-amber-500">
+        <section class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-lg shadow dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)] p-4 mt-12 border-l-4 border-amber-500 transition-colors duration-300">
             <div class="flex items-start space-x-3">
                 <div class="text-2xl">⚖️</div>
                 <div>
-                    <h3 class="text-base font-bold text-gray-900 mb-2 montserrat-font">Disclaimer Legale</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed">
+                    <h3 class="text-base font-bold text-gray-900 dark:text-amber-200 mb-2 montserrat-font">Disclaimer Legale</h3>
+                    <p class="text-xs text-gray-700 dark:text-slate-400 leading-relaxed">
                         <strong>🎓 Siamo educatori, non consulenti finanziari.</strong> Gli articoli hanno scopo puramente <strong>informativo ed educativo</strong>. Non conosciamo la tua situazione personale: rischio, obiettivi, orizzonte temporale. Solo tu (magari con un consulente autorizzato) puoi prendere decisioni adatte a te. <strong>📊 Cosa trovi:</strong> Analisi, tecniche, contesto. <strong>Cosa NON trovi:</strong> Raccomandazioni personalizzate o promesse di rendimenti. ⚠️ Investire comporta rischi, inclusa la possibile perdita totale del capitale.
                     </p>
                 </div>
@@ -2169,13 +2202,13 @@
                     id="newsletter-email"
                     name="email"
                     placeholder="La tua email"
-                    class="flex-1 px-4 py-3 rounded-lg text-gray-900"
+                    class="flex-1 px-4 py-3 rounded-lg text-gray-900 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
                     required
                 >
                 <button
                     type="submit"
                     id="newsletter-btn"
-                    class="bg-white text-teal-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                    class="bg-white dark:bg-slate-900 text-teal-600 dark:text-teal-400 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-slate-800 transition">
                     Iscriviti
                 </button>
             </form>
@@ -2236,7 +2269,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white mt-16">
+    <footer class="bg-white dark:bg-transparent border-t border-gray-100 dark:border-slate-800/20 text-gray-900 dark:text-white transition-colors duration-300 mt-16">
         <div class="max-w-7xl mx-auto px-4 py-12">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
@@ -2288,5 +2321,11 @@
     <!-- Ticker Real-Time con Alpha Vantage API -->
     <script src="js/ticker-realtime.js"></script>
 
+    <script>
+    function toggleTheme(){var h=document.documentElement,d=h.classList.contains('dark');if(d){h.classList.remove('dark');localStorage.setItem('alma-theme','light')}else{h.classList.add('dark');localStorage.setItem('alma-theme','dark')}updateIcons()}
+    function updateIcons(){var d=document.documentElement.classList.contains('dark');document.querySelectorAll('.ico-sun').forEach(function(e){e.style.display=d?'none':'inline'});document.querySelectorAll('.ico-moon').forEach(function(e){e.style.display=d?'inline':'none'})}
+    window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){if(!localStorage.getItem('alma-theme')){if(e.matches)document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark');updateIcons()}});
+    updateIcons();
+    </script>
 </body>
 </html>

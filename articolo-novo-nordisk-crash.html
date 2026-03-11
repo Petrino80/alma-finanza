@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novo Nordisk -18%: guidance shock Ozempic/Wegovy - Alma Finanza</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={darkMode:'class'}</script>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .lobster-font { font-family: 'Lobster', cursive; }
@@ -26,6 +27,30 @@
         .article-content blockquote { border-left: 4px solid #14b8a6; padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: #374151; background: #f0fdfa; padding: 1.5rem; border-radius: 0.5rem; }
         .lead { font-size: 1.25rem; font-weight: 500; line-height: 1.8; color: #1f2937; }
         .alert-box { background: #fee2e2; border-left: 4px solid #dc2626; padding: 1.5rem; margin: 2rem 0; border-radius: 0.5rem; }
+
+        /* === DARK MODE === */
+        .dark body,.dark .bg-gray-50{background:#0c1017!important;}
+        .dark .bg-white{background:rgba(15,23,42,0.6)!important;border-color:rgba(51,65,85,0.3)!important;}
+        .dark .article-content h2{color:#f1f5f9!important;}
+        .dark .article-content p,.dark .article-content li{color:#94a3b8!important;}
+        .dark .lead{color:#cbd5e1!important;}
+        .dark .info-box{background:rgba(15,23,42,0.6)!important;border-color:rgba(51,65,85,0.5)!important;}
+        .dark .info-box h3{color:#93c5fd!important;}
+        .dark .info-box p{color:#94a3b8!important;}
+        .dark .data-table th{background:#0f172a!important;}
+        .dark .data-table td{border-color:rgba(51,65,85,0.3)!important;color:#cbd5e1!important;}
+        .dark .data-table tr:nth-child(even) td{background:rgba(30,41,59,0.4)!important;}
+        .dark .positive{color:#34d399!important;}
+        .dark .negative{color:#f87171!important;}
+        .dark strong{color:#e2e8f0;}
+        .dark .bg-yellow-50{background:rgba(234,179,8,0.1)!important;}
+        .dark .text-yellow-800{color:#fde047!important;}
+        .dark .bg-red-50{background:rgba(239,68,68,0.1)!important;}
+        .dark .text-red-800{color:#fca5a5!important;}
+        .dark .shadow-sm,.dark .shadow-md{box-shadow:0 4px 24px rgba(0,0,0,0.3)!important;}
+        .theme-toggle{position:relative;width:52px;height:28px;border-radius:14px;cursor:pointer;transition:background 0.4s;display:inline-flex;align-items:center;}
+        .theme-toggle .toggle-circle{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;transition:transform 0.4s cubic-bezier(0.68,-0.55,0.27,1.55),background 0.4s;display:flex;align-items:center;justify-content:center;font-size:12px;}
+        .dark .theme-toggle .toggle-circle{transform:translateX(24px);}
     </style>
     <!-- SEO: Open Graph -->
     <meta property="og:type" content="article">
@@ -71,16 +96,21 @@
     }
     </script>
 </head>
-<body class="bg-gray-50">
+<body class="bg-white dark:bg-[#0c1017] transition-colors duration-300">
     <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="flex items-center space-x-2">
-                    <span class="lobster-font text-5xl text-teal-500">A</span>
-                    <span class="montserrat-font text-3xl font-black text-gray-900">LMA FINANZA</span>
-                </a>
-                <a href="index.html" class="text-gray-700 hover:text-teal-600 font-medium">← Torna alla Home</a>
+        <header class="bg-white/92 dark:bg-[#0c1017]/92 backdrop-blur-xl shadow-md dark:shadow-none sticky top-0 z-50 border-b border-gray-100 dark:border-slate-800/20 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-2">
+                <span class="lobster-font text-5xl text-teal-500">A</span>
+                <span class="montserrat-font text-3xl font-black text-gray-900 dark:text-white">LMA FINANZA</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="text-gray-700 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 font-medium transition">&larr; Home</a>
+                <div class="theme-toggle bg-gray-200 dark:bg-slate-700" onclick="toggleTheme()" title="Cambia tema">
+                    <div class="toggle-circle bg-white dark:bg-slate-900 shadow-md">
+                        <span class="ico-sun">☀️</span><span class="ico-moon" style="display:none">🌙</span>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -391,12 +421,18 @@
     </article>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <footer class="bg-white dark:bg-transparent border-t border-gray-100 dark:border-slate-800/20 text-gray-900 dark:text-white py-12 mt-16 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <span class="lobster-font text-4xl text-teal-400">Alma Finanza</span>
-            <p class="text-gray-400 mt-4">© 2026 Alma Finanza. Tutti i diritti riservati.</p>
-            <p class="text-gray-500 text-sm mt-2">Le informazioni fornite sono a scopo informativo e non costituiscono consulenza finanziaria.</p>
+            <span class="lobster-font text-4xl text-teal-500">Alma Finanza</span>
+            <p class="text-gray-500 dark:text-slate-600 mt-4">&copy; 2026 Alma Finanza. Tutti i diritti riservati.</p>
+            <p class="text-gray-400 dark:text-slate-700 text-sm mt-2">Le informazioni fornite sono a scopo informativo e non costituiscono consulenza finanziaria.</p>
         </div>
     </footer>
+    <script>
+    function toggleTheme(){var h=document.documentElement,d=h.classList.contains('dark');if(d){h.classList.remove('dark');localStorage.setItem('alma-theme','light')}else{h.classList.add('dark');localStorage.setItem('alma-theme','dark')}updateIcons()}
+    function updateIcons(){var d=document.documentElement.classList.contains('dark');document.querySelectorAll('.ico-sun').forEach(function(e){e.style.display=d?'none':'inline'});document.querySelectorAll('.ico-moon').forEach(function(e){e.style.display=d?'inline':'none'})}
+    window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){if(!localStorage.getItem('alma-theme')){if(e.matches)document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark');updateIcons()}});
+    updateIcons();
+    </script>
 </body>
 </html>

@@ -9,11 +9,13 @@
         gtag('js', new Date());
         gtag('config', 'G-E88FFDTPMP');
     </script>
+    <script>(function(){var t=localStorage.getItem("alma-theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")})()</script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina in Costruzione - Alma Finanza</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={darkMode:"class"}</script>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         .lobster-font { font-family: 'Lobster', cursive; }
@@ -44,17 +46,38 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        /* === DARK MODE === */
+        .dark .bg-gray-50,.dark .bg-gray-100{background:#0c1017!important;}
+        .dark .bg-white{background:rgba(15,23,42,0.6)!important;}
+        .dark .text-gray-900,.dark .text-gray-800{color:#f1f5f9!important;}
+        .dark .text-gray-700,.dark .text-gray-600{color:#94a3b8!important;}
+        .dark .text-gray-500{color:#64748b!important;}
+        .dark .text-gray-400{color:#475569!important;}
+        .dark .border-gray-200,.dark .border-gray-100,.dark .border-gray-300{border-color:rgba(51,65,85,0.2)!important;}
+        .dark .shadow-sm,.dark .shadow-md,.dark .shadow-lg{box-shadow:0 4px 24px rgba(0,0,0,0.3)!important;}
+        .dark .positive{color:#34d399!important;}
+        .dark .negative{color:#f87171!important;}
+        .theme-toggle{position:relative;width:52px;height:28px;border-radius:14px;cursor:pointer;transition:background 0.4s;display:inline-flex;align-items:center;}
+        .theme-toggle .toggle-circle{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;transition:transform 0.4s cubic-bezier(0.68,-0.55,0.27,1.55),background 0.4s;display:flex;align-items:center;justify-content:center;font-size:12px;}
+        .dark .theme-toggle .toggle-circle{transform:translateX(24px);}
     </style>
 </head>
-<body class="bg-gradient-to-br from-gray-50 to-teal-50 min-h-screen flex items-center justify-center p-4">
+<body class="bg-gradient-to-br from-gray-50 to-teal-50 dark:from-[#0c1017] dark:to-[#0f1520] min-h-screen flex items-center justify-center p-4 transition-colors duration-300">
     <div class="max-w-2xl w-full">
-        <!-- Logo -->
-        <div class="text-center mb-12">
+        <!-- Logo + Toggle -->
+        <div class="flex items-center justify-between mb-12">
+            <div></div>
             <a href="index.html" class="inline-block">
                 <h1 class="text-4xl md:text-5xl">
-                    <span class="lobster-font text-teal-500">A</span><span class="montserrat-font font-bold text-gray-800">lma Finanza</span>
+                    <span class="lobster-font text-teal-500">A</span><span class="montserrat-font font-bold text-gray-800 dark:text-white">lma Finanza</span>
                 </h1>
             </a>
+            <div class="theme-toggle bg-gray-200 dark:bg-slate-700" onclick="toggleTheme()" title="Cambia tema">
+                <div class="toggle-circle bg-white dark:bg-slate-900 shadow-md">
+                    <span class="ico-sun">☀️</span><span class="ico-moon" style="display:none">🌙</span>
+                </div>
+            </div>
         </div>
 
         <!-- Main Card -->
@@ -173,5 +196,11 @@
             </p>
         </div>
     </div>
+    <script>
+    function toggleTheme(){var h=document.documentElement,d=h.classList.contains('dark');if(d){h.classList.remove('dark');localStorage.setItem('alma-theme','light')}else{h.classList.add('dark');localStorage.setItem('alma-theme','dark')}updateIcons()}
+    function updateIcons(){var d=document.documentElement.classList.contains('dark');document.querySelectorAll('.ico-sun').forEach(function(e){e.style.display=d?'none':'inline'});document.querySelectorAll('.ico-moon').forEach(function(e){e.style.display=d?'inline':'none'})}
+    window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){if(!localStorage.getItem('alma-theme')){if(e.matches)document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark');updateIcons()}});
+    updateIcons();
+    </script>
 </body>
 </html>

@@ -9,11 +9,13 @@
         gtag('js', new Date());
         gtag('config', 'G-E88FFDTPMP');
     </script>
+    <script>(function(){var t=localStorage.getItem("alma-theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")})()</script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">Quote - Alma Finanza</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={darkMode:"class"}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -34,12 +36,27 @@
             0%, 100% { opacity: 1; }
             50% { opacity: .7; }
         }
+
+        /* === DARK MODE === */
+        .dark .bg-gray-50,.dark .bg-gray-100{background:#0c1017!important;}
+        .dark .bg-white{background:rgba(15,23,42,0.6)!important;}
+        .dark .text-gray-900,.dark .text-gray-800{color:#f1f5f9!important;}
+        .dark .text-gray-700,.dark .text-gray-600{color:#94a3b8!important;}
+        .dark .text-gray-500{color:#64748b!important;}
+        .dark .text-gray-400{color:#475569!important;}
+        .dark .border-gray-200,.dark .border-gray-100,.dark .border-gray-300{border-color:rgba(51,65,85,0.2)!important;}
+        .dark .shadow-sm,.dark .shadow-md,.dark .shadow-lg{box-shadow:0 4px 24px rgba(0,0,0,0.3)!important;}
+        .dark .positive{color:#34d399!important;}
+        .dark .negative{color:#f87171!important;}
+        .theme-toggle{position:relative;width:52px;height:28px;border-radius:14px;cursor:pointer;transition:background 0.4s;display:inline-flex;align-items:center;}
+        .theme-toggle .toggle-circle{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;transition:transform 0.4s cubic-bezier(0.68,-0.55,0.27,1.55),background 0.4s;display:flex;align-items:center;justify-content:center;font-size:12px;}
+        .dark .theme-toggle .toggle-circle{transform:translateX(24px);}
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-white dark:bg-[#0c1017] transition-colors duration-300">
 
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="bg-white/92 dark:bg-[#0c1017]/92 backdrop-blur-xl shadow-sm dark:shadow-none sticky top-0 z-50 border-b border-gray-100 dark:border-slate-800/20 transition-colors duration-300">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
             <a href="https://almafinanza.com/" class="flex items-center gap-3">
                 <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-lg flex items-center justify-center shadow-lg">
@@ -49,7 +66,14 @@
                     Alma Finanza
                 </span>
             </a>
-            <a href="https://almafinanza.com/" class="text-gray-600 hover:text-teal-600 font-semibold">← Torna alla Home</a>
+            <div class="flex items-center gap-4">
+                <a href="https://almafinanza.com/" class="text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 font-semibold">← Torna alla Home</a>
+                <div class="theme-toggle bg-gray-200 dark:bg-slate-700" onclick="toggleTheme()" title="Cambia tema">
+                    <div class="toggle-circle bg-white dark:bg-slate-900 shadow-md">
+                        <span class="ico-sun">☀️</span><span class="ico-moon" style="display:none">🌙</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -148,9 +172,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 mt-16">
+    <footer class="bg-white dark:bg-transparent border-t border-gray-100 dark:border-slate-800/20 text-gray-900 dark:text-white transition-colors duration-300 py-12 mt-16">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <span class="lobster-font text-4xl text-teal-400">Alma Finanza</span>
+            <span class="lobster-font text-4xl text-teal-500">Alma Finanza</span>
             <p class="text-gray-400 mt-4">&copy; 2026 Alma Finanza. Tutti i diritti riservati.</p>
             <p class="text-gray-500 text-sm mt-2">Le informazioni fornite sono a scopo informativo e non costituiscono consulenza finanziaria.</p>
         </div>
@@ -159,5 +183,11 @@
     <!-- JavaScript -->
     <script src="js/quote-page.js"></script>
 
+    <script>
+    function toggleTheme(){var h=document.documentElement,d=h.classList.contains('dark');if(d){h.classList.remove('dark');localStorage.setItem('alma-theme','light')}else{h.classList.add('dark');localStorage.setItem('alma-theme','dark')}updateIcons()}
+    function updateIcons(){var d=document.documentElement.classList.contains('dark');document.querySelectorAll('.ico-sun').forEach(function(e){e.style.display=d?'none':'inline'});document.querySelectorAll('.ico-moon').forEach(function(e){e.style.display=d?'inline':'none'})}
+    window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){if(!localStorage.getItem('alma-theme')){if(e.matches)document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark');updateIcons()}});
+    updateIcons();
+    </script>
 </body>
 </html>
