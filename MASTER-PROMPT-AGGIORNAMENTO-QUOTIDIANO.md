@@ -55,6 +55,20 @@ FASE 3 — AGGIORNA HOMEPAGE (index.html):
 ⚠️ NON CAMBIARE MAI IL FORMATO/LAYOUT DELLA HOMEPAGE. Solo aggiornare i contenuti.
 Design: Modern Minimal con switch light/dark.
 
+STRUTTURA FISSA DELLA HOMEPAGE (dall'alto in basso, MAI modificare l'ordine):
+1. Ticker scorrevole (barra dati live)
+2. Header: solo Logo "ALMA FINANZA" + Data + Toggle ☀️/🌙 (NO link navigazione nell'header)
+3. Navigation Bar con due gruppi:
+   - Sezioni: Dashboard Live | Wall Street | Borsa Milano | Crypto | Commodities
+   - Risorse: Impara la Finanza | Glossario | Analisi Tecnica
+4. Stats Bar (6 riquadri: Dow, S&P, MIB, WTI, Oro, BTC)
+5. Hero Article (notizia del giorno)
+6. Griglia articoli (theme-cards, 3 colonne)
+7. Mission Section ("Perché Alma Finanza")
+8. Disclaimer Legale
+9. Newsletter CTA + EmailJS
+10. Footer 4 colonne (Logo+desc | Sezioni | Risorse | Legal) + disclaimer esteso
+
 a) TICKER (barra scorrevole in alto):
    - Aggiorna tutti i valori con dati reali di chiusura
    - Minimo: Dow, S&P 500, Nasdaq, FTSE MIB + 5-8 titoli/indici protagonisti del giorno
