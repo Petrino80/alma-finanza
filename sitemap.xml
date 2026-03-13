@@ -67,6 +67,29 @@
             <news:title>Morgan Stanley limita riscatti: crisi private credit si allarga</news:title>
         </news:news>
     </url>
+    <url>
+        <loc>https://www.almafinanza.com/articolo-uipath-12mar-q4-earnings-agentic-ai-rpa-paradosso.html</loc>
+        <lastmod>2026-03-12</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.9</priority>
+        <news:news>
+            <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+            <news:publication_date>2026-03-12</news:publication_date>
+            <news:title>UiPath batte le stime Q4 ma crolla -9%: paradosso AI vs RPA</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.almafinanza.com/articolo-salesforce-12mar-buyback-50mld-debito-25mld-agentforce.html</loc>
+        <lastmod>2026-03-12</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.9</priority>
+        <news:news>
+            <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+            <news:publication_date>2026-03-12</news:publication_date>
+            <news:title>Salesforce: buyback record $50 mld con $25 mld di debito</news:title>
+        </news:news>
+    </url>
+
 
   <url>
     <loc>https://www.almafinanza.com/articolo-wall-street-11mar-cpi-stabile-nebius-nvidia-petrolio.html</loc>
