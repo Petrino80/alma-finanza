@@ -5,12 +5,69 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Articoli 11 Marzo 2026 -->
+    <!-- 12 Marzo 2026 -->
+    <url>
+        <loc>https://www.almafinanza.com/articolo-wall-street-12mar-shock-petrolio-sp500-dow-minimi-2026.html</loc>
+        <lastmod>2026-03-12</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.9</priority>
+        <news:news>
+            <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+            <news:publication_date>2026-03-12</news:publication_date>
+            <news:title>Wall Street crolla: shock petrolio affonda S&amp;P 500 e Dow ai minimi 2026</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.almafinanza.com/articolo-ftse-mib-12mar-leonardo-piano-2030-generali-record.html</loc>
+        <lastmod>2026-03-12</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.9</priority>
+        <news:news>
+            <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+            <news:publication_date>2026-03-12</news:publication_date>
+            <news:title>FTSE MIB: Leonardo vola +6% con piano 2030, Generali utile record</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.almafinanza.com/articolo-petrolio-12mar-brent-100-dollari-hormuz-crisi.html</loc>
+        <lastmod>2026-03-12</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.9</priority>
+        <news:news>
+            <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+            <news:publication_date>2026-03-12</news:publication_date>
+            <news:title>Brent sopra $100: prima volta dal 2022. Hormuz chiuso, Iraq ferma export</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.almafinanza.com/articolo-oracle-12mar-q3-earnings-cloud-ai-243-percento.html</loc>
+        <lastmod>2026-03-12</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.9</priority>
+        <news:news>
+            <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+            <news:publication_date>2026-03-12</news:publication_date>
+            <news:title>Oracle Q3: cloud +44%, AI infra +243%, titolo +10% after hours</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.almafinanza.com/articolo-morgan-stanley-12mar-private-credit-riscatti-crisi.html</loc>
+        <lastmod>2026-03-12</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.9</priority>
+        <news:news>
+            <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+            <news:publication_date>2026-03-12</news:publication_date>
+            <news:title>Morgan Stanley limita riscatti: crisi private credit si allarga</news:title>
+        </news:news>
+    </url>
+
   <url>
     <loc>https://www.almafinanza.com/articolo-wall-street-11mar-cpi-stabile-nebius-nvidia-petrolio.html</loc>
     <lastmod>2026-03-11</lastmod>
