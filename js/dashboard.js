@@ -376,9 +376,8 @@ function renderGainersLosers(market) {
     const data = marketData[market] || [];
     if (!data.length) return;
 
-    const sorted = [...data].sort((a, b) => b.changePercent - a.changePercent);
-    const gainers = sorted.slice(0, 10);
-    const losers = [...sorted].reverse().slice(0, 10);
+    const gainers = [...data].filter(s => s.changePercent > 0).sort((a, b) => b.changePercent - a.changePercent).slice(0, 10);
+    const losers  = [...data].filter(s => s.changePercent < 0).sort((a, b) => a.changePercent - b.changePercent).slice(0, 10);
 
     document.getElementById('top-gainers').innerHTML = gainers.map((s, i) => createStockRow(s, i + 1)).join('');
     document.getElementById('top-losers').innerHTML = losers.map((s, i) => createStockRow(s, i + 1)).join('');
