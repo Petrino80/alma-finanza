@@ -193,9 +193,20 @@ async function fetchQuote(symbol) {
         const data = JSON.parse(wrapper.contents);
         if (!data.chart || !data.chart.result || !data.chart.result[0]) return null;
 
-        const meta = data.chart.result[0].meta;
+        const result = data.chart.result[0];
+        const meta = result.meta;
         const price = meta.regularMarketPrice || 0;
-        const prevClose = meta.chartPreviousClose || meta.previousClose || price;
+
+        // Calcola variazione giornaliera usando le chiusure daily
+        // L'array close ha i prezzi di chiusura degli ultimi 5 giorni
+        const closes = result.indicators?.quote?.[0]?.close?.filter(c => c !== null) || [];
+        let prevClose;
+        if (closes.length >= 2) {
+            // Penultima chiusura = ieri
+            prevClose = closes[closes.length - 2];
+        } else {
+            prevClose = meta.previousClose || meta.chartPreviousClose || price;
+        }
         const change = price - prevClose;
         const pct = prevClose > 0 ? (change / prevClose) * 100 : 0;
 
