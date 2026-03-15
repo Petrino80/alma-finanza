@@ -13,7 +13,7 @@ const REFRESH_CLOSED = 300000; // 5 minuti a mercato chiuso
 // Proxy: allorigins.win/get wrappa la risposta → bypass CORS affidabile
 const PROXY_GET = 'https://api.allorigins.win/get?url=';
 
-// Simboli per categoria
+// Simboli per categoria (25-30 per garantire top 10 gainers + losers)
 const MARKET_SYMBOLS = {
     us: [
         { symbol: 'AAPL',  name: 'Apple' },
@@ -24,6 +24,26 @@ const MARKET_SYMBOLS = {
         { symbol: 'JPM',   name: 'JPMorgan' },
         { symbol: 'AMZN',  name: 'Amazon' },
         { symbol: 'GOOGL', name: 'Alphabet' },
+        { symbol: 'BRK-B', name: 'Berkshire' },
+        { symbol: 'UNH',   name: 'UnitedHealth' },
+        { symbol: 'V',     name: 'Visa' },
+        { symbol: 'JNJ',   name: 'J&J' },
+        { symbol: 'WMT',   name: 'Walmart' },
+        { symbol: 'PG',    name: 'P&G' },
+        { symbol: 'MA',    name: 'Mastercard' },
+        { symbol: 'HD',    name: 'Home Depot' },
+        { symbol: 'DIS',   name: 'Disney' },
+        { symbol: 'BAC',   name: 'BofA' },
+        { symbol: 'KO',    name: 'Coca-Cola' },
+        { symbol: 'PEP',   name: 'PepsiCo' },
+        { symbol: 'NFLX',  name: 'Netflix' },
+        { symbol: 'CRM',   name: 'Salesforce' },
+        { symbol: 'ADBE',  name: 'Adobe' },
+        { symbol: 'BA',    name: 'Boeing' },
+        { symbol: 'GS',    name: 'Goldman Sachs' },
+        { symbol: 'CAT',   name: 'Caterpillar' },
+        { symbol: 'NKE',   name: 'Nike' },
+        { symbol: 'MCD',   name: "McDonald's" },
     ],
     tech: [
         { symbol: 'NVDA',  name: 'Nvidia' },
@@ -34,6 +54,23 @@ const MARKET_SYMBOLS = {
         { symbol: 'AVGO',  name: 'Broadcom' },
         { symbol: 'INTC',  name: 'Intel' },
         { symbol: 'QCOM',  name: 'Qualcomm' },
+        { symbol: 'CRM',   name: 'Salesforce' },
+        { symbol: 'ADBE',  name: 'Adobe' },
+        { symbol: 'ORCL',  name: 'Oracle' },
+        { symbol: 'NOW',   name: 'ServiceNow' },
+        { symbol: 'PLTR',  name: 'Palantir' },
+        { symbol: 'UBER',  name: 'Uber' },
+        { symbol: 'SHOP',  name: 'Shopify' },
+        { symbol: 'SNOW',  name: 'Snowflake' },
+        { symbol: 'SQ',    name: 'Block' },
+        { symbol: 'NET',   name: 'Cloudflare' },
+        { symbol: 'CRWD',  name: 'CrowdStrike' },
+        { symbol: 'PANW',  name: 'Palo Alto' },
+        { symbol: 'MU',    name: 'Micron' },
+        { symbol: 'MRVL',  name: 'Marvell' },
+        { symbol: 'COIN',  name: 'Coinbase' },
+        { symbol: 'DELL',  name: 'Dell' },
+        { symbol: 'ARM',   name: 'ARM Holdings' },
     ],
     energy: [
         { symbol: 'XOM',   name: 'Exxon' },
@@ -42,6 +79,25 @@ const MARKET_SYMBOLS = {
         { symbol: 'NEE',   name: 'NextEra' },
         { symbol: 'BP',    name: 'BP' },
         { symbol: 'SHEL',  name: 'Shell' },
+        { symbol: 'COP',   name: 'ConocoPhillips' },
+        { symbol: 'EOG',   name: 'EOG Resources' },
+        { symbol: 'SLB',   name: 'Schlumberger' },
+        { symbol: 'MPC',   name: 'Marathon Petrol' },
+        { symbol: 'PSX',   name: 'Phillips 66' },
+        { symbol: 'VLO',   name: 'Valero' },
+        { symbol: 'OXY',   name: 'Occidental' },
+        { symbol: 'HAL',   name: 'Halliburton' },
+        { symbol: 'DVN',   name: 'Devon Energy' },
+        { symbol: 'FANG',  name: 'Diamondback' },
+        { symbol: 'BKR',   name: 'Baker Hughes' },
+        { symbol: 'WMB',   name: 'Williams Cos' },
+        { symbol: 'KMI',   name: 'Kinder Morgan' },
+        { symbol: 'OKE',   name: 'ONEOK' },
+        { symbol: 'ENPH',  name: 'Enphase' },
+        { symbol: 'SEDG',  name: 'SolarEdge' },
+        { symbol: 'FSLR',  name: 'First Solar' },
+        { symbol: 'CEG',   name: 'Constellation' },
+        { symbol: 'D',     name: 'Dominion' },
     ],
     europe: [
         { symbol: 'RACE',  name: 'Ferrari' },
@@ -50,6 +106,25 @@ const MARKET_SYMBOLS = {
         { symbol: 'SAP',   name: 'SAP' },
         { symbol: 'NVO',   name: 'Novo Nordisk' },
         { symbol: 'LVMUY', name: 'LVMH' },
+        { symbol: 'AZN',   name: 'AstraZeneca' },
+        { symbol: 'UL',    name: 'Unilever' },
+        { symbol: 'HSBC',  name: 'HSBC' },
+        { symbol: 'SNY',   name: 'Sanofi' },
+        { symbol: 'DEO',   name: 'Diageo' },
+        { symbol: 'RIO',   name: 'Rio Tinto' },
+        { symbol: 'BHP',   name: 'BHP Group' },
+        { symbol: 'GSK',   name: 'GSK' },
+        { symbol: 'SAN',   name: 'Santander' },
+        { symbol: 'STLA',  name: 'Stellantis' },
+        { symbol: 'PHG',   name: 'Philips' },
+        { symbol: 'NXPI',  name: 'NXP Semi' },
+        { symbol: 'ING',   name: 'ING Group' },
+        { symbol: 'DB',    name: 'Deutsche Bank' },
+        { symbol: 'E',     name: 'ENI' },
+        { symbol: 'EQNR',  name: 'Equinor' },
+        { symbol: 'ABB',   name: 'ABB' },
+        { symbol: 'WPP',   name: 'WPP' },
+        { symbol: 'SPOT',  name: 'Spotify' },
     ],
     asia: [
         { symbol: 'TSM',   name: 'TSMC' },
@@ -57,6 +132,26 @@ const MARKET_SYMBOLS = {
         { symbol: 'TM',    name: 'Toyota' },
         { symbol: 'BABA',  name: 'Alibaba' },
         { symbol: 'TCEHY', name: 'Tencent' },
+        { symbol: 'PDD',   name: 'PDD Holdings' },
+        { symbol: 'JD',    name: 'JD.com' },
+        { symbol: 'BIDU',  name: 'Baidu' },
+        { symbol: 'NIO',   name: 'NIO' },
+        { symbol: 'XPEV',  name: 'XPeng' },
+        { symbol: 'LI',    name: 'Li Auto' },
+        { symbol: 'SE',    name: 'Sea Ltd' },
+        { symbol: 'GRAB',  name: 'Grab' },
+        { symbol: 'MELI',  name: 'MercadoLibre' },
+        { symbol: 'HDB',   name: 'HDFC Bank' },
+        { symbol: 'IBN',   name: 'ICICI Bank' },
+        { symbol: 'INFY',  name: 'Infosys' },
+        { symbol: 'WIT',   name: 'Wipro' },
+        { symbol: 'KB',    name: 'KB Financial' },
+        { symbol: 'SHG',   name: 'Shinhan' },
+        { symbol: 'MFG',   name: 'Mizuho' },
+        { symbol: 'SMFG',  name: 'Sumitomo' },
+        { symbol: 'HMC',   name: 'Honda' },
+        { symbol: 'NTDOY', name: 'Nintendo' },
+        { symbol: 'SNE',   name: 'Sony Group' },
     ]
 };
 
@@ -281,16 +376,12 @@ function renderGainersLosers(market) {
     const data = marketData[market] || [];
     if (!data.length) return;
 
-    const gainers = [...data].filter(s => s.changePercent > 0).sort((a, b) => b.changePercent - a.changePercent).slice(0, 5);
-    const losers = [...data].filter(s => s.changePercent < 0).sort((a, b) => a.changePercent - b.changePercent).slice(0, 5);
+    const sorted = [...data].sort((a, b) => b.changePercent - a.changePercent);
+    const gainers = sorted.slice(0, 10);
+    const losers = [...sorted].reverse().slice(0, 10);
 
-    document.getElementById('top-gainers').innerHTML = gainers.length
-        ? gainers.map((s, i) => createStockRow(s, i + 1)).join('')
-        : '<p class="text-gray-500 text-center py-8">Nessun titolo in rialzo</p>';
-
-    document.getElementById('top-losers').innerHTML = losers.length
-        ? losers.map((s, i) => createStockRow(s, i + 1)).join('')
-        : '<p class="text-gray-500 text-center py-8">Nessun titolo in ribasso</p>';
+    document.getElementById('top-gainers').innerHTML = gainers.map((s, i) => createStockRow(s, i + 1)).join('');
+    document.getElementById('top-losers').innerHTML = losers.map((s, i) => createStockRow(s, i + 1)).join('');
 }
 
 function updateStats(market) {
