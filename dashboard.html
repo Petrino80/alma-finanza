@@ -118,7 +118,10 @@
         <div class="mb-8">
             <h1 class="text-4xl font-bold text-gray-900 mb-2">📊 Dashboard Mercati</h1>
             <p class="text-gray-600">Panoramica real-time dei mercati globali con heatmap, top gainers e top losers</p>
-            <p class="text-sm text-gray-500 mt-2">Ultimo aggiornamento: <span id="last-update" class="font-semibold">caricamento...</span></p>
+            <div class="flex items-center gap-4 mt-2">
+                <p class="text-sm text-gray-500">Ultimo aggiornamento: <span id="last-update" class="font-semibold">caricamento...</span></p>
+                <div id="market-status"></div>
+            </div>
         </div>
 
         <!-- Market Filters -->

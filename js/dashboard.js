@@ -1,19 +1,17 @@
 /**
- * Alma Finanza - Dashboard Mercati
+ * Alma Finanza - Dashboard Mercati v4
  * Heatmap, Top Gainers, Top Losers
- * Fonte dati: Yahoo Finance v8 chart API (no auth required)
- * Strategia: richieste parallele per simbolo via CORS proxy
+ *
+ * Yahoo Finance v8 chart API via allorigins.win (wrapped JSON — più affidabile)
+ * - Borse aperte: dati real-time, refresh ogni 60s
+ * - Borse chiuse/weekend: ultimo dato di chiusura disponibile
  */
 
-const REFRESH_INTERVAL = 300000; // 5 minuti
+const REFRESH_OPEN = 60000;    // 1 minuto durante apertura
+const REFRESH_CLOSED = 300000; // 5 minuti a mercato chiuso
 
-// CORS proxy list — si provano in ordine, con fallback
-const CORS_PROXIES = [
-    { prefix: 'https://corsproxy.io/?url=', encode: true },
-    { prefix: 'https://api.allorigins.win/raw?url=', encode: true },
-    { prefix: 'https://thingproxy.freeboard.io/fetch/', encode: false },
-];
-let workingProxy = null; // cache del proxy funzionante
+// Proxy: allorigins.win/get wrappa la risposta → bypass CORS affidabile
+const PROXY_GET = 'https://api.allorigins.win/get?url=';
 
 // Simboli per categoria
 const MARKET_SYMBOLS = {
@@ -65,87 +63,59 @@ const MARKET_SYMBOLS = {
 let currentMarket = 'us';
 let marketData = {};
 let isLoading = false;
+let refreshTimer = null;
+let marketIsOpen = false;
 
 /**
- * Costruisce URL del proxy
+ * Controlla se il mercato USA è aperto (lun-ven 9:30-16:00 ET)
  */
-function buildProxyUrl(proxy, targetUrl) {
-    return proxy.prefix + (proxy.encode ? encodeURIComponent(targetUrl) : targetUrl);
+function isUSMarketOpen() {
+    const now = new Date();
+    const et = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+    const day = et.getDay(); // 0=dom, 6=sab
+    const h = et.getHours();
+    const m = et.getMinutes();
+    const minutes = h * 60 + m;
+    // Lun-Ven, 9:30 (570) - 16:00 (960)
+    return day >= 1 && day <= 5 && minutes >= 570 && minutes < 960;
 }
 
 /**
- * Trova un proxy funzionante testando AAPL
+ * Fetch singolo simbolo via allorigins.win/get (wrapped JSON)
+ * Usa range=5d per avere sempre dati anche nel weekend
  */
-async function findWorkingProxy() {
-    const testUrl = 'https://query2.finance.yahoo.com/v8/finance/chart/AAPL?range=1d&interval=1d&includePrePost=false';
-
-    for (let i = 0; i < CORS_PROXIES.length; i++) {
-        const proxy = CORS_PROXIES[i];
-        const url = buildProxyUrl(proxy, testUrl);
-        try {
-            console.log(`🔍 Test proxy ${i + 1}: ${proxy.prefix.substring(0, 40)}...`);
-            const resp = await fetch(url, { signal: AbortSignal.timeout(8000) });
-            if (!resp.ok) continue;
-            const data = await resp.json();
-            if (data.chart && data.chart.result && data.chart.result.length > 0) {
-                console.log(`✅ Proxy ${i + 1} funzionante!`);
-                return proxy;
-            }
-        } catch (e) {
-            console.warn(`❌ Proxy ${i + 1} fallito: ${e.message}`);
-        }
-    }
-
-    // Tentativo diretto (senza proxy, funziona da alcune reti)
-    try {
-        console.log('🔍 Test connessione diretta Yahoo Finance...');
-        const resp = await fetch(testUrl, { signal: AbortSignal.timeout(8000) });
-        if (resp.ok) {
-            const data = await resp.json();
-            if (data.chart && data.chart.result) {
-                console.log('✅ Connessione diretta funzionante!');
-                return { prefix: '', encode: false };
-            }
-        }
-    } catch (e) {
-        console.warn('❌ Connessione diretta fallita');
-    }
-
-    return null;
-}
-
-/**
- * Fetch singolo simbolo da Yahoo v8 chart
- */
-async function fetchSingleQuote(symbol, proxy) {
-    const yahooUrl = `https://query2.finance.yahoo.com/v8/finance/chart/${symbol}?range=1d&interval=1d&includePrePost=false`;
-    const url = proxy.prefix ? buildProxyUrl(proxy, yahooUrl) : yahooUrl;
+async function fetchQuote(symbol) {
+    const yahooUrl = `https://query2.finance.yahoo.com/v8/finance/chart/${symbol}?range=5d&interval=1d&includePrePost=false`;
+    const url = PROXY_GET + encodeURIComponent(yahooUrl);
 
     try {
-        const resp = await fetch(url, { signal: AbortSignal.timeout(10000) });
-        if (!resp.ok) return null;
+        const resp = await fetch(url, { signal: AbortSignal.timeout(12000) });
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
 
-        const data = await resp.json();
-        if (!data.chart || !data.chart.result || data.chart.result.length === 0) return null;
+        const wrapper = await resp.json();
+        if (!wrapper.contents) throw new Error('No contents in wrapper');
 
-        const result = data.chart.result[0];
-        const meta = result.meta;
+        const data = JSON.parse(wrapper.contents);
+        if (!data.chart || !data.chart.result || !data.chart.result[0]) return null;
 
+        const meta = data.chart.result[0].meta;
         const price = meta.regularMarketPrice || 0;
         const prevClose = meta.chartPreviousClose || meta.previousClose || price;
         const change = price - prevClose;
-        const changePercent = prevClose > 0 ? (change / prevClose) * 100 : 0;
+        const pct = prevClose > 0 ? (change / prevClose) * 100 : 0;
 
         return {
-            symbol: symbol,
-            price: price,
-            change: change,
-            changePercent: changePercent,
+            symbol,
+            price,
+            change,
+            changePercent: pct,
             high: meta.regularMarketDayHigh || price,
             low: meta.regularMarketDayLow || price,
             open: meta.regularMarketOpen || price,
             previousClose: prevClose,
             volume: meta.regularMarketVolume || 0,
+            marketState: meta.marketState || 'CLOSED',
+            exchangeTimezoneName: meta.exchangeTimezoneName || '',
         };
     } catch (e) {
         console.warn(`⚠️ ${symbol}: ${e.message}`);
@@ -154,7 +124,7 @@ async function fetchSingleQuote(symbol, proxy) {
 }
 
 /**
- * Colore celle heatmap
+ * Colore heatmap
  */
 function getColorClass(cp) {
     if (cp >= 5)  return 'gain-strong';
@@ -166,7 +136,7 @@ function getColorClass(cp) {
 }
 
 /**
- * Crea cella heatmap
+ * Cella heatmap
  */
 function createHeatmapCell(stock) {
     const cc = getColorClass(stock.changePercent);
@@ -186,7 +156,7 @@ function createHeatmapCell(stock) {
 }
 
 /**
- * Crea riga gainer/loser
+ * Riga gainer/loser
  */
 function createStockRow(stock, rank) {
     const pos = stock.changePercent >= 0;
@@ -209,7 +179,7 @@ function createStockRow(stock, rank) {
 }
 
 /**
- * Carica dati mercato — richieste parallele
+ * Carica dati — fetch parallelo
  */
 async function loadMarketData(market) {
     if (isLoading) return;
@@ -217,45 +187,32 @@ async function loadMarketData(market) {
 
     const symbols = MARKET_SYMBOLS[market];
     const container = document.getElementById('heatmap-container');
-    container.innerHTML = '<div class="col-span-full text-center py-8 text-gray-600">⏳ Connessione a Yahoo Finance...</div>';
+    container.innerHTML = '<div class="col-span-full text-center py-8 text-gray-600">⏳ Caricamento dati da Yahoo Finance...</div>';
 
-    // Trova proxy funzionante (o usa cache)
-    if (!workingProxy) {
-        workingProxy = await findWorkingProxy();
-    }
-
-    if (!workingProxy) {
-        container.innerHTML = `
-            <div class="col-span-full text-center py-12">
-                <p class="text-2xl mb-2">🔌</p>
-                <p class="text-gray-600 font-semibold mb-1">Impossibile connettersi a Yahoo Finance</p>
-                <p class="text-gray-400 text-sm mb-4">Tutti i proxy CORS sono irraggiungibili. Riprova tra qualche minuto.</p>
-                <button onclick="retryLoad()" class="px-6 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition text-sm">🔄 Riprova</button>
-            </div>`;
-        isLoading = false;
-        return;
-    }
-
-    container.innerHTML = '<div class="col-span-full text-center py-8 text-gray-600">⏳ Caricamento dati di mercato...</div>';
-
-    // Nome mappa
     const nameMap = {};
     symbols.forEach(s => { nameMap[s.symbol] = s.name; });
 
-    // Fetch parallelo di tutti i simboli
-    console.log(`📊 Loading ${market}: ${symbols.length} simboli in parallelo...`);
-    const promises = symbols.map(s => fetchSingleQuote(s.symbol, workingProxy));
-    const results = await Promise.allSettled(promises);
+    // Fetch parallelo
+    console.log(`📊 Loading ${market}: ${symbols.length} simboli...`);
+    const results = await Promise.allSettled(symbols.map(s => fetchQuote(s.symbol)));
 
     marketData[market] = [];
-    results.forEach((r, i) => {
+    results.forEach(r => {
         if (r.status === 'fulfilled' && r.value) {
             r.value.name = nameMap[r.value.symbol] || r.value.symbol;
             marketData[market].push(r.value);
         }
     });
 
-    console.log(`✅ ${market}: ${marketData[market].length}/${symbols.length} simboli caricati`);
+    console.log(`✅ ${market}: ${marketData[market].length}/${symbols.length} caricati`);
+
+    // Determina stato mercato
+    const firstStock = marketData[market][0];
+    if (firstStock) {
+        marketIsOpen = firstStock.marketState === 'REGULAR';
+    } else {
+        marketIsOpen = isUSMarketOpen();
+    }
 
     if (marketData[market].length > 0) {
         renderHeatmap(market);
@@ -264,22 +221,51 @@ async function loadMarketData(market) {
         container.innerHTML = `
             <div class="col-span-full text-center py-12">
                 <p class="text-2xl mb-2">⚠️</p>
-                <p class="text-gray-600 font-semibold mb-1">Nessun dato disponibile</p>
-                <p class="text-gray-400 text-sm mb-4">I mercati potrebbero essere chiusi. Riprova più tardi.</p>
+                <p class="text-gray-600 font-semibold mb-1">Dati non disponibili</p>
+                <p class="text-gray-400 text-sm mb-4">Il servizio potrebbe essere temporaneamente non raggiungibile.</p>
                 <button onclick="retryLoad()" class="px-6 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition text-sm">🔄 Riprova</button>
             </div>`;
     }
 
     updateStats(market);
+    updateMarketStatus();
     updateTimestamp();
+
+    // Imposta refresh rate in base allo stato del mercato
+    setupRefreshTimer();
+
     isLoading = false;
 }
 
 /**
- * Riprova: resetta proxy cache e ricarica
+ * Mostra badge stato mercato
  */
+function updateMarketStatus() {
+    const el = document.getElementById('market-status');
+    if (!el) return;
+
+    if (marketIsOpen) {
+        el.innerHTML = '<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700"><span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>Mercato aperto — Dati real-time</span>';
+    } else {
+        el.innerHTML = '<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gray-100 text-gray-600"><span class="w-2 h-2 rounded-full bg-gray-400"></span>Mercato chiuso — Ultima chiusura</span>';
+    }
+}
+
+/**
+ * Refresh timer: 60s se aperto, 5min se chiuso
+ */
+function setupRefreshTimer() {
+    if (refreshTimer) clearInterval(refreshTimer);
+    const interval = marketIsOpen ? REFRESH_OPEN : REFRESH_CLOSED;
+    console.log(`⏱️ Refresh ogni ${interval / 1000}s (mercato ${marketIsOpen ? 'aperto' : 'chiuso'})`);
+    refreshTimer = setInterval(async () => {
+        console.log('🔄 Auto-refresh...');
+        marketData[currentMarket] = [];
+        await loadMarketData(currentMarket);
+    }, interval);
+}
+
 async function retryLoad() {
-    workingProxy = null;
     marketData[currentMarket] = [];
     await loadMarketData(currentMarket);
 }
@@ -287,23 +273,22 @@ async function retryLoad() {
 function renderHeatmap(market) {
     const container = document.getElementById('heatmap-container');
     const data = marketData[market] || [];
-    if (data.length === 0) return;
-    const sorted = [...data].sort((a, b) => b.changePercent - a.changePercent);
-    container.innerHTML = sorted.map(s => createHeatmapCell(s)).join('');
+    if (!data.length) return;
+    container.innerHTML = [...data].sort((a, b) => b.changePercent - a.changePercent).map(s => createHeatmapCell(s)).join('');
 }
 
 function renderGainersLosers(market) {
     const data = marketData[market] || [];
-    if (data.length === 0) return;
+    if (!data.length) return;
 
     const gainers = [...data].filter(s => s.changePercent > 0).sort((a, b) => b.changePercent - a.changePercent).slice(0, 5);
     const losers = [...data].filter(s => s.changePercent < 0).sort((a, b) => a.changePercent - b.changePercent).slice(0, 5);
 
-    document.getElementById('top-gainers').innerHTML = gainers.length > 0
+    document.getElementById('top-gainers').innerHTML = gainers.length
         ? gainers.map((s, i) => createStockRow(s, i + 1)).join('')
         : '<p class="text-gray-500 text-center py-8">Nessun titolo in rialzo</p>';
 
-    document.getElementById('top-losers').innerHTML = losers.length > 0
+    document.getElementById('top-losers').innerHTML = losers.length
         ? losers.map((s, i) => createStockRow(s, i + 1)).join('')
         : '<p class="text-gray-500 text-center py-8">Nessun titolo in ribasso</p>';
 }
@@ -331,7 +316,7 @@ function updateTimestamp() {
 }
 
 async function initDashboard() {
-    console.log('🚀 Alma Finanza Dashboard (Yahoo Finance v8)');
+    console.log('🚀 Alma Finanza Dashboard v4 (Yahoo Finance via allorigins)');
     await loadMarketData(currentMarket);
 
     document.querySelectorAll('.market-filter').forEach(btn => {
@@ -352,7 +337,7 @@ async function initDashboard() {
 
             currentMarket = market;
 
-            if (!marketData[market] || marketData[market].length === 0) {
+            if (!marketData[market] || !marketData[market].length) {
                 await loadMarketData(market);
             } else {
                 renderHeatmap(market);
@@ -361,12 +346,6 @@ async function initDashboard() {
             }
         });
     });
-
-    setInterval(async () => {
-        console.log('🔄 Auto-refresh...');
-        marketData[currentMarket] = [];
-        await loadMarketData(currentMarket);
-    }, REFRESH_INTERVAL);
 }
 
 if (document.readyState === 'loading') {
