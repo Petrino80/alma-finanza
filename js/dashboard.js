@@ -1,12 +1,15 @@
 /**
  * Alma Finanza - Dashboard Mercati
  * Heatmap, Top Gainers, Top Losers
- * USA: Twelve Data API (demo key - 1 req alla volta, gratis)
+ * Fonte dati: Yahoo Finance (via CORS proxy)
  */
 
-const TWELVEDATA_KEY = 'demo';  // chiave demo gratuita Twelve Data
 const REFRESH_INTERVAL = 300000; // 5 minuti
-const API_DELAY = 800; // 800ms tra chiamate per rispettare rate limit
+const CORS_PROXIES = [
+    'https://corsproxy.io/?',
+    'https://api.allorigins.win/raw?url='
+];
+let activeProxy = 0;
 
 // Simboli per categoria
 const MARKET_SYMBOLS = {
@@ -60,61 +63,61 @@ let marketData = {};
 let isLoading = false;
 
 /**
- * Sleep utility
+ * Fetch quotes da Yahoo Finance (batch, via CORS proxy)
  */
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+async function fetchQuotes(symbols) {
+    const symbolList = symbols.map(s => s.symbol).join(',');
+    const yahooUrl = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbolList}&fields=symbol,regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketOpen,regularMarketDayHigh,regularMarketDayLow,regularMarketPreviousClose,regularMarketVolume`;
+
+    for (let p = 0; p < CORS_PROXIES.length; p++) {
+        const proxyIdx = (activeProxy + p) % CORS_PROXIES.length;
+        const proxyUrl = CORS_PROXIES[proxyIdx] + encodeURIComponent(yahooUrl);
+
+        try {
+            console.log(`📡 Tentativo proxy ${proxyIdx + 1}...`);
+            const response = await fetch(proxyUrl, { signal: AbortSignal.timeout(10000) });
+
+            if (!response.ok) {
+                console.warn(`⚠️ Proxy ${proxyIdx + 1}: HTTP ${response.status}`);
+                continue;
+            }
+
+            const data = await response.json();
+
+            if (data.quoteResponse && data.quoteResponse.result) {
+                activeProxy = proxyIdx;
+                return data.quoteResponse.result;
+            }
+
+            console.warn('⚠️ Risposta Yahoo non valida:', data);
+        } catch (error) {
+            console.warn(`⚠️ Proxy ${proxyIdx + 1} fallito:`, error.message);
+        }
+    }
+
+    return null;
 }
 
 /**
- * Fetch quote da Twelve Data (demo key, 1 simbolo alla volta)
+ * Trasforma risposta Yahoo in formato dashboard
  */
-async function fetchQuote(symbol) {
-    try {
-        const url = `https://api.twelvedata.com/quote?symbol=${encodeURIComponent(symbol)}&apikey=${TWELVEDATA_KEY}`;
-        const response = await fetch(url);
+function parseYahooQuote(quote, nameMap) {
+    const price = quote.regularMarketPrice || 0;
+    const change = quote.regularMarketChange || 0;
+    const changePercent = quote.regularMarketChangePercent || 0;
 
-        if (!response.ok) {
-            console.warn(`⚠️ HTTP ${response.status} per ${symbol}`);
-            return null;
-        }
-
-        const data = await response.json();
-
-        // Se c'è un errore (es. troppe richieste o simbolo non trovato)
-        if (data.code || data.status === 'error') {
-            console.warn(`⚠️ ${symbol}: ${data.message}`);
-            return null;
-        }
-
-        // Verifica che ci siano dati validi
-        if (data.close && parseFloat(data.close) > 0) {
-            const price = parseFloat(data.close);
-            const prevClose = parseFloat(data.previous_close) || price;
-            const change = parseFloat(data.change) || (price - prevClose);
-            const changePercent = parseFloat(data.percent_change) || ((change / prevClose) * 100);
-
-            console.log(`✅ ${symbol}: $${price.toFixed(2)} (${changePercent >= 0 ? '+' : ''}${changePercent.toFixed(2)}%)`);
-
-            return {
-                symbol: symbol,
-                price: price,
-                change: change,
-                changePercent: changePercent,
-                high: parseFloat(data.high) || price,
-                low: parseFloat(data.low) || price,
-                open: parseFloat(data.open) || price,
-                previousClose: prevClose,
-                volume: parseInt(data.volume) || 0,
-            };
-        }
-
-        console.warn(`⚠️ Dati non disponibili per ${symbol}:`, data);
-        return null;
-    } catch (error) {
-        console.error(`❌ Fetch error ${symbol}:`, error);
-        return null;
-    }
+    return {
+        symbol: quote.symbol,
+        name: nameMap[quote.symbol] || quote.shortName || quote.symbol,
+        price: price,
+        change: change,
+        changePercent: changePercent,
+        high: quote.regularMarketDayHigh || price,
+        low: quote.regularMarketDayLow || price,
+        open: quote.regularMarketOpen || price,
+        previousClose: quote.regularMarketPreviousClose || price,
+        volume: quote.regularMarketVolume || 0,
+    };
 }
 
 /**
@@ -138,7 +141,7 @@ function createHeatmapCell(stock) {
     const sign = isPositive ? '+' : '';
 
     return `
-        <a href="quote.html?symbol=${stock.symbol}" target="_blank"
+        <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank"
            class="heatmap-cell ${colorClass} rounded-xl p-4 text-white shadow-lg flex flex-col justify-between h-32">
             <div>
                 <div class="text-xs opacity-80">${stock.name}</div>
@@ -166,7 +169,7 @@ function createStockRow(stock, rank) {
     const bgClass = isPositive ? 'bg-green-50' : 'bg-red-50';
 
     return `
-        <a href="quote.html?symbol=${stock.symbol}" target="_blank"
+        <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank"
            class="${bgClass} hover:bg-opacity-80 rounded-lg p-4 flex items-center justify-between transition">
             <div class="flex items-center gap-4">
                 <div class="text-2xl font-bold text-gray-400">#${rank}</div>
@@ -194,48 +197,53 @@ async function loadMarketData(market) {
     if (isLoading) return;
     isLoading = true;
 
-    console.log(`📊 Loading ${market} via Twelve Data...`);
+    console.log(`📊 Loading ${market} via Yahoo Finance...`);
 
     const symbols = MARKET_SYMBOLS[market];
     const container = document.getElementById('heatmap-container');
-    container.innerHTML = '<div class="col-span-full text-center py-8 text-gray-600">⏳ Caricamento dati di mercato...</div>';
+    container.innerHTML = '<div class="col-span-full text-center py-8 text-gray-600">⏳ Caricamento dati da Yahoo Finance...</div>';
 
-    marketData[market] = [];
+    // Mappa nome per simbolo
+    const nameMap = {};
+    symbols.forEach(s => { nameMap[s.symbol] = s.name; });
 
-    for (let i = 0; i < symbols.length; i++) {
-        const stock = symbols[i];
-        const quote = await fetchQuote(stock.symbol);
+    // Fetch batch da Yahoo Finance
+    const quotes = await fetchQuotes(symbols);
 
-        if (quote) {
-            marketData[market].push({ ...quote, name: stock.name });
-            renderHeatmap(market); // aggiorna progressivamente
-        }
-
-        if (i < symbols.length - 1) {
-            await sleep(API_DELAY);
-        }
-    }
-
-    // Messaggio se nessun dato
-    if (marketData[market].length === 0) {
+    if (quotes && quotes.length > 0) {
+        marketData[market] = quotes.map(q => parseYahooQuote(q, nameMap));
+        console.log(`✅ ${market}: ${marketData[market].length} simboli caricati`);
+    } else {
+        marketData[market] = [];
         container.innerHTML = `
             <div class="col-span-full text-center py-12">
                 <p class="text-2xl mb-2">⚠️</p>
                 <p class="text-gray-600 font-semibold mb-1">Nessun dato disponibile</p>
                 <p class="text-gray-400 text-sm mb-4">I mercati potrebbero essere chiusi o i dati non ancora aggiornati.</p>
-                <button onclick="location.reload()" class="px-6 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition text-sm">
-                    🔄 Aggiorna pagina
+                <button onclick="retryLoad()" class="px-6 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition text-sm">
+                    🔄 Riprova
                 </button>
             </div>
         `;
     }
 
-    renderGainersLosers(market);
+    if (marketData[market].length > 0) {
+        renderHeatmap(market);
+        renderGainersLosers(market);
+    }
     updateStats(market);
     updateTimestamp();
 
     isLoading = false;
-    console.log(`✅ ${market}: ${marketData[market].length}/${symbols.length} simboli caricati`);
+}
+
+/**
+ * Riprova caricamento
+ */
+async function retryLoad() {
+    activeProxy = (activeProxy + 1) % CORS_PROXIES.length;
+    marketData[currentMarket] = [];
+    await loadMarketData(currentMarket);
 }
 
 /**
@@ -311,7 +319,7 @@ function updateTimestamp() {
  * Inizializza dashboard
  */
 async function initDashboard() {
-    console.log('🚀 Alma Finanza Dashboard avviata');
+    console.log('🚀 Alma Finanza Dashboard avviata (Yahoo Finance)');
 
     await loadMarketData(currentMarket);
 
