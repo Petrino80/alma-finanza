@@ -1,15 +1,19 @@
 /**
  * Alma Finanza - Dashboard Mercati
  * Heatmap, Top Gainers, Top Losers
- * Fonte dati: Yahoo Finance (via CORS proxy)
+ * Fonte dati: Yahoo Finance v8 chart API (no auth required)
+ * Strategia: richieste parallele per simbolo via CORS proxy
  */
 
 const REFRESH_INTERVAL = 300000; // 5 minuti
+
+// CORS proxy list — si provano in ordine, con fallback
 const CORS_PROXIES = [
-    'https://corsproxy.io/?',
-    'https://api.allorigins.win/raw?url='
+    { prefix: 'https://corsproxy.io/?url=', encode: true },
+    { prefix: 'https://api.allorigins.win/raw?url=', encode: true },
+    { prefix: 'https://thingproxy.freeboard.io/fetch/', encode: false },
 ];
-let activeProxy = 0;
+let workingProxy = null; // cache del proxy funzionante
 
 // Simboli per categoria
 const MARKET_SYMBOLS = {
@@ -63,72 +67,101 @@ let marketData = {};
 let isLoading = false;
 
 /**
- * Fetch quotes da Yahoo Finance (batch, via CORS proxy)
+ * Costruisce URL del proxy
  */
-async function fetchQuotes(symbols) {
-    const symbolList = symbols.map(s => s.symbol).join(',');
-    const yahooUrl = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbolList}&fields=symbol,regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketOpen,regularMarketDayHigh,regularMarketDayLow,regularMarketPreviousClose,regularMarketVolume`;
+function buildProxyUrl(proxy, targetUrl) {
+    return proxy.prefix + (proxy.encode ? encodeURIComponent(targetUrl) : targetUrl);
+}
 
-    for (let p = 0; p < CORS_PROXIES.length; p++) {
-        const proxyIdx = (activeProxy + p) % CORS_PROXIES.length;
-        const proxyUrl = CORS_PROXIES[proxyIdx] + encodeURIComponent(yahooUrl);
+/**
+ * Trova un proxy funzionante testando AAPL
+ */
+async function findWorkingProxy() {
+    const testUrl = 'https://query2.finance.yahoo.com/v8/finance/chart/AAPL?range=1d&interval=1d&includePrePost=false';
 
+    for (let i = 0; i < CORS_PROXIES.length; i++) {
+        const proxy = CORS_PROXIES[i];
+        const url = buildProxyUrl(proxy, testUrl);
         try {
-            console.log(`📡 Tentativo proxy ${proxyIdx + 1}...`);
-            const response = await fetch(proxyUrl, { signal: AbortSignal.timeout(10000) });
-
-            if (!response.ok) {
-                console.warn(`⚠️ Proxy ${proxyIdx + 1}: HTTP ${response.status}`);
-                continue;
+            console.log(`🔍 Test proxy ${i + 1}: ${proxy.prefix.substring(0, 40)}...`);
+            const resp = await fetch(url, { signal: AbortSignal.timeout(8000) });
+            if (!resp.ok) continue;
+            const data = await resp.json();
+            if (data.chart && data.chart.result && data.chart.result.length > 0) {
+                console.log(`✅ Proxy ${i + 1} funzionante!`);
+                return proxy;
             }
-
-            const data = await response.json();
-
-            if (data.quoteResponse && data.quoteResponse.result) {
-                activeProxy = proxyIdx;
-                return data.quoteResponse.result;
-            }
-
-            console.warn('⚠️ Risposta Yahoo non valida:', data);
-        } catch (error) {
-            console.warn(`⚠️ Proxy ${proxyIdx + 1} fallito:`, error.message);
+        } catch (e) {
+            console.warn(`❌ Proxy ${i + 1} fallito: ${e.message}`);
         }
+    }
+
+    // Tentativo diretto (senza proxy, funziona da alcune reti)
+    try {
+        console.log('🔍 Test connessione diretta Yahoo Finance...');
+        const resp = await fetch(testUrl, { signal: AbortSignal.timeout(8000) });
+        if (resp.ok) {
+            const data = await resp.json();
+            if (data.chart && data.chart.result) {
+                console.log('✅ Connessione diretta funzionante!');
+                return { prefix: '', encode: false };
+            }
+        }
+    } catch (e) {
+        console.warn('❌ Connessione diretta fallita');
     }
 
     return null;
 }
 
 /**
- * Trasforma risposta Yahoo in formato dashboard
+ * Fetch singolo simbolo da Yahoo v8 chart
  */
-function parseYahooQuote(quote, nameMap) {
-    const price = quote.regularMarketPrice || 0;
-    const change = quote.regularMarketChange || 0;
-    const changePercent = quote.regularMarketChangePercent || 0;
+async function fetchSingleQuote(symbol, proxy) {
+    const yahooUrl = `https://query2.finance.yahoo.com/v8/finance/chart/${symbol}?range=1d&interval=1d&includePrePost=false`;
+    const url = proxy.prefix ? buildProxyUrl(proxy, yahooUrl) : yahooUrl;
 
-    return {
-        symbol: quote.symbol,
-        name: nameMap[quote.symbol] || quote.shortName || quote.symbol,
-        price: price,
-        change: change,
-        changePercent: changePercent,
-        high: quote.regularMarketDayHigh || price,
-        low: quote.regularMarketDayLow || price,
-        open: quote.regularMarketOpen || price,
-        previousClose: quote.regularMarketPreviousClose || price,
-        volume: quote.regularMarketVolume || 0,
-    };
+    try {
+        const resp = await fetch(url, { signal: AbortSignal.timeout(10000) });
+        if (!resp.ok) return null;
+
+        const data = await resp.json();
+        if (!data.chart || !data.chart.result || data.chart.result.length === 0) return null;
+
+        const result = data.chart.result[0];
+        const meta = result.meta;
+
+        const price = meta.regularMarketPrice || 0;
+        const prevClose = meta.chartPreviousClose || meta.previousClose || price;
+        const change = price - prevClose;
+        const changePercent = prevClose > 0 ? (change / prevClose) * 100 : 0;
+
+        return {
+            symbol: symbol,
+            price: price,
+            change: change,
+            changePercent: changePercent,
+            high: meta.regularMarketDayHigh || price,
+            low: meta.regularMarketDayLow || price,
+            open: meta.regularMarketOpen || price,
+            previousClose: prevClose,
+            volume: meta.regularMarketVolume || 0,
+        };
+    } catch (e) {
+        console.warn(`⚠️ ${symbol}: ${e.message}`);
+        return null;
+    }
 }
 
 /**
- * Colore celle heatmap in base alla variazione
+ * Colore celle heatmap
  */
-function getColorClass(changePercent) {
-    if (changePercent >= 5)  return 'gain-strong';
-    if (changePercent >= 2)  return 'gain-moderate';
-    if (changePercent > 0)   return 'gain-light';
-    if (changePercent > -2)  return 'loss-light';
-    if (changePercent > -5)  return 'loss-moderate';
+function getColorClass(cp) {
+    if (cp >= 5)  return 'gain-strong';
+    if (cp >= 2)  return 'gain-moderate';
+    if (cp > 0)   return 'gain-light';
+    if (cp > -2)  return 'loss-light';
+    if (cp > -5)  return 'loss-moderate';
     return 'loss-strong';
 }
 
@@ -136,41 +169,31 @@ function getColorClass(changePercent) {
  * Crea cella heatmap
  */
 function createHeatmapCell(stock) {
-    const colorClass = getColorClass(stock.changePercent);
-    const isPositive = stock.changePercent >= 0;
-    const sign = isPositive ? '+' : '';
-
+    const cc = getColorClass(stock.changePercent);
+    const sign = stock.changePercent >= 0 ? '+' : '';
     return `
         <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank"
-           class="heatmap-cell ${colorClass} rounded-xl p-4 text-white shadow-lg flex flex-col justify-between h-32">
+           class="heatmap-cell ${cc} rounded-xl p-4 text-white shadow-lg flex flex-col justify-between h-32">
             <div>
                 <div class="text-xs opacity-80">${stock.name}</div>
                 <div class="text-lg font-bold">${stock.symbol}</div>
             </div>
             <div class="text-right">
-                <div class="text-2xl font-bold">
-                    ${sign}${stock.changePercent.toFixed(2)}%
-                </div>
-                <div class="text-sm opacity-90">
-                    $${stock.price.toFixed(2)}
-                </div>
+                <div class="text-2xl font-bold">${sign}${stock.changePercent.toFixed(2)}%</div>
+                <div class="text-sm opacity-90">$${stock.price.toFixed(2)}</div>
             </div>
-        </a>
-    `;
+        </a>`;
 }
 
 /**
  * Crea riga gainer/loser
  */
 function createStockRow(stock, rank) {
-    const isPositive = stock.changePercent >= 0;
-    const sign = isPositive ? '+' : '';
-    const changeClass = isPositive ? 'positive' : 'negative';
-    const bgClass = isPositive ? 'bg-green-50' : 'bg-red-50';
-
+    const pos = stock.changePercent >= 0;
+    const sign = pos ? '+' : '';
     return `
         <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank"
-           class="${bgClass} hover:bg-opacity-80 rounded-lg p-4 flex items-center justify-between transition">
+           class="${pos ? 'bg-green-50' : 'bg-red-50'} hover:bg-opacity-80 rounded-lg p-4 flex items-center justify-between transition">
             <div class="flex items-center gap-4">
                 <div class="text-2xl font-bold text-gray-400">#${rank}</div>
                 <div>
@@ -179,127 +202,122 @@ function createStockRow(stock, rank) {
                 </div>
             </div>
             <div class="text-right">
-                <div class="text-xl font-bold ${changeClass}">
-                    ${sign}${stock.changePercent.toFixed(2)}%
-                </div>
-                <div class="text-sm text-gray-600">
-                    $${stock.price.toFixed(2)}
-                </div>
+                <div class="text-xl font-bold ${pos ? 'positive' : 'negative'}">${sign}${stock.changePercent.toFixed(2)}%</div>
+                <div class="text-sm text-gray-600">$${stock.price.toFixed(2)}</div>
             </div>
-        </a>
-    `;
+        </a>`;
 }
 
 /**
- * Carica dati mercato
+ * Carica dati mercato — richieste parallele
  */
 async function loadMarketData(market) {
     if (isLoading) return;
     isLoading = true;
 
-    console.log(`📊 Loading ${market} via Yahoo Finance...`);
-
     const symbols = MARKET_SYMBOLS[market];
     const container = document.getElementById('heatmap-container');
-    container.innerHTML = '<div class="col-span-full text-center py-8 text-gray-600">⏳ Caricamento dati da Yahoo Finance...</div>';
+    container.innerHTML = '<div class="col-span-full text-center py-8 text-gray-600">⏳ Connessione a Yahoo Finance...</div>';
 
-    // Mappa nome per simbolo
+    // Trova proxy funzionante (o usa cache)
+    if (!workingProxy) {
+        workingProxy = await findWorkingProxy();
+    }
+
+    if (!workingProxy) {
+        container.innerHTML = `
+            <div class="col-span-full text-center py-12">
+                <p class="text-2xl mb-2">🔌</p>
+                <p class="text-gray-600 font-semibold mb-1">Impossibile connettersi a Yahoo Finance</p>
+                <p class="text-gray-400 text-sm mb-4">Tutti i proxy CORS sono irraggiungibili. Riprova tra qualche minuto.</p>
+                <button onclick="retryLoad()" class="px-6 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition text-sm">🔄 Riprova</button>
+            </div>`;
+        isLoading = false;
+        return;
+    }
+
+    container.innerHTML = '<div class="col-span-full text-center py-8 text-gray-600">⏳ Caricamento dati di mercato...</div>';
+
+    // Nome mappa
     const nameMap = {};
     symbols.forEach(s => { nameMap[s.symbol] = s.name; });
 
-    // Fetch batch da Yahoo Finance
-    const quotes = await fetchQuotes(symbols);
+    // Fetch parallelo di tutti i simboli
+    console.log(`📊 Loading ${market}: ${symbols.length} simboli in parallelo...`);
+    const promises = symbols.map(s => fetchSingleQuote(s.symbol, workingProxy));
+    const results = await Promise.allSettled(promises);
 
-    if (quotes && quotes.length > 0) {
-        marketData[market] = quotes.map(q => parseYahooQuote(q, nameMap));
-        console.log(`✅ ${market}: ${marketData[market].length} simboli caricati`);
-    } else {
-        marketData[market] = [];
-        container.innerHTML = `
-            <div class="col-span-full text-center py-12">
-                <p class="text-2xl mb-2">⚠️</p>
-                <p class="text-gray-600 font-semibold mb-1">Nessun dato disponibile</p>
-                <p class="text-gray-400 text-sm mb-4">I mercati potrebbero essere chiusi o i dati non ancora aggiornati.</p>
-                <button onclick="retryLoad()" class="px-6 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition text-sm">
-                    🔄 Riprova
-                </button>
-            </div>
-        `;
-    }
+    marketData[market] = [];
+    results.forEach((r, i) => {
+        if (r.status === 'fulfilled' && r.value) {
+            r.value.name = nameMap[r.value.symbol] || r.value.symbol;
+            marketData[market].push(r.value);
+        }
+    });
+
+    console.log(`✅ ${market}: ${marketData[market].length}/${symbols.length} simboli caricati`);
 
     if (marketData[market].length > 0) {
         renderHeatmap(market);
         renderGainersLosers(market);
+    } else {
+        container.innerHTML = `
+            <div class="col-span-full text-center py-12">
+                <p class="text-2xl mb-2">⚠️</p>
+                <p class="text-gray-600 font-semibold mb-1">Nessun dato disponibile</p>
+                <p class="text-gray-400 text-sm mb-4">I mercati potrebbero essere chiusi. Riprova più tardi.</p>
+                <button onclick="retryLoad()" class="px-6 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition text-sm">🔄 Riprova</button>
+            </div>`;
     }
+
     updateStats(market);
     updateTimestamp();
-
     isLoading = false;
 }
 
 /**
- * Riprova caricamento
+ * Riprova: resetta proxy cache e ricarica
  */
 async function retryLoad() {
-    activeProxy = (activeProxy + 1) % CORS_PROXIES.length;
+    workingProxy = null;
     marketData[currentMarket] = [];
     await loadMarketData(currentMarket);
 }
 
-/**
- * Render heatmap
- */
 function renderHeatmap(market) {
     const container = document.getElementById('heatmap-container');
     const data = marketData[market] || [];
     if (data.length === 0) return;
-
     const sorted = [...data].sort((a, b) => b.changePercent - a.changePercent);
-    container.innerHTML = sorted.map(stock => createHeatmapCell(stock)).join('');
+    container.innerHTML = sorted.map(s => createHeatmapCell(s)).join('');
 }
 
-/**
- * Render gainers e losers
- */
 function renderGainersLosers(market) {
     const data = marketData[market] || [];
     if (data.length === 0) return;
 
-    const gainers = [...data].filter(s => s.changePercent > 0)
-        .sort((a, b) => b.changePercent - a.changePercent).slice(0, 5);
+    const gainers = [...data].filter(s => s.changePercent > 0).sort((a, b) => b.changePercent - a.changePercent).slice(0, 5);
+    const losers = [...data].filter(s => s.changePercent < 0).sort((a, b) => a.changePercent - b.changePercent).slice(0, 5);
 
-    const losers = [...data].filter(s => s.changePercent < 0)
-        .sort((a, b) => a.changePercent - b.changePercent).slice(0, 5);
-
-    const gainersContainer = document.getElementById('top-gainers');
-    gainersContainer.innerHTML = gainers.length > 0
+    document.getElementById('top-gainers').innerHTML = gainers.length > 0
         ? gainers.map((s, i) => createStockRow(s, i + 1)).join('')
         : '<p class="text-gray-500 text-center py-8">Nessun titolo in rialzo</p>';
 
-    const losersContainer = document.getElementById('top-losers');
-    losersContainer.innerHTML = losers.length > 0
+    document.getElementById('top-losers').innerHTML = losers.length > 0
         ? losers.map((s, i) => createStockRow(s, i + 1)).join('')
         : '<p class="text-gray-500 text-center py-8">Nessun titolo in ribasso</p>';
 }
 
-/**
- * Aggiorna statistiche mercato
- */
 function updateStats(market) {
     const data = marketData[market] || [];
-
     document.getElementById('advancing-count').textContent = data.filter(s => s.changePercent > 0).length;
     document.getElementById('declining-count').textContent = data.filter(s => s.changePercent < 0).length;
     document.getElementById('unchanged-count').textContent = data.filter(s => s.changePercent === 0).length;
-
-    const totalVolume = data.reduce((sum, s) => sum + (s.volume || 0), 0);
+    const vol = data.reduce((sum, s) => sum + (s.volume || 0), 0);
     const volEl = document.getElementById('total-volume');
-    if (volEl) volEl.textContent = formatVolume(totalVolume);
+    if (volEl) volEl.textContent = formatVolume(vol);
 }
 
-/**
- * Formatta volume
- */
 function formatVolume(v) {
     if (v >= 1e9) return (v / 1e9).toFixed(2) + 'B';
     if (v >= 1e6) return (v / 1e6).toFixed(2) + 'M';
@@ -307,29 +325,20 @@ function formatVolume(v) {
     return v > 0 ? v.toString() : '-';
 }
 
-/**
- * Aggiorna timestamp
- */
 function updateTimestamp() {
     const el = document.getElementById('last-update');
     if (el) el.textContent = new Date().toLocaleString('it-IT');
 }
 
-/**
- * Inizializza dashboard
- */
 async function initDashboard() {
-    console.log('🚀 Alma Finanza Dashboard avviata (Yahoo Finance)');
-
+    console.log('🚀 Alma Finanza Dashboard (Yahoo Finance v8)');
     await loadMarketData(currentMarket);
 
-    // Setup filtri mercato
     document.querySelectorAll('.market-filter').forEach(btn => {
         btn.addEventListener('click', async (e) => {
             const market = e.currentTarget.dataset.market;
             if (!market || isLoading) return;
 
-            // Aggiorna stile pulsanti
             document.querySelectorAll('.market-filter').forEach(b => {
                 b.classList.remove('active');
                 b.style.background = '';
@@ -353,17 +362,13 @@ async function initDashboard() {
         });
     });
 
-    // Auto-refresh ogni 5 minuti
     setInterval(async () => {
-        console.log('🔄 Auto-refresh dashboard...');
+        console.log('🔄 Auto-refresh...');
         marketData[currentMarket] = [];
         await loadMarketData(currentMarket);
     }, REFRESH_INTERVAL);
-
-    console.log('✅ Dashboard pronta!');
 }
 
-// Avvia al caricamento DOM
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initDashboard);
 } else {
