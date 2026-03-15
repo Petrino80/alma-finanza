@@ -197,15 +197,22 @@ async function fetchQuote(symbol) {
         const meta = result.meta;
         const price = meta.regularMarketPrice || 0;
 
-        // Calcola variazione giornaliera usando le chiusure daily
-        // L'array close ha i prezzi di chiusura degli ultimi 5 giorni
-        const closes = result.indicators?.quote?.[0]?.close?.filter(c => c !== null) || [];
+        // Raggruppa chiusure per data unica (Yahoo può dare 2 entry/giorno)
+        const timestamps = result.timestamp || [];
+        const closes = result.indicators?.quote?.[0]?.close || [];
+        const dailyCloses = {};
+        for (let i = 0; i < timestamps.length; i++) {
+            if (closes[i] !== null && closes[i] !== undefined) {
+                const dateKey = new Date(timestamps[i] * 1000).toISOString().split('T')[0];
+                dailyCloses[dateKey] = closes[i];
+            }
+        }
+        const sortedDays = Object.keys(dailyCloses).sort();
         let prevClose;
-        if (closes.length >= 2) {
-            // Penultima chiusura = ieri
-            prevClose = closes[closes.length - 2];
+        if (sortedDays.length >= 2) {
+            prevClose = dailyCloses[sortedDays[sortedDays.length - 2]];
         } else {
-            prevClose = meta.previousClose || meta.chartPreviousClose || price;
+            prevClose = meta.chartPreviousClose || price;
         }
         const change = price - prevClose;
         const pct = prevClose > 0 ? (change / prevClose) * 100 : 0;
