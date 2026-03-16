@@ -5,9 +5,67 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+
+  <!-- Articoli 16 Marzo 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-16mar-rimbalzo-nvidia-gtc-meta-layoffs.html</loc>
+      <lastmod>2026-03-16</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-16</news:publication_date>
+          <news:title>Wall Street rimbalza: Nvidia GTC infiamma il tech, Meta +3% sui maxi-licenziamenti AI</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-ftse-mib-16mar-amplifon-stm-banche-centrali.html</loc>
+      <lastmod>2026-03-16</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-16</news:publication_date>
+          <news:title>FTSE MIB debole: Amplifon affonda, STM brilla grazie a Nvidia GTC</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-meta-16mar-licenziamenti-20-percento-ai-costi.html</loc>
+      <lastmod>2026-03-16</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-16</news:publication_date>
+          <news:title>Meta licenzia il 20% per finanziare l&apos;AI: il titolo sale +3%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-etf-16mar-guida-investire-etf-italia.html</loc>
+      <lastmod>2026-03-16</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-16</news:publication_date>
+          <news:title>ETF: cosa sono e come investire in Italia — Guida completa per principianti</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-investire-16mar-guida-principianti-borsa-italia.html</loc>
+      <lastmod>2026-03-16</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-16</news:publication_date>
+          <news:title>Investire in borsa: perch&eacute; &egrave; un&apos;opportunit&agrave; e come cominciare in Italia da zero</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 11 Marzo 2026 -->
