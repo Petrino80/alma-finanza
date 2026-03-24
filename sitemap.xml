@@ -13,6 +13,64 @@
 
   
 
+
+  <!-- Articoli 24 Marzo 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-24mar-82nd-airborne-salesforce-tech.html</loc>
+      <lastmod>2026-03-24</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.8</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-24</news:publication_date>
+          <news:title>Wall Street cede: S&amp;P -0,37%, Nasdaq -0,84%. 82ª Airborne in rotta verso l'Iran</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-ftse-mib-24mar-inwit-ardian-brookfield-difesa.html</loc>
+      <lastmod>2026-03-24</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.8</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-24</news:publication_date>
+          <news:title>FTSE MIB +0,42%: Inwit vola +9,8% su rumors Ardian-Brookfield. Difesa in rosso</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-pmi-24mar-stagflazione-eurozona-usa-energia.html</loc>
+      <lastmod>2026-03-24</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.8</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-24</news:publication_date>
+          <news:title>PMI Flash Marzo: stagflazione in arrivo. Eurozona a un passo dalla contrazione</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-24mar-saas-salesforce-sap-ai-crisi.html</loc>
+      <lastmod>2026-03-24</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.8</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-24</news:publication_date>
+          <news:title>La "SaaSacre": Salesforce -6,23%, SAP -4%. L'AI sta uccidendo il software tradizionale</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-petrolio-24mar-rimbalzo-brent-104-kharg-oro.html</loc>
+      <lastmod>2026-03-24</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.8</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-24</news:publication_date>
+          <news:title>Petrolio rimbalza +4%: WTI a $92, Brent $104. Oro in calo per il 9° giorno</news:title>
+      </news:news>
+  </url>
+
   <!-- Articolo Insider Trading 24 Marzo 2026 -->
   <url>
       <loc>https://www.almafinanza.com/articolo-insider-trading-23mar-mosse-sospette-trump-iran.html</loc>
