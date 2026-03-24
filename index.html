@@ -76,38 +76,12 @@
         .montserrat-font {
             font-family: 'Montserrat', sans-serif;
         }
-        .ticker-tape {
-            overflow: hidden;
-            background: linear-gradient(to right, #0f172a, #1e293b);
+        .tv-ticker-wrap {
             border-bottom: 2px solid #14b8a6;
+            overflow: hidden;
         }
-        .ticker-content {
-            display: flex;
-            animation: scroll 30s linear infinite;
-        }
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .ticker-item {
-            padding: 0 2rem;
-            white-space: nowrap;
-            color: white;
-            font-weight: 600;
-        }
-        .ticker-item a {
-            color: white;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-        .ticker-item a:hover {
-            color: #14b8a6;
-            text-shadow: 0 0 8px rgba(20, 184, 166, 0.6);
-        }
-        .ticker-item {
-            transition: background-color 0.5s ease;
-        }
+        .tv-ticker-wrap .tradingview-widget-container { margin: 0; }
+        .dark .tv-ticker-wrap { border-color: rgba(20,184,166,0.2); }
         .positive { color: #10b981; }
         .negative { color: #ef4444; }
         .article-card {
@@ -187,10 +161,6 @@
         }
 
         /* === DARK MODE === */
-        .dark .ticker-tape{background:linear-gradient(to right,#0c1017,#0f1520)!important;border-color:rgba(20,184,166,0.2)!important;}
-        .dark .ticker-item{color:#64748b;}
-        .dark .ticker-item a{color:#64748b;}
-        .dark .ticker-item a:hover{color:#14b8a6;}
         .dark .positive{color:#34d399!important;}
         .dark .negative{color:#f87171!important;}
         .dark .article-card{background:rgba(15,23,42,0.6)!important;border-color:rgba(51,65,85,0.3)!important;}
@@ -227,34 +197,58 @@
 </head>
 <body class="bg-white dark:bg-[#0c1017] transition-colors duration-300">
     
-    <!-- Ticker Tape -->
-    <div class="ticker-tape py-1.5 bg-gray-50 dark:bg-[#0f1520] border-b border-gray-200 dark:border-slate-800/80" style="position:relative;">
-        <div style="position:absolute; right:12px; top:50%; transform:translateY(-50%); z-index:10; font-size:10px; color:#14b8a6; font-weight:600; white-space:nowrap;" id="ticker-last-update">⟳ live</div>
-        <div class="ticker-content">
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EDJI" target="_blank">🇺🇸 Dow <span class="positive">46.208 (+1,38%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EGSPC" target="_blank">🇺🇸 S&P 500 <span class="positive">6.581 (+1,15%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EIXIC" target="_blank">🇺🇸 Nasdaq <span class="positive">21.947 (+1,38%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/FTSEMIB.MI" target="_blank">🇮🇹 FTSE MIB <span class="positive">43.190 (+0,81%)</span></a></div>
-            <div class="ticker-item"><a href="articolo-mercati-23mar-outlook-trump-iran-scenari.html">🕊️ <span class="positive">Trump: pausa 5 giorni attacchi Iran</span></a></div>
-            <div class="ticker-item"><a href="articolo-petrolio-23mar-crollo-trump-iran-pausa-diplomazia.html">🛢️ <span class="positive">WTI crolla -9% a $89</span></a></div>
-            <div class="ticker-item"><a href="articolo-ftse-mib-23mar-poste-tim-opas-rimbalzo.html">📬 <span class="positive">Poste OPAS su TIM: €10,8 miliardi</span></a></div>
-            <div class="ticker-item"><a href="articolo-asia-23mar-crollo-kospi-nikkei-hang-seng-hormuz.html">🔴 <span class="negative">Asia crolla: Kospi -6,5%</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EGDAXI" target="_blank">🇩🇪 DAX <span class="positive">+2,2%</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/GC%3DF" target="_blank">🥇 Oro <span class="negative">$4.406 (-3,69%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/BTC-USD" target="_blank">₿ <span class="positive">Bitcoin $70.903 (+3,9%)</span></a></div>
-            <!-- Duplicate for seamless loop -->
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EDJI" target="_blank">🇺🇸 Dow <span class="positive">46.208 (+1,38%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EGSPC" target="_blank">🇺🇸 S&P 500 <span class="positive">6.581 (+1,15%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EIXIC" target="_blank">🇺🇸 Nasdaq <span class="positive">21.947 (+1,38%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/FTSEMIB.MI" target="_blank">🇮🇹 FTSE MIB <span class="positive">43.190 (+0,81%)</span></a></div>
-            <div class="ticker-item"><a href="articolo-mercati-23mar-outlook-trump-iran-scenari.html">🕊️ <span class="positive">Trump: pausa 5 giorni attacchi Iran</span></a></div>
-            <div class="ticker-item"><a href="articolo-petrolio-23mar-crollo-trump-iran-pausa-diplomazia.html">🛢️ <span class="positive">WTI crolla -9% a $89</span></a></div>
-            <div class="ticker-item"><a href="articolo-ftse-mib-23mar-poste-tim-opas-rimbalzo.html">📬 <span class="positive">Poste OPAS su TIM: €10,8 miliardi</span></a></div>
-            <div class="ticker-item"><a href="articolo-asia-23mar-crollo-kospi-nikkei-hang-seng-hormuz.html">🔴 <span class="negative">Asia crolla: Kospi -6,5%</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/%5EGDAXI" target="_blank">🇩🇪 DAX <span class="positive">+2,2%</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/GC%3DF" target="_blank">🥇 Oro <span class="negative">$4.406 (-3,69%)</span></a></div>
-            <div class="ticker-item"><a href="https://finance.yahoo.com/quote/BTC-USD" target="_blank">₿ <span class="positive">Bitcoin $70.903 (+3,9%)</span></a></div>
-                </div></div>
+    <!-- Ticker Tape Live — TradingView Widget -->
+    <div class="tv-ticker-wrap" id="tv-ticker-light">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+                "symbols": [
+                    {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
+                    {"proName":"FOREXCOM:DJI","title":"Dow Jones"},
+                    {"proName":"FOREXCOM:NSXUSD","title":"Nasdaq"},
+                    {"proName":"MIL:FTSEMIB","title":"FTSE MIB"},
+                    {"proName":"XETR:DAX","title":"DAX"},
+                    {"proName":"TVC:USOIL","title":"Petrolio WTI"},
+                    {"proName":"TVC:GOLD","title":"Oro"},
+                    {"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},
+                    {"proName":"BITSTAMP:ETHUSD","title":"Ethereum"},
+                    {"proName":"FX:EURUSD","title":"EUR/USD"}
+                ],
+                "showSymbolLogo": true,
+                "isTransparent": true,
+                "displayMode": "adaptive",
+                "colorTheme": "light",
+                "locale": "it"
+            }
+            </script>
+        </div>
+    </div>
+    <div class="tv-ticker-wrap" id="tv-ticker-dark" style="display:none;">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+                "symbols": [
+                    {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
+                    {"proName":"FOREXCOM:DJI","title":"Dow Jones"},
+                    {"proName":"FOREXCOM:NSXUSD","title":"Nasdaq"},
+                    {"proName":"MIL:FTSEMIB","title":"FTSE MIB"},
+                    {"proName":"XETR:DAX","title":"DAX"},
+                    {"proName":"TVC:USOIL","title":"Petrolio WTI"},
+                    {"proName":"TVC:GOLD","title":"Oro"},
+                    {"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},
+                    {"proName":"BITSTAMP:ETHUSD","title":"Ethereum"},
+                    {"proName":"FX:EURUSD","title":"EUR/USD"}
+                ],
+                "showSymbolLogo": true,
+                "isTransparent": true,
+                "displayMode": "adaptive",
+                "colorTheme": "dark",
+                "locale": "it"
+            }
+            </script>
+        </div>
     </div>
 
     <!-- Header -->
@@ -2879,14 +2873,19 @@
         </div>
     </footer>
 
-    <!-- Ticker Real-Time con Alpha Vantage API -->
-    <script src="js/ticker-realtime.js"></script>
-
     <script>
-    function toggleTheme(){var h=document.documentElement,d=h.classList.contains('dark');if(d){h.classList.remove('dark');localStorage.setItem('alma-theme','light')}else{h.classList.add('dark');localStorage.setItem('alma-theme','dark')}updateIcons()}
+    function syncTickerTheme(){
+        var d=document.documentElement.classList.contains('dark');
+        var tl=document.getElementById('tv-ticker-light');
+        var td=document.getElementById('tv-ticker-dark');
+        if(tl)tl.style.display=d?'none':'block';
+        if(td)td.style.display=d?'block':'none';
+    }
+    function toggleTheme(){var h=document.documentElement,d=h.classList.contains('dark');if(d){h.classList.remove('dark');localStorage.setItem('alma-theme','light')}else{h.classList.add('dark');localStorage.setItem('alma-theme','dark')}updateIcons();syncTickerTheme()}
     function updateIcons(){var d=document.documentElement.classList.contains('dark');document.querySelectorAll('.ico-sun').forEach(function(e){e.style.display=d?'none':'inline'});document.querySelectorAll('.ico-moon').forEach(function(e){e.style.display=d?'inline':'none'})}
-    window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){if(!localStorage.getItem('alma-theme')){if(e.matches)document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark');updateIcons()}});
+    window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){if(!localStorage.getItem('alma-theme')){if(e.matches)document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark');updateIcons();syncTickerTheme()}});
     updateIcons();
+    syncTickerTheme();
     </script>
 </body>
 </html>
