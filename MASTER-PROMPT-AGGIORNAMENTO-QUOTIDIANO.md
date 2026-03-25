@@ -7,7 +7,7 @@
 ## IL PROMPT DA USARE:
 
 ```
-Aggiornamento quotidiano Alma Finanza — [DATA, es: 11 marzo 2026 - ora chiusura borse USA]
+Aggiornamento quotidiano Alma Finanza — [DATA 24 marzo 2026 - ora chiusura borse USA]
 
 FASE 1 — RICERCA DATI REALI:
 Cerca con WebSearch i dati REALI di chiusura delle borse di oggi (o ieri sera se le borse USA sono ancora aperte). Dati richiesti:
@@ -206,8 +206,47 @@ Regole:
 - Aggiungi alla fine della griglia esistente nella sezione corretta
 - Se un concetto non rientra in nessuna sezione, valuta se crearne una nuova
 
+FASE 5B — AGGIORNA GLOSSARIO FINANZIARIO (glossario.html):
+Per ogni termine tecnico inglese usato nei 5 nuovi articoli, verifica se è già presente nel glossario. Se NON è presente, aggiungilo.
+
+Procedura:
+1. Scorri i 5 articoli e raccogli TUTTI i termini tecnici inglesi usati (quelli con traduzione italiana tra parentesi, come da regola linguistica del progetto)
+2. Leggi glossario.html e verifica quali termini sono già presenti (cerca nel data-term delle glossary-card)
+3. Per ogni termine NUOVO (non ancora nel glossario), aggiungilo nella sezione alfabetica corretta
+
+Formato glossary-card per ogni nuovo termine:
+```html
+<div class="glossary-card bg-white rounded-xl p-5 shadow-sm border border-gray-100" data-term="[termine inglese lowercase] [traduzione italiana lowercase]">
+    <h3 class="font-bold text-gray-900 text-lg">[Termine Inglese]</h3>
+    <p class="text-teal-600 text-sm font-semibold mb-2">[traduzione italiana]</p>
+    <p class="text-gray-600 text-sm leading-relaxed">[Spiegazione chiara e accessibile in 2-3 frasi. Usa linguaggio semplice per chi sta imparando la finanza.]</p>
+    <a href="[articolo-di-riferimento].html" class="text-xs text-teal-500 font-semibold mt-2 inline-block hover:underline">→ [Nome articolo breve]</a>
+</div>
+```
+
+Regole glossario:
+- Inserire il termine nella sezione della lettera corretta (es. "Spread" va nella sezione S), in ordine alfabetico
+- Se la lettera non ha ancora una sezione nel glossario, crearne una nuova con il formato:
+  ```html
+  <!-- === [LETTERA] === -->
+  <div id="[LETTERA]" class="mb-10">
+      <div class="flex items-center gap-3 mb-4">
+          <div class="letter-badge bg-teal-50 text-teal-700 montserrat-font">[LETTERA]</div>
+          <div class="flex-1 h-px bg-gray-200 dark:bg-slate-700/30"></div>
+      </div>
+      <div class="space-y-3">
+          <!-- cards qui -->
+      </div>
+  </div>
+  ```
+  E aggiungere il link alla lettera nella alpha-nav in cima alla pagina
+- NON duplicare termini già esistenti
+- Il campo data-term deve contenere il termine inglese e la traduzione italiana, tutto in lowercase, per la ricerca
+- Aggiornare il conteggio termini nel tag <span id="term-count"> con il nuovo totale
+- La spiegazione deve essere EDUCATIVA: spiegare il concetto come se il lettore fosse un principiante
+
 FASE 6 — COMMIT E PUSH:
-git add [5 articoli] index.html sitemap.xml categoria-wall-street.html categoria-borsa-milano.html categoria-crypto.html categoria-commodities.html impara-finanza.html && git commit && git push origin main
+git add [5 articoli] index.html sitemap.xml categoria-wall-street.html categoria-borsa-milano.html categoria-crypto.html categoria-commodities.html impara-finanza.html glossario.html && git commit && git push origin main
 
 ⚠️ ERRORI DA NON FARE MAI:
 1. NON inventare dati — cerca SEMPRE con WebSearch prima di scrivere
@@ -224,6 +263,8 @@ git add [5 articoli] index.html sitemap.xml categoria-wall-street.html categoria
 12. NON dimenticare di aggiornare impara-finanza.html con i nuovi concetti educativi
 13. NON dimenticare anti-flash script e dark mode toggle in ogni nuovo articolo
 14. NON dimenticare le dark mode classes (dark:bg-*, dark:text-*) in ogni elemento
+15. NON dimenticare di aggiornare glossario.html con i nuovi termini finanziari inglesi
+16. NON duplicare termini già presenti nel glossario — controlla PRIMA di aggiungere
 
 Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibilità di switch light/dark
 ```
@@ -246,4 +287,5 @@ Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibi
 - [ ] categoria-crypto.html aggiornata (se ci sono articoli crypto)
 - [ ] categoria-commodities.html aggiornata (se ci sono articoli commodities)
 - [ ] impara-finanza.html: nuovi concetti educativi aggiunti
+- [ ] glossario.html: nuovi termini finanziari inglesi aggiunti (se presenti)
 - [ ] git commit + push riuscito
