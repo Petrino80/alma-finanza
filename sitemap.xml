@@ -5,9 +5,66 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-03-30</lastmod>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 31 Marzo 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-31mar-rally-dow-1125-iran-speranze.html</loc>
+      <lastmod>2026-03-31</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-31</news:publication_date>
+          <news:title>Rally storico: Dow +1.125 punti (+2,49%), Nasdaq +3,83%. Iran apre ai negoziati</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-31mar-ftse-mib-leonardo-prysmian-rally.html</loc>
+      <lastmod>2026-03-31</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-31</news:publication_date>
+          <news:title>FTSE MIB +1,1% a 44.310: Leonardo +4,28%, Prysmian +4,02%. Rally su speranze Iran</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-geopolitica-31mar-iran-negoziati-pezeshkian-deescalation.html</loc>
+      <lastmod>2026-03-31</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-31</news:publication_date>
+          <news:title>Iran, svolta: Pezeshkian apre ai negoziati. Trump disposto a trattare senza riapertura Hormuz</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-31mar-semiconduttori-rimbalzo-on-semi-nvidia.html</loc>
+      <lastmod>2026-03-31</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-31</news:publication_date>
+          <news:title>Semiconduttori in rimbalzo: On Semi +10%, Nvidia +5,56%, SMCI +7,26%. Nasdaq +3,83%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-macro-31mar-q1-peggiore-trimestre-2022-nike-delude.html</loc>
+      <lastmod>2026-03-31</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-03-31</news:publication_date>
+          <news:title>Q1 2026 il peggiore dal 2022: DAX -10,3%. Nike delude, benzina a $4. Credit Spread ai massimi</news:title>
+      </news:news>
   </url>
 
   <!-- Chiusura Borse 30 Marzo 2026 -->
