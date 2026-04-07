@@ -5,9 +5,77 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-04-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 7 Aprile 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-7apr-volatile-iran-deadline-flat.html</loc>
+      <lastmod>2026-04-07</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-07</news:publication_date>
+          <news:title>Wall Street volatile: S&amp;P –0,29% nella giornata del deadline Iran. Recupero da –1,2% intraday</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-7apr-riapertura-stm-rally-leonardo-crollo.html</loc>
+      <lastmod>2026-04-07</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-07</news:publication_date>
+          <news:title>Piazza Affari riapre dopo Pasquetta: FTSE MIB –0,5%. STM +4,65%, Leonardo –7,3% su cambio CEO</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-geopolitica-7apr-iran-deadline-pakistan-mediazione.html</loc>
+      <lastmod>2026-04-07</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-07</news:publication_date>
+          <news:title>Iran deadline 20:00 ET: proposta non abbastanza buona. Pakistan chiede proroga 2 settimane. Giorno 39</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-commodities-7apr-wti-picco-117-oro-4691.html</loc>
+      <lastmod>2026-04-07</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-07</news:publication_date>
+          <news:title>WTI picco $117 (massimo dal 2022), chiude $112,95. Oro $4.691. Deadline Iran domina le commodities</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-7apr-samsung-q1-ai-hbm-stm-semiconduttori.html</loc>
+      <lastmod>2026-04-07</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-07</news:publication_date>
+          <news:title>Samsung Q1 2026: utile +8x a $43 mld sui chip AI HBM. STM +4,65%. Superciclo semiconduttori accelera</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-asia-7apr-kospi-nikkei-samsung-iran-deadline.html</loc>
+      <lastmod>2026-04-07</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-07</news:publication_date>
+          <news:title>Asia 7 aprile: Kospi +0,8% e Taiwan +2% su Samsung. Hang Seng –0,8%. Mercati divisi tra AI e Iran</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 6 Aprile 2026 -->
