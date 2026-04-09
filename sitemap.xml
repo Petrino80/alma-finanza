@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-04-08</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 9 Aprile 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-9apr-sette-sedute-tregua-fragile.html</loc>
+      <lastmod>2026-04-09</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-09</news:publication_date>
+          <news:title>S&amp;P 500 settima seduta positiva nonostante tregua fragile. Dow +0,6% a 48.197. WTI rimbalza a $98</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-9apr-ftse-mib-tregua-vacilla-leonardo.html</loc>
+      <lastmod>2026-04-09</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-09</news:publication_date>
+          <news:title>FTSE MIB -0,23% a 46.983: tregua che vacilla pesa su Milano. Leonardo -2,4%, Moncler -2%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-geopolitica-9apr-tregua-iran-rischio-israele-libano.html</loc>
+      <lastmod>2026-04-09</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-09</news:publication_date>
+          <news:title>Tregua USA-Iran a rischio: Israele bombarda Libano (254 morti), Iran ri-blocca Hormuz. Negoziati Islamabad in dubbio</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 8 Aprile 2026 -->
