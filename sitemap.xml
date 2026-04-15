@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 15 Aprile 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-15apr-mercati-iran-trattative-ppi.html</loc>
+      <lastmod>2026-04-15</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-15</news:publication_date>
+          <news:title>Wall Street 15 aprile 2026: S&amp;P 500 a 6.981 e Nasdaq a 23.717 in pausa — PPI marzo sotto le attese, speranze trattative USA-Iran</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-15apr-ftse-mib-stellantis-mps.html</loc>
+      <lastmod>2026-04-15</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-15</news:publication_date>
+          <news:title>Piazza Affari 15 aprile 2026: FTSE MIB quasi piatto a 48.145, Stellantis +3,28% e MPS assemblea rinnova il CDA</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-macro-15apr-ppi-marzo-fed-inflazione-2026.html</loc>
+      <lastmod>2026-04-15</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-15</news:publication_date>
+          <news:title>PPI marzo 2026: +0,5% mensile sotto le attese — Fed Williams conferma pausa sui tassi, inflazione energetica ancora calda</news:title>
+      </news:news>
   </url>
 
   <!-- Articolo 13 Aprile 2026 -->
