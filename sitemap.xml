@@ -10,6 +10,19 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- Articolo SpaceX IPO 20 Aprile 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-spacex-ipo-esplorazione-spaziale-investire.html</loc>
+      <lastmod>2026-04-20</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-20</news:publication_date>
+          <news:title>SpaceX e l'IPO del Secolo: lo Spazio è il Prossimo Grande Mercato — Guida Completa</news:title>
+      </news:news>
+  </url>
+
   <!-- Articolo 20 Aprile 2026 -->
   <url>
       <loc>https://www.almafinanza.com/articolo-wall-street-20apr-record-sp500-nasdaq-ceasefire-tesla.html</loc>
