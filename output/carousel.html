@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #8B5CF6;
+  --accent-dark: #6D28D9;
+  --white: #FFFFFF;
+  --off: #F7F8FA;
+  --black: #0A0A0A;
+  --txt: #1F2937;
+  --muted: #6B7280;
+  --muted2: #9CA3AF;
+  --green: #00C17C;
+  --red: #E8313A;
+  --yellow: #F5A623;
+  --violet-light: #F5F3FF;
+  --violet-mid: #DDD6FE;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; background:#ddd; font-family:-apple-system,'Helvetica Neue',Arial,sans-serif; }
+.slide {
+  width:1080px; height:1080px; position:relative;
+  background:#fff; overflow:hidden; page-break-after:always;
+  display:flex; flex-direction:column;
+}
+/* ── HEADER ── */
+.hdr { padding:26px 44px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+.hdr.blk { background:#0A0A0A; }
+.hdr.acc { background:var(--accent); }
+.logo { display:flex; align-items:center; gap:8px; }
+.logo-sq { width:26px; height:26px; border-radius:5px; display:flex; align-items:center; justify-content:center; }
+.logo-sq.blk { background:var(--accent); }
+.logo-sq.acc { background:#fff; }
+.logo-a { font-size:16px; font-family:'Lobster', cursive; font-weight:400; font-style:normal; }
+.logo-a.blk { color:#fff; }
+.logo-a.acc { color:var(--accent); }
+.logo-txt { font-size:14px; font-weight:800; letter-spacing:.03em; color:#fff; }
+.slide-title { font-size:19px; font-weight:800; color:#fff; }
+/* ── BADGE ── */
+.badge { border-radius:999px; padding:5px 14px; font-size:13px; font-weight:800; display:inline-block; }
+.bg { background:#D1FAE5; color:#065F46; }
+.br { background:#FEE2E2; color:#991B1B; }
+.by { background:#FEF3C7; color:#92400E; }
+.bn { background:#F3F4F6; color:#374151; }
+.bv { background:#EDE9FE; color:#4C1D95; }
+/* ── FOOTER ── */
+.foot { position:absolute; bottom:22px; left:0; right:0; display:flex; align-items:center; justify-content:center; gap:6px; }
+.dot { width:7px; height:7px; border-radius:50%; background:#D1D5DB; }
+.dot.a { width:20px; height:7px; border-radius:4px; background:var(--accent); }
+.dot.aw { background:#fff; }
+.dot.dw { background:rgba(255,255,255,.35); }
+.pg { position:absolute; right:36px; bottom:0; font-size:12px; font-weight:700; color:var(--muted2); }
+.pg.w { color:rgba(255,255,255,.55); }
+/* ── CARD ── */
+.card { background:var(--off); border-radius:16px; padding:22px 26px; display:flex; gap:18px; }
+.sep { width:2px; background:#E5E7EB; align-self:stretch; flex-shrink:0; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ SLIDE 1 — COVER -->
+<div class="slide" id="s1">
+  <div class="hdr acc">
+    <span style="background:rgba(0,0,0,.2);color:#fff;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;">TECH &amp; AI</span>
+    <div class="logo">
+      <div class="logo-sq acc"><span class="logo-a acc">A</span></div>
+      <span class="logo-txt">LMA FINANZA</span>
+    </div>
+    <span style="font-size:13px;color:rgba(255,255,255,.75);font-weight:600;">20 Aprile 2026</span>
+  </div>
+
+  <div style="flex:1;display:flex;flex-direction:column;padding:44px 44px 0;">
+
+    <!-- HOOK HERO -->
+    <div style="font-size:68px;font-weight:900;letter-spacing:-.04em;color:#0A0A0A;line-height:1.0;margin-bottom:10px;">
+      SpaceX IPO.<br><span style="color:var(--accent);">$1,75 trilioni.</span>
+    </div>
+    <div style="font-size:34px;font-weight:900;letter-spacing:-.03em;color:#0A0A0A;margin-bottom:16px;">
+      Nasdaq. Giugno 2026. È ufficiale.
+    </div>
+    <div style="font-size:20px;font-weight:500;color:#374151;line-height:1.55;max-width:860px;">
+      S-1 depositata alla SEC il 1° aprile 2026.<br>
+      <strong style="color:#0A0A0A;font-weight:800;">La più grande IPO della storia sta per arrivare.</strong>
+    </div>
+
+    <div style="flex:1;"></div>
+
+    <!-- BARRA METRICHE -->
+    <div style="display:flex;gap:0;border-top:1px solid #E5E7EB;padding-top:20px;margin-bottom:16px;">
+      <div style="flex:1;padding-right:22px;border-left:3px solid var(--accent);padding-left:14px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;">Valutazione IPO target</div>
+        <div style="font-size:30px;font-weight:900;color:#0A0A0A;line-height:1;">$1,75T</div>
+        <div style="font-size:13px;font-weight:700;color:var(--accent);margin-top:3px;">×10 Borsa di Milano</div>
+      </div>
+      <div style="flex:1;padding:0 22px;border-left:2px solid #E5E7EB;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;">Raccolta target 🏆</div>
+        <div style="font-size:30px;font-weight:900;color:#0A0A0A;line-height:1;">$75B</div>
+        <div style="font-size:13px;font-weight:700;color:var(--green);margin-top:3px;">Record assoluto storico</div>
+      </div>
+      <div style="flex:1;padding:0 22px;border-left:2px solid #E5E7EB;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;">S-1 depositata SEC</div>
+        <div style="font-size:30px;font-weight:900;color:#0A0A0A;line-height:1;">1° apr.</div>
+        <div style="font-size:13px;font-weight:700;color:var(--green);margin-top:3px;">Listing: Nasdaq giu. 2026</div>
+      </div>
+      <div style="flex:1;padding-left:22px;border-left:2px solid #E5E7EB;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;">Lanci orbitali mondiali</div>
+        <div style="font-size:30px;font-weight:900;color:#0A0A0A;line-height:1;">~70%</div>
+        <div style="font-size:13px;font-weight:700;color:var(--yellow);margin-top:3px;">90+ lanci nel 2025</div>
+      </div>
+    </div>
+
+    <!-- TEASER FORMAZIONE -->
+    <div style="background:#F5F3FF;border-radius:16px;padding:15px 22px;display:flex;align-items:center;gap:18px;margin-bottom:52px;">
+      <div style="display:flex;align-items:center;gap:9px;flex-shrink:0;">
+        <span style="font-size:20px;">📚</span>
+        <span style="background:#EDE9FE;color:#4C1D95;border-radius:999px;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;">IMPARA</span>
+      </div>
+      <div style="width:2px;background:#E5E7EB;align-self:stretch;"></div>
+      <div style="flex:1;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">In questo carosello scoprirai</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fff;border:1.5px solid #E5E7EB;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:700;color:#0A0A0A;"><span style="color:var(--accent);">→</span> IPO</span>
+          <span style="background:#fff;border:1.5px solid #E5E7EB;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:700;color:#0A0A0A;"><span style="color:var(--accent);">→</span> Moat</span>
+          <span style="background:#fff;border:1.5px solid #E5E7EB;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:700;color:#0A0A0A;"><span style="color:var(--accent);">→</span> Starlink LEO</span>
+          <span style="background:#fff;border:1.5px solid #E5E7EB;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:700;color:#0A0A0A;"><span style="color:var(--accent);">→</span> S-1 SEC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="dot a"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="pg">1/7</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ SLIDE 2 — CONTESTO -->
+<div class="slide" id="s2">
+  <div class="hdr blk">
+    <div class="logo">
+      <div class="logo-sq blk"><span class="logo-a blk">A</span></div>
+      <span class="logo-txt">LMA FINANZA</span>
+    </div>
+    <span class="slide-title">Perché SpaceX è un'azienda unica al mondo</span>
+  </div>
+
+  <div style="flex:1;display:flex;flex-direction:column;padding:28px 44px 60px;gap:16px;">
+
+    <!-- FACT 1 -->
+    <div class="card" style="flex:1;">
+      <div style="width:140px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:44px;font-weight:900;color:var(--accent);line-height:1;">$1,75T</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:6px;">Valutazione<br>IPO target</div>
+      </div>
+      <div class="sep"></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:16px;font-weight:800;color:#0A0A0A;margin-bottom:8px;">×10 la Borsa di Milano — IPO confermata giugno 2026</div>
+        <div style="font-size:14px;color:#4B5563;line-height:1.6;">
+          SpaceX ha depositato la <strong>S-1 riservata alla SEC il 1° aprile 2026</strong>. Listing target: Nasdaq giugno 2026 a <strong>$1,75 trilioni</strong>. Raccolta: $75 miliardi — il <strong>record assoluto della storia</strong>, 2,5× il precedente record di Saudi Aramco. La valutazione privata a dicembre 2025 era già $800 miliardi.
+        </div>
+      </div>
+    </div>
+
+    <!-- FACT 2 -->
+    <div class="card" style="flex:1;">
+      <div style="width:140px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:44px;font-weight:900;color:var(--green);line-height:1;">−93%</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:6px;">Costo/kg<br>in orbita</div>
+      </div>
+      <div class="sep"></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:16px;font-weight:800;color:#0A0A0A;margin-bottom:8px;">Il razzo riutilizzabile ha cambiato tutto — come ha fatto Amazon con i libri</div>
+        <div style="font-size:14px;color:#4B5563;line-height:1.6;">
+          Prima di SpaceX: <strong>$20.000 per kg in orbita</strong>. Oggi con Falcon 9 riutilizzabile: <strong>~$1.500/kg</strong>. Una riduzione del 93% in 15 anni. Quando accedi allo spazio costa quanto un volo in business class invece che una Ferrari, si apre un mercato completamente nuovo: internet satellitare, osservazione della Terra, turismo, manifattura spaziale.
+        </div>
+      </div>
+    </div>
+
+    <!-- FACT 3 -->
+    <div class="card" style="flex:1;">
+      <div style="width:140px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:44px;font-weight:900;color:var(--yellow);line-height:1;">90+</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:6px;">Lanci orbitali<br>nel 2025</div>
+      </div>
+      <div class="sep"></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:16px;font-weight:800;color:#0A0A0A;margin-bottom:8px;">Un lancio ogni 4 giorni — più di tutti gli altri operatori mondiali insieme</div>
+        <div style="font-size:14px;color:#4B5563;line-height:1.6;">
+          Nel 2025 SpaceX ha completato oltre 90 missioni, pari a circa il <strong>70% di tutti i lanci orbitali mondiali</strong>. Per confronto: l'intera Arianespace europea ne ha fatti 6. ULA (Boeing + Lockheed) 8. Rocket Lab 15. Il secondo in classifica è SpaceX — anche guardando solo i lanci militari USA.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <div class="dot"></div><div class="dot a"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="pg">2/7</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ SLIDE 3 — I TRE MOTORI -->
+<div class="slide" id="s3">
+  <div class="hdr acc">
+    <div class="logo">
+      <div class="logo-sq acc"><span class="logo-a acc">A</span></div>
+      <span class="logo-txt">LMA FINANZA</span>
+    </div>
+    <span class="slide-title">I tre business di SpaceX</span>
+  </div>
+
+  <div style="flex:1;display:flex;flex-direction:column;padding:28px 44px 60px;gap:14px;">
+
+    <!-- FALCON 9 -->
+    <div class="card" style="flex:1;border-left:4px solid var(--accent);">
+      <div style="width:120px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:32px;line-height:1;margin-bottom:6px;">🚀</div>
+        <div style="font-size:13px;font-weight:900;color:#0A0A0A;line-height:1.2;">Falcon 9<br>Lanci comm.</div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);font-style:italic;margin-top:4px;">il cassiere</div>
+      </div>
+      <div class="sep"></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:14px;color:#4B5563;line-height:1.6;">
+          Il razzo più affidabile della storia: <strong>ogni primo stadio riutilizzato fino a 20 volte</strong>. Porta satelliti commerciali, carichi per la Stazione Spaziale e i satelliti Starlink. Prezzo: $67M a lancio vs $350M dei competitor. Il vantaggio di costo è impossibile da replicare senza anni di sviluppo e miliardi di investimento.
+        </div>
+      </div>
+    </div>
+
+    <!-- STARLINK -->
+    <div class="card" style="flex:1;border-left:4px solid var(--green);">
+      <div style="width:120px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:32px;line-height:1;margin-bottom:6px;">🌍</div>
+        <div style="font-size:13px;font-weight:900;color:#0A0A0A;line-height:1.2;">Starlink<br>Internet LEO</div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);font-style:italic;margin-top:4px;">il motore ricorrente</div>
+      </div>
+      <div class="sep"></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:14px;color:#4B5563;line-height:1.6;">
+          <strong>7.000+ satelliti in orbita bassa (LEO)</strong> forniscono internet veloce ovunque — oceani, zone rurali, aree di guerra. 6M abbonati a $120-250/mese = $8-10B ricavi annui. Obiettivo: 40M abbonati entro il 2030. A quella scala, Starlink da sola varrebbe più di Telecom Italia e Vodafone insieme.
+        </div>
+      </div>
+    </div>
+
+    <!-- STARSHIP -->
+    <div class="card" style="flex:1;border-left:4px solid var(--yellow);">
+      <div style="width:120px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:32px;line-height:1;margin-bottom:6px;">🪐</div>
+        <div style="font-size:13px;font-weight:900;color:#0A0A0A;line-height:1.2;">Starship<br>Marte + Luna</div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);font-style:italic;margin-top:4px;">la scommessa del secolo</div>
+      </div>
+      <div class="sep"></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:14px;color:#4B5563;line-height:1.6;">
+          Il razzo più grande mai costruito: <strong>121 metri, 150 tonnellate in orbita</strong>. Contratto NASA Artemis per il lander lunare. Commercialmente operativo atteso 2026-2027. In futuro: voli punto-a-punto sulla Terra (Milano → Tokyo in 40 minuti) e la colonizzazione di Marte.
+        </div>
+      </div>
+    </div>
+
+    <!-- INSIGHT -->
+    <div style="background:#0A0A0A;border-radius:14px;padding:18px 24px;display:flex;align-items:center;gap:14px;">
+      <span style="font-size:24px;">💡</span>
+      <div style="font-size:15px;font-weight:700;color:#fff;line-height:1.45;">
+        Tre business, un dominio: <span style="color:var(--accent);">lanci + connectivity + esplorazione</span>. Nessun competitor ha tutti e tre.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <div class="dot"></div><div class="dot"></div><div class="dot a"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="pg">3/7</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ SLIDE 4 — FORMAZIONE -->
+<div class="slide" id="s4">
+  <div class="hdr acc">
+    <div class="logo">
+      <div class="logo-sq acc"><span class="logo-a acc">A</span></div>
+      <span class="logo-txt">LMA FINANZA</span>
+    </div>
+    <span class="slide-title">📚 Le parole chiave di oggi</span>
+  </div>
+
+  <div style="flex:1;display:flex;flex-direction:column;padding:24px 44px 60px;gap:13px;">
+
+    <!-- TERM 1: IPO -->
+    <div style="background:var(--off);border-radius:16px;padding:18px 24px;display:flex;gap:18px;flex:1;position:relative;">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);border-radius:4px 0 0 4px;"></div>
+      <div style="width:180px;padding-left:10px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:15px;font-weight:900;color:#0A0A0A;line-height:1.2;">IPO<br>(Initial Public Offering)</div>
+        <div style="font-size:12px;font-weight:600;color:var(--muted);font-style:italic;margin-top:4px;">offerta pubblica iniziale</div>
+      </div>
+      <div class="sep"></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:14px;color:#374151;line-height:1.55;margin-bottom:8px;">Il momento in cui un'azienda privata <strong>vende le proprie azioni al pubblico per la prima volta</strong>. Prima: solo grandi fondi. Dopo: chiunque con 100€ può diventare azionista.</div>
+        <div style="display:inline-block;background:#EDE9FE;border-radius:8px;padding:5px 10px;font-size:12px;font-weight:600;color:#4C1D95;">→ SpaceX: S-1 depositata 1° apr. 2026. IPO Nasdaq giugno 2026. Target $1,75T — record assoluto.</div>
+      </div>
+    </div>
+
+    <!-- TERM 2: MOAT -->
+    <div style="background:var(--off);border-radius:16px;padding:18px 24px;display:flex;gap:18px;flex:1;position:relative;">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);border-radius:4px 0 0 4px;"></div>
+      <div style="width:180px;padding-left:10px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:15px;font-weight:900;color:#0A0A0A;line-height:1.2;">Moat<br>(Economic Moat)</div>
+        <div style="font-size:12px;font-weight:600;color:var(--muted);font-style:italic;margin-top:4px;">fossato competitivo</div>
+      </div>
+      <div class="sep"></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:14px;color:#374151;line-height:1.55;margin-bottom:8px;">Il <strong>vantaggio strutturale</strong> che un'azienda ha sui competitor — difficile da copiare. Concetto reso celebre da Warren Buffett.</div>
+        <div style="display:inline-block;background:#D1FAE5;border-radius:8px;padding:5px 10px;font-size:12px;font-weight:600;color:#065F46;">→ SpaceX: tecnologia razzo riutilizzabile + 7.000 satelliti già in orbita + contratti NASA/DoD pluriennali.</div>
+      </div>
+    </div>
+
+    <!-- TERM 3: LEO -->
+    <div style="background:var(--off);border-radius:16px;padding:18px 24px;display:flex;gap:18px;flex:1;position:relative;">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);border-radius:4px 0 0 4px;"></div>
+      <div style="width:180px;padding-left:10px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:15px;font-weight:900;color:#0A0A0A;line-height:1.2;">LEO<br>(Low Earth Orbit)</div>
+        <div style="font-size:12px;font-weight:600;color:var(--muted);font-style:italic;margin-top:4px;">orbita terrestre bassa</div>
+      </div>
+      <div class="sep"></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:14px;color:#374151;line-height:1.55;margin-bottom:8px;">Orbita tra 200 e 2.000 km di altitudine. A 550 km volano i satelliti Starlink. La <strong>bassa latenza</strong> (20-40ms) permette videochiamate, gaming e smart working — impossibile con i vecchi satelliti a 36.000 km.</div>
+        <div style="display:inline-block;background:#D1FAE5;border-radius:8px;padding:5px 10px;font-size:12px;font-weight:600;color:#065F46;">→ Starlink ha già 7.000+ satelliti in LEO. Amazon Kuiper ne ha ~600 e accumula ritardi.</div>
+      </div>
+    </div>
+
+    <!-- TERM 4: CAGR -->
+    <div style="background:var(--off);border-radius:16px;padding:18px 24px;display:flex;gap:18px;flex:1;position:relative;">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);border-radius:4px 0 0 4px;"></div>
+      <div style="width:180px;padding-left:10px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:14px;font-weight:900;color:#0A0A0A;line-height:1.2;">CAGR<br>(Compound Annual Growth Rate)</div>
+        <div style="font-size:12px;font-weight:600;color:var(--muted);font-style:italic;margin-top:4px;">tasso di crescita annuo composto</div>
+      </div>
+      <div class="sep"></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:14px;color:#374151;line-height:1.55;margin-bottom:8px;">La crescita percentuale <strong>media annua</strong> di un mercato o azienda, calcolata in modo composto (ogni anno cresce sul totale dell'anno precedente). È come l'interesse composto applicato ai mercati.</div>
+        <div style="display:inline-block;background:#FEF3C7;border-radius:8px;padding:5px 10px;font-size:12px;font-weight:600;color:#92400E;">→ Mercato spaziale: CAGR +7,6% al 2040. Broadband satellitare: CAGR +24%. Turismo spaziale: +24%.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot a"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="pg">4/7</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ SLIDE 5 — MERCATO SPAZIALE -->
+<div class="slide" id="s5">
+  <div class="hdr blk">
+    <div class="logo">
+      <div class="logo-sq blk"><span class="logo-a blk">A</span></div>
+      <span class="logo-txt">LMA FINANZA</span>
+    </div>
+    <span class="slide-title">Il mercato spaziale: da $590B a $1.800B entro il 2040</span>
+  </div>
+
+  <div style="flex:1;display:flex;flex-direction:column;padding:22px 44px 60px;gap:9px;">
+
+    <!-- HEADER ROW -->
+    <div style="display:flex;gap:0;padding:0 0 8px;border-bottom:2px solid #0A0A0A;">
+      <div style="flex:2.2;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#0A0A0A;">Segmento</div>
+      <div style="flex:1;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#0A0A0A;text-align:right;">2025E</div>
+      <div style="flex:1;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#0A0A0A;text-align:right;">2040E</div>
+      <div style="flex:0.8;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#0A0A0A;text-align:right;">CAGR</div>
+    </div>
+
+    <!-- ROW 1 — Broadband -->
+    <div style="display:flex;gap:0;align-items:center;padding:10px 0;border-bottom:1px solid #F3F4F6;flex:1;">
+      <div style="flex:2.2;">
+        <div style="font-size:14px;font-weight:800;color:#0A0A0A;">🌐 Internet satellitare (Starlink-type)</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">Leader: SpaceX Starlink, Amazon Kuiper</div>
+      </div>
+      <div style="flex:1;text-align:right;font-size:14px;font-weight:700;color:#374151;">$12B</div>
+      <div style="flex:1;text-align:right;font-size:16px;font-weight:900;color:#00C17C;">$290B</div>
+      <div style="flex:0.8;text-align:right;"><span style="background:#D1FAE5;color:#065F46;border-radius:6px;padding:4px 8px;font-size:12px;font-weight:800;">+24%</span></div>
+    </div>
+
+    <!-- ROW 2 — Satelliti -->
+    <div style="display:flex;gap:0;align-items:center;padding:10px 0;border-bottom:1px solid #F3F4F6;flex:1;">
+      <div style="flex:2.2;">
+        <div style="font-size:14px;font-weight:800;color:#0A0A0A;">📡 Satelliti (telecom + osservazione)</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">Intelsat, SES, Planet Labs</div>
+      </div>
+      <div style="flex:1;text-align:right;font-size:14px;font-weight:700;color:#374151;">$180B</div>
+      <div style="flex:1;text-align:right;font-size:16px;font-weight:900;color:#00C17C;">$620B</div>
+      <div style="flex:0.8;text-align:right;"><span style="background:#D1FAE5;color:#065F46;border-radius:6px;padding:4px 8px;font-size:12px;font-weight:800;">+8,7%</span></div>
+    </div>
+
+    <!-- ROW 3 — Lanci -->
+    <div style="display:flex;gap:0;align-items:center;padding:10px 0;border-bottom:1px solid #F3F4F6;flex:1;">
+      <div style="flex:2.2;">
+        <div style="font-size:14px;font-weight:800;color:#0A0A0A;">🚀 Lanci commerciali</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">SpaceX 70%, Rocket Lab, Arianespace</div>
+      </div>
+      <div style="flex:1;text-align:right;font-size:14px;font-weight:700;color:#374151;">$15B</div>
+      <div style="flex:1;text-align:right;font-size:16px;font-weight:900;color:#00C17C;">$65B</div>
+      <div style="flex:0.8;text-align:right;"><span style="background:#D1FAE5;color:#065F46;border-radius:6px;padding:4px 8px;font-size:12px;font-weight:800;">+10,5%</span></div>
+    </div>
+
+    <!-- ROW 4 — Difesa -->
+    <div style="display:flex;gap:0;align-items:center;padding:10px 0;border-bottom:1px solid #F3F4F6;flex:1;">
+      <div style="flex:2.2;">
+        <div style="font-size:14px;font-weight:800;color:#0A0A0A;">🛡️ Difesa e programmi governativi</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">SpaceX, Northrop, Lockheed, Leonardo</div>
+      </div>
+      <div style="flex:1;text-align:right;font-size:14px;font-weight:700;color:#374151;">$55B</div>
+      <div style="flex:1;text-align:right;font-size:16px;font-weight:900;color:#00C17C;">$130B</div>
+      <div style="flex:0.8;text-align:right;"><span style="background:#D1FAE5;color:#065F46;border-radius:6px;padding:4px 8px;font-size:12px;font-weight:800;">+5,8%</span></div>
+    </div>
+
+    <!-- ROW 5 — Turismo -->
+    <div style="display:flex;gap:0;align-items:center;padding:10px 0;border-bottom:1px solid #F3F4F6;flex:1;">
+      <div style="flex:2.2;">
+        <div style="font-size:14px;font-weight:800;color:#0A0A0A;">🧑‍🚀 Turismo spaziale</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">SpaceX, Blue Origin, Virgin Galactic</div>
+      </div>
+      <div style="flex:1;text-align:right;font-size:14px;font-weight:700;color:#374151;">$0,7B</div>
+      <div style="flex:1;text-align:right;font-size:16px;font-weight:900;color:#00C17C;">$20B</div>
+      <div style="flex:0.8;text-align:right;"><span style="background:#D1FAE5;color:#065F46;border-radius:6px;padding:4px 8px;font-size:12px;font-weight:800;">+24%</span></div>
+    </div>
+
+    <!-- TOTALE -->
+    <div style="display:flex;gap:0;align-items:center;padding:12px 14px;background:#0A0A0A;border-radius:12px;margin-top:4px;">
+      <div style="flex:2.2;font-size:15px;font-weight:900;color:#fff;">TOTALE economia spaziale</div>
+      <div style="flex:1;text-align:right;font-size:15px;font-weight:700;color:#9CA3AF;">~$590B</div>
+      <div style="flex:1;text-align:right;font-size:18px;font-weight:900;color:var(--accent);">~$1.800B</div>
+      <div style="flex:0.8;text-align:right;"><span style="background:var(--accent);color:#fff;border-radius:6px;padding:4px 8px;font-size:12px;font-weight:800;">+7,6%</span></div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot a"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="pg">5/7</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ SLIDE 6 — COME INVESTIRE -->
+<div class="slide" id="s6">
+  <div class="hdr acc">
+    <div class="logo">
+      <div class="logo-sq acc"><span class="logo-a acc">A</span></div>
+      <span class="logo-txt">LMA FINANZA</span>
+    </div>
+    <span class="slide-title">Come partecipare oggi — senza aspettare l'IPO</span>
+  </div>
+
+  <div style="flex:1;display:flex;padding:28px 44px 60px;gap:18px;">
+
+    <!-- COL SX: ETF e titoli quotati -->
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:4px;">Strumenti accessibili a tutti</div>
+
+      <div style="background:var(--off);border-radius:14px;padding:18px 20px;flex:1;border-top:3px solid var(--accent);">
+        <div style="font-size:14px;font-weight:900;color:#0A0A0A;margin-bottom:6px;">📊 ETF Spaziali</div>
+        <div style="font-size:13px;color:#4B5563;line-height:1.55;margin-bottom:10px;">Con 100€ compri un paniere di 20-40 aziende spaziali. Diversificato, liquido, semplice.</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <span style="background:#EDE9FE;color:#4C1D95;border-radius:6px;padding:4px 10px;font-size:12px;font-weight:700;display:inline-block;">ROKT — SPDR Kensho Final Frontiers</span>
+          <span style="background:#EDE9FE;color:#4C1D95;border-radius:6px;padding:4px 10px;font-size:12px;font-weight:700;display:inline-block;">UFO — Procure Space ETF</span>
+          <span style="background:#EDE9FE;color:#4C1D95;border-radius:6px;padding:4px 10px;font-size:12px;font-weight:700;display:inline-block;">ARKX — ARK Space Exploration</span>
+        </div>
+      </div>
+
+      <div style="background:var(--off);border-radius:14px;padding:18px 20px;flex:1;border-top:3px solid var(--green);">
+        <div style="font-size:14px;font-weight:900;color:#0A0A0A;margin-bottom:6px;">📈 Titoli della filiera già quotati</div>
+        <div style="font-size:13px;color:#4B5563;line-height:1.55;margin-bottom:10px;">Aziende già in borsa con business legati allo spazio.</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <span style="background:#D1FAE5;color:#065F46;border-radius:6px;padding:4px 10px;font-size:12px;font-weight:700;display:inline-block;">RKLB — Rocket Lab (Nasdaq)</span>
+          <span style="background:#D1FAE5;color:#065F46;border-radius:6px;padding:4px 10px;font-size:12px;font-weight:700;display:inline-block;">ASTS — AST SpaceMobile</span>
+          <span style="background:#D1FAE5;color:#065F46;border-radius:6px;padding:4px 10px;font-size:12px;font-weight:700;display:inline-block;">LUNR — Intuitive Machines</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COL DX: Rischi -->
+    <div style="flex:1;background:var(--off);border-radius:18px;padding:26px 22px;display:flex;flex-direction:column;">
+      <div style="font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:16px;">⚠️ I rischi da non ignorare</div>
+
+      <div style="padding:12px 0;border-bottom:1px solid #E5E7EB;flex:1;">
+        <div style="font-size:13px;font-weight:800;color:#0A0A0A;margin-bottom:4px;">🧑‍💼 Rischio Musk</div>
+        <div style="font-size:12px;color:#4B5563;line-height:1.45;">SpaceX dipende da Elon Musk — che gestisce anche Tesla, xAI, X. La polarizzazione politica può impattare i contratti governativi.</div>
+      </div>
+
+      <div style="padding:12px 0;border-bottom:1px solid #E5E7EB;flex:1;">
+        <div style="font-size:13px;font-weight:800;color:#0A0A0A;margin-bottom:4px;">⚖️ Rischio regolatorio</div>
+        <div style="font-size:12px;color:#4B5563;line-height:1.45;">FAA può bloccare lanci. 42.000 satelliti pianificati creano tensioni su Kessler Syndrome (reazione a catena detriti spaziali) e inquinamento luminoso.</div>
+      </div>
+
+      <div style="padding:12px 0;border-bottom:1px solid #E5E7EB;flex:1;">
+        <div style="font-size:13px;font-weight:800;color:#0A0A0A;margin-bottom:4px;">🔭 Rischio valutazione</div>
+        <div style="font-size:12px;color:#4B5563;line-height:1.45;">A $350-500B, molto del futuro è già nel prezzo. Se Starlink rallenta o Starship accumula ritardi, la correzione post-IPO può essere severa — come con Uber nel 2019.</div>
+      </div>
+
+      <div style="padding:12px 0;flex:1;">
+        <div style="font-size:13px;font-weight:800;color:#0A0A0A;margin-bottom:4px;">💥 Rischio tecnologico</div>
+        <div style="font-size:12px;color:#4B5563;line-height:1.45;">I razzi esplodono. Un incidente grave con Starship — specialmente con equipaggio — potrebbe bloccare i lanci per mesi e distruggere il valore del titolo rapidamente.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot a"></div><div class="dot"></div>
+  </div>
+  <div class="pg">6/7</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ SLIDE 7 — CTA -->
+<div class="slide" id="s7" style="background:var(--accent);justify-content:center;align-items:center;">
+
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:44px;">
+    <div style="width:48px;height:48px;background:#fff;border-radius:9px;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:28px;font-family:'Lobster',cursive;font-weight:400;color:var(--accent);">A</span>
+    </div>
+    <span style="font-size:22px;font-weight:800;color:#fff;letter-spacing:.02em;">LMA FINANZA</span>
+  </div>
+
+  <div style="background:#fff;border-radius:24px;padding:52px 64px;text-align:center;width:820px;">
+    <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Analisi completa su</div>
+    <div style="font-size:54px;font-weight:900;letter-spacing:-.03em;color:#0A0A0A;margin-bottom:18px;">Alma Finanza</div>
+    <div style="width:56px;height:4px;background:var(--accent);border-radius:2px;margin:0 auto 22px;"></div>
+    <div style="font-size:20px;font-weight:800;color:var(--accent);margin-bottom:18px;">almafinanza.com</div>
+    <div style="font-size:15px;color:var(--muted);line-height:1.6;">
+      La finanza nazionale e internazionale,<br>
+      spiegata in italiano. Ogni giorno.
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="dot dw"></div><div class="dot dw"></div><div class="dot dw"></div>
+    <div class="dot dw"></div><div class="dot dw"></div><div class="dot dw"></div>
+    <div class="dot aw a"></div>
+  </div>
+  <div class="pg w">7/7</div>
+</div>
+
+</body>
+</html>
