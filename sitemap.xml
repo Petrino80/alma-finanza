@@ -36,6 +36,41 @@
       </news:news>
   </url>
 
+  <!-- Articoli 20 Aprile 2026 — chiusura borse -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-20apr-nasdaq-streak-iran.html</loc>
+      <lastmod>2026-04-20</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-20</news:publication_date>
+          <news:title>Nasdaq -0,26%: finisce la Winning Streak di 13 sedute. WTI +5,6% per la nave iraniana a Hormuz</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-20apr-ftse-mib-dividendi-eni.html</loc>
+      <lastmod>2026-04-20</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-20</news:publication_date>
+          <news:title>FTSE MIB -1,36% ma -0,74% reale: lo Stacco Dividendo di UniCredit e Banco BPM spiega metà del calo. ENI +3%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-geopolitica-20apr-iran-nave-hormuz-ceasefire.html</loc>
+      <lastmod>2026-04-20</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-20</news:publication_date>
+          <news:title>Hormuz parzialmente chiuso: nave con materiali Dual-Use sequestrata. Ceasefire scade 21 aprile — tre scenari</news:title>
+      </news:news>
+  </url>
+
   <!-- Articoli 17 Aprile 2026 -->
   <url>
       <loc>https://www.almafinanza.com/articolo-geopolitica-17apr-hormuz-riaperto-iran-usa-accordo-wti-crollo.html</loc>
