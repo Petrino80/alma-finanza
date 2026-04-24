@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 24 Aprile 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-24apr-intel-amd-nasdaq-record-warsh-fed.html</loc>
+      <lastmod>2026-04-24</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-24</news:publication_date>
+          <news:title>Wall Street 24 Aprile 2026: Nasdaq e S&amp;P 500 a Nuovi Massimi Storici, Intel +23,6%, AMD +13,9%, Warsh verso presidenza Fed</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-24apr-ftse-mib-avio-fincantieri-difesa.html</loc>
+      <lastmod>2026-04-24</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-24</news:publication_date>
+          <news:title>Piazza Affari 24 Aprile 2026: FTSE MIB -0,58% a 47.630, Avio e Fincantieri affondano la difesa, STM +2,09%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-24apr-ge-vernova-tesla-storia-vs-futuro-energia.html</loc>
+      <lastmod>2026-04-24</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-24</news:publication_date>
+          <news:title>GE Vernova vs Tesla Q1 2026: la storia dell'energia incontra il futuro del Robotaxi — Confronto strategico</news:title>
+      </news:news>
   </url>
 
   <!-- Articolo Semiconduttori — Analisi TXN STM NVDA AMD INTC 23 Aprile 2026 -->
