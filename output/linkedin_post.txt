@@ -1,19 +1,19 @@
-Tim Cook esce. John Ternus entra. AAPL −1,5%.
+TXN +19% ieri. STM +14% oggi. Il Nasdaq scendeva.
 
-→ Cook (2011–2026): Apple da $350 miliardi a $3,5 trilioni. +1.000% in borsa. Supply chain come vantaggio competitivo assoluto.
-→ Ternus: padre dei chip M1→M4, i migliori processori consumer al mondo. AI generativa e Services: da dimostrare.
-→ AAPL perde "solo" 1,5% perché la transizione è ordinata: 5 mesi di preavviso, nessuna sorpresa per il mercato.
-→ Il vero problema: Apple Intelligence ha 18 mesi di ritardo su Google Gemini e Microsoft Copilot — colpa della scelta di costruire un LLM in-house invece di acquisire.
-→ La grande sfida: i Services (App Store, iCloud, TV+) valgono $100B/anno con margini al 70%. Non è il campo di Ternus.
+→ Texas Instruments Q1 2026: EPS $1,28 vs $0,94 stimato (+36%). Gross Margin al 57,3% — migliore seduta dal 2000.
+→ STMicroelectronics Q1 2026: EPS €0,32 vs €0,21 (+52%). Revenue €2,90B vs €2,67B attesi.
+→ Il fattore comune: entrambe esposte >50% ad automotive e industrial — i mercati che per 2 anni non hanno ordinato chip.
+→ La logica: il destocking finisce quando le scorte si esauriscono. Poi gli ordini tornano tutti insieme — il beat è inevitabile.
+→ Nvidia e AMD: ciclo diverso. GPU AI = domanda pull continua dagli hyperscaler, niente inventory cycle.
 
-💡 Concetto del giorno: CEO Succession (successione del CEO)
-Quando un cambio al vertice è pianificato e comunicato con anticipo, il mercato non vende in panico. La differenza tra −1,5% e −10% si chiama succession planning.
+💡 Concetto del giorno: Destocking (riduzione delle scorte)
+I clienti automotive-industrial avevano chip in magazzino dal 2021-2022. Per 2 anni non hanno riordinato. Quando le scorte finiscono, gli ordini esplodono — e le aziende come TXN e STM sorprendono le stime del 30-50%.
 
-📌 Nei prossimi mesi: WWDC 2026 (estate) — se Ternus annuncia una partnership AI o un'acquisizione LLM, AAPL recupera verso $3,5T. Se tace, il gap sull'AI generativa continua ad allargarsi.
+📌 Nei prossimi trimestri: la Q2 guidance TXN ($4,2-4,8B) dirà se la recovery è strutturale. Per Nvidia: attenzione all'export control sulle GPU H20 verso la Cina.
 
 📊 Analisi completa + glossario su almafinanza.com
-→ https://www.almafinanza.com/articolo-tech-21apr-apple-ceo-tim-cook-john-ternus.html
+→ https://www.almafinanza.com/articolo-tech-23apr-semiconduttori-txn-stm-nvda-amd-intc-analogico.html
 
 🔗 almafinanza.com
 
-#AlmaFinanza #TechAI #Apple #CEOSuccession #MercatiFinanziari
+#AlmaFinanza #TechAI #Semiconduttori #TXN #STMicroelectronics #MercatiFinanziari

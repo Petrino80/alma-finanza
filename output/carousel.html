@@ -2,563 +2,927 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<title>Carousel — TXN STM Semiconduttori — Alma Finanza</title>
 <style>
-@page { size: 1080px 1080px; margin: 0; }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #fff; }
+  @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
-.slide {
-  width: 1080px;
-  height: 1080px;
-  position: relative;
-  background: #FFFFFF;
-  overflow: hidden;
-  break-after: page;
-  page-break-after: always;
-}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ── LOBSTER A ── */
-.lbs { font-family: 'Lobster', cursive; font-style: normal; }
+  body {
+    background: #1a1a2e;
+    font-family: 'Inter', sans-serif;
+  }
 
-/* ── HEADER VARIANTS ── */
-.h-accent { background: #8B5CF6; height: 84px; display: flex; align-items: center; justify-content: space-between; padding: 0 44px; flex-shrink: 0; }
-.h-black  { background: #0A0A0A; height: 84px; display: flex; align-items: center; justify-content: space-between; padding: 0 44px; flex-shrink: 0; }
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    position: relative;
+    page-break-after: always;
+    break-after: page;
+  }
 
-/* ── LOGO ── */
-.logo-a-white  { width:28px; height:28px; border-radius:5px; background:#fff; display:flex; align-items:center; justify-content:center; }
-.logo-a-accent { width:28px; height:28px; border-radius:5px; background:#8B5CF6; display:flex; align-items:center; justify-content:center; }
-.logo-row  { display:flex; align-items:center; gap:7px; }
-.logo-name { font-size:14px; font-weight:800; color:#fff; letter-spacing:0.02em; }
+  /* ─── SLIDE 1 — Cover ─── */
+  #s1 {
+    background: #0a0a14;
+    display: flex;
+    flex-direction: row;
+  }
+  #s1 .text-col {
+    width: 640px;
+    height: 1080px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 72px 60px 72px 72px;
+    position: relative;
+    z-index: 2;
+  }
+  #s1 .img-col {
+    width: 440px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+  }
+  #s1 .img-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.7) brightness(0.8);
+  }
+  #s1 .img-col::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #0a0a14 0%, rgba(10,10,20,0.6) 40%, rgba(109,40,217,0.25) 100%);
+    z-index: 1;
+  }
+  #s1 .img-col .badge {
+    position: absolute;
+    bottom: 60px;
+    right: 40px;
+    z-index: 2;
+    background: rgba(139,92,246,0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(139,92,246,0.6);
+    border-radius: 12px;
+    padding: 10px 20px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  #s1 .logo {
+    font-family: 'Lobster', cursive;
+    font-size: 28px;
+    color: #8B5CF6;
+    margin-bottom: 32px;
+    letter-spacing: 0.02em;
+  }
+  #s1 .logo span { color: rgba(255,255,255,0.7); font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: 0.1em; margin-left: 10px; }
+  #s1 .tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 8px;
+    margin-bottom: 28px;
+  }
+  #s1 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 64px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 28px;
+  }
+  #s1 h1 .accent { color: #A78BFA; }
+  #s1 .sub {
+    font-size: 20px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.55;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+  #s1 .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  #s1 .pill {
+    background: rgba(139,92,246,0.18);
+    border: 1px solid rgba(139,92,246,0.45);
+    color: #C4B5FD;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-family: 'Montserrat', sans-serif;
+  }
 
-/* ── SECTION PILL ── */
-.s-pill { background:rgba(0,0,0,0.22); color:#fff; border-radius:999px; font-size:12px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; padding:6px 16px; }
+  /* ─── SLIDE 2 — Contesto ─── */
+  #s2 {
+    background: linear-gradient(145deg, #0d0d1f 0%, #13102a 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 80px 80px 60px;
+  }
+  #s2 .slide-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8B5CF6;
+    margin-bottom: 14px;
+  }
+  #s2 h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 54px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 50px;
+  }
+  #s2 h2 em { color: #A78BFA; font-style: normal; }
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+  }
+  .tl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(139,92,246,0.15);
+  }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-dot {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 22px;
+  }
+  .tl-body {}
+  .tl-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #8B5CF6;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .tl-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .tl-desc {
+    font-size: 18px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+  .tl-kpi {
+    display: inline-block;
+    margin-top: 8px;
+    background: rgba(139,92,246,0.2);
+    border: 1px solid rgba(139,92,246,0.4);
+    border-radius: 8px;
+    padding: 5px 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #A78BFA;
+  }
+  .s2-logo {
+    margin-top: auto;
+    font-family: 'Lobster', cursive;
+    font-size: 22px;
+    color: rgba(139,92,246,0.5);
+    text-align: right;
+  }
 
-/* ── SLIDE HEADER TITLE ── */
-.h-title { font-size:19px; font-weight:800; color:#fff; }
+  /* ─── SLIDE 3 — Il Filo Rosso ─── */
+  #s3 {
+    background: #0a0a14;
+    display: flex;
+    flex-direction: column;
+    padding: 72px 80px 60px;
+  }
+  #s3 .slide-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8B5CF6;
+    margin-bottom: 14px;
+  }
+  #s3 h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 52px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 44px;
+  }
+  #s3 h2 em { color: #A78BFA; font-style: normal; }
+  .destocking-box {
+    background: linear-gradient(135deg, rgba(139,92,246,0.12) 0%, rgba(109,40,217,0.08) 100%);
+    border: 1px solid rgba(139,92,246,0.3);
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin-bottom: 32px;
+  }
+  .db-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #A78BFA;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .db-text {
+    font-size: 20px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+  }
+  .step-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 32px;
+  }
+  .step-card {
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .step-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: #8B5CF6;
+    line-height: 1;
+  }
+  .step-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .step-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+  }
+  .s3-logo {
+    margin-top: auto;
+    font-family: 'Lobster', cursive;
+    font-size: 22px;
+    color: rgba(139,92,246,0.5);
+    text-align: right;
+  }
 
-/* ── FOOTER DOTS ── */
-.footer-dots { position:absolute; bottom:26px; left:0; right:0; display:flex; align-items:center; justify-content:center; gap:6px; }
-.d-off   { width:7px; height:7px; border-radius:50%; background:#D1D5DB; flex-shrink:0; }
-.d-on    { width:20px; height:7px; border-radius:4px; background:#8B5CF6; flex-shrink:0; }
-.d-off-w { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.35); flex-shrink:0; }
-.d-on-w  { width:20px; height:7px; border-radius:4px; background:#fff; flex-shrink:0; }
-.pn   { position:absolute; right:36px; bottom:22px; font-size:12px; font-weight:700; color:#9CA3AF; }
-.pn-w { position:absolute; right:36px; bottom:22px; font-size:12px; font-weight:700; color:rgba(255,255,255,0.55); }
+  /* ─── SLIDE 4 — I Numeri ─── */
+  #s4 {
+    background: linear-gradient(145deg, #0d0d1f 0%, #13102a 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 72px 80px 60px;
+  }
+  #s4 .slide-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8B5CF6;
+    margin-bottom: 14px;
+  }
+  #s4 h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 52px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 44px;
+  }
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    flex: 1;
+  }
+  .compare-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(139,92,246,0.25);
+    border-radius: 20px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .cc-ticker {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #8B5CF6;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .cc-name {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 28px;
+  }
+  .cc-big {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: #4ADE80;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .cc-date {
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 28px;
+  }
+  .cc-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .cc-stat-label {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+  }
+  .cc-stat-val {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .cc-stat-val.green { color: #4ADE80; }
+  .cc-stat-val.beat {
+    background: rgba(74,222,128,0.15);
+    border: 1px solid rgba(74,222,128,0.3);
+    border-radius: 6px;
+    padding: 3px 10px;
+    color: #4ADE80;
+    font-size: 15px;
+  }
+  .s4-logo {
+    margin-top: 28px;
+    font-family: 'Lobster', cursive;
+    font-size: 22px;
+    color: rgba(139,92,246,0.5);
+    text-align: right;
+  }
 
-/* ── SLIDE BODY ── */
-.body { height:calc(1080px - 84px); display:flex; flex-direction:column; }
+  /* ─── SLIDE 5 — Analog vs Digital ─── */
+  #s5 {
+    background: #0a0a14;
+    display: flex;
+    flex-direction: column;
+    padding: 72px 80px 60px;
+  }
+  #s5 .slide-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8B5CF6;
+    margin-bottom: 14px;
+  }
+  #s5 h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 44px;
+  }
+  #s5 h2 em { color: #A78BFA; font-style: normal; }
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 32px;
+  }
+  .vs-card {
+    border-radius: 20px;
+    padding: 32px 30px;
+  }
+  .vs-card.analog {
+    background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(109,40,217,0.1) 100%);
+    border: 1px solid rgba(139,92,246,0.35);
+  }
+  .vs-card.digital {
+    background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(59,130,246,0.08) 100%);
+    border: 1px solid rgba(99,102,241,0.25);
+  }
+  .vs-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+  .vs-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .vs-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+  .vs-ticker {
+    display: inline-block;
+    background: rgba(139,92,246,0.2);
+    border: 1px solid rgba(139,92,246,0.4);
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #A78BFA;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+  .vs-ticker.blue {
+    background: rgba(99,102,241,0.2);
+    border-color: rgba(99,102,241,0.4);
+    color: #818CF8;
+  }
+  .insight-bar {
+    background: linear-gradient(90deg, rgba(139,92,246,0.2), rgba(109,40,217,0.1));
+    border: 1px solid rgba(139,92,246,0.3);
+    border-radius: 14px;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .ib-icon { font-size: 28px; flex-shrink: 0; }
+  .ib-text {
+    font-size: 18px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+  }
+  .ib-text strong { color: #A78BFA; }
+  .s5-logo {
+    margin-top: auto;
+    font-family: 'Lobster', cursive;
+    font-size: 22px;
+    color: rgba(139,92,246,0.5);
+    text-align: right;
+  }
 
-/* ══ SLIDE 2 — MACRO FACT CARDS (font ingrandito per mobile) ══ */
-.fact-card  { background:#F7F8FA; border-radius:16px; padding:22px 28px; display:flex; flex-direction:row; gap:22px; align-items:stretch; flex:1; }
-.fact-left  { width:148px; flex-shrink:0; display:flex; flex-direction:column; justify-content:center; }
-.fact-val   { font-size:48px; font-weight:900; line-height:1; }
-.fact-unit  { font-size:14px; text-transform:uppercase; color:#6B7280; font-weight:700; letter-spacing:0.05em; margin-top:6px; line-height:1.3; }
-.fact-sep   { width:2px; background:#E5E7EB; align-self:stretch; flex-shrink:0; }
-.fact-right { flex:1; display:flex; flex-direction:column; justify-content:center; }
-.fact-title { font-size:22px; font-weight:800; color:#0A0A0A; margin-bottom:8px; line-height:1.25; }
-.fact-body  { font-size:20px; font-weight:400; color:#4B5563; line-height:1.50; }
+  /* ─── SLIDE 6 — Outlook ─── */
+  #s6 {
+    background: linear-gradient(145deg, #0d0d1f 0%, #13102a 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 72px 80px 60px;
+  }
+  #s6 .slide-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8B5CF6;
+    margin-bottom: 14px;
+  }
+  #s6 h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 52px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 44px;
+  }
+  .outlook-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    flex: 1;
+  }
+  .ol-card {
+    border-radius: 20px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .ol-card.green-card {
+    background: linear-gradient(135deg, rgba(74,222,128,0.1) 0%, rgba(34,197,94,0.07) 100%);
+    border: 1px solid rgba(74,222,128,0.3);
+  }
+  .ol-card.yellow-card {
+    background: linear-gradient(135deg, rgba(251,191,36,0.1) 0%, rgba(245,158,11,0.07) 100%);
+    border: 1px solid rgba(251,191,36,0.3);
+  }
+  .ol-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .ol-icon {
+    font-size: 36px;
+  }
+  .ol-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+  }
+  .green-card .ol-title { color: #4ADE80; }
+  .yellow-card .ol-title { color: #FBBF24; }
+  .ol-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .ol-bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+  .green-card .ol-bullet { background: #4ADE80; }
+  .yellow-card .ol-bullet { background: #FBBF24; }
+  .ol-text {
+    font-size: 18px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+  }
+  .ol-text strong { color: #fff; }
+  .s6-logo {
+    margin-top: 28px;
+    font-family: 'Lobster', cursive;
+    font-size: 22px;
+    color: rgba(139,92,246,0.5);
+    text-align: right;
+  }
 
-/* ══ SLIDE 3 — FOCUS CARDS ══ */
-.focus-card  { background:#F7F8FA; border-radius:14px; padding:20px 26px; display:flex; flex-direction:row; gap:20px; align-items:stretch; flex:1; }
-.focus-left  { width:118px; flex-shrink:0; display:flex; flex-direction:column; justify-content:center; }
-.focus-lbl   { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; margin-bottom:6px; }
-.focus-val   { font-size:42px; font-weight:900; line-height:1.0; }
-.focus-sep   { width:2px; background:#E5E7EB; align-self:stretch; flex-shrink:0; }
-.focus-right { flex:1; display:flex; flex-direction:column; justify-content:center; }
-.focus-ttl   { font-size:19px; font-weight:800; color:#0A0A0A; margin-bottom:6px; line-height:1.25; }
-.focus-body  { font-size:18px; font-weight:400; color:#4B5563; line-height:1.50; }
-.insight-box { background:#0A0A0A; border-radius:14px; padding:20px 26px; display:flex; flex-direction:row; gap:14px; align-items:center; flex-shrink:0; }
-.insight-ico { font-size:28px; flex-shrink:0; }
-.insight-txt { font-size:22px; font-weight:700; color:#fff; line-height:1.45; }
-
-/* ══ SLIDE 4 — LEARN TERM CARDS ══ */
-.term-card  { background:#F7F8FA; border-radius:16px; padding:18px 26px; display:flex; flex-direction:row; gap:20px; border-left:4px solid #8B5CF6; flex:1; }
-.term-left  { width:190px; flex-shrink:0; display:flex; flex-direction:column; justify-content:center; padding-left:2px; }
-.term-en    { font-size:20px; font-weight:900; color:#0A0A0A; line-height:1.2; }
-.term-it    { font-size:16px; font-weight:600; color:#6B7280; font-style:italic; margin-top:4px; }
-.term-sep   { width:2px; background:#E5E7EB; align-self:stretch; flex-shrink:0; }
-.term-right { flex:1; display:flex; flex-direction:column; justify-content:center; }
-.term-def   { font-size:18px; font-weight:400; color:#374151; line-height:1.50; }
-.term-ex    { display:inline-block; background:#D1FAE5; border-radius:8px; padding:6px 12px; margin-top:8px; font-size:16px; font-weight:600; color:#065F46; line-height:1.3; }
-
-/* ══ SLIDE 5 — TICKER CARDS ══ */
-.t-win  { border-radius:14px; padding:18px 24px; display:flex; flex-direction:row; gap:16px; align-items:stretch; background:#F0FDF4; border-left:4px solid #00C17C; flex:1; }
-.t-los  { border-radius:14px; padding:18px 24px; display:flex; flex-direction:row; gap:16px; align-items:stretch; background:#FFF5F5; border-left:4px solid #E8313A; flex:1; }
-.t-info { flex:1; display:flex; flex-direction:column; justify-content:center; }
-.t-name { font-size:21px; font-weight:800; color:#0A0A0A; margin-bottom:6px; }
-.t-why  { font-size:18px; font-weight:400; color:#4B5563; line-height:1.40; }
-.t-sep  { width:1px; background:rgba(0,0,0,0.08); align-self:stretch; flex-shrink:0; }
-.t-pct  { width:120px; flex-shrink:0; display:flex; align-items:center; justify-content:flex-end; }
-.t-up   { font-size:32px; font-weight:900; color:#00C17C; }
-.t-dn   { font-size:32px; font-weight:900; color:#E8313A; }
+  /* ─── SLIDE 7 — CTA ─── */
+  #s7 {
+    background: radial-gradient(ellipse 80% 70% at 50% 60%, rgba(109,40,217,0.35) 0%, #0a0a14 65%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+    text-align: center;
+    position: relative;
+  }
+  #s7::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 40% at 50% 50%, rgba(139,92,246,0.12) 0%, transparent 70%);
+  }
+  #s7 > * { position: relative; z-index: 1; }
+  .s7-logo {
+    font-family: 'Lobster', cursive;
+    font-size: 52px;
+    color: #8B5CF6;
+    margin-bottom: 8px;
+  }
+  .s7-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 52px;
+  }
+  #s7 h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+  #s7 h2 em { color: #A78BFA; font-style: normal; }
+  #s7 .sub {
+    font-size: 22px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto 52px;
+  }
+  .cta-url {
+    display: inline-block;
+    background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+    border-radius: 16px;
+    padding: 20px 48px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.05em;
+    margin-bottom: 32px;
+    box-shadow: 0 8px 32px rgba(109,40,217,0.45);
+  }
+  .cta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .cta-tag {
+    background: rgba(139,92,246,0.15);
+    border: 1px solid rgba(139,92,246,0.35);
+    border-radius: 999px;
+    padding: 8px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #C4B5FD;
+  }
 </style>
 </head>
 <body>
 
-
 <!-- ══════════════════════════════════════════
-     SLIDE 1 — COVER
-     ══════════════════════════════════════════ -->
-<div class="slide">
-
-  <!-- HEADER -->
-  <div class="h-accent">
-    <span class="s-pill">TECH &amp; AI</span>
-    <div class="logo-row">
-      <div class="logo-a-white">
-        <span class="lbs" style="font-size:17px; color:#8B5CF6;">A</span>
-      </div>
-      <span class="logo-name">LMA FINANZA</span>
+     SLIDE 1 — Cover con immagine chip
+══════════════════════════════════════════ -->
+<div class="slide" id="s1">
+  <div class="text-col">
+    <div class="logo">Alma <span>FINANZA</span></div>
+    <div class="tag">⚡ TECH &amp; AI</div>
+    <h1>TXN +19%.<br><span class="accent">STM +14%.</span><br>Nessuna AI.</h1>
+    <p class="sub">Texas Instruments e STMicroelectronics: stesso segnale, 24 ore di distanza. La fine del destocking che il mercato non stava guardando.</p>
+    <div class="pills">
+      <span class="pill">Destocking</span>
+      <span class="pill">Inventory Cycle</span>
+      <span class="pill">Analog Chip</span>
+      <span class="pill">Earnings Inflection</span>
     </div>
-    <span style="font-size:13px; color:rgba(255,255,255,0.7); font-weight:500;">21 Aprile 2026</span>
   </div>
-
-  <!-- BODY -->
-  <div class="body" style="padding:44px 44px 70px; gap:0;">
-
-    <!-- HOOK -->
-    <div style="font-size:80px; font-weight:900; letter-spacing:-0.04em; color:#0A0A0A; line-height:1.04;">
-      15 anni.<br>
-      <span style="color:#8B5CF6;">+1.000%</span>.<br>
-      Fine mandato.
-    </div>
-
-    <!-- SUB -->
-    <div style="margin-top:24px; font-size:21px; font-weight:500; color:#374151; line-height:1.55; max-width:880px;">
-      AAPL perde ~1,5% mentre <strong style="color:#0A0A0A; font-weight:800;">Tim Cook cede il CEO a John Ternus</strong>.<br>
-      Il mercato applaude la transizione ordinata — ma la vera sfida è l'AI generativa.
-    </div>
-
-    <!-- SPACER -->
-    <div style="flex:1;"></div>
-
-    <!-- METRICS BAR -->
-    <div style="display:flex; border-top:1px solid #E5E7EB; padding:20px 0 18px;">
-      <div style="flex:1; border-left:3px solid #8B5CF6; padding-left:16px;">
-        <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; margin-bottom:5px;">AAPL · 21 apr</div>
-        <div style="font-size:28px; font-weight:900; color:#E8313A; line-height:1;">−1,5%</div>
-        <div style="font-size:12px; color:#6B7280; margin-top:3px;">reazione mercato</div>
-      </div>
-      <div style="flex:1; border-left:2px solid #E5E7EB; padding-left:16px;">
-        <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; margin-bottom:5px;">Cap. Apple</div>
-        <div style="font-size:28px; font-weight:900; color:#1F2937; line-height:1;">&lt;$3,2T</div>
-        <div style="font-size:12px; color:#6B7280; margin-top:3px;">da $3,5T inizio 2026</div>
-      </div>
-      <div style="flex:1; border-left:2px solid #E5E7EB; padding-left:16px;">
-        <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; margin-bottom:5px;">Crescita Cook</div>
-        <div style="font-size:28px; font-weight:900; color:#00C17C; line-height:1;">+1.000%</div>
-        <div style="font-size:12px; color:#6B7280; margin-top:3px;">azionario 2011–2026</div>
-      </div>
-      <div style="flex:1; border-left:2px solid #E5E7EB; padding-left:16px;">
-        <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; margin-bottom:5px;">Data transizione</div>
-        <div style="font-size:26px; font-weight:900; color:#1F2937; line-height:1;">1° Set 2026</div>
-        <div style="font-size:12px; color:#6B7280; margin-top:3px;">Ternus CEO ufficiale</div>
-      </div>
-    </div>
-
-    <!-- TEASER FORMAZIONE -->
-    <div style="background:#F7F8FA; border-radius:16px; padding:16px 22px; display:flex; flex-direction:row; gap:18px; align-items:center;">
-      <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
-        <span style="font-size:18px;">📚</span>
-        <span style="background:#D1FAE5; color:#065F46; border-radius:999px; padding:4px 10px; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:0.08em;">IMPARA</span>
-      </div>
-      <div style="width:2px; background:#E5E7EB; align-self:stretch; flex-shrink:0;"></div>
-      <div style="flex:1;">
-        <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; margin-bottom:7px;">In questo carosello scoprirai</div>
-        <div style="display:flex; gap:7px; flex-wrap:wrap;">
-          <span style="background:#fff; border:1.5px solid #E5E7EB; border-radius:999px; padding:5px 13px; font-size:13px; font-weight:700; color:#0A0A0A;"><span style="color:#8B5CF6;">→</span> CEO Succession</span>
-          <span style="background:#fff; border:1.5px solid #E5E7EB; border-radius:999px; padding:5px 13px; font-size:13px; font-weight:700; color:#0A0A0A;"><span style="color:#8B5CF6;">→</span> Executive Chairman</span>
-          <span style="background:#fff; border:1.5px solid #E5E7EB; border-radius:999px; padding:5px 13px; font-size:13px; font-weight:700; color:#0A0A0A;"><span style="color:#8B5CF6;">→</span> Engineer CEO</span>
-          <span style="background:#fff; border:1.5px solid #E5E7EB; border-radius:999px; padding:5px 13px; font-size:13px; font-weight:700; color:#0A0A0A;"><span style="color:#8B5CF6;">→</span> LLM</span>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /body -->
-
-  <div class="footer-dots"><div class="d-on"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div></div>
-  <span class="pn">1 / 7</span>
+  <div class="img-col">
+    <img src="slide1_img_chip_semiconductor.jpg" alt="Semiconductor chip">
+    <div class="badge">⚡ Semiconduttori</div>
+  </div>
 </div>
 
-
 <!-- ══════════════════════════════════════════
-     SLIDE 2 — CONTESTO MACRO
-     ══════════════════════════════════════════ -->
-<div class="slide">
-
-  <div class="h-black">
-    <div class="logo-row">
-      <div class="logo-a-accent">
-        <span class="lbs" style="font-size:17px; color:#fff;">A</span>
+     SLIDE 2 — Contesto: cosa è successo
+══════════════════════════════════════════ -->
+<div class="slide" id="s2">
+  <p class="slide-label">02 / 07 &nbsp;— Contesto</p>
+  <h2>Due segnali,<br><em>24 ore di distanza</em></h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot">📅</div>
+      <div class="tl-body">
+        <div class="tl-date">22 Aprile 2026 — Wall Street</div>
+        <div class="tl-title">Texas Instruments: +19.1%</div>
+        <div class="tl-desc">EPS $1,28 vs $0,94 atteso. Gross Margin 57,3% — record dal 2000. Il mercato si aspettava ancora fragilità nel ciclo analog.</div>
+        <span class="tl-kpi">Beat: +36% vs stime</span>
       </div>
-      <span class="logo-name">LMA FINANZA</span>
     </div>
-    <span class="h-title">Il contesto che ha mosso i mercati</span>
-    <span style="font-size:13px; color:rgba(255,255,255,0.4);">21 Apr 2026</span>
+    <div class="tl-item">
+      <div class="tl-dot">📅</div>
+      <div class="tl-body">
+        <div class="tl-date">23 Aprile 2026 — Piazza Affari</div>
+        <div class="tl-title">STMicroelectronics: +14.1%</div>
+        <div class="tl-desc">EPS €0,32 vs €0,21 atteso. Revenue €2,90B vs €2,67B. Stesso schema di TXN: automotive e industrial tornano a ordinare.</div>
+        <span class="tl-kpi">Beat: +52% vs stime</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🔗</div>
+      <div class="tl-body">
+        <div class="tl-date">Il filo rosso</div>
+        <div class="tl-title">Entrambe fanno chip analogici</div>
+        <div class="tl-desc">Niente GPU, niente AI data center. Servono auto, industriali, infrastruttura. Due anni di destocking — finito.</div>
+      </div>
+    </div>
   </div>
-
-  <div class="body" style="padding:26px 44px 68px; gap:13px;">
-
-    <!-- FACT 1 -->
-    <div class="fact-card">
-      <div class="fact-left">
-        <div class="fact-val" style="color:#00C17C;">+1.000%</div>
-        <div class="fact-unit">AAPL<br>2011–2026</div>
-      </div>
-      <div class="fact-sep"></div>
-      <div class="fact-right">
-        <div class="fact-title">L'eredità di Cook in numeri</div>
-        <div class="fact-body">Da <strong>$350 miliardi a $3,5 trilioni</strong> di capitalizzazione. Ricavi quadruplicati, oltre 2 miliardi di dispositivi attivi. La sua arma: la <strong>supply chain</strong> più efficiente della storia tech, con margini superiori al 40%.</div>
-      </div>
-    </div>
-
-    <!-- FACT 2 -->
-    <div class="fact-card">
-      <div class="fact-left">
-        <div class="fact-val" style="color:#E8313A;">−1,5%</div>
-        <div class="fact-unit">AAPL<br>21 apr</div>
-      </div>
-      <div class="fact-sep"></div>
-      <div class="fact-right">
-        <div class="fact-title">Applauso prudente, non panico</div>
-        <div class="fact-body">La transizione è <strong>ordinata</strong> (5 mesi di anticipo) e Ternus è il padre dei <strong>chip M-series</strong>. Il dubbio degli investitori: la sua esperienza nei <strong>Services</strong> (App Store, iCloud, TV+) è ancora tutta da dimostrare.</div>
-      </div>
-    </div>
-
-    <!-- FACT 3 -->
-    <div class="fact-card">
-      <div class="fact-left">
-        <div class="fact-val" style="color:#F5A623; font-size:40px;">18 mesi</div>
-        <div class="fact-unit">ritardo AI<br>stimato</div>
-      </div>
-      <div class="fact-sep"></div>
-      <div class="fact-right">
-        <div class="fact-title">Il vero problema: il gap AI</div>
-        <div class="fact-body">Apple Intelligence è live ma gli analisti stimano <strong>18 mesi di ritardo</strong> su Google Gemini e Microsoft Copilot. Apple ha scelto di costruire un <strong>LLM proprietario</strong> in-house invece di acquisire — rallentando funzionalità di <strong>agentic AI</strong> e generazione testo avanzata.</div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="footer-dots"><div class="d-off"></div><div class="d-on"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div></div>
-  <span class="pn">2 / 7</span>
+  <div class="s2-logo">Alma Finanza</div>
 </div>
 
-
 <!-- ══════════════════════════════════════════
-     SLIDE 3 — FOCUS / MECCANISMO
-     ══════════════════════════════════════════ -->
-<div class="slide">
-
-  <div class="h-accent">
-    <div class="logo-row">
-      <div class="logo-a-white">
-        <span class="lbs" style="font-size:17px; color:#8B5CF6;">A</span>
-      </div>
-      <span class="logo-name">LMA FINANZA</span>
-    </div>
-    <span class="h-title">Perché un CEO tecnico può valere miliardi — o costarne</span>
-    <span style="font-size:12px; color:rgba(255,255,255,0.0);"> </span>
+     SLIDE 3 — Il meccanismo: Destocking
+══════════════════════════════════════════ -->
+<div class="slide" id="s3">
+  <p class="slide-label">03 / 07 &nbsp;— Il Meccanismo</p>
+  <h2>Cos'è il <em>Destocking</em><br>e perché conta</h2>
+  <div class="destocking-box">
+    <div class="db-title">📦 Destocking (riduzione delle scorte)</div>
+    <div class="db-text">Dal 2021 al 2022 i clienti automotive e industrial hanno accumulato chip in magazzino. Dal 2022 al 2025 non hanno riordinato — smaltivano le scorte. Quando le scorte finiscono, gli ordini <strong style="color:#A78BFA">tornano tutti insieme</strong>.</div>
   </div>
-
-  <div class="body" style="padding:24px 44px 68px; gap:12px;">
-
-    <!-- ROW 1: CHIP -->
-    <div class="focus-card">
-      <div class="focus-left">
-        <div class="focus-lbl">CHIP</div>
-        <div class="focus-val" style="color:#8B5CF6;">M4</div>
-      </div>
-      <div class="focus-sep"></div>
-      <div class="focus-right">
-        <div class="focus-ttl">Il punto di forza: Apple Silicon</div>
-        <div class="focus-body">Ternus ha creato i chip <strong>M1→M4</strong> che hanno ridefinito performance mobile e desktop. L'hardware Apple è il più efficiente per il <strong>calcolo AI on-device</strong>: esegue modelli da 7–13 miliardi di parametri senza cloud. Nessun competitor si avvicina.</div>
-      </div>
+  <div class="step-row">
+    <div class="step-card">
+      <div class="step-num">2021</div>
+      <div class="step-label">Overstocking</div>
+      <div class="step-desc">Carenza chip globale → i clienti ordinano in eccesso e accumulano scorte</div>
     </div>
-
-    <!-- ROW 2: LLM -->
-    <div class="focus-card">
-      <div class="focus-left">
-        <div class="focus-lbl">SFIDA</div>
-        <div class="focus-val" style="color:#F5A623; font-size:34px;">LLM</div>
-      </div>
-      <div class="focus-sep"></div>
-      <div class="focus-right">
-        <div class="focus-ttl">Il punto debole: nessun LLM competitivo</div>
-        <div class="focus-body">Microsoft usa <strong>GPT-4/OpenAI</strong>, Google usa <strong>Gemini</strong>. Apple sviluppa un LLM interno. La domanda strategica per Ternus: <strong>acquisire un'azienda AI</strong>, fare una <strong>partnership</strong> o continuare in-house accettando il ritardo?</div>
-      </div>
+    <div class="step-card">
+      <div class="step-num">2022–24</div>
+      <div class="step-label">Destocking</div>
+      <div class="step-desc">Zero nuovi ordini → i produttori di chip vedono i ricavi crollare</div>
     </div>
-
-    <!-- ROW 3: SERVICES -->
-    <div class="focus-card">
-      <div class="focus-left">
-        <div class="focus-lbl">SERVIZI</div>
-        <div class="focus-val" style="color:#00C17C; font-size:30px;">$100B+</div>
-      </div>
-      <div class="focus-sep"></div>
-      <div class="focus-right">
-        <div class="focus-ttl">La variabile finanziaria: i Services</div>
-        <div class="focus-body">App Store, iCloud, Apple TV+, Apple Pay generano <strong>$100 miliardi/anno</strong> con margini >70%. Cook ne è stato l'architetto. Ternus non ha esperienza diretta — ma i Services dipendono dall'ecosistema hardware, che è il suo dominio.</div>
-      </div>
+    <div class="step-card">
+      <div class="step-num">2025–26</div>
+      <div class="step-label">Recovery</div>
+      <div class="step-desc">Scorte esaurite → ordini esplodono → i beat superano le stime del 30–50%</div>
     </div>
-
-    <!-- INSIGHT -->
-    <div class="insight-box">
-      <span class="insight-ico">💡</span>
-      <span class="insight-txt">Chi controlla il <span style="color:#8B5CF6;">chip</span> controlla l'AI on-device. Ternus lo sa — ora deve farlo sapere al mercato.</span>
-    </div>
-
   </div>
-
-  <div class="footer-dots"><div class="d-off"></div><div class="d-off"></div><div class="d-on"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div></div>
-  <span class="pn">3 / 7</span>
+  <div class="s3-logo">Alma Finanza</div>
 </div>
 
-
 <!-- ══════════════════════════════════════════
-     SLIDE 4 — FORMAZIONE: LE PAROLE CHIAVE
-     ══════════════════════════════════════════ -->
-<div class="slide">
-
-  <div class="h-accent">
-    <div class="logo-row">
-      <div class="logo-a-white">
-        <span class="lbs" style="font-size:17px; color:#8B5CF6;">A</span>
+     SLIDE 4 — I Numeri
+══════════════════════════════════════════ -->
+<div class="slide" id="s4">
+  <p class="slide-label">04 / 07 &nbsp;— I Numeri</p>
+  <h2>I risultati Q1 2026</h2>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <div class="cc-ticker">TXN</div>
+      <div class="cc-name">Texas Instruments — USA</div>
+      <div class="cc-big">+19.1%</div>
+      <div class="cc-date">22 Aprile 2026</div>
+      <div class="cc-stat">
+        <span class="cc-stat-label">EPS Riportato</span>
+        <span class="cc-stat-val green">$1,28</span>
       </div>
-      <span class="logo-name">LMA FINANZA</span>
+      <div class="cc-stat">
+        <span class="cc-stat-label">EPS Atteso</span>
+        <span class="cc-stat-val">$0,94</span>
+      </div>
+      <div class="cc-stat">
+        <span class="cc-stat-label">Beat</span>
+        <span class="cc-stat-val beat">+36%</span>
+      </div>
+      <div class="cc-stat">
+        <span class="cc-stat-label">Gross Margin</span>
+        <span class="cc-stat-val green">57,3%</span>
+      </div>
     </div>
-    <span class="h-title">📚 Le parole chiave di oggi</span>
-    <span style="font-size:13px; color:rgba(255,255,255,0.55);">Finanza in italiano</span>
+    <div class="compare-card">
+      <div class="cc-ticker">STM</div>
+      <div class="cc-name">STMicroelectronics — IT/FR</div>
+      <div class="cc-big">+14.1%</div>
+      <div class="cc-date">23 Aprile 2026</div>
+      <div class="cc-stat">
+        <span class="cc-stat-label">EPS Riportato</span>
+        <span class="cc-stat-val green">€0,32</span>
+      </div>
+      <div class="cc-stat">
+        <span class="cc-stat-label">EPS Atteso</span>
+        <span class="cc-stat-val">€0,21</span>
+      </div>
+      <div class="cc-stat">
+        <span class="cc-stat-label">Beat</span>
+        <span class="cc-stat-val beat">+52%</span>
+      </div>
+      <div class="cc-stat">
+        <span class="cc-stat-label">Revenue</span>
+        <span class="cc-stat-val green">€2,90B</span>
+      </div>
+    </div>
   </div>
-
-  <div class="body" style="padding:20px 44px 66px; gap:10px;">
-
-    <!-- TERM 1: CEO Succession -->
-    <div class="term-card">
-      <div class="term-left">
-        <div class="term-en">CEO Succession</div>
-        <div class="term-it">successione del CEO</div>
-      </div>
-      <div class="term-sep"></div>
-      <div class="term-right">
-        <div class="term-def">Il processo con cui il CdA prepara il successore. Un piano comunicato in anticipo <strong>riduce la volatilità</strong> del titolo perché il mercato non viene colto di sorpresa. Senza pianificazione, i cambi improvvisi causano cali del <strong>5–15% in una seduta</strong>.</div>
-        <span class="term-ex">→ Oggi: AAPL –1,5%, non –10%. Il mercato ha premiato i 5 mesi di preavviso.</span>
-      </div>
-    </div>
-
-    <!-- TERM 2: Executive Chairman -->
-    <div class="term-card">
-      <div class="term-left">
-        <div class="term-en">Executive Chairman</div>
-        <div class="term-it">presidente esecutivo</div>
-      </div>
-      <div class="term-sep"></div>
-      <div class="term-right">
-        <div class="term-def">Ruolo ibrido: più poteri di un semplice supervisore, meno del CEO. Può influenzare <strong>strategia</strong>, relazioni governative e grandi partnership senza rispondere dei risultati trimestrali.</div>
-        <span class="term-ex">→ Oggi: Cook diventa Executive Chairman dal 1° sett. 2026 — influenza senza gestione operativa.</span>
-      </div>
-    </div>
-
-    <!-- TERM 3: Engineer CEO -->
-    <div class="term-card">
-      <div class="term-left">
-        <div class="term-en">Engineer CEO</div>
-        <div class="term-it">CEO tecnico</div>
-      </div>
-      <div class="term-sep"></div>
-      <div class="term-right">
-        <div class="term-def">CEO con background nell'ingegneria. <strong>Vantaggio:</strong> conosce il prodotto in profondità. <strong>Rischio:</strong> può sottovalutare la dimensione commerciale. Esempi: <strong>Jensen Huang</strong> (Nvidia) e <strong>Satya Nadella</strong> (Microsoft).</div>
-        <span class="term-ex">→ Oggi: Ternus è il padre del chip M-series — i Services ($100B+) sono ancora da dimostrare.</span>
-      </div>
-    </div>
-
-    <!-- TERM 4: LLM -->
-    <div class="term-card">
-      <div class="term-left">
-        <div class="term-en">LLM</div>
-        <div class="term-it">Large Language Model</div>
-      </div>
-      <div class="term-sep"></div>
-      <div class="term-right">
-        <div class="term-def">Sistema AI addestrato su miliardi di testi per generare e comprendere linguaggio naturale. La qualità del LLM determina le capacità <strong>AI dello smartphone</strong>. Esempi: GPT-4 (OpenAI), <strong>Gemini</strong> (Google), Claude (Anthropic).</div>
-        <span class="term-ex">→ Oggi: Apple ha il LLM in-house — 18 mesi di ritardo su Google e Microsoft.</span>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="footer-dots"><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-on"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div></div>
-  <span class="pn">4 / 7</span>
+  <div class="s4-logo">Alma Finanza</div>
 </div>
 
-
 <!-- ══════════════════════════════════════════
-     SLIDE 5 — TOP & FLOP CON SPIEGAZIONE
-     ══════════════════════════════════════════ -->
-<div class="slide">
-
-  <div class="h-black">
-    <div class="logo-row">
-      <div class="logo-a-accent">
-        <span class="lbs" style="font-size:17px; color:#fff;">A</span>
+     SLIDE 5 — Analog vs Digital
+══════════════════════════════════════════ -->
+<div class="slide" id="s5">
+  <p class="slide-label">05 / 07 &nbsp;— Il Quadro</p>
+  <h2>Chip <em>Analogici</em> vs<br>Chip <em>Digitali</em>: cicli diversi</h2>
+  <div class="vs-grid">
+    <div class="vs-card analog">
+      <div class="vs-icon">⚙️</div>
+      <div class="vs-title">Chip Analogici</div>
+      <div class="vs-sub">Automotive, industrial, infrastruttura.<br>Ciclo inventory: 2 anni di destocking → recovery esplosiva</div>
+      <div>
+        <span class="vs-ticker">TXN</span>
+        <span class="vs-ticker">STM</span>
+        <span class="vs-ticker">NXP</span>
       </div>
-      <span class="logo-name">LMA FINANZA</span>
     </div>
-    <span class="h-title">Chi ha vinto. Chi ha perso. Perché.</span>
-    <span style="font-size:13px; color:rgba(255,255,255,0.4);">21 Apr 2026</span>
+    <div class="vs-card digital">
+      <div class="vs-icon">🤖</div>
+      <div class="vs-title">Chip Digitali / GPU AI</div>
+      <div class="vs-sub">Data center, hyperscaler, AI training.<br>Domanda pull continua: niente inventory cycle tradizionale</div>
+      <div>
+        <span class="vs-ticker blue">NVDA</span>
+        <span class="vs-ticker blue">AMD</span>
+      </div>
+    </div>
   </div>
-
-  <div class="body" style="padding:24px 44px 68px; gap:13px;">
-
-    <!-- QCOM +0.8% -->
-    <div class="t-win">
-      <div class="t-info">
-        <div class="t-name">📱 Qualcomm (QCOM) — Semiconduttori</div>
-        <div class="t-why">Se Ternus rallenta la roadmap AI di Apple, si apre una finestra per <strong>Qualcomm Snapdragon</strong> nei tablet e PC ARM entry-level dove Apple domina con l'M-series.</div>
-      </div>
-      <div class="t-sep"></div>
-      <div class="t-pct"><span class="t-up">+0,8%</span></div>
+  <div class="insight-bar">
+    <div class="ib-icon">💡</div>
+    <div class="ib-text">
+      <strong>Earnings Inflection (punto di svolta degli utili):</strong> quando un ciclico esce dal ciclo negativo, gli EPS beat sono strutturalmente grandi. TXN e STM non sono "sorprese" — sono la matematica del ciclo.
     </div>
-
-    <!-- MSFT +0.4% -->
-    <div class="t-win">
-      <div class="t-info">
-        <div class="t-name">🖥️ Microsoft (MSFT) — Tech</div>
-        <div class="t-why">La debolezza Apple sull'AI rafforza <strong>Microsoft Copilot</strong>, già integrato nell'ecosistema Office usato da oltre 1 miliardo di persone in ambito enterprise.</div>
-      </div>
-      <div class="t-sep"></div>
-      <div class="t-pct"><span class="t-up">+0,4%</span></div>
-    </div>
-
-    <!-- GOOGL +0.3% -->
-    <div class="t-win">
-      <div class="t-info">
-        <div class="t-name">🔍 Alphabet (GOOGL) — Tech</div>
-        <div class="t-why"><strong>Google Gemini</strong> è il benchmark AI mobile: ogni mese di ritardo Apple amplia il vantaggio di Android su iPhone nei mercati enterprise e di fascia alta.</div>
-      </div>
-      <div class="t-sep"></div>
-      <div class="t-pct"><span class="t-up">+0,3%</span></div>
-    </div>
-
-    <!-- AAPL -1.5% -->
-    <div class="t-los">
-      <div class="t-info">
-        <div class="t-name">🍎 Apple (AAPL) — Tech</div>
-        <div class="t-why">Il mercato prezza l'<strong>incertezza sulla leadership</strong>: Ternus eccelle nell'hardware ma i Services ($100B+/anno, margini 70%) non sono ancora il suo territorio.</div>
-      </div>
-      <div class="t-sep"></div>
-      <div class="t-pct"><span class="t-dn">−1,5%</span></div>
-    </div>
-
   </div>
-
-  <div class="footer-dots"><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-on"></div><div class="d-off"></div><div class="d-off"></div></div>
-  <span class="pn">5 / 7</span>
+  <div class="s5-logo">Alma Finanza</div>
 </div>
 
-
 <!-- ══════════════════════════════════════════
-     SLIDE 6 — OUTLOOK / COSA MONITORARE
-     ══════════════════════════════════════════ -->
-<div class="slide">
-
-  <div class="h-accent">
-    <div class="logo-row">
-      <div class="logo-a-white">
-        <span class="lbs" style="font-size:17px; color:#8B5CF6;">A</span>
+     SLIDE 6 — Outlook
+══════════════════════════════════════════ -->
+<div class="slide" id="s6">
+  <p class="slide-label">06 / 07 &nbsp;— Outlook</p>
+  <h2>Cosa monitorare<br>nei prossimi trimestri</h2>
+  <div class="outlook-grid">
+    <div class="ol-card green-card">
+      <div class="ol-header">
+        <div class="ol-icon">📈</div>
+        <div class="ol-title">Analogico Recovery</div>
       </div>
-      <span class="logo-name">LMA FINANZA</span>
+      <div class="ol-item">
+        <div class="ol-bullet"></div>
+        <div class="ol-text"><strong>Q2 guidance TXN</strong> ($4,2–4,8B): conferma se la recovery è strutturale o one-shot</div>
+      </div>
+      <div class="ol-item">
+        <div class="ol-bullet"></div>
+        <div class="ol-text"><strong>STM Q2</strong>: automotive europeo ancora in recupero, espansione in industrial IoT</div>
+      </div>
+      <div class="ol-item">
+        <div class="ol-bullet"></div>
+        <div class="ol-text"><strong>NXP Semiconductors</strong>: stessa esposizione automotive, risultati attesi in linea</div>
+      </div>
     </div>
-    <span class="h-title">Cosa monitorare nei prossimi mesi</span>
-    <span style="font-size:13px; color:rgba(255,255,255,0.55);">Era Ternus</span>
-  </div>
-
-  <div class="body" style="padding:24px 44px 68px;">
-    <div style="flex:1; display:flex; flex-direction:row; gap:18px;">
-
-      <!-- COLONNA VERDE — OTTIMISTA -->
-      <div style="flex:1; background:#F7F8FA; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column;">
-        <div style="font-size:20px; font-weight:900; color:#00C17C; margin-bottom:3px;">🚀 Scenario Ottimista</div>
-        <div style="font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:#007A4F; font-weight:700; margin-bottom:10px;">Dossier Rialzista</div>
-        <div style="height:3px; border-radius:2px; background:#00C17C; margin-bottom:18px;"></div>
-
-        <div style="padding:14px 0; border-bottom:1px solid #E5E7EB;">
-          <div style="font-size:17px; font-weight:800; color:#0A0A0A; margin-bottom:5px;">Apple acquisisce un LLM</div>
-          <div style="font-size:16px; font-weight:400; color:#4B5563; line-height:1.45;">Se <strong>Ternus annuncia un'acquisizione o partnership AI</strong> entro Q3 2026 → AAPL recupero rapido verso $3,5T.</div>
-        </div>
-        <div style="padding:14px 0; border-bottom:1px solid #E5E7EB;">
-          <div style="font-size:17px; font-weight:800; color:#0A0A0A; margin-bottom:5px;">WWDC 2026: sorprese AI</div>
-          <div style="font-size:16px; font-weight:400; color:#4B5563; line-height:1.45;">La conferenza estiva diventa la <strong>vetrina AI</strong>: feature avanzate su iPhone 18 rilanciano il ciclo di aggiornamento globale.</div>
-        </div>
-        <div style="padding:14px 0;">
-          <div style="font-size:17px; font-weight:800; color:#0A0A0A; margin-bottom:5px;">Cook come garante</div>
-          <div style="font-size:16px; font-weight:400; color:#4B5563; line-height:1.45;"><strong>Executive Chairman</strong> Cook rassicura gli investitori istituzionali sulla continuità strategica a lungo termine.</div>
-        </div>
+    <div class="ol-card yellow-card">
+      <div class="ol-header">
+        <div class="ol-icon">⚠️</div>
+        <div class="ol-title">AI Chip Rischio</div>
       </div>
-
-      <!-- COLONNA ROSSA — RIBASSISTA -->
-      <div style="flex:1; background:#F7F8FA; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column;">
-        <div style="font-size:20px; font-weight:900; color:#E8313A; margin-bottom:3px;">⚠️ Scenario Ribassista</div>
-        <div style="font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:#991B1B; font-weight:700; margin-bottom:10px;">Dossier Rischio</div>
-        <div style="height:3px; border-radius:2px; background:#E8313A; margin-bottom:18px;"></div>
-
-        <div style="padding:14px 0; border-bottom:1px solid #E5E7EB;">
-          <div style="font-size:17px; font-weight:800; color:#0A0A0A; margin-bottom:5px;">AI gap si allarga</div>
-          <div style="font-size:16px; font-weight:400; color:#4B5563; line-height:1.45;">Se <strong>Google e Microsoft</strong> accelerano → Apple perde quota nei mercati enterprise dove l'AI è già discriminante.</div>
-        </div>
-        <div style="padding:14px 0; border-bottom:1px solid #E5E7EB;">
-          <div style="font-size:17px; font-weight:800; color:#0A0A0A; margin-bottom:5px;">Services sotto pressione</div>
-          <div style="font-size:16px; font-weight:400; color:#4B5563; line-height:1.45;">Senza Siri AI avanzata → <strong>rischio churn</strong> degli utenti Apple verso Android AI-native, specialmente tra i giovani.</div>
-        </div>
-        <div style="padding:14px 0;">
-          <div style="font-size:17px; font-weight:800; color:#0A0A0A; margin-bottom:5px;">Inesperienza sui Services</div>
-          <div style="font-size:16px; font-weight:400; color:#4B5563; line-height:1.45;">Il segmento più profittevole ($100B+, margini 70%) è dove Ternus ha meno background — <strong>rischio decisioni sbagliate sui prezzi</strong>.</div>
-        </div>
+      <div class="ol-item">
+        <div class="ol-bullet"></div>
+        <div class="ol-text"><strong>Export control H20</strong>: restrizioni GPU Nvidia verso Cina — impatto sui ricavi Q2</div>
       </div>
-
+      <div class="ol-item">
+        <div class="ol-bullet"></div>
+        <div class="ol-text"><strong>Inventory AI</strong>: gli hyperscaler potrebbero iniziare il proprio destocking se i progetti rallentano</div>
+      </div>
+      <div class="ol-item">
+        <div class="ol-bullet"></div>
+        <div class="ol-text"><strong>INTC</strong>: -1,4% nella stessa settimana — ciclo recovery non ancora partito per i chip x86</div>
+      </div>
     </div>
   </div>
-
-  <div class="footer-dots"><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-on"></div><div class="d-off"></div></div>
-  <span class="pn">6 / 7</span>
+  <div class="s6-logo">Alma Finanza</div>
 </div>
 
-
 <!-- ══════════════════════════════════════════
-     SLIDE 7 — CHIUSURA / CTA
-     ══════════════════════════════════════════ -->
-<div class="slide" style="background:#8B5CF6; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-
-  <!-- LOGO SOPRA -->
-  <div style="display:flex; align-items:center; gap:10px; margin-bottom:44px;">
-    <div style="width:48px; height:48px; background:#fff; border-radius:9px; display:flex; align-items:center; justify-content:center;">
-      <span class="lbs" style="font-size:28px; color:#8B5CF6;">A</span>
-    </div>
-    <span style="font-size:22px; font-weight:800; color:#fff; letter-spacing:0.02em;">LMA FINANZA</span>
+     SLIDE 7 — CTA
+══════════════════════════════════════════ -->
+<div class="slide" id="s7">
+  <div class="s7-logo">Alma</div>
+  <div class="s7-brand">Finanza</div>
+  <h2>Analisi completa<br><em>+ Glossario</em> su</h2>
+  <p class="sub">Timeline destocking 2021–2026, confronto TXN vs STM, tabella 6 titoli, info-box educativi.</p>
+  <div class="cta-url">almafinanza.com</div>
+  <div class="cta-tags">
+    <span class="cta-tag">#Semiconduttori</span>
+    <span class="cta-tag">#TXN</span>
+    <span class="cta-tag">#STMicroelectronics</span>
+    <span class="cta-tag">#InventoryCycle</span>
+    <span class="cta-tag">#AlmaFinanza</span>
   </div>
-
-  <!-- CARD BIANCA -->
-  <div style="background:#fff; border-radius:24px; padding:52px 64px; text-align:center; width:820px;">
-    <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.12em; color:#6B7280; margin-bottom:10px;">Analisi completa su</div>
-    <div style="font-size:52px; font-weight:900; letter-spacing:-0.03em; color:#0A0A0A; line-height:1.0;">Alma Finanza</div>
-    <div style="width:56px; height:4px; background:#8B5CF6; margin:20px auto; border-radius:2px;"></div>
-    <div style="font-size:20px; font-weight:800; color:#8B5CF6; margin-bottom:18px;">almafinanza.com</div>
-    <div style="font-size:15px; color:#6B7280; line-height:1.7;">
-      La finanza nazionale e internazionale,<br>
-      spiegata in italiano. Ogni giorno.
-    </div>
-  </div>
-
-  <!-- FOOTER DOTS -->
-  <div class="footer-dots">
-    <div class="d-off-w"></div><div class="d-off-w"></div><div class="d-off-w"></div>
-    <div class="d-off-w"></div><div class="d-off-w"></div><div class="d-off-w"></div>
-    <div class="d-on-w"></div>
-  </div>
-  <span class="pn-w">7 / 7</span>
 </div>
-
 
 </body>
 </html>
