@@ -5,9 +5,22 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articolo Impara la Finanza: Real Estate senza comprare casa — 23 Aprile 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-impara-finanza-real-estate-italia-alternative-immobile.html</loc>
+      <lastmod>2026-04-23</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-23</news:publication_date>
+          <news:title>Investire nel Real Estate in Italia Senza Comprare Casa: SIIQ, ETF, Fondi, Crowdfunding — Guida Completa</news:title>
+      </news:news>
   </url>
 
   <!-- Articolo SpaceX IPO 20 Aprile 2026 -->
