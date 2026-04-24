@@ -10,6 +10,41 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- Articoli 23 Aprile 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-23apr-nasdaq-calo-txn-ibm-iran-tanker.html</loc>
+      <lastmod>2026-04-23</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-23</news:publication_date>
+          <news:title>Wall Street 23 Aprile 2026: Nasdaq in Calo, TXN +19%, IBM Affonda, Petrolio Balza su Iran</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-23apr-ftse-mib-stm-rally.html</loc>
+      <lastmod>2026-04-23</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-23</news:publication_date>
+          <news:title>Piazza Affari 23 Aprile 2026: FTSE MIB +0,26% a 47.907, STMicroelectronics +14,1%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-23apr-ge-vernova-tesla-futuro-energia.html</loc>
+      <lastmod>2026-04-23</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-23</news:publication_date>
+          <news:title>GE Vernova vs Tesla: la storia dell'energia incontra il futuro — Analisi Q1 2026</news:title>
+      </news:news>
+  </url>
+
   <!-- Articolo Impara la Finanza: Real Estate senza comprare casa — 23 Aprile 2026 -->
   <url>
       <loc>https://www.almafinanza.com/articolo-impara-finanza-real-estate-italia-alternative-immobile.html</loc>
