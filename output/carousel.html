@@ -18,557 +18,417 @@ body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; backgrou
   page-break-after: always;
 }
 
-/* ── LOBSTER A ── */
+/* ── LOBSTER ── */
 .lbs { font-family: 'Lobster', cursive; font-style: normal; }
 
 /* ── HEADER VARIANTS ── */
-.h-accent { background: #8B5CF6; height: 84px; display: flex; align-items: center; justify-content: space-between; padding: 0 44px; flex-shrink: 0; }
+.h-accent { background: #4D9FFF; height: 84px; display: flex; align-items: center; justify-content: space-between; padding: 0 44px; flex-shrink: 0; }
 .h-black  { background: #0A0A0A; height: 84px; display: flex; align-items: center; justify-content: space-between; padding: 0 44px; flex-shrink: 0; }
 
 /* ── LOGO ── */
 .logo-a-white  { width:28px; height:28px; border-radius:5px; background:#fff; display:flex; align-items:center; justify-content:center; }
-.logo-a-accent { width:28px; height:28px; border-radius:5px; background:#8B5CF6; display:flex; align-items:center; justify-content:center; }
-.logo-row  { display:flex; align-items:center; gap:7px; }
-.logo-name { font-size:14px; font-weight:800; color:#fff; letter-spacing:0.02em; }
+.logo-a-accent { width:28px; height:28px; border-radius:5px; background:#4D9FFF; display:flex; align-items:center; justify-content:center; }
+.logo-txt-white  { font-size:15px; font-weight:700; color:#fff; margin-left:8px; }
+.logo-txt-black  { font-size:15px; font-weight:700; color:#0A0A0A; margin-left:8px; }
 
-/* ── SECTION PILL ── */
-.s-pill { background:rgba(0,0,0,0.22); color:#fff; border-radius:999px; font-size:12px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; padding:6px 16px; }
+/* ── BODY AREA ── */
+.body { height: calc(1080px - 84px); display: flex; flex-direction: column; padding: 44px; }
 
-/* ── SLIDE HEADER TITLE ── */
-.h-title { font-size:19px; font-weight:800; color:#fff; }
+/* ── BADGES ── */
+.badge { display:inline-flex; align-items:center; gap:5px; padding:4px 12px; border-radius:99px; font-size:13px; font-weight:600; }
+.badge-green  { background:#D1FAE5; color:#065F46; }
+.badge-red    { background:#FEE2E2; color:#991B1B; }
+.badge-yellow { background:#FEF3C7; color:#92400E; }
+.badge-neutral{ background:#F1F5F9; color:#475569; }
+.badge-accent { background:#DBEAFE; color:#1A6FCC; }
+
+/* ── KPI GRID ── */
+.kpi-grid { display:grid; grid-template-columns: 1fr 1fr; gap:18px; margin-top:28px; }
+.kpi-card { background:#F7F8FA; border-radius:14px; padding:24px 22px; display:flex; flex-direction:column; gap:6px; }
+.kpi-val  { font-size:36px; font-weight:800; color:#0A0A0A; line-height:1; }
+.kpi-label{ font-size:13px; font-weight:600; color:#64748B; text-transform:uppercase; letter-spacing:.05em; }
+.kpi-sub  { font-size:13px; font-weight:600; }
+
+/* ── SECTION LABEL ── */
+.section-label { font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#4D9FFF; margin-bottom:8px; }
+
+/* ── FACT ROWS ── */
+.fact-row { display:flex; align-items:flex-start; gap:14px; padding:16px 0; border-bottom:1px solid #F1F5F9; }
+.fact-row:last-child { border-bottom: none; }
+.fact-icon { width:40px; height:40px; border-radius:10px; background:#EFF6FF; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:20px; }
+.fact-title { font-size:16px; font-weight:700; color:#0A0A0A; }
+.fact-sub   { font-size:14px; color:#64748B; margin-top:2px; }
+
+/* ── FOCUS TABLE ── */
+.focus-table { width:100%; border-collapse:collapse; margin-top:20px; }
+.focus-table th { font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#64748B; padding:10px 14px; text-align:left; background:#F7F8FA; }
+.focus-table td { font-size:15px; padding:13px 14px; border-bottom:1px solid #F1F5F9; color:#0A0A0A; }
+.focus-table tr:last-child td { border-bottom:none; }
+.focus-insight { margin-top:22px; background:#EFF6FF; border-left:4px solid #4D9FFF; border-radius:0 10px 10px 0; padding:16px 20px; }
+.focus-insight p { font-size:15px; color:#1A6FCC; font-weight:500; font-style:italic; }
+
+/* ── LEARN CARD ── */
+.learn-card { background:#F7F8FA; border-radius:14px; padding:22px 24px; margin-bottom:16px; }
+.learn-term { font-size:18px; font-weight:800; color:#0A0A0A; }
+.learn-it   { font-size:14px; color:#4D9FFF; font-weight:600; margin-top:2px; }
+.learn-def  { font-size:14px; color:#475569; margin-top:8px; line-height:1.55; }
+
+/* ── FAGGIN CARD ── */
+.faggin-card { background:linear-gradient(135deg,#EFF6FF 0%,#DBEAFE 100%); border:2px solid #4D9FFF; border-radius:14px; padding:22px 24px; margin-bottom:16px; }
+.faggin-label{ font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#1A6FCC; margin-bottom:6px; }
+.faggin-name { font-size:20px; font-weight:800; color:#1A6FCC; }
+.faggin-role { font-size:13px; color:#2563EB; font-weight:500; margin-top:2px; }
+.faggin-text { font-size:14px; color:#1E3A5F; margin-top:10px; line-height:1.55; }
+
+/* ── TICKER TABLE ── */
+.ticker-table { width:100%; border-collapse:collapse; margin-top:10px; }
+.ticker-table th { font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#64748B; padding:10px 14px; text-align:left; background:#F7F8FA; border-radius:8px 8px 0 0; }
+.ticker-table td { font-size:15px; padding:13px 14px; border-bottom:1px solid #F1F5F9; font-weight:600; }
+.ticker-table tr:last-child td { border-bottom:none; }
+.t-green { color:#065F46; }
+.t-red   { color:#991B1B; }
+
+/* ── OUTLOOK COLS ── */
+.outlook-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:20px; flex:1; }
+.outlook-col  { border-radius:14px; padding:22px 20px; }
+.outlook-green{ background:#D1FAE5; }
+.outlook-yellow{ background:#FEF3C7; }
+.outlook-col-title { font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin-bottom:14px; }
+.og-title { color:#065F46; }
+.oy-title { color:#92400E; }
+.outlook-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; }
+.outlook-dot  { width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:5px; }
+.og-dot { background:#059669; }
+.oy-dot { background:#D97706; }
+.outlook-text { font-size:15px; color:#0A0A0A; font-weight:500; line-height:1.4; }
 
 /* ── FOOTER DOTS ── */
-.footer-dots { position:absolute; bottom:26px; left:0; right:0; display:flex; align-items:center; justify-content:center; gap:6px; }
-.d-off   { width:7px; height:7px; border-radius:50%; background:#D1D5DB; flex-shrink:0; }
-.d-on    { width:20px; height:7px; border-radius:4px; background:#8B5CF6; flex-shrink:0; }
-.d-off-w { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.35); flex-shrink:0; }
-.d-on-w  { width:20px; height:7px; border-radius:4px; background:#fff; flex-shrink:0; }
-.pn   { position:absolute; right:36px; bottom:22px; font-size:12px; font-weight:700; color:#9CA3AF; }
-.pn-w { position:absolute; right:36px; bottom:22px; font-size:12px; font-weight:700; color:rgba(255,255,255,0.55); }
+.footer { position:absolute; bottom:26px; left:0; right:0; display:flex; align-items:center; justify-content:center; gap:8px; }
+.d-on  { width:20px; height:7px; border-radius:99px; background:#4D9FFF; }
+.d-off { width:7px;  height:7px; border-radius:50%;  background:#CBD5E1; }
 
-/* ── SLIDE BODY ── */
-.body { height:calc(1080px - 84px); display:flex; flex-direction:column; }
+/* ── SLIDE 1 HERO ── */
+.hero-number { font-size:120px; font-weight:900; line-height:1; color:#4D9FFF; letter-spacing:-4px; }
+.hero-number-dark { color:#0A0A0A; }
+.hero-hook { font-size:40px; font-weight:800; color:#0A0A0A; line-height:1.2; margin-top:16px; }
+.hero-sub  { font-size:20px; color:#475569; margin-top:16px; line-height:1.5; max-width:800px; }
+.learn-pills { display:flex; gap:10px; flex-wrap:wrap; margin-top:28px; }
+.learn-pill  { background:#EFF6FF; color:#1A6FCC; font-size:13px; font-weight:600; padding:6px 14px; border-radius:99px; border:1px solid #BFDBFE; }
 
-/* ══ SLIDE 2 — MACRO FACT CARDS ══ */
-.fact-card  { background:#F7F8FA; border-radius:16px; padding:22px 28px; display:flex; flex-direction:row; gap:22px; align-items:stretch; flex:1; }
-.fact-left  { width:148px; flex-shrink:0; display:flex; flex-direction:column; justify-content:center; }
-.fact-val   { font-size:48px; font-weight:900; line-height:1; }
-.fact-unit  { font-size:14px; text-transform:uppercase; color:#6B7280; font-weight:700; letter-spacing:0.05em; margin-top:6px; line-height:1.3; }
-.fact-sep   { width:2px; background:#E5E7EB; align-self:stretch; flex-shrink:0; }
-.fact-right { flex:1; display:flex; flex-direction:column; justify-content:center; }
-.fact-title { font-size:22px; font-weight:800; color:#0A0A0A; margin-bottom:8px; line-height:1.25; }
-.fact-body  { font-size:20px; font-weight:400; color:#4B5563; line-height:1.50; }
-
-/* ══ SLIDE 3 — FOCUS CARDS ══ */
-.focus-card  { background:#F7F8FA; border-radius:14px; padding:20px 26px; display:flex; flex-direction:row; gap:20px; align-items:stretch; flex:1; }
-.focus-left  { width:118px; flex-shrink:0; display:flex; flex-direction:column; justify-content:center; }
-.focus-lbl   { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; margin-bottom:6px; }
-.focus-val   { font-size:42px; font-weight:900; line-height:1.0; }
-.focus-sep   { width:2px; background:#E5E7EB; align-self:stretch; flex-shrink:0; }
-.focus-right { flex:1; display:flex; flex-direction:column; justify-content:center; }
-.focus-ttl   { font-size:19px; font-weight:800; color:#0A0A0A; margin-bottom:6px; line-height:1.25; }
-.focus-body  { font-size:18px; font-weight:400; color:#4B5563; line-height:1.50; }
-.insight-box { background:#0A0A0A; border-radius:14px; padding:20px 26px; display:flex; flex-direction:row; gap:14px; align-items:center; flex-shrink:0; }
-.insight-ico { font-size:28px; flex-shrink:0; }
-.insight-txt { font-size:22px; font-weight:700; color:#fff; line-height:1.45; }
-
-/* ══ SLIDE 4 — LEARN TERM CARDS ══ */
-.term-card  { background:#F7F8FA; border-radius:16px; padding:18px 26px; display:flex; flex-direction:row; gap:20px; border-left:4px solid #8B5CF6; flex:1; }
-.term-left  { width:190px; flex-shrink:0; display:flex; flex-direction:column; justify-content:center; padding-left:2px; }
-.term-en    { font-size:20px; font-weight:900; color:#0A0A0A; line-height:1.2; }
-.term-it    { font-size:16px; font-weight:600; color:#6B7280; font-style:italic; margin-top:4px; }
-.term-sep   { width:2px; background:#E5E7EB; align-self:stretch; flex-shrink:0; }
-.term-right { flex:1; display:flex; flex-direction:column; justify-content:center; }
-.term-def   { font-size:18px; font-weight:400; color:#374151; line-height:1.50; }
-.term-ex    { display:inline-block; background:#D1FAE5; border-radius:8px; padding:6px 12px; margin-top:8px; font-size:16px; font-weight:600; color:#065F46; line-height:1.3; }
-
-/* ══ SLIDE 5 — TICKER CARDS ══ */
-.t-win  { border-radius:14px; padding:18px 24px; display:flex; flex-direction:row; gap:16px; align-items:stretch; background:#F0FDF4; border-left:4px solid #00C17C; flex:1; }
-.t-los  { border-radius:14px; padding:18px 24px; display:flex; flex-direction:row; gap:16px; align-items:stretch; background:#FFF5F5; border-left:4px solid #E8313A; flex:1; }
-.t-info { flex:1; display:flex; flex-direction:column; justify-content:center; }
-.t-name { font-size:21px; font-weight:800; color:#0A0A0A; margin-bottom:6px; }
-.t-why  { font-size:18px; font-weight:400; color:#4B5563; line-height:1.40; }
-.t-sep  { width:1px; background:rgba(0,0,0,0.08); align-self:stretch; flex-shrink:0; }
-.t-pct  { width:120px; flex-shrink:0; display:flex; align-items:center; justify-content:flex-end; }
-.t-up   { font-size:32px; font-weight:900; color:#00C17C; }
-.t-dn   { font-size:32px; font-weight:900; color:#E8313A; }
+/* ── SLIDE 7 FULL ACCENT ── */
+.slide-full-accent { background:#4D9FFF; }
+.cta-big  { font-size:52px; font-weight:900; color:#fff; line-height:1.15; }
+.cta-sub  { font-size:22px; color:#DBEAFE; margin-top:16px; line-height:1.5; }
+.cta-url  { font-size:18px; font-weight:700; color:#fff; margin-top:28px; background:rgba(255,255,255,.2); display:inline-block; padding:10px 22px; border-radius:10px; }
+.logo-final { display:flex; align-items:center; gap:10px; margin-top:auto; }
+.logo-box-white { width:36px; height:36px; border-radius:8px; background:#fff; display:flex; align-items:center; justify-content:center; }
 </style>
 </head>
 <body>
 
-
-<!-- ══════════════════════════════════════════
-     SLIDE 1 — COVER (two-column: testo + immagine chip)
-     ══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════
+     SLIDE 1 — COVER / HOOK
+═══════════════════════════════════════════════════ -->
 <div class="slide">
-
-  <!-- HEADER -->
   <div class="h-accent">
-    <span class="s-pill">TECH &amp; AI</span>
-    <div class="logo-row">
-      <div class="logo-a-white">
-        <span class="lbs" style="font-size:17px; color:#8B5CF6;">A</span>
-      </div>
-      <span class="logo-name">LMA FINANZA</span>
+    <div style="display:flex;align-items:center;">
+      <div class="logo-a-white"><span class="lbs" style="font-size:17px;color:#4D9FFF;">A</span></div>
+      <span class="logo-txt-white" style="font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
     </div>
-    <span style="font-size:13px; color:rgba(255,255,255,0.7); font-weight:500;">23 Aprile 2026</span>
+    <span style="font-size:13px;color:rgba(255,255,255,.8);font-weight:600;">WALL STREET · 25 APR 2026</span>
   </div>
-
-  <!-- BODY: 2 colonne -->
-  <div class="body" style="flex-direction:row; padding:0; gap:0;">
-
-    <!-- COLONNA SINISTRA (testo) -->
-    <div style="width:620px; padding:40px 40px 70px 44px; display:flex; flex-direction:column; gap:0; flex-shrink:0;">
-
-      <!-- HOOK -->
-      <div style="font-size:72px; font-weight:900; letter-spacing:-0.04em; color:#0A0A0A; line-height:1.04;">
-        TXN +19%.<br>
-        <span style="color:#8B5CF6;">STM +14%.</span><br>
-        Nessuna AI.
+  <div class="body" style="justify-content:center;">
+    <div>
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span class="hero-number">$0,01</span>
+        <span style="font-size:60px;font-weight:900;color:#CBD5E1;">→</span>
+        <span class="hero-number">$0,29</span>
       </div>
-
-      <!-- SUB -->
-      <div style="margin-top:20px; font-size:19px; font-weight:500; color:#374151; line-height:1.55;">
-        Texas Instruments e STMicroelectronics: stesso segnale, <strong style="color:#0A0A0A; font-weight:800;">24 ore di distanza</strong>.<br>
-        La fine del destocking che il mercato non stava guardando.
+      <div class="hero-hook">Intel ribalta ogni stima.<br>Il miglior giorno dal 1987.</div>
+      <div class="hero-sub">Un'azienda nata dal genio di un fisico italiano si reinventa nell'era dell'AI. +2.800% sull'EPS Non-GAAP (utile per azione rettificato). INTC +23,6%.</div>
+      <div class="learn-pills">
+        <span class="learn-pill">📚 EPS Non-GAAP</span>
+        <span class="learn-pill">🏭 IDM 2.0</span>
+        <span class="learn-pill">📈 Short Squeeze</span>
+        <span class="learn-pill">🔬 Foundry</span>
       </div>
-
-      <!-- SPACER -->
-      <div style="flex:1;"></div>
-
-      <!-- METRICS BAR -->
-      <div style="display:flex; border-top:1px solid #E5E7EB; padding:18px 0 16px;">
-        <div style="flex:1; border-left:3px solid #8B5CF6; padding-left:14px;">
-          <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; margin-bottom:5px;">TXN · 22 apr</div>
-          <div style="font-size:26px; font-weight:900; color:#00C17C; line-height:1;">+19,1%</div>
-          <div style="font-size:12px; color:#6B7280; margin-top:3px;">EPS beat +36%</div>
-        </div>
-        <div style="flex:1; border-left:2px solid #E5E7EB; padding-left:14px;">
-          <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; margin-bottom:5px;">STM · 23 apr</div>
-          <div style="font-size:26px; font-weight:900; color:#00C17C; line-height:1;">+14,1%</div>
-          <div style="font-size:12px; color:#6B7280; margin-top:3px;">EPS beat +52%</div>
-        </div>
-        <div style="flex:1; border-left:2px solid #E5E7EB; padding-left:14px;">
-          <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; margin-bottom:5px;">IBM · 22 apr</div>
-          <div style="font-size:26px; font-weight:900; color:#E8313A; line-height:1;">−8,0%</div>
-          <div style="font-size:12px; color:#6B7280; margin-top:3px;">guidance delude</div>
-        </div>
-      </div>
-
-      <!-- TEASER FORMAZIONE -->
-      <div style="background:#F7F8FA; border-radius:14px; padding:14px 18px; display:flex; flex-direction:row; gap:14px; align-items:center;">
-        <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
-          <span style="font-size:16px;">📚</span>
-          <span style="background:#D1FAE5; color:#065F46; border-radius:999px; padding:3px 9px; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:0.08em;">IMPARA</span>
-        </div>
-        <div style="width:2px; background:#E5E7EB; align-self:stretch; flex-shrink:0;"></div>
-        <div style="flex:1;">
-          <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; margin-bottom:6px;">In questo carosello scoprirai</div>
-          <div style="display:flex; gap:6px; flex-wrap:wrap;">
-            <span style="background:#fff; border:1.5px solid #E5E7EB; border-radius:999px; padding:4px 11px; font-size:12px; font-weight:700; color:#0A0A0A;"><span style="color:#8B5CF6;">→</span> Destocking</span>
-            <span style="background:#fff; border:1.5px solid #E5E7EB; border-radius:999px; padding:4px 11px; font-size:12px; font-weight:700; color:#0A0A0A;"><span style="color:#8B5CF6;">→</span> Inventory Cycle</span>
-            <span style="background:#fff; border:1.5px solid #E5E7EB; border-radius:999px; padding:4px 11px; font-size:12px; font-weight:700; color:#0A0A0A;"><span style="color:#8B5CF6;">→</span> Analog Chip</span>
-            <span style="background:#fff; border:1.5px solid #E5E7EB; border-radius:999px; padding:4px 11px; font-size:12px; font-weight:700; color:#0A0A0A;"><span style="color:#8B5CF6;">→</span> Earnings Inflection</span>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /left col -->
-
-    <!-- COLONNA DESTRA (immagine chip) -->
-    <div style="flex:1; position:relative; overflow:hidden;">
-      <img src="slide1_img_chip_semiconductor.jpg"
-           style="width:100%; height:100%; object-fit:cover; object-position:center; filter:saturate(0.85) brightness(0.9);">
-      <!-- gradient bianco da sinistra -->
-      <div style="position:absolute; inset:0; background:linear-gradient(to right, #fff 0%, rgba(255,255,255,0.55) 35%, rgba(255,255,255,0) 70%);"></div>
-      <!-- tinta viola leggera -->
-      <div style="position:absolute; inset:0; background:rgba(139,92,246,0.07);"></div>
-    </div><!-- /right col -->
-
-  </div><!-- /body -->
-
-  <div class="footer-dots"><div class="d-on"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div></div>
-  <span class="pn">1 / 7</span>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="d-on"></div>
+    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
+    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
+  </div>
 </div>
 
-
-<!-- ══════════════════════════════════════════
-     SLIDE 2 — CONTESTO: cosa è successo
-     ══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════
+     SLIDE 2 — KPI
+═══════════════════════════════════════════════════ -->
 <div class="slide">
-
   <div class="h-black">
-    <div class="logo-row">
-      <div class="logo-a-accent">
-        <span class="lbs" style="font-size:17px; color:#fff;">A</span>
-      </div>
-      <span class="logo-name">LMA FINANZA</span>
+    <div style="display:flex;align-items:center;">
+      <div class="logo-a-accent"><span class="lbs" style="font-size:17px;color:#fff;">A</span></div>
+      <span class="logo-txt-white" style="font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
     </div>
-    <span class="h-title">Due segnali, 24 ore di distanza</span>
-    <span style="font-size:13px; color:rgba(255,255,255,0.4);">22–23 Apr 2026</span>
+    <span style="font-size:13px;color:rgba(255,255,255,.7);font-weight:600;">WALL STREET · 25 APR 2026</span>
   </div>
-
-  <div class="body" style="padding:26px 44px 68px; gap:13px;">
-
-    <!-- FACT 1: TXN -->
-    <div class="fact-card">
-      <div class="fact-left">
-        <div class="fact-val" style="color:#00C17C;">+19,1%</div>
-        <div class="fact-unit">TXN<br>22 apr</div>
+  <div class="body">
+    <div class="section-label">Risultati Q1 2026 — I numeri</div>
+    <div style="font-size:32px;font-weight:800;color:#0A0A0A;line-height:1.2;">Intel Q1 2026:<br>quattro KPI che hanno spostato il mercato</div>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">EPS Non-GAAP</div>
+        <div class="kpi-val" style="color:#4D9FFF;">$0,29</div>
+        <span class="badge badge-green">vs $0,01 atteso · +2.800%</span>
       </div>
-      <div class="fact-sep"></div>
-      <div class="fact-right">
-        <div class="fact-title">Texas Instruments: il miglior giorno dal 2000</div>
-        <div class="fact-body">EPS $1,28 vs $0,94 atteso (<strong>beat +36%</strong>). Gross Margin al 57,3%, livello record. La causa: clienti automotive e industrial tornano a ordinare dopo 2 anni di destocking.</div>
+      <div class="kpi-card">
+        <div class="kpi-label">Ricavi totali</div>
+        <div class="kpi-val">$13,6B</div>
+        <span class="badge badge-green">+9,5% sopra le stime</span>
       </div>
-    </div>
-
-    <!-- FACT 2: STM -->
-    <div class="fact-card">
-      <div class="fact-left">
-        <div class="fact-val" style="color:#00C17C;">+14,1%</div>
-        <div class="fact-unit">STM<br>23 apr</div>
+      <div class="kpi-card">
+        <div class="kpi-label">INTC in borsa</div>
+        <div class="kpi-val" style="color:#065F46;">+23,6%</div>
+        <span class="badge badge-green">Miglior giorno dal 1987</span>
       </div>
-      <div class="fact-sep"></div>
-      <div class="fact-right">
-        <div class="fact-title">STMicroelectronics: stesso schema, 24h dopo</div>
-        <div class="fact-body">EPS €0,32 vs €0,21 atteso (<strong>beat +52%</strong>). Revenue €2,90B vs €2,67B attesi. STM è il principale fornitore europeo di chip per <strong>automotive e industrial</strong> — identica esposizione di TXN.</div>
+      <div class="kpi-card">
+        <div class="kpi-label">Performance YTD</div>
+        <div class="kpi-val">+74%</div>
+        <span class="badge badge-accent">ATH intraday $85,22</span>
       </div>
     </div>
-
-    <!-- FACT 3: il filo rosso -->
-    <div class="fact-card">
-      <div class="fact-left">
-        <div class="fact-val" style="color:#8B5CF6; font-size:38px;">2 anni</div>
-        <div class="fact-unit">destocking<br>2022–2024</div>
-      </div>
-      <div class="fact-sep"></div>
-      <div class="fact-right">
-        <div class="fact-title">Il filo rosso: nessuna GPU, nessuna AI</div>
-        <div class="fact-body">Sia TXN che STM producono <strong>chip analogici</strong> per auto e industria. <strong>Non</strong> GPU per data center AI. Il ciclo che le ha fatte esplodere è l'esaurimento delle scorte — completamente diverso dal boom Nvidia.</div>
-      </div>
-    </div>
-
   </div>
-
-  <div class="footer-dots"><div class="d-off"></div><div class="d-on"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div></div>
-  <span class="pn">2 / 7</span>
+  <div class="footer">
+    <div class="d-off"></div>
+    <div class="d-on"></div>
+    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
+    <div class="d-off"></div><div class="d-off"></div>
+  </div>
 </div>
 
-
-<!-- ══════════════════════════════════════════
-     SLIDE 3 — IL MECCANISMO: Destocking
-     ══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════
+     SLIDE 3 — MACRO FACTS
+═══════════════════════════════════════════════════ -->
 <div class="slide">
-
   <div class="h-accent">
-    <div class="logo-row">
-      <div class="logo-a-white">
-        <span class="lbs" style="font-size:17px; color:#8B5CF6;">A</span>
-      </div>
-      <span class="logo-name">LMA FINANZA</span>
+    <div style="display:flex;align-items:center;">
+      <div class="logo-a-white"><span class="lbs" style="font-size:17px;color:#4D9FFF;">A</span></div>
+      <span class="logo-txt-white" style="font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
     </div>
-    <span class="h-title">Perché i beat sono stati così grandi — e prevedibili</span>
-    <span style="font-size:12px; color:rgba(255,255,255,0.0);"> </span>
+    <span style="font-size:13px;color:rgba(255,255,255,.8);font-weight:600;">WALL STREET · 25 APR 2026</span>
   </div>
+  <div class="body">
+    <div class="section-label">Tre driver del trimestre</div>
+    <div style="font-size:30px;font-weight:800;color:#0A0A0A;line-height:1.25;margin-bottom:28px;">Cosa ha spinto Intel ai massimi storici</div>
 
-  <div class="body" style="padding:24px 44px 68px; gap:12px;">
-
-    <!-- ROW 1: Overstocking -->
-    <div class="focus-card">
-      <div class="focus-left">
-        <div class="focus-lbl">2021–22</div>
-        <div class="focus-val" style="color:#E8313A; font-size:32px;">Over</div>
+    <div class="fact-row">
+      <div class="fact-icon">🎯</div>
+      <div>
+        <div class="fact-title">EPS Beat storico: $0,29 vs $0,01 atteso</div>
+        <div class="fact-sub">Sesto trimestrale consecutivo sopra le stime. Il mercato aveva prezzato il peggio — e Intel ha consegnato il meglio. +2.800% di sorpresa sull'EPS Non-GAAP (utile per azione rettificato).</div>
       </div>
-      <div class="focus-sep"></div>
-      <div class="focus-right">
-        <div class="focus-ttl">Overstocking: le scorte si accumulano</div>
-        <div class="focus-body">La carenza globale di chip del 2021 spinge i clienti automotive a ordinare <strong>in eccesso</strong>. I magazzini si riempiono. TXN e STM registrano ricavi record: tutti comprano tutto.</div>
-      </div>
+      <span class="badge badge-green" style="flex-shrink:0;">EPS Beat</span>
     </div>
 
-    <!-- ROW 2: Destocking -->
-    <div class="focus-card">
-      <div class="focus-left">
-        <div class="focus-lbl">2022–24</div>
-        <div class="focus-val" style="color:#F5A623; font-size:30px;">Zero</div>
+    <div class="fact-row">
+      <div class="fact-icon">🖥️</div>
+      <div>
+        <div class="fact-title">Data Center & AI: +22% anno su anno</div>
+        <div class="fact-sub">Ricavi $5,1 miliardi. L'accelerazione AI degli hyperscaler (hyperscaler: grandi fornitori cloud) traina la domanda di processori Xeon di nuova generazione e acceleratori Gaudi 3.</div>
       </div>
-      <div class="focus-sep"></div>
-      <div class="focus-right">
-        <div class="focus-ttl">Destocking: due anni di ordini a zero</div>
-        <div class="focus-body">I clienti smaltiscono le scorte senza riordinare. TXN: ricavi −30%, margini crollano. STM: stessa traiettoria. Il mercato prezza queste aziende come se il calo fosse strutturale — <strong>errore classico</strong>.</div>
-      </div>
+      <span class="badge badge-accent" style="flex-shrink:0;">DC&AI</span>
     </div>
 
-    <!-- ROW 3: Recovery -->
-    <div class="focus-card">
-      <div class="focus-left">
-        <div class="focus-lbl">2025–26</div>
-        <div class="focus-val" style="color:#00C17C; font-size:30px;">Boom</div>
+    <div class="fact-row">
+      <div class="fact-icon">🏭</div>
+      <div>
+        <div class="fact-title">Foundry (divisione produzione): +16%</div>
+        <div class="fact-sub">Primi clienti esterni acquisiti. La scommessa IDM 2.0 (Integrated Device Manufacturer — produttore integrato) inizia a produrre ricavi reali. Intel 18A in fase di qualification.</div>
       </div>
-      <div class="focus-sep"></div>
-      <div class="focus-right">
-        <div class="focus-ttl">Recovery: gli ordini tornano tutti insieme</div>
-        <div class="focus-body">Quando le scorte si esauriscono, i clienti automotive e industrial <strong>non possono aspettare</strong>: le auto devono essere prodotte. La domanda torna a piena forza in un solo trimestre → beat del 30–50% è <strong>matematicamente inevitabile</strong>.</div>
-      </div>
+      <span class="badge badge-accent" style="flex-shrink:0;">Foundry</span>
     </div>
-
-    <!-- INSIGHT -->
-    <div class="insight-box">
-      <span class="insight-ico">💡</span>
-      <span class="insight-txt">Il <span style="color:#A78BFA;">ciclo delle scorte</span> non è una sorpresa — è una <strong style="color:#fff;">legge fisica</strong> dei mercati industriali. Chi lo conosce, lo anticipa.</span>
-    </div>
-
   </div>
-
-  <div class="footer-dots"><div class="d-off"></div><div class="d-off"></div><div class="d-on"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div></div>
-  <span class="pn">3 / 7</span>
+  <div class="footer">
+    <div class="d-off"></div><div class="d-off"></div>
+    <div class="d-on"></div>
+    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
+  </div>
 </div>
 
-
-<!-- ══════════════════════════════════════════
-     SLIDE 4 — FORMAZIONE: LE PAROLE CHIAVE
-     ══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════
+     SLIDE 4 — FOCUS / EARNINGS BEAT + FAGGIN
+═══════════════════════════════════════════════════ -->
 <div class="slide">
-
-  <div class="h-accent">
-    <div class="logo-row">
-      <div class="logo-a-white">
-        <span class="lbs" style="font-size:17px; color:#8B5CF6;">A</span>
-      </div>
-      <span class="logo-name">LMA FINANZA</span>
-    </div>
-    <span class="h-title">📚 Le parole chiave di oggi</span>
-    <span style="font-size:13px; color:rgba(255,255,255,0.55);">Finanza in italiano</span>
-  </div>
-
-  <div class="body" style="padding:20px 44px 66px; gap:10px;">
-
-    <!-- TERM 1: Destocking -->
-    <div class="term-card">
-      <div class="term-left">
-        <div class="term-en">Destocking</div>
-        <div class="term-it">riduzione delle scorte</div>
-      </div>
-      <div class="term-sep"></div>
-      <div class="term-right">
-        <div class="term-def">Fase in cui i clienti industriali smaltiscono le scorte già accumulate senza riordinare al fornitore. Causa una <strong>caduta artificiale dei ricavi</strong> che non riflette la domanda reale sottostante.</div>
-        <span class="term-ex">→ Oggi: TXN e STM hanno subito 2 anni di destocking → recovery +36/52% in un trimestre.</span>
-      </div>
-    </div>
-
-    <!-- TERM 2: Inventory Cycle -->
-    <div class="term-card">
-      <div class="term-left">
-        <div class="term-en">Inventory Cycle</div>
-        <div class="term-it">ciclo delle scorte</div>
-      </div>
-      <div class="term-sep"></div>
-      <div class="term-right">
-        <div class="term-def">Il ciclo ricorrente di accumulazione e smaltimento scorte nei settori industriali. Si ripete ogni <strong>3–5 anni</strong>. Amplifica artificialmente sia le crescite che i cali rispetto alla domanda finale reale.</div>
-        <span class="term-ex">→ Oggi: il ciclo 2021–2026 ha fatto scendere TXN del 30% — poi rimbalzare del 38% YTD.</span>
-      </div>
-    </div>
-
-    <!-- TERM 3: Analog Chip -->
-    <div class="term-card">
-      <div class="term-left">
-        <div class="term-en">Analog Chip</div>
-        <div class="term-it">chip analogico</div>
-      </div>
-      <div class="term-sep"></div>
-      <div class="term-right">
-        <div class="term-def">Circuito integrato che gestisce segnali continui (temperatura, corrente, pressione) invece di dati digitali. Fondamentale in <strong>auto elettriche, sensori industriali, infrastruttura elettrica</strong>. Diverso dai chip digitali (GPU, CPU).</div>
-        <span class="term-ex">→ Oggi: TXN e STM fanno chip analogici — ciclo diverso e separato da Nvidia e AMD.</span>
-      </div>
-    </div>
-
-    <!-- TERM 4: Earnings Inflection -->
-    <div class="term-card">
-      <div class="term-left">
-        <div class="term-en">Earnings Inflection</div>
-        <div class="term-it">punto di svolta degli utili</div>
-      </div>
-      <div class="term-sep"></div>
-      <div class="term-right">
-        <div class="term-def">Momento in cui una società ciclica inverte la tendenza negativa degli utili. Tipicamente produce <strong>beat molto ampi</strong> perché le stime del consensus erano ancora calibrate sul ciclo negativo precedente.</div>
-        <span class="term-ex">→ Oggi: TXN e STM sono all'earnings inflection — le stime erano basse perché il mercato non aveva aggiornato il ciclo.</span>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="footer-dots"><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-on"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div></div>
-  <span class="pn">4 / 7</span>
-</div>
-
-
-<!-- ══════════════════════════════════════════
-     SLIDE 5 — TOP & FLOP CON SPIEGAZIONE
-     ══════════════════════════════════════════ -->
-<div class="slide">
-
   <div class="h-black">
-    <div class="logo-row">
-      <div class="logo-a-accent">
-        <span class="lbs" style="font-size:17px; color:#fff;">A</span>
-      </div>
-      <span class="logo-name">LMA FINANZA</span>
+    <div style="display:flex;align-items:center;">
+      <div class="logo-a-accent"><span class="lbs" style="font-size:17px;color:#fff;">A</span></div>
+      <span class="logo-txt-white" style="font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
     </div>
-    <span class="h-title">Chi ha vinto. Chi ha perso. Perché.</span>
-    <span style="font-size:13px; color:rgba(255,255,255,0.4);">22–23 Apr 2026</span>
+    <span style="font-size:13px;color:rgba(255,255,255,.7);font-weight:600;">WALL STREET · 25 APR 2026</span>
   </div>
+  <div class="body">
+    <div class="section-label">Focus — Le origini e il presente</div>
+    <div style="font-size:26px;font-weight:800;color:#0A0A0A;line-height:1.25;margin-bottom:20px;">Sei Earnings Beat consecutivi — e una storia che inizia nel 1971</div>
 
-  <div class="body" style="padding:24px 44px 68px; gap:13px;">
-
-    <!-- TXN +19.1% -->
-    <div class="t-win">
-      <div class="t-info">
-        <div class="t-name">⚙️ Texas Instruments (TXN) — Analog</div>
-        <div class="t-why">EPS $1,28 vs $0,94 atteso (<strong>+36%</strong>). Gross Margin 57,3% — record dal 2000. Il destocking automotive è finito: gli ordini sono tornati a piena forza su tutti i segmenti.</div>
-      </div>
-      <div class="t-sep"></div>
-      <div class="t-pct"><span class="t-up">+19,1%</span></div>
+    <div class="faggin-card">
+      <div class="faggin-label">🇮🇹 Radici italiane</div>
+      <div class="faggin-name">Federico Faggin · Vicenza, 1941</div>
+      <div class="faggin-role">Progettista del microprocessore Intel 4004 (1971)</div>
+      <div class="faggin-text">Fisico italiano, Faggin progettò il primo microprocessore commerciale della storia mentre lavorava in Intel. Firmò il silicio con la sua iniziale «F». Senza quella intuizione, nessun PC, nessun server, nessun chip AI. Intel è nata da quella scintilla.</div>
     </div>
 
-    <!-- STM +14.1% -->
-    <div class="t-win">
-      <div class="t-info">
-        <div class="t-name">🇮🇹 STMicroelectronics (STM) — Analog</div>
-        <div class="t-why">EPS €0,32 vs €0,21 (+<strong>52%</strong>). Revenue €2,90B vs €2,67B attesi. Stesso ciclo di TXN: chip per auto europee e industrial IoT escono dal destocking con ordini esplosi.</div>
-      </div>
-      <div class="t-sep"></div>
-      <div class="t-pct"><span class="t-up">+14,1%</span></div>
-    </div>
+    <table class="focus-table">
+      <thead><tr>
+        <th>Trimestrale</th>
+        <th>Evento chiave</th>
+        <th>Impatto</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Q1 2026</td><td>EPS $0,29 vs $0,01 — 6° beat consecutivo</td><td><span class="badge badge-green">+23,6%</span></td></tr>
+        <tr><td>Short Squeeze</td><td>Alta percentuale short amplifica i rialzi</td><td><span class="badge badge-accent">Acceleratore</span></td></tr>
+        <tr><td>ATH Intraday</td><td>$85,22 — massimo storico toccato</td><td><span class="badge badge-green">YTD +74%</span></td></tr>
+      </tbody>
+    </table>
 
-    <!-- INTC -1.4% -->
-    <div class="t-los">
-      <div class="t-info">
-        <div class="t-name">💻 Intel (INTC) — x86 / Foundry</div>
-        <div class="t-why">Ciclo opposto: la divisione foundry brucia cassa, i PC non si riprendono. <strong>Recovery non ancora partita</strong>. Il mercato penalizza la mancanza di un catalizzatore ciclico simile a TXN.</div>
-      </div>
-      <div class="t-sep"></div>
-      <div class="t-pct"><span class="t-dn">−1,4%</span></div>
+    <div class="focus-insight">
+      <p>"Sei Earnings Beat (battere le stime) consecutivi ricodificano il DNA narrativo di un'azienda. Il mercato smette di scommettere contro."</p>
     </div>
-
-    <!-- IBM -8.0% -->
-    <div class="t-los">
-      <div class="t-info">
-        <div class="t-name">🖥️ IBM — Software / Mainframe</div>
-        <div class="t-why"><strong>Guidance Q2 delude</strong>: ricavi software in rallentamento, consulting sotto pressione. Il riacquisto di azioni maschera la debolezza operativa. Nessun ciclo inventory a supporto.</div>
-      </div>
-      <div class="t-sep"></div>
-      <div class="t-pct"><span class="t-dn">−8,0%</span></div>
-    </div>
-
   </div>
-
-  <div class="footer-dots"><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-on"></div><div class="d-off"></div><div class="d-off"></div></div>
-  <span class="pn">5 / 7</span>
+  <div class="footer">
+    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
+    <div class="d-on"></div>
+    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
+  </div>
 </div>
 
-
-<!-- ══════════════════════════════════════════
-     SLIDE 6 — OUTLOOK / COSA MONITORARE
-     ══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════
+     SLIDE 5 — IMPARA LA FINANZA (3 TERMINI)
+═══════════════════════════════════════════════════ -->
 <div class="slide">
-
   <div class="h-accent">
-    <div class="logo-row">
-      <div class="logo-a-white">
-        <span class="lbs" style="font-size:17px; color:#8B5CF6;">A</span>
-      </div>
-      <span class="logo-name">LMA FINANZA</span>
+    <div style="display:flex;align-items:center;">
+      <div class="logo-a-white"><span class="lbs" style="font-size:17px;color:#4D9FFF;">A</span></div>
+      <span class="logo-txt-white" style="font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
     </div>
-    <span class="h-title">Cosa monitorare nei prossimi trimestri</span>
-    <span style="font-size:13px; color:rgba(255,255,255,0.55);">Analog Supercycle</span>
+    <span style="font-size:13px;color:rgba(255,255,255,.8);font-weight:600;">IMPARA LA FINANZA</span>
   </div>
+  <div class="body">
+    <div class="section-label">Tre termini di oggi</div>
+    <div style="font-size:28px;font-weight:800;color:#0A0A0A;margin-bottom:22px;">Capire Intel in tre concetti</div>
 
-  <div class="body" style="padding:24px 44px 68px;">
-    <div style="flex:1; display:flex; flex-direction:row; gap:18px;">
+    <div class="learn-card">
+      <div class="learn-term">EPS Non-GAAP</div>
+      <div class="learn-it">Utile per azione rettificato</div>
+      <div class="learn-def">L'EPS GAAP include tutti i costi secondo i principi contabili ufficiali. Il Non-GAAP esclude voci straordinarie come stock-based compensation e svalutazioni. Usato dalle aziende tech per mostrare la redditività operativa "core". Confrontare i due dati è fondamentale per non essere ingannati.</div>
+    </div>
 
-      <!-- COLONNA VERDE — SCENARIO POSITIVO -->
-      <div style="flex:1; background:#F7F8FA; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column;">
-        <div style="font-size:20px; font-weight:900; color:#00C17C; margin-bottom:3px;">🚀 Scenario Rialzista</div>
-        <div style="font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:#007A4F; font-weight:700; margin-bottom:10px;">Analogico Recovery</div>
-        <div style="height:3px; border-radius:2px; background:#00C17C; margin-bottom:18px;"></div>
+    <div class="learn-card">
+      <div class="learn-term">IDM 2.0</div>
+      <div class="learn-it">Produttore integrato di dispositivi (nuova versione)</div>
+      <div class="learn-def">Intel progetta E produce i propri chip (Integrated Device Manufacturer). La strategia IDM 2.0 aggiunge una Foundry (fonderia) per produrre anche chip di clienti esterni, competendo con TSMC. È l'opposto del modello "fabless" (senza fabbriche) di AMD.</div>
+    </div>
 
-        <div style="padding:14px 0; border-bottom:1px solid #E5E7EB;">
-          <div style="font-size:17px; font-weight:800; color:#0A0A0A; margin-bottom:5px;">Q2 guidance TXN: $4,2–4,8B</div>
-          <div style="font-size:16px; font-weight:400; color:#4B5563; line-height:1.45;">Se confermata, dimostra che la recovery è <strong>strutturale</strong>, non un rimbalzo da one-time beat. Il mercato rivaluterà l'intero settore analogico.</div>
-        </div>
-        <div style="padding:14px 0; border-bottom:1px solid #E5E7EB;">
-          <div style="font-size:17px; font-weight:800; color:#0A0A0A; margin-bottom:5px;">STM Q2: automotive europeo</div>
-          <div style="font-size:16px; font-weight:400; color:#4B5563; line-height:1.45;">Il settore auto europeo (Stellantis, BMW, VW) sta aumentando gli ordini di ADAS e chip power — STM è il fornitore preferenziale.</div>
-        </div>
-        <div style="padding:14px 0;">
-          <div style="font-size:17px; font-weight:800; color:#0A0A0A; margin-bottom:5px;">NXP Semiconductors</div>
-          <div style="font-size:16px; font-weight:400; color:#4B5563; line-height:1.45;">Stessa esposizione automotive di TXN. Se il ciclo è strutturale, NXP è il <strong>prossimo a riportare un beat ampio</strong>.</div>
-        </div>
-      </div>
-
-      <!-- COLONNA ROSSA — SCENARIO RISCHIO -->
-      <div style="flex:1; background:#F7F8FA; border-radius:18px; padding:28px 26px; display:flex; flex-direction:column;">
-        <div style="font-size:20px; font-weight:900; color:#E8313A; margin-bottom:3px;">⚠️ Scenario Ribassista</div>
-        <div style="font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:#991B1B; font-weight:700; margin-bottom:10px;">AI Chip &amp; Dazi Rischio</div>
-        <div style="height:3px; border-radius:2px; background:#E8313A; margin-bottom:18px;"></div>
-
-        <div style="padding:14px 0; border-bottom:1px solid #E5E7EB;">
-          <div style="font-size:17px; font-weight:800; color:#0A0A0A; margin-bottom:5px;">Export control GPU H20</div>
-          <div style="font-size:16px; font-weight:400; color:#4B5563; line-height:1.45;">Le restrizioni export USA sulle GPU Nvidia H20 verso la Cina possono ridurre i ricavi NVDA Q2 di <strong>$1–2 miliardi</strong>. Paura contagio su tutto il settore semi.</div>
-        </div>
-        <div style="padding:14px 0; border-bottom:1px solid #E5E7EB;">
-          <div style="font-size:17px; font-weight:800; color:#0A0A0A; margin-bottom:5px;">Dazi auto USA–UE</div>
-          <div style="font-size:16px; font-weight:400; color:#4B5563; line-height:1.45;">Se i dazi del 25% sulle auto colpiscono la produzione europea, STM rischia un <strong>rallentamento degli ordini</strong> da Stellantis e BMW.</div>
-        </div>
-        <div style="padding:14px 0;">
-          <div style="font-size:17px; font-weight:800; color:#0A0A0A; margin-bottom:5px;">Nuovo ciclo di scorte</div>
-          <div style="font-size:16px; font-weight:400; color:#4B5563; line-height:1.45;">Se i clienti automotive <strong>riacquistano scorte in eccesso</strong> ora, si prepara già il prossimo destocking. Il ciclo si ripete ogni 3–5 anni.</div>
-        </div>
-      </div>
-
+    <div class="learn-card">
+      <div class="learn-term">Short Squeeze</div>
+      <div class="learn-it">Stretta sulle posizioni ribassiste</div>
+      <div class="learn-def">Quando molti investitori hanno scommesso al ribasso (short), una notizia positiva li obbliga a riacquistare in fretta le azioni, amplificando ulteriormente il rialzo. Ha contribuito al +23,6% di Intel in un solo giorno.</div>
     </div>
   </div>
-
-  <div class="footer-dots"><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-on"></div><div class="d-off"></div></div>
-  <span class="pn">6 / 7</span>
+  <div class="footer">
+    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
+    <div class="d-on"></div>
+    <div class="d-off"></div><div class="d-off"></div>
+  </div>
 </div>
 
-
-<!-- ══════════════════════════════════════════
-     SLIDE 7 — CHIUSURA / CTA
-     ══════════════════════════════════════════ -->
-<div class="slide" style="background:#8B5CF6; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-
-  <!-- LOGO SOPRA -->
-  <div style="display:flex; align-items:center; gap:10px; margin-bottom:44px;">
-    <div style="width:48px; height:48px; background:#fff; border-radius:9px; display:flex; align-items:center; justify-content:center;">
-      <span class="lbs" style="font-size:28px; color:#8B5CF6;">A</span>
+<!-- ═══════════════════════════════════════════════════
+     SLIDE 6 — SETTORE + OUTLOOK
+═══════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="h-black">
+    <div style="display:flex;align-items:center;">
+      <div class="logo-a-accent"><span class="lbs" style="font-size:17px;color:#fff;">A</span></div>
+      <span class="logo-txt-white" style="font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
     </div>
-    <span style="font-size:22px; font-weight:800; color:#fff; letter-spacing:0.02em;">LMA FINANZA</span>
+    <span style="font-size:13px;color:rgba(255,255,255,.7);font-weight:600;">WALL STREET · 25 APR 2026</span>
   </div>
+  <div class="body">
+    <div class="section-label">Settore semiconduttori · Outlook</div>
+    <div style="font-size:28px;font-weight:800;color:#0A0A0A;margin-bottom:18px;">Dove va il settore dopo il trimestrale</div>
 
-  <!-- CARD BIANCA -->
-  <div style="background:#fff; border-radius:24px; padding:52px 64px; text-align:center; width:820px;">
-    <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.12em; color:#6B7280; margin-bottom:10px;">Analisi completa su</div>
-    <div style="font-size:52px; font-weight:900; letter-spacing:-0.03em; color:#0A0A0A; line-height:1.0;">Alma Finanza</div>
-    <div style="width:56px; height:4px; background:#8B5CF6; margin:20px auto; border-radius:2px;"></div>
-    <div style="font-size:20px; font-weight:800; color:#8B5CF6; margin-bottom:18px;">almafinanza.com</div>
-    <div style="font-size:15px; color:#6B7280; line-height:1.7;">
-      Timeline destocking 2021–2026, confronto TXN vs STM,<br>
-      tabella 6 titoli, glossario in italiano.
+    <table class="ticker-table">
+      <thead><tr>
+        <th>Ticker</th>
+        <th>Società</th>
+        <th>Variazione 25 Apr</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="font-weight:800;">INTC</td><td>Intel</td><td class="t-green">+23,6% 🚀</td></tr>
+        <tr><td style="font-weight:800;">AMD</td><td>Advanced Micro Devices</td><td class="t-green">+2,8%</td></tr>
+        <tr><td style="font-weight:800;">NVDA</td><td>Nvidia</td><td class="t-green">+1,2%</td></tr>
+        <tr><td style="font-weight:800;">TSM</td><td>TSMC</td><td class="t-green">+0,9%</td></tr>
+        <tr><td style="font-weight:800;">ARM</td><td>Arm Holdings</td><td class="t-red">-0,4%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="outlook-grid">
+      <div class="outlook-col outlook-green">
+        <div class="outlook-col-title og-title">✅ Catalizzatori positivi</div>
+        <div class="outlook-item"><div class="outlook-dot og-dot"></div><div class="outlook-text">Gaudi 3: acceleratore AI competitivo con H100</div></div>
+        <div class="outlook-item"><div class="outlook-dot og-dot"></div><div class="outlook-text">Primo cliente Foundry esterno acquisito</div></div>
+        <div class="outlook-item"><div class="outlook-dot og-dot"></div><div class="outlook-text">Intel 18A: processo avanzato in qualification</div></div>
+      </div>
+      <div class="outlook-col outlook-yellow">
+        <div class="outlook-col-title oy-title">⚠️ Rischi da monitorare</div>
+        <div class="outlook-item"><div class="outlook-dot oy-dot"></div><div class="outlook-text">CUDA moat (vantaggio competitivo) di Nvidia resta dominante</div></div>
+        <div class="outlook-item"><div class="outlook-dot oy-dot"></div><div class="outlook-text">Execution risk nella Foundry: produrre per terzi è difficile</div></div>
+        <div class="outlook-item"><div class="outlook-dot oy-dot"></div><div class="outlook-text">Valutazione post-rally: multipli elevati dopo +74% YTD</div></div>
+      </div>
     </div>
   </div>
-
-  <!-- FOOTER DOTS -->
-  <div class="footer-dots">
-    <div class="d-off-w"></div><div class="d-off-w"></div><div class="d-off-w"></div>
-    <div class="d-off-w"></div><div class="d-off-w"></div><div class="d-off-w"></div>
-    <div class="d-on-w"></div>
+  <div class="footer">
+    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
+    <div class="d-off"></div><div class="d-off"></div>
+    <div class="d-on"></div>
+    <div class="d-off"></div>
   </div>
-  <span class="pn-w">7 / 7</span>
 </div>
 
+<!-- ═══════════════════════════════════════════════════
+     SLIDE 7 — CTA FULL ACCENT
+═══════════════════════════════════════════════════ -->
+<div class="slide slide-full-accent">
+  <div style="height:100%;display:flex;flex-direction:column;padding:60px 56px;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:auto;">
+      <div class="logo-box-white"><span class="lbs" style="font-size:20px;color:#4D9FFF;">A</span></div>
+      <span style="font-size:17px;font-weight:700;color:#fff;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
+    </div>
+
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+      <div class="cta-big">Analisi completa,<br>grafici e glossario<br>su Alma Finanza.</div>
+      <div class="cta-sub">Finanza italiana accessibile. Ogni termine tecnico spiegato in italiano — perché capire è il primo passo per investire bene.</div>
+      <div>
+        <span class="cta-url">almafinanza.com</span>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+      <div>
+        <div style="font-size:13px;color:rgba(255,255,255,.7);font-weight:600;letter-spacing:.06em;text-transform:uppercase;">Articolo completo</div>
+        <div style="font-size:15px;color:#fff;font-weight:600;margin-top:4px;">Intel Q1 2026 — Trimestrale record</div>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <div class="d-off" style="background:rgba(255,255,255,.4);"></div>
+        <div class="d-off" style="background:rgba(255,255,255,.4);"></div>
+        <div class="d-off" style="background:rgba(255,255,255,.4);"></div>
+        <div class="d-off" style="background:rgba(255,255,255,.4);"></div>
+        <div class="d-off" style="background:rgba(255,255,255,.4);"></div>
+        <div class="d-off" style="background:rgba(255,255,255,.4);"></div>
+        <div class="d-on" style="background:#fff;"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
