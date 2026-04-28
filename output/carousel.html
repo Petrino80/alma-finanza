@@ -137,20 +137,35 @@ body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; backgrou
     </div>
     <span style="font-size:13px;color:rgba(255,255,255,.8);font-weight:600;">WALL STREET · 25 APR 2026</span>
   </div>
-  <div class="body" style="justify-content:center;">
-    <div>
-      <div style="display:flex;align-items:baseline;gap:16px;">
-        <span class="hero-number">$0,01</span>
-        <span style="font-size:60px;font-weight:900;color:#CBD5E1;">→</span>
-        <span class="hero-number">$0,29</span>
+  <div style="height:calc(1080px - 84px);display:flex;flex-direction:row;">
+    <!-- LEFT: testo -->
+    <div style="flex:0 0 58%;padding:44px 36px 44px 44px;display:flex;flex-direction:column;justify-content:center;">
+      <div style="display:flex;align-items:baseline;gap:12px;">
+        <span class="hero-number" style="font-size:80px;">$0,01</span>
+        <span style="font-size:48px;font-weight:900;color:#CBD5E1;">→</span>
+        <span class="hero-number" style="font-size:80px;">$0,29</span>
       </div>
-      <div class="hero-hook">Intel ribalta ogni stima.<br>Il miglior giorno dal 1987.</div>
-      <div class="hero-sub">Un'azienda nata dal genio di un fisico italiano si reinventa nell'era dell'AI. +2.800% sull'EPS Non-GAAP (utile per azione rettificato). INTC +23,6%.</div>
-      <div class="learn-pills">
+      <div class="hero-hook" style="font-size:30px;margin-top:14px;">Intel ribalta ogni stima.<br>Il miglior giorno dal 1987.</div>
+      <div class="hero-sub" style="font-size:17px;margin-top:14px;">Un contributo italiano che ha cambiato la storia dei chip — e un'azienda che si reinventa nell'era dell'AI. +2.800% sull'EPS Non-GAAP (utile per azione rettificato). INTC +23,6%.</div>
+      <div class="learn-pills" style="margin-top:22px;">
         <span class="learn-pill">📚 EPS Non-GAAP</span>
         <span class="learn-pill">🏭 IDM 2.0</span>
         <span class="learn-pill">📈 Short Squeeze</span>
         <span class="learn-pill">🔬 Foundry</span>
+      </div>
+    </div>
+    <!-- RIGHT: immagine chip + didascalia Faggin -->
+    <div style="flex:0 0 42%;position:relative;background:#0A0A0A;display:flex;flex-direction:column;">
+      <img src="slide1_img_chip_semiconductor.jpg"
+           style="width:100%;height:100%;object-fit:cover;opacity:0.75;display:block;"
+           alt="Microprocessore Intel 4004">
+      <!-- overlay gradient -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.2) 55%,transparent 100%);"></div>
+      <!-- didascalia -->
+      <div style="position:absolute;bottom:56px;left:0;right:0;padding:0 28px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4D9FFF;margin-bottom:6px;">🇮🇹 Ingegnere Intel · 1970–1974</div>
+        <div style="font-size:22px;font-weight:800;color:#fff;line-height:1.2;">Federico Faggin</div>
+        <div style="font-size:14px;color:rgba(255,255,255,.75);margin-top:4px;line-height:1.4;">Progettò l'Intel 4004 (1971) —<br>il primo microprocessore<br>commerciale della storia.</div>
       </div>
     </div>
   </div>
@@ -274,7 +289,7 @@ body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; backgrou
       <div class="faggin-label">🇮🇹 Radici italiane</div>
       <div class="faggin-name">Federico Faggin · Vicenza, 1941</div>
       <div class="faggin-role">Progettista del microprocessore Intel 4004 (1971)</div>
-      <div class="faggin-text">Fisico italiano, Faggin progettò il primo microprocessore commerciale della storia mentre lavorava in Intel. Firmò il silicio con la sua iniziale «F». Senza quella intuizione, nessun PC, nessun server, nessun chip AI. Intel è nata da quella scintilla.</div>
+      <div class="faggin-text">Entrato in Intel nel 1970, Faggin progettò il 4004 in soli 9 mesi. Firmò il silicio con la sua iniziale «F» — gesto di orgoglio e paternità intellettuale. Senza quel contributo, nessun PC, nessun server, nessun chip AI. Fu il momento in cui Intel smise di essere una startup e divenne una leggenda.</div>
     </div>
 
     <table class="focus-table">
