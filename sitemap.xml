@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 30 Aprile 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-30apr-dow-caterpillar-mag7-amazon-meta.html</loc>
+      <lastmod>2026-04-30</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-30</news:publication_date>
+          <news:title>Wall Street 30 Aprile 2026: Dow +1,5% con Caterpillar +10% e Amazon +4%. Meta -9% sul CapEx IA. S&amp;P 500 +9% mensile — miglior aprile degli ultimi anni</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-borsa-milano-30apr-ftse-mib-48000-spread-btp-bund-pil-q1.html</loc>
+      <lastmod>2026-04-30</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-30</news:publication_date>
+          <news:title>Piazza Affari 30 Aprile 2026: FTSE MIB +0,94% a 48.246. Spread BTP/Bund 87 punti. PIL Italia Q1 +0,2%. BCE ferma al 2%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-30apr-intel-foundry-dcai-mag7-ai-datacenters.html</loc>
+      <lastmod>2026-04-30</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-04-30</news:publication_date>
+          <news:title>Intel e la Corsa all'IA: Foundry 2.0, DCAI +22% e i Magnificent Seven spendono $125 Miliardi in Data Center</news:title>
+      </news:news>
   </url>
 
   <!-- Articolo 27 Aprile 2026 -->
