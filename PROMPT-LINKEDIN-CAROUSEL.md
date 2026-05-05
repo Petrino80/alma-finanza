@@ -1,5 +1,5 @@
 # PROMPT — Generatore LinkedIn Post + Carosello PDF
-## Alma Finanza · Claude Code · v2.1
+## Alma Finanza · Claude Code · v3.0
 
 ---
 
@@ -102,55 +102,219 @@ URL_ARTICOLO:    [URL completo se disponibile, altrimenti stringa vuota]
 
 Output finale: `linkedin_post.txt`
 
-### Struttura obbligatoria
+### Modello di riferimento: Yahoo Finance LinkedIn
+Yahoo Finance (148K follower) scrive post da **20–100 parole**: hook d'impatto → 1–3 frasi di contesto con dati → link all'articolo. Niente sezioni educative, niente hashtag, niente elenchi. Tono giornalistico puro — i numeri parlano da soli.
+
+Esempi reali Yahoo Finance:
+> *"Greg Abel is steering Berkshire Hathaway into a new era with a record-shattering $397,000,000,000 cash pile and a massive jump in operating earnings. Read more: [link]"*
+
+> *"GameStop (yes, that GameStop) has offered $56 billion to buy eBay (yes, that eBay)."*
+
+> *"Imagine making $1,000,000 every 4 minutes. 💰️ That's exactly what Alphabet Inc. does."*
+
+> *"Jerome Powell just delivered one last mic drop moment. 🎤 Read more: [link]"*
+
+---
+
+### Struttura post Alma Finanza
 
 ```
-[RIGA 1 — HOOK]
-Una sola frase corta e d'impatto. Parte sempre dal dato o dalla tensione.
-NON iniziare mai con: "Oggi", "In un contesto di", "È con piacere", "Ecco".
+[HOOK — 1–2 frasi, obbligatorio]
+Parte dal dato più sorprendente o dalla tensione narrativa.
+Può essere un'affermazione secca, un contrasto, una domanda retorica.
+NON iniziare mai con: "Oggi", "In un contesto di", "È con piacere", "Ecco", "Siamo lieti".
 Esempi validi:
-  "Buzzi +5,7%. Avio −5,4%. Stessa seduta."
-  "Il PPI di marzo ha sorpreso tutti: +0,5% invece di +1,1%."
-  "11 punti tra il miglior e il peggior titolo del FTSE MIB. Stessa seduta."
+  "Palantir consegna $0,33. Il mercato ne aspettava $0,28."
+  "Intel: da $0,01 a $0,29 in un trimestre. Non è un errore di battitura."
+  "Il FTSE MIB sale mentre Stellantis perde il 6%. Stessa seduta."
+  "Tre parole: la Fed aspetta."
+
+[RIGA VUOTA — opzionale se il contesto lo richiede]
+
+[CONTESTO — 1–3 frasi, opzionale se il hook è già autoesplicativo]
+Prosa giornalistica fluida. Dati chiave + 1 riga di meccanismo causale.
+NO bullet con → . NO liste numerate. NO sezioni titolate.
+Esempio:
+  "Revenue +85% anno su anno — la crescita più rapida dal 2020 IPO.
+  US Government +84%, US Commercial +133%.
+  La piattaforma AIP e il metodo Boot Camp stanno convertendo i clienti più velocemente del previsto."
 
 [RIGA VUOTA]
 
-[CORPO — 4–5 punti format "→ Soggetto: spiegazione"]
-Ogni punto su una riga. Max 15 parole per punto.
-Spiega sempre il meccanismo, non solo il numero:
-  → Buzzi +5,7%: il cemento beneficia del crollo del WTI. Margini in espansione.
-  → ENI −2%: petrolio a $96 riduce le stime di utile per tutto il 2026.
-  → Leonardo −5,3%: cambio CEO + meno spesa difesa col cessate il fuoco.
+[CTA — 1 riga, obbligatoria]
+"Analisi completa su Alma Finanza → [URL_ARTICOLO]"
+oppure "Leggi l'analisi: [URL_ARTICOLO]"
 
-[RIGA VUOTA]
-
-[CONCETTO DEL GIORNO]
-"💡 Concetto del giorno: [Termine EN] ([traduzione IT])"
-"[Definizione in 1 frase semplice, comprensibile a chi non conosce la finanza]"
-Scegli il termine più rilevante tra quelli della slide formazione.
-
-[RIGA VUOTA]
-
-[COSA MONITORARE]
-"📌 Nei prossimi giorni: [1–2 eventi chiave con conseguenza se positivo/negativo]"
-
-[RIGA VUOTA]
-
-[CTA]
-"📊 Analisi completa + glossario su almafinanza.com"
-Se hai URL: "→ [URL_ARTICOLO]"
-
-[RIGA VUOTA]
-
-[HASHTAG — max 5]
-#AlmaFinanza #[sezione] #[argomento1] #[argomento2] #MercatiFinanziari
+[HASHTAG — massimo 2, opzionali]
+Usali solo se pertinentissimi. Formato: #AlmaFinanza #[settore principale]
 ```
 
-### Regole tono
-- Diretto, autorevole, accessibile. Come un analista che spiega a un amico intelligente.
-- Zero hype, zero aggettivi vuoti ("straordinario", "storico", "incredibile").
-- I numeri vanno sempre contestualizzati: non "+5,7%" ma "+5,7% grazie al crollo dell'energia".
-- **Lunghezza target:** 160–230 parole (esclusi hashtag).
+### VOICE & STILE — La regola più importante
+
+Yahoo Finance non parte mai dall'angolo ovvio. Trova il **twist**, il paradosso, l'immagine mentale che sorprende.
+
+**5 tecniche da usare (con esempi reali Yahoo Finance):**
+
+**1. La parentetica del paradosso**
+Inserisci una parentesi che crea stupore o ironia.
+> *"GameStop (yes, that GameStop) has offered $56 billion to buy eBay (yes, that eBay)."*
+In italiano: *"Palantir (sì, quella finanziata dalla CIA, con gli uffici The Shire e Rivendell)..."*
+
+**2. L'immagine mentale con numeri concreti**
+Fai visualizzare il numero con un'unità di tempo o un confronto.
+> *"Imagine making $1,000,000 every 4 minutes. That's exactly what Alphabet Inc. does."*
+In italiano: *"Immagina di guadagnare un milione di dollari ogni quattro minuti. È quello che fa Alphabet."*
+⚠️ Scrivi i numeri grandi **per esteso** quando fanno più impatto: "$397,000,000,000" non "$397B".
+
+**3. Il mic drop storico**
+Una frase secca con un'ancora temporale che crea curiosità assoluta.
+> *"The last time this happened was just after World War II."*
+> *"Jerome Powell just delivered one last mic drop moment. 🎤"*
+In italiano: *"Non succedeva dal secondo dopoguerra."* / *"Tre parole: la Fed aspetta."*
+
+**4. Il teaser criptico**
+Lascia qualcosa di non detto — il curiosity gap che spinge a cliccare.
+> *"The hyperscalers have spoken."*
+> *"There's a new risk to Nvidia's dominance: its clients' chipmaking capabilities."*
+In italiano: *"I grandi dell'AI hanno parlato."* / *"C'è un nuovo rischio per Nvidia: i suoi stessi clienti."*
+
+**5. Il contrasto narrativo**
+Accosta due elementi opposti o inaspettati nella stessa frase.
+> *"A trust in Elon Musk's name will pay a $1.5 million civil penalty, without admitting wrongdoing."*
+In italiano: *"Una società nata con i soldi della CIA, ispirata a Tolkien, ha appena registrato i numeri migliori dal suo IPO."*
+
+---
+
+**Prima di scrivere il hook, chiediti:**
+- Qual è l'elemento più sorprendente/paradossale di questa storia?
+- Cosa non si aspetta di leggere il lettore?
+- C'è un numero che scritto per esteso diventa più impressionante?
+- C'è un contrasto (piccolo/grande, passato/presente, nome/realtà) da sfruttare?
+
+---
+
+### Regole
+
+- **Lunghezza: 20–100 parole** (escluso URL e hashtag). Target ideale: 40–70 parole.
+- **Emoji: massimo 1**, solo se rafforza il hook (non decorativa).
+- **Zero hashtag**, oppure massimo 2 se utili per la discoverabilità del canale.
+- **Zero "💡 Concetto del giorno"** — la sezione educativa appartiene al carosello, non al post.
+- **Zero "📌 Nei prossimi giorni"** — non serve.
+- **Zero elenchi con →** nel corpo del post.
+- I numeri parlano da soli: non serve "sorprendente", "storico", "incredibile".
+- Ogni numero deve avere contesto minimo: non "+85%" ma "+85% anno su anno".
+
+---
+
+## STEP 2b — IMMAGINE POST LINKEDIN (1200×630px)
+
+Output finale: `output/post_image.jpg`
+
+Ogni post LinkedIn va con **1 immagine branded** allegata — non il carosello, un'immagine singola landscape che funziona come copertina editoriale.
+
+### Formato e dimensioni
+- **1200×630px** (formato landscape ottimale per LinkedIn)
+- Generata via HTML → Playwright screenshot (stessa pipeline del carousel, ma `.screenshot()` non `.pdf()`)
+
+### Struttura layout (due colonne)
+
+```
+┌─────────────────────────────┬───────────────────┐
+│  TAG · DATA                 │                   │
+│                             │   FOTO            │
+│  HEADLINE BOLD              │   CEO /           │
+│  3 righe max                │   PROTAGONISTA    │
+│                             │   (42% larghezza) │
+│  Sub: 1-2 righe dati        │                   │
+│                             │   badge ticker    │
+│  ─────────────────────────  │   in alto a dx    │
+│  KPI₁    KPI₂    KPI₃      │                   │
+│                             │   nome + ruolo    │
+│  A LMA FINANZA              │   in basso        │
+└─────────────────────────────┴───────────────────┘
+```
+
+### Design system immagine
+
+```css
+/* Sfondo */
+background: #05000F  /* quasi nero, leggermente viola */
+griglia dati: linear-gradient rgba(accent, 0.06) su 48px grid
+glow radiale: radial-gradient(accent, 0.18) top-left
+
+/* Colori testo */
+headline:     #FFFFFF  peso 900, Montserrat
+headline accent: [ACCENT del settore]  (es. #A78BFA per Tech/AI)
+sub:          rgba(255,255,255,0.60)
+metric-value: [ACCENT] oppure #34D399 (verde per EPS beat)
+metric-label: rgba(255,255,255,0.35)  uppercase 10px
+metric-sub:   rgba(255,255,255,0.40)
+
+/* Tag section */
+background: rgba(ACCENT, 0.25)
+color: tint chiaro di ACCENT
+border: 1px solid rgba(ACCENT, 0.4)
+
+/* Logo Alma Finanza */
+A: font-family 'Lobster'; color #14B8A6 (teal — invariabile)
+LMA FINANZA: Montserrat 900; color rgba(255,255,255,0.70)
+
+/* Foto protagonista */
+opacity: 0.75
+gradient-left:  #05000F → transparent (blend con colonna testo)
+gradient-bottom: rgba(05000F, 0.9) → transparent
+badge ticker: background rgba(ACCENT, 0.85), border-radius 10px, top-right
+
+/* Bordo accent sinistro */
+3px wide; gradient top→bottom: transparent → ACCENT → light-ACCENT → transparent
+```
+
+### KPI da mostrare nella barra metriche
+Scegli **3 metriche principali** dall'articolo, sempre con sub-label:
+- Valore grande (28px, peso 900)
+- Sub-label piccola: "+85% YoY", "vs $0,28 atteso", "+71% YoY"
+- Prima metrica: `border-left: 3px solid ACCENT`
+
+### Foto protagonista
+In ordine di preferenza:
+1. Foto scaricata da **Wikimedia Commons** (CC-BY o CC0) del CEO/protagonista della notizia → salvata in `output/[nome].jpg`
+2. Se nessuna foto disponibile: usa layout full-testo (la colonna destra diventa un dato visuale con CSS — grande numero su sfondo scuro con glow)
+
+⚠️ L'immagine deve essere **diversa** da quella usata nel carousel slide 1.
+⚠️ Chiedere **conferma** all'utente prima di scaricare qualsiasi file da Wikimedia Commons.
+
+### Codice generazione (Python + Playwright)
+
+```python
+import asyncio
+from playwright.async_api import async_playwright
+import pathlib
+
+async def main():
+    html = pathlib.Path('output/post_image.html').resolve()
+    out  = pathlib.Path('output/post_image.jpg').resolve()
+    async with async_playwright() as p:
+        browser = await p.chromium.launch()
+        page = await browser.new_page(viewport={'width': 1200, 'height': 630})
+        await page.goto(f'file://{html}', wait_until='networkidle')
+        await page.wait_for_timeout(2000)
+        await page.screenshot(
+            path=str(out),
+            full_page=False,
+            type='jpeg',
+            quality=95,
+            clip={'x': 0, 'y': 0, 'width': 1200, 'height': 630}
+        )
+        await browser.close()
+
+asyncio.run(main())
+```
+
+### Indicazione nel post
+Alla fine di `linkedin_post.txt` aggiungere sempre:
+```
+[IMMAGINE: output/post_image.jpg]
+```
 
 ---
 
@@ -531,10 +695,19 @@ FOOTER su sfondo accent:
 
 ```
 output/
-├── linkedin_post.txt     ← testo post pronto da copiare
-├── carousel.html         ← sorgente HTML (per debug e riuso)
-└── carousel.pdf          ← PDF finale, 7 pagine 1080×1080px
+├── linkedin_post.txt     ← testo post (20–100 parole, stile Yahoo Finance)
+│                            ultima riga: [IMMAGINE: output/post_image.jpg]
+├── post_image.html       ← sorgente HTML immagine post (per debug e riuso)
+├── post_image.jpg        ← immagine post LinkedIn 1200×630px (JPEG 95%)
+├── [nome_ceo].jpg        ← foto protagonista scaricata da Wikimedia Commons
+├── carousel.html         ← sorgente HTML carosello (per debug e riuso)
+└── carousel.pdf          ← PDF carosello finale, 7 pagine 1080×1080px
 ```
+
+**Riepilogo deliverable per ogni articolo:**
+1. `linkedin_post.txt` → testo da incollare su LinkedIn
+2. `post_image.jpg` → immagine da allegare al post LinkedIn (landscape 1200×630)
+3. `carousel.pdf` → documento da allegare come carosello LinkedIn (7 slide square 1080×1080)
 
 ---
 
@@ -546,7 +719,7 @@ output/
 3. **Spiega sempre il PERCHÉ.** "Buzzi +5,7%" è un dato. "Buzzi +5,7% perché il crollo del WTI riduce i costi" è informazione.
 4. **La slide formazione (slide 4) è obbligatoria** in ogni carosello.
 5. **La cover deve sempre avere il teaser** "In questo carosello scoprirai" con le pill dei termini.
-6. **Il post LinkedIn deve sempre avere** la sezione "💡 Concetto del giorno".
+6. **Il post LinkedIn è breve (20–100 parole)**: hook + contesto dati + link. Niente sezioni educative nel post — quelle vanno nel carosello.
 
 ### Design
 7. **Sfondo bianco** (`#FFFFFF`) su tutte le slide. Card in `#F7F8FA`. Mai sfondi scuri.
@@ -567,8 +740,21 @@ output/
 
 ---
 
-## CHIAMATA TIPO
+## CHIAMATA di oggi
 
 ```
-Articolo: https://www.almafinanza.com/articolo-[nome].html
+Articolo: [URL articolo su almafinanza.com]
+
+→ Leggi l'articolo, estrai le variabili dallo STEP 1,
+  genera output/linkedin_post.txt (formato Yahoo Finance, 20–100 parole)
+  e output/carousel.pdf (7 slide 1080×1080px)
 ```
+
+---
+
+## NOTE DI AGGIORNAMENTO
+
+| Versione | Data | Modifica |
+|---|---|---|
+| v2.1 | apr 2026 | Prima versione con carosello 7 slide |
+| v3.0 | mag 2026 | Post LinkedIn riformattato su modello Yahoo Finance (20–100 parole, no hashtag, no "Concetto del giorno", + immagine allegata) |

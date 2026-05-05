@@ -1,30 +1,11 @@
-Dal $0,01 al $0,29.
+Palantir — quella finanziata dalla CIA, con gli uffici chiamati The Shire e Rivendell, il CEO con un dottorato in filosofia a Francoforte — ha appena consegnato il trimestre migliore dal suo IPO.
 
-Non è un errore di battitura.
+Revenue +85% anno su anno. EPS $0,33 contro $0,28 atteso. FY Guidance 2026 alzata a $7,65 miliardi.
 
-Intel ha battuto le stime degli analisti di +2.800% sull'EPS Non-GAAP (utile per azione rettificato). Il titolo INTC ha guadagnato +23,6% in un solo giorno — il miglior rialzo dal 1987.
+La pietra veggente di Tolkien vede davvero lontano.
 
-C'è un pezzo di storia italiana dentro questa vicenda.
+Analisi completa su Alma Finanza → https://www.almafinanza.com/articolo-tech-04mag-palantir-pltr-q1-2026-earnings-aip.html
 
-Nel 1971, Federico Faggin — fisico di Vicenza, entrato in Intel l'anno prima — progettò il microprocessore 4004 in soli 9 mesi: il primo della storia commerciale. Firmò letteralmente il silicio con la sua iniziale «F», gesto di orgoglio e paternità intellettuale. Senza quel contributo, nessun PC, nessun server, nessun chip AI. Fu il momento in cui Intel smise di essere una startup e divenne una leggenda.
+#Palantir #PLTR #AI #Earnings #AlmaFinanza
 
-Cinquantacinque anni dopo, l'azienda si sta reinventando di nuovo.
-
-📊 I numeri del Q1 2026:
-→ EPS Non-GAAP: $0,29 (vs $0,01 atteso — 6° beat consecutivo)
-→ Ricavi: $13,6 miliardi (+9,5% sopra le stime)
-→ Data Center & AI: +22% anno su anno
-→ Foundry (divisione produzione): +16% con i primi clienti esterni
-
-Con la strategia IDM 2.0 e il processo Intel 18A, CEO Lip-Bu Tan sta costruendo l'alternativa occidentale a TSMC.
-
-Non sappiamo se riuscirà. Il CUDA moat di Nvidia è reale. I rischi di execution nella Foundry sono reali.
-
-Ma il mercato, almeno per un giorno, ha creduto alla storia.
-
-E quella storia ha radici italiane.
-
-🔗 Analisi completa su Alma Finanza:
-https://www.almafinanza.com/articolo-tech-25apr-intel-intc-q1-2026-earnings-foundry-ai.html
-
-#Intel #INTC #Semiconduttori #WallStreet #Finanza #Investimenti #AI #Chips #FedericoFaggin #AlmaFinanza
+[IMMAGINE: output/post_image.jpg]

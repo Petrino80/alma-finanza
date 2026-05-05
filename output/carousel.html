@@ -2,12 +2,13 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 @page { size: 1080px 1080px; margin: 0; }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #fff; }
 
+/* ── SLIDE BASE ── */
 .slide {
   width: 1080px;
   height: 1080px;
@@ -18,429 +19,895 @@ body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; backgrou
   page-break-after: always;
 }
 
-/* ── LOBSTER ── */
-.lbs { font-family: 'Lobster', cursive; font-style: normal; }
-
-/* ── HEADER VARIANTS ── */
-.h-accent { background: #4D9FFF; height: 84px; display: flex; align-items: center; justify-content: space-between; padding: 0 44px; flex-shrink: 0; }
-.h-black  { background: #0A0A0A; height: 84px; display: flex; align-items: center; justify-content: space-between; padding: 0 44px; flex-shrink: 0; }
-
-/* ── LOGO ── */
-.logo-a-white  { width:28px; height:28px; border-radius:5px; background:#fff; display:flex; align-items:center; justify-content:center; }
-.logo-a-accent { width:28px; height:28px; border-radius:5px; background:#4D9FFF; display:flex; align-items:center; justify-content:center; }
-.logo-txt-white  { font-size:15px; font-weight:700; color:#fff; margin-left:8px; }
-.logo-txt-black  { font-size:15px; font-weight:700; color:#0A0A0A; margin-left:8px; }
-
-/* ── BODY AREA ── */
-.body { height: calc(1080px - 84px); display: flex; flex-direction: column; padding: 44px; }
-
-/* ── BADGES ── */
-.badge { display:inline-flex; align-items:center; gap:5px; padding:4px 12px; border-radius:99px; font-size:13px; font-weight:600; }
-.badge-green  { background:#D1FAE5; color:#065F46; }
-.badge-red    { background:#FEE2E2; color:#991B1B; }
-.badge-yellow { background:#FEF3C7; color:#92400E; }
-.badge-neutral{ background:#F1F5F9; color:#475569; }
-.badge-accent { background:#DBEAFE; color:#1A6FCC; }
-
-/* ── KPI GRID ── */
-.kpi-grid { display:grid; grid-template-columns: 1fr 1fr; gap:18px; margin-top:28px; }
-.kpi-card { background:#F7F8FA; border-radius:14px; padding:24px 22px; display:flex; flex-direction:column; gap:6px; }
-.kpi-val  { font-size:36px; font-weight:800; color:#0A0A0A; line-height:1; }
-.kpi-label{ font-size:13px; font-weight:600; color:#64748B; text-transform:uppercase; letter-spacing:.05em; }
-.kpi-sub  { font-size:13px; font-weight:600; }
-
-/* ── SECTION LABEL ── */
-.section-label { font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#4D9FFF; margin-bottom:8px; }
-
-/* ── FACT ROWS ── */
-.fact-row { display:flex; align-items:flex-start; gap:14px; padding:16px 0; border-bottom:1px solid #F1F5F9; }
-.fact-row:last-child { border-bottom: none; }
-.fact-icon { width:40px; height:40px; border-radius:10px; background:#EFF6FF; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:20px; }
-.fact-title { font-size:16px; font-weight:700; color:#0A0A0A; }
-.fact-sub   { font-size:14px; color:#64748B; margin-top:2px; }
-
-/* ── FOCUS TABLE ── */
-.focus-table { width:100%; border-collapse:collapse; margin-top:20px; }
-.focus-table th { font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#64748B; padding:10px 14px; text-align:left; background:#F7F8FA; }
-.focus-table td { font-size:15px; padding:13px 14px; border-bottom:1px solid #F1F5F9; color:#0A0A0A; }
-.focus-table tr:last-child td { border-bottom:none; }
-.focus-insight { margin-top:22px; background:#EFF6FF; border-left:4px solid #4D9FFF; border-radius:0 10px 10px 0; padding:16px 20px; }
-.focus-insight p { font-size:15px; color:#1A6FCC; font-weight:500; font-style:italic; }
-
-/* ── LEARN CARD ── */
-.learn-card { background:#F7F8FA; border-radius:14px; padding:22px 24px; margin-bottom:16px; }
-.learn-term { font-size:18px; font-weight:800; color:#0A0A0A; }
-.learn-it   { font-size:14px; color:#4D9FFF; font-weight:600; margin-top:2px; }
-.learn-def  { font-size:14px; color:#475569; margin-top:8px; line-height:1.55; }
-
-/* ── FAGGIN CARD ── */
-.faggin-card { background:linear-gradient(135deg,#EFF6FF 0%,#DBEAFE 100%); border:2px solid #4D9FFF; border-radius:14px; padding:22px 24px; margin-bottom:16px; }
-.faggin-label{ font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#1A6FCC; margin-bottom:6px; }
-.faggin-name { font-size:20px; font-weight:800; color:#1A6FCC; }
-.faggin-role { font-size:13px; color:#2563EB; font-weight:500; margin-top:2px; }
-.faggin-text { font-size:14px; color:#1E3A5F; margin-top:10px; line-height:1.55; }
-
-/* ── TICKER TABLE ── */
-.ticker-table { width:100%; border-collapse:collapse; margin-top:10px; }
-.ticker-table th { font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#64748B; padding:10px 14px; text-align:left; background:#F7F8FA; border-radius:8px 8px 0 0; }
-.ticker-table td { font-size:15px; padding:13px 14px; border-bottom:1px solid #F1F5F9; font-weight:600; }
-.ticker-table tr:last-child td { border-bottom:none; }
-.t-green { color:#065F46; }
-.t-red   { color:#991B1B; }
-
-/* ── OUTLOOK COLS ── */
-.outlook-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:20px; flex:1; }
-.outlook-col  { border-radius:14px; padding:22px 20px; }
-.outlook-green{ background:#D1FAE5; }
-.outlook-yellow{ background:#FEF3C7; }
-.outlook-col-title { font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin-bottom:14px; }
-.og-title { color:#065F46; }
-.oy-title { color:#92400E; }
-.outlook-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; }
-.outlook-dot  { width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:5px; }
-.og-dot { background:#059669; }
-.oy-dot { background:#D97706; }
-.outlook-text { font-size:15px; color:#0A0A0A; font-weight:500; line-height:1.4; }
+/* ── HEADER BAR ── */
+.hdr {
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+}
+.hdr-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+.hdr-logo-a {
+  font-family: 'Lobster', cursive;
+  font-size: 34px;
+  color: #14B8A6;
+  line-height: 1;
+}
+.hdr-logo-rest {
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.hdr-section {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.90);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.hdr-date {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 500;
+}
 
 /* ── FOOTER DOTS ── */
-.footer { position:absolute; bottom:26px; left:0; right:0; display:flex; align-items:center; justify-content:center; gap:8px; }
-.d-on  { width:20px; height:7px; border-radius:99px; background:#4D9FFF; }
-.d-off { width:7px;  height:7px; border-radius:50%;  background:#CBD5E1; }
+.dots {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.d-on  { width: 20px; height: 7px; border-radius: 4px; background: #7C3AED; }
+.d-off { width: 7px;  height: 7px; border-radius: 50%; background: #D1D5DB; }
 
-/* ── SLIDE 1 HERO ── */
-.hero-number { font-size:120px; font-weight:900; line-height:1; color:#4D9FFF; letter-spacing:-4px; }
-.hero-number-dark { color:#0A0A0A; }
-.hero-hook { font-size:40px; font-weight:800; color:#0A0A0A; line-height:1.2; margin-top:16px; }
-.hero-sub  { font-size:20px; color:#475569; margin-top:16px; line-height:1.5; max-width:800px; }
-.learn-pills { display:flex; gap:10px; flex-wrap:wrap; margin-top:28px; }
-.learn-pill  { background:#EFF6FF; color:#1A6FCC; font-size:13px; font-weight:600; padding:6px 14px; border-radius:99px; border:1px solid #BFDBFE; }
+/* ── TYPOGRAPHY ── */
+.hero-number {
+  font-size: 92px;
+  font-weight: 900;
+  line-height: 1;
+  color: #111827;
+  letter-spacing: -3px;
+}
+.hero-arrow {
+  font-size: 60px;
+  color: #7C3AED;
+  font-weight: 900;
+  line-height: 1;
+  margin: 0 8px;
+}
+.hero-hook {
+  font-size: 28px;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.25;
+  margin-top: 20px;
+}
+.hero-sub {
+  font-size: 17px;
+  color: #4B5563;
+  margin-top: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
 
-/* ── SLIDE 7 FULL ACCENT ── */
-.slide-full-accent { background:#4D9FFF; }
-.cta-big  { font-size:52px; font-weight:900; color:#fff; line-height:1.15; }
-.cta-sub  { font-size:22px; color:#DBEAFE; margin-top:16px; line-height:1.5; }
-.cta-url  { font-size:18px; font-weight:700; color:#fff; margin-top:28px; background:rgba(255,255,255,.2); display:inline-block; padding:10px 22px; border-radius:10px; }
-.logo-final { display:flex; align-items:center; gap:10px; margin-top:auto; }
-.logo-box-white { width:36px; height:36px; border-radius:8px; background:#fff; display:flex; align-items:center; justify-content:center; }
+/* ── LEARN PILLS ── */
+.learn-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+.pill {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: #EDE9FE;
+  color: #5B21B6;
+  border: 1.5px solid #C4B5FD;
+}
+
+/* ── KPI CARDS ── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  padding: 36px 44px;
+}
+.kpi-card {
+  background: #F7F8FA;
+  border-radius: 18px;
+  padding: 32px 28px;
+  border-left: 5px solid #7C3AED;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.kpi-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #6B7280;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.kpi-value {
+  font-size: 52px;
+  font-weight: 900;
+  color: #111827;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+.kpi-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  width: fit-content;
+}
+.badge-green { background: #D1FAE5; color: #065F46; }
+.badge-red   { background: #FEE2E2; color: #991B1B; }
+.badge-yellow{ background: #FEF3C7; color: #92400E; }
+.badge-blue  { background: #DBEAFE; color: #1E40AF; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #7C3AED;
+  margin-bottom: 6px;
+}
+.sec-headline {
+  font-size: 30px;
+  font-weight: 900;
+  color: #111827;
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+/* ── MACRO CARDS ── */
+.macro-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 44px;
+}
+.macro-card {
+  background: #F7F8FA;
+  border-radius: 16px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.macro-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #7C3AED, #5B21B6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.macro-number {
+  font-size: 32px;
+  font-weight: 900;
+  color: #7C3AED;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.macro-fact {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.3;
+  margin-top: 4px;
+}
+.macro-explain {
+  font-size: 13px;
+  color: #6B7280;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* ── FOCUS TABLE ── */
+.focus-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+.focus-table th {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #6B7280;
+  padding: 0 0 12px 0;
+  text-align: left;
+  border-bottom: 2px solid #E5E7EB;
+}
+.focus-table td {
+  padding: 18px 0;
+  vertical-align: top;
+  border-bottom: 1px solid #F3F4F6;
+  font-size: 15px;
+  color: #1F2937;
+  line-height: 1.4;
+}
+.focus-table td:first-child {
+  font-weight: 800;
+  color: #7C3AED;
+  width: 28%;
+  font-size: 16px;
+}
+.focus-table td:nth-child(2) {
+  font-weight: 700;
+  color: #111827;
+  width: 18%;
+  font-size: 15px;
+}
+.focus-insight {
+  margin-top: 22px;
+  padding: 18px 22px;
+  background: #EDE9FE;
+  border-radius: 12px;
+  border-left: 4px solid #7C3AED;
+  font-size: 15px;
+  font-style: italic;
+  color: #4C1D95;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ── LEARN TERMS ── */
+.learn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 0 44px;
+}
+.learn-card {
+  background: #F7F8FA;
+  border-radius: 16px;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.learn-en {
+  font-size: 20px;
+  font-weight: 900;
+  color: #7C3AED;
+  line-height: 1.1;
+}
+.learn-it {
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+}
+.learn-def {
+  font-size: 13px;
+  color: #6B7280;
+  line-height: 1.45;
+  margin-top: 4px;
+}
+.learn-ref {
+  font-size: 11px;
+  color: #9CA3AF;
+  font-weight: 600;
+  margin-top: 6px;
+  letter-spacing: 0.3px;
+}
+
+/* ── OUTLOOK ── */
+.outlook-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.outlook-col {
+  border-radius: 16px;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.outlook-col.bull { background: #D1FAE5; }
+.outlook-col.bear { background: #FEF3C7; }
+.outlook-col-title {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.bull .outlook-col-title { color: #065F46; }
+.bear .outlook-col-title { color: #92400E; }
+.outlook-row {
+  background: rgba(255,255,255,0.7);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #1F2937;
+  font-weight: 500;
+}
+
+.tickers-bar {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+.ticker-chip {
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ticker-chip.up   { background: #D1FAE5; color: #065F46; }
+.ticker-chip.down { background: #FEE2E2; color: #991B1B; }
+.ticker-chip.flat { background: #F3F4F6; color: #374151; }
+
+/* ── SLIDE 7 CTA ── */
+.cta-slide {
+  background: linear-gradient(145deg, #7C3AED 0%, #4C1D95 60%, #2E1065 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 60px;
+}
+.cta-logo {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 3px;
+  margin-bottom: 16px;
+}
+.cta-logo-a {
+  font-family: 'Lobster', cursive;
+  font-size: 64px;
+  color: #14B8A6;
+  line-height: 1;
+}
+.cta-logo-rest {
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.cta-tagline {
+  font-size: 18px;
+  color: rgba(255,255,255,0.80);
+  margin-bottom: 48px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.cta-headline {
+  font-size: 38px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  max-width: 700px;
+  margin-bottom: 24px;
+}
+.cta-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.75);
+  max-width: 560px;
+  line-height: 1.5;
+  margin-bottom: 44px;
+}
+.cta-url-box {
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 14px;
+  padding: 18px 32px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  max-width: 640px;
+  word-break: break-all;
+  line-height: 1.4;
+  margin-bottom: 32px;
+}
+.cta-hashtags {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.5px;
+}
+
+/* ── SLIDE 1 PALANTIR ORB (right panel) ── */
+.orb-panel {
+  position: relative;
+  background: #0D0020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.orb-outer {
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 36%, #9F67FF 0%, #6D28D9 35%, #3B0764 70%, #0D0020 100%);
+  box-shadow: 0 0 80px rgba(124,58,237,0.7), 0 0 160px rgba(91,33,182,0.4), inset 0 0 40px rgba(196,181,253,0.25);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}
+.orb-ring-1 {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(124,58,237,0.30);
+  z-index: 1;
+}
+.orb-ring-2 {
+  position: absolute;
+  width: 530px;
+  height: 530px;
+  border-radius: 50%;
+  border: 1px solid rgba(124,58,237,0.18);
+  z-index: 1;
+}
+.orb-ring-3 {
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  border: 1px solid rgba(124,58,237,0.10);
+  z-index: 1;
+}
+.orb-inner-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.orb-pltr {
+  font-size: 36px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1px;
+  text-shadow: 0 0 20px rgba(196,181,253,0.8);
+}
+.orb-caption {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 3;
+}
+.orb-caption-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.5px;
+}
+.orb-caption-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.50);
+  margin-top: 3px;
+  line-height: 1.4;
+}
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════
-     SLIDE 1 — COVER / HOOK
-═══════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════ -->
+<!-- SLIDE 1 — COVER                           -->
+<!-- ══════════════════════════════════════════ -->
 <div class="slide">
-  <div class="h-accent">
-    <div style="display:flex;align-items:center;">
-      <div class="logo-a-white"><span class="lbs" style="font-size:17px;color:#4D9FFF;">A</span></div>
-      <span class="logo-txt-white" style="font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
-    </div>
-    <span style="font-size:13px;color:rgba(255,255,255,.8);font-weight:600;">WALL STREET · 25 APR 2026</span>
+  <div class="hdr">
+    <span class="hdr-logo"><span class="hdr-logo-a">A</span><span class="hdr-logo-rest">LMA FINANZA</span></span>
+    <span class="hdr-section">⚡ Tech &amp; AI</span>
+    <span class="hdr-date">4 Maggio 2026</span>
   </div>
+
   <div style="height:calc(1080px - 84px);display:flex;flex-direction:row;">
+
     <!-- LEFT: testo -->
-    <div style="flex:0 0 58%;padding:44px 36px 44px 44px;display:flex;flex-direction:column;justify-content:center;">
-      <div style="display:flex;align-items:baseline;gap:12px;">
-        <span class="hero-number" style="font-size:80px;">$0,01</span>
-        <span style="font-size:48px;font-weight:900;color:#CBD5E1;">→</span>
-        <span class="hero-number" style="font-size:80px;">$0,29</span>
+    <div style="flex:0 0 58%;padding:50px 36px 70px 48px;display:flex;flex-direction:column;justify-content:center;">
+      <div style="display:flex;align-items:baseline;gap:4px;flex-wrap:wrap;">
+        <span class="hero-number" style="color:#7C3AED;">$0,28</span>
+        <span class="hero-arrow">→</span>
+        <span class="hero-number">$0,33</span>
       </div>
-      <div class="hero-hook" style="font-size:30px;margin-top:14px;">Intel ribalta ogni stima.<br>Il miglior giorno dal 1987.</div>
-      <div class="hero-sub" style="font-size:17px;margin-top:14px;">Un contributo italiano che ha cambiato la storia dei chip — e un'azienda che si reinventa nell'era dell'AI. +2.800% sull'EPS Non-GAAP (utile per azione rettificato). INTC +23,6%.</div>
-      <div class="learn-pills" style="margin-top:22px;">
-        <span class="learn-pill">📚 EPS Non-GAAP</span>
-        <span class="learn-pill">🏭 IDM 2.0</span>
-        <span class="learn-pill">📈 Short Squeeze</span>
-        <span class="learn-pill">🔬 Foundry</span>
+      <div class="hero-hook" style="margin-top:18px;">
+        Palantir frantuma le attese.<br>La pietra veggente aveva ragione.
       </div>
-    </div>
-    <!-- RIGHT: immagine chip + didascalia Faggin -->
-    <div style="flex:0 0 42%;position:relative;background:#0A0A0A;display:flex;flex-direction:column;">
-      <img src="intel_c4004.jpg"
-           style="width:100%;height:100%;object-fit:cover;object-position:center center;opacity:0.82;display:block;"
-           alt="Intel C4004 — il primo microprocessore commerciale (1971)">
-      <!-- overlay gradient -->
-      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.2) 55%,transparent 100%);"></div>
-      <!-- didascalia -->
-      <div style="position:absolute;bottom:56px;left:0;right:0;padding:0 28px;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4D9FFF;margin-bottom:6px;">🇮🇹 Ingegnere Intel · 1970–1974</div>
-        <div style="font-size:22px;font-weight:800;color:#fff;line-height:1.2;">Federico Faggin</div>
-        <div style="font-size:14px;color:rgba(255,255,255,.75);margin-top:4px;line-height:1.4;">Progettò l'Intel 4004 (1971) —<br>il primo microprocessore<br>commerciale della storia.</div>
+      <div class="hero-sub" style="margin-top:16px;">
+        Revenue <strong>+85% anno su anno</strong> — la crescita più rapida dal 2020. EPS beat del +18%. FY Guidance 2026: $7,65B, oltre il consensus di $400M.
+      </div>
+      <div class="learn-pills">
+        <span class="pill">AIP Boot Camp</span>
+        <span class="pill">Price-to-Sales</span>
+        <span class="pill">Moat</span>
+        <span class="pill">Earnings Beat</span>
       </div>
     </div>
+
+    <!-- RIGHT: foto Alex Karp -->
+    <div style="flex:0 0 42%;position:relative;background:#0A0018;overflow:hidden;">
+      <img src="alex_karp.jpg"
+           style="width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.82;display:block;">
+      <!-- gradient overlay bottom -->
+      <div style="position:absolute;bottom:0;left:0;right:0;height:55%;
+                  background:linear-gradient(to top, rgba(10,0,24,1) 0%, rgba(10,0,24,0.6) 50%, transparent 100%);"></div>
+      <!-- badge PLTR in alto a destra -->
+      <div style="position:absolute;top:22px;right:22px;
+                  background:rgba(124,58,237,0.90);backdrop-filter:blur(6px);
+                  border-radius:10px;padding:8px 16px;
+                  font-size:15px;font-weight:800;color:#fff;letter-spacing:1px;">
+        PLTR +3,6% ↑
+      </div>
+      <!-- didascalia in basso -->
+      <div style="position:absolute;bottom:56px;left:0;right:0;padding:0 24px;text-align:center;">
+        <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.55);
+                    letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">
+          CEO &amp; Co-Fondatore · Palantir
+        </div>
+        <div style="font-size:22px;font-weight:900;color:#fff;letter-spacing:-0.5px;
+                    text-shadow:0 2px 12px rgba(0,0,0,0.7);">
+          Alex Karp
+        </div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:5px;line-height:1.4;">
+          Dottorato in filosofia · Francoforte<br>
+          <em>«Il nostro prodotto viene usato,<br>occasionalmente, per uccidere persone.»</em>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <div class="footer">
+
+  <!-- dots -->
+  <div class="dots">
     <div class="d-on"></div>
     <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
     <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-     SLIDE 2 — KPI
-═══════════════════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SLIDE 2 — KPI                             -->
+<!-- ══════════════════════════════════════════ -->
 <div class="slide">
-  <div class="h-black">
-    <div style="display:flex;align-items:center;">
-      <div class="logo-a-accent"><span class="lbs" style="font-size:17px;color:#fff;">A</span></div>
-      <span class="logo-txt-white" style="font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
-    </div>
-    <span style="font-size:13px;color:rgba(255,255,255,.7);font-weight:600;">WALL STREET · 25 APR 2026</span>
+  <div class="hdr">
+    <span class="hdr-logo"><span class="hdr-logo-a">A</span><span class="hdr-logo-rest">LMA FINANZA</span></span>
+    <span class="hdr-section">📊 I Numeri del Q1 2026</span>
+    <span class="hdr-date">PLTR</span>
   </div>
-  <div class="body">
-    <div class="section-label">Risultati Q1 2026 — I numeri</div>
-    <div style="font-size:32px;font-weight:800;color:#0A0A0A;line-height:1.2;">Intel Q1 2026:<br>quattro KPI che hanno spostato il mercato</div>
-    <div class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-label">EPS Non-GAAP</div>
-        <div class="kpi-val" style="color:#4D9FFF;">$0,29</div>
-        <span class="badge badge-green">vs $0,01 atteso · +2.800%</span>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Ricavi totali</div>
-        <div class="kpi-val">$13,6B</div>
-        <span class="badge badge-green">+9,5% sopra le stime</span>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">INTC in borsa</div>
-        <div class="kpi-val" style="color:#065F46;">+23,6%</div>
-        <span class="badge badge-green">Miglior giorno dal 1987</span>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Performance YTD</div>
-        <div class="kpi-val">+74%</div>
-        <span class="badge badge-accent">ATH intraday $85,22</span>
-      </div>
-    </div>
+
+  <div style="padding:40px 44px 0;">
+    <div class="sec-title">Palantir Technologies</div>
+    <div class="sec-headline">Quattro numeri che raccontano<br>un trimestre record</div>
   </div>
-  <div class="footer">
+
+  <div class="kpi-grid" style="padding-top:12px;">
+
+    <div class="kpi-card">
+      <div class="kpi-label">Revenue Totale</div>
+      <div class="kpi-value" style="font-size:46px;">$1,63B</div>
+      <div class="kpi-badge badge-green">+85% Anno su Anno ↑</div>
+      <div style="font-size:13px;color:#6B7280;margin-top:6px;">La crescita più rapida dal 2020 — anno dell'IPO</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">EPS Adjusted</div>
+      <div class="kpi-value" style="font-size:46px;">$0,33</div>
+      <div class="kpi-badge badge-green">vs $0,28 atteso · Beat +18% ↑</div>
+      <div style="font-size:13px;color:#6B7280;margin-top:6px;">Quinta trimestrale consecutiva di outperformance</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">US Commercial Revenue</div>
+      <div class="kpi-value" style="font-size:46px;">$595M</div>
+      <div class="kpi-badge badge-green">+133% Anno su Anno ↑</div>
+      <div style="font-size:13px;color:#6B7280;margin-top:6px;">vs $605M consensus: miss tecnico di -1,7%</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">FY 2026 Guidance</div>
+      <div class="kpi-value" style="font-size:46px;">$7,65B</div>
+      <div class="kpi-badge badge-green">vs $7,27B consensus · +5% ↑</div>
+      <div style="font-size:13px;color:#6B7280;margin-top:6px;">+71% anno su anno — revisione al rialzo netta</div>
+    </div>
+
+  </div>
+
+  <div class="dots">
     <div class="d-off"></div>
     <div class="d-on"></div>
-    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
     <div class="d-off"></div><div class="d-off"></div>
+    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-     SLIDE 3 — MACRO FACTS
-═══════════════════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SLIDE 3 — MACRO                           -->
+<!-- ══════════════════════════════════════════ -->
 <div class="slide">
-  <div class="h-accent">
-    <div style="display:flex;align-items:center;">
-      <div class="logo-a-white"><span class="lbs" style="font-size:17px;color:#4D9FFF;">A</span></div>
-      <span class="logo-txt-white" style="font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
-    </div>
-    <span style="font-size:13px;color:rgba(255,255,255,.8);font-weight:600;">WALL STREET · 25 APR 2026</span>
+  <div class="hdr">
+    <span class="hdr-logo"><span class="hdr-logo-a">A</span><span class="hdr-logo-rest">LMA FINANZA</span></span>
+    <span class="hdr-section">🏛️ Governo &amp; Commerciale</span>
+    <span class="hdr-date">PLTR Q1 2026</span>
   </div>
-  <div class="body">
-    <div class="section-label">Tre driver del trimestre</div>
-    <div style="font-size:30px;font-weight:800;color:#0A0A0A;line-height:1.25;margin-bottom:28px;">Cosa ha spinto Intel ai massimi storici</div>
 
-    <div class="fact-row">
-      <div class="fact-icon">🎯</div>
-      <div>
-        <div class="fact-title">EPS Beat storico: $0,29 vs $0,01 atteso</div>
-        <div class="fact-sub">Sesto trimestrale consecutivo sopra le stime. Il mercato aveva prezzato il peggio — e Intel ha consegnato il meglio. +2.800% di sorpresa sull'EPS Non-GAAP (utile per azione rettificato).</div>
-      </div>
-      <span class="badge badge-green" style="flex-shrink:0;">EPS Beat</span>
-    </div>
-
-    <div class="fact-row">
-      <div class="fact-icon">🖥️</div>
-      <div>
-        <div class="fact-title">Data Center & AI: +22% anno su anno</div>
-        <div class="fact-sub">Ricavi $5,1 miliardi. L'accelerazione AI degli hyperscaler (hyperscaler: grandi fornitori cloud) traina la domanda di processori Xeon di nuova generazione e acceleratori Gaudi 3.</div>
-      </div>
-      <span class="badge badge-accent" style="flex-shrink:0;">DC&AI</span>
-    </div>
-
-    <div class="fact-row">
-      <div class="fact-icon">🏭</div>
-      <div>
-        <div class="fact-title">Foundry (divisione produzione): +16%</div>
-        <div class="fact-sub">Primi clienti esterni acquisiti. La scommessa IDM 2.0 (Integrated Device Manufacturer — produttore integrato) inizia a produrre ricavi reali. Intel 18A in fase di qualification.</div>
-      </div>
-      <span class="badge badge-accent" style="flex-shrink:0;">Foundry</span>
-    </div>
+  <div style="padding:40px 44px 28px;">
+    <div class="sec-title">Palantir Technologies</div>
+    <div class="sec-headline">Due motori che accelerano<br>in direzioni opposte</div>
   </div>
-  <div class="footer">
+
+  <div class="macro-grid">
+
+    <div class="macro-card">
+      <div class="macro-icon">🏛️</div>
+      <div>
+        <div class="macro-number">+84%</div>
+        <div class="macro-fact">US Government: $687M anno su anno</div>
+        <div class="macro-explain">In accelerazione dal +66% del Q4 2025. USDA ha firmato un Blanket Purchase Agreement (accordo quadro di acquisto) da $300M. L'AI per la difesa non è una promessa: è un contratto.</div>
+      </div>
+    </div>
+
+    <div class="macro-card">
+      <div class="macro-icon">🏢</div>
+      <div>
+        <div class="macro-number">+133%</div>
+        <div class="macro-fact">US Commercial: $595M anno su anno</div>
+        <div class="macro-explain">Prima volta oltre mezzo miliardo. Cleveland-Cliffs (acciaio) ha scelto AIP per 3 anni. Il Boot Camp (campo intensivo) converte i clienti più rapidamente di qualsiasi demo tradizionale.</div>
+      </div>
+    </div>
+
+    <div class="macro-card">
+      <div class="macro-icon">📈</div>
+      <div>
+        <div class="macro-number">$144</div>
+        <div class="macro-fact">PLTR +3,6% il 4 maggio, pre-earnings</div>
+        <div class="macro-explain">Il mercato aveva già iniziato a scommettere prima dell'annuncio. Dopo la pubblicazione degli earnings, le aspettative sul titolo divergono nettamente: Wedbush $230 vs HSBC $151.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="dots">
     <div class="d-off"></div><div class="d-off"></div>
     <div class="d-on"></div>
     <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-     SLIDE 4 — FOCUS / EARNINGS BEAT + FAGGIN
-═══════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="h-black">
-    <div style="display:flex;align-items:center;">
-      <div class="logo-a-accent"><span class="lbs" style="font-size:17px;color:#fff;">A</span></div>
-      <span class="logo-txt-white" style="font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
-    </div>
-    <span style="font-size:13px;color:rgba(255,255,255,.7);font-weight:600;">WALL STREET · 25 APR 2026</span>
-  </div>
-  <div class="body">
-    <div class="section-label">Focus — Le origini e il presente</div>
-    <div style="font-size:26px;font-weight:800;color:#0A0A0A;line-height:1.25;margin-bottom:20px;">Sei Earnings Beat consecutivi — e una storia che inizia nel 1971</div>
 
-    <div class="faggin-card">
-      <div class="faggin-label">🇮🇹 Radici italiane</div>
-      <div class="faggin-name">Federico Faggin · Vicenza, 1941</div>
-      <div class="faggin-role">Progettista del microprocessore Intel 4004 (1971)</div>
-      <div class="faggin-text">Entrato in Intel nel 1970, Faggin progettò il 4004 in soli 9 mesi. Firmò il silicio con la sua iniziale «F» — gesto di orgoglio e paternità intellettuale. Senza quel contributo, nessun PC, nessun server, nessun chip AI. Fu il momento in cui Intel smise di essere una startup e divenne una leggenda.</div>
-    </div>
+<!-- ══════════════════════════════════════════ -->
+<!-- SLIDE 4 — FOCUS                           -->
+<!-- ══════════════════════════════════════════ -->
+<div class="slide">
+  <div class="hdr">
+    <span class="hdr-logo"><span class="hdr-logo-a">A</span><span class="hdr-logo-rest">LMA FINANZA</span></span>
+    <span class="hdr-section">🔬 Come Funziona il Boot Camp</span>
+    <span class="hdr-date">AIP · PLTR</span>
+  </div>
+
+  <div style="padding:40px 44px 0;">
+    <div class="sec-title">La strategia di vendita</div>
+    <div class="sec-headline">Palantir non vende software.<br>Entra in azienda e costruisce il valore.</div>
 
     <table class="focus-table">
-      <thead><tr>
-        <th>Trimestrale</th>
-        <th>Evento chiave</th>
-        <th>Impatto</th>
-      </tr></thead>
+      <thead>
+        <tr>
+          <th>Metodo / Partner</th>
+          <th>Durata / Valore</th>
+          <th>Perché conta</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>Q1 2026</td><td>EPS $0,29 vs $0,01 — 6° beat consecutivo</td><td><span class="badge badge-green">+23,6%</span></td></tr>
-        <tr><td>Short Squeeze</td><td>Alta percentuale short amplifica i rialzi</td><td><span class="badge badge-accent">Acceleratore</span></td></tr>
-        <tr><td>ATH Intraday</td><td>$85,22 — massimo storico toccato</td><td><span class="badge badge-green">YTD +74%</span></td></tr>
+        <tr>
+          <td>AIP Boot Camp</td>
+          <td>5 giorni</td>
+          <td>Usa i dati reali del cliente. L'AI dimostra il suo valore in tempo reale, non in una slide. Tasso di conversione altissimo.</td>
+        </tr>
+        <tr>
+          <td>USDA</td>
+          <td>$300M BPA</td>
+          <td>Blanket Purchase Agreement — accordo quadro che garantisce visibilità pluriennale sui ricavi federali. Difficile da cancellare.</td>
+        </tr>
+        <tr>
+          <td>Cleveland-Cliffs</td>
+          <td>3 anni</td>
+          <td>Un'acciaieria sceglie l'AI di Palantir. Dimostra che l'AIP non è solo per tech company o difesa: l'industria tradizionale è il prossimo mercato.</td>
+        </tr>
       </tbody>
     </table>
 
     <div class="focus-insight">
-      <p>"Sei Earnings Beat (battere le stime) consecutivi ricodificano il DNA narrativo di un'azienda. Il mercato smette di scommettere contro."</p>
+      «Non vende software. Entra nell'azienda, usa i dati reali e trasforma il cliente in un promotore. Il switching cost (costo di cambio fornitore) diventa quasi insuperabile.»
     </div>
   </div>
-  <div class="footer">
+
+  <div class="dots">
     <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
     <div class="d-on"></div>
     <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-     SLIDE 5 — IMPARA LA FINANZA (3 TERMINI)
-═══════════════════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SLIDE 5 — LEARN                           -->
+<!-- ══════════════════════════════════════════ -->
 <div class="slide">
-  <div class="h-accent">
-    <div style="display:flex;align-items:center;">
-      <div class="logo-a-white"><span class="lbs" style="font-size:17px;color:#4D9FFF;">A</span></div>
-      <span class="logo-txt-white" style="font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
-    </div>
-    <span style="font-size:13px;color:rgba(255,255,255,.8);font-weight:600;">IMPARA LA FINANZA</span>
+  <div class="hdr">
+    <span class="hdr-logo"><span class="hdr-logo-a">A</span><span class="hdr-logo-rest">LMA FINANZA</span></span>
+    <span class="hdr-section">📚 Impara la Finanza</span>
+    <span class="hdr-date">Glossario</span>
   </div>
-  <div class="body">
-    <div class="section-label">Tre termini di oggi</div>
-    <div style="font-size:28px;font-weight:800;color:#0A0A0A;margin-bottom:22px;">Capire Intel in tre concetti</div>
 
-    <div class="learn-card">
-      <div class="learn-term">EPS Non-GAAP</div>
-      <div class="learn-it">Utile per azione rettificato</div>
-      <div class="learn-def">L'EPS GAAP include tutti i costi secondo i principi contabili ufficiali. Il Non-GAAP esclude voci straordinarie come stock-based compensation e svalutazioni. Usato dalle aziende tech per mostrare la redditività operativa "core". Confrontare i due dati è fondamentale per non essere ingannati.</div>
-    </div>
-
-    <div class="learn-card">
-      <div class="learn-term">IDM 2.0</div>
-      <div class="learn-it">Produttore integrato di dispositivi (nuova versione)</div>
-      <div class="learn-def">Intel progetta E produce i propri chip (Integrated Device Manufacturer). La strategia IDM 2.0 aggiunge una Foundry (fonderia) per produrre anche chip di clienti esterni, competendo con TSMC. È l'opposto del modello "fabless" (senza fabbriche) di AMD.</div>
-    </div>
-
-    <div class="learn-card">
-      <div class="learn-term">Short Squeeze</div>
-      <div class="learn-it">Stretta sulle posizioni ribassiste</div>
-      <div class="learn-def">Quando molti investitori hanno scommesso al ribasso (short), una notizia positiva li obbliga a riacquistare in fretta le azioni, amplificando ulteriormente il rialzo. Ha contribuito al +23,6% di Intel in un solo giorno.</div>
-    </div>
+  <div style="padding:36px 44px 24px;">
+    <div class="sec-title">4 concetti chiave</div>
+    <div class="sec-headline" style="margin-bottom:24px;">Le parole per capire Palantir</div>
   </div>
-  <div class="footer">
+
+  <div class="learn-grid">
+
+    <div class="learn-card">
+      <div class="learn-en">AIP</div>
+      <div class="learn-it">Artificial Intelligence Platform (piattaforma di intelligenza artificiale)</div>
+      <div class="learn-def">Il sistema AI proprietario di Palantir che integra modelli linguistici con i dati operativi reali di un'azienda. Non è un ChatGPT generico: opera sui dati riservati del cliente, in sicurezza.</div>
+      <div class="learn-ref">→ US Commercial +133% YoY grazie all'AIP</div>
+    </div>
+
+    <div class="learn-card">
+      <div class="learn-en">Price-to-Sales</div>
+      <div class="learn-it">Rapporto Prezzo/Fatturato (P/S)</div>
+      <div class="learn-def">Confronta la capitalizzazione di borsa con il fatturato annuo. Palantir: P/S oltre 70x. Significa che il mercato paga $70 per ogni $1 di ricavi. Usato per aziende in forte crescita dove gli utili contano meno della velocità di espansione.</div>
+      <div class="learn-ref">→ Principale rischio di valutazione per PLTR</div>
+    </div>
+
+    <div class="learn-card">
+      <div class="learn-en">Boot Camp</div>
+      <div class="learn-it">Campo intensivo (immersione commerciale)</div>
+      <div class="learn-def">Sessioni di 5 giorni in cui i tecnici Palantir lavorano direttamente con i team del cliente, usando i dati reali dell'azienda per costruire prototipi AIP funzionanti. Converte i prospect in clienti paganti molto più rapidamente di una demo classica.</div>
+      <div class="learn-ref">→ Driver principale del +133% US Commercial</div>
+    </div>
+
+    <div class="learn-card">
+      <div class="learn-en">Moat</div>
+      <div class="learn-it">Fossato competitivo (barriera all'ingresso)</div>
+      <div class="learn-def">Termine coniato da Warren Buffett: il vantaggio strutturale che protegge un'azienda dalla concorrenza. Per Palantir, il moat è il switching cost (costo di cambio fornitore) — una volta che l'AIP è integrato nei processi operativi, sostituirlo è costosissimo.</div>
+      <div class="learn-ref">→ Cleveland-Cliffs: contratto pluriennale bloccato</div>
+    </div>
+
+  </div>
+
+  <div class="dots">
     <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
     <div class="d-on"></div>
     <div class="d-off"></div><div class="d-off"></div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-     SLIDE 6 — SETTORE + OUTLOOK
-═══════════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="h-black">
-    <div style="display:flex;align-items:center;">
-      <div class="logo-a-accent"><span class="lbs" style="font-size:17px;color:#fff;">A</span></div>
-      <span class="logo-txt-white" style="font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
-    </div>
-    <span style="font-size:13px;color:rgba(255,255,255,.7);font-weight:600;">WALL STREET · 25 APR 2026</span>
-  </div>
-  <div class="body">
-    <div class="section-label">Settore semiconduttori · Outlook</div>
-    <div style="font-size:28px;font-weight:800;color:#0A0A0A;margin-bottom:18px;">Dove va il settore dopo il trimestrale</div>
 
-    <table class="ticker-table">
-      <thead><tr>
-        <th>Ticker</th>
-        <th>Società</th>
-        <th>Variazione 25 Apr</th>
-      </tr></thead>
-      <tbody>
-        <tr><td style="font-weight:800;">INTC</td><td>Intel</td><td class="t-green">+23,6% 🚀</td></tr>
-        <tr><td style="font-weight:800;">AMD</td><td>Advanced Micro Devices</td><td class="t-green">+2,8%</td></tr>
-        <tr><td style="font-weight:800;">NVDA</td><td>Nvidia</td><td class="t-green">+1,2%</td></tr>
-        <tr><td style="font-weight:800;">TSM</td><td>TSMC</td><td class="t-green">+0,9%</td></tr>
-        <tr><td style="font-weight:800;">ARM</td><td>Arm Holdings</td><td class="t-red">-0,4%</td></tr>
-      </tbody>
-    </table>
+<!-- ══════════════════════════════════════════ -->
+<!-- SLIDE 6 — OUTLOOK                         -->
+<!-- ══════════════════════════════════════════ -->
+<div class="slide">
+  <div class="hdr">
+    <span class="hdr-logo"><span class="hdr-logo-a">A</span><span class="hdr-logo-rest">LMA FINANZA</span></span>
+    <span class="hdr-section">🎯 Outlook degli Analisti</span>
+    <span class="hdr-date">PLTR · Maggio 2026</span>
+  </div>
+
+  <div style="padding:36px 44px 0;">
+    <div class="sec-title">Bull vs Bear</div>
+    <div class="sec-headline" style="margin-bottom:22px;">Il mercato è diviso sulla valutazione</div>
 
     <div class="outlook-grid">
-      <div class="outlook-col outlook-green">
-        <div class="outlook-col-title og-title">✅ Catalizzatori positivi</div>
-        <div class="outlook-item"><div class="outlook-dot og-dot"></div><div class="outlook-text">Gaudi 3: acceleratore AI competitivo con H100</div></div>
-        <div class="outlook-item"><div class="outlook-dot og-dot"></div><div class="outlook-text">Primo cliente Foundry esterno acquisito</div></div>
-        <div class="outlook-item"><div class="outlook-dot og-dot"></div><div class="outlook-text">Intel 18A: processo avanzato in qualification</div></div>
+
+      <div class="outlook-col bull">
+        <div class="outlook-col-title">🟢 Bull Case — Acquisto</div>
+        <div class="outlook-row"><strong>Wedbush</strong> — Outperform<br><span style="font-size:20px;font-weight:900;color:#065F46;">$230</span> target price</div>
+        <div class="outlook-row"><strong>Oppenheimer</strong> — Outperform<br><span style="font-size:20px;font-weight:900;color:#065F46;">$200</span> target price</div>
+        <div class="outlook-row">Revenue guidance $7,65B: +$380M sopra consensus. AIP a scala globale. US Government in accelerazione. Switching cost quasi insuperabile.</div>
       </div>
-      <div class="outlook-col outlook-yellow">
-        <div class="outlook-col-title oy-title">⚠️ Rischi da monitorare</div>
-        <div class="outlook-item"><div class="outlook-dot oy-dot"></div><div class="outlook-text">CUDA moat (vantaggio competitivo) di Nvidia resta dominante</div></div>
-        <div class="outlook-item"><div class="outlook-dot oy-dot"></div><div class="outlook-text">Execution risk nella Foundry: produrre per terzi è difficile</div></div>
-        <div class="outlook-item"><div class="outlook-dot oy-dot"></div><div class="outlook-text">Valutazione post-rally: multipli elevati dopo +74% YTD</div></div>
+
+      <div class="outlook-col bear">
+        <div class="outlook-col-title">🟡 Bear Case — Rischio</div>
+        <div class="outlook-row"><strong>HSBC</strong> — Hold<br><span style="font-size:20px;font-weight:900;color:#92400E;">$151</span> target price</div>
+        <div class="outlook-row">P/S oltre <strong>70x</strong> — valutazione da growth stock estrema. Il rallentamento della crescita potrebbe comprimere rapidamente i multipli.</div>
+        <div class="outlook-row">US Commercial miss: $595M vs $605M attesi (-1,7%). Piccolo segnale, ma i mercati non perdonano le sorprese negative ad alta valutazione.</div>
       </div>
+
+    </div>
+
+    <div class="tickers-bar" style="margin-top:20px;">
+      <div class="ticker-chip up">PLTR +3,6% ↑</div>
+      <div class="ticker-chip flat">NVDA ↔</div>
+      <div class="ticker-chip flat">MSFT ↔</div>
+      <div class="ticker-chip down">HSBC Downgrade ↓</div>
     </div>
   </div>
-  <div class="footer">
-    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
-    <div class="d-off"></div><div class="d-off"></div>
+
+  <div class="dots">
+    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
     <div class="d-on"></div>
     <div class="d-off"></div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-     SLIDE 7 — CTA FULL ACCENT
-═══════════════════════════════════════════════════ -->
-<div class="slide slide-full-accent">
-  <div style="height:100%;display:flex;flex-direction:column;padding:60px 56px;">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:auto;">
-      <div class="logo-box-white"><span class="lbs" style="font-size:20px;color:#4D9FFF;">A</span></div>
-      <span style="font-size:17px;font-weight:700;color:#fff;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">Alma Finanza</span>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SLIDE 7 — CTA                             -->
+<!-- ══════════════════════════════════════════ -->
+<div class="slide">
+  <div style="height:100%;position:relative;">
+    <div class="cta-slide">
+
+      <div class="cta-logo"><span class="cta-logo-a">A</span><span class="cta-logo-rest">LMA FINANZA</span></div>
+      <div class="cta-tagline">La finanza spiegata bene. In italiano.</div>
+
+      <div class="cta-headline">
+        Palantir Q1 2026:<br>Revenue +85%, EPS +18%.<br>La pietra che vede lontano.
+      </div>
+
+      <div class="cta-sub">
+        Analisi completa: risultati, AIP Boot Camp, storia Tolkien/CIA, valutazione e outlook degli analisti.
+      </div>
+
+      <div class="cta-url-box">
+        almafinanza.com/articolo-tech-04mag-palantir-pltr-q1-2026-earnings-aip
+      </div>
+
+      <div class="cta-hashtags">
+        #Palantir #PLTR #AI #Earnings #WallStreet #AlmaFinanza
+      </div>
+
     </div>
 
-    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-      <div class="cta-big">Analisi completa,<br>grafici e glossario<br>su Alma Finanza.</div>
-      <div class="cta-sub">Finanza italiana accessibile. Ogni termine tecnico spiegato in italiano — perché capire è il primo passo per investire bene.</div>
-      <div>
-        <span class="cta-url">almafinanza.com</span>
-      </div>
-    </div>
-
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
-      <div>
-        <div style="font-size:13px;color:rgba(255,255,255,.7);font-weight:600;letter-spacing:.06em;text-transform:uppercase;">Articolo completo</div>
-        <div style="font-size:15px;color:#fff;font-weight:600;margin-top:4px;">Intel Q1 2026 — Trimestrale record</div>
-      </div>
-      <div style="display:flex;gap:8px;">
-        <div class="d-off" style="background:rgba(255,255,255,.4);"></div>
-        <div class="d-off" style="background:rgba(255,255,255,.4);"></div>
-        <div class="d-off" style="background:rgba(255,255,255,.4);"></div>
-        <div class="d-off" style="background:rgba(255,255,255,.4);"></div>
-        <div class="d-off" style="background:rgba(255,255,255,.4);"></div>
-        <div class="d-off" style="background:rgba(255,255,255,.4);"></div>
-        <div class="d-on" style="background:#fff;"></div>
-      </div>
+    <!-- dots bianchi su sfondo viola -->
+    <div class="dots" style="bottom:30px;">
+      <div class="d-off" style="background:rgba(255,255,255,0.35);"></div>
+      <div class="d-off" style="background:rgba(255,255,255,0.35);"></div>
+      <div class="d-off" style="background:rgba(255,255,255,0.35);"></div>
+      <div class="d-off" style="background:rgba(255,255,255,0.35);"></div>
+      <div class="d-off" style="background:rgba(255,255,255,0.35);"></div>
+      <div class="d-off" style="background:rgba(255,255,255,0.35);"></div>
+      <div class="d-on" style="background:#fff;"></div>
     </div>
   </div>
 </div>

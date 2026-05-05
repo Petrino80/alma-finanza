@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 1200px 630px; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #000; }
+
+.card {
+  width: 1200px;
+  height: 630px;
+  position: relative;
+  overflow: hidden;
+  background: #050010;
+  display: flex;
+  flex-direction: row;
+}
+
+/* ── SFONDO: griglia dati ── */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 0;
+}
+.bg-glow {
+  position: absolute;
+  top: -100px;
+  left: -60px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(109,40,217,0.20) 0%, transparent 70%);
+  z-index: 0;
+}
+.bg-glow-2 {
+  position: absolute;
+  bottom: -150px;
+  right: 200px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%);
+  z-index: 0;
+}
+
+/* ── SINISTRA: contenuto testo ── */
+.left {
+  flex: 0 0 58%;
+  padding: 48px 48px 40px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.tag {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.tag-section {
+  background: rgba(124,58,237,0.25);
+  color: #C4B5FD;
+  border: 1px solid rgba(124,58,237,0.4);
+}
+.tag-date {
+  color: rgba(255,255,255,0.45);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.headline {
+  font-size: 44px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.10;
+  letter-spacing: -1.5px;
+  margin-bottom: 18px;
+  font-family: 'Montserrat', sans-serif;
+}
+.headline .accent { color: #A78BFA; }
+.headline .teal { color: #2DD4BF; }
+
+.sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.58);
+  line-height: 1.55;
+  font-weight: 400;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+
+/* quote strip */
+.quote-strip {
+  background: rgba(124,58,237,0.15);
+  border-left: 3px solid #8B5CF6;
+  border-radius: 0 6px 6px 0;
+  padding: 10px 16px;
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+.quote-text {
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+}
+.quote-attr {
+  font-size: 11px;
+  color: rgba(255,255,255,0.40);
+  margin-top: 5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* metriche orizzontali */
+.metrics {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding-top: 22px;
+  margin-bottom: 28px;
+}
+.metric {
+  flex: 1;
+  padding-right: 24px;
+  border-right: 1px solid rgba(255,255,255,0.10);
+  margin-right: 24px;
+}
+.metric:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.metric-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.metric-value {
+  font-size: 26px;
+  font-weight: 900;
+  color: #A78BFA;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+}
+.metric-value.teal { color: #2DD4BF; }
+.metric-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.38);
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+/* logo bottom */
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.logo-a {
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+  color: #14B8A6;
+  line-height: 1;
+}
+.logo-rest {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.70);
+  letter-spacing: 1.5px;
+}
+
+/* ── DESTRA: visual AI ── */
+.right {
+  flex: 0 0 42%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0D0025 0%, #1A0040 50%, #050010 100%);
+}
+
+/* Circuit-board decorativo */
+.circuit {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Anthropic logo centrale */
+.logo-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+}
+.logo-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 36px;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+.logo-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.40);
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Cerchi animati */
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(139,92,246,0.3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ring-1 { width: 160px; height: 160px; border-color: rgba(139,92,246,0.4); }
+.ring-2 { width: 240px; height: 240px; border-color: rgba(139,92,246,0.2); }
+.ring-3 { width: 340px; height: 340px; border-color: rgba(139,92,246,0.12); }
+.ring-4 { width: 460px; height: 460px; border-color: rgba(139,92,246,0.06); }
+
+/* Nodi connessione */
+.node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #A78BFA;
+  z-index: 4;
+}
+/* badge benchmark */
+.benchmark-badge {
+  position: absolute;
+  top: 22px;
+  right: 20px;
+  z-index: 5;
+  background: rgba(124,58,237,0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.5px;
+  font-family: 'Montserrat', sans-serif;
+}
+/* Data lines */
+.data-line {
+  position: absolute;
+  background: linear-gradient(to right, transparent, rgba(139,92,246,0.4), transparent);
+  height: 1px;
+  z-index: 2;
+}
+/* gradient overlay sinistra */
+.right-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #050010 0%, rgba(5,0,16,0.3) 25%, transparent 50%);
+  z-index: 2;
+}
+
+/* bordo viola sinistro */
+.left-border {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #7C3AED 30%, #A78BFA 70%, transparent);
+  border-radius: 2px;
+  z-index: 3;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="bg-glow-2"></div>
+  <div class="left-border"></div>
+
+  <!-- SINISTRA -->
+  <div class="left">
+    <div>
+      <div class="tag-row">
+        <span class="tag tag-section">⚡ Tech &amp; AI</span>
+        <span class="tag-date">5 Maggio 2026 · Anthropic</span>
+      </div>
+
+      <div class="headline">
+        Ex OpenAI.<br>
+        <span class="accent">$900 miliardi</span>.<br>
+        Wall Street <span class="teal">convinta</span>.
+      </div>
+
+      <div class="sub">
+        Claude Opus 4.7: record assoluto sul benchmark finanziario AI.<br>
+        JPMorgan, Goldman Sachs, Citi, Citadel già in produzione.
+      </div>
+
+      <div class="quote-strip">
+        <div class="quote-text">"Prevedevamo una crescita di 10x. Abbiamo registrato circa 80x annualizzati in un trimestre."</div>
+        <div class="quote-attr">— Dario Amodei, CEO Anthropic</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-label">Benchmark</div>
+          <div class="metric-value">64,4%</div>
+          <div class="metric-sub">Vals AI Finance · #1</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">AI Agent</div>
+          <div class="metric-value teal">10</div>
+          <div class="metric-sub">per servizi finanziari</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Valutazione</div>
+          <div class="metric-value">$900B</div>
+          <div class="metric-sub">round $50B in corso</div>
+        </div>
+      </div>
+
+      <div class="logo-row">
+        <span class="logo-a">A</span>
+        <span class="logo-rest">LMA FINANZA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESTRA: visual AI circles -->
+  <div class="right">
+    <div class="right-overlay"></div>
+
+    <!-- Data lines decorative -->
+    <div class="data-line" style="top:25%;width:100%;"></div>
+    <div class="data-line" style="top:45%;width:100%;"></div>
+    <div class="data-line" style="top:65%;width:100%;"></div>
+    <div class="data-line" style="top:80%;width:80%;left:10%;"></div>
+
+    <!-- Concentric rings -->
+    <div class="ring ring-1"></div>
+    <div class="ring ring-2"></div>
+    <div class="ring ring-3"></div>
+    <div class="ring ring-4"></div>
+
+    <!-- Nodes on rings -->
+    <div class="node" style="top:calc(50% - 80px);left:50%;"></div>
+    <div class="node" style="top:50%;left:calc(50% + 80px);"></div>
+    <div class="node" style="top:calc(50% + 80px);left:50%;background:#2DD4BF;"></div>
+    <div class="node" style="top:calc(50% - 120px);left:calc(50% + 120px);width:6px;height:6px;background:#2DD4BF;"></div>
+    <div class="node" style="top:calc(50% + 120px);left:calc(50% - 120px);width:6px;height:6px;"></div>
+
+    <!-- Center logo -->
+    <div class="logo-center">
+      <div style="width:80px;height:80px;border-radius:50%;background:rgba(124,58,237,0.25);border:2px solid rgba(139,92,246,0.6);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+        <span style="font-size:32px;">🤖</span>
+      </div>
+      <div class="logo-name">Anthropic</div>
+      <div class="logo-sub">Claude Opus 4.7</div>
+    </div>
+
+    <!-- Badge -->
+    <div class="benchmark-badge">64,4% · Record 🏆</div>
+
+    <!-- Partner badges -->
+    <div style="position:absolute;bottom:28px;left:0;right:0;padding:0 20px;z-index:5;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+      <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);letter-spacing:0.5px;">JPMorgan</span>
+      <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);letter-spacing:0.5px;">Goldman Sachs</span>
+      <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);letter-spacing:0.5px;">Citadel</span>
+      <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);letter-spacing:0.5px;">AIG</span>
+      <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);letter-spacing:0.5px;">Moody's</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
