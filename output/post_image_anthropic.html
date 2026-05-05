@@ -189,76 +189,45 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: 1.5px;
 }
 
-/* ── DESTRA: visual AI ── */
+/* ── DESTRA: foto Dario Amodei ── */
 .right {
   flex: 0 0 42%;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0D0025 0%, #1A0040 50%, #050010 100%);
 }
-
-/* Circuit-board decorativo */
-.circuit {
+.right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.78;
+  display: block;
+}
+/* gradient overlay sinistra → foto */
+.right::before {
+  content: '';
   position: absolute;
   inset: 0;
+  background: linear-gradient(to right, #050010 0%, rgba(5,0,16,0.45) 28%, transparent 60%);
   z-index: 1;
 }
-
-/* Anthropic logo centrale */
-.logo-center {
+/* gradient overlay basso */
+.right::after {
+  content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  text-align: center;
-}
-.logo-name {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  font-size: 36px;
-  color: rgba(255,255,255,0.92);
-  letter-spacing: -1px;
-  line-height: 1.1;
-}
-.logo-sub {
-  font-size: 13px;
-  color: rgba(255,255,255,0.40);
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-top: 4px;
-}
-
-/* Cerchi animati */
-.ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(139,92,246,0.3);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.ring-1 { width: 160px; height: 160px; border-color: rgba(139,92,246,0.4); }
-.ring-2 { width: 240px; height: 240px; border-color: rgba(139,92,246,0.2); }
-.ring-3 { width: 340px; height: 340px; border-color: rgba(139,92,246,0.12); }
-.ring-4 { width: 460px; height: 460px; border-color: rgba(139,92,246,0.06); }
-
-/* Nodi connessione */
-.node {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #A78BFA;
-  z-index: 4;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48%;
+  background: linear-gradient(to top, rgba(5,0,16,0.92) 0%, transparent 100%);
+  z-index: 1;
 }
 /* badge benchmark */
 .benchmark-badge {
   position: absolute;
-  top: 22px;
+  top: 20px;
   right: 20px;
-  z-index: 5;
+  z-index: 3;
   background: rgba(124,58,237,0.85);
   backdrop-filter: blur(8px);
   border-radius: 10px;
@@ -269,19 +238,27 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: 0.5px;
   font-family: 'Montserrat', sans-serif;
 }
-/* Data lines */
-.data-line {
+/* didascalia bassa */
+.caption {
   position: absolute;
-  background: linear-gradient(to right, transparent, rgba(139,92,246,0.4), transparent);
-  height: 1px;
-  z-index: 2;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  padding: 0 22px;
+  z-index: 3;
+  text-align: center;
 }
-/* gradient overlay sinistra */
-.right-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, #050010 0%, rgba(5,0,16,0.3) 25%, transparent 50%);
-  z-index: 2;
+.caption-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.88);
+  font-family: 'Montserrat', sans-serif;
+}
+.caption-role {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  margin-top: 3px;
+  letter-spacing: 0.5px;
 }
 
 /* bordo viola sinistro */
@@ -355,48 +332,13 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
     </div>
   </div>
 
-  <!-- DESTRA: visual AI circles -->
+  <!-- DESTRA: foto Dario Amodei -->
   <div class="right">
-    <div class="right-overlay"></div>
-
-    <!-- Data lines decorative -->
-    <div class="data-line" style="top:25%;width:100%;"></div>
-    <div class="data-line" style="top:45%;width:100%;"></div>
-    <div class="data-line" style="top:65%;width:100%;"></div>
-    <div class="data-line" style="top:80%;width:80%;left:10%;"></div>
-
-    <!-- Concentric rings -->
-    <div class="ring ring-1"></div>
-    <div class="ring ring-2"></div>
-    <div class="ring ring-3"></div>
-    <div class="ring ring-4"></div>
-
-    <!-- Nodes on rings -->
-    <div class="node" style="top:calc(50% - 80px);left:50%;"></div>
-    <div class="node" style="top:50%;left:calc(50% + 80px);"></div>
-    <div class="node" style="top:calc(50% + 80px);left:50%;background:#2DD4BF;"></div>
-    <div class="node" style="top:calc(50% - 120px);left:calc(50% + 120px);width:6px;height:6px;background:#2DD4BF;"></div>
-    <div class="node" style="top:calc(50% + 120px);left:calc(50% - 120px);width:6px;height:6px;"></div>
-
-    <!-- Center logo -->
-    <div class="logo-center">
-      <div style="width:80px;height:80px;border-radius:50%;background:rgba(124,58,237,0.25);border:2px solid rgba(139,92,246,0.6);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
-        <span style="font-size:32px;">🤖</span>
-      </div>
-      <div class="logo-name">Anthropic</div>
-      <div class="logo-sub">Claude Opus 4.7</div>
-    </div>
-
-    <!-- Badge -->
-    <div class="benchmark-badge">64,4% · Record 🏆</div>
-
-    <!-- Partner badges -->
-    <div style="position:absolute;bottom:28px;left:0;right:0;padding:0 20px;z-index:5;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
-      <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);letter-spacing:0.5px;">JPMorgan</span>
-      <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);letter-spacing:0.5px;">Goldman Sachs</span>
-      <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);letter-spacing:0.5px;">Citadel</span>
-      <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);letter-spacing:0.5px;">AIG</span>
-      <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);letter-spacing:0.5px;">Moody's</span>
+    <img src="dario_amodei.jpg" alt="Dario Amodei">
+    <div class="benchmark-badge">64,4% · #1 🏆</div>
+    <div class="caption">
+      <div class="caption-name">Dario &amp; Daniela Amodei</div>
+      <div class="caption-role">CEO &amp; President · Co-Fondatori Anthropic · Ex OpenAI</div>
     </div>
   </div>
 </div>
