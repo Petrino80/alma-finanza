@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 1200px 630px; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #000; }
+
+.card {
+  width: 1200px;
+  height: 630px;
+  position: relative;
+  overflow: hidden;
+  background: #030c07;
+  display: flex;
+  flex-direction: row;
+}
+
+/* ── SFONDO ── */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(52,211,153,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52,211,153,0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 0;
+}
+.bg-glow {
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 640px;
+  height: 640px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16,185,129,0.16) 0%, transparent 70%);
+  z-index: 0;
+}
+.bg-glow-r {
+  position: absolute;
+  bottom: -60px;
+  right: 100px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(52,211,153,0.10) 0%, transparent 70%);
+  z-index: 0;
+}
+
+/* ── BORDO ACCENT SINISTRO ── */
+.left-border {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #10B981 30%, #34D399 70%, transparent);
+  border-radius: 2px;
+  z-index: 3;
+}
+
+/* ── SINISTRA ── */
+.left {
+  flex: 0 0 56%;
+  padding: 44px 40px 38px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.tag {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.tag-section {
+  background: rgba(52,211,153,0.18);
+  color: #6EE7B7;
+  border: 1px solid rgba(52,211,153,0.38);
+}
+.tag-date {
+  color: rgba(255,255,255,0.42);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.headline {
+  font-size: 48px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.07;
+  letter-spacing: -1.8px;
+  margin-bottom: 18px;
+  font-family: 'Montserrat', sans-serif;
+}
+.headline .accent { color: #34D399; }
+.headline .star   { color: #FCD34D; font-size: 0.82em; }
+
+.sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.52);
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: 24px;
+  max-width: 500px;
+}
+
+/* metriche */
+.metrics {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding-top: 18px;
+  margin-bottom: 22px;
+}
+.metric {
+  flex: 1;
+  padding-right: 20px;
+  border-right: 1px solid rgba(255,255,255,0.10);
+  margin-right: 20px;
+}
+.metric:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.metric-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.32);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.metric-value {
+  font-size: 26px;
+  font-weight: 900;
+  color: #34D399;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+}
+.metric-value.white { color: rgba(255,255,255,0.88); }
+.metric-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.36);
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+/* logo Alma */
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.logo-a {
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+  color: #14B8A6;
+  line-height: 1;
+}
+.logo-rest {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.68);
+  letter-spacing: 1.5px;
+}
+
+/* ── DESTRA: due pannelli company ── */
+.right {
+  flex: 0 0 44%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+/* fade sinistra → pannelli */
+.right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 64px;
+  background: linear-gradient(to right, #030c07, transparent);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.company-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 36px 20px 56px;
+  position: relative;
+  gap: 9px;
+}
+
+.company-panel.top {
+  border-bottom: 1px solid rgba(52,211,153,0.18);
+  background: rgba(52,211,153,0.03);
+}
+
+.company-panel.bottom {
+  background: rgba(52,211,153,0.015);
+}
+
+/* logo azienda */
+.company-logo {
+  max-width: 190px;
+  max-height: 46px;
+  object-fit: contain;
+  display: block;
+}
+/* Lottomatica è navy scuro → bianco */
+.logo-lottomatica {
+  filter: brightness(0) invert(1);
+  opacity: 0.88;
+}
+/* Amplifon ha colori propri (rosso) → lasciamo */
+.logo-amplifon {
+  /* nativo: #C51F4A rosso/fucsia */
+}
+
+/* guadagno giornaliero */
+.gain-badge {
+  font-size: 52px;
+  font-weight: 900;
+  color: #34D399;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+/* metrica chiave */
+.company-detail {
+  font-size: 12px;
+  color: rgba(255,255,255,0.44);
+  text-align: center;
+  line-height: 1.45;
+  font-weight: 500;
+}
+.company-detail strong {
+  color: rgba(255,255,255,0.78);
+  font-weight: 700;
+}
+
+/* etichetta mercato */
+.market-tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(52,211,153,0.60);
+  padding: 2px 8px;
+  border: 1px solid rgba(52,211,153,0.25);
+  border-radius: 4px;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="bg-glow-r"></div>
+  <div class="left-border"></div>
+
+  <!-- SINISTRA -->
+  <div class="left">
+    <div>
+      <div class="tag-row">
+        <span class="tag tag-section">🇮🇹 Piazza Affari</span>
+        <span class="tag-date">6 Maggio 2026 · FTSE MIB</span>
+      </div>
+
+      <div class="headline">
+        Due +12%<br>
+        nello stesso giorno.<br>
+        FTSE MIB: <span class="accent">49.696</span> <span class="star">★</span>
+      </div>
+
+      <div class="sub">
+        Lottomatica e Amplifon battono le attese nella stessa seduta.<br>
+        Piazza Affari ai massimi dal 2000: il doppio Earnings Beat (sorpresa positiva sugli utili) che ha fatto la storia.
+      </div>
+    </div>
+
+    <div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-label">FTSE MIB</div>
+          <div class="metric-value">+2,35%</div>
+          <div class="metric-sub">49.696 punti</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Spread</div>
+          <div class="metric-value white">75 pb</div>
+          <div class="metric-sub">BTP / Bund</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Record</div>
+          <div class="metric-value">dal 2000</div>
+          <div class="metric-sub">massimo storico</div>
+        </div>
+      </div>
+
+      <div class="logo-row">
+        <span class="logo-a">A</span>
+        <span class="logo-rest">LMA FINANZA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESTRA: due pannelli logo -->
+  <div class="right">
+
+    <!-- Pannello Lottomatica -->
+    <div class="company-panel top">
+      <span class="market-tag">FTSE MIB · LTT</span>
+      <img src="lottomatica_logo.svg" class="company-logo logo-lottomatica" alt="Lottomatica">
+      <div class="gain-badge">+12,71%</div>
+      <div class="company-detail">EBITDA <strong>€235,5M</strong> &nbsp;·&nbsp; +7% YoY &nbsp;·&nbsp; Beat consensus</div>
+    </div>
+
+    <!-- Pannello Amplifon -->
+    <div class="company-panel bottom">
+      <span class="market-tag">FTSE MIB · AMP</span>
+      <img src="amplifon_logo.svg" class="company-logo logo-amplifon" alt="Amplifon">
+      <div class="gain-badge">+12,40%</div>
+      <div class="company-detail">EBITDA margin <strong>24,5%</strong> &nbsp;·&nbsp; record storico &nbsp;·&nbsp; +60 bps</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
