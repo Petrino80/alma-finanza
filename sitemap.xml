@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 6 Maggio 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-06mag-sp500-nasdaq-record-amd-disney-uber-iran.html</loc>
+      <lastmod>2026-05-06</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-05-06</news:publication_date>
+          <news:title>S&amp;P 500 7.338 e Nasdaq 25.670: Nuovi All-Time High. AMD +16%, Disney +8%, Uber +8%. WTI Crolla a $95,45 su Accordo USA–Iran</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-06mag-ftse-mib-49696-massimo-2000-lottomatica-amplifon.html</loc>
+      <lastmod>2026-05-06</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-05-06</news:publication_date>
+          <news:title>FTSE MIB a 49.696: Massimo dal 2000. Lottomatica +12,71%, Amplifon +12,40%. Spread BTP/Bund 75 Punti Base</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-corporate-06mag-amd-disney-uber-amplifon-bmw-earnings-day.html</loc>
+      <lastmod>2026-05-06</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-05-06</news:publication_date>
+          <news:title>AMD +16%, Disney +8%, Uber +8%, Amplifon +12%, BMW +4%: Earnings Day 6 Maggio 2026 che Muove i Mercati Mondiali</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 5 Maggio 2026 -->
