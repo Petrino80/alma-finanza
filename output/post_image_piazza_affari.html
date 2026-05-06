@@ -178,26 +178,55 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: 1.5px;
 }
 
-/* ── DESTRA: due pannelli company ── */
+/* ── DESTRA: foto Piazza Affari + pannelli glass ── */
 .right {
   flex: 0 0 44%;
-  display: flex;
-  flex-direction: column;
   position: relative;
+  overflow: hidden;
   z-index: 2;
 }
 
-/* fade sinistra → pannelli */
+/* foto di sfondo */
+.bg-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  opacity: 0.60;
+  z-index: 0;
+}
+
+/* gradient overlay sinistra → blend con colonna sinistra */
 .right::before {
   content: '';
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 64px;
-  background: linear-gradient(to right, #030c07, transparent);
-  z-index: 5;
+  top: 0; bottom: 0; left: 0;
+  width: 90px;
+  background: linear-gradient(to right, #030c07 0%, rgba(3,12,7,0.70) 55%, transparent 100%);
+  z-index: 4;
   pointer-events: none;
+}
+
+/* gradient overlay basso */
+.right::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 30%;
+  background: linear-gradient(to top, rgba(3,12,7,0.55) 0%, transparent 100%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* contenitore pannelli sovrapposto alla foto */
+.panels {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
 }
 
 .company-panel {
@@ -207,17 +236,14 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   align-items: center;
   justify-content: center;
   padding: 20px 36px 20px 56px;
-  position: relative;
   gap: 9px;
+  background: rgba(3, 12, 7, 0.58);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 .company-panel.top {
-  border-bottom: 1px solid rgba(52,211,153,0.18);
-  background: rgba(52,211,153,0.03);
-}
-
-.company-panel.bottom {
-  background: rgba(52,211,153,0.015);
+  border-bottom: 1px solid rgba(52,211,153,0.25);
 }
 
 /* logo azienda */
@@ -326,25 +352,32 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
     </div>
   </div>
 
-  <!-- DESTRA: due pannelli logo -->
+  <!-- DESTRA: foto Piazza Affari + pannelli glass -->
   <div class="right">
 
-    <!-- Pannello Lottomatica -->
-    <div class="company-panel top">
-      <span class="market-tag">FTSE MIB · LTT</span>
-      <img src="lottomatica_logo.svg" class="company-logo logo-lottomatica" alt="Lottomatica">
-      <div class="gain-badge">+12,71%</div>
-      <div class="company-detail">EBITDA <strong>€235,5M</strong> &nbsp;·&nbsp; +7% YoY &nbsp;·&nbsp; Beat consensus</div>
-    </div>
+    <!-- Foto di sfondo -->
+    <img src="piazza_affari.jpg" class="bg-photo" alt="Palazzo Mezzanotte — Piazza Affari, Milano">
 
-    <!-- Pannello Amplifon -->
-    <div class="company-panel bottom">
-      <span class="market-tag">FTSE MIB · AMP</span>
-      <img src="amplifon_logo.svg" class="company-logo logo-amplifon" alt="Amplifon">
-      <div class="gain-badge">+12,40%</div>
-      <div class="company-detail">EBITDA margin <strong>24,5%</strong> &nbsp;·&nbsp; record storico &nbsp;·&nbsp; +60 bps</div>
-    </div>
+    <!-- Pannelli sovrapposti -->
+    <div class="panels">
 
+      <!-- Pannello Lottomatica -->
+      <div class="company-panel top">
+        <span class="market-tag">FTSE MIB · LTT</span>
+        <img src="lottomatica_logo.svg" class="company-logo logo-lottomatica" alt="Lottomatica">
+        <div class="gain-badge">+12,71%</div>
+        <div class="company-detail">EBITDA <strong>€235,5M</strong> &nbsp;·&nbsp; +7% YoY &nbsp;·&nbsp; Beat consensus</div>
+      </div>
+
+      <!-- Pannello Amplifon -->
+      <div class="company-panel bottom">
+        <span class="market-tag">FTSE MIB · AMP</span>
+        <img src="amplifon_logo.svg" class="company-logo logo-amplifon" alt="Amplifon">
+        <div class="gain-badge">+12,40%</div>
+        <div class="company-detail">EBITDA margin <strong>24,5%</strong> &nbsp;·&nbsp; record storico &nbsp;·&nbsp; +60 bps</div>
+      </div>
+
+    </div>
   </div>
 </div>
 </body>
