@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 1200px 630px; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #000; }
+
+.card {
+  width: 1200px;
+  height: 630px;
+  position: relative;
+  overflow: hidden;
+  background: #020818;
+  display: flex;
+  flex-direction: row;
+}
+
+/* ── SFONDO ── */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(77,159,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77,159,255,0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 0;
+}
+.bg-glow {
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 580px;
+  height: 580px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(26,111,204,0.20) 0%, transparent 70%);
+  z-index: 0;
+}
+
+/* ── BORDO ACCENT SINISTRO ── */
+.left-border {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #1A6FCC 30%, #4D9FFF 70%, transparent);
+  border-radius: 2px;
+  z-index: 3;
+}
+
+/* ── SINISTRA ── */
+.left {
+  flex: 0 0 56%;
+  padding: 42px 40px 36px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.tag {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.tag-section {
+  background: rgba(77,159,255,0.18);
+  color: #93C5FD;
+  border: 1px solid rgba(77,159,255,0.38);
+}
+.tag-date {
+  color: rgba(255,255,255,0.40);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.headline {
+  font-size: 50px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.06;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+.headline .accent-blue  { color: #4D9FFF; }
+.headline .accent-amber { color: #FCD34D; }
+.headline .accent-green { color: #34D399; }
+
+.sub {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.50);
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: 22px;
+  max-width: 510px;
+}
+
+/* ── BARRA SPLIT FONDAMENTALI vs FOMO ── */
+.split-bar {
+  margin-bottom: 22px;
+}
+.split-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.split-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+.split-label.fund { color: #34D399; }
+.split-label.fomo { color: #FCD34D; }
+.split-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+  display: flex;
+}
+.split-fund {
+  width: 55%;
+  background: linear-gradient(to right, #10B981, #34D399);
+  border-radius: 999px 0 0 999px;
+}
+.split-fomo {
+  width: 45%;
+  background: linear-gradient(to right, #F59E0B, #FCD34D);
+  border-radius: 0 999px 999px 0;
+}
+.split-pct {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.split-pct span {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+}
+.split-pct .p-fund { color: rgba(52,211,153,0.65); }
+.split-pct .p-fomo { color: rgba(252,211,77,0.65); }
+
+/* metriche */
+.metrics {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding-top: 16px;
+  margin-bottom: 20px;
+}
+.metric {
+  flex: 1;
+  padding-right: 18px;
+  border-right: 1px solid rgba(255,255,255,0.10);
+  margin-right: 18px;
+}
+.metric:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.metric-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.30);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.metric-value {
+  font-size: 22px;
+  font-weight: 900;
+  color: #4D9FFF;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+}
+.metric-value.green { color: #34D399; }
+.metric-value.amber { color: #FCD34D; }
+.metric-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.32);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* logo Alma */
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.logo-a {
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+  color: #14B8A6;
+  line-height: 1;
+}
+.logo-rest {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 1.5px;
+}
+
+/* ── DESTRA: foto NYSE + pannelli glass ── */
+.right {
+  flex: 0 0 44%;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* foto trading floor */
+.bg-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  opacity: 0.52;
+  z-index: 0;
+}
+
+/* gradient left blend */
+.right::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 88px;
+  background: linear-gradient(to right, #020818 0%, rgba(2,8,24,0.65) 55%, transparent 100%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* gradient bottom */
+.right::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 28%;
+  background: linear-gradient(to top, rgba(2,8,24,0.58) 0%, transparent 100%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* pannelli sopra la foto */
+.panels {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 28px 16px 52px;
+  gap: 7px;
+}
+
+.panel.fund {
+  border-bottom: 1px solid rgba(52,211,153,0.22);
+  background: rgba(2,8,24,0.55);
+}
+.panel.fomo {
+  background: rgba(2,8,24,0.48);
+}
+
+.panel-tag {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  padding: 2px 9px;
+  border-radius: 4px;
+}
+.panel-tag.fund {
+  color: #34D399;
+  border: 1px solid rgba(52,211,153,0.28);
+  background: rgba(52,211,153,0.07);
+}
+.panel-tag.fomo {
+  color: #FCD34D;
+  border: 1px solid rgba(252,211,77,0.28);
+  background: rgba(252,211,77,0.07);
+}
+
+.panel-title {
+  font-size: 15px;
+  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.3px;
+  text-align: center;
+  line-height: 1.2;
+}
+.panel-title.fund { color: #34D399; }
+.panel-title.fomo { color: #FCD34D; }
+
+.panel-items {
+  font-size: 11px;
+  color: rgba(255,255,255,0.52);
+  text-align: center;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.panel-items strong {
+  color: rgba(255,255,255,0.80);
+  font-weight: 700;
+}
+
+.panel-pct {
+  font-size: 38px;
+  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -1.5px;
+  line-height: 1;
+}
+.panel-pct.fund { color: #34D399; }
+.panel-pct.fomo { color: #FCD34D; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="left-border"></div>
+
+  <!-- SINISTRA -->
+  <div class="left">
+    <div>
+      <div class="tag-row">
+        <span class="tag tag-section">🗽 Wall Street</span>
+        <span class="tag-date">8 Maggio 2026 · Analisi Mercati</span>
+      </div>
+
+      <div class="headline">
+        Il rally vale.<br>
+        Ma il 45% è<br>
+        <span class="accent-amber">FOMO</span>.
+      </div>
+
+      <div class="sub">
+        S&amp;P 500 a 7.399. MSCI All Countries ai massimi della storia.<br>
+        Analisi fondamentali vs Fear of Missing Out (paura di rimanere fuori): chi muove davvero il mercato?
+      </div>
+    </div>
+
+    <div>
+      <!-- Barra split -->
+      <div class="split-bar">
+        <div class="split-labels">
+          <span class="split-label fund">Fondamentali</span>
+          <span class="split-label fomo">FOMO</span>
+        </div>
+        <div class="split-track">
+          <div class="split-fund"></div>
+          <div class="split-fomo"></div>
+        </div>
+        <div class="split-pct">
+          <span class="p-fund">55%</span>
+          <span class="p-fomo">45%</span>
+        </div>
+      </div>
+
+      <!-- Metriche -->
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-label">S&amp;P 500</div>
+          <div class="metric-value">7.399</div>
+          <div class="metric-sub">ATH ★ +2% sett.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">P/E ratio</div>
+          <div class="metric-value amber">29x</div>
+          <div class="metric-sub">vs 18x storico</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">SOX semic.</div>
+          <div class="metric-value green">+9%</div>
+          <div class="metric-sub">6ª sett. consec.</div>
+        </div>
+      </div>
+
+      <div class="logo-row">
+        <span class="logo-a">A</span>
+        <span class="logo-rest">LMA FINANZA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESTRA: foto NYSE + pannelli -->
+  <div class="right">
+    <img src="nyse_trading_floor.jpg" class="bg-photo" alt="NYSE Trading Floor — New York Stock Exchange">
+
+    <div class="panels">
+      <!-- Pannello Fondamentali -->
+      <div class="panel fund">
+        <span class="panel-tag fund">Fondamentali · 55%</span>
+        <div class="panel-pct fund">55%</div>
+        <div class="panel-title fund">NFP +115k · SOX +9%<br>Earnings beat reali</div>
+        <div class="panel-items">
+          <strong>AMD +16%</strong> · <strong>Amplifon +12%</strong><br>AI cycle · mercato lavoro solido
+        </div>
+      </div>
+
+      <!-- Pannello FOMO -->
+      <div class="panel fomo">
+        <span class="panel-tag fomo">FOMO · 45%</span>
+        <div class="panel-pct fomo">45%</div>
+        <div class="panel-title fomo">P/E 29x · ATH<br>Retail flows al picco</div>
+        <div class="panel-items">
+          <strong>Tesla +8,5%</strong> · <strong>Micron +28%</strong><br>Valutazioni oltre i fondamentali
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
