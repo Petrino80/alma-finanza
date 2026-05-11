@@ -1,0 +1,15 @@
+# SEC EDGAR Form Screener – dipendenze Python
+# Installa con: pip install -r requirements_edgar.txt
+
+# HTTP e parsing
+requests>=2.31.0
+urllib3>=2.0.0
+
+# Dati finanziari (Yahoo Finance, gratuito)
+yfinance>=0.2.40
+
+# Claude AI (Anthropic)
+anthropic>=0.36.0
+
+# Timezone (Python 3.9+ ha zoneinfo built-in, ma questo package estende la DB)
+tzdata>=2024.1

@@ -34,3 +34,5 @@ Temporary Items
 
 # Claude
 .claude/
+__pycache__/
+edgar_output/
