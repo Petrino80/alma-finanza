@@ -202,7 +202,7 @@ def analyze_form4_filings(
             continue
 
         # CIK is the first segment of the accession number
-        cik = client.cik_from_filing_id(accession)
+        cik = client.cik_from_hit(hit)
 
         logger.info("[%d/%d] Form 4 %s (CIK %s)", i, total, accession, cik)
 

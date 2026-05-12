@@ -50,7 +50,7 @@ def _save_forms(
         if not accession:
             continue
 
-        cik = client.cik_from_filing_id(accession)
+        cik = client.cik_from_hit(hit)
         ticker = client.ticker_for_cik(cik) or ""
 
         # Fetch filing index to find the primary document

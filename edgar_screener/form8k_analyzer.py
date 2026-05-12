@@ -183,7 +183,7 @@ def analyze_form8k_filings(
             logger.debug("[%d/%d] 8-K skip (no relevant items): %s", i, total, company_name)
             continue
 
-        cik = client.cik_from_filing_id(accession)
+        cik = client.cik_from_hit(hit)
         logger.info("[%d/%d] %s %s – %s", i, total, form_type, accession, company_name)
 
         filing_text = _extract_filing_text(client, cik, accession)
@@ -232,7 +232,7 @@ def analyze_sc13_filings(
         if not accession:
             continue
 
-        cik = client.cik_from_filing_id(accession)
+        cik = client.cik_from_hit(hit)
         logger.info("SC 13D/G %s – %s (%s)", accession, company_name, form_type)
 
         filing_text = _extract_filing_text(client, cik, accession)
