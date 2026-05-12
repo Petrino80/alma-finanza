@@ -34,16 +34,19 @@ def _save_forms(
     hits: List[dict],
     form_type: str,
     base_dir: str,
+    max_save: int = 50,
 ) -> List[Dict]:
     """
-    Download and save raw form documents to base_dir.
+    Download and save the first max_save form documents regardless of signal.
+    Uses primary_doc from the hit when available (EFTS), falls back to filing index.
     Returns list of saved file metadata for the index page.
     """
     saved = []
     folder = os.path.join(base_dir, form_type.replace(" ", "_").replace("/", "_"))
     os.makedirs(folder, exist_ok=True)
 
-    for hit in hits:
+    # Limit to first max_save hits
+    for hit in hits[:max_save]:
         accession = client.accession_from_hit(hit)
         entity = client.entity_name_for_hit(hit)
         file_date = client.filing_date_for_hit(hit)
@@ -53,31 +56,38 @@ def _save_forms(
         cik = client.cik_from_hit(hit)
         ticker = client.ticker_for_cik(cik) or ""
 
-        # Fetch filing index to find the primary document
-        index = client.get_filing_index(cik, accession)
-        documents = index.get("documents", [])
+        # 1. Try primary_doc embedded in hit (from EFTS or form.idx)
+        primary_file = client.primary_doc_from_hit(hit)
 
-        primary_file = None
-        for doc in documents:
-            dt = doc.get("type", "").upper().replace("/A", "").strip()
-            fn = doc.get("filename", "")
-            if dt in ("4", "8-K", "SC 13D", "SC 13G") and fn.lower().endswith((".xml", ".htm", ".html", ".txt")):
-                primary_file = fn
-                break
-        if not primary_file and documents:
+        # 2. Fallback: fetch filing index JSON
+        if not primary_file:
+            index = client.get_filing_index(cik, accession)
+            documents = index.get("documents", [])
             for doc in documents:
+                dt = doc.get("type", "").upper().replace("/A", "").strip()
                 fn = doc.get("filename", "")
-                if fn.lower().endswith((".htm", ".html", ".txt", ".xml")):
+                if dt in ("4", "8-K", "SC 13D", "SC 13G") and fn.lower().endswith(
+                    (".xml", ".htm", ".html", ".txt")
+                ):
                     primary_file = fn
                     break
+            # Any htm/txt/xml if still nothing
+            if not primary_file:
+                for doc in documents:
+                    fn = doc.get("filename", "")
+                    if fn.lower().endswith((".htm", ".html", ".txt", ".xml")):
+                        primary_file = fn
+                        break
 
+        # 3. Last resort: guess filename from accession
         if not primary_file:
-            continue
+            acc_nodash = accession.replace("-", "")
+            primary_file = f"{acc_nodash}.xml" if form_type == "4" else f"{acc_nodash}.htm"
 
         try:
             raw = client.get_filing_document(cik, accession, primary_file)
         except Exception as exc:
-            logger.debug("Skip %s: %s", accession, exc)
+            logger.debug("Skip %s (%s): %s", accession, primary_file, exc)
             continue
 
         # Save as HTML for easy browser viewing
@@ -85,7 +95,6 @@ def _save_forms(
         out_filename = f"{file_date}_{safe_name}.html"
         out_path = os.path.join(folder, out_filename)
 
-        # Wrap plain XML/text in basic HTML for readability
         if primary_file.endswith(".xml"):
             content = (
                 f"<!DOCTYPE html><html><head><meta charset='UTF-8'>"
@@ -95,7 +104,6 @@ def _save_forms(
                 f"</body></html>"
             )
         else:
-            # Already HTML — just prepend a navigation header
             header = (
                 f"<div style='background:#1e3a5f;color:white;padding:12px 20px;"
                 f"font-family:sans-serif'>"
