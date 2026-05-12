@@ -66,6 +66,11 @@ def main() -> None:
         action="store_true",
         help="Salta le analisi AI (utile se ANTHROPIC_API_KEY non disponibile)",
     )
+    parser.add_argument(
+        "--mock",
+        action="store_true",
+        help="Usa dati fixture locali invece di chiamate HTTP a EDGAR (per test senza rete)",
+    )
     args = parser.parse_args()
 
     # Check API key
@@ -80,6 +85,11 @@ def main() -> None:
         # Patch config to disable AI
         from edgar_screener.config import cfg
         cfg.anthropic_api_key = ""
+
+    if args.mock:
+        from edgar_screener.edgar_client import EdgarClient
+        EdgarClient.use_mock = True
+        logger.info("🔧 Modalità MOCK attiva – usando dati fixture locali (nessuna chiamata HTTP)")
 
     if args.daemon:
         logger.info("Avvio in modalità daemon – 22:00 IT")
@@ -121,6 +131,20 @@ def main() -> None:
             print(f"   Form salvati:        {result.get('forms_saved', 0)} documenti")
             if result.get("forms_index"):
                 print(f"   Sfoglia form:        {result['forms_index']}")
+        elif result.get("status") == "edgar_blocked":
+            print(f"\n🚫 EDGAR bloccato (403 Forbidden) – {result['date']}")
+            print(f"   {result.get('error', '')}")
+            print()
+            print("   SEC EDGAR blocca automaticamente le richieste da indirizzi IP")
+            print("   di datacenter e provider cloud (inclusi sandbox CI/CD).")
+            print()
+            print("   SOLUZIONE: esegui lo script da una macchina con IP residenziale")
+            print("   o aziendale (non cloud). Esempio:")
+            print("     python run_edgar_screener.py --date 2026-05-12")
+            print()
+            print("   Per testare la logica senza rete:")
+            print("     python run_edgar_screener.py --mock")
+            sys.exit(2)
         else:
             print(f"\n❌ Errore: {result}")
             sys.exit(1)

@@ -331,6 +331,14 @@ def _verdict(s: BuffettScore) -> str:
 
 def analyze_companies(tickers: List[str]) -> List[BuffettScore]:
     """Run Buffett analysis on a list of tickers. Returns sorted by total_score desc."""
+    from .edgar_client import EdgarClient
+    if EdgarClient.use_mock:
+        from .fixtures import mock_buffett_scores
+        logger.info("[MOCK] Buffett scores da fixture per: %s", ", ".join(tickers))
+        scores = mock_buffett_scores()
+        # Filtra solo i ticker richiesti
+        return [s for s in scores if s.ticker in {t.upper() for t in tickers}]
+
     results: List[BuffettScore] = []
     for ticker in tickers:
         if not ticker:

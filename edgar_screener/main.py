@@ -270,6 +270,23 @@ def run_screening(target_date: Optional[date] = None) -> dict:
 
     # Early exit if nothing positive – but forms_index is already saved above
     if not insider_positives and not all_corporate:
+        from . import edgar_client as _ec_mod
+        if _ec_mod.edgar_blocked:
+            logger.error(
+                "\n🚫 EDGAR bloccato (403): impossibile scaricare i filing. "
+                "L'IP di questo ambiente è probabilmente in una subnet cloud "
+                "bloccata da SEC. Esegui lo script da un IP residenziale/aziendale."
+            )
+            return {
+                "status": "edgar_blocked",
+                "date": date_str,
+                "form4_hits": 0,
+                "form8k_hits": 0,
+                "sc13_hits": 0,
+                "forms_saved": 0,
+                "forms_index": os.path.join(cfg.output_dir, "forms_index.html"),
+                "error": "EDGAR ha rifiutato le richieste con 403 Forbidden (IP bloccato)",
+            }
         logger.info(
             "\n⚪ Nessun segnale positivo rilevato oggi. "
             "I form scaricati sono comunque disponibili in: %s",

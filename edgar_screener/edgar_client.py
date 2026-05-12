@@ -22,6 +22,9 @@ from .config import cfg
 
 logger = logging.getLogger(__name__)
 
+# Set to True quando EDGAR ritorna 403 (IP bloccato) – letto da main.py per messaggi chiari
+edgar_blocked: bool = False
+
 # Cache quarterly index in memory (avoid re-download within same run)
 _index_cache: Dict[str, List[Dict]] = {}
 
@@ -32,6 +35,9 @@ def _quarter(d: date) -> str:
 
 class EdgarClient:
     """Thread-safe EDGAR HTTP client with automatic rate limiting."""
+
+    # Quando True, usa fixture locali invece di chiamate HTTP (per test/CI)
+    use_mock: bool = False
 
     def __init__(self):
         self._last_request_time: float = 0.0
@@ -101,9 +107,19 @@ class EdgarClient:
             resp = self._get(url)
             text = resp.text
         except Exception as exc:
-            logger.warning("Impossibile scaricare form.idx: %s", exc)
-            _index_cache[qtr_key] = []
-            return []
+            # Non mettere in cache gli errori di rete/403: il retry sarà possibile
+            if "403" in str(exc):
+                global edgar_blocked
+                edgar_blocked = True
+                logger.warning(
+                    "EDGAR ha bloccato la richiesta (403 Forbidden). "
+                    "Causa probabile: IP di datacenter/cloud bloccato da SEC. "
+                    "Lo script funziona su IP residenziali/aziendali. "
+                    "Dettaglio: %s", exc
+                )
+            else:
+                logger.warning("Impossibile scaricare form.idx: %s", exc)
+            return []  # non caching: ogni chiamata riproverà
 
         filings: List[Dict] = []
         lines = text.splitlines()
@@ -200,6 +216,23 @@ class EdgarClient:
         if end_date is None:
             end_date = start_date
 
+        if self.use_mock:
+            from .fixtures import mock_form4_hits, mock_form8k_hits, mock_sc13_hits
+            forms_upper = {f.upper() for f in forms}
+            all_mock: List[Dict] = []
+            if "4" in forms_upper or "4/A" in forms_upper:
+                all_mock += mock_form4_hits(start_date)
+            if "8-K" in forms_upper or "8-K/A" in forms_upper:
+                all_mock += mock_form8k_hits(start_date)
+            if any(f in forms_upper for f in ("SC 13D", "SC 13D/A", "SC 13G", "SC 13G/A")):
+                all_mock += mock_sc13_hits(start_date)
+            filtered = [
+                h for h in all_mock
+                if h["_source"]["form_type"].upper() in forms_upper
+            ]
+            logger.info("  [MOCK] %d filing [%s]", len(filtered), ", ".join(forms))
+            return filtered
+
         quarterly = self._load_quarterly_index(start_date)
         if quarterly:
             forms_upper = {f.upper() for f in forms}
@@ -246,7 +279,15 @@ class EdgarClient:
             try:
                 data = self._get(cfg.edgar_efts_url, **params).json()
             except Exception as exc:
-                logger.warning("EFTS error: %s", exc)
+                if "403" in str(exc):
+                    global edgar_blocked
+                    edgar_blocked = True
+                    logger.warning(
+                        "EFTS bloccato (403 Forbidden) – stesso problema IP di form.idx. "
+                        "Dettaglio: %s", exc
+                    )
+                else:
+                    logger.warning("EFTS error: %s", exc)
                 break
             hits = data.get("hits", {}).get("hits", [])
             if not hits:
@@ -295,7 +336,25 @@ class EdgarClient:
             }
         return self.__class__._ticker_map
 
+    # Mock CIK→ticker map per --mock mode
+    _MOCK_TICKERS = {
+        "320193": "AAPL",
+        "1652044": "GOOGL",
+        "789019": "MSFT",
+        "1018724": "AMZN",
+        "1067983": "BRK-B",
+    }
+    _MOCK_NAMES = {
+        "320193": "Apple Inc",
+        "1652044": "Alphabet Inc",
+        "789019": "Microsoft Corp",
+        "1018724": "Amazon.com Inc",
+        "1067983": "Berkshire Hathaway Inc",
+    }
+
     def ticker_for_cik(self, cik: str) -> Optional[str]:
+        if self.use_mock:
+            return self._MOCK_TICKERS.get(str(int(cik)))
         try:
             entry = self._load_ticker_map().get(str(int(cik)))
             return entry["ticker"] if entry else None
@@ -303,6 +362,8 @@ class EdgarClient:
             return None
 
     def name_for_cik(self, cik: str) -> Optional[str]:
+        if self.use_mock:
+            return self._MOCK_NAMES.get(str(int(cik)))
         try:
             entry = self._load_ticker_map().get(str(int(cik)))
             return entry["title"] if entry else None
@@ -312,6 +373,8 @@ class EdgarClient:
     # ── Filing document fetching ───────────────────────────────────────────────
 
     def get_filing_index(self, cik: str, accession_no: str) -> Dict:
+        if self.use_mock:
+            return {}
         acc_nodash = accession_no.replace("-", "")
         cik_padded = str(int(cik)).zfill(10)
         url = (
@@ -324,6 +387,9 @@ class EdgarClient:
             return {}
 
     def get_filing_document(self, cik: str, accession_no: str, filename: str) -> str:
+        if self.use_mock:
+            from .fixtures import get_mock_document
+            return get_mock_document(accession_no, "2026-05-12")
         acc_nodash = accession_no.replace("-", "")
         cik_padded = str(int(cik)).zfill(10)
         url = (
