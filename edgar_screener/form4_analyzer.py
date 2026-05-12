@@ -206,9 +206,11 @@ def analyze_form4_filings(
 
         logger.info("[%d/%d] Form 4 %s (CIK %s)", i, total, accession, cik)
 
-        # Fetch filing index to find the XML document name
-        index = client.get_filing_index(cik, accession)
-        xml_filename = _find_form4_xml(index, accession)
+        # Use primary_doc from hit if available (EFTS provides it directly)
+        xml_filename = client.primary_doc_from_hit(hit)
+        if not xml_filename:
+            index = client.get_filing_index(cik, accession)
+            xml_filename = _find_form4_xml(index, accession)
         if not xml_filename:
             continue
 

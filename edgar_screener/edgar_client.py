@@ -2,12 +2,9 @@
 Low-level HTTP client for SEC EDGAR APIs.
 Enforces rate limits and provides retry logic per SEC guidelines.
 
-Filing search strategy (primary): EDGAR quarterly full-index crawler.idx
-  https://www.sec.gov/Archives/edgar/full-index/YYYY/QTRN/crawler.idx
-  Plain-text pipe-delimited file with ALL filings for the quarter.
-  Filtered in-memory by date and form type. Reliable and complete.
-
-EFTS search (fallback): used only if crawler.idx is unavailable.
+Filing search strategy:
+  PRIMARY  – EDGAR quarterly full-index (form.idx, fixed-width, stabile da anni)
+  FALLBACK – EFTS search API con parsing corretto degli _id (accession:filename)
 """
 import io
 import time
@@ -25,8 +22,8 @@ from .config import cfg
 
 logger = logging.getLogger(__name__)
 
-# Cache quarterly index in memory to avoid re-downloading within the same run
-_index_cache: Dict[str, List[Dict]] = {}  # "YYYY/QTRN" -> list of all filing dicts
+# Cache quarterly index in memory (avoid re-download within same run)
+_index_cache: Dict[str, List[Dict]] = {}
 
 
 def _quarter(d: date) -> str:
@@ -60,7 +57,6 @@ class EdgarClient:
         return session
 
     def _get(self, url: str, **params) -> requests.Response:
-        """Rate-limited GET. Raises on HTTP errors."""
         elapsed = time.time() - self._last_request_time
         if elapsed < cfg.edgar_request_delay:
             time.sleep(cfg.edgar_request_delay - elapsed)
@@ -81,13 +77,16 @@ class EdgarClient:
     def get_xml(self, url: str, **params) -> ET.Element:
         return ET.fromstring(self.get_text(url, **params))
 
-    # ── Primary: quarterly full-index crawler.idx ─────────────────────────────
+    # ── Primary: EDGAR quarterly form.idx (fixed-width, reliable) ────────────
 
     def _load_quarterly_index(self, target_date: date) -> List[Dict]:
         """
-        Download and parse the EDGAR quarterly crawler.idx.
-        Returns list of all filing dicts for the quarter (cached in memory).
-        Format: Company Name|Form Type|CIK|Date Filed|Filename
+        Download EDGAR quarterly form.idx (fixed-width, sorted by form type).
+        Returns all filing dicts for the quarter, cached in memory.
+
+        Format (fixed-width, columns separated by multiple spaces):
+          Form Type   Company Name           CIK         Date Filed  Filename
+          4           ACME CORP              0001234567  2026-05-11  edgar/data/...
         """
         qtr_key = f"{target_date.year}/{_quarter(target_date)}"
         if qtr_key in _index_cache:
@@ -95,40 +94,66 @@ class EdgarClient:
 
         url = (
             f"{cfg.edgar_base_url}/Archives/edgar/full-index/"
-            f"{target_date.year}/{_quarter(target_date)}/crawler.idx"
+            f"{target_date.year}/{_quarter(target_date)}/form.idx"
         )
-        logger.info("  Scarico indice trimestrale EDGAR: %s", url)
+        logger.info("  Scarico indice EDGAR: %s", url)
         try:
             resp = self._get(url)
             text = resp.text
         except Exception as exc:
-            logger.error("Impossibile scaricare crawler.idx: %s", exc)
+            logger.warning("Impossibile scaricare form.idx: %s", exc)
+            _index_cache[qtr_key] = []
             return []
 
         filings: List[Dict] = []
-        for line in text.splitlines():
-            parts = line.split("|")
-            if len(parts) < 5:
+        lines = text.splitlines()
+
+        # Detect column positions from header line
+        # Header looks like:
+        # "Form Type   Company Name                          CIK         Date Filed  Filename"
+        col_company = col_cik = col_date = col_file = None
+        for line in lines[:10]:
+            if "Company Name" in line and "CIK" in line:
+                col_company = line.index("Company Name")
+                col_cik = line.index("CIK")
+                col_date = line.index("Date Filed")
+                col_file = line.index("Filename")
+                break
+
+        if col_company is None:
+            # Fallback: try fixed standard positions (common in EDGAR)
+            col_company, col_cik, col_date, col_file = 12, 74, 86, 98
+
+        for line in lines:
+            # Skip blank lines and header/separator lines
+            if not line.strip() or line.startswith("-") or "Form Type" in line:
                 continue
-            company, form_type, cik, file_date, filename = (
-                parts[0].strip(), parts[1].strip(), parts[2].strip(),
-                parts[3].strip(), parts[4].strip(),
-            )
-            # Skip header lines
-            if not file_date or file_date == "Date Filed":
+            if len(line) <= col_file:
                 continue
-            # Extract accession number from filename path
+            try:
+                form_type = line[:col_company].strip()
+                company = line[col_company:col_cik].strip()
+                cik = line[col_cik:col_date].strip()
+                file_date = line[col_date:col_file].strip()
+                filename = line[col_file:].strip()
+            except Exception:
+                continue
+
+            if not form_type or not file_date or len(file_date) != 10:
+                continue
+
+            # Extract accession number from filename
             # e.g. edgar/data/1234567/0001234567-26-001234.txt
-            # or   edgar/data/1234567/0001234567-26-001234-index.htm
             base = filename.split("/")[-1]
-            # Remove common suffixes
-            for suffix in ("-index.htm", "-index.html", ".txt"):
+            for suffix in (".txt", "-index.htm", "-index.html"):
                 if base.endswith(suffix):
                     base = base[: -len(suffix)]
                     break
-            accession = base  # already in dashed format 0001234567-26-001234
-            if len(accession) < 18:  # sanity check
+            accession = base  # format: 0001234567-26-001234
+
+            if len(accession) < 18:
                 continue
+
             filings.append({
                 "_id": accession,
                 "_source": {
@@ -138,6 +163,7 @@ class EdgarClient:
                     "file_date": file_date,
                     "filename": filename,
                     "items": "",
+                    "primary_doc": None,  # unknown from form.idx
                 },
             })
 
@@ -154,13 +180,11 @@ class EdgarClient:
     ) -> List[Dict]:
         """
         Return filing metadata for given form types and date range.
-        Uses quarterly full-index as primary source (reliable, complete).
-        Falls back to EFTS search API if index is unavailable.
+        Primary: quarterly form.idx. Fallback: EFTS search API.
         """
         if end_date is None:
             end_date = start_date
 
-        # ── Try full-index first ───────────────────────────────────────────────
         quarterly = self._load_quarterly_index(start_date)
         if quarterly:
             forms_upper = {f.upper() for f in forms}
@@ -176,24 +200,26 @@ class EdgarClient:
                     if len(results) >= max_results:
                         break
             logger.info(
-                "  Trovati %d filing [%s] per %s→%s (da indice trimestrale)",
-                len(results), ", ".join(forms), date_start, date_end,
+                "  Trovati %d filing [%s] per %s (da indice trimestrale)",
+                len(results), ", ".join(forms), date_start,
             )
             return results
 
-        # ── Fallback: EFTS search API ──────────────────────────────────────────
-        logger.warning("Fallback a EFTS search (indice non disponibile)")
+        # ── Fallback: EFTS ─────────────────────────────────────────────────────
+        logger.warning("Fallback a EFTS (form.idx non disponibile)")
         return self._search_efts(forms, start_date, end_date, max_results)
 
     def _search_efts(
-        self,
-        forms: List[str],
-        start_date: date,
-        end_date: date,
-        max_results: int,
+        self, forms: List[str], start_date: date, end_date: date, max_results: int
     ) -> List[Dict]:
+        """
+        EFTS search. Normalises _id from 'accession:filename' to just 'accession',
+        storing the filename in _source.primary_doc for direct document access.
+        """
         all_hits: List[Dict] = []
+        seen_accessions: set = set()
         from_offset = 0
+
         while from_offset < max_results:
             params = {
                 "forms": ",".join(forms),
@@ -210,10 +236,35 @@ class EdgarClient:
             hits = data.get("hits", {}).get("hits", [])
             if not hits:
                 break
-            all_hits.extend(hits)
+
+            for hit in hits:
+                raw_id = hit.get("_id", "")
+                # EFTS sometimes returns 'accession:primary_doc.xml'
+                if ":" in raw_id:
+                    accession, primary_doc = raw_id.split(":", 1)
+                else:
+                    accession = raw_id
+                    primary_doc = None
+
+                if accession in seen_accessions:
+                    continue
+                seen_accessions.add(accession)
+
+                hit["_id"] = accession
+                src = hit.setdefault("_source", {})
+                if primary_doc:
+                    src["primary_doc"] = primary_doc
+                # Derive CIK from accession if not present
+                if not src.get("cik") and accession:
+                    src["cik"] = str(int(accession.split("-")[0]))
+
+                all_hits.append(hit)
+
             from_offset += len(hits)
             if len(hits) < 40:
                 break
+
+        logger.info("  EFTS: trovati %d filing unici [%s]", len(all_hits), ", ".join(forms))
         return all_hits
 
     # ── Company / ticker resolution ───────────────────────────────────────────
@@ -231,16 +282,14 @@ class EdgarClient:
 
     def ticker_for_cik(self, cik: str) -> Optional[str]:
         try:
-            m = self._load_ticker_map()
-            entry = m.get(str(int(cik)))
+            entry = self._load_ticker_map().get(str(int(cik)))
             return entry["ticker"] if entry else None
         except Exception:
             return None
 
     def name_for_cik(self, cik: str) -> Optional[str]:
         try:
-            m = self._load_ticker_map()
-            entry = m.get(str(int(cik)))
+            entry = self._load_ticker_map().get(str(int(cik)))
             return entry["title"] if entry else None
         except Exception:
             return None
@@ -276,11 +325,11 @@ class EdgarClient:
         except Exception:
             return {}
 
-    # ── Hit accessors (compatible with both index and EFTS) ───────────────────
+    # ── Hit accessors ──────────────────────────────────────────────────────────
 
     @staticmethod
     def accession_from_hit(hit: Dict) -> Optional[str]:
-        return hit.get("_id")
+        return hit.get("_id")  # already cleaned (no :filename)
 
     @staticmethod
     def filing_date_for_hit(hit: Dict) -> str:
@@ -291,15 +340,24 @@ class EdgarClient:
         return hit.get("_source", {}).get("entity_name", "")
 
     @staticmethod
+    def primary_doc_from_hit(hit: Dict) -> Optional[str]:
+        """Return the primary document filename if known (from EFTS _id or index)."""
+        return hit.get("_source", {}).get("primary_doc")
+
+    @staticmethod
     def cik_from_hit(hit: Dict) -> str:
-        """CIK from the index source field (preferred over parsing accession)."""
         cik = hit.get("_source", {}).get("cik", "")
         if cik:
-            return str(int(cik))
-        # Fallback: first segment of accession number
+            try:
+                return str(int(cik))
+            except ValueError:
+                pass
         acc = hit.get("_id", "")
         if acc:
-            return str(int(acc.split("-")[0]))
+            try:
+                return str(int(acc.split("-")[0]))
+            except (ValueError, IndexError):
+                pass
         return ""
 
     @staticmethod

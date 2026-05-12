@@ -71,8 +71,15 @@ class CorporateEvent:
     filing_excerpt: str = ""
 
 
-def _extract_filing_text(client: EdgarClient, cik: str, accession: str) -> str:
+def _extract_filing_text(client: EdgarClient, cik: str, accession: str, primary_doc: str = None) -> str:
     """Download and extract text content from a filing."""
+    # If primary doc is known (from EFTS hit), fetch it directly
+    if primary_doc:
+        try:
+            text = client.get_filing_document(cik, accession, primary_doc)
+            return _clean_html(text)[:6000]
+        except Exception:
+            pass
     index = client.get_filing_index(cik, accession)
     documents = index.get("documents", [])
 
@@ -184,9 +191,10 @@ def analyze_form8k_filings(
             continue
 
         cik = client.cik_from_hit(hit)
+        primary_doc = client.primary_doc_from_hit(hit)
         logger.info("[%d/%d] %s %s – %s", i, total, form_type, accession, company_name)
 
-        filing_text = _extract_filing_text(client, cik, accession)
+        filing_text = _extract_filing_text(client, cik, accession, primary_doc)
         result = _screen_with_ai(ai, form_type, company_name, file_date, filing_text)
 
         if result.get("signal") != "POSITIVE":
