@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Energy Transition Services – ETS Wind</title>
+  <meta name="description" content="Energy Transition Services – Expert installation, maintenance and upgrade of next-generation wind turbines across Europe, Middle East and North Africa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0d2137;
+      --blue:   #1a4a7a;
+      --green:  #00a86b;
+      --green2: #00c87e;
+      --light:  #f4f8fb;
+      --white:  #ffffff;
+      --gray:   #6b7a8d;
+      --border: #d8e4ef;
+      --text:   #1a2535;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(13,33,55,0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 68px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo svg { width: 34px; height: 34px; }
+    .nav-logo span {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900; font-size: 1.25rem;
+      color: var(--white); letter-spacing: .5px;
+    }
+    .nav-logo span em {
+      font-style: normal;
+      color: var(--green2);
+    }
+    .nav-links {
+      display: flex; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.78); text-decoration: none;
+      font-size: .92rem; font-weight: 500; letter-spacing: .3px;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--green2); }
+    .nav-cta {
+      background: var(--green); color: var(--white);
+      padding: 9px 22px; border-radius: 6px;
+      font-size: .9rem; font-weight: 600; text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .nav-cta:hover { background: var(--green2); transform: translateY(-1px); }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    #home {
+      position: relative; overflow: hidden;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, #0a1e35 0%, #0d2137 40%, #0e3050 70%, #12435f 100%);
+    }
+    .hero-bg-decor {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+    .hero-bg-decor::before {
+      content: '';
+      position: absolute; top: -120px; right: -100px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,126,.18) 0%, transparent 70%);
+    }
+    .hero-bg-decor::after {
+      content: '';
+      position: absolute; bottom: -80px; left: -60px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,74,122,.45) 0%, transparent 70%);
+    }
+    /* Turbine blade decorative lines */
+    .hero-turbine {
+      position: absolute; right: 6%; top: 50%;
+      transform: translateY(-50%);
+      opacity: .07; pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto; padding: 120px 32px 80px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,200,126,.15); border: 1px solid rgba(0,200,126,.3);
+      color: var(--green2); padding: 6px 14px; border-radius: 50px;
+      font-size: .8rem; font-weight: 600; letter-spacing: .5px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero-badge span { width: 6px; height: 6px; background: var(--green2); border-radius: 50%; }
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 900; color: var(--white);
+      line-height: 1.1; margin-bottom: 8px;
+    }
+    .hero-title .accent { color: var(--green2); }
+    .hero-tagline {
+      font-size: 1.05rem; font-weight: 600; letter-spacing: 2px;
+      color: rgba(255,255,255,.5); text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-desc {
+      font-size: 1.05rem; color: rgba(255,255,255,.75);
+      max-width: 520px; margin-bottom: 36px; line-height: 1.75;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--green); color: var(--white);
+      padding: 13px 28px; border-radius: 7px;
+      font-weight: 700; font-size: .97rem; text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 18px rgba(0,168,107,.35);
+    }
+    .btn-primary:hover { background: var(--green2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,200,126,.4); }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,.25); color: var(--white);
+      padding: 13px 28px; border-radius: 7px;
+      font-weight: 600; font-size: .97rem; text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline:hover { border-color: var(--green2); background: rgba(0,200,126,.1); }
+
+    /* hero visual side */
+    .hero-visual {
+      display: flex; flex-direction: column; gap: 16px; align-items: flex-end;
+    }
+    .hero-card {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(8px); border-radius: 14px;
+      padding: 22px 28px; width: 100%;
+    }
+    .hero-card-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.4rem; font-weight: 900; color: var(--green2);
+    }
+    .hero-card-label { color: rgba(255,255,255,.65); font-size: .88rem; margin-top: 2px; }
+
+    /* ─── STATS STRIP ─────────────────────────────────────── */
+    #stats {
+      background: var(--navy);
+      border-top: 3px solid var(--green);
+    }
+    .stats-grid {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-item {
+      padding: 40px 24px; text-align: center;
+      border-right: 1px solid rgba(255,255,255,.08);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.6rem; font-weight: 900; color: var(--green2);
+    }
+    .stat-unit { font-size: 1.2rem; color: rgba(255,255,255,.5); margin-left: 2px; }
+    .stat-label { color: rgba(255,255,255,.6); font-size: .88rem; margin-top: 6px; line-height: 1.4; }
+
+    /* ─── SECTION BASE ────────────────────────────────────── */
+    section { scroll-margin-top: 68px; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-tag {
+      display: inline-block;
+      font-size: .78rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--green);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 900;
+      color: var(--navy); line-height: 1.15;
+    }
+    .section-title .accent { color: var(--green); }
+    .section-sub {
+      color: var(--gray); font-size: 1.02rem; margin-top: 14px;
+      max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    #about { padding: 96px 32px; background: var(--white); }
+    .about-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+    }
+    .about-text p { color: var(--gray); font-size: 1.02rem; margin-bottom: 18px; line-height: 1.8; }
+    .about-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .pill {
+      background: #eaf7f1; color: var(--green); border: 1px solid #c0ebd8;
+      padding: 6px 16px; border-radius: 50px; font-size: .85rem; font-weight: 600;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-map-box {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 18px; padding: 40px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .map-stat {
+      background: rgba(255,255,255,.08); border-radius: 10px; padding: 16px 20px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .map-stat-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: rgba(0,200,126,.2); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .map-stat-icon svg { width: 22px; height: 22px; stroke: var(--green2); fill: none; }
+    .map-stat-text strong { display: block; color: var(--white); font-weight: 700; font-size: 1.1rem; }
+    .map-stat-text span { color: rgba(255,255,255,.55); font-size: .85rem; }
+
+    /* ─── SERVICES ────────────────────────────────────────── */
+    #services { padding: 96px 32px; background: var(--light); }
+    .services-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    }
+    .service-card {
+      background: var(--white); border-radius: 16px;
+      padding: 36px 32px; border: 1px solid var(--border);
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--green2));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .3s;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,.1); border-color: transparent; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: #eaf7f1; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px;
+    }
+    .service-icon svg { width: 28px; height: 28px; stroke: var(--green); fill: none; stroke-width: 2; }
+    .service-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem; font-weight: 800; color: var(--navy); margin-bottom: 12px;
+    }
+    .service-card p { color: var(--gray); font-size: .95rem; line-height: 1.75; }
+
+    /* ─── OPERATIONS HIGHLIGHT ────────────────────────────── */
+    #operations {
+      padding: 80px 32px;
+      background: linear-gradient(135deg, var(--navy) 0%, #0e3050 100%);
+    }
+    .ops-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .ops-text { }
+    .ops-text .section-tag { color: var(--green2); }
+    .ops-text .section-title { color: var(--white); text-align: left; margin-bottom: 0; }
+    .ops-text p { color: rgba(255,255,255,.7); font-size: 1rem; margin-top: 20px; line-height: 1.8; }
+    .ops-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .ops-card {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px; padding: 28px 24px; text-align: center;
+    }
+    .ops-card-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem; font-weight: 900; color: var(--green2); display: block;
+    }
+    .ops-card-label { color: rgba(255,255,255,.6); font-size: .84rem; margin-top: 4px; line-height: 1.4; }
+
+    /* ─── CORE VALUES ─────────────────────────────────────── */
+    #values { padding: 96px 32px; background: var(--white); }
+    .values-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    }
+    .value-card {
+      border-radius: 18px; padding: 40px 32px;
+      border: 1px solid var(--border);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .value-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.08); }
+    .value-card.v1 { background: #eaf7f1; border-color: #c0ebd8; }
+    .value-card.v2 { background: #eef4fb; border-color: #c8dcef; }
+    .value-card.v3 { background: #fdf6ee; border-color: #f0d8b8; }
+    .value-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem; font-weight: 900; opacity: .18; line-height: 1;
+      margin-bottom: 16px; color: var(--navy);
+    }
+    .value-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem; font-weight: 800; color: var(--navy); margin-bottom: 14px;
+    }
+    .value-card h3 .ico {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 8px; margin-right: 10px;
+      vertical-align: middle;
+    }
+    .v1 h3 .ico { background: rgba(0,168,107,.15); }
+    .v2 h3 .ico { background: rgba(26,74,122,.15); }
+    .v3 h3 .ico { background: rgba(230,160,50,.15); }
+    .value-card p { color: var(--gray); font-size: .95rem; line-height: 1.75; }
+
+    /* ─── TEAM ────────────────────────────────────────────── */
+    #team { padding: 96px 32px; background: var(--light); }
+    .team-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px;
+    }
+    .team-card {
+      background: var(--white); border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .team-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.12); }
+    .team-photo {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top;
+      display: block; background: #d8e4ef;
+    }
+    .team-photo-placeholder {
+      width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, #d8e4ef, #c2d4e8);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .team-photo-placeholder svg { width: 48px; height: 48px; stroke: #8ba3be; fill: none; opacity: .7; }
+    .team-info { padding: 18px 16px 20px; }
+    .team-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .97rem; font-weight: 800; color: var(--navy); margin-bottom: 4px;
+    }
+    .team-role { font-size: .82rem; color: var(--green); font-weight: 600; margin-bottom: 6px; }
+    .team-bio { font-size: .8rem; color: var(--gray); line-height: 1.55; }
+
+    /* ─── GEOGRAPHY ───────────────────────────────────────── */
+    #geography {
+      padding: 80px 32px;
+      background: var(--navy);
+    }
+    .geo-inner { max-width: 1100px; margin: 0 auto; }
+    .geo-inner .section-tag { color: var(--green2); }
+    .geo-inner .section-title { color: var(--white); }
+    .geo-inner .section-sub { color: rgba(255,255,255,.55); }
+    .countries-list {
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 40px;
+    }
+    .country-chip {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.85); padding: 8px 20px; border-radius: 50px;
+      font-size: .88rem; font-weight: 500;
+      transition: background .2s, border-color .2s;
+    }
+    .country-chip:hover { background: rgba(0,200,126,.15); border-color: var(--green2); color: var(--green2); }
+    .country-chip.main { background: rgba(0,168,107,.2); border-color: rgba(0,200,126,.4); color: var(--green2); font-weight: 600; }
+
+    /* ─── CONTACT / CTA BANNER ────────────────────────────── */
+    #contact {
+      padding: 96px 32px;
+      background: linear-gradient(135deg, #eaf7f1 0%, #f4f8fb 100%);
+    }
+    .contact-inner {
+      max-width: 700px; margin: 0 auto; text-align: center;
+    }
+    .contact-inner .section-title { margin-bottom: 16px; }
+    .contact-inner p { color: var(--gray); font-size: 1.02rem; margin-bottom: 36px; }
+    .contact-form {
+      display: flex; flex-direction: column; gap: 14px; text-align: left;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    label { font-size: .85rem; font-weight: 600; color: var(--navy); }
+    input, textarea, select {
+      border: 1.5px solid var(--border); border-radius: 8px;
+      padding: 11px 14px; font-family: inherit; font-size: .93rem; color: var(--text);
+      background: var(--white); transition: border-color .2s;
+      outline: none; width: 100%;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--green); }
+    textarea { resize: vertical; min-height: 130px; }
+    .form-submit {
+      text-align: center; margin-top: 8px;
+    }
+    .btn-submit {
+      background: var(--green); color: var(--white);
+      padding: 14px 40px; border-radius: 8px; border: none;
+      font-family: inherit; font-size: 1rem; font-weight: 700; cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 18px rgba(0,168,107,.3);
+    }
+    .btn-submit:hover { background: var(--green2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,200,126,.4); }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    #footer {
+      background: var(--navy); color: rgba(255,255,255,.75);
+      padding: 64px 32px 32px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 16px; }
+    .footer-brand p { font-size: .88rem; line-height: 1.75; color: rgba(255,255,255,.55); max-width: 280px; }
+    .footer-social { display: flex; gap: 10px; margin-top: 20px; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; transition: background .2s, border-color .2s;
+    }
+    .social-btn svg { width: 16px; height: 16px; stroke: rgba(255,255,255,.7); fill: none; }
+    .social-btn:hover { background: rgba(0,200,126,.2); border-color: var(--green2); }
+    .social-btn:hover svg { stroke: var(--green2); }
+    .footer-col h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .88rem; font-weight: 800; color: var(--white);
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      color: rgba(255,255,255,.55); text-decoration: none;
+      font-size: .88rem; transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: var(--green2); }
+    .footer-contact-item {
+      display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;
+    }
+    .footer-contact-item svg { width: 16px; height: 16px; stroke: var(--green2); fill: none; flex-shrink: 0; margin-top: 2px; }
+    .footer-contact-item span { font-size: .85rem; color: rgba(255,255,255,.55); line-height: 1.5; }
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 28px; display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-size: .82rem; color: rgba(255,255,255,.35); }
+    .footer-bottom a { color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+    .footer-bottom a:hover { color: var(--green2); }
+    .certifications { display: flex; gap: 8px; align-items: center; }
+    .cert-badge {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 6px; padding: 4px 10px; font-size: .75rem; color: rgba(255,255,255,.45);
+      font-weight: 600;
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .team-grid { grid-template-columns: repeat(3, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) { border-top: 1px solid rgba(255,255,255,.08); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .about-inner { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+      .ops-inner { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .ops-cards { grid-template-columns: 1fr; }
+      .countries-list { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ───────── NAV ───────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="17" cy="17" r="16" stroke="#00c87e" stroke-width="1.5"/>
+        <path d="M17 6 L17 17 L10 22" stroke="#00c87e" stroke-width="2" stroke-linecap="round"/>
+        <path d="M17 17 L24 9" stroke="#00c87e" stroke-width="2" stroke-linecap="round"/>
+        <path d="M17 17 L17 28" stroke="#00c87e" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="17" cy="17" r="2.5" fill="#00c87e"/>
+      </svg>
+      <span>ETS<em>wind</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#values">Values</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#geography">Global Presence</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </div>
+</nav>
+
+<!-- ───────── HERO ───────── -->
+<section id="home">
+  <div class="hero-bg-decor"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge"><span></span> Wind Energy Specialists</div>
+      <h1 class="hero-title">
+        <span class="accent">Energy<br/>Transition</span><br/>Services
+      </h1>
+      <p class="hero-tagline">Safety · Quality · Productivity</p>
+      <p class="hero-desc">
+        We are a company skilled in the installation, maintenance and upgrade of
+        next-generation wind turbines, driven by the mission of making the energy
+        transition safer, faster, and more cost-efficient.
+      </p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">Explore Services</a>
+        <a href="#contact" class="btn-outline">Contact Us</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-num">+2.6 GW</div>
+        <div class="hero-card-label">Installed in 5 years</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-num">750K+</div>
+        <div class="hero-card-label">Installation work hours</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-num">11</div>
+        <div class="hero-card-label">Countries served across EU, MENA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── STATS STRIP ───────── -->
+<div id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num">11 <span class="stat-unit">countries</span></div>
+      <div class="stat-label">Operations across Europe, Middle East &amp; North Africa</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">&gt;2.6 <span class="stat-unit">GW</span></div>
+      <div class="stat-label">Installed capacity over the past five years</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">750K <span class="stat-unit">hrs</span></div>
+      <div class="stat-label">Installation work hours of proven experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">&gt;550 <span class="stat-unit">GE</span></div>
+      <div class="stat-label">GE units installed — including 300+ Cypress units</div>
+    </div>
+  </div>
+</div>
+
+<!-- ───────── ABOUT ───────── -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <p class="section-tag">Who We Are</p>
+      <h2 class="section-title" style="text-align:left; margin-bottom:28px;">
+        Accelerating the <span class="accent">Energy Transition</span>
+      </h2>
+      <p>
+        Energy Transition Services (ETS) is a company specialized in the
+        installation, maintenance and upgrade of next-generation wind turbines.
+        Our mission is to make the energy transition safer, faster, and more
+        cost-efficient for developers, operators and OEMs across the globe.
+      </p>
+      <p>
+        We measure our performance against our core values: <strong>LEAN</strong>
+        methodologies to continuously improve and the adoption of the latest
+        <strong>technologies</strong> to innovate across every project we
+        undertake.
+      </p>
+      <p>
+        With major operating branches in Germany, Italy, Romania, Kosovo and
+        Poland, we deliver high-quality services throughout Europe, the Middle
+        East and North Africa.
+      </p>
+      <div class="about-pills">
+        <span class="pill">Wind Turbine Installation</span>
+        <span class="pill">Major Components Exchange</span>
+        <span class="pill">Preventive Maintenance</span>
+        <span class="pill">Staffing Solutions</span>
+        <span class="pill">LEAN Execution</span>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-map-box">
+        <div class="map-stat">
+          <div class="map-stat-icon">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div class="map-stat-text">
+            <strong>Germany · Italy · Romania</strong>
+            <span>Major operating branches</span>
+          </div>
+        </div>
+        <div class="map-stat">
+          <div class="map-stat-icon">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div class="map-stat-text">
+            <strong>Kosovo · Poland</strong>
+            <span>Additional regional branches</span>
+          </div>
+        </div>
+        <div class="map-stat">
+          <div class="map-stat-icon">
+            <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="map-stat-text">
+            <strong>Europe · Middle East · North Africa</strong>
+            <span>Service coverage area</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── SERVICES ───────── -->
+<section id="services">
+  <div style="max-width:1200px; margin:0 auto; padding:0 0 56px;">
+    <div class="section-header">
+      <p class="section-tag">What We Do</p>
+      <h2 class="section-title">Our <span class="accent">Services</span></h2>
+      <p class="section-sub">
+        End-to-end wind turbine solutions — from pre-installation through major
+        component upgrades and staffing, delivered with precision across Europe and beyond.
+      </p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3>Major Components Exchange</h3>
+        <p>
+          We ensure optimal turbine performance through the replacement of key
+          components such as blades, bearings, generators, gearboxes, hubs,
+          main bearings and yaw systems — minimizing downtime and maximizing
+          energy output.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Pre-Installation &amp; Preventive Maintenance</h3>
+        <p>
+          In the pre-installation phase we provide complete support for concrete
+          and steel towers, along with comprehensive preventive programs including
+          cleaning, lubrication, torquing operations, and UT/DT checks to keep
+          turbines running at peak efficiency.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Staffing</h3>
+        <p>
+          We offer flexible staffing solutions across Europe, supplying qualified
+          technical professionals across the full spectrum of wind turbine
+          installation and major components upgrade activities — right skills,
+          right time, right place.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── OPERATIONS HIGHLIGHT ───────── -->
+<section id="operations">
+  <div class="ops-inner">
+    <div class="ops-text">
+      <p class="section-tag">Track Record</p>
+      <h2 class="section-title">Proven at Scale</h2>
+      <p>
+        With over 750,000 work hours of installation experience, our vision is to
+        accelerate the energy transition, making wind energy more accessible and
+        competitive for every stakeholder in the value chain.
+      </p>
+      <p>
+        In the last five years, our teams participated in the installation of
+        more than 550 GE units — of which over 300 were large Cypress units —
+        and executed around 1,000 major operations in the same period.
+      </p>
+    </div>
+    <div class="ops-cards">
+      <div class="ops-card">
+        <span class="ops-card-num">750K+</span>
+        <span class="ops-card-label">Installation work hours</span>
+      </div>
+      <div class="ops-card">
+        <span class="ops-card-num">&gt;550</span>
+        <span class="ops-card-label">GE units installed</span>
+      </div>
+      <div class="ops-card">
+        <span class="ops-card-num">&gt;300</span>
+        <span class="ops-card-label">Large Cypress units</span>
+      </div>
+      <div class="ops-card">
+        <span class="ops-card-num">~1,000</span>
+        <span class="ops-card-label">Major operations executed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── CORE VALUES ───────── -->
+<section id="values">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-header">
+      <p class="section-tag">How We Work</p>
+      <h2 class="section-title">Our <span class="accent">Core Values</span></h2>
+      <p class="section-sub">
+        Everything we do is built on three foundational pillars that guide our
+        teams, processes and decisions every day.
+      </p>
+    </div>
+    <div class="values-grid">
+
+      <div class="value-card v1">
+        <div class="value-num">01</div>
+        <h3>
+          <span class="ico">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="#00a86b" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </span>
+          Safety First
+        </h3>
+        <p>
+          People are at the core of our organisation. We are committed to
+          continuously improving health and safety standards on every site.
+          Our leaders care about their teams, and teams care for each other.
+          We always support the <strong>STOP work authority</strong> when safety is at risk.
+        </p>
+      </div>
+
+      <div class="value-card v2">
+        <div class="value-num">02</div>
+        <h3>
+          <span class="ico">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="#1a4a7a" fill="none" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </span>
+          Quality &amp; Innovation
+        </h3>
+        <p>
+          With a strong focus on continuous innovation, we use LEAN methodologies,
+          standard processes and highly skilled teams to make every project safer,
+          more efficient and more sustainable. Technology is our enabler, not
+          just our tool.
+        </p>
+      </div>
+
+      <div class="value-card v3">
+        <div class="value-num">03</div>
+        <h3>
+          <span class="ico">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="#e6a032" fill="none" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </span>
+          Cost Productivity
+        </h3>
+        <p>
+          Our execution strategy is grounded in driving down costs through
+          process standardisation, rigorous performance measurement, and a
+          constant presence at <em>Gemba</em> — where the value is actually created.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── TEAM ───────── -->
+<section id="team">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="section-header">
+      <p class="section-tag">Our People</p>
+      <h2 class="section-title">Meet the <span class="accent">Team</span></h2>
+      <p class="section-sub">
+        Experienced professionals united by a shared commitment to making wind
+        energy safer, faster and more efficient.
+      </p>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <!--
+          INSTRUCTIONS: Save the first team photo as "images/team-1.jpg"
+          in the same folder as this HTML file.
+        -->
+        <img src="images/team-1.jpg" alt="Team member" class="team-photo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="team-photo-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Team Member</div>
+          <div class="team-role">Role / Title</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <img src="images/team-2.jpg" alt="Team member" class="team-photo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="team-photo-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Team Member</div>
+          <div class="team-role">Role / Title</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <img src="images/team-3.jpg" alt="Team member" class="team-photo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="team-photo-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Team Member</div>
+          <div class="team-role">Role / Title</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <img src="images/team-4.jpg" alt="Team member" class="team-photo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="team-photo-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Team Member</div>
+          <div class="team-role">Role / Title</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <img src="images/team-5.jpg" alt="Team member" class="team-photo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="team-photo-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Team Member</div>
+          <div class="team-role">Role / Title</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── GEOGRAPHY ───────── -->
+<section id="geography">
+  <div class="geo-inner">
+    <div class="section-header">
+      <p class="section-tag">Global Presence</p>
+      <h2 class="section-title">Operating Across <span class="accent">11 Countries</span></h2>
+      <p class="section-sub">
+        With major operating branches in five European countries and project
+        deployments spanning Europe, the Middle East and North Africa.
+      </p>
+    </div>
+    <div class="countries-list">
+      <span class="country-chip main">Germany</span>
+      <span class="country-chip main">Italy</span>
+      <span class="country-chip main">Romania</span>
+      <span class="country-chip main">Kosovo</span>
+      <span class="country-chip main">Poland</span>
+      <span class="country-chip">France</span>
+      <span class="country-chip">Spain</span>
+      <span class="country-chip">Netherlands</span>
+      <span class="country-chip">Belgium</span>
+      <span class="country-chip">Middle East</span>
+      <span class="country-chip">North Africa</span>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── CONTACT ───────── -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-header">
+      <p class="section-tag">Get In Touch</p>
+      <h2 class="section-title">Let's Talk About Your <span class="accent">Project</span></h2>
+      <p>
+        Whether you need installation support, major component exchange, preventive
+        maintenance or technical staffing — our team is ready to help.
+      </p>
+    </div>
+    <form class="contact-form" onsubmit="return false;">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" placeholder="Your company" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="service">Service of Interest</label>
+          <select id="service">
+            <option value="">Select a service…</option>
+            <option>Major Components Exchange</option>
+            <option>Pre-Installation &amp; Preventive Maintenance</option>
+            <option>Staffing Solutions</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Tell us about your project…"></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn-submit">Send Message</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ───────── FOOTER ───────── -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#home" class="nav-logo">
+        <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="17" cy="17" r="16" stroke="#00c87e" stroke-width="1.5"/>
+          <path d="M17 6 L17 17 L10 22" stroke="#00c87e" stroke-width="2" stroke-linecap="round"/>
+          <path d="M17 17 L24 9" stroke="#00c87e" stroke-width="2" stroke-linecap="round"/>
+          <path d="M17 17 L17 28" stroke="#00c87e" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="17" cy="17" r="2.5" fill="#00c87e"/>
+        </svg>
+        <span style="color:#fff;">ETS<em style="color:#00c87e;">wind</em></span>
+      </a>
+      <p>
+        Making the energy transition safer, faster, and more cost-efficient —
+        one wind turbine at a time.
+      </p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="Twitter / X">
+          <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="Email">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Major Components Exchange</a></li>
+        <li><a href="#services">Pre-Installation</a></li>
+        <li><a href="#services">Preventive Maintenance</a></li>
+        <li><a href="#services">Staffing Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About ETS</a></li>
+        <li><a href="#values">Core Values</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#geography">Global Presence</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>info@etswind.com</span>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span>Germany · Italy · Romania<br/>Kosovo · Poland</span>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>etswind.com</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2024 Energy Transition Services. All rights reserved.</p>
+    <div class="certifications">
+      <span class="cert-badge">ISO 9001</span>
+      <span class="cert-badge">ISO 45001</span>
+      <span class="cert-badge">ISO 14001</span>
+    </div>
+    <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Use</a></p>
+  </div>
+</footer>
+
+<script>
+  /* Smooth scroll offset for fixed nav */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 68;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* Nav background on scroll */
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 20
+      ? '0 2px 20px rgba(0,0,0,.4)'
+      : 'none';
+  });
+
+  /* Simple counter animation on stats */
+  const counters = document.querySelectorAll('.stat-num, .ops-card-num, .hero-card-num');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '0';
+        e.target.style.transform = 'translateY(12px)';
+        e.target.style.transition = 'opacity .5s ease, transform .5s ease';
+        requestAnimationFrame(() => {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        });
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: .3 });
+  counters.forEach(c => observer.observe(c));
+</script>
+
+</body>
+</html>
