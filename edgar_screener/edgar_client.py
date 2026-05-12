@@ -113,16 +113,31 @@ class EdgarClient:
         # "Form Type   Company Name                          CIK         Date Filed  Filename"
         col_company = col_cik = col_date = col_file = None
         for line in lines[:10]:
-            if "Company Name" in line and "CIK" in line:
-                col_company = line.index("Company Name")
-                col_cik = line.index("CIK")
-                col_date = line.index("Date Filed")
-                col_file = line.index("Filename")
+            low = line.lower()
+            if "company" in low and "cik" in low:
+                col_company = low.index("company")
+                col_cik = low.index("cik")
+                # Date filed column
+                for label in ("date filed", "datefiled", "date"):
+                    if label in low:
+                        col_date = low.index(label)
+                        break
+                # Filename column
+                for label in ("filename", "file name", "file"):
+                    if label in low:
+                        col_file = low.index(label)
+                        break
                 break
 
-        if col_company is None:
-            # Fallback: try fixed standard positions (common in EDGAR)
+        # Fallback: known fixed column positions for EDGAR form.idx
+        if col_company is None or col_cik is None:
             col_company, col_cik, col_date, col_file = 12, 74, 86, 98
+        if col_date is None:
+            col_date = 86
+        if col_file is None:
+            col_file = 98
+        logger.debug("Colonne rilevate: company=%d cik=%d date=%d file=%d",
+                     col_company, col_cik, col_date, col_file)
 
         for line in lines:
             # Skip blank lines and header/separator lines
