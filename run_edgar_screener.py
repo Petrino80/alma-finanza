@@ -104,6 +104,8 @@ def main() -> None:
             print(f"   Form 4 analizzati:   {result['form4_hits']}")
             print(f"   8-K analizzati:      {result['form8k_hits']}")
             print(f"   SC 13D/G analizzati: {result['sc13_hits']}")
+            print(f"   Form salvati:        {result['forms_saved']} documenti")
+            print(f"   Indice form:         {result['forms_index']}")
             print(f"   Segnali positivi:    {result['insider_positives']} insider buy "
                   f"+ {result['corporate_positives']} eventi aziendali")
             print(f"   Opportunità totali:  {result['opportunities']}")
