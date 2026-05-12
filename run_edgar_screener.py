@@ -115,6 +115,12 @@ def main() -> None:
             print("=" * 60)
         elif result.get("status") == "no_signals":
             print(f"\n⚪ Nessun segnale positivo rilevato per il {result['date']}.")
+            print(f"   Form 4 scaricati:    {result.get('form4_hits', 0)}")
+            print(f"   8-K scaricati:       {result.get('form8k_hits', 0)}")
+            print(f"   SC 13D/G scaricati:  {result.get('sc13_hits', 0)}")
+            print(f"   Form salvati:        {result.get('forms_saved', 0)} documenti")
+            if result.get("forms_index"):
+                print(f"   Sfoglia form:        {result['forms_index']}")
         else:
             print(f"\n❌ Errore: {result}")
             sys.exit(1)

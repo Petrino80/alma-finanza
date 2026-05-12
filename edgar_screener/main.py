@@ -260,10 +260,22 @@ def run_screening(target_date: Optional[date] = None) -> dict:
 
     all_corporate = corporate_positives + sc13_positives
 
-    # Early exit if nothing positive
+    # Early exit if nothing positive – but forms_index is already saved above
     if not insider_positives and not all_corporate:
-        logger.info("\n⚪ Nessun segnale positivo rilevato oggi. Nessun report generato.")
-        return {"status": "no_signals", "date": date_str}
+        logger.info(
+            "\n⚪ Nessun segnale positivo rilevato oggi. "
+            "I form scaricati sono comunque disponibili in: %s",
+            os.path.join(cfg.output_dir, "forms_index.html"),
+        )
+        return {
+            "status": "no_signals",
+            "date": date_str,
+            "form4_hits": len(form4_hits),
+            "form8k_hits": len(form8k_hits),
+            "sc13_hits": len(sc13_hits),
+            "forms_saved": len(all_saved),
+            "forms_index": os.path.join(cfg.output_dir, "forms_index.html"),
+        }
 
     # ── 4. Collect unique tickers for Buffett analysis ─────────────────────────
     logger.info("\n📊 Analisi fondamentale Warren Buffett…")

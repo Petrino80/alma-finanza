@@ -90,13 +90,12 @@ class EdgarClient:
 
         while from_offset < max_results:
             params = {
-                "q": '""',
                 "forms": ",".join(forms),
                 "dateRange": "custom",
                 "startdt": start_date.isoformat(),
                 "enddt": end_date.isoformat(),
                 "from": from_offset,
-                "hits.hits.total.value": "true",
+                "hits.hits._source": "period_of_report,file_date,entity_name,file_num,form_type,items",
             }
             url = cfg.edgar_efts_url
             try:
