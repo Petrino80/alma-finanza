@@ -309,7 +309,6 @@ def run_screening(target_date: Optional[date] = None) -> dict:
     # Also write a "latest" symlink-style copy for easy access
     latest_html = os.path.join(cfg.output_dir, "report_latest.html")
     latest_json = os.path.join(cfg.output_dir, "report_latest.json")
-    import shutil
     shutil.copy2(html_path, latest_html)
     shutil.copy2(json_path, latest_json)
 
