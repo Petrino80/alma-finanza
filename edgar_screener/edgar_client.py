@@ -94,9 +94,15 @@ class EdgarClient:
           Form Type   Company Name           CIK         Date Filed  Filename
           4           ACME CORP              0001234567  2026-05-11  edgar/data/...
         """
+        global edgar_blocked  # dichiarato qui per poterlo modificare nell'except
+
         qtr_key = f"{target_date.year}/{_quarter(target_date)}"
         if qtr_key in _index_cache:
             return _index_cache[qtr_key]
+
+        # Se EDGAR è già noto come bloccato in questa run, non riprovare
+        if edgar_blocked:
+            return []
 
         url = (
             f"{cfg.edgar_base_url}/Archives/edgar/full-index/"
@@ -109,7 +115,6 @@ class EdgarClient:
         except Exception as exc:
             # Non mettere in cache gli errori di rete/403: il retry sarà possibile
             if "403" in str(exc):
-                global edgar_blocked
                 edgar_blocked = True
                 logger.warning(
                     "EDGAR ha bloccato la richiesta (403 Forbidden). "
@@ -254,6 +259,8 @@ class EdgarClient:
             return results
 
         # ── Fallback: EFTS ─────────────────────────────────────────────────────
+        if edgar_blocked:
+            return []  # EFTS usa lo stesso IP: inutile riprovare
         logger.warning("Fallback a EFTS (form.idx non disponibile)")
         return self._search_efts(forms, start_date, end_date, max_results)
 
@@ -264,6 +271,8 @@ class EdgarClient:
         EFTS search. Normalises _id from 'accession:filename' to just 'accession',
         storing the filename in _source.primary_doc for direct document access.
         """
+        global edgar_blocked  # dichiarato qui per poterlo modificare nell'except
+
         all_hits: List[Dict] = []
         seen_accessions: set = set()
         from_offset = 0
@@ -280,7 +289,6 @@ class EdgarClient:
                 data = self._get(cfg.edgar_efts_url, **params).json()
             except Exception as exc:
                 if "403" in str(exc):
-                    global edgar_blocked
                     edgar_blocked = True
                     logger.warning(
                         "EFTS bloccato (403 Forbidden) – stesso problema IP di form.idx. "
