@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 1200px 630px; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #000; }
+
+.card {
+  width: 1200px;
+  height: 630px;
+  position: relative;
+  overflow: hidden;
+  background: #0a0005;
+  display: flex;
+  flex-direction: row;
+}
+
+/* ── SFONDO GRIGLIA ── */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(220,38,38,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220,38,38,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 0;
+}
+.bg-glow {
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(185,28,28,0.18) 0%, transparent 70%);
+  z-index: 0;
+}
+
+/* ── BORDO ACCENT ── */
+.left-border {
+  position: absolute;
+  left: 0;
+  top: 8%;
+  bottom: 8%;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #DC2626 30%, #F87171 70%, transparent);
+  border-radius: 2px;
+  z-index: 3;
+}
+
+/* ── SINISTRA ── */
+.left {
+  flex: 0 0 55%;
+  padding: 38px 36px 34px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.tag {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+.tag-geo {
+  background: rgba(220,38,38,0.20);
+  color: #FCA5A5;
+  border: 1px solid rgba(220,38,38,0.40);
+}
+.tag-date {
+  color: rgba(255,255,255,0.40);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.headline {
+  font-size: 36px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.10;
+  letter-spacing: -1px;
+  margin-bottom: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+.headline .accent-red   { color: #F87171; }
+.headline .accent-gold  { color: #FCD34D; }
+
+.sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.52);
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: 20px;
+  max-width: 490px;
+}
+
+/* ── CEO PILLS ── */
+.ceo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+.ceo-pill {
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.80);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+/* ── TOPICS BAR ── */
+.topics {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.topic-badge {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+}
+.topic-red    { background: rgba(220,38,38,0.15); color: #F87171; border: 1px solid rgba(220,38,38,0.30); }
+.topic-gold   { background: rgba(251,191,36,0.15); color: #FCD34D; border: 1px solid rgba(251,191,36,0.30); }
+.topic-blue   { background: rgba(59,130,246,0.15); color: #93C5FD; border: 1px solid rgba(59,130,246,0.30); }
+.topic-green  { background: rgba(52,211,153,0.15); color: #6EE7B7; border: 1px solid rgba(52,211,153,0.30); }
+
+/* ── METRICHE ── */
+.metrics {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding-top: 14px;
+  margin-bottom: 18px;
+}
+.metric {
+  flex: 1;
+  padding-right: 16px;
+  border-right: 1px solid rgba(255,255,255,0.10);
+  margin-right: 16px;
+}
+.metric:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.metric-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.30);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.metric-value {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+}
+.mv-red  { color: #F87171; }
+.mv-gold { color: #FCD34D; }
+.mv-blue { color: #93C5FD; }
+.metric-sub {
+  font-size: 9px;
+  color: rgba(255,255,255,0.30);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* logo Alma */
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.logo-a {
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+  color: #14B8A6;
+  line-height: 1;
+}
+.logo-rest {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 1.5px;
+}
+
+/* ── DESTRA: foto Beijing ── */
+.right {
+  flex: 0 0 45%;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.bg-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  opacity: 0.82; /* ← MOLTO più luminosa rispetto a 0.52 */
+  z-index: 0;
+}
+
+/* gradient blend sinistra */
+.right::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 90px;
+  background: linear-gradient(to right, #0a0005 0%, rgba(10,0,5,0.55) 50%, transparent 100%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* gradient bottom leggero */
+.right::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 22%;
+  background: linear-gradient(to top, rgba(10,0,5,0.45) 0%, transparent 100%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* overlay di colore rosso-cina LEGGERO solo per tonalità */
+.photo-tint {
+  position: absolute;
+  inset: 0;
+  background: rgba(120, 0, 0, 0.12); /* ← molto leggero, solo tonalità */
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* pannello badge in alto a destra */
+.right-badge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 6;
+  background: rgba(220,38,38,0.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(220,38,38,0.60);
+  border-radius: 8px;
+  padding: 8px 16px;
+  text-align: center;
+}
+.right-badge-num {
+  font-size: 30px;
+  font-weight: 900;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1;
+}
+.right-badge-label {
+  font-size: 9px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* pannello in basso a destra */
+.right-panel-bottom {
+  position: absolute;
+  bottom: 22px;
+  left: 70px;
+  right: 22px;
+  z-index: 6;
+  background: rgba(10,0,5,0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+.rpb-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #FCD34D;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 5px;
+}
+.rpb-items {
+  font-size: 11px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+}
+.rpb-items strong { color: rgba(255,255,255,0.88); }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="left-border"></div>
+
+  <!-- SINISTRA -->
+  <div class="left">
+    <div>
+      <div class="tag-row">
+        <span class="tag tag-geo">🌏 Geopolitica</span>
+        <span class="tag-date">13 Maggio 2026 · Vertice USA–Cina</span>
+      </div>
+
+      <div class="headline">
+        Trump a Pechino<br>
+        con <span class="accent-gold">17 CEO</span>.<br>
+        <span class="accent-red">Dazi, AI e Boeing</span><br>
+        sul tavolo con Xi.
+      </div>
+
+      <div class="sub">
+        Il vertice più atteso dell'anno. Musk, Jensen Huang e Tim Cook<br>
+        al fianco di Trump nel negoziato con la Cina.
+      </div>
+
+      <div class="ceo-row">
+        <span class="ceo-pill">E. Musk (Tesla)</span>
+        <span class="ceo-pill">J. Huang (Nvidia)</span>
+        <span class="ceo-pill">T. Cook (Apple)</span>
+        <span class="ceo-pill">+ 14 CEO</span>
+      </div>
+
+      <div class="topics">
+        <span class="topic-badge topic-red">Dazi</span>
+        <span class="topic-badge topic-blue">AI</span>
+        <span class="topic-badge topic-gold">Terre Rare</span>
+        <span class="topic-badge topic-green">Boeing</span>
+        <span class="topic-badge topic-red">Iran</span>
+        <span class="topic-badge topic-gold">Soia</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-label">CEO presenti</div>
+          <div class="metric-value mv-gold">17</div>
+          <div class="metric-sub">delegazione USA</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tariffe USA→CN</div>
+          <div class="metric-value mv-red">145%</div>
+          <div class="metric-sub">da ridurre</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Boeing ordini</div>
+          <div class="metric-value mv-blue">~200</div>
+          <div class="metric-sub">mld$ in gioco</div>
+        </div>
+      </div>
+
+      <div class="logo-row">
+        <span class="logo-a">A</span>
+        <span class="logo-rest">LMA FINANZA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESTRA: foto Beijing -->
+  <div class="right">
+    <img src="beijing_skyline.jpg" class="bg-photo" alt="Skyline di Pechino, Cina">
+    <div class="photo-tint"></div>
+
+    <div class="right-badge">
+      <div class="right-badge-num">17</div>
+      <div class="right-badge-label">CEO USA a Pechino</div>
+    </div>
+
+    <div class="right-panel-bottom">
+      <div class="rpb-title">Agenda del Vertice</div>
+      <div class="rpb-items">
+        <strong>Dazi</strong> 145% → riduzione · <strong>AI</strong> chips export ban<br>
+        <strong>Terre Rare</strong> supply chain · <strong>Boeing</strong> ordini aerei<br>
+        <strong>Iran</strong> Hormuz · <strong>Taiwan</strong> de-escalation
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
