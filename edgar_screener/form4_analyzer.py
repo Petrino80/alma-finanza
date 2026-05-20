@@ -217,8 +217,16 @@ def analyze_form4_filings(
         try:
             xml_text = client.get_filing_document(cik, accession, xml_filename)
         except Exception as exc:
-            logger.warning("Cannot fetch %s/%s: %s", accession, xml_filename, exc)
-            continue
+            if "404" in str(exc):
+                # File estratto non accessibile (es. filing agent CIK):
+                # prova a leggere direttamente dal .txt della submission
+                xml_text = client.get_form4_xml_from_submission(cik, accession)
+                if not xml_text:
+                    logger.debug("Skip %s: documento non trovato (%s)", accession, exc)
+                    continue
+            else:
+                logger.warning("Cannot fetch %s/%s: %s", accession, xml_filename, exc)
+                continue
 
         transactions = parse_form4_xml(xml_text, accession, file_date)
         for tx in transactions:

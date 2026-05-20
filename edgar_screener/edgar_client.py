@@ -406,6 +406,50 @@ class EdgarClient:
         )
         return self.get_text(url)
 
+    def get_form4_xml_from_submission(self, cik: str, accession_no: str) -> Optional[str]:
+        """
+        Fallback: scarica il file .txt della submission EDGAR ed estrae l'XML
+        Form 4 embedded. Funziona anche quando i file estratti non sono accessibili
+        (es. filing agent CIK invece del reporting owner CIK).
+        """
+        import re
+        if self.use_mock:
+            return None
+        acc_nodash = accession_no.replace("-", "")
+        cik_padded = str(int(cik)).zfill(10)
+        url = (
+            f"{cfg.edgar_base_url}/Archives/edgar/data/{cik_padded}/"
+            f"{acc_nodash}.txt"
+        )
+        try:
+            text = self.get_text(url)
+        except Exception as exc:
+            logger.debug("Submission .txt non disponibile per %s: %s", accession_no, exc)
+            return None
+
+        # Il file .txt EDGAR è un multi-document SGML wrapper.
+        # Ogni documento è delimitato da <SEQUENCE>/<FILENAME>/<TEXT>...</TEXT>.
+        # Cerchiamo il blocco che contiene un ownershipDocument XML.
+        pattern = re.compile(
+            r'<TEXT>\s*(<\?xml[^>]*\?>.*?</ownershipDocument>)',
+            re.DOTALL | re.IGNORECASE,
+        )
+        match = pattern.search(text)
+        if match:
+            return match.group(1)
+
+        # Fallback: cerca senza dichiarazione XML (alcuni filer la omettono)
+        pattern2 = re.compile(
+            r'<TEXT>\s*(<ownershipDocument>.*?</ownershipDocument>)',
+            re.DOTALL | re.IGNORECASE,
+        )
+        match2 = pattern2.search(text)
+        if match2:
+            return match2.group(1)
+
+        logger.debug("ownershipDocument non trovato nel .txt per %s", accession_no)
+        return None
+
     def get_company_facts(self, cik: str) -> Dict:
         cik_padded = str(int(cik)).zfill(10)
         url = f"{cfg.edgar_data_url}/api/xbrl/companyfacts/CIK{cik_padded}.json"
