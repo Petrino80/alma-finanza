@@ -7,26 +7,42 @@
 ## IL PROMPT DA USARE:
 
 ```
-Aggiornamento quotidiano Alma Finanza — [DATA 24 marzo 2026 - ora chiusura borse USA]
+Aggiornamento quotidiano Alma Finanza — [DATA 06 maggio 2026 - aggiornamento borse/news real time]
 
-FASE 1 — RICERCA DATI REALI:
-Cerca con WebSearch i dati REALI di chiusura delle borse di oggi (o ieri sera se le borse USA sono ancora aperte). Dati richiesti:
+FASE 1 — RICERCA DATI REALI (OBBLIGATORIA — NON SALTARE MAI):
+⛔ PRIMA di scrivere qualsiasi articolo, esegui WebSearch per TUTTI i dati. Non esiste eccezione.
+
+Dati da cercare:
 - Indici USA: Dow Jones, S&P 500, Nasdaq (valori indice, NON prezzi ETF)
 - Indici Europa: FTSE MIB, DAX, CAC 40
 - Commodities: Oro, Petrolio WTI
 - Bitcoin
 - Titoli protagonisti della giornata (top gainers/losers)
 - Notizie macro principali (Fed, dazi, earnings, geopolitica)
-⚠️ NON INVENTARE MAI NESSUN DATO. Se non trovi un dato, scrivilo come "—".
 
-FASE 2 — SCRIVI 5 ARTICOLI:
-Crea 5 articoli HTML seguendo queste regole INVIOLABILI:
+⚠️ REGOLA ASSOLUTA — NON INVENTARE MAI NESSUN DATO:
+- Se non trovi un dato con WebSearch → scrivilo come "—" nell'articolo
+- MAI usare dati da training/memoria come fonte — sono inaffidabili
+- I dati di training possono essere obsoleti, pre-split, riferiti a periodi sbagliati
+
+⚠️ REGOLA SPECIALE PER EARNINGS (risultati trimestrali aziendali):
+Gli EPS (utili per azione), i ricavi (revenue) e le guidance sono dati PUBBLICATI e verificabili.
+Se un articolo riguarda risultati trimestrali di una specifica azienda (es. Nvidia, Apple, LVMH):
+1. Cerca OBBLIGATORIAMENTE con WebSearch: "[azienda] earnings Q[X] [anno] EPS results"
+2. Verifica EPS effettivo, EPS atteso dal consensus, revenue effettiva, revenue attesa
+3. Se i risultati non sono ancora pubblici → non scrivere l'articolo con numeri inventati, aspetta o scegli un altro tema
+4. MAI fornire agli agenti background dati earnings inventati — gli agenti li pubblicheranno senza verificare
+❌ ERRORE COMMESSO IL 20/05/2026: EPS Nvidia inventato come $9,82 (sbagliato) invece di $1,87 (reale).
+   Causa: dati di training confusi con prezzi pre-split 2024 + FASE 1 saltata completamente.
+
+FASE 2 — SCRIVI 3 ARTICOLI:
+Crea 3 articoli HTML seguendo queste regole INVIOLABILI:
 
 Distribuzione consigliata (adattabile alle notizie del giorno):
 1. Wall Street / mercati USA (obbligatorio)
 2. Piazza Affari / FTSE MIB (obbligatorio)
-3. Uno tra: Europa, Asia, o mercati emergenti
-4-5. Due tra: earnings aziendali, macro/Fed, commodities, settori specifici, tech/AI, geopolitica/dazi
+3. Uno su INTEL 
+
 
 Formato articoli — REGOLE FISSE, MAI CAMBIARE:
 - File: articolo-[topic]-[DDmese]-[dettaglio].html (es: articolo-wall-street-26feb-nvidia-rally.html)
@@ -131,7 +147,7 @@ Schema colori per categorie (accent line + cat-tag):
 - Crypto: amber-500, bg-amber-50, text-amber-700
 
 f) SITEMAP (sitemap.xml):
-   - Aggiungi i 5 nuovi articoli nella sitemap.xml
+   - Aggiungi i 3 nuovi articoli nella sitemap.xml
    - Ogni articolo con <url>, <loc>, <lastmod>, <changefreq>never</changefreq>, <priority>0.9</priority>
    - Includere <news:news> con publication name "Alma Finanza", language "it", publication_date e title
    - Aggiornare <lastmod> della homepage alla data odierna
@@ -176,7 +192,7 @@ Per ogni pagina categoria:
   ```
 
 FASE 5 — AGGIORNA "IMPARA LA FINANZA" (impara-finanza.html):
-Per ogni info-box educativo nei 5 nuovi articoli, aggiungi un concept-card alla sezione giusta:
+Per ogni info-box educativo nei 3 nuovi articoli, aggiungi un concept-card alla sezione giusta:
 
 Sezioni disponibili (con colore bordo):
 - 📊 Valutazioni e Multipli (blue)
@@ -207,10 +223,10 @@ Regole:
 - Se un concetto non rientra in nessuna sezione, valuta se crearne una nuova
 
 FASE 5B — AGGIORNA GLOSSARIO FINANZIARIO (glossario.html):
-Per ogni termine tecnico inglese usato nei 5 nuovi articoli, verifica se è già presente nel glossario. Se NON è presente, aggiungilo.
+Per ogni termine tecnico inglese usato nei 3 nuovi articoli, verifica se è già presente nel glossario. Se NON è presente, aggiungilo.
 
 Procedura:
-1. Scorri i 5 articoli e raccogli TUTTI i termini tecnici inglesi usati (quelli con traduzione italiana tra parentesi, come da regola linguistica del progetto)
+1. Scorri i 3 articoli e raccogli TUTTI i termini tecnici inglesi usati (quelli con traduzione italiana tra parentesi, come da regola linguistica del progetto)
 2. Leggi glossario.html e verifica quali termini sono già presenti (cerca nel data-term delle glossary-card)
 3. Per ogni termine NUOVO (non ancora nel glossario), aggiungilo nella sezione alfabetica corretta
 
@@ -246,25 +262,35 @@ Regole glossario:
 - La spiegazione deve essere EDUCATIVA: spiegare il concetto come se il lettore fosse un principiante
 
 FASE 6 — COMMIT E PUSH:
-git add [5 articoli] index.html sitemap.xml categoria-wall-street.html categoria-borsa-milano.html categoria-crypto.html categoria-commodities.html impara-finanza.html glossario.html && git commit && git push origin main
+git add [3 articoli] index.html sitemap.xml categoria-wall-street.html categoria-borsa-milano.html categoria-crypto.html categoria-commodities.html impara-finanza.html glossario.html && git commit && git push origin main
 
 ⚠️ ERRORI DA NON FARE MAI:
-1. NON inventare dati — cerca SEMPRE con WebSearch prima di scrivere
-2. NON cambiare il layout della homepage (stats bar + 3 colonne theme-cards)
-3. NON cambiare logo/header/footer degli articoli
-4. NON dimenticare le info-box educative (minimo 2 per articolo)
-5. NON usare prezzi ETF al posto dei valori indice nel ticker
-6. NON omettere l'intervallo temporale nelle variazioni %
-7. NON usare link con petrino80.github.io — solo almafinanza.com
-8. NON cancellare articoli vecchi dalla homepage
-9. NON modificare mission/newsletter/footer della homepage
-10. Date sulle card DEVONO corrispondere alle date dentro gli articoli
-11. NON dimenticare di aggiornare le 4 pagine categoria con i nuovi articoli
-12. NON dimenticare di aggiornare impara-finanza.html con i nuovi concetti educativi
-13. NON dimenticare anti-flash script e dark mode toggle in ogni nuovo articolo
-14. NON dimenticare le dark mode classes (dark:bg-*, dark:text-*) in ogni elemento
-15. NON dimenticare di aggiornare glossario.html con i nuovi termini finanziari inglesi
-16. NON duplicare termini già presenti nel glossario — controlla PRIMA di aggiungere
+1. NON inventare dati — cerca SEMPRE con WebSearch prima di scrivere (FASE 1 non è opzionale)
+2. NON saltare FASE 1 nemmeno quando si usano agenti background — i dati vanno cercati PRIMA di passarli agli agenti
+3. NON usare dati da training/memoria come fonte per numeri finanziari — sono inaffidabili
+4. NON inventare EPS, revenue, guidance di aziende specifiche — sono dati pubblici verificabili, cercali
+5. NON cambiare il layout della homepage (stats bar + 3 colonne theme-cards)
+6. NON cambiare logo/header/footer degli articoli
+7. NON dimenticare le info-box educative (minimo 2 per articolo)
+8. NON usare prezzi ETF al posto dei valori indice nel ticker
+9. NON omettere l'intervallo temporale nelle variazioni %
+10. NON usare link con petrino80.github.io — solo almafinanza.com
+11. NON cancellare articoli vecchi dalla homepage
+12. NON modificare mission/newsletter/footer della homepage
+13. Date sulle card DEVONO corrispondere alle date dentro gli articoli
+14. NON dimenticare di aggiornare le 4 pagine categoria con i nuovi articoli
+15. NON dimenticare di aggiornare impara-finanza.html con i nuovi concetti educativi
+16. NON dimenticare anti-flash script e dark mode toggle in ogni nuovo articolo
+17. NON dimenticare le dark mode classes (dark:bg-*, dark:text-*) in ogni elemento
+18. NON dimenticare di aggiornare glossario.html con i nuovi termini finanziari inglesi
+19. NON duplicare termini già presenti nel glossario — controlla PRIMA di aggiungere
+
+📌 LEZIONE APPRESA (20/05/2026 — caso Nvidia):
+- EPS Nvidia Q1 FY2027 era $1,87 vs $1,77 atteso. Fu pubblicato erroneamente come $9,82 vs $9,10.
+- Errore causato da: (a) FASE 1 saltata, (b) dati inventati passati agli agenti background,
+  (c) confusione con prezzi pre-split (Nvidia ha fatto 10:1 split a giugno 2024).
+- Correzione richiesta: 5 file modificati + commit hotfix separato.
+- Prevenzione: per articoli su earnings, WebSearch è BLOCCANTE — senza dati verificati, non si scrive.
 
 Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibilità di switch light/dark
 ```
@@ -280,7 +306,7 @@ Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibi
 
 ## CHECKLIST RAPIDA POST-AGGIORNAMENTO:
 
-- [ ] 5 articoli creati con dark mode + toggle + anti-flash + SEO + info-box
+- [ ] 3 articoli creati con dark mode + toggle + anti-flash + SEO + info-box
 - [ ] index.html: ticker, stats bar, data, hero, 5 nuove theme-cards, sitemap
 - [ ] categoria-wall-street.html aggiornata
 - [ ] categoria-borsa-milano.html aggiornata
