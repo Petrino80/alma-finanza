@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lobster&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{width:1080px;height:1080px;overflow:hidden;background:#060D1A;font-family:'Inter',sans-serif;}
+
+.wrap{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;}
+
+/* ── SFONDO DATA CENTER ── */
+.bg{position:absolute;inset:0;z-index:0;}
+
+/* Griglia prospettica */
+.grid-floor{
+  position:absolute;bottom:0;left:0;right:0;height:520px;
+  background:
+    linear-gradient(to bottom, transparent 0%, rgba(0,150,255,0.04) 100%);
+  transform-origin:bottom center;
+}
+.grid-floor::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(0,150,255,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,150,255,0.12) 1px, transparent 1px);
+  background-size:54px 54px;
+  mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 40%, black 100%);
+  -webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 40%, black 100%);
+}
+
+/* Rack server — colonna sinistra */
+.racks{position:absolute;left:0;top:0;bottom:0;width:440px;display:flex;gap:10px;padding:0 20px 0 30px;align-items:stretch;}
+.rack{flex:1;display:flex;flex-direction:column;gap:5px;justify-content:center;padding:20px 0;}
+
+.unit{border-radius:3px;display:flex;align-items:center;gap:6px;padding:0 8px;flex-shrink:0;position:relative;overflow:hidden;}
+.unit::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,0.03) 0%,transparent 100%);}
+.u-a{height:14px;background:#0E1E35;border:1px solid #1A3050;}
+.u-b{height:10px;background:#091828;border:1px solid #122338;}
+.u-c{height:22px;background:#0A1F38;border:1px solid #1A3560;}
+.u-d{height:8px;background:#080F1D;border:1px solid #0F1E30;}
+.u-e{height:18px;background:#0C2040;border:1px solid #1A3D70;}
+.u-f{height:12px;background:#0A1828;border:1px solid #152840;}
+
+/* LED dots */
+.led{width:4px;height:4px;border-radius:50%;flex-shrink:0;}
+.led-g{background:#00FF88;box-shadow:0 0 6px #00FF88;}
+.led-b{background:#4D9FFF;box-shadow:0 0 6px #4D9FFF;}
+.led-o{background:#FF8C00;box-shadow:0 0 6px #FF8C00;}
+.led-off{background:#1A2A3A;}
+
+/* Linee status rack */
+.rack-bar{height:2px;border-radius:1px;flex:1;}
+.rb-g{background:linear-gradient(90deg,#00FF88,transparent);}
+.rb-b{background:linear-gradient(90deg,#4D9FFF,transparent);}
+.rb-off{background:#0E1E35;}
+
+/* Luce ambientale rack */
+.rack-glow{
+  position:absolute;left:0;top:0;bottom:0;width:460px;
+  background:radial-gradient(ellipse at 20% 50%, rgba(0,100,255,0.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+/* Overlay scuro a destra */
+.overlay-right{
+  position:absolute;right:0;top:0;bottom:0;width:700px;
+  background:linear-gradient(90deg, transparent 0%, #060D1A 28%);
+}
+
+/* Glow principale blu */
+.main-glow{
+  position:absolute;right:100px;top:50%;transform:translateY(-50%);
+  width:500px;height:500px;
+  background:radial-gradient(ellipse, rgba(0,120,255,0.07) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+/* Linea orizzontale accent */
+.h-line{
+  position:absolute;top:50%;left:380px;right:0;height:1px;
+  background:linear-gradient(90deg,rgba(77,159,255,0.5) 0%,transparent 100%);
+}
+
+/* ── HEADER ── */
+.header{
+  position:relative;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:32px 44px 0;
+  flex-shrink:0;
+}
+.logo{display:flex;align-items:center;gap:8px;}
+.logo-sq{
+  width:32px;height:32px;border-radius:6px;
+  background:#4D9FFF;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Lobster',cursive;font-size:20px;color:#fff;
+}
+.logo-txt{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.06em;color:#fff;}
+.header-tag{
+  font-family:'Montserrat',sans-serif;
+  background:rgba(77,159,255,0.15);border:1px solid rgba(77,159,255,0.3);
+  border-radius:999px;padding:6px 16px;
+  font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#4D9FFF;
+}
+
+/* ── CORPO CENTRALE ── */
+.content{
+  position:relative;z-index:10;
+  flex:1;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:0 44px 0 460px;
+}
+
+.eyebrow{
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;
+  color:#4D9FFF;margin-bottom:18px;
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:'';width:28px;height:2px;background:#4D9FFF;border-radius:1px;}
+
+.headline{
+  font-family:'Montserrat',sans-serif;
+  font-size:62px;font-weight:900;letter-spacing:-0.03em;
+  color:#fff;line-height:1.05;margin-bottom:24px;
+}
+.headline .acc{color:#4D9FFF;}
+.headline .sm{font-size:44px;}
+
+.sub{
+  font-size:17px;font-weight:500;color:rgba(255,255,255,0.55);
+  line-height:1.6;margin-bottom:36px;max-width:540px;
+}
+.sub strong{color:rgba(255,255,255,0.85);font-weight:700;}
+
+/* ── KPI ROW ── */
+.kpi-row{display:flex;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.03);}
+.kpi{flex:1;padding:16px 20px;border-right:1px solid rgba(255,255,255,0.07);}
+.kpi:last-child{border-right:none;}
+.kpi-lbl{font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;}
+.kpi-val{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;letter-spacing:-0.02em;color:#fff;line-height:1;}
+.kpi-chg{font-size:11px;font-weight:700;margin-top:4px;}
+.up{color:#00FF88;} .acc-c{color:#4D9FFF;}
+
+/* ── BADGE NVIDIA ── */
+.nvda-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(118,185,0,0.12);border:1px solid rgba(118,185,0,0.3);
+  border-radius:10px;padding:8px 16px;margin-bottom:28px;
+  font-size:13px;font-weight:700;color:#76B900;
+}
+.nvda-dot{width:7px;height:7px;border-radius:50%;background:#76B900;box-shadow:0 0 8px #76B900;}
+
+/* ── FOOTER ── */
+.footer{
+  position:relative;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 44px 32px;
+  flex-shrink:0;
+}
+.footer-left{font-size:12px;color:rgba(255,255,255,0.25);font-weight:500;}
+.footer-url{
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;font-weight:700;color:rgba(77,159,255,0.6);letter-spacing:0.04em;
+}
+.footer-date{font-size:11px;color:rgba(255,255,255,0.2);font-weight:500;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- SFONDO -->
+  <div class="bg">
+    <!-- Rack server -->
+    <div class="racks">
+      <div class="rack">
+        <div class="unit u-c"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-b"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-a"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-e"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-d"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-c"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-a"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-f"><div class="led led-o"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-e"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-b"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-c"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-a"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-d"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-e"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-c"><div class="led led-o"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-b"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-a"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-f"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-c"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-e"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-a"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-d"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-b"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-c"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-e"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-a"><div class="led led-o"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-f"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-b"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-c"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-d"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+      </div>
+      <div class="rack" style="padding-top:60px;">
+        <div class="unit u-e"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-a"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-c"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-b"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-d"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-f"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-c"><div class="led led-o"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-a"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-e"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-b"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-c"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-d"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-a"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-f"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-e"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-b"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-c"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-a"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-d"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-e"><div class="led led-o"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-f"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-b"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-c"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-a"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-d"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-e"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-c"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+      </div>
+      <div class="rack" style="padding-top:30px;padding-bottom:40px;">
+        <div class="unit u-b"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-c"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-a"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-e"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-d"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-f"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-c"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-a"><div class="led led-o"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-b"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-e"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-c"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-d"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-a"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-f"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-b"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-e"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-c"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-a"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-d"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-f"><div class="led led-o"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-e"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-b"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-c"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-a"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-d"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-e"><div class="led led-b"></div><div class="rack-bar rb-b"></div></div>
+        <div class="unit u-f"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-c"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+        <div class="unit u-b"><div class="led led-off"></div><div class="rack-bar rb-off"></div></div>
+        <div class="unit u-a"><div class="led led-g"></div><div class="rack-bar rb-g"></div></div>
+      </div>
+    </div>
+    <div class="rack-glow"></div>
+    <div class="overlay-right"></div>
+    <div class="main-glow"></div>
+    <div class="grid-floor"></div>
+    <div class="h-line"></div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">
+      <div class="logo-sq">A</div>
+      <span class="logo-txt">LMA FINANZA</span>
+    </div>
+    <div class="header-tag">🇺🇸 Nvidia Q1 FY2027 Earnings</div>
+  </div>
+
+  <!-- CONTENUTO -->
+  <div class="content">
+    <div class="eyebrow">Data Center · 20 Maggio 2026</div>
+
+    <div class="nvda-badge">
+      <span class="nvda-dot"></span>
+      NVDA -1,29% il 20 mag (earnings after-close)
+    </div>
+
+    <div class="headline">
+      <span class="acc">$1,87</span> vs $1,77.<br>
+      <span class="sm">Nvidia demolisce<br>le stime.</span>
+    </div>
+
+    <div class="sub">
+      Data Center <strong>$75,2 miliardi</strong> (+92% YoY).<br>
+      Blackwell: waiting list 12–18 mesi. Il vincolo è l'offerta, non la domanda.
+    </div>
+
+    <!-- KPI -->
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="kpi-lbl">EPS Actual</div>
+        <div class="kpi-val acc-c">$1,87</div>
+        <div class="kpi-chg up">+5,6% vs atteso</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-lbl">Data Center</div>
+        <div class="kpi-val">$75,2B</div>
+        <div class="kpi-chg up">+92% YoY</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-lbl">Gross Margin</div>
+        <div class="kpi-val">75,0%</div>
+        <div class="kpi-chg" style="color:rgba(255,255,255,0.4);">vs 64% un anno fa</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-lbl">Guidance Q2</div>
+        <div class="kpi-val">$91B</div>
+        <div class="kpi-chg up">+$1,2B vs stime</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">Analisi completa su</div>
+    <div class="footer-url">almafinanza.com</div>
+    <div class="footer-date">20 Maggio 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
