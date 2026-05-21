@@ -1,0 +1,19 @@
+$1,87 vs $1,77 atteso. Nvidia batte le stime per il sesto trimestre consecutivo.
+
+→ Ricavi totali: $81,62 miliardi (+122% YoY) — più di quanto Nvidia fatturava in un intero anno fino al 2023.
+→ Data Center: $75,2 miliardi (+92% YoY) — il segmento vale da solo più di tutta l'azienda un anno fa.
+→ Gross margin al 75,0%: margini da azienda software su hardware fisico. Il pricing power di Blackwell.
+→ Waiting list 12-18 mesi per le GPU: il vincolo è di offerta, non di domanda. Segnale strutturalmente rialzista.
+→ Guidance Q2: $91 miliardi (±2%). Nuovo buyback da $80 miliardi autorizzato.
+
+⚠️ Il titolo NVDA ha chiuso la seduta del 20 maggio a $220,58 (-1,29%) — gli earnings erano attesi e in parte già prezzati. Il rimbalzo è arrivato il giorno successivo (+1,93%).
+
+💡 Concetto del giorno: Supply Constraint (vincolo di offerta)
+Quando la produzione non riesce a soddisfare la domanda. La waiting list di 12-18 mesi per Blackwell non è un problema — è la prova che la domanda è reale e strutturale, non speculativa.
+
+📌 Nei prossimi giorni: decisione USA sugli export controls verso India e Medio Oriente. Se allentati → Nvidia accede a mercati multi-miliardari. Se inaspriti → ricavi futuri da rivedere al ribasso. Nota: zero spedizioni Hopper verso la Cina in Q1 (vs $4,6B un anno fa).
+
+📊 Analisi completa + glossario su almafinanza.com
+→ https://www.almafinanza.com/articolo-tech-20mag-nvidia-earnings-q1-fy2027-blackwell-data-center.html
+
+#AlmaFinanza #WallStreet #Nvidia #Semiconduttori #MercatiFinanziari
