@@ -124,7 +124,7 @@
         <div class="max-w-4xl mx-auto px-4">
             <div class="mb-4 flex items-center gap-3 flex-wrap">
                 <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm font-semibold">&#127962; Corporate &middot; Analisi</span>
-                <span class="bg-white bg-opacity-15 px-3 py-1 rounded-full text-sm font-medium">RACE &nbsp;&#9660;&nbsp;<span style="color:#fca5a5;">-5,9%</span></span>
+                <span class="bg-white bg-opacity-15 px-3 py-1 rounded-full text-sm font-medium">RACE &nbsp;&#8203;<span id="banner-race-change" style="color:#fca5a5;">&#9660;&nbsp;-5,9%</span><span id="banner-race-live" class="text-xs ml-1 opacity-70" style="display:none">&#9679; live</span></span>
             </div>
             <h1 class="text-3xl md:text-5xl font-black mt-2 leading-tight montserrat-font">Ferrari Luce: quanto &egrave; costata, cosa vale per la gamma ICE e cosa si aspettano gli investitori</h1>
             <p class="mt-5 text-sky-200 text-lg">Prima EV Ferrari &middot; Piattaforma 880V proprietaria &middot; 1.035 CV &middot; 60+ brevetti &middot; Stima R&amp;D (Ricerca e Sviluppo) ~&euro;1 miliardo &middot; Prezzo &euro;550.000 &middot; Analisi per investitori</p>
@@ -162,6 +162,84 @@
                     <div class="stat-sub">Batteria, motori, software</div>
                 </div>
             </div>
+
+            <!-- TRADINGVIEW LIVE WIDGET: RACE.MI -->
+            <div class="my-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-sky-700 dark:text-sky-400">📈 Ferrari S.p.A. (MIL: RACE) — Quotazione in tempo reale</span>
+                    <span class="inline-flex items-center gap-1 text-xs bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 px-2 py-0.5 rounded-full font-semibold border border-green-200 dark:border-green-700/30">
+                        <span class="animate-pulse">&#9679;</span> Live
+                    </span>
+                </div>
+                <div id="race-tv-widget" class="rounded-xl overflow-hidden border border-sky-100 dark:border-sky-900/30 shadow-sm" style="min-height:220px;"></div>
+                <p class="text-xs text-gray-400 dark:text-slate-600 mt-1.5 text-right">Dati forniti da <a href="https://www.tradingview.com/symbols/MIL-RACE/" target="_blank" rel="noopener" class="hover:text-sky-500 underline underline-offset-2">TradingView</a> &middot; Il riferimento -5,9% nel testo è relativo alla seduta del 26 maggio 2026</p>
+            </div>
+
+            <script>
+            (function () {
+                var SYMBOL = "MIL:RACE";
+                var widgetContainer = document.getElementById('race-tv-widget');
+                var currentTheme = null;
+
+                function getTheme() {
+                    return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                }
+
+                function buildWidget(theme) {
+                    if (theme === currentTheme) return;
+                    currentTheme = theme;
+                    widgetContainer.innerHTML = '';
+
+                    var wrap = document.createElement('div');
+                    wrap.className = 'tradingview-widget-container';
+                    wrap.style.cssText = 'height:220px;width:100%;';
+
+                    var inner = document.createElement('div');
+                    inner.className = 'tradingview-widget-container__widget';
+                    inner.style.cssText = 'height:220px;width:100%;';
+                    wrap.appendChild(inner);
+
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
+                    s.async = true;
+                    s.textContent = JSON.stringify({
+                        "symbol": SYMBOL,
+                        "width": "100%",
+                        "height": "220",
+                        "locale": "it",
+                        "dateRange": "1D",
+                        "colorTheme": theme,
+                        "trendLineColor": "rgba(220,38,38,1)",
+                        "underLineColor": "rgba(220,38,38,0.08)",
+                        "underLineBottomColor": "rgba(220,38,38,0)",
+                        "isTransparent": true,
+                        "autosize": true,
+                        "largeChartUrl": "https://www.tradingview.com/symbols/MIL-RACE/"
+                    });
+                    wrap.appendChild(s);
+                    widgetContainer.appendChild(wrap);
+                }
+
+                buildWidget(getTheme());
+
+                new MutationObserver(function () {
+                    buildWidget(getTheme());
+                }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+                /* Show "live" badge in banner once widget has loaded */
+                window.addEventListener('message', function(e) {
+                    if (e.data && typeof e.data === 'string' && e.data.indexOf('tradingview') !== -1) return;
+                    var liveEl = document.getElementById('banner-race-live');
+                    if (liveEl) liveEl.style.display = 'inline';
+                }, { once: true });
+                /* Fallback: show live badge after 3 s */
+                setTimeout(function() {
+                    var liveEl = document.getElementById('banner-race-live');
+                    if (liveEl) liveEl.style.display = 'inline';
+                }, 3000);
+            })();
+            </script>
 
             <!-- SEZIONE 1: LEAD ANALITICO -->
             <div class="section-label">Caso Studio</div>
