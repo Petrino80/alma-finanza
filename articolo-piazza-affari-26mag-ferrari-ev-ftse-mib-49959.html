@@ -179,6 +179,158 @@
       <!-- H2 2 -->
       <h2>Ferrari e la svolta elettrica: rischio o opportunità?</h2>
 
+      <!-- FERRARI LUCE VISUAL -->
+      <figure style="margin:2rem 0 2.5rem;border-radius:16px;overflow:hidden;box-shadow:0 8px 48px rgba(0,0,0,0.35);">
+        <div style="
+          background: linear-gradient(135deg, #0a0000 0%, #1a0303 40%, #0d0000 100%);
+          position:relative; width:100%; padding-bottom:42%; min-height:280px;
+          overflow:hidden;
+        ">
+          <!-- Background glow -->
+          <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:70%;height:60%;background:radial-gradient(ellipse at 50% 100%, rgba(220,38,38,0.18) 0%, transparent 70%);pointer-events:none;"></div>
+
+          <!-- Floor line -->
+          <div style="position:absolute;bottom:18%;left:4%;right:4%;height:1px;background:linear-gradient(90deg,transparent,rgba(220,38,38,0.4),transparent);"></div>
+
+          <!-- CAR SVG SILHOUETTE -->
+          <svg viewBox="0 0 800 240" preserveAspectRatio="xMidYMid meet"
+               style="position:absolute;left:4%;bottom:18%;width:54%;height:auto;">
+            <defs>
+              <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1"/>
+                <stop offset="60%" style="stop-color:#dc2626;stop-opacity:1"/>
+                <stop offset="100%" style="stop-color:#7f1d1d;stop-opacity:1"/>
+              </linearGradient>
+              <linearGradient id="glassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#93c5fd;stop-opacity:0.55"/>
+                <stop offset="100%" style="stop-color:#1e3a5f;stop-opacity:0.75"/>
+              </linearGradient>
+              <linearGradient id="rimGrad" cx="50%" cy="50%" r="50%" fx="35%" fy="35%" id="rimGrad" gradientUnits="objectBoundingBox">
+                <stop offset="0%" style="stop-color:#9ca3af"/>
+                <stop offset="100%" style="stop-color:#374151"/>
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- Shadow under car -->
+            <ellipse cx="400" cy="232" rx="310" ry="10" fill="rgba(0,0,0,0.5)"/>
+
+            <!-- MAIN BODY — liftback sedan profile -->
+            <path d="
+              M 95,200
+              L 85,180 L 90,165 L 105,148
+              L 145,125 L 195,108
+              L 255,90  L 310,80
+              L 385,76  L 435,78
+              L 490,84  L 535,96
+              L 575,108 L 610,118
+              L 645,128 L 668,140
+              L 685,155 L 692,170
+              L 695,185 L 695,200
+              Z
+            " fill="url(#bodyGrad)" stroke="#991b1b" stroke-width="1.2"/>
+
+            <!-- Windshield -->
+            <path d="M 310,80 L 385,76 L 435,78 L 480,88 L 455,108 L 390,116 L 335,118 L 300,115 Z"
+                  fill="url(#glassGrad)" opacity="0.85"/>
+
+            <!-- Rear glass (liftback slope) -->
+            <path d="M 490,84 L 535,96 L 575,108 L 600,120 L 560,130 L 510,118 L 490,104 Z"
+                  fill="url(#glassGrad)" opacity="0.7"/>
+
+            <!-- Front headlight strip -->
+            <path d="M 88,155 L 110,148 L 120,158 L 100,165 Z" fill="#fef08a" opacity="0.9" filter="url(#glow)"/>
+            <path d="M 92,150 L 108,146 L 116,153 L 98,157 Z" fill="white" opacity="0.6"/>
+
+            <!-- Rear taillight strip -->
+            <rect x="685" y="152" width="8" height="28" rx="2" fill="#ef4444" opacity="1" filter="url(#glow)"/>
+            <rect x="687" y="154" width="4" height="24" rx="1" fill="#fca5a5" opacity="0.8"/>
+
+            <!-- Door lines -->
+            <line x1="385" y1="77" x2="380" y2="200" stroke="#b91c1c" stroke-width="1" opacity="0.6"/>
+            <line x1="490" y1="85" x2="488" y2="200" stroke="#b91c1c" stroke-width="1" opacity="0.6"/>
+
+            <!-- Undercar / sill -->
+            <path d="M 160,200 L 160,205 L 630,205 L 630,200 Z" fill="#7f1d1d" opacity="0.8"/>
+
+            <!-- Front Wheel -->
+            <circle cx="210" cy="200" r="42" fill="#1f2937" stroke="#374151" stroke-width="2"/>
+            <circle cx="210" cy="200" r="32" fill="#111827" stroke="#4b5563" stroke-width="1.5"/>
+            <circle cx="210" cy="200" r="12" fill="#374151"/>
+            <!-- Spokes front -->
+            <line x1="210" y1="168" x2="210" y2="232" stroke="#6b7280" stroke-width="2.5"/>
+            <line x1="178" y1="200" x2="242" y2="200" stroke="#6b7280" stroke-width="2.5"/>
+            <line x1="187" y1="177" x2="233" y2="223" stroke="#6b7280" stroke-width="2.5"/>
+            <line x1="187" y1="223" x2="233" y2="177" stroke="#6b7280" stroke-width="2.5"/>
+            <circle cx="210" cy="200" r="8" fill="#9ca3af"/>
+
+            <!-- Rear Wheel -->
+            <circle cx="580" cy="200" r="42" fill="#1f2937" stroke="#374151" stroke-width="2"/>
+            <circle cx="580" cy="200" r="32" fill="#111827" stroke="#4b5563" stroke-width="1.5"/>
+            <circle cx="580" cy="200" r="12" fill="#374151"/>
+            <!-- Spokes rear -->
+            <line x1="580" y1="168" x2="580" y2="232" stroke="#6b7280" stroke-width="2.5"/>
+            <line x1="548" y1="200" x2="612" y2="200" stroke="#6b7280" stroke-width="2.5"/>
+            <line x1="557" y1="177" x2="603" y2="223" stroke="#6b7280" stroke-width="2.5"/>
+            <line x1="557" y1="223" x2="603" y2="177" stroke="#6b7280" stroke-width="2.5"/>
+            <circle cx="580" cy="200" r="8" fill="#9ca3af"/>
+
+            <!-- Ferrari prancing horse (simplified) on door -->
+            <g transform="translate(430,130) scale(0.32)" fill="#fbbf24" opacity="0.85">
+              <path d="M 50,0 C 48,8 42,14 38,22 C 35,30 36,40 32,46 C 28,52 20,54 18,60 C 16,66 20,72 18,78 C 15,85 8,88 6,95 C 4,102 8,110 10,118 C 14,108 22,102 28,96 C 34,90 36,82 42,76 C 48,70 58,66 62,58 C 66,50 64,40 68,32 C 72,24 80,18 80,10 C 76,6 70,4 66,8 C 62,12 62,20 58,24 C 56,16 58,8 56,2 C 54,-2 52,-2 50,0 Z"/>
+            </g>
+          </svg>
+
+          <!-- RIGHT PANEL — Stats -->
+          <div style="position:absolute;right:3%;top:8%;bottom:8%;width:36%;display:flex;flex-direction:column;justify-content:center;gap:10px;">
+
+            <!-- Title -->
+            <div style="margin-bottom:4px;">
+              <div style="font-family:'Montserrat',sans-serif;font-size:clamp(9px,1.8vw,13px);color:rgba(252,165,165,0.7);letter-spacing:0.15em;text-transform:uppercase;font-weight:700;">Ferrari</div>
+              <div style="font-family:'Lobster',cursive;font-size:clamp(22px,4vw,38px);color:#ef4444;line-height:1;text-shadow:0 0 30px rgba(239,68,68,0.5);">Luce</div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:clamp(8px,1.2vw,11px);color:rgba(255,255,255,0.4);letter-spacing:0.1em;margin-top:2px;">PRIMA EV FERRARI · 2026</div>
+            </div>
+
+            <div style="height:1px;background:linear-gradient(90deg,rgba(239,68,68,0.5),transparent);"></div>
+
+            <!-- Stats grid -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:8px 10px;">
+                <div style="font-family:'Montserrat',sans-serif;font-size:clamp(14px,2.5vw,22px);font-weight:900;color:#f87171;line-height:1;">1.035</div>
+                <div style="font-family:'Inter',sans-serif;font-size:clamp(8px,1vw,10px);color:rgba(255,255,255,0.45);margin-top:2px;">CV elettrici</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:8px 10px;">
+                <div style="font-family:'Montserrat',sans-serif;font-size:clamp(12px,2.2vw,19px);font-weight:900;color:#f87171;line-height:1;">€550k</div>
+                <div style="font-family:'Inter',sans-serif;font-size:clamp(8px,1vw,10px);color:rgba(255,255,255,0.45);margin-top:2px;">prezzo listino</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:8px 10px;">
+                <div style="font-family:'Montserrat',sans-serif;font-size:clamp(14px,2.5vw,22px);font-weight:900;color:#f87171;line-height:1;">500+</div>
+                <div style="font-family:'Inter',sans-serif;font-size:clamp(8px,1vw,10px);color:rgba(255,255,255,0.45);margin-top:2px;">km autonomia</div>
+              </div>
+              <div style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.35);border-radius:8px;padding:8px 10px;">
+                <div style="font-family:'Montserrat',sans-serif;font-size:clamp(14px,2.5vw,22px);font-weight:900;color:#fca5a5;line-height:1;">−5,9%</div>
+                <div style="font-family:'Inter',sans-serif;font-size:clamp(8px,1vw,10px);color:rgba(255,255,255,0.45);margin-top:2px;">RACE · 26 mag</div>
+              </div>
+            </div>
+
+            <div style="height:1px;background:linear-gradient(90deg,rgba(239,68,68,0.5),transparent);"></div>
+            <div style="font-family:'Inter',sans-serif;font-size:clamp(7px,0.9vw,9px);color:rgba(255,255,255,0.25);line-height:1.4;">4 motori elettrici · 310+ km/h<br>Design: Jony Ive / LoveFrom · Roma 2026</div>
+          </div>
+        </div>
+        <figcaption style="
+          background:#0f0000;
+          color:rgba(255,255,255,0.35);
+          font-family:'Inter',sans-serif;
+          font-size:11px;
+          padding:8px 16px;
+          text-align:center;
+          letter-spacing:0.03em;
+        ">Illustrazione artistica della Ferrari Luce (2026) — Prima supercar 100% elettrica Ferrari, presentata a Roma il 25 maggio 2026 · Dati da comunicato ufficiale Ferrari</figcaption>
+      </figure>
+
       <p><strong>Ferrari (RACE)</strong>, la casa automobilistica di Maranello quotata sia a Milano che a New York, è il titolo peggiore del FTSE MIB nella seduta del 26 maggio 2026: perde il <span class="negative"><strong>5,9% a €291,70 nella seduta</strong></span>. La causa diretta è la presentazione della sua <strong>prima automobile completamente elettrica</strong>, un evento che divide nettamente gli investitori.</p>
 
       <p>Da un lato, la mossa è inevitabile: le normative europee sull'<strong>Emissions Trading</strong> (sistema di scambio di emissioni di CO₂) e la pressione regolatoria globale spingeranno il settore automotive verso l'elettrificazione. Dall'altro, Ferrari occupa una nicchia di <strong>Ultra Luxury</strong> (ultra lusso) dove i clienti acquistano non solo prestazioni ma anche il suono e l'esperienza sensoriale del motore termico — elementi che un'EV (Electric Vehicle — veicolo elettrico) non può replicare.</p>
