@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 29 Maggio 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-29mag-weekly-recap-sp500-record-pce-snowflake.html</loc>
+      <lastmod>2026-05-29</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-05-29</news:publication_date>
+          <news:title>Wall Street Settimana 26-29 Maggio 2026: S&amp;P 500 e Nasdaq a Nuovi Record. PCE Core 3,3% Massimo da 3 Anni. Snowflake +36,5%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-29mag-ftse-mib-49825-rimbalzo-dividendi.html</loc>
+      <lastmod>2026-05-29</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-05-29</news:publication_date>
+          <news:title>Piazza Affari 29 Maggio 2026: FTSE MIB a 49.825 (+0,5%), MIB Su in Solitaria vs Europa. Stagione Dividendi. FTSE MIB YTD +30%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-29mag-intel-foundry-1-trilione-terafab-apple.html</loc>
+      <lastmod>2026-05-29</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-05-29</news:publication_date>
+          <news:title>Intel Foundry: il Potenziale da $1 Trilione. Terafab (Tesla/SpaceX/xAI), Apple 18A, INTC +225% YTD 2026</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 26 Maggio 2026 — Chiusura Mercati -->
