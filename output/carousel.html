@@ -8,7 +8,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #f1f5f9; }
 
-/* SLIDE BASE */
+/* ── SLIDE BASE ────────────────────────────── */
 .slide {
   width: 1080px;
   height: 1080px;
@@ -20,10 +20,15 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   flex-direction: column;
 }
 
-/* HEADER TYPES */
-.hdr-accent {
-  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
-  padding: 32px 48px 28px;
+/* ── STM BRAND COLORS ───────────────────────
+   ST Blue: #0068B5   ST Dark: #004a82
+   Accent warm: #e8f4fd  Text: #0f172a
+   ─────────────────────────────────────────── */
+
+/* ── HEADERS ────────────────────────────────── */
+.hdr-blue {
+  background: linear-gradient(135deg, #0068B5 0%, #004a82 100%);
+  padding: 30px 48px 26px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,7 +36,7 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
 }
 .hdr-dark {
   background: #0f172a;
-  padding: 32px 48px 28px;
+  padding: 30px 48px 26px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,7 +44,7 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
 }
 .hdr-logo {
   font-family: 'Lobster', cursive;
-  font-size: 26px;
+  font-size: 24px;
   color: #ffffff;
   letter-spacing: 0.02em;
 }
@@ -48,401 +53,631 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   border-radius: 20px;
   padding: 6px 18px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
-.hdr-date {
+.hdr-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.72);
   letter-spacing: 0.04em;
 }
 
-/* BODY */
+/* ── BODY ────────────────────────────────────── */
 .slide-body {
   flex: 1;
-  padding: 36px 48px;
+  padding: 34px 48px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   overflow: hidden;
 }
 
-/* SLIDE 1 — COVER */
-.cover-category {
-  display: inline-block;
-  background: rgba(255,255,255,0.22);
-  border-radius: 20px;
-  padding: 7px 22px;
+/* ── SECTION TITLE ───────────────────────────── */
+.sec-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.sec-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #64748b;
+  margin-bottom: 28px;
+  line-height: 1.4;
+}
+
+/* ── PAGE INDICATOR ─────────────────────────── */
+.pg {
+  position: absolute;
+  bottom: 26px;
+  right: 46px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
   font-weight: 700;
-  color: #ffffff;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.06em;
+}
+.pg-dark {
+  position: absolute;
+  bottom: 26px;
+  right: 46px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(0,0,0,0.28);
+  letter-spacing: 0.06em;
+}
+.swipe {
+  position: absolute;
+  bottom: 26px;
+  left: 48px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* ════════════════════════════════════════════ */
+/*  SLIDE 1 — COVER (photo full-bleed)          */
+/* ════════════════════════════════════════════ */
+.slide-cover {
+  background: #000;
+  position: relative;
+}
+.cover-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url('stm_catania.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  filter: brightness(0.45) saturate(0.7);
+}
+.cover-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,24,58,0.30) 0%,
+    rgba(0,24,58,0.55) 50%,
+    rgba(0,24,58,0.90) 100%
+  );
+}
+.cover-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 56px 64px;
+}
+.cover-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.cover-badge {
+  background: #0068B5;
+  border-radius: 20px;
+  padding: 7px 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.cover-year {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.06em;
+}
+.cover-logo-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.cover-logo-site {
+  font-family: 'Lobster', cursive;
+  font-size: 20px;
+  color: rgba(255,255,255,0.7);
+}
+.cover-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.3); }
+.cover-stm-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.65);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 28px;
 }
-.cover-hook {
+.cover-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 52px;
+  font-size: 66px;
   font-weight: 900;
   color: #ffffff;
-  line-height: 1.1;
-  margin-bottom: 20px;
+  line-height: 1.0;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
 }
 .cover-sub {
   font-family: 'Inter', sans-serif;
   font-size: 20px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.88);
+  color: rgba(255,255,255,0.82);
   line-height: 1.5;
-  margin-bottom: 40px;
-  max-width: 840px;
+  margin-bottom: 36px;
+  max-width: 820px;
 }
 .cover-metrics {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 36px;
+  gap: 14px;
 }
-.metric-pill {
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 12px;
-  padding: 12px 22px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.metric-pill .mp-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.7);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 4px;
-}
-.metric-pill .mp-value {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 24px;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1;
-}
-.metric-pill .mp-badge {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.75);
-  margin-top: 3px;
-}
-.cover-teaser {
+.cover-pill {
   background: rgba(255,255,255,0.12);
-  border-radius: 14px;
-  padding: 16px 24px;
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  color: rgba(255,255,255,0.9);
-  line-height: 1.5;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+  padding: 12px 20px;
 }
-.cover-teaser strong { color: #ffffff; font-weight: 700; }
-
-/* COVER full-accent background */
-.slide-cover { background: linear-gradient(145deg, #7c3aed 0%, #6d28d9 50%, #4c1d95 100%); }
-.slide-cover .slide-body { padding: 40px 48px; justify-content: center; }
-
-/* SWIPE INDICATOR */
-.swipe-hint {
-  position: absolute;
-  bottom: 28px;
-  right: 48px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.6);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.swipe-hint-dark {
-  position: absolute;
-  bottom: 28px;
-  right: 48px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(0,0,0,0.3);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-/* SLIDE 2 — MACRO */
-.slide-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 28px;
-  line-height: 1.15;
-}
-.macro-cards {
-  display: flex;
-  gap: 18px;
-  flex: 1;
-}
-.macro-card {
-  flex: 1;
-  background: #f8fafc;
-  border-radius: 18px;
-  padding: 28px 24px;
-  border: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
-}
-.mc-value {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 42px;
-  font-weight: 900;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.mc-unit {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  color: #94a3b8;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 16px;
-}
-.mc-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 10px;
-  line-height: 1.25;
-}
-.mc-body {
-  font-family: 'Inter', sans-serif;
-  font-size: 13.5px;
-  color: #475569;
-  line-height: 1.55;
-  flex: 1;
-}
-.mc-body strong { color: #1e293b; font-weight: 600; }
-
-/* SLIDE 3 — FOCUS */
-.focus-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 26px;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 22px;
-  line-height: 1.2;
-}
-.focus-rows { display: flex; flex-direction: column; gap: 14px; margin-bottom: 22px; }
-.focus-row {
-  background: #f8fafc;
-  border-radius: 14px;
-  padding: 16px 20px;
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  border: 1px solid #e2e8f0;
-}
-.fr-left { min-width: 120px; }
-.fr-label {
+.cp-label {
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   font-weight: 700;
-  color: #94a3b8;
+  color: rgba(255,255,255,0.6);
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
-.fr-value {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 26px;
-  font-weight: 900;
-  line-height: 1;
-}
-.fr-right { flex: 1; }
-.fr-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 4px;
-}
-.fr-body {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #475569;
-  line-height: 1.5;
-}
-.fr-body strong { color: #1e293b; font-weight: 600; }
-.focus-insight {
-  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
-  border-radius: 14px;
-  padding: 18px 24px;
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  color: #ffffff;
-  line-height: 1.5;
-  font-style: italic;
-}
-
-/* SLIDE 4 — FORMAZIONE */
-.learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; flex: 1; }
-.learn-card {
-  background: #f8fafc;
-  border-radius: 18px;
-  padding: 24px 22px;
-  border: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
-}
-.lc-num {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  color: #7c3aed;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 8px;
-}
-.lc-term {
+.cp-value {
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 6px;
-  line-height: 1.15;
+  color: #ffffff;
+  line-height: 1;
 }
-.lc-it {
+.cp-note {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  color: #7c3aed;
-  margin-bottom: 10px;
-  font-style: italic;
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 2px;
 }
-.lc-def {
+.cover-photo-credit {
+  position: absolute;
+  bottom: 12px;
+  left: 56px;
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #475569;
-  line-height: 1.5;
-  flex: 1;
+  font-size: 10px;
+  color: rgba(255,255,255,0.38);
+  letter-spacing: 0.02em;
+  z-index: 2;
 }
-.lc-def strong { color: #1e293b; font-weight: 600; }
-.lc-today {
-  margin-top: 10px;
-  background: rgba(124,58,237,0.08);
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  color: #5b21b6;
-  line-height: 1.4;
-}
-.lc-today strong { font-weight: 700; }
 
-/* SLIDE 5 — TOP/FLOP */
-.tickers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; flex: 1; }
-.ticker-card {
-  border-radius: 14px;
-  padding: 18px 20px;
+/* ════════════════════════════════════════════ */
+/*  SLIDE 2 — LE RADICI (1957-1961)             */
+/* ════════════════════════════════════════════ */
+.origin-cols { display: flex; gap: 20px; flex: 1; }
+.origin-col {
+  flex: 1;
+  border-radius: 18px;
+  padding: 28px 26px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  border: 1px solid #e2e8f0;
 }
-.tc-up { background: #f0fdf4; border: 1px solid #bbf7d0; }
-.tc-down { background: #fff1f2; border: 1px solid #fecdd3; }
-.tc-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.oc-north { background: #f8fafc; }
+.oc-south { background: linear-gradient(145deg, #f0f7ff 0%, #e8f4fd 100%); border-color: #bfdbfe; }
+.oc-year {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #0068B5;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
 }
-.tc-name {
+.oc-city {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 4px;
+  line-height: 1.1;
+}
+.oc-company {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 700;
-  color: #0f172a;
+  color: #0068B5;
+  margin-bottom: 16px;
+}
+.oc-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.6;
+  flex: 1;
+}
+.oc-text strong { color: #0f172a; font-weight: 700; }
+.oc-fact {
+  margin-top: 16px;
+  background: rgba(0,104,181,0.08);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #004a82;
+}
+
+.timeline-bar {
+  margin-top: 22px;
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 0;
 }
-.tc-pct-up {
+.tb-item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+.tb-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #0068B5, #004a82);
+  z-index: 0;
+}
+.tb-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0068B5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 6px;
+  position: relative;
+  z-index: 1;
+}
+.tb-dot span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+}
+.tb-year {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #0068B5;
+  display: block;
+}
+.tb-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #64748b;
+  display: block;
+  line-height: 1.3;
+}
+
+/* ════════════════════════════════════════════ */
+/*  SLIDE 3 — PASQUALE PISTORIO               */
+/* ════════════════════════════════════════════ */
+.pistorio-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+  border-radius: 18px;
+  padding: 28px 32px;
+  margin-bottom: 22px;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.ph-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0068B5, #004a82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 36px;
+}
+.ph-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.ph-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 6px;
+}
+.ph-years {
+  display: inline-block;
+  background: #0068B5;
+  border-radius: 8px;
+  padding: 3px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+.pistorio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; flex: 1; }
+.pg-card {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 18px 20px;
+  border: 1px solid #e2e8f0;
+}
+.pgc-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: #0068B5;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.pgc-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 6px;
+}
+.pgc-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.5;
+}
+.pgc-text strong { color: #0f172a; font-weight: 600; }
+
+/* ════════════════════════════════════════════ */
+/*  SLIDE 4 — NASCITA DI STM (1987)            */
+/* ════════════════════════════════════════════ */
+.merger-diagram {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 24px;
+}
+.md-box {
+  flex: 1;
+  border-radius: 16px;
+  padding: 22px 20px;
+  text-align: center;
+}
+.md-it {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+.md-fr {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+.md-st {
+  background: linear-gradient(135deg, #0068B5, #004a82);
+}
+.md-flag {
+  font-size: 32px;
+  margin-bottom: 8px;
+  display: block;
+}
+.md-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 4px;
+  line-height: 1.1;
+}
+.md-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.3;
+}
+.md-arrow {
+  width: 60px;
+  text-align: center;
+  font-size: 28px;
+  color: #0068B5;
+  flex-shrink: 0;
+}
+.md-plus {
+  width: 48px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+.stm-timeline { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.stm-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 14px 18px;
+  border: 1px solid #e2e8f0;
+}
+.str-year {
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 900;
-  color: #16a34a;
+  color: #0068B5;
+  min-width: 60px;
+  flex-shrink: 0;
+  line-height: 1;
 }
-.tc-pct-down {
+.str-content { flex: 1; }
+.str-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  font-weight: 900;
-  color: #dc2626;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2px;
 }
-.tc-reason {
+.str-text {
   font-family: 'Inter', sans-serif;
   font-size: 12.5px;
   color: #475569;
   line-height: 1.45;
 }
-.tc-reason strong { color: #1e293b; font-weight: 600; }
+.str-text strong { color: #0f172a; font-weight: 600; }
 
-/* SLIDE 6 — OUTLOOK */
-.outlook-cols { display: flex; gap: 20px; flex: 1; }
-.outlook-col {
-  flex: 1;
-  border-radius: 18px;
-  padding: 28px 24px;
+/* ════════════════════════════════════════════ */
+/*  SLIDE 5 — PRODOTTI ICONICI                 */
+/* ════════════════════════════════════════════ */
+.products-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; }
+.prod-card {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 22px 20px;
+  border: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
-.oc-green { background: #f0fdf4; border: 1px solid #bbf7d0; }
-.oc-yellow { background: #fffbeb; border: 1px solid #fde68a; }
-.oc-header {
+.prod-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(135deg, #0068B5, #004a82);
+}
+.prd-year {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #0068B5;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+.prd-emoji { font-size: 28px; margin-bottom: 8px; display: block; }
+.prd-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 800;
-  margin-bottom: 20px;
+  color: #0f172a;
+  margin-bottom: 6px;
   line-height: 1.2;
 }
-.oc-green .oc-header { color: #15803d; }
-.oc-yellow .oc-header { color: #b45309; }
-.oc-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-.oc-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  margin-top: 5px;
-  flex-shrink: 0;
-}
-.oc-green .oc-dot { background: #16a34a; }
-.oc-yellow .oc-dot { background: #d97706; }
-.oc-text {
+.prd-text {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: #334155;
+  font-size: 12.5px;
+  color: #475569;
   line-height: 1.5;
+  flex: 1;
 }
-.oc-text strong { font-weight: 700; color: #0f172a; }
+.prd-text strong { color: #0f172a; font-weight: 600; }
+.prd-stat {
+  margin-top: 10px;
+  background: rgba(0,104,181,0.08);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #004a82;
+}
 
-/* SLIDE 7 — CTA */
-.slide-cta { background: linear-gradient(145deg, #7c3aed 0%, #6d28d9 50%, #4c1d95 100%); }
+/* ════════════════════════════════════════════ */
+/*  SLIDE 6 — ETNA VALLEY OGGI                 */
+/* ════════════════════════════════════════════ */
+.today-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.today-kpi {
+  background: linear-gradient(135deg, #0068B5 0%, #004a82 100%);
+  border-radius: 16px;
+  padding: 22px 18px;
+  text-align: center;
+}
+.tk-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.tk-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.35;
+}
+.today-stories { display: flex; gap: 16px; flex: 1; }
+.ts-card {
+  flex: 1;
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 22px 20px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+.tsc-icon { font-size: 28px; margin-bottom: 10px; }
+.tsc-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.tsc-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.55;
+  flex: 1;
+}
+.tsc-text strong { color: #0068B5; font-weight: 700; }
+.tsc-badge {
+  margin-top: 12px;
+  display: inline-block;
+  background: rgba(0,104,181,0.1);
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #004a82;
+}
+
+/* ════════════════════════════════════════════ */
+/*  SLIDE 7 — CTA                              */
+/* ════════════════════════════════════════════ */
+.slide-cta {
+  background: linear-gradient(145deg, #0068B5 0%, #004a82 50%, #001e3c 100%);
+}
 .cta-body {
   flex: 1;
   display: flex;
@@ -451,359 +686,391 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   padding: 48px;
 }
 .cta-card {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.22);
   border-radius: 28px;
   padding: 52px 56px;
   text-align: center;
-  max-width: 800px;
+  max-width: 820px;
   width: 100%;
-}
-.cta-eyebrow {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: rgba(255,255,255,0.7);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.cta-headline {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 40px;
-  font-weight: 900;
-  color: #ffffff;
-  line-height: 1.15;
-  margin-bottom: 16px;
-}
-.cta-sub {
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  color: rgba(255,255,255,0.82);
-  line-height: 1.5;
-  margin-bottom: 36px;
-}
-.cta-url {
-  display: inline-block;
-  background: rgba(255,255,255,0.2);
-  border: 1px solid rgba(255,255,255,0.35);
-  border-radius: 12px;
-  padding: 14px 32px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.02em;
-  margin-bottom: 28px;
-  word-break: break-all;
-}
-.cta-hashtags {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.6;
 }
 .cta-logo {
   font-family: 'Lobster', cursive;
   font-size: 44px;
   color: #ffffff;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   display: block;
 }
 .cta-tagline {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-  color: rgba(255,255,255,0.65);
-  margin-bottom: 36px;
+  color: rgba(255,255,255,0.62);
+  margin-bottom: 32px;
   font-style: italic;
+}
+.cta-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.cta-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.55;
+  margin-bottom: 32px;
+}
+.cta-url {
+  display: inline-block;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.30);
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+  word-break: break-all;
+}
+.cta-hashtags {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.48);
 }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- SLIDE 1 — COVER                                 -->
-<!-- ═══════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════ -->
+<!--  SLIDE 1 — COVER · Etna Valley, Catania           -->
+<!-- ══════════════════════════════════════════════════ -->
 <div class="slide slide-cover">
-  <div class="slide-body">
-    <div class="cover-category">💻 Tech &amp; AI · 3 Giugno 2026</div>
-    <div class="cover-hook">La guidance raddoppia.<br>STM vola +15%.</div>
-    <div class="cover-sub">STMicroelectronics porta i ricavi data center da $500M a $1 miliardo attesi nel 2026. Morgan Stanley risponde: target alzato a €83.</div>
+  <div class="cover-photo"></div>
+  <div class="cover-gradient"></div>
+
+  <div class="cover-content">
+    <div class="cover-logo-bar">
+      <span class="cover-logo-site">Alma Finanza</span>
+      <div class="cover-divider"></div>
+      <span class="cover-stm-tag">Storia dell'Impresa</span>
+    </div>
+
+    <div class="cover-eyebrow">
+      <span class="cover-badge">💻 STMicroelectronics</span>
+      <span class="cover-year">1957 · 2026</span>
+    </div>
+
+    <div class="cover-title">Dalla Sicilia<br>al mondo.</div>
+    <div class="cover-sub">Come un'azienda pubblica italiana-francese nata nel 1987 è diventata uno dei leader mondiali dei semiconduttori — e ha trasformato Catania nell'<em>Etna Valley</em> d'Europa.</div>
+
     <div class="cover-metrics">
-      <div class="metric-pill">
-        <div class="mp-label">STM 3 giu 2026</div>
-        <div class="mp-value">+15,19%</div>
-        <div class="mp-badge">€68,31</div>
+      <div class="cover-pill">
+        <div class="cp-label">Fondata</div>
+        <div class="cp-value">1957</div>
+        <div class="cp-note">SGS · Agrate Brianza</div>
       </div>
-      <div class="metric-pill">
-        <div class="mp-label">Guidance Data Center</div>
-        <div class="mp-value">~$1 Mld</div>
-        <div class="mp-badge">era &gt;$500M</div>
+      <div class="cover-pill">
+        <div class="cp-label">Ricavi 2024</div>
+        <div class="cp-value">$13,3 Mld</div>
+        <div class="cp-note">6° produttore mondiale</div>
       </div>
-      <div class="metric-pill">
-        <div class="mp-label">Target Price MS</div>
-        <div class="mp-value">€83</div>
-        <div class="mp-badge">Overweight</div>
+      <div class="cover-pill">
+        <div class="cp-label">Dipendenti</div>
+        <div class="cp-value">49.600</div>
+        <div class="cp-note">di cui 5.500 a Catania</div>
       </div>
-      <div class="metric-pill">
-        <div class="mp-label">FTSE MIB</div>
-        <div class="mp-value">-0,37%</div>
-        <div class="mp-badge">50.482 pt</div>
+      <div class="cover-pill">
+        <div class="cp-label">Quotata</div>
+        <div class="cp-value">NYSE · Euronext</div>
+        <div class="cp-note">dal 1994</div>
       </div>
     </div>
-    <div class="cover-teaser">📚 In questo carosello: <strong>Guidance · Data Center · Overweight · Target Price</strong> — i 4 concetti chiave per capire perché un comunicato aziendale vale +15% in borsa.</div>
   </div>
-  <div class="swipe-hint">Scorri per approfondire →</div>
+
+  <div class="cover-photo-credit">Foto: STMicroelectronics Catania — CC BY-SA 4.0 · Wikimedia Commons</div>
+  <div class="swipe">Scorri per la storia →</div>
 </div>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- SLIDE 2 — MACRO                                 -->
-<!-- ═══════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════ -->
+<!--  SLIDE 2 — LE RADICI (1957-1972)                  -->
+<!-- ══════════════════════════════════════════════════ -->
 <div class="slide">
   <div class="hdr-dark">
     <span class="hdr-logo">Alma Finanza</span>
-    <span class="hdr-section">📊 I Numeri della Seduta</span>
-    <span class="hdr-date">3 Giugno 2026</span>
+    <span class="hdr-section">📍 Le Radici · 1957–1972</span>
+    <span class="hdr-label">Due città, un destino</span>
   </div>
   <div class="slide-body">
-    <div class="slide-title">Tre cose che devi sapere sulla seduta di oggi</div>
-    <div class="macro-cards">
-      <div class="macro-card">
-        <div class="mc-value" style="color:#00C17C;">+15,19%</div>
-        <div class="mc-unit">seduta 3 giu</div>
-        <div class="mc-title">Il rialzo di STM</div>
-        <div class="mc-body">In finanza i prezzi reagiscono alle <strong>sorprese</strong>. La revisione della <strong>Guidance Data Center</strong> da $500M a $1B è stata una sorpresa positiva di portata eccezionale. Il mercato non l'aveva scontata: tutto il gap si è chiuso in un giorno.</div>
+    <div class="sec-title">Due aziende lontane 1.400 km che si troveranno</div>
+    <div class="sec-sub">La storia di STM nasce da due storie parallele: una al Nord, una al Sud. Entrambe pubbliche. Entrambe pioniere.</div>
+
+    <div class="origin-cols">
+      <div class="origin-col oc-north">
+        <div class="oc-year">🏭 1957 · Agrate Brianza (Milano)</div>
+        <div class="oc-city">SGS</div>
+        <div class="oc-company">Società Generale Semiconduttori</div>
+        <div class="oc-text">
+          Fondata da <strong>Adriano Olivetti</strong> in partnership con Telettra nel 1957, SGS nasce per portare la tecnologia dei transistor in Italia. Stabilimento di ricerca ad Agrate Brianza, vicino Milano.<br><br>
+          Nel 1959 arriva una partnership con <strong>General Electric</strong>, poi con Fairchild Semiconductor. SGS apre fabbriche in Inghilterra, Germania, Francia, Svizzera.<br><br>
+          Nel 1972 lo Stato italiano acquisisce la quota Olivetti e fonde SGS con ATES di Catania, creando <strong>SGS-ATES</strong>.
+        </div>
+        <div class="oc-fact">📊 ~3.000 dipendenti nel 1979</div>
       </div>
-      <div class="macro-card">
-        <div class="mc-value" style="color:#7c3aed;">2×</div>
-        <div class="mc-unit">crescita guidance</div>
-        <div class="mc-title">Il raddoppio delle aspettative</div>
-        <div class="mc-body">Non è solo il numero assoluto ($1B) a stupire: è la velocità del cambiamento. Una <strong>Guidance upgrade</strong> già aggiornata segnala ordini confermati e pipeline solida. Non è un'aspirazione: è un impegno formale verso gli investitori.</div>
-      </div>
-      <div class="macro-card">
-        <div class="mc-value" style="color:#00C17C;">+21%</div>
-        <div class="mc-unit">upside implicito MS</div>
-        <div class="mc-title">Morgan Stanley: €83 di target</div>
-        <div class="mc-body">Con €83 di target contro €68,31, l'<strong>upside implicito</strong> è +21,5%. Il rating <strong>Overweight</strong> significa tenere STM in percentuale maggiore dell'indice nel proprio portafoglio. È un segnale forte per i gestori istituzionali.</div>
+
+      <div class="origin-col oc-south">
+        <div class="oc-year">🌋 1961 · Catania, Sicilia</div>
+        <div class="oc-city">ATES</div>
+        <div class="oc-company">Aziende Tecniche Elettroniche del Sud</div>
+        <div class="oc-text">
+          Catania 1961: in piena era Cassa del Mezzogiorno, lo Stato italiano decide di portare l'industria hi-tech nel Sud. Nasce <strong>ATES</strong>, con licenze RCA e Marconi per la produzione di tubi a vuoto e, presto, semiconduttori.<br><br>
+          È il primo grande stabilimento tecnologico avanzato nel Sud Italia. L'obiettivo è creare un <strong>polo industriale duraturo</strong> alle pendici dell'Etna — quello che poi il mondo chiamerà <em>Etna Valley</em>.
+        </div>
+        <div class="oc-fact">🌋 Il polo che darà nome all'Etna Valley</div>
       </div>
     </div>
+
+    <div class="timeline-bar">
+      <div class="tb-item"><div class="tb-dot"><span>57</span></div><span class="tb-year">1957</span><span class="tb-label">SGS fondata<br>da Olivetti</span></div>
+      <div class="tb-item"><div class="tb-dot"><span>61</span></div><span class="tb-year">1961</span><span class="tb-label">ATES nasce<br>a Catania</span></div>
+      <div class="tb-item"><div class="tb-dot"><span>72</span></div><span class="tb-year">1972</span><span class="tb-label">Fusione<br>SGS-ATES</span></div>
+      <div class="tb-item"><div class="tb-dot"><span>79</span></div><span class="tb-year">1979</span><span class="tb-label">Arriva<br>Pistorio</span></div>
+    </div>
   </div>
-  <div class="swipe-hint-dark">2 / 7</div>
+  <div class="pg-dark">2 / 7</div>
 </div>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- SLIDE 3 — FOCUS                                 -->
-<!-- ═══════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════ -->
+<!--  SLIDE 3 — PASQUALE PISTORIO (1979-1987)          -->
+<!-- ══════════════════════════════════════════════════ -->
 <div class="slide">
-  <div class="hdr-accent">
+  <div class="hdr-blue">
     <span class="hdr-logo">Alma Finanza</span>
-    <span class="hdr-section">🔍 Focus</span>
-    <span class="hdr-date">3 Giugno 2026</span>
+    <span class="hdr-section">👤 Il Turnaround · 1979–1987</span>
+    <span class="hdr-label">L'uomo che salvò SGS</span>
   </div>
   <div class="slide-body">
-    <div class="focus-title">Perché un comunicato sul Data Center vale +15% in borsa</div>
-    <div class="focus-rows">
-      <div class="focus-row">
-        <div class="fr-left">
-          <div class="fr-label">Pre-comunicato</div>
-          <div class="fr-value" style="color:#6B7280;">€59,30</div>
-        </div>
-        <div class="fr-right">
-          <div class="fr-title">Il prezzo era basato su aspettative vecchie</div>
-          <div class="fr-body">Il mercato aveva già scontato la guidance precedente (&gt;$500M). Quel numero era nei modelli di tutti gli analisti. Nessuno si aspettava una revisione così rapida e netta verso il raddoppio.</div>
-        </div>
-      </div>
-      <div class="focus-row">
-        <div class="fr-left">
-          <div class="fr-label">Delta Guidance</div>
-          <div class="fr-value" style="color:#7c3aed;">$500M+</div>
-        </div>
-        <div class="fr-right">
-          <div class="fr-title">Il raddoppio cambia i modelli finanziari</div>
-          <div class="fr-body">I <strong>margini del segmento Data Center</strong> sono più alti di automotive e industriale. Raddoppiare quel segmento migliora la redditività complessiva in modo non lineare: ogni analista ha dovuto aggiornare le stime di utile futuro.</div>
-        </div>
-      </div>
-      <div class="focus-row">
-        <div class="fr-left">
-          <div class="fr-label">Post-seduta</div>
-          <div class="fr-value" style="color:#00C17C;">€68,31</div>
-        </div>
-        <div class="fr-right">
-          <div class="fr-title">Il nuovo prezzo riflette le nuove aspettative</div>
-          <div class="fr-body">Il +15,19% è la misura della distanza tra vecchie e nuove aspettative. Il mercato ha prezzato in ore quello che STM realizzerà nei prossimi 12 mesi: questa è l'efficienza dei mercati moderni.</div>
-        </div>
+    <div class="pistorio-hero">
+      <div class="ph-icon">👤</div>
+      <div>
+        <div class="ph-name">Pasquale Pistorio</div>
+        <div class="ph-role">CEO SGS-ATES → SGS-Thomson · Cataniese, ingegnere, ex Motorola</div>
+        <div class="ph-years">CEO 1979 – 2005</div>
       </div>
     </div>
-    <div class="focus-insight">💡 "La Guidance non descrive il passato: ridisegna il futuro che il mercato sta già pagando."</div>
-  </div>
-  <div class="swipe-hint-dark">3 / 7</div>
-</div>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- SLIDE 4 — FORMAZIONE                            -->
-<!-- ═══════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="hdr-accent">
-    <span class="hdr-logo">Alma Finanza</span>
-    <span class="hdr-section">📚 Impara la Finanza</span>
-    <span class="hdr-date">4 Concetti Chiave</span>
-  </div>
-  <div class="slide-body">
-    <div class="learn-grid">
-      <div class="learn-card">
-        <div class="lc-num">01 · Tech &amp; AI</div>
-        <div class="lc-term">Guidance</div>
-        <div class="lc-it">previsioni ufficiali</div>
-        <div class="lc-def">Previsione ufficiale che un'azienda pubblica sui propri <strong>ricavi futuri</strong>. Non è un dato storico: è un impegno verso il mercato. Quando viene alzata, gli analisti aggiornano tutti i modelli di valutazione.</div>
-        <div class="lc-today"><strong>→ Oggi:</strong> STM alza la guidance data center da &gt;$500M a ~$1 miliardo per il 2026.</div>
+    <div class="pistorio-grid">
+      <div class="pg-card">
+        <div class="pgc-num">−1.000</div>
+        <div class="pgc-label">Tagli al personale, 1979</div>
+        <div class="pgc-text">Pistorio arriva e trova un'azienda in perdita. La sua prima mossa: <strong>tagliare 1.000 posizioni</strong>, chiudere lo stabilimento scozzese, introdurre turni notturni. SGS diventa la prima azienda italiana ad assumere donne in turni notturni.</div>
       </div>
-      <div class="learn-card">
-        <div class="lc-num">02 · Tech &amp; AI</div>
-        <div class="lc-term">Data Center</div>
-        <div class="lc-it">centro dati</div>
-        <div class="lc-def">Infrastruttura fisico-digitale che elabora ed archivia dati per cloud, AI e streaming. Per i produttori di chip come STM, il segmento <strong>Data Center</strong> è il più redditizio della catena del valore.</div>
-        <div class="lc-today"><strong>→ Oggi:</strong> La domanda AI spinge i ricavi data center STM a raddoppiare le stime in pochi mesi.</div>
+      <div class="pg-card">
+        <div class="pgc-num">3×</div>
+        <div class="pgc-label">Ricavi triplicati al 1986</div>
+        <div class="pgc-text">In 7 anni i ricavi passano da <strong>$125M a $375M</strong>. La strategia: nicchie di mercato ad alto valore (microcontrollori, chip analogici), partnership con IBM e HP, apertura Singapore nel 1984 (30% della produzione).</div>
       </div>
-      <div class="learn-card">
-        <div class="lc-num">03 · Analisi</div>
-        <div class="lc-term">Overweight</div>
-        <div class="lc-it">sovrappeso</div>
-        <div class="lc-def">Rating degli analisti che indica di tenere un titolo in percentuale <strong>maggiore rispetto all'indice</strong> di riferimento. Equivale a "comprare" nel linguaggio degli istituzionali: è un segnale di fiducia formale.</div>
-        <div class="lc-today"><strong>→ Oggi:</strong> Morgan Stanley assegna Overweight a STM con target price €83.</div>
+      <div class="pg-card">
+        <div class="pgc-num">1984</div>
+        <div class="pgc-label">Singapore: la svolta globale</div>
+        <div class="pgc-text">Pistorio porta SGS in Asia prima di tutti i competitor europei. Lo <strong>stabilimento di Singapore</strong> diventa strategico: costi più bassi, accesso ai mercati asiatici in crescita, base per l'espansione futura.</div>
       </div>
-      <div class="learn-card">
-        <div class="lc-num">04 · Analisi</div>
-        <div class="lc-term">Target Price</div>
-        <div class="lc-it">prezzo obiettivo</div>
-        <div class="lc-def">Prezzo che un analista stima il titolo raggiungerà nei <strong>prossimi 12 mesi</strong>, basato su modelli DCF e multipli di settore. La distanza dal prezzo corrente si chiama <em>upside implicito</em>.</div>
-        <div class="lc-today"><strong>→ Oggi:</strong> Target €83 vs prezzo €68,31 = upside implicito del +21,5%.</div>
+      <div class="pg-card">
+        <div class="pgc-num">1987</div>
+        <div class="pgc-label">La visione: scala europea</div>
+        <div class="pgc-text">Pistorio capisce che <strong>un miliardo di dollari di ricavi</strong> è la soglia minima per sopravvivere nella guerra dei semiconduttori contro Intel, Texas Instruments e i giapponesi. SGS da sola non può farcela: serve una fusione.</div>
       </div>
     </div>
   </div>
-  <div class="swipe-hint-dark">4 / 7</div>
+  <div class="pg-dark">3 / 7</div>
 </div>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- SLIDE 5 — TOP / FLOP                            -->
-<!-- ═══════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════ -->
+<!--  SLIDE 4 — NASCE STM (1987-1998)                  -->
+<!-- ══════════════════════════════════════════════════ -->
 <div class="slide">
   <div class="hdr-dark">
     <span class="hdr-logo">Alma Finanza</span>
-    <span class="hdr-section">📈 Top &amp; Flop del giorno</span>
-    <span class="hdr-date">FTSE MIB · 3 Giugno 2026</span>
+    <span class="hdr-section">🇮🇹🇫🇷 La Fusione · 1987–1998</span>
+    <span class="hdr-label">Nasce il campione europeo dei chip</span>
   </div>
   <div class="slide-body">
-    <div class="slide-title">I protagonisti della seduta a Milano</div>
-    <div class="tickers-grid">
-      <div class="ticker-card tc-up">
-        <div class="tc-top">
-          <div class="tc-name">💻 STMicroelectronics</div>
-          <div class="tc-pct-up">+15,19%</div>
-        </div>
-        <div class="tc-reason">La <strong>Guidance Data Center</strong> raddoppia a $1B. Morgan Stanley alza il target a €83 con rating Overweight.</div>
+    <div class="merger-diagram">
+      <div class="md-box md-it">
+        <span class="md-flag">🇮🇹</span>
+        <div class="md-name">SGS-ATES</div>
+        <div class="md-sub">Italia · Pubblica<br>$375M ricavi · 1986</div>
       </div>
-      <div class="ticker-card tc-up">
-        <div class="tc-top">
-          <div class="tc-name">⚡ Eni</div>
-          <div class="tc-pct-up">+0,97%</div>
-        </div>
-        <div class="tc-reason">Il <strong>petrolio WTI a $95</strong> (+2,2%) alimenta le stime sugli utili. La tensione Iran/Golfo Persico sostiene i prezzi.</div>
+      <div class="md-plus">+</div>
+      <div class="md-box md-fr">
+        <span class="md-flag">🇫🇷</span>
+        <div class="md-name">Thomson Semi.</div>
+        <div class="md-sub">Francia · Nazionalizzata<br>nel 1982 da Mitterrand</div>
       </div>
-      <div class="ticker-card tc-up">
-        <div class="tc-top">
-          <div class="tc-name">🔧 Saipem</div>
-          <div class="tc-pct-up">+0,97%</div>
-        </div>
-        <div class="tc-reason">Il rialzo del WTI aumenta il Capex delle major oil: più commesse per i servizi petroliferi e le piattaforme offshore.</div>
+      <div class="md-arrow">→</div>
+      <div class="md-box md-st">
+        <span class="md-flag">🇪🇺</span>
+        <div class="md-name">SGS-Thomson</div>
+        <div class="md-sub">Ginevra · 1987<br>$800M ricavi · Day 1</div>
       </div>
-      <div class="ticker-card tc-down">
-        <div class="tc-top">
-          <div class="tc-name">🚀 Avio</div>
-          <div class="tc-pct-down">-3,61%</div>
+    </div>
+
+    <div class="stm-timeline">
+      <div class="stm-row">
+        <div class="str-year">1987</div>
+        <div class="str-content">
+          <div class="str-title">La fusione SGS + Thomson → SGS-Thomson Microelectronics</div>
+          <div class="str-text">Sede a Ginevra. CEO Pasquale Pistorio. Obiettivo dichiarato: diventare il <strong>campione europeo dei semiconduttori</strong> contro il dominio USA e Giappone. I governi italiano e francese finanziano il progetto strategico.</div>
         </div>
-        <div class="tc-reason"><strong>Profit taking</strong> (presa di profitto) dopo il rally geopolitico delle settimane precedenti sulla corsa spaziale europea.</div>
       </div>
-      <div class="ticker-card tc-down">
-        <div class="tc-top">
-          <div class="tc-name">✈️ Leonardo</div>
-          <div class="tc-pct-down">-1,78%</div>
+      <div class="stm-row">
+        <div class="str-year">1991</div>
+        <div class="str-content">
+          <div class="str-title">Le perdite accumulate: $500M in 4 anni</div>
+          <div class="str-text">L'integrazione è durissima. Perdite totali di <strong>$500M</strong> tra 1987 e 1991. I governi intervengono con un prestito di $800M. Ma Pistorio non molla: "Stiamo costruendo il futuro, non il presente."</div>
         </div>
-        <div class="tc-reason">Vendite sul settore difesa nonostante le tensioni Iran: rotazione da difesa verso energia e tech.</div>
       </div>
-      <div class="ticker-card tc-down">
-        <div class="tc-top">
-          <div class="tc-name">🚗 Stellantis</div>
-          <div class="tc-pct-down">-1,54%</div>
+      <div class="stm-row">
+        <div class="str-year">1994</div>
+        <div class="str-content">
+          <div class="str-title">IPO a Parigi e New York — 8 dicembre 1994</div>
+          <div class="str-text">SGS-Thomson sbarca in borsa su <strong>NYSE ed Euronext Paris</strong>. La quotazione segna la trasformazione da azienda pubblica a campione di mercato. Il 1993 aveva già portato il ritorno alla redditività.</div>
         </div>
-        <div class="tc-reason"><strong>Domanda auto europea</strong> in calo con PMI in contrazione. L'incertezza sui dazi pesa sulla guidance 2026.</div>
+      </div>
+      <div class="stm-row">
+        <div class="str-year">1998</div>
+        <div class="str-content">
+          <div class="str-title">Il nuovo nome: STMicroelectronics</div>
+          <div class="str-text">SGS-Thomson diventa <strong>STMicroelectronics</strong>. Il nuovo marchio riflette l'identità globale acquisita: non più un'azienda europea sostenuta dagli Stati, ma un protagonista mondiale dei chip.</div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="swipe-hint-dark">5 / 7</div>
+  <div class="pg-dark">4 / 7</div>
 </div>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- SLIDE 6 — OUTLOOK                               -->
-<!-- ═══════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════ -->
+<!--  SLIDE 5 — I PRODOTTI ICONICI                     -->
+<!-- ══════════════════════════════════════════════════ -->
 <div class="slide">
-  <div class="hdr-accent">
+  <div class="hdr-blue">
     <span class="hdr-logo">Alma Finanza</span>
-    <span class="hdr-section">🔭 Outlook STM</span>
-    <span class="hdr-date">Opportunità &amp; Rischi</span>
+    <span class="hdr-section">🏆 Prodotti Iconici · 1989–2025</span>
+    <span class="hdr-label">I chip che hanno cambiato il mondo</span>
   </div>
   <div class="slide-body">
-    <div class="slide-title">Cosa guardare nelle prossime settimane</div>
-    <div class="outlook-cols">
-      <div class="outlook-col oc-green">
-        <div class="oc-header">📈 Opportunità a breve</div>
-        <div class="oc-item">
-          <div class="oc-dot"></div>
-          <div class="oc-text"><strong>Data Center strutturale</strong> — La domanda AI è pluriennale. Il segmento più redditizio di STM cresce più velocemente del consensus.</div>
-        </div>
-        <div class="oc-item">
-          <div class="oc-dot"></div>
-          <div class="oc-text"><strong>Upside Morgan Stanley</strong> — Target €83 implica ancora +21% dal prezzo attuale. Gli istituzionali ruotano verso semiconduttori europei.</div>
-        </div>
-        <div class="oc-item">
-          <div class="oc-dot"></div>
-          <div class="oc-text"><strong>European Chips Act</strong> — I sussidi UE per l'autonomia sui chip favoriscono i produttori europei come STM nel medio-lungo termine.</div>
-        </div>
+    <div class="sec-title">STM dentro i prodotti che usi ogni giorno</div>
+    <div class="sec-sub">Spesso invisibile, sempre presente: dai telefoni Nokia alle stelle di Starlink, dai chip iPhone all'auto elettrica.</div>
+    <div class="products-grid">
+      <div class="prod-card">
+        <div class="prd-year">📱 1989 · Mobile</div>
+        <span class="prd-emoji">📞</span>
+        <div class="prd-title">Il chip che accende i Nokia</div>
+        <div class="prd-text">Nel 1989 STM produce il <strong>primo chip per la gestione dell'alimentazione</strong> dei telefoni Nokia. Inizia una collaborazione strategica pluridecennale. I chip STM entrano in milioni di telefoni europei.</div>
+        <div class="prd-stat">→ Partnership Nokia che apre l'era mobile</div>
       </div>
-      <div class="outlook-col oc-yellow">
-        <div class="oc-header">⚠️ Rischi da monitorare</div>
-        <div class="oc-item">
-          <div class="oc-dot"></div>
-          <div class="oc-text"><strong>Destocking industriale</strong> — I segmenti automotive e industriale restano sotto pressione: ordini in riduzione potrebbero comprimere i margini.</div>
-        </div>
-        <div class="oc-item">
-          <div class="oc-dot"></div>
-          <div class="oc-text"><strong>Automotive in frenata</strong> — La domanda auto elettrica europea rallenta. STM ha ancora forte esposizione al settore veicoli.</div>
-        </div>
-        <div class="oc-item">
-          <div class="oc-dot"></div>
-          <div class="oc-text"><strong>Geopolitica chip USA</strong> — Le restrizioni all'export di semiconduttori verso la Cina potrebbero colpire indirettamente la supply chain.</div>
-        </div>
+      <div class="prod-card">
+        <div class="prd-year">📊 2001 · Traguardo</div>
+        <span class="prd-emoji">🥉</span>
+        <div class="prd-title">3° produttore mondiale di chip</div>
+        <div class="prd-text">Nel 2001 STMicroelectronics raggiunge il <strong>terzo posto mondiale</strong> per vendita di semiconduttori, dietro solo a Intel e Toshiba. Operativa in 27 paesi con 31 alleanze strategiche. Catania cuore del sistema.</div>
+        <div class="prd-stat">→ Picco storico: 3° al mondo nel 2001</div>
+      </div>
+      <div class="prod-card">
+        <div class="prd-year">📱 2007 · Smartphone</div>
+        <span class="prd-emoji">📱</span>
+        <div class="prd-title">L'accelerometro dell'iPhone</div>
+        <div class="prd-text">Il sensore <strong>MEMS (Micro-Electro-Mechanical System)</strong> di STM è dentro i primi iPhone: rileva l'orientamento, attiva la rotazione schermo, misura i movimenti. I MEMS STM entreranno in miliardi di smartphone.</div>
+        <div class="prd-stat">→ Leader mondiale nei sensori MEMS</div>
+      </div>
+      <div class="prod-card">
+        <div class="prd-year">🛰 2015–2025 · Spazio</div>
+        <span class="prd-emoji">🛰️</span>
+        <div class="prd-title">5 miliardi di chip per Starlink</div>
+        <div class="prd-text">Dal 2015 STM collabora con <strong>SpaceX</strong> sui componenti per la rete satellitare Starlink. Entro il 2025 STM ha consegnato oltre <strong>5 miliardi di chip RF</strong> per le antenne dei satelliti della costellazione.</div>
+        <div class="prd-stat">→ 5 miliardi di chip RF per SpaceX Starlink</div>
       </div>
     </div>
   </div>
-  <div class="swipe-hint-dark">6 / 7</div>
+  <div class="pg-dark">5 / 7</div>
 </div>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- SLIDE 7 — CTA                                   -->
-<!-- ═══════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════ -->
+<!--  SLIDE 6 — L'ETNA VALLEY OGGI (2024-2026)         -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="hdr-dark">
+    <span class="hdr-logo">Alma Finanza</span>
+    <span class="hdr-section">🌋 Etna Valley Oggi · 2024–2026</span>
+    <span class="hdr-label">Il futuro si costruisce a Catania</span>
+  </div>
+  <div class="slide-body">
+    <div class="sec-title">Catania: il più grande sito STM al mondo per il SiC</div>
+    <div class="sec-sub">65 anni dopo la fondazione di ATES, l'Etna Valley è oggi al centro della strategia europea per l'autonomia nei semiconduttori.</div>
+
+    <div class="today-top">
+      <div class="today-kpi">
+        <div class="tk-value">5.500</div>
+        <div class="tk-label">dipendenti a Catania<br>(42% laureati)</div>
+      </div>
+      <div class="today-kpi">
+        <div class="tk-value">€5 Mld</div>
+        <div class="tk-label">investimento SiC Campus<br>2024–2033</div>
+      </div>
+      <div class="today-kpi">
+        <div class="tk-value">$13,3 Mld</div>
+        <div class="tk-label">ricavi globali 2024<br>6° al mondo</div>
+      </div>
+    </div>
+
+    <div class="today-stories">
+      <div class="ts-card">
+        <div class="tsc-icon">⚡</div>
+        <div class="tsc-title">SiC Campus: la fabbrica del futuro</div>
+        <div class="tsc-text">Nel 2024 STM e il governo italiano firmano un accordo da <strong>€5 miliardi</strong> per costruire a Catania il primo sito integrato al mondo per il <strong>carburo di silicio (SiC)</strong>: dalla polvere grezza al chip finito, tutto in un unico campus. Target: 15.000 wafer/settimana a pieno regime (2033). Previsti <strong>3.000 nuovi posti di lavoro</strong>.</div>
+        <div class="tsc-badge">🇪🇺 Finanziato con €2 Mld di aiuti UE/Stato</div>
+      </div>
+      <div class="ts-card">
+        <div class="tsc-icon">🤖</div>
+        <div class="tsc-title">Data Center &amp; AI: il salto di qualità</div>
+        <div class="tsc-text">Nel 2026 STM avvia la fornitura ad <strong>AWS (Amazon Web Services)</strong> di chip per data center nell'ambito di un accordo multi-year dal valore <strong>superiore a $1 miliardo</strong>. La Guidance Data Center 2026 rivista a ~$1 miliardo (da $500M) ha generato il +15,19% in borsa del 3 giugno 2026.</div>
+        <div class="tsc-badge">📈 +15,19% il 3 giugno 2026</div>
+      </div>
+      <div class="ts-card">
+        <div class="tsc-icon">🚗</div>
+        <div class="tsc-title">Automotive: cuore del business</div>
+        <div class="tsc-text">I chip per <strong>auto elettriche e sistemi ADAS</strong> restano il segmento principale. I chip SiC di STM gestiscono la potenza nei powertrain EV di Tesla, Stellantis, BMW e altri. Con l'accelerazione dell'elettrico europeo, Catania diventa strategica per l'industria automobilistica del continente.</div>
+        <div class="tsc-badge">🔋 Leader SiC per automotive EV in Europa</div>
+      </div>
+    </div>
+  </div>
+  <div class="pg-dark">6 / 7</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!--  SLIDE 7 — CTA                                    -->
+<!-- ══════════════════════════════════════════════════ -->
 <div class="slide slide-cta">
+  <div class="hdr-blue" style="background:rgba(0,0,0,0.25);border-bottom:1px solid rgba(255,255,255,0.12);">
+    <span class="hdr-logo">Alma Finanza</span>
+    <span class="hdr-section">📖 Approfondisci</span>
+    <span class="hdr-label">almafinanza.com</span>
+  </div>
   <div class="cta-body">
     <div class="cta-card">
       <span class="cta-logo">Alma Finanza</span>
       <div class="cta-tagline">La finanza italiana, spiegata bene.</div>
-      <div class="cta-eyebrow">Analisi completa disponibile su</div>
-      <div class="cta-headline">Leggi l'articolo<br>su Alma Finanza</div>
-      <div class="cta-sub">Guidance · Data Center · Overweight · Target Price<br>Tutto spiegato in italiano, con dati reali.</div>
+      <div class="cta-headline">Leggi l'analisi completa<br>su STM e il Data Center</div>
+      <div class="cta-sub">Guidance · Target Price · Overweight · SiC<br>Come un comunicato da $500M a $1 miliardo ha generato +15% in borsa.<br>Spiegato in italiano, con dati reali.</div>
       <div class="cta-url">almafinanza.com/articolo-tech-03giu-stm-datacenter-miliardo-morgan-stanley.html</div>
-      <div class="cta-hashtags">#AlmaFinanza &nbsp;·&nbsp; #STMicroelectronics &nbsp;·&nbsp; #Semiconduttori &nbsp;·&nbsp; #DataCenter &nbsp;·&nbsp; #MercatiFinanziari</div>
+      <div class="cta-hashtags">#AlmaFinanza &nbsp;·&nbsp; #STMicroelectronics &nbsp;·&nbsp; #EtnaValley &nbsp;·&nbsp; #Semiconduttori &nbsp;·&nbsp; #MercatiFinanziari</div>
     </div>
   </div>
+  <div class="pg">7 / 7</div>
 </div>
 
 </body>
