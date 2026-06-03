@@ -3,22 +3,26 @@ Da €59 a €68 in una seduta. Un solo comunicato.
 STMicroelectronics ha alzato la guidance sul Data Center da "oltre $500M" a "circa $1 miliardo" attesi nel 2026.
 Il mercato ha risposto immediatamente: +15,19% in una sola giornata.
 
-Come funziona questo meccanismo?
+Ma questa storia inizia molto prima del 3 giugno 2026.
 
-→ Il prezzo di un'azione incorpora le aspettative future, non i risultati passati
-→ Quando la guidance cambia, cambiano i modelli finanziari di tutti gli analisti
-→ Morgan Stanley ha alzato il target price a €83 (Overweight) — upside implicito del +21%
-→ Il segmento Data Center ha margini più alti di automotive e industriale: raddoppiare la stima cambia la redditività complessiva
-→ Chi aveva STM in portafoglio ha guadagnato +15% in un giorno. Chi non la seguiva, ha imparato oggi il valore della guidance
+→ 1957: Adriano Olivetti fonda la Società Generale Semiconduttori ad Agrate Brianza
+→ 1961: nasce ATES a Catania — la prima fabbrica di chip avanzati nel Sud Italia, alle pendici dell'Etna
+→ 1979: arriva Pasquale Pistorio, taglia 1.000 posti e triplica i ricavi in 7 anni
+→ 1987: la fusione con Thomson Semiconducteurs crea SGS-Thomson — il campione europeo dei chip con $800M di ricavi
+→ 1994: IPO su NYSE e Parigi. 1998: il rebrand → STMicroelectronics
+→ 2001: 3° produttore mondiale di chip. I MEMS di STM finiranno dentro l'iPhone
+→ 2026: deal AWS per il Data Center, SiC Campus da €5 miliardi a Catania, guidance raddoppiata
 
 💡 Concetto del giorno: Guidance
 La guidance è la previsione ufficiale che un'azienda fornisce sui propri ricavi futuri.
 Non descrive il passato: ridisegna il futuro che il mercato sta già pagando.
 
-📌 Nei prossimi giorni:
-Il focus torna su Wall Street con il Jobs Report di venerdì e la tensione geopolitica Iran/Golfo Persico che mantiene il WTI a $95. Il FTSE MIB ha chiuso a 50.482 (-0,37%) nonostante il balzo di STM.
+L'Etna Valley non è una metafora. È una storia industriale italiana lunga 65 anni che il 3 giugno 2026 ha fatto +15% in borsa.
 
-📖 Articolo completo su Alma Finanza:
+📌 Nel carosello qui sotto:
+La storia completa di STM — dalle origini nel 1957, a Pasquale Pistorio, alla fusione del 1987, ai chip dentro Nokia, iPhone e Starlink, fino al SiC Campus e all'accordo AWS da $1 miliardo.
+
+📖 Analisi completa su Alma Finanza:
 https://www.almafinanza.com/articolo-tech-03giu-stm-datacenter-miliardo-morgan-stanley.html
 
-#AlmaFinanza #STMicroelectronics #Semiconduttori #DataCenter #MercatiFinanziari
+#AlmaFinanza #STMicroelectronics #EtnaValley #Semiconduttori #MercatiFinanziari
