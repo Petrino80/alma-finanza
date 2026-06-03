@@ -2,13 +2,21 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/* ── LOBSTER EMBEDDED ─────────────────────── */
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: url("data:font/woff2;base64,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") format("woff2");
+}
+
 @page { size: 1080px 1080px; margin: 0; }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #f1f5f9; }
 
-/* ── SLIDE BASE ────────────────────────────── */
+/* ── SLIDE BASE ─────────────────────────── */
 .slide {
   width: 1080px;
   height: 1080px;
@@ -20,15 +28,10 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   flex-direction: column;
 }
 
-/* ── STM BRAND COLORS ───────────────────────
-   ST Blue: #0068B5   ST Dark: #004a82
-   Accent warm: #e8f4fd  Text: #0f172a
-   ─────────────────────────────────────────── */
-
-/* ── HEADERS ────────────────────────────────── */
+/* ── HEADERS ───────────────────────────── */
 .hdr-blue {
   background: linear-gradient(135deg, #0068B5 0%, #004a82 100%);
-  padding: 30px 48px 26px;
+  padding: 28px 52px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,7 +39,7 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
 }
 .hdr-dark {
   background: #0f172a;
-  padding: 30px 48px 26px;
+  padding: 28px 52px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,64 +47,64 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
 }
 .hdr-logo {
   font-family: 'Lobster', cursive;
-  font-size: 24px;
+  font-size: 30px;
   color: #ffffff;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 .hdr-section {
   background: rgba(255,255,255,0.18);
   border-radius: 20px;
-  padding: 6px 18px;
+  padding: 7px 20px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 .hdr-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  color: rgba(255,255,255,0.72);
+  color: rgba(255,255,255,0.70);
   letter-spacing: 0.04em;
 }
 
-/* ── BODY ────────────────────────────────────── */
+/* ── BODY ──────────────────────────────── */
 .slide-body {
   flex: 1;
-  padding: 34px 48px;
+  padding: 36px 52px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
-/* ── SECTION TITLE ───────────────────────────── */
+/* ── SECTION TITLE ─────────────────────── */
 .sec-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 28px;
-  font-weight: 800;
+  font-size: 36px;
+  font-weight: 900;
   color: #0f172a;
-  line-height: 1.2;
-  margin-bottom: 8px;
+  line-height: 1.15;
+  margin-bottom: 10px;
 }
 .sec-sub {
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   color: #64748b;
   margin-bottom: 28px;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
-/* ── PAGE INDICATOR ─────────────────────────── */
+/* ── PAGE INDICATOR ────────────────────── */
 .pg {
   position: absolute;
   bottom: 26px;
   right: 46px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.5);
   letter-spacing: 0.06em;
 }
 .pg-dark {
@@ -109,696 +112,473 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   bottom: 26px;
   right: 46px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  color: rgba(0,0,0,0.28);
+  color: rgba(0,0,0,0.25);
   letter-spacing: 0.06em;
 }
 .swipe {
   position: absolute;
   bottom: 26px;
-  left: 48px;
+  left: 52px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 0.07em;
+  color: rgba(255,255,255,0.48);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-/* ════════════════════════════════════════════ */
-/*  SLIDE 1 — COVER (photo full-bleed)          */
-/* ════════════════════════════════════════════ */
-.slide-cover {
-  background: #000;
-  position: relative;
-}
+/* ══════════════════════════════════════════
+   SLIDE 1 — COVER
+══════════════════════════════════════════ */
+.slide-cover { background: #000; position: relative; }
 .cover-photo {
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background-image: url('stm_catania.jpg');
   background-size: cover;
-  background-position: center 40%;
-  filter: brightness(0.45) saturate(0.7);
+  background-position: center 38%;
+  filter: brightness(0.42) saturate(0.65);
 }
 .cover-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,24,58,0.30) 0%,
-    rgba(0,24,58,0.55) 50%,
-    rgba(0,24,58,0.90) 100%
-  );
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(0,20,50,0.25) 0%,
+    rgba(0,20,50,0.50) 45%,
+    rgba(0,20,50,0.92) 100%);
 }
 .cover-content {
-  position: relative;
-  z-index: 2;
+  position: relative; z-index: 2;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 56px 64px;
-}
-.cover-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 22px;
-}
-.cover-badge {
-  background: #0068B5;
-  border-radius: 20px;
-  padding: 7px 18px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.cover-year {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.65);
-  letter-spacing: 0.06em;
+  padding: 0 56px 60px;
 }
 .cover-logo-bar {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 18px;
+  display: flex; align-items: center; gap: 14px; margin-bottom: 18px;
 }
-.cover-logo-site {
+.cover-alma {
   font-family: 'Lobster', cursive;
-  font-size: 20px;
-  color: rgba(255,255,255,0.7);
+  font-size: 26px;
+  color: rgba(255,255,255,0.75);
 }
-.cover-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.3); }
-.cover-stm-tag {
+.cover-divider { width:1px; height:26px; background:rgba(255,255,255,0.28); }
+.cover-tag {
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: rgba(255,255,255,0.65);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 12px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.cover-badge {
+  display: inline-block;
+  background: #0068B5;
+  border-radius: 20px;
+  padding: 7px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px; font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  margin-bottom: 18px;
 }
 .cover-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 66px;
-  font-weight: 900;
-  color: #ffffff;
-  line-height: 1.0;
-  margin-bottom: 16px;
-  letter-spacing: -0.01em;
+  font-size: 68px; font-weight: 900;
+  color: #ffffff; line-height: 1.0;
+  margin-bottom: 16px; letter-spacing: -0.01em;
 }
 .cover-sub {
   font-family: 'Inter', sans-serif;
-  font-size: 20px;
-  color: rgba(255,255,255,0.82);
-  line-height: 1.5;
-  margin-bottom: 36px;
+  font-size: 20px; color: rgba(255,255,255,0.82);
+  line-height: 1.5; margin-bottom: 34px;
   max-width: 820px;
 }
-.cover-metrics {
-  display: flex;
-  gap: 14px;
-}
+.cover-metrics { display: flex; gap: 14px; }
 .cover-pill {
   background: rgba(255,255,255,0.12);
   border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 12px;
-  padding: 12px 20px;
+  border-radius: 14px;
+  padding: 14px 22px;
 }
 .cp-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  color: rgba(255,255,255,0.6);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  margin-bottom: 3px;
+  font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,0.58);
+  text-transform: uppercase; letter-spacing: 0.07em;
+  margin-bottom: 4px;
 }
 .cp-value {
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1;
+  font-size: 24px; font-weight: 800;
+  color: #ffffff; line-height: 1;
 }
 .cp-note {
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  color: rgba(255,255,255,0.6);
-  margin-top: 2px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.58);
+  margin-top: 3px;
 }
-.cover-photo-credit {
-  position: absolute;
-  bottom: 12px;
-  left: 56px;
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  color: rgba(255,255,255,0.38);
-  letter-spacing: 0.02em;
-  z-index: 2;
+.cp-green .cp-value { color: #4ade80; }
+.cp-red .cp-value { color: #f87171; }
+.cover-credit {
+  position: absolute; bottom:14px; left:56px;
+  font-family:'Inter',sans-serif; font-size:10px;
+  color:rgba(255,255,255,0.30); z-index:2;
 }
 
-/* ════════════════════════════════════════════ */
-/*  SLIDE 2 — LE RADICI (1957-1961)             */
-/* ════════════════════════════════════════════ */
-.origin-cols { display: flex; gap: 20px; flex: 1; }
+/* ══════════════════════════════════════════
+   SLIDE 2 — LE RADICI
+══════════════════════════════════════════ */
+.origin-cols { display: flex; gap: 22px; flex: 1; }
 .origin-col {
-  flex: 1;
-  border-radius: 18px;
-  padding: 28px 26px;
-  display: flex;
-  flex-direction: column;
+  flex: 1; border-radius: 20px; padding: 30px 28px;
+  display: flex; flex-direction: column;
   border: 1px solid #e2e8f0;
 }
 .oc-north { background: #f8fafc; }
-.oc-south { background: linear-gradient(145deg, #f0f7ff 0%, #e8f4fd 100%); border-color: #bfdbfe; }
+.oc-south { background: linear-gradient(145deg,#f0f7ff,#e8f4fd); border-color:#bfdbfe; }
 .oc-year {
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  color: #0068B5;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 10px;
+  font-size: 12px; font-weight: 700;
+  color: #0068B5; text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 10px;
 }
 .oc-city {
   font-family: 'Montserrat', sans-serif;
-  font-size: 22px;
-  font-weight: 900;
-  color: #0f172a;
-  margin-bottom: 4px;
-  line-height: 1.1;
+  font-size: 26px; font-weight: 900;
+  color: #0f172a; margin-bottom: 4px;
 }
 .oc-company {
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: #0068B5;
-  margin-bottom: 16px;
+  font-size: 15px; font-weight: 700;
+  color: #0068B5; margin-bottom: 16px;
 }
 .oc-text {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: #334155;
-  line-height: 1.6;
-  flex: 1;
+  font-size: 16px; color: #334155;
+  line-height: 1.6; flex: 1;
 }
 .oc-text strong { color: #0f172a; font-weight: 700; }
 .oc-fact {
-  margin-top: 16px;
+  margin-top: 14px;
   background: rgba(0,104,181,0.08);
-  border-radius: 10px;
-  padding: 10px 14px;
+  border-radius: 10px; padding: 10px 14px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: #004a82;
+  font-size: 13px; font-weight: 700; color: #004a82;
 }
-
 .timeline-bar {
-  margin-top: 22px;
-  display: flex;
-  align-items: center;
-  gap: 0;
+  margin-top: 22px; display: flex; align-items: center;
 }
 .tb-item {
-  flex: 1;
-  text-align: center;
-  position: relative;
+  flex: 1; text-align: center; position: relative;
 }
 .tb-item:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  top: 14px;
-  right: -50%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, #0068B5, #004a82);
-  z-index: 0;
+  content:''; position:absolute;
+  top:16px; right:-50%; width:100%; height:2px;
+  background:linear-gradient(to right,#0068B5,#004a82); z-index:0;
 }
 .tb-dot {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+  width: 32px; height: 32px; border-radius: 50%;
   background: #0068B5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 6px;
-  position: relative;
-  z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 7px; position: relative; z-index: 1;
 }
 .tb-dot span {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 800;
-  color: #fff;
+  font-family:'Montserrat',sans-serif;
+  font-size:11px; font-weight:800; color:#fff;
 }
 .tb-year {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 800;
-  color: #0068B5;
-  display: block;
+  font-family:'Montserrat',sans-serif;
+  font-size:15px; font-weight:800; color:#0068B5; display:block;
 }
 .tb-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  color: #64748b;
-  display: block;
-  line-height: 1.3;
+  font-family:'Inter',sans-serif;
+  font-size:13px; color:#64748b; display:block; line-height:1.35;
 }
 
-/* ════════════════════════════════════════════ */
-/*  SLIDE 3 — PASQUALE PISTORIO               */
-/* ════════════════════════════════════════════ */
+/* ══════════════════════════════════════════
+   SLIDE 3 — PASQUALE PISTORIO
+══════════════════════════════════════════ */
 .pistorio-hero {
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-  border-radius: 18px;
-  padding: 28px 32px;
-  margin-bottom: 22px;
-  display: flex;
-  gap: 28px;
-  align-items: center;
+  background: linear-gradient(135deg, #0f172a, #1e3a5f);
+  border-radius: 20px; padding: 28px 36px;
+  margin-bottom: 24px; display: flex;
+  gap: 28px; align-items: center;
 }
 .ph-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #0068B5, #004a82);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 36px;
+  width: 80px; height: 80px; border-radius: 50%;
+  background: linear-gradient(135deg,#0068B5,#004a82);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; font-size:38px;
 }
 .ph-name {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 28px;
-  font-weight: 900;
-  color: #ffffff;
-  line-height: 1.1;
-  margin-bottom: 4px;
+  font-family:'Montserrat',sans-serif;
+  font-size:30px; font-weight:900; color:#fff;
+  line-height:1.1; margin-bottom:5px;
 }
 .ph-role {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: rgba(255,255,255,0.65);
-  margin-bottom: 6px;
+  font-family:'Inter',sans-serif;
+  font-size:15px; color:rgba(255,255,255,0.65); margin-bottom:8px;
 }
 .ph-years {
-  display: inline-block;
-  background: #0068B5;
-  border-radius: 8px;
-  padding: 3px 12px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: #fff;
+  display:inline-block; background:#0068B5;
+  border-radius:8px; padding:4px 14px;
+  font-family:'Montserrat',sans-serif;
+  font-size:13px; font-weight:700; color:#fff;
 }
-.pistorio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; flex: 1; }
+.pistorio-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; flex:1; }
 .pg-card {
-  background: #f8fafc;
-  border-radius: 14px;
-  padding: 18px 20px;
-  border: 1px solid #e2e8f0;
+  background:#f8fafc; border-radius:16px;
+  padding:20px 22px; border:1px solid #e2e8f0;
 }
 .pgc-num {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 32px;
-  font-weight: 900;
-  color: #0068B5;
-  line-height: 1;
-  margin-bottom: 4px;
+  font-family:'Montserrat',sans-serif;
+  font-size:36px; font-weight:900;
+  color:#0068B5; line-height:1; margin-bottom:5px;
 }
 .pgc-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: #334155;
-  margin-bottom: 6px;
+  font-family:'Montserrat',sans-serif;
+  font-size:13px; font-weight:700;
+  color:#334155; margin-bottom:7px;
 }
 .pgc-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 12.5px;
-  color: #475569;
-  line-height: 1.5;
+  font-family:'Inter',sans-serif;
+  font-size:15px; color:#475569; line-height:1.5;
 }
-.pgc-text strong { color: #0f172a; font-weight: 600; }
+.pgc-text strong { color:#0f172a; font-weight:600; }
 
-/* ════════════════════════════════════════════ */
-/*  SLIDE 4 — NASCITA DI STM (1987)            */
-/* ════════════════════════════════════════════ */
+/* ══════════════════════════════════════════
+   SLIDE 4 — NASCE STM
+══════════════════════════════════════════ */
 .merger-diagram {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  margin-bottom: 24px;
+  display:flex; align-items:center; gap:0; margin-bottom:22px;
 }
 .md-box {
-  flex: 1;
-  border-radius: 16px;
-  padding: 22px 20px;
-  text-align: center;
+  flex:1; border-radius:16px; padding:20px 16px; text-align:center;
 }
-.md-it {
-  background: linear-gradient(135deg, #dc2626, #b91c1c);
-}
-.md-fr {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-}
-.md-st {
-  background: linear-gradient(135deg, #0068B5, #004a82);
-}
-.md-flag {
-  font-size: 32px;
-  margin-bottom: 8px;
-  display: block;
-}
+.md-it { background:linear-gradient(135deg,#dc2626,#b91c1c); }
+.md-fr { background:linear-gradient(135deg,#2563eb,#1d4ed8); }
+.md-st { background:linear-gradient(135deg,#0068B5,#004a82); }
+.md-flag { font-size:32px; margin-bottom:8px; display:block; }
 .md-name {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 4px;
-  line-height: 1.1;
+  font-family:'Montserrat',sans-serif;
+  font-size:19px; font-weight:900; color:#fff;
+  margin-bottom:4px; line-height:1.1;
 }
 .md-sub {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.3;
-}
-.md-arrow {
-  width: 60px;
-  text-align: center;
-  font-size: 28px;
-  color: #0068B5;
-  flex-shrink: 0;
+  font-family:'Inter',sans-serif;
+  font-size:13px; color:rgba(255,255,255,0.78); line-height:1.35;
 }
 .md-plus {
-  width: 48px;
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 36px;
-  font-weight: 900;
-  color: #94a3b8;
-  flex-shrink: 0;
+  width:50px; text-align:center;
+  font-family:'Montserrat',sans-serif;
+  font-size:36px; font-weight:900;
+  color:#94a3b8; flex-shrink:0;
 }
-.stm-timeline { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.md-arrow {
+  width:52px; text-align:center;
+  font-size:28px; color:#0068B5; flex-shrink:0;
+}
+.stm-timeline { display:flex; flex-direction:column; gap:12px; flex:1; }
 .stm-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  background: #f8fafc;
-  border-radius: 12px;
-  padding: 14px 18px;
-  border: 1px solid #e2e8f0;
+  display:flex; align-items:flex-start; gap:18px;
+  background:#f8fafc; border-radius:14px;
+  padding:14px 20px; border:1px solid #e2e8f0;
 }
 .str-year {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  font-weight: 900;
-  color: #0068B5;
-  min-width: 60px;
-  flex-shrink: 0;
-  line-height: 1;
+  font-family:'Montserrat',sans-serif;
+  font-size:22px; font-weight:900;
+  color:#0068B5; min-width:62px; flex-shrink:0;
 }
-.str-content { flex: 1; }
 .str-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 2px;
+  font-family:'Montserrat',sans-serif;
+  font-size:15px; font-weight:700;
+  color:#0f172a; margin-bottom:3px;
 }
 .str-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 12.5px;
-  color: #475569;
-  line-height: 1.45;
+  font-family:'Inter',sans-serif;
+  font-size:15px; color:#475569; line-height:1.5;
 }
-.str-text strong { color: #0f172a; font-weight: 600; }
+.str-text strong { color:#0f172a; font-weight:600; }
 
-/* ════════════════════════════════════════════ */
-/*  SLIDE 5 — PRODOTTI ICONICI                 */
-/* ════════════════════════════════════════════ */
-.products-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; }
+/* ══════════════════════════════════════════
+   SLIDE 5 — PRODOTTI ICONICI
+══════════════════════════════════════════ */
+.products-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; flex:1; }
 .prod-card {
-  background: #f8fafc;
-  border-radius: 16px;
-  padding: 22px 20px;
-  border: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
+  background:#f8fafc; border-radius:18px;
+  padding:24px 22px; border:1px solid #e2e8f0;
+  display:flex; flex-direction:column; position:relative; overflow:hidden;
 }
 .prod-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(135deg, #0068B5, #004a82);
+  content:''; position:absolute;
+  top:0;left:0;right:0; height:4px;
+  background:linear-gradient(135deg,#0068B5,#004a82);
 }
 .prd-year {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  color: #0068B5;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 6px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px; font-weight:700;
+  color:#0068B5; text-transform:uppercase;
+  letter-spacing:0.08em; margin-bottom:6px;
 }
-.prd-emoji { font-size: 28px; margin-bottom: 8px; display: block; }
+.prd-emoji { font-size:30px; margin-bottom:8px; display:block; }
 .prd-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 6px;
-  line-height: 1.2;
+  font-family:'Montserrat',sans-serif;
+  font-size:19px; font-weight:800;
+  color:#0f172a; margin-bottom:8px; line-height:1.2;
 }
 .prd-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 12.5px;
-  color: #475569;
-  line-height: 1.5;
-  flex: 1;
+  font-family:'Inter',sans-serif;
+  font-size:15px; color:#475569; line-height:1.55; flex:1;
 }
-.prd-text strong { color: #0f172a; font-weight: 600; }
+.prd-text strong { color:#0f172a; font-weight:600; }
 .prd-stat {
-  margin-top: 10px;
-  background: rgba(0,104,181,0.08);
-  border-radius: 8px;
-  padding: 6px 12px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: #004a82;
+  margin-top:10px;
+  background:rgba(0,104,181,0.08);
+  border-radius:8px; padding:7px 12px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px; font-weight:700; color:#004a82;
 }
 
-/* ════════════════════════════════════════════ */
-/*  SLIDE 6 — ETNA VALLEY OGGI                 */
-/* ════════════════════════════════════════════ */
+/* ══════════════════════════════════════════
+   SLIDE 6 — ETNA VALLEY OGGI
+══════════════════════════════════════════ */
 .today-top {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 20px;
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  gap:18px; margin-bottom:22px;
 }
 .today-kpi {
-  background: linear-gradient(135deg, #0068B5 0%, #004a82 100%);
-  border-radius: 16px;
-  padding: 22px 18px;
-  text-align: center;
+  background:linear-gradient(135deg,#0068B5,#004a82);
+  border-radius:18px; padding:22px 18px; text-align:center;
 }
 .tk-value {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
-  font-weight: 900;
-  color: #ffffff;
-  line-height: 1;
-  margin-bottom: 4px;
+  font-family:'Montserrat',sans-serif;
+  font-size:32px; font-weight:900;
+  color:#fff; line-height:1; margin-bottom:6px;
 }
 .tk-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.35;
+  font-family:'Inter',sans-serif;
+  font-size:14px; color:rgba(255,255,255,0.75); line-height:1.4;
 }
-.today-stories { display: flex; gap: 16px; flex: 1; }
+.today-stories { display:flex; gap:18px; flex:1; }
 .ts-card {
-  flex: 1;
-  background: #f8fafc;
-  border-radius: 16px;
-  padding: 22px 20px;
-  border: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
+  flex:1; background:#f8fafc;
+  border-radius:18px; padding:22px 20px;
+  border:1px solid #e2e8f0; display:flex; flex-direction:column;
 }
-.tsc-icon { font-size: 28px; margin-bottom: 10px; }
+.tsc-icon { font-size:30px; margin-bottom:10px; }
 .tsc-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 8px;
-  line-height: 1.2;
+  font-family:'Montserrat',sans-serif;
+  font-size:17px; font-weight:800;
+  color:#0f172a; margin-bottom:8px; line-height:1.25;
 }
 .tsc-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #475569;
-  line-height: 1.55;
-  flex: 1;
+  font-family:'Inter',sans-serif;
+  font-size:14px; color:#475569; line-height:1.55; flex:1;
 }
-.tsc-text strong { color: #0068B5; font-weight: 700; }
+.tsc-text strong { color:#0068B5; font-weight:700; }
 .tsc-badge {
-  margin-top: 12px;
-  display: inline-block;
-  background: rgba(0,104,181,0.1);
-  border-radius: 8px;
-  padding: 5px 12px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  color: #004a82;
+  margin-top:12px; display:inline-block;
+  background:rgba(0,104,181,0.10);
+  border-radius:8px; padding:6px 12px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px; font-weight:700; color:#004a82;
 }
 
-/* ════════════════════════════════════════════ */
-/*  SLIDE 7 — CTA                              */
-/* ════════════════════════════════════════════ */
-.slide-cta {
-  background: linear-gradient(145deg, #0068B5 0%, #004a82 50%, #001e3c 100%);
-}
-.cta-body {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 48px;
-}
+/* ══════════════════════════════════════════
+   SLIDE 7 — CTA
+══════════════════════════════════════════ */
+.slide-cta { background:linear-gradient(145deg,#0068B5 0%,#004a82 50%,#001e3c 100%); }
+.cta-body { flex:1; display:flex; align-items:center; justify-content:center; padding:48px; }
 .cta-card {
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.22);
-  border-radius: 28px;
-  padding: 52px 56px;
-  text-align: center;
-  max-width: 820px;
-  width: 100%;
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(255,255,255,0.22);
+  border-radius:28px; padding:52px 56px;
+  text-align:center; max-width:820px; width:100%;
 }
 .cta-logo {
-  font-family: 'Lobster', cursive;
-  font-size: 44px;
-  color: #ffffff;
-  margin-bottom: 8px;
-  display: block;
+  font-family:'Lobster',cursive;
+  font-size:52px; color:#ffffff;
+  margin-bottom:8px; display:block;
 }
 .cta-tagline {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: rgba(255,255,255,0.62);
-  margin-bottom: 32px;
-  font-style: italic;
+  font-family:'Inter',sans-serif;
+  font-size:15px; color:rgba(255,255,255,0.60);
+  margin-bottom:30px; font-style:italic;
 }
 .cta-headline {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 36px;
-  font-weight: 900;
-  color: #ffffff;
-  line-height: 1.2;
-  margin-bottom: 14px;
+  font-family:'Montserrat',sans-serif;
+  font-size:38px; font-weight:900;
+  color:#fff; line-height:1.2; margin-bottom:14px;
 }
 .cta-sub {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  color: rgba(255,255,255,0.78);
-  line-height: 1.55;
-  margin-bottom: 32px;
+  font-family:'Inter',sans-serif;
+  font-size:17px; color:rgba(255,255,255,0.78);
+  line-height:1.55; margin-bottom:30px;
 }
 .cta-url {
-  display: inline-block;
-  background: rgba(255,255,255,0.16);
-  border: 1px solid rgba(255,255,255,0.30);
-  border-radius: 12px;
-  padding: 14px 28px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.02em;
-  margin-bottom: 24px;
-  word-break: break-all;
+  display:inline-block;
+  background:rgba(255,255,255,0.16);
+  border:1px solid rgba(255,255,255,0.28);
+  border-radius:12px; padding:14px 28px;
+  font-family:'Montserrat',sans-serif;
+  font-size:13px; font-weight:700; color:#fff;
+  letter-spacing:0.02em; margin-bottom:22px;
+  word-break:break-all;
 }
 .cta-hashtags {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: rgba(255,255,255,0.48);
+  font-family:'Inter',sans-serif;
+  font-size:14px; color:rgba(255,255,255,0.46);
 }
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════ -->
-<!--  SLIDE 1 — COVER · Etna Valley, Catania           -->
-<!-- ══════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════ -->
+<!--  SLIDE 1 — COVER · Etna Valley + Borsa    -->
+<!-- ══════════════════════════════════════════ -->
 <div class="slide slide-cover">
   <div class="cover-photo"></div>
   <div class="cover-gradient"></div>
-
   <div class="cover-content">
     <div class="cover-logo-bar">
-      <span class="cover-logo-site">Alma Finanza</span>
+      <span class="cover-alma">Alma Finanza</span>
       <div class="cover-divider"></div>
-      <span class="cover-stm-tag">Storia dell'Impresa</span>
+      <span class="cover-tag">💻 Tech &amp; AI · 3 Giugno 2026</span>
     </div>
-
-    <div class="cover-eyebrow">
-      <span class="cover-badge">💻 STMicroelectronics</span>
-      <span class="cover-year">1957 · 2026</span>
-    </div>
-
-    <div class="cover-title">Dalla Sicilia<br>al mondo.</div>
-    <div class="cover-sub">Come un'azienda pubblica italiana-francese nata nel 1987 è diventata uno dei leader mondiali dei semiconduttori — e ha trasformato Catania nell'<em>Etna Valley</em> d'Europa.</div>
-
+    <div class="cover-badge">STMicroelectronics · FTSE MIB</div>
+    <div class="cover-title">La guidance raddoppia.<br>STM vola +15%.</div>
+    <div class="cover-sub">STMicroelectronics porta i ricavi data center da $500M a $1 miliardo attesi nel 2026. Morgan Stanley risponde: target alzato a €83. Tutto iniziò nel 1957 a Catania.</div>
     <div class="cover-metrics">
-      <div class="cover-pill">
-        <div class="cp-label">Fondata</div>
-        <div class="cp-value">1957</div>
-        <div class="cp-note">SGS · Agrate Brianza</div>
+      <div class="cover-pill cp-green">
+        <div class="cp-label">STM · 3 giu 2026</div>
+        <div class="cp-value">+15,19%</div>
+        <div class="cp-note">€68,31 per azione</div>
+      </div>
+      <div class="cover-pill cp-green">
+        <div class="cp-label">Guidance Data Center</div>
+        <div class="cp-value">~$1 Mld</div>
+        <div class="cp-note">era &gt;$500M</div>
       </div>
       <div class="cover-pill">
-        <div class="cp-label">Ricavi 2024</div>
-        <div class="cp-value">$13,3 Mld</div>
-        <div class="cp-note">6° produttore mondiale</div>
+        <div class="cp-label">Target Price MS</div>
+        <div class="cp-value">€83</div>
+        <div class="cp-note">Overweight</div>
       </div>
-      <div class="cover-pill">
-        <div class="cp-label">Dipendenti</div>
-        <div class="cp-value">49.600</div>
-        <div class="cp-note">di cui 5.500 a Catania</div>
-      </div>
-      <div class="cover-pill">
-        <div class="cp-label">Quotata</div>
-        <div class="cp-value">NYSE · Euronext</div>
-        <div class="cp-note">dal 1994</div>
+      <div class="cover-pill cp-red">
+        <div class="cp-label">FTSE MIB</div>
+        <div class="cp-value">-0,37%</div>
+        <div class="cp-note">50.482 pt</div>
       </div>
     </div>
   </div>
-
-  <div class="cover-photo-credit">Foto: STMicroelectronics Catania — CC BY-SA 4.0 · Wikimedia Commons</div>
-  <div class="swipe">Scorri per la storia →</div>
+  <div class="cover-credit">Sede STMicroelectronics Catania — CC BY-SA 4.0 · Wikimedia Commons</div>
+  <div class="swipe">Scorri: la storia →</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════ -->
-<!--  SLIDE 2 — LE RADICI (1957-1972)                  -->
-<!-- ══════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════ -->
+<!--  SLIDE 2 — LE RADICI (1957-1972)           -->
+<!-- ══════════════════════════════════════════ -->
 <div class="slide">
   <div class="hdr-dark">
     <span class="hdr-logo">Alma Finanza</span>
@@ -806,34 +586,30 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
     <span class="hdr-label">Due città, un destino</span>
   </div>
   <div class="slide-body">
-    <div class="sec-title">Due aziende lontane 1.400 km che si troveranno</div>
-    <div class="sec-sub">La storia di STM nasce da due storie parallele: una al Nord, una al Sud. Entrambe pubbliche. Entrambe pioniere.</div>
-
+    <div class="sec-title">Tutto inizia a Milano e Catania</div>
+    <div class="sec-sub">Due aziende pubbliche lontane 1.400 km che nel 1987 si troveranno a fondere per creare STM.</div>
     <div class="origin-cols">
       <div class="origin-col oc-north">
-        <div class="oc-year">🏭 1957 · Agrate Brianza (Milano)</div>
+        <div class="oc-year">🏭 1957 · Agrate Brianza</div>
         <div class="oc-city">SGS</div>
         <div class="oc-company">Società Generale Semiconduttori</div>
         <div class="oc-text">
-          Fondata da <strong>Adriano Olivetti</strong> in partnership con Telettra nel 1957, SGS nasce per portare la tecnologia dei transistor in Italia. Stabilimento di ricerca ad Agrate Brianza, vicino Milano.<br><br>
-          Nel 1959 arriva una partnership con <strong>General Electric</strong>, poi con Fairchild Semiconductor. SGS apre fabbriche in Inghilterra, Germania, Francia, Svizzera.<br><br>
-          Nel 1972 lo Stato italiano acquisisce la quota Olivetti e fonde SGS con ATES di Catania, creando <strong>SGS-ATES</strong>.
+          Fondata da <strong>Adriano Olivetti</strong> in partnership con Telettra. Nasce per portare la tecnologia dei transistor in Italia, con fabbriche in UK, Germania, Francia.<br><br>
+          Nel 1972 lo Stato italiano fonde SGS con ATES di Catania → nasce <strong>SGS-ATES</strong>.
         </div>
         <div class="oc-fact">📊 ~3.000 dipendenti nel 1979</div>
       </div>
-
       <div class="origin-col oc-south">
         <div class="oc-year">🌋 1961 · Catania, Sicilia</div>
         <div class="oc-city">ATES</div>
         <div class="oc-company">Aziende Tecniche Elettroniche del Sud</div>
         <div class="oc-text">
-          Catania 1961: in piena era Cassa del Mezzogiorno, lo Stato italiano decide di portare l'industria hi-tech nel Sud. Nasce <strong>ATES</strong>, con licenze RCA e Marconi per la produzione di tubi a vuoto e, presto, semiconduttori.<br><br>
-          È il primo grande stabilimento tecnologico avanzato nel Sud Italia. L'obiettivo è creare un <strong>polo industriale duraturo</strong> alle pendici dell'Etna — quello che poi il mondo chiamerà <em>Etna Valley</em>.
+          Cassa del Mezzogiorno, 1961: lo Stato porta l'hi-tech al Sud. Nasce <strong>ATES</strong> con licenze RCA e Marconi, prima fabbrica di semiconduttori avanzati nel Sud Italia.<br><br>
+          È la radice dell'<strong>Etna Valley</strong>: il polo che trasformerà Catania nella Silicon Valley europea.
         </div>
-        <div class="oc-fact">🌋 Il polo che darà nome all'Etna Valley</div>
+        <div class="oc-fact">🌋 La radice dell'Etna Valley</div>
       </div>
     </div>
-
     <div class="timeline-bar">
       <div class="tb-item"><div class="tb-dot"><span>57</span></div><span class="tb-year">1957</span><span class="tb-label">SGS fondata<br>da Olivetti</span></div>
       <div class="tb-item"><div class="tb-dot"><span>61</span></div><span class="tb-year">1961</span><span class="tb-label">ATES nasce<br>a Catania</span></div>
@@ -844,9 +620,9 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   <div class="pg-dark">2 / 7</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════ -->
-<!--  SLIDE 3 — PASQUALE PISTORIO (1979-1987)          -->
-<!-- ══════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════ -->
+<!--  SLIDE 3 — PASQUALE PISTORIO (1979-1987)   -->
+<!-- ══════════════════════════════════════════ -->
 <div class="slide">
   <div class="hdr-blue">
     <span class="hdr-logo">Alma Finanza</span>
@@ -862,36 +638,35 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
         <div class="ph-years">CEO 1979 – 2005</div>
       </div>
     </div>
-
     <div class="pistorio-grid">
       <div class="pg-card">
         <div class="pgc-num">−1.000</div>
         <div class="pgc-label">Tagli al personale, 1979</div>
-        <div class="pgc-text">Pistorio arriva e trova un'azienda in perdita. La sua prima mossa: <strong>tagliare 1.000 posizioni</strong>, chiudere lo stabilimento scozzese, introdurre turni notturni. SGS diventa la prima azienda italiana ad assumere donne in turni notturni.</div>
+        <div class="pgc-text">Arriva e trova un'azienda in perdita. Prima mossa: <strong>tagliare 1.000 posizioni</strong>, chiudere lo stabilimento scozzese. SGS diventa la prima azienda italiana con turni notturni femminili.</div>
       </div>
       <div class="pg-card">
         <div class="pgc-num">3×</div>
         <div class="pgc-label">Ricavi triplicati al 1986</div>
-        <div class="pgc-text">In 7 anni i ricavi passano da <strong>$125M a $375M</strong>. La strategia: nicchie di mercato ad alto valore (microcontrollori, chip analogici), partnership con IBM e HP, apertura Singapore nel 1984 (30% della produzione).</div>
+        <div class="pgc-text">In 7 anni i ricavi passano da <strong>$125M a $375M</strong>. Strategia: nicchie ad alto valore (microcontrollori, chip analogici), partnership IBM e HP.</div>
       </div>
       <div class="pg-card">
         <div class="pgc-num">1984</div>
         <div class="pgc-label">Singapore: la svolta globale</div>
-        <div class="pgc-text">Pistorio porta SGS in Asia prima di tutti i competitor europei. Lo <strong>stabilimento di Singapore</strong> diventa strategico: costi più bassi, accesso ai mercati asiatici in crescita, base per l'espansione futura.</div>
+        <div class="pgc-text">Pistorio porta SGS in Asia prima di tutti i competitor europei. Lo <strong>stabilimento di Singapore</strong> rappresenterà il 30% della produzione e apre i mercati asiatici.</div>
       </div>
       <div class="pg-card">
         <div class="pgc-num">1987</div>
         <div class="pgc-label">La visione: scala europea</div>
-        <div class="pgc-text">Pistorio capisce che <strong>un miliardo di dollari di ricavi</strong> è la soglia minima per sopravvivere nella guerra dei semiconduttori contro Intel, Texas Instruments e i giapponesi. SGS da sola non può farcela: serve una fusione.</div>
+        <div class="pgc-text">Pistorio capisce che servono <strong>almeno $1 miliardo di ricavi</strong> per sopravvivere contro Intel e i giapponesi. SGS da sola non basta: serve una fusione europea.</div>
       </div>
     </div>
   </div>
   <div class="pg-dark">3 / 7</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════ -->
-<!--  SLIDE 4 — NASCE STM (1987-1998)                  -->
-<!-- ══════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════ -->
+<!--  SLIDE 4 — NASCE STM (1987-1998)           -->
+<!-- ══════════════════════════════════════════ -->
 <div class="slide">
   <div class="hdr-dark">
     <span class="hdr-logo">Alma Finanza</span>
@@ -909,7 +684,7 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
       <div class="md-box md-fr">
         <span class="md-flag">🇫🇷</span>
         <div class="md-name">Thomson Semi.</div>
-        <div class="md-sub">Francia · Nazionalizzata<br>nel 1982 da Mitterrand</div>
+        <div class="md-sub">Francia · Nazionalizzata<br>da Mitterrand nel 1982</div>
       </div>
       <div class="md-arrow">→</div>
       <div class="md-box md-st">
@@ -918,34 +693,33 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
         <div class="md-sub">Ginevra · 1987<br>$800M ricavi · Day 1</div>
       </div>
     </div>
-
     <div class="stm-timeline">
       <div class="stm-row">
         <div class="str-year">1987</div>
-        <div class="str-content">
-          <div class="str-title">La fusione SGS + Thomson → SGS-Thomson Microelectronics</div>
-          <div class="str-text">Sede a Ginevra. CEO Pasquale Pistorio. Obiettivo dichiarato: diventare il <strong>campione europeo dei semiconduttori</strong> contro il dominio USA e Giappone. I governi italiano e francese finanziano il progetto strategico.</div>
+        <div>
+          <div class="str-title">Fusione SGS + Thomson → SGS-Thomson Microelectronics</div>
+          <div class="str-text">Sede a Ginevra. CEO Pasquale Pistorio. Obiettivo: diventare il <strong>campione europeo dei semiconduttori</strong> contro USA e Giappone.</div>
         </div>
       </div>
       <div class="stm-row">
         <div class="str-year">1991</div>
-        <div class="str-content">
-          <div class="str-title">Le perdite accumulate: $500M in 4 anni</div>
-          <div class="str-text">L'integrazione è durissima. Perdite totali di <strong>$500M</strong> tra 1987 e 1991. I governi intervengono con un prestito di $800M. Ma Pistorio non molla: "Stiamo costruendo il futuro, non il presente."</div>
+        <div>
+          <div class="str-title">$500M di perdite in 4 anni — ma Pistorio non molla</div>
+          <div class="str-text">L'integrazione costa cara. I governi italiano e francese intervengono con un prestito da <strong>$800M</strong>. Il 1993 porta finalmente il ritorno alla redditività.</div>
         </div>
       </div>
       <div class="stm-row">
         <div class="str-year">1994</div>
-        <div class="str-content">
+        <div>
           <div class="str-title">IPO a Parigi e New York — 8 dicembre 1994</div>
-          <div class="str-text">SGS-Thomson sbarca in borsa su <strong>NYSE ed Euronext Paris</strong>. La quotazione segna la trasformazione da azienda pubblica a campione di mercato. Il 1993 aveva già portato il ritorno alla redditività.</div>
+          <div class="str-text">SGS-Thomson sbarca su <strong>NYSE ed Euronext Paris</strong>. Trasformazione da azienda pubblica a campione di mercato globale.</div>
         </div>
       </div>
       <div class="stm-row">
         <div class="str-year">1998</div>
-        <div class="str-content">
+        <div>
           <div class="str-title">Il nuovo nome: STMicroelectronics</div>
-          <div class="str-text">SGS-Thomson diventa <strong>STMicroelectronics</strong>. Il nuovo marchio riflette l'identità globale acquisita: non più un'azienda europea sostenuta dagli Stati, ma un protagonista mondiale dei chip.</div>
+          <div class="str-text">SGS-Thomson diventa <strong>STMicroelectronics</strong>: identità globale, non più solo europea. Inizia la rincorsa ai leader mondiali.</div>
         </div>
       </div>
     </div>
@@ -953,9 +727,9 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   <div class="pg-dark">4 / 7</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════ -->
-<!--  SLIDE 5 — I PRODOTTI ICONICI                     -->
-<!-- ══════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════ -->
+<!--  SLIDE 5 — I PRODOTTI ICONICI             -->
+<!-- ══════════════════════════════════════════ -->
 <div class="slide">
   <div class="hdr-blue">
     <span class="hdr-logo">Alma Finanza</span>
@@ -964,44 +738,44 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   </div>
   <div class="slide-body">
     <div class="sec-title">STM dentro i prodotti che usi ogni giorno</div>
-    <div class="sec-sub">Spesso invisibile, sempre presente: dai telefoni Nokia alle stelle di Starlink, dai chip iPhone all'auto elettrica.</div>
+    <div class="sec-sub">Dai telefoni Nokia agli iPhone, dai satelliti Starlink all'auto elettrica. Spesso invisibile, sempre presente.</div>
     <div class="products-grid">
       <div class="prod-card">
         <div class="prd-year">📱 1989 · Mobile</div>
         <span class="prd-emoji">📞</span>
         <div class="prd-title">Il chip che accende i Nokia</div>
-        <div class="prd-text">Nel 1989 STM produce il <strong>primo chip per la gestione dell'alimentazione</strong> dei telefoni Nokia. Inizia una collaborazione strategica pluridecennale. I chip STM entrano in milioni di telefoni europei.</div>
-        <div class="prd-stat">→ Partnership Nokia che apre l'era mobile</div>
+        <div class="prd-text">STM produce il primo <strong>chip per la gestione dell'alimentazione</strong> dei telefoni Nokia, avviando una collaborazione pluridecennale. Milioni di telefoni europei degli anni '90 e 2000.</div>
+        <div class="prd-stat">→ Partnership che apre l'era mobile europea</div>
       </div>
       <div class="prod-card">
         <div class="prd-year">📊 2001 · Traguardo</div>
         <span class="prd-emoji">🥉</span>
         <div class="prd-title">3° produttore mondiale di chip</div>
-        <div class="prd-text">Nel 2001 STMicroelectronics raggiunge il <strong>terzo posto mondiale</strong> per vendita di semiconduttori, dietro solo a Intel e Toshiba. Operativa in 27 paesi con 31 alleanze strategiche. Catania cuore del sistema.</div>
+        <div class="prd-text">Nel 2001 STM raggiunge il <strong>3° posto mondiale</strong> per ricavi, dietro solo a Intel e Toshiba. Operativa in 27 paesi con 31 alleanze strategiche attive.</div>
         <div class="prd-stat">→ Picco storico: 3° al mondo nel 2001</div>
       </div>
       <div class="prod-card">
         <div class="prd-year">📱 2007 · Smartphone</div>
         <span class="prd-emoji">📱</span>
         <div class="prd-title">L'accelerometro dell'iPhone</div>
-        <div class="prd-text">Il sensore <strong>MEMS (Micro-Electro-Mechanical System)</strong> di STM è dentro i primi iPhone: rileva l'orientamento, attiva la rotazione schermo, misura i movimenti. I MEMS STM entreranno in miliardi di smartphone.</div>
+        <div class="prd-text">Il sensore <strong>MEMS di STM</strong> è dentro i primi iPhone: rileva l'orientamento, attiva la rotazione schermo. I MEMS STM entreranno in miliardi di smartphone di tutti i brand.</div>
         <div class="prd-stat">→ Leader mondiale nei sensori MEMS</div>
       </div>
       <div class="prod-card">
         <div class="prd-year">🛰 2015–2025 · Spazio</div>
         <span class="prd-emoji">🛰️</span>
         <div class="prd-title">5 miliardi di chip per Starlink</div>
-        <div class="prd-text">Dal 2015 STM collabora con <strong>SpaceX</strong> sui componenti per la rete satellitare Starlink. Entro il 2025 STM ha consegnato oltre <strong>5 miliardi di chip RF</strong> per le antenne dei satelliti della costellazione.</div>
-        <div class="prd-stat">→ 5 miliardi di chip RF per SpaceX Starlink</div>
+        <div class="prd-text">Dal 2015 STM collabora con <strong>SpaceX</strong> per i componenti della rete Starlink. Entro il 2025: oltre <strong>5 miliardi di chip RF</strong> consegnati per le antenne della costellazione satellitare.</div>
+        <div class="prd-stat">→ 5 mld chip RF per SpaceX Starlink</div>
       </div>
     </div>
   </div>
   <div class="pg-dark">5 / 7</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════ -->
-<!--  SLIDE 6 — L'ETNA VALLEY OGGI (2024-2026)         -->
-<!-- ══════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════ -->
+<!--  SLIDE 6 — ETNA VALLEY OGGI               -->
+<!-- ══════════════════════════════════════════ -->
 <div class="slide">
   <div class="hdr-dark">
     <span class="hdr-logo">Alma Finanza</span>
@@ -1009,13 +783,12 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
     <span class="hdr-label">Il futuro si costruisce a Catania</span>
   </div>
   <div class="slide-body">
-    <div class="sec-title">Catania: il più grande sito STM al mondo per il SiC</div>
-    <div class="sec-sub">65 anni dopo la fondazione di ATES, l'Etna Valley è oggi al centro della strategia europea per l'autonomia nei semiconduttori.</div>
-
+    <div class="sec-title">65 anni dopo, Catania è al centro dell'Europa dei chip</div>
+    <div class="sec-sub">Da ATES 1961 al SiC Campus 2026: l'Etna Valley diventa strategica per l'autonomia europea nei semiconduttori.</div>
     <div class="today-top">
       <div class="today-kpi">
         <div class="tk-value">5.500</div>
-        <div class="tk-label">dipendenti a Catania<br>(42% laureati)</div>
+        <div class="tk-label">dipendenti a Catania<br>42% laureati</div>
       </div>
       <div class="today-kpi">
         <div class="tk-value">€5 Mld</div>
@@ -1023,41 +796,40 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
       </div>
       <div class="today-kpi">
         <div class="tk-value">$13,3 Mld</div>
-        <div class="tk-label">ricavi globali 2024<br>6° al mondo</div>
+        <div class="tk-label">ricavi globali 2024<br>6° produttore al mondo</div>
       </div>
     </div>
-
     <div class="today-stories">
       <div class="ts-card">
         <div class="tsc-icon">⚡</div>
         <div class="tsc-title">SiC Campus: la fabbrica del futuro</div>
-        <div class="tsc-text">Nel 2024 STM e il governo italiano firmano un accordo da <strong>€5 miliardi</strong> per costruire a Catania il primo sito integrato al mondo per il <strong>carburo di silicio (SiC)</strong>: dalla polvere grezza al chip finito, tutto in un unico campus. Target: 15.000 wafer/settimana a pieno regime (2033). Previsti <strong>3.000 nuovi posti di lavoro</strong>.</div>
-        <div class="tsc-badge">🇪🇺 Finanziato con €2 Mld di aiuti UE/Stato</div>
+        <div class="tsc-text">Catania ospiterà il primo sito integrato al mondo per il <strong>carburo di silicio (SiC)</strong>: dalla polvere grezza al chip finito in un unico campus. Target: <strong>15.000 wafer/settimana</strong> a regime nel 2033. Previsti <strong>3.000 nuovi posti</strong>.</div>
+        <div class="tsc-badge">🇪🇺 €2 Mld di sussidi UE/Stato</div>
       </div>
       <div class="ts-card">
         <div class="tsc-icon">🤖</div>
-        <div class="tsc-title">Data Center &amp; AI: il salto di qualità</div>
-        <div class="tsc-text">Nel 2026 STM avvia la fornitura ad <strong>AWS (Amazon Web Services)</strong> di chip per data center nell'ambito di un accordo multi-year dal valore <strong>superiore a $1 miliardo</strong>. La Guidance Data Center 2026 rivista a ~$1 miliardo (da $500M) ha generato il +15,19% in borsa del 3 giugno 2026.</div>
+        <div class="tsc-title">AWS Data Center: deal $1 miliardo</div>
+        <div class="tsc-text">Nel 2026 STM avvia la fornitura ad <strong>Amazon Web Services</strong> nell'ambito di un accordo multi-year <strong>oltre $1 miliardo</strong>. La Guidance rivista ha generato il <strong>+15,19%</strong> in borsa del 3 giugno 2026.</div>
         <div class="tsc-badge">📈 +15,19% il 3 giugno 2026</div>
       </div>
       <div class="ts-card">
         <div class="tsc-icon">🚗</div>
-        <div class="tsc-title">Automotive: cuore del business</div>
-        <div class="tsc-text">I chip per <strong>auto elettriche e sistemi ADAS</strong> restano il segmento principale. I chip SiC di STM gestiscono la potenza nei powertrain EV di Tesla, Stellantis, BMW e altri. Con l'accelerazione dell'elettrico europeo, Catania diventa strategica per l'industria automobilistica del continente.</div>
-        <div class="tsc-badge">🔋 Leader SiC per automotive EV in Europa</div>
+        <div class="tsc-title">Automotive EV: leader SiC europeo</div>
+        <div class="tsc-text">I chip <strong>SiC di STM</strong> gestiscono la potenza nei powertrain elettrici di Tesla, Stellantis, BMW. Con l'accelerazione dell'elettrico europeo, Catania diventa infrastruttura critica per l'industria auto del continente.</div>
+        <div class="tsc-badge">🔋 Leader SiC per automotive in Europa</div>
       </div>
     </div>
   </div>
   <div class="pg-dark">6 / 7</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════ -->
-<!--  SLIDE 7 — CTA                                    -->
-<!-- ══════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════ -->
+<!--  SLIDE 7 — CTA                            -->
+<!-- ══════════════════════════════════════════ -->
 <div class="slide slide-cta">
-  <div class="hdr-blue" style="background:rgba(0,0,0,0.25);border-bottom:1px solid rgba(255,255,255,0.12);">
+  <div class="hdr-blue" style="background:rgba(0,0,0,0.22);border-bottom:1px solid rgba(255,255,255,0.10);">
     <span class="hdr-logo">Alma Finanza</span>
-    <span class="hdr-section">📖 Approfondisci</span>
+    <span class="hdr-section">📖 Articolo completo</span>
     <span class="hdr-label">almafinanza.com</span>
   </div>
   <div class="cta-body">
@@ -1065,7 +837,7 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
       <span class="cta-logo">Alma Finanza</span>
       <div class="cta-tagline">La finanza italiana, spiegata bene.</div>
       <div class="cta-headline">Leggi l'analisi completa<br>su STM e il Data Center</div>
-      <div class="cta-sub">Guidance · Target Price · Overweight · SiC<br>Come un comunicato da $500M a $1 miliardo ha generato +15% in borsa.<br>Spiegato in italiano, con dati reali.</div>
+      <div class="cta-sub">Guidance · Target Price · SiC · Etna Valley<br>Come $500M diventano $1 miliardo — e perché vale +15% in borsa.<br>Spiegato in italiano, con dati reali.</div>
       <div class="cta-url">almafinanza.com/articolo-tech-03giu-stm-datacenter-miliardo-morgan-stanley.html</div>
       <div class="cta-hashtags">#AlmaFinanza &nbsp;·&nbsp; #STMicroelectronics &nbsp;·&nbsp; #EtnaValley &nbsp;·&nbsp; #Semiconduttori &nbsp;·&nbsp; #MercatiFinanziari</div>
     </div>
