@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ── LOBSTER EMBEDDED ─────────────────────── */
+/* ── LOBSTER EMBEDDED (latin) ──────────────── */
 @font-face {
   font-family: 'Lobster';
   font-style: normal;
@@ -15,6 +15,31 @@
 @page { size: 1080px 1080px; margin: 0; }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #f1f5f9; }
+
+/* ── LOGO (replica esatta del sito) ─────────
+   A = Lobster, teal-500 #14b8a6
+   LMA FINANZA = Montserrat 900, bianco
+   ─────────────────────────────────────────── */
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  line-height: 1;
+}
+.logo-a {
+  font-family: 'Lobster', cursive;
+  font-size: 36px;
+  color: #14b8a6;
+  line-height: 1;
+}
+.logo-rest {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
 
 /* ── SLIDE BASE ─────────────────────────── */
 .slide {
@@ -31,7 +56,7 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
 /* ── HEADERS ───────────────────────────── */
 .hdr-blue {
   background: linear-gradient(135deg, #0068B5 0%, #004a82 100%);
-  padding: 28px 52px 24px;
+  padding: 26px 52px 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,17 +64,11 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
 }
 .hdr-dark {
   background: #0f172a;
-  padding: 28px 52px 24px;
+  padding: 26px 52px 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
-}
-.hdr-logo {
-  font-family: 'Lobster', cursive;
-  font-size: 30px;
-  color: #ffffff;
-  letter-spacing: 0.01em;
 }
 .hdr-section {
   background: rgba(255,255,255,0.18);
@@ -78,8 +97,6 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   flex-direction: column;
   overflow: hidden;
 }
-
-/* ── SECTION TITLE ─────────────────────── */
 .sec-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 36px;
@@ -95,36 +112,28 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   margin-bottom: 28px;
   line-height: 1.45;
 }
-
-/* ── PAGE INDICATOR ────────────────────── */
-.pg {
-  position: absolute;
-  bottom: 26px;
-  right: 46px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 0.06em;
-}
 .pg-dark {
   position: absolute;
-  bottom: 26px;
-  right: 46px;
+  bottom: 26px; right: 46px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 13px; font-weight: 700;
   color: rgba(0,0,0,0.25);
+  letter-spacing: 0.06em;
+}
+.pg {
+  position: absolute;
+  bottom: 26px; right: 46px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px; font-weight: 700;
+  color: rgba(255,255,255,0.50);
   letter-spacing: 0.06em;
 }
 .swipe {
   position: absolute;
-  bottom: 26px;
-  left: 52px;
+  bottom: 26px; left: 52px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.48);
+  font-size: 12px; font-weight: 600;
+  color: rgba(255,255,255,0.45);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -144,32 +153,30 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   position: absolute; inset: 0;
   background: linear-gradient(to bottom,
     rgba(0,20,50,0.25) 0%,
-    rgba(0,20,50,0.50) 45%,
-    rgba(0,20,50,0.92) 100%);
+    rgba(0,20,50,0.52) 45%,
+    rgba(0,20,50,0.93) 100%);
 }
 .cover-content {
   position: relative; z-index: 2;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: flex; flex-direction: column;
   justify-content: flex-end;
-  padding: 0 56px 60px;
+  padding: 0 56px 58px;
 }
 .cover-logo-bar {
   display: flex; align-items: center; gap: 14px; margin-bottom: 18px;
-}
-.cover-alma {
-  font-family: 'Lobster', cursive;
-  font-size: 26px;
-  color: rgba(255,255,255,0.75);
 }
 .cover-divider { width:1px; height:26px; background:rgba(255,255,255,0.28); }
 .cover-tag {
   font-family: 'Montserrat', sans-serif;
   font-size: 12px; font-weight: 700;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.60);
   letter-spacing: 0.1em; text-transform: uppercase;
 }
+/* Logo nella cover: A teal, resto bianco semitrasparente */
+.cover-logo-bar .logo-rest { color: rgba(255,255,255,0.75); font-size: 22px; }
+.cover-logo-bar .logo-a { font-size: 30px; }
+
 .cover-badge {
   display: inline-block;
   background: #0068B5;
@@ -183,7 +190,7 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
 }
 .cover-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 68px; font-weight: 900;
+  font-size: 66px; font-weight: 900;
   color: #ffffff; line-height: 1.0;
   margin-bottom: 16px; letter-spacing: -0.01em;
 }
@@ -197,33 +204,25 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
 .cover-pill {
   background: rgba(255,255,255,0.12);
   border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 14px;
-  padding: 14px 22px;
+  border-radius: 14px; padding: 14px 22px;
 }
 .cp-label {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px; font-weight: 700;
   color: rgba(255,255,255,0.58);
-  text-transform: uppercase; letter-spacing: 0.07em;
-  margin-bottom: 4px;
+  text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px;
 }
 .cp-value {
   font-family: 'Montserrat', sans-serif;
   font-size: 24px; font-weight: 800;
   color: #ffffff; line-height: 1;
 }
-.cp-note {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  color: rgba(255,255,255,0.58);
-  margin-top: 3px;
-}
+.cp-note { font-family: 'Inter', sans-serif; font-size: 12px; color: rgba(255,255,255,0.58); margin-top: 3px; }
 .cp-green .cp-value { color: #4ade80; }
 .cp-red .cp-value { color: #f87171; }
 .cover-credit {
-  position: absolute; bottom:14px; left:56px;
-  font-family:'Inter',sans-serif; font-size:10px;
-  color:rgba(255,255,255,0.30); z-index:2;
+  position: absolute; bottom:14px; left:56px; z-index:2;
+  font-family:'Inter',sans-serif; font-size:10px; color:rgba(255,255,255,0.28);
 }
 
 /* ══════════════════════════════════════════
@@ -232,317 +231,117 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
 .origin-cols { display: flex; gap: 22px; flex: 1; }
 .origin-col {
   flex: 1; border-radius: 20px; padding: 30px 28px;
-  display: flex; flex-direction: column;
-  border: 1px solid #e2e8f0;
+  display: flex; flex-direction: column; border: 1px solid #e2e8f0;
 }
 .oc-north { background: #f8fafc; }
 .oc-south { background: linear-gradient(145deg,#f0f7ff,#e8f4fd); border-color:#bfdbfe; }
-.oc-year {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px; font-weight: 700;
-  color: #0068B5; text-transform: uppercase;
-  letter-spacing: 0.08em; margin-bottom: 10px;
-}
-.oc-city {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 26px; font-weight: 900;
-  color: #0f172a; margin-bottom: 4px;
-}
-.oc-company {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px; font-weight: 700;
-  color: #0068B5; margin-bottom: 16px;
-}
-.oc-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px; color: #334155;
-  line-height: 1.6; flex: 1;
-}
-.oc-text strong { color: #0f172a; font-weight: 700; }
-.oc-fact {
-  margin-top: 14px;
-  background: rgba(0,104,181,0.08);
-  border-radius: 10px; padding: 10px 14px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px; font-weight: 700; color: #004a82;
-}
-.timeline-bar {
-  margin-top: 22px; display: flex; align-items: center;
-}
-.tb-item {
-  flex: 1; text-align: center; position: relative;
-}
-.tb-item:not(:last-child)::after {
-  content:''; position:absolute;
-  top:16px; right:-50%; width:100%; height:2px;
-  background:linear-gradient(to right,#0068B5,#004a82); z-index:0;
-}
-.tb-dot {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: #0068B5;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 7px; position: relative; z-index: 1;
-}
-.tb-dot span {
-  font-family:'Montserrat',sans-serif;
-  font-size:11px; font-weight:800; color:#fff;
-}
-.tb-year {
-  font-family:'Montserrat',sans-serif;
-  font-size:15px; font-weight:800; color:#0068B5; display:block;
-}
-.tb-label {
-  font-family:'Inter',sans-serif;
-  font-size:13px; color:#64748b; display:block; line-height:1.35;
-}
+.oc-year { font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; color:#0068B5; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; }
+.oc-city { font-family:'Montserrat',sans-serif; font-size:26px; font-weight:900; color:#0f172a; margin-bottom:4px; }
+.oc-company { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:700; color:#0068B5; margin-bottom:16px; }
+.oc-text { font-family:'Inter',sans-serif; font-size:16px; color:#334155; line-height:1.6; flex:1; }
+.oc-text strong { color:#0f172a; font-weight:700; }
+.oc-fact { margin-top:14px; background:rgba(0,104,181,0.08); border-radius:10px; padding:10px 14px; font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:#004a82; }
+.timeline-bar { margin-top:22px; display:flex; align-items:center; }
+.tb-item { flex:1; text-align:center; position:relative; }
+.tb-item:not(:last-child)::after { content:''; position:absolute; top:16px; right:-50%; width:100%; height:2px; background:linear-gradient(to right,#0068B5,#004a82); z-index:0; }
+.tb-dot { width:32px; height:32px; border-radius:50%; background:#0068B5; display:flex; align-items:center; justify-content:center; margin:0 auto 7px; position:relative; z-index:1; }
+.tb-dot span { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:800; color:#fff; }
+.tb-year { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:800; color:#0068B5; display:block; }
+.tb-label { font-family:'Inter',sans-serif; font-size:13px; color:#64748b; display:block; line-height:1.35; }
 
 /* ══════════════════════════════════════════
-   SLIDE 3 — PASQUALE PISTORIO
+   SLIDE 3 — PISTORIO
 ══════════════════════════════════════════ */
-.pistorio-hero {
-  background: linear-gradient(135deg, #0f172a, #1e3a5f);
-  border-radius: 20px; padding: 28px 36px;
-  margin-bottom: 24px; display: flex;
-  gap: 28px; align-items: center;
-}
-.ph-icon {
-  width: 80px; height: 80px; border-radius: 50%;
-  background: linear-gradient(135deg,#0068B5,#004a82);
-  display:flex; align-items:center; justify-content:center;
-  flex-shrink:0; font-size:38px;
-}
-.ph-name {
-  font-family:'Montserrat',sans-serif;
-  font-size:30px; font-weight:900; color:#fff;
-  line-height:1.1; margin-bottom:5px;
-}
-.ph-role {
-  font-family:'Inter',sans-serif;
-  font-size:15px; color:rgba(255,255,255,0.65); margin-bottom:8px;
-}
-.ph-years {
-  display:inline-block; background:#0068B5;
-  border-radius:8px; padding:4px 14px;
-  font-family:'Montserrat',sans-serif;
-  font-size:13px; font-weight:700; color:#fff;
-}
+.pistorio-hero { background:linear-gradient(135deg,#0f172a,#1e3a5f); border-radius:20px; padding:28px 36px; margin-bottom:24px; display:flex; gap:28px; align-items:center; }
+.ph-icon { width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg,#0068B5,#004a82); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:38px; }
+.ph-name { font-family:'Montserrat',sans-serif; font-size:30px; font-weight:900; color:#fff; line-height:1.1; margin-bottom:5px; }
+.ph-role { font-family:'Inter',sans-serif; font-size:15px; color:rgba(255,255,255,0.65); margin-bottom:8px; }
+.ph-years { display:inline-block; background:#0068B5; border-radius:8px; padding:4px 14px; font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:#fff; }
 .pistorio-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; flex:1; }
-.pg-card {
-  background:#f8fafc; border-radius:16px;
-  padding:20px 22px; border:1px solid #e2e8f0;
-}
-.pgc-num {
-  font-family:'Montserrat',sans-serif;
-  font-size:36px; font-weight:900;
-  color:#0068B5; line-height:1; margin-bottom:5px;
-}
-.pgc-label {
-  font-family:'Montserrat',sans-serif;
-  font-size:13px; font-weight:700;
-  color:#334155; margin-bottom:7px;
-}
-.pgc-text {
-  font-family:'Inter',sans-serif;
-  font-size:15px; color:#475569; line-height:1.5;
-}
+.pg-card { background:#f8fafc; border-radius:16px; padding:20px 22px; border:1px solid #e2e8f0; }
+.pgc-num { font-family:'Montserrat',sans-serif; font-size:36px; font-weight:900; color:#0068B5; line-height:1; margin-bottom:5px; }
+.pgc-label { font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:#334155; margin-bottom:7px; }
+.pgc-text { font-family:'Inter',sans-serif; font-size:15px; color:#475569; line-height:1.5; }
 .pgc-text strong { color:#0f172a; font-weight:600; }
 
 /* ══════════════════════════════════════════
    SLIDE 4 — NASCE STM
 ══════════════════════════════════════════ */
-.merger-diagram {
-  display:flex; align-items:center; gap:0; margin-bottom:22px;
-}
-.md-box {
-  flex:1; border-radius:16px; padding:20px 16px; text-align:center;
-}
+.merger-diagram { display:flex; align-items:center; gap:0; margin-bottom:22px; }
+.md-box { flex:1; border-radius:16px; padding:20px 16px; text-align:center; }
 .md-it { background:linear-gradient(135deg,#dc2626,#b91c1c); }
 .md-fr { background:linear-gradient(135deg,#2563eb,#1d4ed8); }
 .md-st { background:linear-gradient(135deg,#0068B5,#004a82); }
 .md-flag { font-size:32px; margin-bottom:8px; display:block; }
-.md-name {
-  font-family:'Montserrat',sans-serif;
-  font-size:19px; font-weight:900; color:#fff;
-  margin-bottom:4px; line-height:1.1;
-}
-.md-sub {
-  font-family:'Inter',sans-serif;
-  font-size:13px; color:rgba(255,255,255,0.78); line-height:1.35;
-}
-.md-plus {
-  width:50px; text-align:center;
-  font-family:'Montserrat',sans-serif;
-  font-size:36px; font-weight:900;
-  color:#94a3b8; flex-shrink:0;
-}
-.md-arrow {
-  width:52px; text-align:center;
-  font-size:28px; color:#0068B5; flex-shrink:0;
-}
+.md-name { font-family:'Montserrat',sans-serif; font-size:19px; font-weight:900; color:#fff; margin-bottom:4px; line-height:1.1; }
+.md-sub { font-family:'Inter',sans-serif; font-size:13px; color:rgba(255,255,255,0.78); line-height:1.35; }
+.md-plus { width:50px; text-align:center; font-family:'Montserrat',sans-serif; font-size:36px; font-weight:900; color:#94a3b8; flex-shrink:0; }
+.md-arrow { width:52px; text-align:center; font-size:28px; color:#0068B5; flex-shrink:0; }
 .stm-timeline { display:flex; flex-direction:column; gap:12px; flex:1; }
-.stm-row {
-  display:flex; align-items:flex-start; gap:18px;
-  background:#f8fafc; border-radius:14px;
-  padding:14px 20px; border:1px solid #e2e8f0;
-}
-.str-year {
-  font-family:'Montserrat',sans-serif;
-  font-size:22px; font-weight:900;
-  color:#0068B5; min-width:62px; flex-shrink:0;
-}
-.str-title {
-  font-family:'Montserrat',sans-serif;
-  font-size:15px; font-weight:700;
-  color:#0f172a; margin-bottom:3px;
-}
-.str-text {
-  font-family:'Inter',sans-serif;
-  font-size:15px; color:#475569; line-height:1.5;
-}
+.stm-row { display:flex; align-items:flex-start; gap:18px; background:#f8fafc; border-radius:14px; padding:14px 20px; border:1px solid #e2e8f0; }
+.str-year { font-family:'Montserrat',sans-serif; font-size:22px; font-weight:900; color:#0068B5; min-width:62px; flex-shrink:0; }
+.str-title { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:700; color:#0f172a; margin-bottom:3px; }
+.str-text { font-family:'Inter',sans-serif; font-size:15px; color:#475569; line-height:1.5; }
 .str-text strong { color:#0f172a; font-weight:600; }
 
 /* ══════════════════════════════════════════
    SLIDE 5 — PRODOTTI ICONICI
 ══════════════════════════════════════════ */
 .products-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; flex:1; }
-.prod-card {
-  background:#f8fafc; border-radius:18px;
-  padding:24px 22px; border:1px solid #e2e8f0;
-  display:flex; flex-direction:column; position:relative; overflow:hidden;
-}
-.prod-card::before {
-  content:''; position:absolute;
-  top:0;left:0;right:0; height:4px;
-  background:linear-gradient(135deg,#0068B5,#004a82);
-}
-.prd-year {
-  font-family:'Montserrat',sans-serif;
-  font-size:12px; font-weight:700;
-  color:#0068B5; text-transform:uppercase;
-  letter-spacing:0.08em; margin-bottom:6px;
-}
+.prod-card { background:#f8fafc; border-radius:18px; padding:24px 22px; border:1px solid #e2e8f0; display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.prod-card::before { content:''; position:absolute; top:0;left:0;right:0; height:4px; background:linear-gradient(135deg,#0068B5,#004a82); }
+.prd-year { font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; color:#0068B5; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; }
 .prd-emoji { font-size:30px; margin-bottom:8px; display:block; }
-.prd-title {
-  font-family:'Montserrat',sans-serif;
-  font-size:19px; font-weight:800;
-  color:#0f172a; margin-bottom:8px; line-height:1.2;
-}
-.prd-text {
-  font-family:'Inter',sans-serif;
-  font-size:15px; color:#475569; line-height:1.55; flex:1;
-}
+.prd-title { font-family:'Montserrat',sans-serif; font-size:19px; font-weight:800; color:#0f172a; margin-bottom:8px; line-height:1.2; }
+.prd-text { font-family:'Inter',sans-serif; font-size:15px; color:#475569; line-height:1.55; flex:1; }
 .prd-text strong { color:#0f172a; font-weight:600; }
-.prd-stat {
-  margin-top:10px;
-  background:rgba(0,104,181,0.08);
-  border-radius:8px; padding:7px 12px;
-  font-family:'Montserrat',sans-serif;
-  font-size:12px; font-weight:700; color:#004a82;
-}
+.prd-stat { margin-top:10px; background:rgba(0,104,181,0.08); border-radius:8px; padding:7px 12px; font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; color:#004a82; }
 
 /* ══════════════════════════════════════════
    SLIDE 6 — ETNA VALLEY OGGI
 ══════════════════════════════════════════ */
-.today-top {
-  display:grid; grid-template-columns:1fr 1fr 1fr;
-  gap:18px; margin-bottom:22px;
-}
-.today-kpi {
-  background:linear-gradient(135deg,#0068B5,#004a82);
-  border-radius:18px; padding:22px 18px; text-align:center;
-}
-.tk-value {
-  font-family:'Montserrat',sans-serif;
-  font-size:32px; font-weight:900;
-  color:#fff; line-height:1; margin-bottom:6px;
-}
-.tk-label {
-  font-family:'Inter',sans-serif;
-  font-size:14px; color:rgba(255,255,255,0.75); line-height:1.4;
-}
+.today-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-bottom:22px; }
+.today-kpi { background:linear-gradient(135deg,#0068B5,#004a82); border-radius:18px; padding:22px 18px; text-align:center; }
+.tk-value { font-family:'Montserrat',sans-serif; font-size:32px; font-weight:900; color:#fff; line-height:1; margin-bottom:6px; }
+.tk-label { font-family:'Inter',sans-serif; font-size:14px; color:rgba(255,255,255,0.75); line-height:1.4; }
 .today-stories { display:flex; gap:18px; flex:1; }
-.ts-card {
-  flex:1; background:#f8fafc;
-  border-radius:18px; padding:22px 20px;
-  border:1px solid #e2e8f0; display:flex; flex-direction:column;
-}
+.ts-card { flex:1; background:#f8fafc; border-radius:18px; padding:22px 20px; border:1px solid #e2e8f0; display:flex; flex-direction:column; }
 .tsc-icon { font-size:30px; margin-bottom:10px; }
-.tsc-title {
-  font-family:'Montserrat',sans-serif;
-  font-size:17px; font-weight:800;
-  color:#0f172a; margin-bottom:8px; line-height:1.25;
-}
-.tsc-text {
-  font-family:'Inter',sans-serif;
-  font-size:14px; color:#475569; line-height:1.55; flex:1;
-}
+.tsc-title { font-family:'Montserrat',sans-serif; font-size:17px; font-weight:800; color:#0f172a; margin-bottom:8px; line-height:1.25; }
+.tsc-text { font-family:'Inter',sans-serif; font-size:14px; color:#475569; line-height:1.55; flex:1; }
 .tsc-text strong { color:#0068B5; font-weight:700; }
-.tsc-badge {
-  margin-top:12px; display:inline-block;
-  background:rgba(0,104,181,0.10);
-  border-radius:8px; padding:6px 12px;
-  font-family:'Montserrat',sans-serif;
-  font-size:12px; font-weight:700; color:#004a82;
-}
+.tsc-badge { margin-top:12px; display:inline-block; background:rgba(0,104,181,0.10); border-radius:8px; padding:6px 12px; font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; color:#004a82; }
 
 /* ══════════════════════════════════════════
    SLIDE 7 — CTA
 ══════════════════════════════════════════ */
 .slide-cta { background:linear-gradient(145deg,#0068B5 0%,#004a82 50%,#001e3c 100%); }
 .cta-body { flex:1; display:flex; align-items:center; justify-content:center; padding:48px; }
-.cta-card {
-  background:rgba(255,255,255,0.10);
-  border:1px solid rgba(255,255,255,0.22);
-  border-radius:28px; padding:52px 56px;
-  text-align:center; max-width:820px; width:100%;
-}
-.cta-logo {
-  font-family:'Lobster',cursive;
-  font-size:52px; color:#ffffff;
-  margin-bottom:8px; display:block;
-}
-.cta-tagline {
-  font-family:'Inter',sans-serif;
-  font-size:15px; color:rgba(255,255,255,0.60);
-  margin-bottom:30px; font-style:italic;
-}
-.cta-headline {
-  font-family:'Montserrat',sans-serif;
-  font-size:38px; font-weight:900;
-  color:#fff; line-height:1.2; margin-bottom:14px;
-}
-.cta-sub {
-  font-family:'Inter',sans-serif;
-  font-size:17px; color:rgba(255,255,255,0.78);
-  line-height:1.55; margin-bottom:30px;
-}
-.cta-url {
-  display:inline-block;
-  background:rgba(255,255,255,0.16);
-  border:1px solid rgba(255,255,255,0.28);
-  border-radius:12px; padding:14px 28px;
-  font-family:'Montserrat',sans-serif;
-  font-size:13px; font-weight:700; color:#fff;
-  letter-spacing:0.02em; margin-bottom:22px;
-  word-break:break-all;
-}
-.cta-hashtags {
-  font-family:'Inter',sans-serif;
-  font-size:14px; color:rgba(255,255,255,0.46);
-}
+.cta-card { background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.22); border-radius:28px; padding:52px 56px; text-align:center; max-width:820px; width:100%; }
+/* Logo CTA: stesso stile header ma più grande */
+.cta-logo { display:flex; align-items:center; justify-content:center; gap:0; margin-bottom:10px; }
+.cta-logo .logo-a { font-size:56px; }
+.cta-logo .logo-rest { font-size:40px; font-weight:900; color:#ffffff; }
+.cta-tagline { font-family:'Inter',sans-serif; font-size:15px; color:rgba(255,255,255,0.60); margin-bottom:28px; font-style:italic; }
+.cta-headline { font-family:'Montserrat',sans-serif; font-size:38px; font-weight:900; color:#fff; line-height:1.2; margin-bottom:14px; }
+.cta-sub { font-family:'Inter',sans-serif; font-size:17px; color:rgba(255,255,255,0.78); line-height:1.55; margin-bottom:30px; }
+.cta-url { display:inline-block; background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.28); border-radius:12px; padding:14px 28px; font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:#fff; letter-spacing:0.02em; margin-bottom:22px; word-break:break-all; }
+.cta-hashtags { font-family:'Inter',sans-serif; font-size:14px; color:rgba(255,255,255,0.46); }
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════ -->
-<!--  SLIDE 1 — COVER · Etna Valley + Borsa    -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════ -->
+<!--  SLIDE 1 — COVER                            -->
+<!-- ════════════════════════════════════════════ -->
 <div class="slide slide-cover">
   <div class="cover-photo"></div>
   <div class="cover-gradient"></div>
   <div class="cover-content">
     <div class="cover-logo-bar">
-      <span class="cover-alma">Alma Finanza</span>
+      <div class="site-logo">
+        <span class="logo-a">A</span><span class="logo-rest" style="color:rgba(255,255,255,0.78);font-size:22px;">LMA FINANZA</span>
+      </div>
       <div class="cover-divider"></div>
       <span class="cover-tag">💻 Tech &amp; AI · 3 Giugno 2026</span>
     </div>
@@ -576,12 +375,12 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   <div class="swipe">Scorri: la storia →</div>
 </div>
 
-<!-- ══════════════════════════════════════════ -->
-<!--  SLIDE 2 — LE RADICI (1957-1972)           -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════ -->
+<!--  SLIDE 2 — LE RADICI (1957-1972)            -->
+<!-- ════════════════════════════════════════════ -->
 <div class="slide">
   <div class="hdr-dark">
-    <span class="hdr-logo">Alma Finanza</span>
+    <div class="site-logo"><span class="logo-a">A</span><span class="logo-rest">LMA FINANZA</span></div>
     <span class="hdr-section">📍 Le Radici · 1957–1972</span>
     <span class="hdr-label">Due città, un destino</span>
   </div>
@@ -620,12 +419,12 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   <div class="pg-dark">2 / 7</div>
 </div>
 
-<!-- ══════════════════════════════════════════ -->
-<!--  SLIDE 3 — PASQUALE PISTORIO (1979-1987)   -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════ -->
+<!--  SLIDE 3 — PASQUALE PISTORIO               -->
+<!-- ════════════════════════════════════════════ -->
 <div class="slide">
   <div class="hdr-blue">
-    <span class="hdr-logo">Alma Finanza</span>
+    <div class="site-logo"><span class="logo-a">A</span><span class="logo-rest">LMA FINANZA</span></div>
     <span class="hdr-section">👤 Il Turnaround · 1979–1987</span>
     <span class="hdr-label">L'uomo che salvò SGS</span>
   </div>
@@ -652,7 +451,7 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
       <div class="pg-card">
         <div class="pgc-num">1984</div>
         <div class="pgc-label">Singapore: la svolta globale</div>
-        <div class="pgc-text">Pistorio porta SGS in Asia prima di tutti i competitor europei. Lo <strong>stabilimento di Singapore</strong> rappresenterà il 30% della produzione e apre i mercati asiatici.</div>
+        <div class="pgc-text">Pistorio porta SGS in Asia prima di tutti i competitor europei. Lo <strong>stabilimento di Singapore</strong> rappresenterà il 30% della produzione totale.</div>
       </div>
       <div class="pg-card">
         <div class="pgc-num">1987</div>
@@ -664,12 +463,12 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   <div class="pg-dark">3 / 7</div>
 </div>
 
-<!-- ══════════════════════════════════════════ -->
-<!--  SLIDE 4 — NASCE STM (1987-1998)           -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════ -->
+<!--  SLIDE 4 — NASCE STM (1987-1998)            -->
+<!-- ════════════════════════════════════════════ -->
 <div class="slide">
   <div class="hdr-dark">
-    <span class="hdr-logo">Alma Finanza</span>
+    <div class="site-logo"><span class="logo-a">A</span><span class="logo-rest">LMA FINANZA</span></div>
     <span class="hdr-section">🇮🇹🇫🇷 La Fusione · 1987–1998</span>
     <span class="hdr-label">Nasce il campione europeo dei chip</span>
   </div>
@@ -705,21 +504,21 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
         <div class="str-year">1991</div>
         <div>
           <div class="str-title">$500M di perdite in 4 anni — ma Pistorio non molla</div>
-          <div class="str-text">L'integrazione costa cara. I governi italiano e francese intervengono con un prestito da <strong>$800M</strong>. Il 1993 porta finalmente il ritorno alla redditività.</div>
+          <div class="str-text">L'integrazione costa cara. I governi intervengono con un prestito da <strong>$800M</strong>. Il 1993 porta il ritorno alla redditività.</div>
         </div>
       </div>
       <div class="stm-row">
         <div class="str-year">1994</div>
         <div>
           <div class="str-title">IPO a Parigi e New York — 8 dicembre 1994</div>
-          <div class="str-text">SGS-Thomson sbarca su <strong>NYSE ed Euronext Paris</strong>. Trasformazione da azienda pubblica a campione di mercato globale.</div>
+          <div class="str-text">SGS-Thomson sbarca su <strong>NYSE ed Euronext Paris</strong>: trasformazione da azienda pubblica a campione di mercato globale.</div>
         </div>
       </div>
       <div class="stm-row">
         <div class="str-year">1998</div>
         <div>
           <div class="str-title">Il nuovo nome: STMicroelectronics</div>
-          <div class="str-text">SGS-Thomson diventa <strong>STMicroelectronics</strong>: identità globale, non più solo europea. Inizia la rincorsa ai leader mondiali.</div>
+          <div class="str-text">SGS-Thomson diventa <strong>STMicroelectronics</strong>: identità globale. Inizia la rincorsa ai leader mondiali dei chip.</div>
         </div>
       </div>
     </div>
@@ -727,18 +526,18 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   <div class="pg-dark">4 / 7</div>
 </div>
 
-<!-- ══════════════════════════════════════════ -->
-<!--  SLIDE 5 — I PRODOTTI ICONICI             -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════ -->
+<!--  SLIDE 5 — PRODOTTI ICONICI                -->
+<!-- ════════════════════════════════════════════ -->
 <div class="slide">
   <div class="hdr-blue">
-    <span class="hdr-logo">Alma Finanza</span>
+    <div class="site-logo"><span class="logo-a">A</span><span class="logo-rest">LMA FINANZA</span></div>
     <span class="hdr-section">🏆 Prodotti Iconici · 1989–2025</span>
     <span class="hdr-label">I chip che hanno cambiato il mondo</span>
   </div>
   <div class="slide-body">
     <div class="sec-title">STM dentro i prodotti che usi ogni giorno</div>
-    <div class="sec-sub">Dai telefoni Nokia agli iPhone, dai satelliti Starlink all'auto elettrica. Spesso invisibile, sempre presente.</div>
+    <div class="sec-sub">Dai telefoni Nokia agli iPhone, dai satelliti Starlink all'auto elettrica.</div>
     <div class="products-grid">
       <div class="prod-card">
         <div class="prd-year">📱 1989 · Mobile</div>
@@ -758,14 +557,14 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
         <div class="prd-year">📱 2007 · Smartphone</div>
         <span class="prd-emoji">📱</span>
         <div class="prd-title">L'accelerometro dell'iPhone</div>
-        <div class="prd-text">Il sensore <strong>MEMS di STM</strong> è dentro i primi iPhone: rileva l'orientamento, attiva la rotazione schermo. I MEMS STM entreranno in miliardi di smartphone di tutti i brand.</div>
+        <div class="prd-text">Il sensore <strong>MEMS di STM</strong> è dentro i primi iPhone: rileva l'orientamento e attiva la rotazione schermo. I MEMS STM entreranno in miliardi di smartphone di tutti i brand.</div>
         <div class="prd-stat">→ Leader mondiale nei sensori MEMS</div>
       </div>
       <div class="prod-card">
         <div class="prd-year">🛰 2015–2025 · Spazio</div>
         <span class="prd-emoji">🛰️</span>
         <div class="prd-title">5 miliardi di chip per Starlink</div>
-        <div class="prd-text">Dal 2015 STM collabora con <strong>SpaceX</strong> per i componenti della rete Starlink. Entro il 2025: oltre <strong>5 miliardi di chip RF</strong> consegnati per le antenne della costellazione satellitare.</div>
+        <div class="prd-text">Dal 2015 STM collabora con <strong>SpaceX</strong> per la rete Starlink. Entro il 2025: oltre <strong>5 miliardi di chip RF</strong> consegnati per le antenne della costellazione satellitare.</div>
         <div class="prd-stat">→ 5 mld chip RF per SpaceX Starlink</div>
       </div>
     </div>
@@ -773,12 +572,12 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   <div class="pg-dark">5 / 7</div>
 </div>
 
-<!-- ══════════════════════════════════════════ -->
-<!--  SLIDE 6 — ETNA VALLEY OGGI               -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════ -->
+<!--  SLIDE 6 — ETNA VALLEY OGGI                -->
+<!-- ════════════════════════════════════════════ -->
 <div class="slide">
   <div class="hdr-dark">
-    <span class="hdr-logo">Alma Finanza</span>
+    <div class="site-logo"><span class="logo-a">A</span><span class="logo-rest">LMA FINANZA</span></div>
     <span class="hdr-section">🌋 Etna Valley Oggi · 2024–2026</span>
     <span class="hdr-label">Il futuro si costruisce a Catania</span>
   </div>
@@ -809,7 +608,7 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
       <div class="ts-card">
         <div class="tsc-icon">🤖</div>
         <div class="tsc-title">AWS Data Center: deal $1 miliardo</div>
-        <div class="tsc-text">Nel 2026 STM avvia la fornitura ad <strong>Amazon Web Services</strong> nell'ambito di un accordo multi-year <strong>oltre $1 miliardo</strong>. La Guidance rivista ha generato il <strong>+15,19%</strong> in borsa del 3 giugno 2026.</div>
+        <div class="tsc-text">Nel 2026 STM avvia la fornitura ad <strong>Amazon Web Services</strong> in un accordo multi-year <strong>oltre $1 miliardo</strong>. La Guidance rivista ha generato il <strong>+15,19%</strong> in borsa del 3 giugno 2026.</div>
         <div class="tsc-badge">📈 +15,19% il 3 giugno 2026</div>
       </div>
       <div class="ts-card">
@@ -823,18 +622,20 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   <div class="pg-dark">6 / 7</div>
 </div>
 
-<!-- ══════════════════════════════════════════ -->
-<!--  SLIDE 7 — CTA                            -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════ -->
+<!--  SLIDE 7 — CTA                             -->
+<!-- ════════════════════════════════════════════ -->
 <div class="slide slide-cta">
   <div class="hdr-blue" style="background:rgba(0,0,0,0.22);border-bottom:1px solid rgba(255,255,255,0.10);">
-    <span class="hdr-logo">Alma Finanza</span>
+    <div class="site-logo"><span class="logo-a">A</span><span class="logo-rest">LMA FINANZA</span></div>
     <span class="hdr-section">📖 Articolo completo</span>
     <span class="hdr-label">almafinanza.com</span>
   </div>
   <div class="cta-body">
     <div class="cta-card">
-      <span class="cta-logo">Alma Finanza</span>
+      <div class="cta-logo">
+        <span class="logo-a" style="font-size:56px;">A</span><span class="logo-rest" style="font-size:40px;font-weight:900;color:#fff;">LMA FINANZA</span>
+      </div>
       <div class="cta-tagline">La finanza italiana, spiegata bene.</div>
       <div class="cta-headline">Leggi l'analisi completa<br>su STM e il Data Center</div>
       <div class="cta-sub">Guidance · Target Price · SiC · Etna Valley<br>Come $500M diventano $1 miliardo — e perché vale +15% in borsa.<br>Spiegato in italiano, con dati reali.</div>
