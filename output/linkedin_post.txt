@@ -1,11 +1,24 @@
-Palantir — quella finanziata dalla CIA, con gli uffici chiamati The Shire e Rivendell, il CEO con un dottorato in filosofia a Francoforte — ha appena consegnato il trimestre migliore dal suo IPO.
+Da €59 a €68 in una seduta. Un solo comunicato.
 
-Revenue +85% anno su anno. EPS $0,33 contro $0,28 atteso. FY Guidance 2026 alzata a $7,65 miliardi.
+STMicroelectronics ha alzato la guidance sul Data Center da "oltre $500M" a "circa $1 miliardo" attesi nel 2026.
+Il mercato ha risposto immediatamente: +15,19% in una sola giornata.
 
-La pietra veggente di Tolkien vede davvero lontano.
+Come funziona questo meccanismo?
 
-Analisi completa su Alma Finanza → https://www.almafinanza.com/articolo-tech-04mag-palantir-pltr-q1-2026-earnings-aip.html
+→ Il prezzo di un'azione incorpora le aspettative future, non i risultati passati
+→ Quando la guidance cambia, cambiano i modelli finanziari di tutti gli analisti
+→ Morgan Stanley ha alzato il target price a €83 (Overweight) — upside implicito del +21%
+→ Il segmento Data Center ha margini più alti di automotive e industriale: raddoppiare la stima cambia la redditività complessiva
+→ Chi aveva STM in portafoglio ha guadagnato +15% in un giorno. Chi non la seguiva, ha imparato oggi il valore della guidance
 
-#Palantir #PLTR #AI #Earnings #AlmaFinanza
+💡 Concetto del giorno: Guidance
+La guidance è la previsione ufficiale che un'azienda fornisce sui propri ricavi futuri.
+Non descrive il passato: ridisegna il futuro che il mercato sta già pagando.
 
-[IMMAGINE: output/post_image.jpg]
+📌 Nei prossimi giorni:
+Il focus torna su Wall Street con il Jobs Report di venerdì e la tensione geopolitica Iran/Golfo Persico che mantiene il WTI a $95. Il FTSE MIB ha chiuso a 50.482 (-0,37%) nonostante il balzo di STM.
+
+📖 Articolo completo su Alma Finanza:
+https://www.almafinanza.com/articolo-tech-03giu-stm-datacenter-miliardo-morgan-stanley.html
+
+#AlmaFinanza #STMicroelectronics #Semiconduttori #DataCenter #MercatiFinanziari

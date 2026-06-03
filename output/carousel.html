@@ -6,908 +6,802 @@
 <style>
 @page { size: 1080px 1080px; margin: 0; }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #fff; }
+body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #f1f5f9; }
 
-/* ── SLIDE BASE ── */
+/* SLIDE BASE */
 .slide {
   width: 1080px;
   height: 1080px;
   position: relative;
-  background: #FFFFFF;
   overflow: hidden;
-  break-after: page;
   page-break-after: always;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
 }
 
-/* ── HEADER BAR ── */
-.hdr {
-  height: 84px;
+/* HEADER TYPES */
+.hdr-accent {
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+  padding: 32px 48px 28px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
-  background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+  align-items: center;
+  flex-shrink: 0;
+}
+.hdr-dark {
+  background: #0f172a;
+  padding: 32px 48px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
 }
 .hdr-logo {
-  display: flex;
-  align-items: baseline;
-  gap: 2px;
-}
-.hdr-logo-a {
   font-family: 'Lobster', cursive;
-  font-size: 34px;
-  color: #14B8A6;
-  line-height: 1;
-}
-.hdr-logo-rest {
-  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 20px;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: 1px;
-  line-height: 1;
+  font-size: 26px;
+  color: #ffffff;
+  letter-spacing: 0.02em;
 }
 .hdr-section {
+  background: rgba(255,255,255,0.18);
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   font-weight: 700;
-  color: rgba(255,255,255,0.90);
-  letter-spacing: 2px;
+  color: #ffffff;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 .hdr-date {
+  font-family: 'Montserrat', sans-serif;
   font-size: 13px;
+  font-weight: 600;
   color: rgba(255,255,255,0.75);
-  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
-/* ── FOOTER DOTS ── */
-.dots {
-  position: absolute;
-  bottom: 26px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.d-on  { width: 20px; height: 7px; border-radius: 4px; background: #7C3AED; }
-.d-off { width: 7px;  height: 7px; border-radius: 50%; background: #D1D5DB; }
-
-/* ── TYPOGRAPHY ── */
-.hero-number {
-  font-size: 92px;
-  font-weight: 900;
-  line-height: 1;
-  color: #111827;
-  letter-spacing: -3px;
-}
-.hero-arrow {
-  font-size: 60px;
-  color: #7C3AED;
-  font-weight: 900;
-  line-height: 1;
-  margin: 0 8px;
-}
-.hero-hook {
-  font-size: 28px;
-  font-weight: 800;
-  color: #111827;
-  line-height: 1.25;
-  margin-top: 20px;
-}
-.hero-sub {
-  font-size: 17px;
-  color: #4B5563;
-  margin-top: 14px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-/* ── LEARN PILLS ── */
-.learn-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 28px;
-}
-.pill {
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  background: #EDE9FE;
-  color: #5B21B6;
-  border: 1.5px solid #C4B5FD;
-}
-
-/* ── KPI CARDS ── */
-.kpi-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  padding: 36px 44px;
-}
-.kpi-card {
-  background: #F7F8FA;
-  border-radius: 18px;
-  padding: 32px 28px;
-  border-left: 5px solid #7C3AED;
+/* BODY */
+.slide-body {
+  flex: 1;
+  padding: 36px 48px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: flex-start;
+  overflow: hidden;
 }
-.kpi-label {
-  font-size: 12px;
-  font-weight: 700;
-  color: #6B7280;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-.kpi-value {
-  font-size: 52px;
-  font-weight: 900;
-  color: #111827;
-  letter-spacing: -2px;
-  line-height: 1;
-}
-.kpi-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 12px;
-  border-radius: 8px;
+
+/* SLIDE 1 — COVER */
+.cover-category {
+  display: inline-block;
+  background: rgba(255,255,255,0.22);
+  border-radius: 20px;
+  padding: 7px 22px;
+  font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   font-weight: 700;
-  width: fit-content;
-}
-.badge-green { background: #D1FAE5; color: #065F46; }
-.badge-red   { background: #FEE2E2; color: #991B1B; }
-.badge-yellow{ background: #FEF3C7; color: #92400E; }
-.badge-blue  { background: #DBEAFE; color: #1E40AF; }
-
-/* ── SECTION TITLE ── */
-.sec-title {
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  color: #ffffff;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #7C3AED;
-  margin-bottom: 6px;
-}
-.sec-headline {
-  font-size: 30px;
-  font-weight: 900;
-  color: #111827;
-  line-height: 1.2;
   margin-bottom: 28px;
 }
-
-/* ── MACRO CARDS ── */
-.macro-grid {
+.cover-hook {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.cover-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: 840px;
+}
+.cover-metrics {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.metric-pill {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  padding: 12px 22px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 0 44px;
+  align-items: center;
+}
+.metric-pill .mp-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+.metric-pill .mp-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+.metric-pill .mp-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  margin-top: 3px;
+}
+.cover-teaser {
+  background: rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 16px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+}
+.cover-teaser strong { color: #ffffff; font-weight: 700; }
+
+/* COVER full-accent background */
+.slide-cover { background: linear-gradient(145deg, #7c3aed 0%, #6d28d9 50%, #4c1d95 100%); }
+.slide-cover .slide-body { padding: 40px 48px; justify-content: center; }
+
+/* SWIPE INDICATOR */
+.swipe-hint {
+  position: absolute;
+  bottom: 28px;
+  right: 48px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.swipe-hint-dark {
+  position: absolute;
+  bottom: 28px;
+  right: 48px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(0,0,0,0.3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* SLIDE 2 — MACRO */
+.slide-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 28px;
+  line-height: 1.15;
+}
+.macro-cards {
+  display: flex;
+  gap: 18px;
+  flex: 1;
 }
 .macro-card {
-  background: #F7F8FA;
-  border-radius: 16px;
-  padding: 24px 28px;
+  flex: 1;
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 28px 24px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+.mc-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.mc-unit {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+.mc-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+.mc-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.55;
+  flex: 1;
+}
+.mc-body strong { color: #1e293b; font-weight: 600; }
+
+/* SLIDE 3 — FOCUS */
+.focus-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 22px;
+  line-height: 1.2;
+}
+.focus-rows { display: flex; flex-direction: column; gap: 14px; margin-bottom: 22px; }
+.focus-row {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 16px 20px;
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  border: 1px solid #e2e8f0;
 }
-.macro-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #7C3AED, #5B21B6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  flex-shrink: 0;
-}
-.macro-number {
-  font-size: 32px;
-  font-weight: 900;
-  color: #7C3AED;
-  line-height: 1;
-  letter-spacing: -1px;
-}
-.macro-fact {
-  font-size: 16px;
+.fr-left { min-width: 120px; }
+.fr-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
   font-weight: 700;
-  color: #111827;
-  line-height: 1.3;
-  margin-top: 4px;
-}
-.macro-explain {
-  font-size: 13px;
-  color: #6B7280;
-  margin-top: 4px;
-  line-height: 1.4;
-}
-
-/* ── FOCUS TABLE ── */
-.focus-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 8px;
-}
-.focus-table th {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
+  color: #94a3b8;
   text-transform: uppercase;
-  color: #6B7280;
-  padding: 0 0 12px 0;
-  text-align: left;
-  border-bottom: 2px solid #E5E7EB;
+  letter-spacing: 0.07em;
+  margin-bottom: 4px;
 }
-.focus-table td {
-  padding: 18px 0;
-  vertical-align: top;
-  border-bottom: 1px solid #F3F4F6;
-  font-size: 15px;
-  color: #1F2937;
-  line-height: 1.4;
+.fr-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1;
 }
-.focus-table td:first-child {
-  font-weight: 800;
-  color: #7C3AED;
-  width: 28%;
-  font-size: 16px;
-}
-.focus-table td:nth-child(2) {
+.fr-right { flex: 1; }
+.fr-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
   font-weight: 700;
-  color: #111827;
-  width: 18%;
-  font-size: 15px;
+  color: #1e293b;
+  margin-bottom: 4px;
 }
-.focus-insight {
-  margin-top: 22px;
-  padding: 18px 22px;
-  background: #EDE9FE;
-  border-radius: 12px;
-  border-left: 4px solid #7C3AED;
-  font-size: 15px;
-  font-style: italic;
-  color: #4C1D95;
-  font-weight: 600;
+.fr-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #475569;
   line-height: 1.5;
 }
-
-/* ── LEARN TERMS ── */
-.learn-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  padding: 0 44px;
-}
-.learn-card {
-  background: #F7F8FA;
-  border-radius: 16px;
-  padding: 26px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.learn-en {
-  font-size: 20px;
-  font-weight: 900;
-  color: #7C3AED;
-  line-height: 1.1;
-}
-.learn-it {
-  font-size: 14px;
-  font-weight: 700;
-  color: #374151;
-}
-.learn-def {
-  font-size: 13px;
-  color: #6B7280;
-  line-height: 1.45;
-  margin-top: 4px;
-}
-.learn-ref {
-  font-size: 11px;
-  color: #9CA3AF;
-  font-weight: 600;
-  margin-top: 6px;
-  letter-spacing: 0.3px;
-}
-
-/* ── OUTLOOK ── */
-.outlook-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-.outlook-col {
-  border-radius: 16px;
-  padding: 26px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.outlook-col.bull { background: #D1FAE5; }
-.outlook-col.bear { background: #FEF3C7; }
-.outlook-col-title {
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-.bull .outlook-col-title { color: #065F46; }
-.bear .outlook-col-title { color: #92400E; }
-.outlook-row {
-  background: rgba(255,255,255,0.7);
-  border-radius: 10px;
-  padding: 12px 14px;
-  font-size: 14px;
-  line-height: 1.4;
-  color: #1F2937;
+.fr-body strong { color: #1e293b; font-weight: 600; }
+.focus-insight {
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+  border-radius: 14px;
+  padding: 18px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
   font-weight: 500;
+  color: #ffffff;
+  line-height: 1.5;
+  font-style: italic;
 }
 
-.tickers-bar {
+/* SLIDE 4 — FORMAZIONE */
+.learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; flex: 1; }
+.learn-card {
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 24px 22px;
+  border: 1px solid #e2e8f0;
   display: flex;
-  gap: 12px;
-  margin-top: 18px;
+  flex-direction: column;
 }
-.ticker-chip {
-  padding: 8px 16px;
-  border-radius: 10px;
-  font-size: 14px;
+.lc-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #7c3aed;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.lc-term {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
   font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+  line-height: 1.15;
+}
+.lc-it {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #7c3aed;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+.lc-def {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.5;
+  flex: 1;
+}
+.lc-def strong { color: #1e293b; font-weight: 600; }
+.lc-today {
+  margin-top: 10px;
+  background: rgba(124,58,237,0.08);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #5b21b6;
+  line-height: 1.4;
+}
+.lc-today strong { font-weight: 700; }
+
+/* SLIDE 5 — TOP/FLOP */
+.tickers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; flex: 1; }
+.ticker-card {
+  border-radius: 14px;
+  padding: 18px 20px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 6px;
 }
-.ticker-chip.up   { background: #D1FAE5; color: #065F46; }
-.ticker-chip.down { background: #FEE2E2; color: #991B1B; }
-.ticker-chip.flat { background: #F3F4F6; color: #374151; }
-
-/* ── SLIDE 7 CTA ── */
-.cta-slide {
-  background: linear-gradient(145deg, #7C3AED 0%, #4C1D95 60%, #2E1065 100%);
+.tc-up { background: #f0fdf4; border: 1px solid #bbf7d0; }
+.tc-down { background: #fff1f2; border: 1px solid #fecdd3; }
+.tc-top {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
-  text-align: center;
-  padding: 60px;
+  justify-content: space-between;
 }
-.cta-logo {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 3px;
-  margin-bottom: 16px;
-}
-.cta-logo-a {
-  font-family: 'Lobster', cursive;
-  font-size: 64px;
-  color: #14B8A6;
-  line-height: 1;
-}
-.cta-logo-rest {
-  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 42px;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: 2px;
-  line-height: 1;
-}
-.cta-tagline {
-  font-size: 18px;
-  color: rgba(255,255,255,0.80);
-  margin-bottom: 48px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-.cta-headline {
-  font-size: 38px;
-  font-weight: 900;
-  color: #fff;
-  line-height: 1.2;
-  max-width: 700px;
-  margin-bottom: 24px;
-}
-.cta-sub {
-  font-size: 18px;
-  color: rgba(255,255,255,0.75);
-  max-width: 560px;
-  line-height: 1.5;
-  margin-bottom: 44px;
-}
-.cta-url-box {
-  background: rgba(255,255,255,0.15);
-  border: 1.5px solid rgba(255,255,255,0.35);
-  border-radius: 14px;
-  padding: 18px 32px;
-  font-size: 15px;
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  max-width: 640px;
-  word-break: break-all;
-  line-height: 1.4;
-  margin-bottom: 32px;
-}
-.cta-hashtags {
+.tc-name {
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
-  color: rgba(255,255,255,0.55);
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
+.tc-pct-up {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: #16a34a;
+}
+.tc-pct-down {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: #dc2626;
+}
+.tc-reason {
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.45;
+}
+.tc-reason strong { color: #1e293b; font-weight: 600; }
 
-/* ── SLIDE 1 PALANTIR ORB (right panel) ── */
-.orb-panel {
-  position: relative;
-  background: #0D0020;
+/* SLIDE 6 — OUTLOOK */
+.outlook-cols { display: flex; gap: 20px; flex: 1; }
+.outlook-col {
+  flex: 1;
+  border-radius: 18px;
+  padding: 28px 24px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-.orb-outer {
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 38% 36%, #9F67FF 0%, #6D28D9 35%, #3B0764 70%, #0D0020 100%);
-  box-shadow: 0 0 80px rgba(124,58,237,0.7), 0 0 160px rgba(91,33,182,0.4), inset 0 0 40px rgba(196,181,253,0.25);
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap: 4px;
 }
-.orb-ring-1 {
-  position: absolute;
-  width: 440px;
-  height: 440px;
+.oc-green { background: #f0fdf4; border: 1px solid #bbf7d0; }
+.oc-yellow { background: #fffbeb; border: 1px solid #fde68a; }
+.oc-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+.oc-green .oc-header { color: #15803d; }
+.oc-yellow .oc-header { color: #b45309; }
+.oc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.oc-dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  border: 1.5px solid rgba(124,58,237,0.30);
-  z-index: 1;
+  margin-top: 5px;
+  flex-shrink: 0;
 }
-.orb-ring-2 {
-  position: absolute;
-  width: 530px;
-  height: 530px;
-  border-radius: 50%;
-  border: 1px solid rgba(124,58,237,0.18);
-  z-index: 1;
+.oc-green .oc-dot { background: #16a34a; }
+.oc-yellow .oc-dot { background: #d97706; }
+.oc-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.5;
 }
-.orb-ring-3 {
-  position: absolute;
-  width: 620px;
-  height: 620px;
-  border-radius: 50%;
-  border: 1px solid rgba(124,58,237,0.10);
-  z-index: 1;
+.oc-text strong { font-weight: 700; color: #0f172a; }
+
+/* SLIDE 7 — CTA */
+.slide-cta { background: linear-gradient(145deg, #7c3aed 0%, #6d28d9 50%, #4c1d95 100%); }
+.cta-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
 }
-.orb-inner-text {
+.cta-card {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 28px;
+  padding: 52px 56px;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+}
+.cta-eyebrow {
+  font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   font-weight: 700;
-  color: rgba(255,255,255,0.65);
-  letter-spacing: 2px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  text-align: center;
+  margin-bottom: 20px;
 }
-.orb-pltr {
-  font-size: 36px;
+.cta-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
   font-weight: 900;
-  color: #fff;
-  letter-spacing: -1px;
-  text-shadow: 0 0 20px rgba(196,181,253,0.8);
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 16px;
 }
-.orb-caption {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 3;
+.cta-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.5;
+  margin-bottom: 36px;
 }
-.orb-caption-name {
+.cta-url {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 12px;
+  padding: 14px 32px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin-bottom: 28px;
+  word-break: break-all;
+}
+.cta-hashtags {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+.cta-logo {
+  font-family: 'Lobster', cursive;
+  font-size: 44px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  display: block;
+}
+.cta-tagline {
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
-  font-weight: 800;
-  color: rgba(255,255,255,0.85);
-  letter-spacing: 0.5px;
-}
-.orb-caption-desc {
-  font-size: 12px;
-  color: rgba(255,255,255,0.50);
-  margin-top: 3px;
-  line-height: 1.4;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 36px;
+  font-style: italic;
 }
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════ -->
-<!-- SLIDE 1 — COVER                           -->
-<!-- ══════════════════════════════════════════ -->
-<div class="slide">
-  <div class="hdr">
-    <span class="hdr-logo"><span class="hdr-logo-a">A</span><span class="hdr-logo-rest">LMA FINANZA</span></span>
-    <span class="hdr-section">⚡ Tech &amp; AI</span>
-    <span class="hdr-date">4 Maggio 2026</span>
-  </div>
-
-  <div style="height:calc(1080px - 84px);display:flex;flex-direction:row;">
-
-    <!-- LEFT: testo -->
-    <div style="flex:0 0 58%;padding:50px 36px 70px 48px;display:flex;flex-direction:column;justify-content:center;">
-      <div style="display:flex;align-items:baseline;gap:4px;flex-wrap:wrap;">
-        <span class="hero-number" style="color:#7C3AED;">$0,28</span>
-        <span class="hero-arrow">→</span>
-        <span class="hero-number">$0,33</span>
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 1 — COVER                                 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide slide-cover">
+  <div class="slide-body">
+    <div class="cover-category">💻 Tech &amp; AI · 3 Giugno 2026</div>
+    <div class="cover-hook">La guidance raddoppia.<br>STM vola +15%.</div>
+    <div class="cover-sub">STMicroelectronics porta i ricavi data center da $500M a $1 miliardo attesi nel 2026. Morgan Stanley risponde: target alzato a €83.</div>
+    <div class="cover-metrics">
+      <div class="metric-pill">
+        <div class="mp-label">STM 3 giu 2026</div>
+        <div class="mp-value">+15,19%</div>
+        <div class="mp-badge">€68,31</div>
       </div>
-      <div class="hero-hook" style="margin-top:18px;">
-        Palantir frantuma le attese.<br>La pietra veggente aveva ragione.
+      <div class="metric-pill">
+        <div class="mp-label">Guidance Data Center</div>
+        <div class="mp-value">~$1 Mld</div>
+        <div class="mp-badge">era &gt;$500M</div>
       </div>
-      <div class="hero-sub" style="margin-top:16px;">
-        Revenue <strong>+85% anno su anno</strong> — la crescita più rapida dal 2020. EPS beat del +18%. FY Guidance 2026: $7,65B, oltre il consensus di $400M.
+      <div class="metric-pill">
+        <div class="mp-label">Target Price MS</div>
+        <div class="mp-value">€83</div>
+        <div class="mp-badge">Overweight</div>
       </div>
-      <div class="learn-pills">
-        <span class="pill">AIP Boot Camp</span>
-        <span class="pill">Price-to-Sales</span>
-        <span class="pill">Moat</span>
-        <span class="pill">Earnings Beat</span>
+      <div class="metric-pill">
+        <div class="mp-label">FTSE MIB</div>
+        <div class="mp-value">-0,37%</div>
+        <div class="mp-badge">50.482 pt</div>
       </div>
     </div>
+    <div class="cover-teaser">📚 In questo carosello: <strong>Guidance · Data Center · Overweight · Target Price</strong> — i 4 concetti chiave per capire perché un comunicato aziendale vale +15% in borsa.</div>
+  </div>
+  <div class="swipe-hint">Scorri per approfondire →</div>
+</div>
 
-    <!-- RIGHT: foto Alex Karp -->
-    <div style="flex:0 0 42%;position:relative;background:#0A0018;overflow:hidden;">
-      <img src="alex_karp.jpg"
-           style="width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.82;display:block;">
-      <!-- gradient overlay bottom -->
-      <div style="position:absolute;bottom:0;left:0;right:0;height:55%;
-                  background:linear-gradient(to top, rgba(10,0,24,1) 0%, rgba(10,0,24,0.6) 50%, transparent 100%);"></div>
-      <!-- badge PLTR in alto a destra -->
-      <div style="position:absolute;top:22px;right:22px;
-                  background:rgba(124,58,237,0.90);backdrop-filter:blur(6px);
-                  border-radius:10px;padding:8px 16px;
-                  font-size:15px;font-weight:800;color:#fff;letter-spacing:1px;">
-        PLTR +3,6% ↑
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 2 — MACRO                                 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="hdr-dark">
+    <span class="hdr-logo">Alma Finanza</span>
+    <span class="hdr-section">📊 I Numeri della Seduta</span>
+    <span class="hdr-date">3 Giugno 2026</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-title">Tre cose che devi sapere sulla seduta di oggi</div>
+    <div class="macro-cards">
+      <div class="macro-card">
+        <div class="mc-value" style="color:#00C17C;">+15,19%</div>
+        <div class="mc-unit">seduta 3 giu</div>
+        <div class="mc-title">Il rialzo di STM</div>
+        <div class="mc-body">In finanza i prezzi reagiscono alle <strong>sorprese</strong>. La revisione della <strong>Guidance Data Center</strong> da $500M a $1B è stata una sorpresa positiva di portata eccezionale. Il mercato non l'aveva scontata: tutto il gap si è chiuso in un giorno.</div>
       </div>
-      <!-- didascalia in basso -->
-      <div style="position:absolute;bottom:56px;left:0;right:0;padding:0 24px;text-align:center;">
-        <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.55);
-                    letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">
-          CEO &amp; Co-Fondatore · Palantir
+      <div class="macro-card">
+        <div class="mc-value" style="color:#7c3aed;">2×</div>
+        <div class="mc-unit">crescita guidance</div>
+        <div class="mc-title">Il raddoppio delle aspettative</div>
+        <div class="mc-body">Non è solo il numero assoluto ($1B) a stupire: è la velocità del cambiamento. Una <strong>Guidance upgrade</strong> già aggiornata segnala ordini confermati e pipeline solida. Non è un'aspirazione: è un impegno formale verso gli investitori.</div>
+      </div>
+      <div class="macro-card">
+        <div class="mc-value" style="color:#00C17C;">+21%</div>
+        <div class="mc-unit">upside implicito MS</div>
+        <div class="mc-title">Morgan Stanley: €83 di target</div>
+        <div class="mc-body">Con €83 di target contro €68,31, l'<strong>upside implicito</strong> è +21,5%. Il rating <strong>Overweight</strong> significa tenere STM in percentuale maggiore dell'indice nel proprio portafoglio. È un segnale forte per i gestori istituzionali.</div>
+      </div>
+    </div>
+  </div>
+  <div class="swipe-hint-dark">2 / 7</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 3 — FOCUS                                 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="hdr-accent">
+    <span class="hdr-logo">Alma Finanza</span>
+    <span class="hdr-section">🔍 Focus</span>
+    <span class="hdr-date">3 Giugno 2026</span>
+  </div>
+  <div class="slide-body">
+    <div class="focus-title">Perché un comunicato sul Data Center vale +15% in borsa</div>
+    <div class="focus-rows">
+      <div class="focus-row">
+        <div class="fr-left">
+          <div class="fr-label">Pre-comunicato</div>
+          <div class="fr-value" style="color:#6B7280;">€59,30</div>
         </div>
-        <div style="font-size:22px;font-weight:900;color:#fff;letter-spacing:-0.5px;
-                    text-shadow:0 2px 12px rgba(0,0,0,0.7);">
-          Alex Karp
-        </div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:5px;line-height:1.4;">
-          Dottorato in filosofia · Francoforte<br>
-          <em>«Il nostro prodotto viene usato,<br>occasionalmente, per uccidere persone.»</em>
+        <div class="fr-right">
+          <div class="fr-title">Il prezzo era basato su aspettative vecchie</div>
+          <div class="fr-body">Il mercato aveva già scontato la guidance precedente (&gt;$500M). Quel numero era nei modelli di tutti gli analisti. Nessuno si aspettava una revisione così rapida e netta verso il raddoppio.</div>
         </div>
       </div>
-    </div>
-
-  </div>
-
-  <!-- dots -->
-  <div class="dots">
-    <div class="d-on"></div>
-    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
-    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
-  </div>
-</div>
-
-
-<!-- ══════════════════════════════════════════ -->
-<!-- SLIDE 2 — KPI                             -->
-<!-- ══════════════════════════════════════════ -->
-<div class="slide">
-  <div class="hdr">
-    <span class="hdr-logo"><span class="hdr-logo-a">A</span><span class="hdr-logo-rest">LMA FINANZA</span></span>
-    <span class="hdr-section">📊 I Numeri del Q1 2026</span>
-    <span class="hdr-date">PLTR</span>
-  </div>
-
-  <div style="padding:40px 44px 0;">
-    <div class="sec-title">Palantir Technologies</div>
-    <div class="sec-headline">Quattro numeri che raccontano<br>un trimestre record</div>
-  </div>
-
-  <div class="kpi-grid" style="padding-top:12px;">
-
-    <div class="kpi-card">
-      <div class="kpi-label">Revenue Totale</div>
-      <div class="kpi-value" style="font-size:46px;">$1,63B</div>
-      <div class="kpi-badge badge-green">+85% Anno su Anno ↑</div>
-      <div style="font-size:13px;color:#6B7280;margin-top:6px;">La crescita più rapida dal 2020 — anno dell'IPO</div>
-    </div>
-
-    <div class="kpi-card">
-      <div class="kpi-label">EPS Adjusted</div>
-      <div class="kpi-value" style="font-size:46px;">$0,33</div>
-      <div class="kpi-badge badge-green">vs $0,28 atteso · Beat +18% ↑</div>
-      <div style="font-size:13px;color:#6B7280;margin-top:6px;">Quinta trimestrale consecutiva di outperformance</div>
-    </div>
-
-    <div class="kpi-card">
-      <div class="kpi-label">US Commercial Revenue</div>
-      <div class="kpi-value" style="font-size:46px;">$595M</div>
-      <div class="kpi-badge badge-green">+133% Anno su Anno ↑</div>
-      <div style="font-size:13px;color:#6B7280;margin-top:6px;">vs $605M consensus: miss tecnico di -1,7%</div>
-    </div>
-
-    <div class="kpi-card">
-      <div class="kpi-label">FY 2026 Guidance</div>
-      <div class="kpi-value" style="font-size:46px;">$7,65B</div>
-      <div class="kpi-badge badge-green">vs $7,27B consensus · +5% ↑</div>
-      <div style="font-size:13px;color:#6B7280;margin-top:6px;">+71% anno su anno — revisione al rialzo netta</div>
-    </div>
-
-  </div>
-
-  <div class="dots">
-    <div class="d-off"></div>
-    <div class="d-on"></div>
-    <div class="d-off"></div><div class="d-off"></div>
-    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
-  </div>
-</div>
-
-
-<!-- ══════════════════════════════════════════ -->
-<!-- SLIDE 3 — MACRO                           -->
-<!-- ══════════════════════════════════════════ -->
-<div class="slide">
-  <div class="hdr">
-    <span class="hdr-logo"><span class="hdr-logo-a">A</span><span class="hdr-logo-rest">LMA FINANZA</span></span>
-    <span class="hdr-section">🏛️ Governo &amp; Commerciale</span>
-    <span class="hdr-date">PLTR Q1 2026</span>
-  </div>
-
-  <div style="padding:40px 44px 28px;">
-    <div class="sec-title">Palantir Technologies</div>
-    <div class="sec-headline">Due motori che accelerano<br>in direzioni opposte</div>
-  </div>
-
-  <div class="macro-grid">
-
-    <div class="macro-card">
-      <div class="macro-icon">🏛️</div>
-      <div>
-        <div class="macro-number">+84%</div>
-        <div class="macro-fact">US Government: $687M anno su anno</div>
-        <div class="macro-explain">In accelerazione dal +66% del Q4 2025. USDA ha firmato un Blanket Purchase Agreement (accordo quadro di acquisto) da $300M. L'AI per la difesa non è una promessa: è un contratto.</div>
+      <div class="focus-row">
+        <div class="fr-left">
+          <div class="fr-label">Delta Guidance</div>
+          <div class="fr-value" style="color:#7c3aed;">$500M+</div>
+        </div>
+        <div class="fr-right">
+          <div class="fr-title">Il raddoppio cambia i modelli finanziari</div>
+          <div class="fr-body">I <strong>margini del segmento Data Center</strong> sono più alti di automotive e industriale. Raddoppiare quel segmento migliora la redditività complessiva in modo non lineare: ogni analista ha dovuto aggiornare le stime di utile futuro.</div>
+        </div>
+      </div>
+      <div class="focus-row">
+        <div class="fr-left">
+          <div class="fr-label">Post-seduta</div>
+          <div class="fr-value" style="color:#00C17C;">€68,31</div>
+        </div>
+        <div class="fr-right">
+          <div class="fr-title">Il nuovo prezzo riflette le nuove aspettative</div>
+          <div class="fr-body">Il +15,19% è la misura della distanza tra vecchie e nuove aspettative. Il mercato ha prezzato in ore quello che STM realizzerà nei prossimi 12 mesi: questa è l'efficienza dei mercati moderni.</div>
+        </div>
       </div>
     </div>
-
-    <div class="macro-card">
-      <div class="macro-icon">🏢</div>
-      <div>
-        <div class="macro-number">+133%</div>
-        <div class="macro-fact">US Commercial: $595M anno su anno</div>
-        <div class="macro-explain">Prima volta oltre mezzo miliardo. Cleveland-Cliffs (acciaio) ha scelto AIP per 3 anni. Il Boot Camp (campo intensivo) converte i clienti più rapidamente di qualsiasi demo tradizionale.</div>
-      </div>
-    </div>
-
-    <div class="macro-card">
-      <div class="macro-icon">📈</div>
-      <div>
-        <div class="macro-number">$144</div>
-        <div class="macro-fact">PLTR +3,6% il 4 maggio, pre-earnings</div>
-        <div class="macro-explain">Il mercato aveva già iniziato a scommettere prima dell'annuncio. Dopo la pubblicazione degli earnings, le aspettative sul titolo divergono nettamente: Wedbush $230 vs HSBC $151.</div>
-      </div>
-    </div>
-
+    <div class="focus-insight">💡 "La Guidance non descrive il passato: ridisegna il futuro che il mercato sta già pagando."</div>
   </div>
-
-  <div class="dots">
-    <div class="d-off"></div><div class="d-off"></div>
-    <div class="d-on"></div>
-    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
-  </div>
+  <div class="swipe-hint-dark">3 / 7</div>
 </div>
 
-
-<!-- ══════════════════════════════════════════ -->
-<!-- SLIDE 4 — FOCUS                           -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 4 — FORMAZIONE                            -->
+<!-- ═══════════════════════════════════════════════ -->
 <div class="slide">
-  <div class="hdr">
-    <span class="hdr-logo"><span class="hdr-logo-a">A</span><span class="hdr-logo-rest">LMA FINANZA</span></span>
-    <span class="hdr-section">🔬 Come Funziona il Boot Camp</span>
-    <span class="hdr-date">AIP · PLTR</span>
-  </div>
-
-  <div style="padding:40px 44px 0;">
-    <div class="sec-title">La strategia di vendita</div>
-    <div class="sec-headline">Palantir non vende software.<br>Entra in azienda e costruisce il valore.</div>
-
-    <table class="focus-table">
-      <thead>
-        <tr>
-          <th>Metodo / Partner</th>
-          <th>Durata / Valore</th>
-          <th>Perché conta</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>AIP Boot Camp</td>
-          <td>5 giorni</td>
-          <td>Usa i dati reali del cliente. L'AI dimostra il suo valore in tempo reale, non in una slide. Tasso di conversione altissimo.</td>
-        </tr>
-        <tr>
-          <td>USDA</td>
-          <td>$300M BPA</td>
-          <td>Blanket Purchase Agreement — accordo quadro che garantisce visibilità pluriennale sui ricavi federali. Difficile da cancellare.</td>
-        </tr>
-        <tr>
-          <td>Cleveland-Cliffs</td>
-          <td>3 anni</td>
-          <td>Un'acciaieria sceglie l'AI di Palantir. Dimostra che l'AIP non è solo per tech company o difesa: l'industria tradizionale è il prossimo mercato.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="focus-insight">
-      «Non vende software. Entra nell'azienda, usa i dati reali e trasforma il cliente in un promotore. Il switching cost (costo di cambio fornitore) diventa quasi insuperabile.»
-    </div>
-  </div>
-
-  <div class="dots">
-    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
-    <div class="d-on"></div>
-    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
-  </div>
-</div>
-
-
-<!-- ══════════════════════════════════════════ -->
-<!-- SLIDE 5 — LEARN                           -->
-<!-- ══════════════════════════════════════════ -->
-<div class="slide">
-  <div class="hdr">
-    <span class="hdr-logo"><span class="hdr-logo-a">A</span><span class="hdr-logo-rest">LMA FINANZA</span></span>
+  <div class="hdr-accent">
+    <span class="hdr-logo">Alma Finanza</span>
     <span class="hdr-section">📚 Impara la Finanza</span>
-    <span class="hdr-date">Glossario</span>
+    <span class="hdr-date">4 Concetti Chiave</span>
   </div>
-
-  <div style="padding:36px 44px 24px;">
-    <div class="sec-title">4 concetti chiave</div>
-    <div class="sec-headline" style="margin-bottom:24px;">Le parole per capire Palantir</div>
+  <div class="slide-body">
+    <div class="learn-grid">
+      <div class="learn-card">
+        <div class="lc-num">01 · Tech &amp; AI</div>
+        <div class="lc-term">Guidance</div>
+        <div class="lc-it">previsioni ufficiali</div>
+        <div class="lc-def">Previsione ufficiale che un'azienda pubblica sui propri <strong>ricavi futuri</strong>. Non è un dato storico: è un impegno verso il mercato. Quando viene alzata, gli analisti aggiornano tutti i modelli di valutazione.</div>
+        <div class="lc-today"><strong>→ Oggi:</strong> STM alza la guidance data center da &gt;$500M a ~$1 miliardo per il 2026.</div>
+      </div>
+      <div class="learn-card">
+        <div class="lc-num">02 · Tech &amp; AI</div>
+        <div class="lc-term">Data Center</div>
+        <div class="lc-it">centro dati</div>
+        <div class="lc-def">Infrastruttura fisico-digitale che elabora ed archivia dati per cloud, AI e streaming. Per i produttori di chip come STM, il segmento <strong>Data Center</strong> è il più redditizio della catena del valore.</div>
+        <div class="lc-today"><strong>→ Oggi:</strong> La domanda AI spinge i ricavi data center STM a raddoppiare le stime in pochi mesi.</div>
+      </div>
+      <div class="learn-card">
+        <div class="lc-num">03 · Analisi</div>
+        <div class="lc-term">Overweight</div>
+        <div class="lc-it">sovrappeso</div>
+        <div class="lc-def">Rating degli analisti che indica di tenere un titolo in percentuale <strong>maggiore rispetto all'indice</strong> di riferimento. Equivale a "comprare" nel linguaggio degli istituzionali: è un segnale di fiducia formale.</div>
+        <div class="lc-today"><strong>→ Oggi:</strong> Morgan Stanley assegna Overweight a STM con target price €83.</div>
+      </div>
+      <div class="learn-card">
+        <div class="lc-num">04 · Analisi</div>
+        <div class="lc-term">Target Price</div>
+        <div class="lc-it">prezzo obiettivo</div>
+        <div class="lc-def">Prezzo che un analista stima il titolo raggiungerà nei <strong>prossimi 12 mesi</strong>, basato su modelli DCF e multipli di settore. La distanza dal prezzo corrente si chiama <em>upside implicito</em>.</div>
+        <div class="lc-today"><strong>→ Oggi:</strong> Target €83 vs prezzo €68,31 = upside implicito del +21,5%.</div>
+      </div>
+    </div>
   </div>
-
-  <div class="learn-grid">
-
-    <div class="learn-card">
-      <div class="learn-en">AIP</div>
-      <div class="learn-it">Artificial Intelligence Platform (piattaforma di intelligenza artificiale)</div>
-      <div class="learn-def">Il sistema AI proprietario di Palantir che integra modelli linguistici con i dati operativi reali di un'azienda. Non è un ChatGPT generico: opera sui dati riservati del cliente, in sicurezza.</div>
-      <div class="learn-ref">→ US Commercial +133% YoY grazie all'AIP</div>
-    </div>
-
-    <div class="learn-card">
-      <div class="learn-en">Price-to-Sales</div>
-      <div class="learn-it">Rapporto Prezzo/Fatturato (P/S)</div>
-      <div class="learn-def">Confronta la capitalizzazione di borsa con il fatturato annuo. Palantir: P/S oltre 70x. Significa che il mercato paga $70 per ogni $1 di ricavi. Usato per aziende in forte crescita dove gli utili contano meno della velocità di espansione.</div>
-      <div class="learn-ref">→ Principale rischio di valutazione per PLTR</div>
-    </div>
-
-    <div class="learn-card">
-      <div class="learn-en">Boot Camp</div>
-      <div class="learn-it">Campo intensivo (immersione commerciale)</div>
-      <div class="learn-def">Sessioni di 5 giorni in cui i tecnici Palantir lavorano direttamente con i team del cliente, usando i dati reali dell'azienda per costruire prototipi AIP funzionanti. Converte i prospect in clienti paganti molto più rapidamente di una demo classica.</div>
-      <div class="learn-ref">→ Driver principale del +133% US Commercial</div>
-    </div>
-
-    <div class="learn-card">
-      <div class="learn-en">Moat</div>
-      <div class="learn-it">Fossato competitivo (barriera all'ingresso)</div>
-      <div class="learn-def">Termine coniato da Warren Buffett: il vantaggio strutturale che protegge un'azienda dalla concorrenza. Per Palantir, il moat è il switching cost (costo di cambio fornitore) — una volta che l'AIP è integrato nei processi operativi, sostituirlo è costosissimo.</div>
-      <div class="learn-ref">→ Cleveland-Cliffs: contratto pluriennale bloccato</div>
-    </div>
-
-  </div>
-
-  <div class="dots">
-    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
-    <div class="d-on"></div>
-    <div class="d-off"></div><div class="d-off"></div>
-  </div>
+  <div class="swipe-hint-dark">4 / 7</div>
 </div>
 
-
-<!-- ══════════════════════════════════════════ -->
-<!-- SLIDE 6 — OUTLOOK                         -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 5 — TOP / FLOP                            -->
+<!-- ═══════════════════════════════════════════════ -->
 <div class="slide">
-  <div class="hdr">
-    <span class="hdr-logo"><span class="hdr-logo-a">A</span><span class="hdr-logo-rest">LMA FINANZA</span></span>
-    <span class="hdr-section">🎯 Outlook degli Analisti</span>
-    <span class="hdr-date">PLTR · Maggio 2026</span>
+  <div class="hdr-dark">
+    <span class="hdr-logo">Alma Finanza</span>
+    <span class="hdr-section">📈 Top &amp; Flop del giorno</span>
+    <span class="hdr-date">FTSE MIB · 3 Giugno 2026</span>
   </div>
-
-  <div style="padding:36px 44px 0;">
-    <div class="sec-title">Bull vs Bear</div>
-    <div class="sec-headline" style="margin-bottom:22px;">Il mercato è diviso sulla valutazione</div>
-
-    <div class="outlook-grid">
-
-      <div class="outlook-col bull">
-        <div class="outlook-col-title">🟢 Bull Case — Acquisto</div>
-        <div class="outlook-row"><strong>Wedbush</strong> — Outperform<br><span style="font-size:20px;font-weight:900;color:#065F46;">$230</span> target price</div>
-        <div class="outlook-row"><strong>Oppenheimer</strong> — Outperform<br><span style="font-size:20px;font-weight:900;color:#065F46;">$200</span> target price</div>
-        <div class="outlook-row">Revenue guidance $7,65B: +$380M sopra consensus. AIP a scala globale. US Government in accelerazione. Switching cost quasi insuperabile.</div>
+  <div class="slide-body">
+    <div class="slide-title">I protagonisti della seduta a Milano</div>
+    <div class="tickers-grid">
+      <div class="ticker-card tc-up">
+        <div class="tc-top">
+          <div class="tc-name">💻 STMicroelectronics</div>
+          <div class="tc-pct-up">+15,19%</div>
+        </div>
+        <div class="tc-reason">La <strong>Guidance Data Center</strong> raddoppia a $1B. Morgan Stanley alza il target a €83 con rating Overweight.</div>
       </div>
-
-      <div class="outlook-col bear">
-        <div class="outlook-col-title">🟡 Bear Case — Rischio</div>
-        <div class="outlook-row"><strong>HSBC</strong> — Hold<br><span style="font-size:20px;font-weight:900;color:#92400E;">$151</span> target price</div>
-        <div class="outlook-row">P/S oltre <strong>70x</strong> — valutazione da growth stock estrema. Il rallentamento della crescita potrebbe comprimere rapidamente i multipli.</div>
-        <div class="outlook-row">US Commercial miss: $595M vs $605M attesi (-1,7%). Piccolo segnale, ma i mercati non perdonano le sorprese negative ad alta valutazione.</div>
+      <div class="ticker-card tc-up">
+        <div class="tc-top">
+          <div class="tc-name">⚡ Eni</div>
+          <div class="tc-pct-up">+0,97%</div>
+        </div>
+        <div class="tc-reason">Il <strong>petrolio WTI a $95</strong> (+2,2%) alimenta le stime sugli utili. La tensione Iran/Golfo Persico sostiene i prezzi.</div>
       </div>
-
-    </div>
-
-    <div class="tickers-bar" style="margin-top:20px;">
-      <div class="ticker-chip up">PLTR +3,6% ↑</div>
-      <div class="ticker-chip flat">NVDA ↔</div>
-      <div class="ticker-chip flat">MSFT ↔</div>
-      <div class="ticker-chip down">HSBC Downgrade ↓</div>
+      <div class="ticker-card tc-up">
+        <div class="tc-top">
+          <div class="tc-name">🔧 Saipem</div>
+          <div class="tc-pct-up">+0,97%</div>
+        </div>
+        <div class="tc-reason">Il rialzo del WTI aumenta il Capex delle major oil: più commesse per i servizi petroliferi e le piattaforme offshore.</div>
+      </div>
+      <div class="ticker-card tc-down">
+        <div class="tc-top">
+          <div class="tc-name">🚀 Avio</div>
+          <div class="tc-pct-down">-3,61%</div>
+        </div>
+        <div class="tc-reason"><strong>Profit taking</strong> (presa di profitto) dopo il rally geopolitico delle settimane precedenti sulla corsa spaziale europea.</div>
+      </div>
+      <div class="ticker-card tc-down">
+        <div class="tc-top">
+          <div class="tc-name">✈️ Leonardo</div>
+          <div class="tc-pct-down">-1,78%</div>
+        </div>
+        <div class="tc-reason">Vendite sul settore difesa nonostante le tensioni Iran: rotazione da difesa verso energia e tech.</div>
+      </div>
+      <div class="ticker-card tc-down">
+        <div class="tc-top">
+          <div class="tc-name">🚗 Stellantis</div>
+          <div class="tc-pct-down">-1,54%</div>
+        </div>
+        <div class="tc-reason"><strong>Domanda auto europea</strong> in calo con PMI in contrazione. L'incertezza sui dazi pesa sulla guidance 2026.</div>
+      </div>
     </div>
   </div>
-
-  <div class="dots">
-    <div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div><div class="d-off"></div>
-    <div class="d-on"></div>
-    <div class="d-off"></div>
-  </div>
+  <div class="swipe-hint-dark">5 / 7</div>
 </div>
 
-
-<!-- ══════════════════════════════════════════ -->
-<!-- SLIDE 7 — CTA                             -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 6 — OUTLOOK                               -->
+<!-- ═══════════════════════════════════════════════ -->
 <div class="slide">
-  <div style="height:100%;position:relative;">
-    <div class="cta-slide">
-
-      <div class="cta-logo"><span class="cta-logo-a">A</span><span class="cta-logo-rest">LMA FINANZA</span></div>
-      <div class="cta-tagline">La finanza spiegata bene. In italiano.</div>
-
-      <div class="cta-headline">
-        Palantir Q1 2026:<br>Revenue +85%, EPS +18%.<br>La pietra che vede lontano.
+  <div class="hdr-accent">
+    <span class="hdr-logo">Alma Finanza</span>
+    <span class="hdr-section">🔭 Outlook STM</span>
+    <span class="hdr-date">Opportunità &amp; Rischi</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-title">Cosa guardare nelle prossime settimane</div>
+    <div class="outlook-cols">
+      <div class="outlook-col oc-green">
+        <div class="oc-header">📈 Opportunità a breve</div>
+        <div class="oc-item">
+          <div class="oc-dot"></div>
+          <div class="oc-text"><strong>Data Center strutturale</strong> — La domanda AI è pluriennale. Il segmento più redditizio di STM cresce più velocemente del consensus.</div>
+        </div>
+        <div class="oc-item">
+          <div class="oc-dot"></div>
+          <div class="oc-text"><strong>Upside Morgan Stanley</strong> — Target €83 implica ancora +21% dal prezzo attuale. Gli istituzionali ruotano verso semiconduttori europei.</div>
+        </div>
+        <div class="oc-item">
+          <div class="oc-dot"></div>
+          <div class="oc-text"><strong>European Chips Act</strong> — I sussidi UE per l'autonomia sui chip favoriscono i produttori europei come STM nel medio-lungo termine.</div>
+        </div>
       </div>
-
-      <div class="cta-sub">
-        Analisi completa: risultati, AIP Boot Camp, storia Tolkien/CIA, valutazione e outlook degli analisti.
+      <div class="outlook-col oc-yellow">
+        <div class="oc-header">⚠️ Rischi da monitorare</div>
+        <div class="oc-item">
+          <div class="oc-dot"></div>
+          <div class="oc-text"><strong>Destocking industriale</strong> — I segmenti automotive e industriale restano sotto pressione: ordini in riduzione potrebbero comprimere i margini.</div>
+        </div>
+        <div class="oc-item">
+          <div class="oc-dot"></div>
+          <div class="oc-text"><strong>Automotive in frenata</strong> — La domanda auto elettrica europea rallenta. STM ha ancora forte esposizione al settore veicoli.</div>
+        </div>
+        <div class="oc-item">
+          <div class="oc-dot"></div>
+          <div class="oc-text"><strong>Geopolitica chip USA</strong> — Le restrizioni all'export di semiconduttori verso la Cina potrebbero colpire indirettamente la supply chain.</div>
+        </div>
       </div>
-
-      <div class="cta-url-box">
-        almafinanza.com/articolo-tech-04mag-palantir-pltr-q1-2026-earnings-aip
-      </div>
-
-      <div class="cta-hashtags">
-        #Palantir #PLTR #AI #Earnings #WallStreet #AlmaFinanza
-      </div>
-
     </div>
+  </div>
+  <div class="swipe-hint-dark">6 / 7</div>
+</div>
 
-    <!-- dots bianchi su sfondo viola -->
-    <div class="dots" style="bottom:30px;">
-      <div class="d-off" style="background:rgba(255,255,255,0.35);"></div>
-      <div class="d-off" style="background:rgba(255,255,255,0.35);"></div>
-      <div class="d-off" style="background:rgba(255,255,255,0.35);"></div>
-      <div class="d-off" style="background:rgba(255,255,255,0.35);"></div>
-      <div class="d-off" style="background:rgba(255,255,255,0.35);"></div>
-      <div class="d-off" style="background:rgba(255,255,255,0.35);"></div>
-      <div class="d-on" style="background:#fff;"></div>
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 7 — CTA                                   -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide slide-cta">
+  <div class="cta-body">
+    <div class="cta-card">
+      <span class="cta-logo">Alma Finanza</span>
+      <div class="cta-tagline">La finanza italiana, spiegata bene.</div>
+      <div class="cta-eyebrow">Analisi completa disponibile su</div>
+      <div class="cta-headline">Leggi l'articolo<br>su Alma Finanza</div>
+      <div class="cta-sub">Guidance · Data Center · Overweight · Target Price<br>Tutto spiegato in italiano, con dati reali.</div>
+      <div class="cta-url">almafinanza.com/articolo-tech-03giu-stm-datacenter-miliardo-morgan-stanley.html</div>
+      <div class="cta-hashtags">#AlmaFinanza &nbsp;·&nbsp; #STMicroelectronics &nbsp;·&nbsp; #Semiconduttori &nbsp;·&nbsp; #DataCenter &nbsp;·&nbsp; #MercatiFinanziari</div>
     </div>
   </div>
 </div>
