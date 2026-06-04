@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 1200px 630px; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #000; }
+
+.card {
+  width: 1200px;
+  height: 630px;
+  position: relative;
+  overflow: hidden;
+  background: #05000F;
+  display: flex;
+  flex-direction: row;
+}
+
+/* ── SFONDO: griglia dati ── */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 0;
+}
+.bg-glow {
+  position: absolute;
+  top: -100px;
+  left: -60px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.20) 0%, transparent 70%);
+  z-index: 0;
+}
+
+/* ── SINISTRA: contenuto testo ── */
+.left {
+  flex: 0 0 56%;
+  padding: 48px 44px 40px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.tag {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.tag-section {
+  background: rgba(124,58,237,0.25);
+  color: #C4B5FD;
+  border: 1px solid rgba(124,58,237,0.40);
+}
+.tag-date {
+  color: rgba(255,255,255,0.42);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.headline {
+  font-size: 42px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+  margin-bottom: 18px;
+  font-family: 'Montserrat', sans-serif;
+}
+.headline .accent-purple { color: #A78BFA; }
+.headline .accent-red    { color: #F87171; }
+
+.sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 28px;
+  max-width: 500px;
+}
+.sub em {
+  font-style: normal;
+  color: rgba(196,181,253,0.85);
+  font-weight: 600;
+}
+
+/* metriche orizzontali */
+.metrics {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding-top: 22px;
+  margin-bottom: 28px;
+}
+.metric {
+  flex: 1;
+  padding-right: 22px;
+  border-right: 1px solid rgba(255,255,255,0.10);
+  margin-right: 22px;
+}
+.metric:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.metric-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.32);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.metric-value {
+  font-size: 26px;
+  font-weight: 900;
+  color: #A78BFA;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+}
+.metric-value.green { color: #34D399; }
+.metric-value.red   { color: #F87171; }
+.metric-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.38);
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+/* logo bottom */
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.logo-a {
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+  color: #14B8A6;
+  line-height: 1;
+}
+.logo-rest {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.68);
+  letter-spacing: 1.5px;
+}
+
+/* ── DESTRA: chip image + overlay con big number ── */
+.right {
+  flex: 0 0 44%;
+  position: relative;
+  overflow: hidden;
+}
+.right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0.55;
+  display: block;
+}
+/* gradient overlay sinistra → foto */
+.right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #05000F 0%, rgba(5,0,15,0.55) 25%, rgba(5,0,15,0.15) 60%, transparent 100%);
+  z-index: 1;
+}
+/* gradient basso */
+.right::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(5,0,15,0.85) 0%, transparent 100%);
+  z-index: 1;
+}
+
+/* Big number overlay */
+.big-drop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -54%);
+  z-index: 4;
+  text-align: center;
+}
+.big-drop-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 96px;
+  font-weight: 900;
+  color: #F87171;
+  letter-spacing: -4px;
+  line-height: 1;
+  text-shadow: 0 0 40px rgba(248,113,113,0.5), 0 4px 24px rgba(0,0,0,0.8);
+}
+.big-drop-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* badge AVGO in alto a destra */
+.avgo-badge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 5;
+  background: rgba(124,58,237,0.80);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  border: 1px solid rgba(167,139,250,0.4);
+}
+
+/* pill bottom */
+.pill-row {
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  z-index: 5;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.pill {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(0,0,0,0.50);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.70);
+  backdrop-filter: blur(6px);
+}
+
+/* bordo viola sinistro */
+.left-border {
+  position: absolute;
+  left: 0;
+  top: 8%;
+  bottom: 8%;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #7C3AED 30%, #A78BFA 70%, transparent);
+  border-radius: 2px;
+  z-index: 3;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="left-border"></div>
+
+  <!-- SINISTRA -->
+  <div class="left">
+    <div>
+      <div class="tag-row">
+        <span class="tag tag-section">⚡ Tech &amp; AI</span>
+        <span class="tag-date">Q2 FY2026 · Earnings</span>
+      </div>
+
+      <div class="headline">
+        <span class="accent-purple">$10,8 miliardi</span> in AI.<br>
+        Trimestre record.<br>
+        AVGO <span class="accent-red">−15%</span>.
+      </div>
+
+      <div class="sub">
+        Il paradosso del <em>"Too Good but Not Good Enough"</em>:<br>
+        guidance Q3 a $16B è +200% YoY — ma non basta.
+      </div>
+    </div>
+
+    <div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-label">AI Revenue Q2</div>
+          <div class="metric-value">$10,8B</div>
+          <div class="metric-sub">+143% YoY</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">EPS adj</div>
+          <div class="metric-value green">$2,44</div>
+          <div class="metric-sub">vs $2,32 atteso</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Guide Q3 AI</div>
+          <div class="metric-value red">$16B</div>
+          <div class="metric-sub">vs $17,2B buy-side</div>
+        </div>
+      </div>
+
+      <div class="logo-row">
+        <span class="logo-a">A</span>
+        <span class="logo-rest">LMA FINANZA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESTRA: chip image con big number -->
+  <div class="right">
+    <img src="slide1_img_chip_semiconductor.jpg" alt="Chip semiconductor AI">
+    <div class="avgo-badge">AVGO · Broadcom</div>
+    <div class="big-drop">
+      <div class="big-drop-value">−15%</div>
+      <div class="big-drop-label">Sell the News</div>
+    </div>
+    <div class="pill-row">
+      <span class="pill">Sell the News</span>
+      <span class="pill">ASIC vs GPU</span>
+      <span class="pill">Buy-side miss</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
