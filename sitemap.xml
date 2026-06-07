@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 5 Giugno 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-05giu-nasdaq-chip-selloff.html</loc>
+      <lastmod>2026-06-05</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-06-05</news:publication_date>
+          <news:title>Nasdaq -4,18%: Peggior Seduta da Aprile 2025. AMD -10,86%, Intel -11,28%, Nvidia -6%. Guidance Miss Broadcom Q3 AI Scatena Sell-Off da $1.000 Miliardi</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-05giu-ftse-mib-stm-chip-selloff.html</loc>
+      <lastmod>2026-06-05</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-06-05</news:publication_date>
+          <news:title>FTSE MIB -0,56% a 49.893: STMicroelectronics -5,9% per Contagion Effect dai Chip USA. INWIT +3,3% Miglior Titolo. Terna +1,8%. Utility Porto Sicuro</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-macro-05giu-jobs-report-maggio-2026-fed.html</loc>
+      <lastmod>2026-06-05</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-06-05</news:publication_date>
+          <news:title>Jobs Report Maggio 2026: +172.000 Nonfarm Payrolls, il Doppio delle Attese. Fed in Modalità Higher for Longer: Nessun Taglio dei Tassi in Vista</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 4 Giugno 2026 -->
