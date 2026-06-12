@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 12 Giugno 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-12giu-ftse-mib-record-assoluto-51497.html</loc>
+      <lastmod>2026-06-12</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-06-12</news:publication_date>
+          <news:title>FTSE MIB Nuovo Record Assoluto a 51.497 (+1,97%): Banche Protagoniste sul Risiko Bancario e Deal USA-Iran</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-12giu-spacex-ipo-storico-dow-record.html</loc>
+      <lastmod>2026-06-12</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-06-12</news:publication_date>
+          <news:title>SpaceX IPO Storico: SPCX +19% il Primo Giorno. $75 Miliardi Raccolti, Valutazione $2 Trilioni. Dow +0,70%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-macro-12giu-usa-iran-deal-petrolio-crollo-hormuz.html</loc>
+      <lastmod>2026-06-12</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-06-12</news:publication_date>
+          <news:title>Deal USA-Iran Confermato: Stretto di Hormuz Riapre. Petrolio WTI −4% ai Minimi di 8 Settimane a $83</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 9 Giugno 2026 -->
