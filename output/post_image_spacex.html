@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 1200px 630px; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #000; }
+
+.card {
+  width: 1200px;
+  height: 630px;
+  position: relative;
+  overflow: hidden;
+  background: #020810;
+  display: flex;
+  flex-direction: row;
+}
+
+/* ── SFONDO SINISTRA: griglia dati blu ── */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(77,159,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77,159,255,0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 0;
+}
+.bg-glow {
+  position: absolute;
+  top: -80px;
+  left: -60px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(77,159,255,0.16) 0%, transparent 70%);
+  z-index: 0;
+}
+
+/* ── SINISTRA: contenuto testo ── */
+.left {
+  flex: 0 0 56%;
+  padding: 48px 44px 42px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.tag {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: rgba(77,159,255,0.22);
+  color: #93C5FD;
+  border: 1px solid rgba(77,159,255,0.38);
+}
+.tag-date {
+  color: rgba(255,255,255,0.40);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.headline {
+  font-size: 44px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.10;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+.headline .accent { color: #4D9FFF; }
+
+.sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.52);
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 28px;
+  max-width: 490px;
+}
+.sub em {
+  font-style: normal;
+  color: rgba(147,197,253,0.85);
+  font-weight: 600;
+}
+
+/* metriche orizzontali */
+.metrics {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.09);
+  padding-top: 20px;
+  margin-bottom: 26px;
+}
+.metric {
+  flex: 1;
+  padding-right: 20px;
+  border-right: 1px solid rgba(255,255,255,0.09);
+  margin-right: 20px;
+}
+.metric:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.metric-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.30);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.metric-value {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+}
+.metric-value.blue   { color: #4D9FFF; }
+.metric-value.green  { color: #34D399; }
+.metric-value.white  { color: #fff; }
+.metric-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+/* logo bottom */
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.logo-a {
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+  color: #14B8A6;
+  line-height: 1;
+}
+.logo-rest {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 1.5px;
+}
+
+/* ── DESTRA: CSS-only deep space panel ── */
+.right {
+  flex: 0 0 44%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #010917 0%, #030d1f 40%, #020810 100%);
+}
+
+/* Nebula glow top-right */
+.right-glow-1 {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(77,159,255,0.22) 0%, rgba(29,111,204,0.08) 45%, transparent 70%);
+  z-index: 1;
+}
+
+/* Nebula glow bottom-left */
+.right-glow-2 {
+  position: absolute;
+  bottom: -60px;
+  left: -40px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(77,159,255,0.10) 0%, transparent 65%);
+  z-index: 1;
+}
+
+/* Starfield: CSS-only stelle puntiformi */
+.stars {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1.5px 1.5px at 18% 12%, rgba(255,255,255,0.75) 0%, transparent 100%),
+    radial-gradient(1px 1px at 72% 8%,  rgba(255,255,255,0.50) 0%, transparent 100%),
+    radial-gradient(1px 1px at 42% 28%, rgba(255,255,255,0.40) 0%, transparent 100%),
+    radial-gradient(2px 2px at 88% 22%, rgba(255,255,255,0.70) 0%, transparent 100%),
+    radial-gradient(1px 1px at 58% 45%, rgba(255,255,255,0.45) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 25% 58%, rgba(255,255,255,0.55) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 62%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 12% 78%, rgba(255,255,255,0.45) 0%, transparent 100%),
+    radial-gradient(2px 2px at 65% 75%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1px 1px at 92% 80%, rgba(255,255,255,0.40) 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 88%, rgba(255,255,255,0.30) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 50% 15%, rgba(200,220,255,0.60) 0%, transparent 100%),
+    radial-gradient(1px 1px at 8% 42%,  rgba(255,255,255,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 95% 48%, rgba(255,255,255,0.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 65%, rgba(200,220,255,0.30) 0%, transparent 100%);
+  z-index: 2;
+}
+
+/* Linea orizzontale orbitale decorativa */
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: -120px;
+  right: -20px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(77,159,255,0.20), rgba(77,159,255,0.08), transparent);
+  transform: translateY(-50%) rotate(-8deg);
+  z-index: 2;
+}
+
+/* Big number centrato */
+.big-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -52%);
+  z-index: 5;
+  text-align: center;
+}
+.big-number-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 96px;
+  font-weight: 900;
+  color: #34D399;
+  letter-spacing: -4px;
+  line-height: 1;
+  text-shadow: 0 0 48px rgba(52,211,153,0.55), 0 4px 24px rgba(0,0,0,0.9);
+}
+.big-number-sub {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.50);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* Badge ticker in alto a destra */
+.ticker-badge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 6;
+  background: rgba(77,159,255,0.78);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  border: 1px solid rgba(147,197,253,0.35);
+}
+
+/* Pill row in basso */
+.pill-row {
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  right: 0;
+  padding: 0 18px;
+  z-index: 6;
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+}
+.pill {
+  padding: 5px 13px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: rgba(255,255,255,0.65);
+  backdrop-filter: blur(6px);
+}
+
+/* Bordo accent sinistro */
+.left-border {
+  position: absolute;
+  left: 0;
+  top: 8%;
+  bottom: 8%;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #4D9FFF 30%, #93C5FD 70%, transparent);
+  border-radius: 2px;
+  z-index: 3;
+}
+
+/* Divider verticale tra left e right */
+.col-divider {
+  position: absolute;
+  left: 56%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(77,159,255,0.15) 30%, rgba(77,159,255,0.10) 70%, transparent);
+  z-index: 3;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="left-border"></div>
+  <div class="col-divider"></div>
+
+  <!-- ── SINISTRA: testo ── -->
+  <div class="left">
+    <div>
+      <div class="tag-row">
+        <span class="tag">🚀 Wall Street · Tech/AI</span>
+        <span class="tag-date">12 Giugno 2026 · IPO Day</span>
+      </div>
+
+      <div class="headline">
+        <span class="accent">$75.000.000.000</span><br>
+        raccolti il giorno 1.<br>
+        SpaceX è in borsa.
+      </div>
+
+      <div class="sub">
+        SPCX apre a $150. Chiude a $160,95.<br>
+        <em>Il doppio dell'IPO di Saudi Aramco</em> — il vecchio record.
+      </div>
+    </div>
+
+    <div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-label">SPCX Chiusura</div>
+          <div class="metric-value green">$160,95</div>
+          <div class="metric-sub">+19% da $135 IPO</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Market Cap</div>
+          <div class="metric-value white">&gt;$2T</div>
+          <div class="metric-sub">sopra Tesla e Amazon</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Raccolta IPO</div>
+          <div class="metric-value blue">$75 mld</div>
+          <div class="metric-sub">#1 storia mercati</div>
+        </div>
+      </div>
+
+      <div class="logo-row">
+        <span class="logo-a">A</span>
+        <span class="logo-rest">LMA FINANZA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DESTRA: deep space CSS-only ── -->
+  <div class="right">
+    <div class="right-glow-1"></div>
+    <div class="right-glow-2"></div>
+    <div class="stars"></div>
+    <div class="orbit-ring"></div>
+
+    <div class="ticker-badge">SPCX · Nasdaq</div>
+
+    <div class="big-number">
+      <div class="big-number-value">+19%</div>
+      <div class="big-number-sub">IPO Day · 12 Giu 2026</div>
+    </div>
+
+    <div class="pill-row">
+      <span class="pill">IPO Pop</span>
+      <span class="pill">Starlink 5M abbonati</span>
+      <span class="pill">Lock-up 180gg</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
