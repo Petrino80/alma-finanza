@@ -1,5 +1,5 @@
 # PROMPT — Generatore LinkedIn Post + Immagine
-## Alma Finanza · Claude Code · v4.0
+## Alma Finanza · Claude Code · v4.1
 
 ---
 
@@ -76,8 +76,9 @@ FOTO_TEMA:       [Descrizione della foto tematica ideale per l'immagine]
                  "Skyline Milano con Palazzo Borsa", "Bitcoin fisico dorato"
 
 FOTO_LOCALE:     [Nome file se già presente in output/ — es. "slide1_img_chip_semiconductor.jpg"]
-                 Controlla output/ per file esistenti prima di chiedere di scaricare.
-                 Se non esiste: usa CSS-only (vedi sezione foto più avanti).
+                 Controlla output/ per file esistenti prima di cercare online.
+                 Se non esiste: cerca su Wikimedia Commons o NASA, proponi URL e chiedi
+                 conferma all'utente prima di scaricare. La foto è OBBLIGATORIA.
 
 URL_ARTICOLO:    [URL completo]
 ```
@@ -282,6 +283,8 @@ La foto va sul **pannello destro** e deve rappresentare visivamente l'argomento 
 
 #### Procedura di selezione (in ordine di priorità)
 
+⚠️ **La foto tematica è OBBLIGATORIA. Il pannello destra DEVE avere una foto reale. Il fallback CSS-only NON è accettabile.**
+
 **1. Controlla `output/` per file già presenti:**
 
 | Argomento | File locale da cercare |
@@ -297,21 +300,20 @@ La foto va sul **pannello destro** e deve rappresentare visivamente l'argomento 
 
 Se il file locale esiste → usalo direttamente come `src` relativo (es. `src="slide1_img_chip_semiconductor.jpg"`).
 
-**2. Se nessuna foto locale è adeguata → CSS-only (default sicuro):**
+**2. Se nessuna foto locale è adeguata → cerca online (obbligatorio):**
 
-Non scaricare mai file automaticamente. Usa il pannello destra CSS-only:
-```css
-/* Pannello destra senza foto — dark gradient con glow accent */
-.right {
-  background: linear-gradient(135deg, #05000F 0%, rgba(ACCENT,0.15) 100%);
-}
-/* Il BIG NUMBER diventa ancora più grande e dominante: 112px */
-```
-Questo funziona perfettamente come visual — il numero grande su sfondo scuro è spesso più d'impatto della foto.
+Cerca una foto free-to-use su **Wikimedia Commons** (`commons.wikimedia.org`) o **NASA Image Library** (`images.nasa.gov`).
+- Usa WebSearch per trovare la pagina Wikimedia del soggetto
+- Usa WebFetch sulla pagina trovata per estrarre l'URL diretto del file su `upload.wikimedia.org`
+- Presenta all'utente: nome file, URL sorgente, dimensioni, licenza
+- **Aspetta conferma esplicita** prima di scaricare
+- Dopo conferma: `curl -L "[URL]" -o output/[nome_file].jpg`
+- Aggiorna `FOTO_LOCALE` con il nome del file appena scaricato
 
-**3. Se l'utente fornisce esplicitamente un file o un URL → usarlo.**
+**3. Se l'utente fornisce esplicitamente un file o un URL → usarlo direttamente.**
 
-⚠️ **MAI scaricare file automaticamente da internet senza esplicita conferma dell'utente.**
+⚠️ **MAI scaricare file automaticamente senza esplicita conferma dell'utente.**
+⚠️ **MAI generare la post image senza una foto reale nel pannello destra.**
 
 ---
 
@@ -535,7 +537,7 @@ Articolo: [URL o path file HTML]
 2. **Post LinkedIn 20–100 parole**, stile Yahoo Finance — hook paradossale, dati concreti, CTA.
 3. **BIG_NUMBER sulla foto** = il dato più impattante. Rosso se negativo, verde se positivo, bianco/accent se neutro o record.
 4. **Foto tematica = soggetto editoriale dell'articolo**, non il CEO. Starship per SpaceX, NYSE per Wall Street, chip per semiconduttori, etc.
-5. **Cerca sempre in `output/` prima** di qualsiasi altra azione. Se la foto non c'è → CSS-only (dark panel con glow accent + big number ancora più grande).
+5. **Foto tematica OBBLIGATORIA.** Cerca sempre in `output/` prima. Se non c'è → cerca su Wikimedia Commons o NASA → presenta URL + licenza all'utente → aspetta conferma → scarica. **Mai CSS-only. Mai generare l'immagine senza foto reale.**
 6. **MAI scaricare file da internet** senza esplicita conferma dell'utente.
 7. **Logo Alma Finanza**: A in `font-family: 'Lobster', cursive` color `#14B8A6` + "LMA FINANZA" Montserrat 900 — identico al sito.
 8. **Accent cambia per sezione** (tabella INPUT). Mai usare l'accent di un'altra sezione.
@@ -550,3 +552,4 @@ Articolo: [URL o path file HTML]
 | v2.1 | apr 2026 | Prima versione con carosello 7 slide |
 | v3.0 | mag 2026 | Post LinkedIn riformattato su modello Yahoo Finance; aggiunta post image 1200×630px |
 | v4.0 | giu 2026 | Rimosso carousel PDF. Unico artefatto visuale: post_image.jpg con foto tematica editoriale (non CEO) + big number overlay. CSS-only come fallback se nessuna foto locale disponibile. |
+| v4.1 | giu 2026 | Foto tematica OBBLIGATORIA. Rimosso fallback CSS-only. Se nessuna foto in output/: cerca su Wikimedia Commons/NASA, proponi URL all'utente, scarica dopo conferma. Mai generare post image senza foto reale. |
