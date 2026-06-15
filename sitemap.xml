@@ -10,7 +10,40 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Articolo 15 Giugno 2026 (Lunedì — Accordo USA-Iran) -->
+  <!-- Articoli 15 Giugno 2026 (Lunedì — Wall Street, Piazza Affari, Tech Nvidia, Accordo USA-Iran) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-15giu-nasdaq-record-deal-iran-rally-ai.html</loc>
+      <lastmod>2026-06-15</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-06-15</news:publication_date>
+          <news:title>Wall Street vola sul deal Iran: Nasdaq +3,07%, miglior seduta del mese. S&P 500 e Dow verso i record</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-15giu-ftse-mib-record-52000-stellantis-banche.html</loc>
+      <lastmod>2026-06-15</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-06-15</news:publication_date>
+          <news:title>Piazza Affari record: il FTSE MIB sfonda quota 52.000 per la prima volta. Volano Stellantis e banche</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-15giu-nvidia-n1x-chip-ai-pc-huang-stack.html</loc>
+      <lastmod>2026-06-15</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-06-15</news:publication_date>
+          <news:title>Nvidia N1X: il chip per AI PC con cui Jensen Huang vuole conquistare ogni layer dello stack AI</news:title>
+      </news:news>
+  </url>
   <url>
       <loc>https://www.almafinanza.com/articolo-geopolitica-15giu-accordo-usa-iran-firma-svizzera-mercati.html</loc>
       <lastmod>2026-06-15</lastmod>

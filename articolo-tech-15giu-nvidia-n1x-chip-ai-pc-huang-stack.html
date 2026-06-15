@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nvidia N1X: il chip per AI PC con cui Jensen Huang vuole conquistare ogni layer dello stack AI | Alma Finanza</title>
+<meta name="description" content="Nvidia entra nel mercato dei PC con il processore N1X, sviluppato con MediaTek e Microsoft: 20 core Arm, 6.144 CUDA core (come una RTX 5070) e memoria unificata. La strategia di Jensen Huang per controllare ogni livello dello stack dell'intelligenza artificiale.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nvidia N1X: il chip per AI PC e la strategia di Huang sullo stack AI | Alma Finanza">
+<meta property="og:description" content="20 core Arm, 6.144 CUDA core come una RTX 5070, memoria unificata. Perché Nvidia vuole entrare nei PC e cosa significa per il mercato dei chip.">
+<meta property="og:url" content="https://www.almafinanza.com/articolo-tech-15giu-nvidia-n1x-chip-ai-pc-huang-stack.html">
+<meta property="og:site_name" content="Alma Finanza">
+<meta property="og:locale" content="it_IT">
+<meta property="article:published_time" content="2026-06-15">
+<meta property="article:author" content="Alma Finanza">
+<meta property="article:section" content="Tech/AI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nvidia N1X: il chip per AI PC e la strategia di Huang sullo stack AI">
+<meta name="twitter:description" content="20 core Arm, 6.144 CUDA core, memoria unificata. Nvidia entra nei PC: cosa cambia per il mercato dei chip.">
+<link rel="canonical" href="https://www.almafinanza.com/articolo-tech-15giu-nvidia-n1x-chip-ai-pc-huang-stack.html">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Nvidia N1X: il chip per AI PC con cui Jensen Huang vuole conquistare ogni layer dello stack AI",
+  "description": "Nvidia entra nei PC con il processore N1X, sviluppato con MediaTek e Microsoft: 20 core Arm, 6.144 CUDA core e memoria unificata. La strategia di Huang sullo stack dell'intelligenza artificiale.",
+  "datePublished": "2026-06-15",
+  "dateModified": "2026-06-15",
+  "author": {"@type": "Organization", "name": "Alma Finanza"},
+  "publisher": {"@type": "Organization", "name": "Alma Finanza", "url": "https://www.almafinanza.com"},
+  "url": "https://www.almafinanza.com/articolo-tech-15giu-nvidia-n1x-chip-ai-pc-huang-stack.html",
+  "inLanguage": "it"
+}
+</script>
+
+<script>
+(function(){var t=localStorage.getItem('alma-theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}})();
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E88FFDTPMP"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E88FFDTPMP');</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class'}</script>
+
+<style>
+    .lobster-font { font-family: 'Lobster', cursive; }
+    .montserrat-font { font-family: 'Montserrat', sans-serif; }
+    .article-content h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.35rem; color: #111827; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e5e7eb; }
+    .dark .article-content h2 { color: #f1f5f9; border-color: #1e293b; }
+    .lead { font-size: 1.1rem; color: #374151; line-height: 1.8; }
+    .dark .lead { color: #94a3b8; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+    .data-table th { background: #6d28d9; color: white; padding: 0.75rem 1rem; text-align: left; font-size: 0.875rem; }
+    .data-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #e5e7eb; font-size: 0.875rem; }
+    .data-table tr:nth-child(even) { background: #f5f3ff; }
+    .data-table tr:hover { background: #ede9fe; }
+    .dark .data-table th { background: #5b21b6; }
+    .dark .data-table td { border-color: #1e293b; color: #cbd5e1; }
+    .dark .data-table tr:nth-child(even) { background: #0f172a; }
+    .dark .data-table tr:hover { background: #1e293b; }
+    .info-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+    .info-box h3 { font-weight: 700; color: #6d28d9; margin-bottom: 0.5rem; font-size: 1rem; }
+    .info-box p { color: #374151; font-size: 0.9rem; line-height: 1.6; }
+    .dark .info-box { background: #1a0f2e; border-color: #8b5cf6; }
+    .dark .info-box h3 { color: #c4b5fd; }
+    .dark .info-box p { color: #94a3b8; }
+    .info-box-blue { background: #eff6ff; border-left: 4px solid #2563eb; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+    .info-box-blue h3 { font-weight: 700; color: #1e40af; margin-bottom: 0.5rem; font-size: 1rem; }
+    .info-box-blue p { color: #374151; font-size: 0.9rem; line-height: 1.6; }
+    .dark .info-box-blue { background: #0f172a; border-color: #3b82f6; }
+    .dark .info-box-blue h3 { color: #60a5fa; }
+    .dark .info-box-blue p { color: #94a3b8; }
+    .dark strong { color: #e2e8f0; }
+    .badge-purple { display:inline-block; padding:3px 10px; border-radius:999px; background:#f5f3ff; color:#6d28d9; font-size:0.75rem; font-weight:700; border:1px solid #ddd6fe; }
+    .dark .badge-purple { background:#1a0f2e; color:#c4b5fd; border-color:#5b21b6; }
+    .badge-green { display:inline-block; padding:3px 10px; border-radius:999px; background:#f0fdf4; color:#16a34a; font-size:0.75rem; font-weight:700; border:1px solid #bbf7d0; }
+    .dark .badge-green { background:#022c22; color:#4ade80; border-color:#14532d; }
+    .val-down { color:#dc2626; font-weight:700; }
+    .val-up { color:#16a34a; font-weight:700; }
+    .dark .val-down { color:#f87171; }
+    .dark .val-up { color:#4ade80; }
+</style>
+</head>
+<body class="bg-white dark:bg-[#0c1017] text-gray-900 dark:text-white" style="font-family:'Inter',sans-serif;">
+
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white/92 dark:bg-[#0c1017]/92 backdrop-blur-xl border-b border-gray-100 dark:border-slate-800/20 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="index.html" class="flex items-center space-x-2">
+            <span class="lobster-font text-4xl text-teal-500">A</span>
+            <span class="montserrat-font text-2xl font-black text-gray-900 dark:text-white">LMA FINANZA</span>
+        </a>
+        <div class="flex items-center gap-4">
+            <button onclick="toggleTheme()" class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-500 dark:text-slate-400 hover:bg-gray-100 dark:hover:bg-slate-800/50 transition" aria-label="Cambia tema">
+                <span id="theme-icon">🌙</span>
+            </button>
+            <a href="index.html" class="text-sm text-gray-500 dark:text-slate-400 hover:text-purple-600 transition">← Home</a>
+        </div>
+    </div>
+</header>
+
+<!-- Category banner — TECH viola -->
+<div class="bg-purple-700 dark:bg-purple-900/60 border-b border-purple-600 dark:border-purple-800">
+    <div class="max-w-3xl mx-auto px-4 py-2 flex items-center gap-3">
+        <span class="text-xs font-bold text-purple-100 uppercase tracking-widest">💻 Tech &amp; AI</span>
+        <span class="text-purple-300 text-xs">·</span>
+        <span class="text-xs text-purple-200">15 Giugno 2026</span>
+    </div>
+</div>
+
+<!-- Article -->
+<article class="max-w-3xl mx-auto px-4 py-10">
+
+    <!-- Headline -->
+    <header class="mb-8">
+        <div class="flex flex-wrap items-center gap-2 mb-4">
+            <span class="badge-purple">💻 Tech/AI</span>
+            <span class="badge-purple">🔌 Semiconduttori</span>
+            <span class="badge-green">🟢 Nvidia</span>
+            <span class="text-xs text-gray-400 dark:text-slate-500 ml-auto">15 Giugno 2026</span>
+        </div>
+        <h1 class="montserrat-font text-3xl md:text-4xl font-black text-gray-900 dark:text-white leading-tight mb-4">
+            Nvidia N1X: il chip per AI PC con cui Jensen Huang vuole conquistare ogni layer dello stack AI
+        </h1>
+        <p class="lead">
+            Nvidia non è più soltanto l'azienda delle schede grafiche e dei data center. Con il processore <strong>N1X</strong>, sviluppato insieme a <strong>MediaTek</strong> e <strong>Microsoft</strong>, il colosso guidato da <strong>Jensen Huang</strong> entra ufficialmente nel mercato dei personal computer. È una mossa che va oltre il singolo prodotto: è il tassello di una strategia per presidiare <em>ogni livello</em> dell'infrastruttura dell'intelligenza artificiale, dal data center fino al laptop sulla scrivania. I titoli dei semiconduttori hanno contribuito al rally del Nasdaq (+3,07%) nella seduta del 15 giugno.
+        </p>
+    </header>
+
+    <!-- Key Data Box -->
+    <div class="bg-gray-50 dark:bg-[#0f172a] border border-gray-200 dark:border-slate-700/40 rounded-2xl p-5 mb-8">
+        <div class="text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-widest mb-4">Nvidia N1X — Scheda Sintetica</div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div>
+                <div class="text-xs text-gray-500 dark:text-slate-400 mb-1">Core CPU</div>
+                <div class="text-xl font-black text-purple-600 dark:text-purple-400">20 Arm</div>
+                <div class="text-xs text-gray-500 dark:text-slate-400">v9.2 (10P + 10E)</div>
+            </div>
+            <div>
+                <div class="text-xs text-gray-500 dark:text-slate-400 mb-1">CUDA Core</div>
+                <div class="text-xl font-black text-purple-600 dark:text-purple-400">6.144</div>
+                <div class="text-xs text-gray-500 dark:text-slate-400">come RTX 5070</div>
+            </div>
+            <div>
+                <div class="text-xs text-gray-500 dark:text-slate-400 mb-1">Cache L3</div>
+                <div class="text-xl font-black text-purple-600 dark:text-purple-400">32 MB</div>
+                <div class="text-xs text-gray-500 dark:text-slate-400">condivisa</div>
+            </div>
+            <div>
+                <div class="text-xs text-gray-500 dark:text-slate-400 mb-1">Memoria</div>
+                <div class="text-xl font-black text-purple-600 dark:text-purple-400">Unificata</div>
+                <div class="text-xs text-gray-500 dark:text-slate-400">CPU + GPU</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-content text-gray-700 dark:text-slate-300 leading-relaxed space-y-4">
+
+        <!-- 1 -->
+        <h2>Cos'è l'N1X e Perché è Diverso da una Normale CPU</h2>
+
+        <p>L'N1X è un <strong>SoC (System on a Chip — Sistema su un singolo chip)</strong>: integra in un unico pezzo di silicio sia il processore centrale (CPU) sia la scheda grafica (GPU). La parte CPU monta <strong>20 core con architettura Arm v9.2</strong>, divisi in due gruppi: 10 core "performance" (ad alte prestazioni) e 10 core "efficiency" (a basso consumo), che condividono 32 MB di cache L3. La parte GPU porta <strong>6.144 CUDA core</strong> distribuiti su 48 unità di calcolo — lo stesso numero di una scheda grafica desktop <strong>GeForce RTX 5070</strong>.</p>
+
+        <p>L'elemento più innovativo è la <strong>memoria unificata (unified memory)</strong>: CPU e GPU accedono allo stesso banco di memoria sullo stesso chip, eliminando uno dei colli di bottiglia principali nei carichi di lavoro AI, cioè la necessità di copiare continuamente i dati avanti e indietro tra la memoria del processore e quella della scheda grafica.</p>
+
+        <div class="info-box">
+            <h3>💡 Impara: Cosa Sono i "CUDA Core" e Perché Contano per l'AI?</h3>
+            <p>I CUDA core sono le piccole unità di calcolo all'interno delle schede grafiche Nvidia (CUDA è la piattaforma software proprietaria di Nvidia). A differenza dei pochi core potenti di una CPU, una GPU ne ha migliaia, più semplici, capaci di eseguire moltissime operazioni in parallelo. L'intelligenza artificiale — sia l'addestramento dei modelli sia il loro utilizzo — consiste essenzialmente in enormi quantità di calcoli matematici ripetitivi, perfetti per il calcolo parallelo. È per questo che le GPU Nvidia sono diventate lo standard del settore AI: avere 6.144 CUDA core dentro un chip per laptop significa poter eseguire localmente modelli di AI che prima richiedevano hardware da data center.</p>
+        </div>
+
+        <!-- 2 -->
+        <h2>La Strategia di Huang: Possedere Ogni Layer dello Stack AI</h2>
+
+        <p>Per capire la portata della mossa bisogna guardare la strategia complessiva di Jensen Huang. Lo "stack" (la pila di livelli tecnologici) dell'intelligenza artificiale si può immaginare così:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr><th>Livello (Layer)</th><th>Cosa fa</th><th>Presenza Nvidia</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Data center / Cloud</strong></td><td>Addestra i grandi modelli AI</td><td class="val-up">Dominante (GPU H100/B200)</td></tr>
+                <tr><td><strong>Networking</strong></td><td>Collega migliaia di chip tra loro</td><td class="val-up">Forte (acquisizione Mellanox)</td></tr>
+                <tr><td><strong>Software / CUDA</strong></td><td>Lo strato che fa girare l'AI sui chip</td><td class="val-up">Standard di fatto</td></tr>
+                <tr><td><strong>PC / Edge</strong></td><td>Esegue l'AI localmente sul dispositivo</td><td class="val-up">Nuovo ingresso (N1X)</td></tr>
+            </tbody>
+        </table>
+
+        <p>Nvidia controlla già i data center, dove addestra i modelli più potenti, e il software con cui questi modelli vengono sviluppati. Con l'N1X aggiunge l'ultimo anello mancante: il <strong>dispositivo dell'utente finale</strong>. L'obiettivo è far sì che l'intelligenza artificiale "giri" su hardware Nvidia in ogni punto della catena — dal supercomputer al portatile. È una strategia di integrazione verticale che ricorda quella di Apple, ma applicata all'AI.</p>
+
+        <div class="info-box-blue">
+            <h3>💡 Impara: Cos'è l'"Edge Computing" (Calcolo ai Margini)?</h3>
+            <p>L'"edge computing" (calcolo ai margini della rete) è l'elaborazione dei dati direttamente sul dispositivo dell'utente — il laptop, lo smartphone — invece che su server remoti nel cloud. Per l'intelligenza artificiale questo significa eseguire un modello AI localmente: più velocità (nessun ritardo di rete), più privacy (i dati non lasciano il dispositivo) e meno costi di connessione al cloud. I chip come l'N1X servono proprio a portare la potenza dell'AI "sul bordo", rendendo i PC capaci di compiti che oggi richiedono una connessione a data center remoti.</p>
+        </div>
+
+        <!-- 3 -->
+        <h2>I Partner: Microsoft, MediaTek e i Grandi Produttori di PC</h2>
+
+        <p>Nvidia non agisce da sola. L'N1X è il frutto di un'alleanza strategica:</p>
+
+        <ul class="list-disc pl-5 space-y-1 my-4">
+            <li><strong>MediaTek</strong>: il colosso taiwanese dei semiconduttori porta l'esperienza nei chip Arm a basso consumo, complementare alla potenza grafica di Nvidia.</li>
+            <li><strong>Microsoft</strong>: i nuovi PC saranno sistemi <strong>Windows on Arm</strong> (Windows su architettura Arm), con il sistema operativo ottimizzato per il nuovo chip.</li>
+            <li><strong>Produttori (OEM)</strong>: Dell, HP, ASUS, Lenovo e MSI stanno sviluppando laptop e desktop basati sull'N1X.</li>
+        </ul>
+
+        <p>Questa ampiezza di partner segnala che non si tratta di un esperimento di nicchia, ma di un tentativo di creare una nuova categoria di prodotti — gli "AI PC" — con un ecosistema completo già al lancio.</p>
+
+        <!-- 4 -->
+        <h2>Le Tempistiche: Perché il Volume Arriverà nella Seconda Metà del 2026</h2>
+
+        <p>Nonostante l'annuncio e le anteprime, la disponibilità di massa dell'N1X non sarà immediata. Secondo le indiscrezioni di settore, i <strong>volumi significativi di spedizioni arriveranno nella seconda metà del 2026</strong>. Tra le cause dei tempi più lunghi ci sarebbero anche aspetti legati all'ottimizzazione del sistema operativo Windows per la nuova architettura.</p>
+
+        <table class="data-table">
+            <thead>
+                <tr><th>Fase</th><th>Tempistica indicativa</th><th>Cosa aspettarsi</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Annuncio e demo</td><td>Computex 2026 (giugno)</td><td>Presentazione tecnica, prototipi</td></tr>
+                <tr><td>Primi prodotti OEM</td><td>Metà 2026</td><td>Modelli di fascia alta in quantità limitate</td></tr>
+                <tr><td>Volumi di massa</td><td>Seconda metà 2026</td><td>Disponibilità ampia sul mercato</td></tr>
+            </tbody>
+        </table>
+
+        <p>Per gli investitori, questo significa che l'impatto sui ricavi di Nvidia dal segmento PC sarà graduale e si materializzerà soprattutto nel 2027. Il valore della notizia, nel breve termine, è più strategico (l'apertura di un nuovo mercato potenziale) che immediatamente contabile.</p>
+
+        <!-- 5 -->
+        <h2>Cosa Significa per il Mercato dei Chip</h2>
+
+        <p>L'ingresso di Nvidia nei PC ridisegna gli equilibri competitivi di un settore finora dominato da altri attori:</p>
+
+        <ul class="list-disc pl-5 space-y-1 my-4">
+            <li><strong>Intel e AMD</strong>: i due storici produttori di processori per PC si trovano un nuovo concorrente di peso proprio nel momento in cui l'AI diventa il criterio di scelta per i nuovi computer.</li>
+            <li><strong>Qualcomm</strong>: già attiva sui PC Arm con i suoi chip Snapdragon, vede Nvidia entrare nello stesso segmento con un vantaggio sul fronte grafico e AI.</li>
+            <li><strong>Apple</strong>: il modello di chip integrato con memoria unificata che Nvidia adotta con l'N1X è concettualmente vicino a quello dei processori Apple Silicon, confermando una direzione di settore.</li>
+        </ul>
+
+        <p>Per Nvidia, già l'azienda più capitalizzata al mondo grazie al dominio nei data center, l'N1X è una scommessa per diversificare e blindare la propria posizione: se l'intelligenza artificiale diventerà davvero pervasiva su ogni dispositivo, Nvidia vuole essere presente ovunque, non solo nei server. È il significato della strategia di Huang: non vendere un prodotto, ma possedere l'intera infrastruttura su cui l'AI si appoggia.</p>
+
+        <div class="info-box">
+            <h3>💡 Impara: Cos'è l'"Integrazione Verticale" e Perché Conta in Tecnologia?</h3>
+            <p>L'"integrazione verticale" è la strategia con cui un'azienda controlla più fasi della catena del valore di un prodotto, invece di limitarsi a una sola. Nel caso di Nvidia, significa presidiare i chip per data center, il software (CUDA), il networking e ora anche i chip per PC. Il vantaggio è duplice: si cattura margine a ogni livello e si crea un "fossato competitivo" (moat), perché i clienti che usano un livello tendono a restare nell'ecosistema anche per gli altri. Il rischio è la concentrazione: più un'azienda domina, più attira attenzione di concorrenti e autorità antitrust. È la stessa logica che ha reso forti aziende come Apple.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer articolo -->
+    <footer class="mt-12 pt-6 border-t border-gray-100 dark:border-slate-800/40">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="badge-purple">Nvidia</span>
+            <span class="badge-purple">N1X</span>
+            <span class="badge-purple">AI PC</span>
+            <span class="badge-purple">Semiconduttori</span>
+            <span class="badge-green">MediaTek</span>
+            <span class="badge-green">Microsoft</span>
+        </div>
+        <p class="text-xs text-gray-400 dark:text-slate-600 leading-relaxed">
+            <strong>Disclaimer:</strong> Questo articolo ha scopo informativo e non costituisce consulenza finanziaria o d'investimento. Le informazioni si basano su fonti pubbliche disponibili alla data di pubblicazione (15 giugno 2026). I mercati finanziari comportano rischi significativi. Alma Finanza non è una società di consulenza finanziaria registrata.
+        </p>
+        <p class="text-xs text-gray-400 dark:text-slate-600 mt-2">
+            <strong>Nota metodologica:</strong> Le specifiche tecniche dell'N1X e i dettagli sui partner derivano da fonti di settore verificate (Tom's Hardware, CNBC, TechTimes). Le tempistiche di rilascio sono indicazioni basate su indiscrezioni di mercato e possono variare.
+        </p>
+    </footer>
+
+</article>
+
+<!-- Nav articoli correlati -->
+<section class="bg-gray-50 dark:bg-[#0f1520] border-t border-gray-100 dark:border-slate-800/20 py-10">
+    <div class="max-w-3xl mx-auto px-4">
+        <h3 class="montserrat-font font-black text-sm uppercase tracking-widest text-gray-400 dark:text-slate-500 mb-5">Leggi anche</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <a href="articolo-wall-street-15giu-nasdaq-record-deal-iran-rally-ai.html" class="p-4 rounded-xl bg-white dark:bg-slate-800/40 border border-gray-100 dark:border-slate-700/30 hover:border-purple-400 dark:hover:border-purple-600/40 transition group">
+                <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide">Wall Street</span>
+                <p class="text-sm font-semibold text-gray-800 dark:text-white mt-1 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition">Wall Street vola: Nasdaq +3,07% sul deal Iran e rally AI</p>
+            </a>
+            <a href="articolo-piazza-affari-15giu-ftse-mib-record-52000-stellantis-banche.html" class="p-4 rounded-xl bg-white dark:bg-slate-800/40 border border-gray-100 dark:border-slate-700/30 hover:border-purple-400 dark:hover:border-purple-600/40 transition group">
+                <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide">Piazza Affari</span>
+                <p class="text-sm font-semibold text-gray-800 dark:text-white mt-1 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition">Piazza Affari record: FTSE MIB sopra 52.000, vola Stellantis</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer sito -->
+<footer class="bg-white dark:bg-[#0c1017] border-t border-gray-100 dark:border-slate-800/20 py-8 text-center">
+    <a href="index.html" class="inline-flex items-center gap-1.5 text-gray-400 dark:text-slate-500 hover:text-teal-500 transition">
+        <span class="lobster-font text-2xl text-teal-500">A</span>
+        <span class="montserrat-font font-black tracking-widest text-sm">LMA FINANZA</span>
+    </a>
+    <p class="text-xs text-gray-300 dark:text-slate-700 mt-2">© 2026 Alma Finanza · Informazione finanziaria accessibile</p>
+</footer>
+
+<script>
+function toggleTheme(){
+    var html=document.documentElement;
+    if(html.classList.contains('dark')){html.classList.remove('dark');localStorage.setItem('alma-theme','light');}
+    else{html.classList.add('dark');localStorage.setItem('alma-theme','dark');}
+    updateIcon();
+}
+function updateIcon(){
+    var icon=document.getElementById('theme-icon');
+    if(icon)icon.textContent=document.documentElement.classList.contains('dark')?'🌙':'☀️';
+}
+updateIcon();
+window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){
+    if(!localStorage.getItem('alma-theme')){
+        if(e.matches)document.documentElement.classList.add('dark');
+        else document.documentElement.classList.remove('dark');
+        updateIcon();
+    }
+});
+</script>
+
+</body>
+</html>
