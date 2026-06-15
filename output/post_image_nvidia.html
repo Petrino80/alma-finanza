@@ -172,44 +172,76 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 25%;
-  opacity: 0.92;
+  object-position: center 12%;
+  opacity: 0.96;
   z-index: 1;
 }
 
 .right-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(10,6,20,0.45) 0%, transparent 35%);
+  background:
+    linear-gradient(to right, rgba(10,6,20,0.40) 0%, transparent 30%),
+    linear-gradient(to top, rgba(10,6,20,0.85) 0%, rgba(10,6,20,0.0) 32%);
   z-index: 2;
 }
 
-/* Big number centrato */
-.big-number {
+/* Badge N1X in alto a sinistra del pannello foto */
+.chip-badge {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -52%);
-  z-index: 5;
-  text-align: center;
-}
-.big-number-value {
+  top: 22px;
+  left: 22px;
+  z-index: 6;
+  background: rgba(139,92,246,0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 7px 15px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 84px;
+  font-size: 16px;
   font-weight: 900;
   color: #fff;
-  letter-spacing: -3px;
-  line-height: 1;
-  text-shadow: 0 0 48px rgba(139,92,246,0.75), 0 4px 24px rgba(0,0,0,0.95);
+  letter-spacing: 1px;
+  border: 1px solid rgba(196,181,253,0.40);
 }
-.big-number-sub {
-  font-size: 12px;
+
+/* Caption nome in basso */
+.name-caption {
+  position: absolute;
+  bottom: 58px;
+  left: 22px;
+  right: 22px;
+  z-index: 6;
+  text-align: left;
+}
+.name-caption .nm {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.3px;
+  line-height: 1.1;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.95);
+}
+.name-caption .role {
+  font-size: 11px;
   font-weight: 700;
-  color: rgba(255,255,255,0.78);
-  letter-spacing: 2px;
+  color: rgba(196,181,253,0.95);
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin-top: 8px;
+  margin-top: 4px;
   text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+}
+
+/* Credito foto (licenza CC BY) */
+.photo-credit {
+  position: absolute;
+  bottom: 6px;
+  right: 10px;
+  z-index: 6;
+  font-size: 8px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.3px;
 }
 
 /* Badge ticker in alto a destra */
@@ -333,14 +365,15 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
 
   <!-- ── DESTRA: foto Jensen Huang ── -->
   <div class="right">
-    <img class="right-photo" src="jensen_huang_rtx5070.jpg" alt="Jensen Huang presenta il laptop RTX 5070">
+    <img class="right-photo" src="jensen_huang_portrait.jpg" alt="Jensen Huang, CEO di Nvidia">
     <div class="right-overlay"></div>
 
+    <div class="chip-badge">N1X</div>
     <div class="ticker-badge">NVDA · Nasdaq</div>
 
-    <div class="big-number">
-      <div class="big-number-value">N1X</div>
-      <div class="big-number-sub">Il chip per gli AI PC</div>
+    <div class="name-caption">
+      <div class="nm">Jensen Huang</div>
+      <div class="role">Fondatore &amp; CEO · Nvidia</div>
     </div>
 
     <div class="pill-row">
@@ -348,6 +381,8 @@ body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
       <span class="pill">+ Microsoft</span>
       <span class="pill">Filiera AI</span>
     </div>
+
+    <div class="photo-credit">Foto: Office of the President, Taiwan · CC BY 2.0</div>
   </div>
 </div>
 </body>
