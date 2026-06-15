@@ -1,15 +1,15 @@
-I mercati europei festeggiano. FTSE MIB +1,52%, spread BTP-Bund (differenziale di rendimento tra titoli di stato italiani e tedeschi) ai minimi da mesi, Stellantis +5%.
+Nvidia controlla già l'80% dei data center AI del mondo.
 
-Ma c'è una variabile che stanno ignorando: Israele ha detto che l'accordo "non è vincolante per noi."
+Non ha alcun bisogno di vendere PC. Eppure ha appena annunciato un chip per laptop. Perché?
 
-Quanto dura questo rally?
+La risposta non è "un nuovo prodotto". È una strategia: presidiare ogni livello della filiera dell'intelligenza artificiale, dal supercomputer al portatile sulla scrivania.
 
-Il memorandum USA-Iran firmato venerdì 19 giugno a Ginevra ha 14 punti: sanzioni petrolifere sospese, $24 miliardi di asset iraniani sbloccati, Stretto di Hormuz riaperto. Sulla carta, è la fine della guerra per procura che teneva in tensione l'intera regione da mesi. Nella pratica, Israele — che non ha firmato nulla — resta l'unica variabile capace di rimettere tutto in discussione in 48 ore.
+Il chip si chiama N1X, nasce con MediaTek e Microsoft, e porta dentro un laptop la stessa potenza grafica di una scheda desktop RTX 5070: 6.144 CUDA core (le unità di calcolo che fanno girare l'AI) e memoria unificata tra processore e scheda grafica. Tradotto: modelli di intelligenza artificiale che oggi girano nei data center, domani girano in locale, sul tuo computer.
 
-Chi investe oggi sul rally di Piazza Affari sta scommettendo che Tel Aviv resti ferma. È una scommessa che vale la pena fare?
+Jensen Huang non vuole vendere un chip. Vuole che l'AI "giri" su hardware Nvidia ovunque — è la stessa logica di integrazione verticale che ha reso Apple quello che è. Il rischio? Più domini ogni anello, più attiri concorrenti e autorità antitrust.
 
-Analisi completa su Alma Finanza → https://www.almafinanza.com/articolo-geopolitica-15giu-accordo-usa-iran-firma-svizzera-mercati.html
+Analisi completa su Alma Finanza → https://www.almafinanza.com/articolo-tech-15giu-nvidia-n1x-chip-ai-pc-huang-stack.html
 
-#AlmaFinanza #Geopolitica #Mercati
+#AlmaFinanza #Nvidia #IntelligenzaArtificiale
 
-[IMMAGINE: output/post_image_iran.jpg]
+[IMMAGINE: output/post_image_nvidia.jpg]
