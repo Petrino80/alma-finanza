@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 1200px 630px; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #000; }
+
+.card {
+  width: 1200px;
+  height: 630px;
+  position: relative;
+  overflow: hidden;
+  background: #0d0406;
+  display: flex;
+  flex-direction: row;
+}
+
+/* ── SFONDO SINISTRA: griglia dati rosso tenue ── */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(232,49,58,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,49,58,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 0;
+}
+.bg-glow {
+  position: absolute;
+  top: -80px;
+  left: -60px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,49,58,0.14) 0%, transparent 70%);
+  z-index: 0;
+}
+
+/* ── SINISTRA: contenuto testo ── */
+.left {
+  flex: 0 0 56%;
+  padding: 48px 44px 42px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.tag {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: rgba(232,49,58,0.20);
+  color: #FCA5A5;
+  border: 1px solid rgba(232,49,58,0.38);
+}
+.tag-date {
+  color: rgba(255,255,255,0.40);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.headline {
+  font-size: 44px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.10;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+.headline .accent { color: #E8313A; }
+
+.sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.52);
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 28px;
+  max-width: 490px;
+}
+.sub em {
+  font-style: normal;
+  color: rgba(252,165,165,0.85);
+  font-weight: 600;
+}
+
+/* metriche orizzontali */
+.metrics {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.09);
+  padding-top: 20px;
+  margin-bottom: 26px;
+}
+.metric {
+  flex: 1;
+  padding-right: 20px;
+  border-right: 1px solid rgba(255,255,255,0.09);
+  margin-right: 20px;
+}
+.metric:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.metric-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.30);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.metric-value {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+}
+.metric-value.red   { color: #E8313A; }
+.metric-value.green { color: #34D399; }
+.metric-value.white { color: #fff; }
+.metric-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+/* logo bottom */
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.logo-a {
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+  color: #14B8A6;
+  line-height: 1;
+}
+.logo-rest {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 1.5px;
+}
+
+/* ── DESTRA: foto Stretto di Hormuz (NASA MODIS) ── */
+.right {
+  flex: 0 0 44%;
+  position: relative;
+  overflow: hidden;
+  background: #0d0406;
+}
+
+.right-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0.88;
+  z-index: 1;
+}
+
+/* Overlay leggero solo sul bordo sinistro per sfumatura col testo */
+.right-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(13,4,6,0.35) 0%, transparent 40%);
+  z-index: 2;
+}
+
+/* Big number centrato */
+.big-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -52%);
+  z-index: 5;
+  text-align: center;
+}
+.big-number-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 96px;
+  font-weight: 900;
+  color: #E8313A;
+  letter-spacing: -4px;
+  line-height: 1;
+  text-shadow: 0 0 48px rgba(232,49,58,0.60), 0 4px 24px rgba(0,0,0,0.9);
+}
+.big-number-sub {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* Badge ticker in alto a destra */
+.ticker-badge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 6;
+  background: rgba(232,49,58,0.75);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  border: 1px solid rgba(252,165,165,0.30);
+}
+
+/* Pill row in basso */
+.pill-row {
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  right: 0;
+  padding: 0 18px;
+  z-index: 6;
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+}
+.pill {
+  padding: 5px 13px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: rgba(255,255,255,0.65);
+  backdrop-filter: blur(6px);
+}
+
+/* Bordo accent sinistro */
+.left-border {
+  position: absolute;
+  left: 0;
+  top: 8%;
+  bottom: 8%;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #E8313A 30%, #FCA5A5 70%, transparent);
+  border-radius: 2px;
+  z-index: 3;
+}
+
+/* Divider verticale tra left e right */
+.col-divider {
+  position: absolute;
+  left: 56%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(232,49,58,0.15) 30%, rgba(232,49,58,0.10) 70%, transparent);
+  z-index: 3;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="left-border"></div>
+  <div class="col-divider"></div>
+
+  <!-- ── SINISTRA: testo ── -->
+  <div class="left">
+    <div>
+      <div class="tag-row">
+        <span class="tag">🛢️ Geopolitica · Macro</span>
+        <span class="tag-date">15 Giugno 2026 · Deal Iran-USA</span>
+      </div>
+
+      <div class="headline">
+        Iran firma. WTI cede.<br>
+        Il War Premium<br>
+        <span class="accent">evapora in un giorno.</span>
+      </div>
+
+      <div class="sub">
+        Stretto di Hormuz riapre. <em>$24 miliardi</em><br>
+        sbloccati. Ma Israele dice: "Non ci riguarda."
+      </div>
+    </div>
+
+    <div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-label">WTI Crude</div>
+          <div class="metric-value red">−6%</div>
+          <div class="metric-sub">$79,79 al barile</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">FTSE MIB</div>
+          <div class="metric-value green">+1,52%</div>
+          <div class="metric-sub">52.279 punti</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Spread BTP-Bund</div>
+          <div class="metric-value white">71 pb</div>
+          <div class="metric-sub">minimi da mesi</div>
+        </div>
+      </div>
+
+      <div class="logo-row">
+        <span class="logo-a">A</span>
+        <span class="logo-rest">LMA FINANZA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DESTRA: foto Stretto di Hormuz ── -->
+  <div class="right">
+    <img class="right-photo" src="strait_of_hormuz.jpg" alt="Stretto di Hormuz vista satellite NASA">
+    <div class="right-overlay"></div>
+
+    <div class="ticker-badge">WTI · $79,79</div>
+
+    <div class="big-number">
+      <div class="big-number-value">−6%</div>
+      <div class="big-number-sub">WTI · Deal Iran</div>
+    </div>
+
+    <div class="pill-row">
+      <span class="pill">Hormuz</span>
+      <span class="pill">Firma 19 Giu</span>
+      <span class="pill">Israele out</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
