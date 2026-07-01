@@ -10,7 +10,18 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Articolo 1 Luglio 2026 (Mercoledì — chiusura semestre Wall Street; seduta 30 giu) -->
+  <!-- Articoli 1 Luglio 2026 (Mercoledì — IPO Bending Spoons, chiusura semestre Wall Street) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-corporate-1lug-bending-spoons-ipo-nasdaq-cosa-aspettarsi.html</loc>
+      <lastmod>2026-07-01</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-07-01</news:publication_date>
+          <news:title>Bending Spoons debutta al Nasdaq: IPO a 29 dollari, valutazione da 18 miliardi. Cosa aspettarsi</news:title>
+      </news:news>
+  </url>
   <url>
       <loc>https://www.almafinanza.com/articolo-wall-street-30giu-chiusura-semestre-record-miglior-trimestre.html</loc>
       <lastmod>2026-07-01</lastmod>
