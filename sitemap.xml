@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 2 Luglio 2026 (Giovedì — Jobs Report, FTSE MIB Nexi/Rai Way, Rai Way-EI Towers) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-2lug-jobs-report-giugno-mercati-usa.html</loc>
+      <lastmod>2026-07-02</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-07-02</news:publication_date>
+          <news:title>Wall Street aspetta il Jobs Report di giugno: S&amp;P 500 consolida sopra 7.400, vigilia del 4 luglio</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-2lug-ftse-mib-nexi-rai-way-secondo-semestre.html</loc>
+      <lastmod>2026-07-02</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-07-02</news:publication_date>
+          <news:title>FTSE MIB piatto nel primo giorno del secondo semestre: Nexi +6,44%, Rai Way −6,5%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-corporate-2lug-rai-way-ei-towers-fusione-fallita-torri.html</loc>
+      <lastmod>2026-07-02</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-07-02</news:publication_date>
+          <news:title>Rai Way crolla −6,5%: salta (di nuovo) la fusione con EI Towers</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 1 Luglio 2026 (Mercoledì — IPO Bending Spoons, chiusura semestre Wall Street) -->
@@ -126,7 +161,7 @@
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
           <news:publication_date>2026-06-15</news:publication_date>
-          <news:title>Wall Street vola sul deal Iran: Nasdaq +3,07%, miglior seduta del mese. S&P 500 e Dow verso i record</news:title>
+          <news:title>Wall Street vola sul deal Iran: Nasdaq +3,07%, miglior seduta del mese. S&amp;P 500 e Dow verso i record</news:title>
       </news:news>
   </url>
   <url>
@@ -172,7 +207,7 @@
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
           <news:publication_date>2026-06-14</news:publication_date>
-          <news:title>Wall Street: Sesta Settimana Consecutiva Positiva. S&P 500 a 7.431, Dow a 51.202, SpaceX SPCX Debutta con +19,3%</news:title>
+          <news:title>Wall Street: Sesta Settimana Consecutiva Positiva. S&amp;P 500 a 7.431, Dow a 51.202, SpaceX SPCX Debutta con +19,3%</news:title>
       </news:news>
   </url>
   <url>
@@ -183,7 +218,7 @@
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
           <news:publication_date>2026-06-14</news:publication_date>
-          <news:title>FTSE MIB al Record Storico di 51.497: Banche, M&A e Risiko Bancario Spingono verso 52.000</news:title>
+          <news:title>FTSE MIB al Record Storico di 51.497: Banche, M&amp;A e Risiko Bancario Spingono verso 52.000</news:title>
       </news:news>
   </url>
   <url>
@@ -546,7 +581,7 @@
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
           <news:publication_date>2026-05-26</news:publication_date>
-          <news:title>Ferrari Luce: Analisi R&D ~€1 Miliardo, 60+ Brevetti e Trasferimento Tecnologico alle ICE. Outlook RACE per Investitori</news:title>
+          <news:title>Ferrari Luce: Analisi R&amp;D ~€1 Miliardo, 60+ Brevetti e Trasferimento Tecnologico alle ICE. Outlook RACE per Investitori</news:title>
       </news:news>
   </url>
   <url>
@@ -1543,7 +1578,7 @@
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
           <news:publication_date>2026-03-30</news:publication_date>
-          <news:title>Powell ad Harvard: tassi fermi al 3,50-3,75%. Guarderemo oltre lo shock petrolifero. Probabilit&agrave; rialzo crolla al 2,2%</news:title>
+          <news:title>Powell ad Harvard: tassi fermi al 3,50-3,75%. Guarderemo oltre lo shock petrolifero. Probabilità rialzo crolla al 2,2%</news:title>
       </news:news>
   </url>
   <url>
@@ -2024,7 +2059,7 @@
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
           <news:publication_date>2026-03-16</news:publication_date>
-          <news:title>Investire in borsa: perch&eacute; &egrave; un&apos;opportunit&agrave; e come cominciare in Italia da zero</news:title>
+          <news:title>Investire in borsa: perché è un&apos;opportunità e come cominciare in Italia da zero</news:title>
       </news:news>
   </url>
 
