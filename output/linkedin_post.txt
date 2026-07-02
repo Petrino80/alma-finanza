@@ -1,15 +1,17 @@
-Nvidia controlla già l'80% dei data center AI del mondo.
+Una delle poche grandi aziende tech italiane si è appena quotata in Borsa.
 
-Non ha alcun bisogno di vendere PC. Eppure ha appena annunciato un chip per laptop. Perché?
+Ma non a Milano. Al Nasdaq.
 
-La risposta non è "un nuovo prodotto". È una strategia: presidiare ogni livello della filiera dell'intelligenza artificiale, dal supercomputer al portatile sulla scrivania.
+Bending Spoons — la società milanese dietro Evernote, WeTransfer e Vimeo — ha debuttato oggi con il ticker BSP a 29 dollari per azione, sopra la forchetta, raccogliendo 1,68 miliardi. Valutazione: circa 18-19 miliardi di dollari. Quattro anni fa ne valeva un quinto.
 
-Il chip si chiama N1X, nasce con MediaTek e Microsoft, e porta dentro un laptop la stessa potenza grafica di una scheda desktop RTX 5070: 6.144 CUDA core (le unità di calcolo che fanno girare l'AI) e memoria unificata tra processore e scheda grafica. Tradotto: modelli di intelligenza artificiale che oggi girano nei data center, domani girano in locale, sul tuo computer.
+C'è però un dettaglio che chi guarda al titolo dovrebbe leggere con attenzione: i quattro fondatori non hanno venduto una sola azione. Con meno della metà del capitale (48%), grazie alle azioni a voto multiplo controllano l'82% dei diritti di voto.
 
-Jensen Huang non vuole vendere un chip. Vuole che l'AI "giri" su hardware Nvidia ovunque — è la stessa logica di integrazione verticale che ha reso Apple quello che è. Il rischio? Più domini ogni anello, più attiri concorrenti e autorità antitrust.
+Tradotto: tu compri l'azione e partecipi ai profitti. Loro prendono le decisioni.
 
-Analisi completa su Alma Finanza → https://www.almafinanza.com/articolo-tech-15giu-nvidia-n1x-chip-ai-pc-huang-stack.html
+Non è un difetto in sé — la usano anche Meta e Alphabet — ma è un patto che va capito prima, non dopo. Così come vanno capiti gli altri due punti: una valutazione ambiziosa e una crescita che finora è arrivata soprattutto comprando altre società, non costruendole.
 
-#AlmaFinanza #Nvidia #IntelligenzaArtificiale
+Cosa aspettarsi dal debutto e i tre nodi da tenere d'occhio, nell'analisi completa su Alma Finanza → https://www.almafinanza.com/articolo-corporate-1lug-bending-spoons-ipo-nasdaq-cosa-aspettarsi.html
 
-[IMMAGINE: output/post_image_nvidia.jpg]
+#AlmaFinanza #BendingSpoons #IPO #Nasdaq
+
+[IMMAGINE: output/post_image_bending_spoons.jpg]

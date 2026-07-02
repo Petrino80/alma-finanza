@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 1200px 630px; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #000; }
+
+.card {
+  width: 1200px;
+  height: 630px;
+  position: relative;
+  overflow: hidden;
+  background: #061524;
+  display: flex;
+  flex-direction: row;
+}
+
+/* ── SFONDO SINISTRA: griglia dati sky ── */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(14,165,233,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14,165,233,0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 0;
+}
+.bg-glow {
+  position: absolute;
+  top: -80px;
+  left: -60px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14,165,233,0.18) 0%, transparent 70%);
+  z-index: 0;
+}
+
+/* ── SINISTRA: contenuto testo ── */
+.left {
+  flex: 0 0 56%;
+  padding: 46px 44px 42px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.tag {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: rgba(14,165,233,0.22);
+  color: #7DD3FC;
+  border: 1px solid rgba(14,165,233,0.40);
+}
+.tag-date {
+  color: rgba(255,255,255,0.42);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.headline {
+  font-size: 41px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+.headline .accent { color: #38BDF8; }
+
+.sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 26px;
+  max-width: 490px;
+}
+.sub em {
+  font-style: normal;
+  color: rgba(125,211,252,0.9);
+  font-weight: 600;
+}
+
+/* metriche orizzontali */
+.metrics {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.09);
+  padding-top: 20px;
+  margin-bottom: 24px;
+}
+.metric {
+  flex: 1;
+  padding-right: 18px;
+  border-right: 1px solid rgba(255,255,255,0.09);
+  margin-right: 18px;
+}
+.metric:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.metric-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.32);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.metric-value {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+}
+.metric-value.sky   { color: #38BDF8; }
+.metric-value.white { color: #fff; }
+.metric-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+/* logo bottom */
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.logo-a {
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+  color: #14B8A6;
+  line-height: 1;
+}
+.logo-rest {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 1.5px;
+}
+
+/* ── DESTRA: foto torre Nasdaq ── */
+.right {
+  flex: 0 0 44%;
+  position: relative;
+  overflow: hidden;
+  background: #061524;
+}
+
+.right-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  opacity: 0.96;
+  z-index: 1;
+}
+
+.right-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(6,21,36,0.55) 0%, transparent 32%),
+    linear-gradient(to top, rgba(6,21,36,0.80) 0%, rgba(6,21,36,0.0) 30%);
+  z-index: 2;
+}
+
+/* Badge logo Bending Spoons sovrapposto alla torre */
+.bs-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  background: rgba(255,255,255,0.96);
+  border-radius: 14px;
+  padding: 20px 26px;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.bs-badge img {
+  width: 220px;
+  height: auto;
+  display: block;
+}
+.bs-badge .quotata {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #0369a1;
+}
+
+/* Badge ticker in alto a destra */
+.ticker-badge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 6;
+  background: rgba(14,165,233,0.88);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  border: 1px solid rgba(125,211,252,0.40);
+}
+
+/* Pill row in basso */
+.pill-row {
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  right: 0;
+  padding: 0 18px;
+  z-index: 6;
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+}
+.pill {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.75);
+  backdrop-filter: blur(6px);
+}
+
+/* Credito foto */
+.photo-credit {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  z-index: 6;
+  font-size: 8px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.3px;
+}
+
+/* Bordo accent sinistro */
+.left-border {
+  position: absolute;
+  left: 0;
+  top: 8%;
+  bottom: 8%;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #0EA5E9 30%, #7DD3FC 70%, transparent);
+  border-radius: 2px;
+  z-index: 3;
+}
+
+/* Divider verticale tra left e right */
+.col-divider {
+  position: absolute;
+  left: 56%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(14,165,233,0.16) 30%, rgba(14,165,233,0.10) 70%, transparent);
+  z-index: 3;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="left-border"></div>
+  <div class="col-divider"></div>
+
+  <!-- ── SINISTRA: testo ── -->
+  <div class="left">
+    <div>
+      <div class="tag-row">
+        <span class="tag">🏢 Corporate · IPO</span>
+        <span class="tag-date">1 Luglio 2026 · Debutto Nasdaq</span>
+      </div>
+
+      <div class="headline">
+        Si quota al Nasdaq.<br>
+        I 4 fondatori tengono<br>
+        <span class="accent">l'82% dei voti.</span>
+      </div>
+
+      <div class="sub">
+        La società italiana dietro Evernote e WeTransfer.<br>
+        <em>Tu compri l'azione. Loro prendono le decisioni.</em>
+      </div>
+    </div>
+
+    <div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-label">Prezzo IPO</div>
+          <div class="metric-value sky">$29</div>
+          <div class="metric-sub">sopra la forchetta</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Raccolta</div>
+          <div class="metric-value white">$1,68 mld</div>
+          <div class="metric-sub">oltre il target</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Valutazione</div>
+          <div class="metric-value sky">~$18 mld</div>
+          <div class="metric-sub">da $11 mld nel 2025</div>
+        </div>
+      </div>
+
+      <div class="logo-row">
+        <span class="logo-a">A</span>
+        <span class="logo-rest">LMA FINANZA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DESTRA: foto torre Nasdaq + logo Bending Spoons ── -->
+  <div class="right">
+    <img class="right-photo" src="nasdaq_marketsite.jpg" alt="Torre Nasdaq a Times Square">
+    <div class="right-overlay"></div>
+
+    <div class="ticker-badge">BSP · $29</div>
+
+    <div class="bs-badge">
+      <img src="bending_spoons_logo.svg" alt="Bending Spoons">
+      <div class="quotata">Quotata · 1 Luglio 2026</div>
+    </div>
+
+    <div class="pill-row">
+      <span class="pill">Evernote</span>
+      <span class="pill">WeTransfer</span>
+      <span class="pill">Vimeo</span>
+    </div>
+
+    <div class="photo-credit">Foto Nasdaq: Ajay Suresh · CC BY 2.0</div>
+  </div>
+</div>
+</body>
+</html>
