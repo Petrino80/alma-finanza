@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 1200px 630px; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #000; }
+
+.card {
+  width: 1200px;
+  height: 630px;
+  position: relative;
+  overflow: hidden;
+  background: #04140e;
+  display: flex;
+  flex-direction: row;
+}
+
+/* ── SFONDO SINISTRA: griglia dati emerald ── */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(16,185,129,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16,185,129,0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 0;
+}
+.bg-glow {
+  position: absolute;
+  top: -80px;
+  left: -60px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16,185,129,0.16) 0%, transparent 70%);
+  z-index: 0;
+}
+
+/* ── SINISTRA: contenuto testo ── */
+.left {
+  flex: 0 0 56%;
+  padding: 46px 44px 42px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.tag {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: rgba(16,185,129,0.20);
+  color: #6EE7B7;
+  border: 1px solid rgba(16,185,129,0.40);
+}
+.tag-date {
+  color: rgba(255,255,255,0.42);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.headline {
+  font-size: 42px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+.headline .accent { color: #F87171; }
+
+.sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 26px;
+  max-width: 500px;
+}
+.sub em {
+  font-style: normal;
+  color: rgba(110,231,183,0.9);
+  font-weight: 600;
+}
+
+/* metriche orizzontali */
+.metrics {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.09);
+  padding-top: 20px;
+  margin-bottom: 24px;
+}
+.metric {
+  flex: 1;
+  padding-right: 18px;
+  border-right: 1px solid rgba(255,255,255,0.09);
+  margin-right: 18px;
+}
+.metric:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.metric-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.32);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.metric-value {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+}
+.metric-value.red   { color: #F87171; }
+.metric-value.white { color: #fff; }
+.metric-value.green { color: #34D399; }
+.metric-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+/* logo bottom */
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.logo-a {
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+  color: #14B8A6;
+  line-height: 1;
+}
+.logo-rest {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 1.5px;
+}
+
+/* ── DESTRA: foto concessionaria ── */
+.right {
+  flex: 0 0 44%;
+  position: relative;
+  overflow: hidden;
+  background: #04140e;
+}
+
+.right-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0.94;
+  z-index: 1;
+}
+
+.right-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(4,20,14,0.50) 0%, transparent 32%),
+    linear-gradient(to top, rgba(4,20,14,0.72) 0%, rgba(4,20,14,0.0) 34%);
+  z-index: 2;
+}
+
+/* Big number centrato */
+.big-number {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  text-align: center;
+}
+.big-number-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 92px;
+  font-weight: 900;
+  color: #F87171;
+  letter-spacing: -4px;
+  line-height: 1;
+  text-shadow: 0 0 48px rgba(220,38,38,0.65), 0 4px 24px rgba(0,0,0,0.95);
+}
+.big-number-sub {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.80);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-top: 8px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+}
+
+/* Badge ticker in alto a destra */
+.ticker-badge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 6;
+  background: rgba(5,150,105,0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  border: 1px solid rgba(110,231,183,0.40);
+}
+
+/* Pill row in basso */
+.pill-row {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  padding: 0 18px;
+  z-index: 6;
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+}
+.pill {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: rgba(0,0,0,0.62);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.78);
+  backdrop-filter: blur(6px);
+}
+
+/* Credito foto (CC BY-SA) */
+.photo-credit {
+  position: absolute;
+  bottom: 6px;
+  right: 10px;
+  z-index: 6;
+  font-size: 8px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.3px;
+}
+
+/* Bordo accent sinistro */
+.left-border {
+  position: absolute;
+  left: 0;
+  top: 8%;
+  bottom: 8%;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #10B981 30%, #6EE7B7 70%, transparent);
+  border-radius: 2px;
+  z-index: 3;
+}
+
+/* Divider verticale tra left e right */
+.col-divider {
+  position: absolute;
+  left: 56%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(16,185,129,0.16) 30%, rgba(16,185,129,0.10) 70%, transparent);
+  z-index: 3;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="left-border"></div>
+  <div class="col-divider"></div>
+
+  <!-- ── SINISTRA: testo ── -->
+  <div class="left">
+    <div>
+      <div class="tag-row">
+        <span class="tag">🇮🇹 Piazza Affari</span>
+        <span class="tag-date">9 Luglio 2026 · STLAM</span>
+      </div>
+
+      <div class="headline">
+        Il listino rimbalza.<br>
+        Stellantis no.<br>
+        <span class="accent">E JP Morgan taglia: €6.</span>
+      </div>
+
+      <div class="sub">
+        +5% il giorno della pace, −5,78% sulla rottura,<br>
+        ancora giù nel giorno del rimbalzo. <em>Il test vero:<br>
+        i conti del 30 luglio.</em>
+      </div>
+    </div>
+
+    <div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-label">8 Lug · rottura</div>
+          <div class="metric-value red">−5,78%</div>
+          <div class="metric-sub">peggior titolo FTSE MIB</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">9 Lug · chiusura</div>
+          <div class="metric-value white">€4,675</div>
+          <div class="metric-sub">−0,44% · niente rimbalzo</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">JPM Target</div>
+          <div class="metric-value red">€6</div>
+          <div class="metric-sub">da €10 · rating neutral</div>
+        </div>
+      </div>
+
+      <div class="logo-row">
+        <span class="logo-a">A</span>
+        <span class="logo-rest">LMA FINANZA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DESTRA: foto concessionaria Nagoya ── -->
+  <div class="right">
+    <img class="right-photo" src="stellantis_dealership_japan.jpg" alt="Concessionaria Fiat e Alfa Romeo a Nagoya, Giappone">
+    <div class="right-overlay"></div>
+
+    <div class="ticker-badge">STLAM · €4,675</div>
+
+    <div class="big-number">
+      <div class="big-number-value">−5,78%</div>
+      <div class="big-number-sub">8 Luglio · rottura tregua</div>
+    </div>
+
+    <div class="pill-row">
+      <span class="pill">FTSE MIB +1,09%</span>
+      <span class="pill">JPM: neutral</span>
+      <span class="pill">Conti Q2 · 30 lug</span>
+    </div>
+
+    <div class="photo-credit">Foto: ぺいぺい · Wikimedia · CC BY-SA 4.0</div>
+  </div>
+</div>
+</body>
+</html>

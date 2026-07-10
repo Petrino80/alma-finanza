@@ -1,19 +1,21 @@
-Una delle poche grandi aziende tech italiane si è appena quotata in Borsa.
+Ieri Piazza Affari ha rimbalzato: FTSE MIB +1,09%, miglior listino d'Europa.
 
-Ma non a Milano. Al Nasdaq.
+Un titolo è rimasto a terra: Stellantis.
 
-Bending Spoons — la società milanese dietro Evernote, WeTransfer e Vimeo — ha debuttato con il ticker BSP a 29 dollari per azione, sopra la forchetta, raccogliendo 1,68 miliardi. Valutazione: circa 18-19 miliardi di dollari. Quattro anni fa ne valeva un quinto.
+Riavvolgiamo il nastro di tre settimane. Il 15 giugno, giorno dell'accordo con l'Iran, il titolo guadagna il 5%. L'8 luglio, giorno della rottura della tregua, crolla del 5,78% — peggior titolo del listino. E il 9 luglio, mentre tutto il mercato risale, Stellantis chiude ancora in rosso: −0,44% a 4,675 euro.
 
-E il mercato ha risposto: nel primo giorno il titolo ha chiuso a 40,50 dollari, +39,7% sul prezzo di collocamento, spingendosi fino a circa 41,64 dopo la chiusura. Un debutto da manuale.
+Sul rimbalzo mancato pesa anche JP Morgan, che ha tagliato il giudizio da "overweight" (sovrappesare) a "neutral" (neutrale) e il prezzo obiettivo da 10 a 6 euro.
 
-C'è però un dettaglio che chi guarda al titolo dovrebbe leggere con attenzione: i quattro fondatori non hanno venduto una sola azione. Con meno della metà del capitale (48%), grazie alle azioni a voto multiplo controllano l'82% dei diritti di voto.
+Perché proprio l'auto è il titolo più fragile in questo scenario? Tre motivi che si sommano:
 
-Il capitale si apre al mercato, il controllo resta blindato: chi entra oggi finanzia la crescita, ma le leve del comando non si diluiscono.
+1. I costi: energia e logistica di nuovo in salita col petrolio sopra i 73 dollari.
+2. I consumi: carburanti più cari erodono il reddito delle famiglie, e l'auto è il primo acquisto che si rinvia.
+3. La fiducia: dopo l'altalena geopolitica, gli analisti chiedono numeri, non promesse.
 
-Non è un difetto in sé — la usano anche Meta e Alphabet — ma è un patto che va capito prima, non dopo. Così come vanno capiti gli altri due punti: una valutazione ambiziosa e una crescita che finora è arrivata soprattutto comprando altre società, non costruendole.
+La lezione è nell'altalena: +5% sulla pace, −5,78% sulla guerra, indietro anche nel giorno del rimbalzo. Chi insegue i titoli dei giornali compra sull'euforia e vende sul panico. I bilanci si muovono in trimestri, non in ore: il vero appuntamento è il 30 luglio, quando arrivano i conti del secondo trimestre.
 
-Cosa aspettarsi dal debutto e i tre nodi da tenere d'occhio, nell'analisi completa su Alma Finanza → https://www.almafinanza.com/articolo-corporate-1lug-bending-spoons-ipo-nasdaq-cosa-aspettarsi.html
+L'analisi completa della settimana di Piazza Affari su Alma Finanza → https://www.almafinanza.com/articolo-piazza-affari-8lug-ftse-mib-stellantis-eni-petrolio.html
 
-#AlmaFinanza #BendingSpoons #IPO #Nasdaq
+#AlmaFinanza #Stellantis #PiazzaAffari
 
-[IMMAGINE: output/post_image_bending_spoons.jpg]
+[IMMAGINE: output/post_image_stellantis.jpg]
