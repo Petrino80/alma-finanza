@@ -5,43 +5,43 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Articoli 14 Luglio 2026 (Martedì — Wall Street Nasdaq Hormuz, Piazza Affari Nexi, Macro Iran petrolio) -->
+  <!-- Articoli 15 Luglio 2026 (Mercoledì — Saipem, Wall Street CPI, Piazza Affari Prysmian/Inwit; seduta 14 lug) -->
   <url>
-      <loc>https://www.almafinanza.com/articolo-wall-street-14lug-nasdaq-hormuz-iran.html</loc>
-      <lastmod>2026-07-14</lastmod>
+      <loc>https://www.almafinanza.com/articolo-corporate-14lug-saipem-commessa-indonesia-rally-2026.html</loc>
+      <lastmod>2026-07-15</lastmod>
       <changefreq>never</changefreq>
       <priority>0.9</priority>
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
-          <news:publication_date>2026-07-14</news:publication_date>
-          <news:title>Nasdaq −1,55%, S&amp;P −0,79%: Wall Street arretra col blocco Trump allo Stretto di Hormuz</news:title>
+          <news:publication_date>2026-07-15</news:publication_date>
+          <news:title>Saipem, il titolo dell'anno a Piazza Affari: +91% nel 2026 e una maxi-commessa in Indonesia da 2 miliardi</news:title>
       </news:news>
   </url>
   <url>
-      <loc>https://www.almafinanza.com/articolo-piazza-affari-14lug-nexi-ftse-mib.html</loc>
-      <lastmod>2026-07-14</lastmod>
+      <loc>https://www.almafinanza.com/articolo-wall-street-14lug-cpi-giugno-raffredda-inflazione-chip.html</loc>
+      <lastmod>2026-07-15</lastmod>
       <changefreq>never</changefreq>
       <priority>0.9</priority>
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
-          <news:publication_date>2026-07-14</news:publication_date>
-          <news:title>Nexi vola +6,3% e ricarica il FTSE MIB: Piazza Affari regge in una seduta contrastata sull'Iran</news:title>
+          <news:publication_date>2026-07-15</news:publication_date>
+          <news:title>Inflazione USA in netto calo a giugno: il maggior ribasso mensile in sei anni. Wall Street sale, chip in rally</news:title>
       </news:news>
   </url>
   <url>
-      <loc>https://www.almafinanza.com/articolo-macro-14lug-hormuz-trump-petrolio-iran.html</loc>
-      <lastmod>2026-07-14</lastmod>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-14lug-ftse-mib-prysmian-inwit-sentenza.html</loc>
+      <lastmod>2026-07-15</lastmod>
       <changefreq>never</changefreq>
       <priority>0.9</priority>
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
-          <news:publication_date>2026-07-14</news:publication_date>
-          <news:title>Stretto di Hormuz: Trump reimpone il blocco navale, Brent a $84,72 e WTI a $79,57</news:title>
+          <news:publication_date>2026-07-15</news:publication_date>
+          <news:title>Piazza Affari stabile a 52.862: Prysmian in testa, Inwit crolla del 3,8% sulla sentenza Tim</news:title>
       </news:news>
   </url>
 
