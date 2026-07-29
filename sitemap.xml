@@ -5,9 +5,22 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articolo 29 Luglio 2026 (Mercoledì — decisione Fed sui tassi, scenari e reazione dei settori) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-macro-29lug-fed-tassi-scenari-settori-investitori.html</loc>
+      <lastmod>2026-07-29</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-07-29</news:publication_date>
+          <news:title>Fed, decisione sui tassi oggi: mantenimento o rialzo a sorpresa? Gli scenari e la reazione dei settori</news:title>
+      </news:news>
   </url>
 
   <!-- Approfondimenti del weekend 26 Luglio 2026 (Domenica — editoriale settimana, fusione Tesla-SpaceX, guerre e mercati) -->
