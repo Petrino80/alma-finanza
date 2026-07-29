@@ -10,7 +10,40 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Articolo 29 Luglio 2026 (Mercoledì — decisione Fed sui tassi, scenari e reazione dei settori) -->
+  <!-- Articoli 29 Luglio 2026 (Mercoledì — Iran attacco Giordania + Wall Street, Piazza Affari Eni +7%, Microsoft/Meta AI capex, Fed invariata) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-29lug-iran-fed-microsoft-meta.html</loc>
+      <lastmod>2026-07-29</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-07-29</news:publication_date>
+          <news:title>Iran attacca la Giordania, Wall Street frena: Dow −0,78%. Fed invariata, ora Microsoft e Meta</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-29lug-eni-vola-mib-rosso.html</loc>
+      <lastmod>2026-07-29</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-07-29</news:publication_date>
+          <news:title>FTSE MIB −0,60% a 51.396: Eni vola +7% dopo l'utile raddoppiato nel trimestre</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-ai-29lug-microsoft-meta-alphabet-capex.html</loc>
+      <lastmod>2026-07-29</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-07-29</news:publication_date>
+          <news:title>Microsoft e Meta sotto esame: $725 mld di capex AI e il mercato vuole i ritorni</news:title>
+      </news:news>
+  </url>
   <url>
       <loc>https://www.almafinanza.com/articolo-macro-29lug-fed-tassi-scenari-settori-investitori.html</loc>
       <lastmod>2026-07-29</lastmod>
@@ -19,7 +52,7 @@
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
           <news:publication_date>2026-07-29</news:publication_date>
-          <news:title>Fed, decisione sui tassi oggi: mantenimento o rialzo a sorpresa? Gli scenari e la reazione dei settori</news:title>
+          <news:title>Fed, decisione sui tassi: mantenimento o rialzo a sorpresa? Gli scenari e la reazione dei settori</news:title>
       </news:news>
   </url>
 
