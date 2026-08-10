@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 10 Agosto 2026 (Lunedì — S&P 500 pausa CPI luglio atteso +3,4%/Fed stand-by 3,50-3,75%, FTSE MIB +0,25% Prysmian +2,98%/STM +2,15% data center AI, WTI +2,86% a $80,42 Stretto di Hormuz Iran-Oman) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-10ago-cpi-attesa-sp500.html</loc>
+      <lastmod>2026-08-10</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-08-10</news:publication_date>
+          <news:title>S&amp;P 500 in pausa dopo la settimana record: Wall Street attende il CPI di luglio — la Fed in stand-by</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-10ago-ftse-mib-prysmian-stm-data-center.html</loc>
+      <lastmod>2026-08-10</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-08-10</news:publication_date>
+          <news:title>FTSE MIB +0,25% a 53.851 con Prysmian e STM: il boom dei data center AI traina Piazza Affari</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-commodities-10ago-wti-hormuz-iran-petrolio.html</loc>
+      <lastmod>2026-08-10</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-08-10</news:publication_date>
+          <news:title>WTI rimbalza a $80,42 (+2,86%): lo Stretto di Hormuz tiene il petrolio in tensione — accordo Iran-Oman vicino ma non abbastanza</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 8 Agosto 2026 (Sabato — Wall Street settimana record S&P +3,6%/Nasdaq +5,2%/Jobs Report −23K, Oro $4.376 +2,6% rally Fed, Intesa Sanpaolo semestrale record €5,556 mld +6,5%) -->
