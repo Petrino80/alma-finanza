@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 17 Agosto 2026 (Lunedì — settimana consumatore USA Home Depot/Target/Walmart + Jackson Hole, FTSE MIB 53.701 STM +2,78%, Wall Street interlocutoria) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-macro-17ago-settimana-consumatore-usa-retail-jackson-hole.html</loc>
+      <lastmod>2026-08-17</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-08-17</news:publication_date>
+          <news:title>La settimana che misura il consumatore americano: Home Depot, Target e Walmart dopo il calo delle vendite</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-17ago-ftse-mib-stm-prysmian-leonardo.html</loc>
+      <lastmod>2026-08-17</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-08-17</news:publication_date>
+          <news:title>FTSE MIB +0,22% a 53.701: tech in testa con STM e Prysmian, Leonardo sostenuta dalle sanzioni UE</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-17ago-seduta-interlocutoria-retail-jackson-hole.html</loc>
+      <lastmod>2026-08-17</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-08-17</news:publication_date>
+          <news:title>Wall Street senza direzione: indici contrastati in attesa delle trimestrali dei grandi negozi e di Jackson Hole</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 16 Agosto 2026 (Domenica — S&P 500 7.785 terza settimana rialzo/Nvidia preview Q2 FY2027 guidance $91mld/FTSE MIB 53.583 Ferragosto Nexi +1.75%) -->
