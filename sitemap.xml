@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 1 Settembre 2026 (Martedì — USA colpiscono Pasdaran in Stretto di Hormuz; Brent >$92 +4,50%; Wall Street S&P −0,3%; FTSE MIB −1,33% banche ko) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-geopolitica-1set-usa-iran-hormuz-petrolio-92.html</loc>
+      <lastmod>2026-09-01</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-01</news:publication_date>
+          <news:title>USA colpiscono i Pasdaran nello Stretto di Hormuz: Brent a $92, WTI +4,54%. Mercati sotto shock</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-1set-sp500-7686-iran-petrolio.html</loc>
+      <lastmod>2026-09-01</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-01</news:publication_date>
+          <news:title>Wall Street in calo: S&amp;P 500 −0,3% a 7.686, Dow −0,70% a 53.185. Petrolio +4,54% riaccende timori inflazione</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-1set-ftse-mib-51915-banche-bond.html</loc>
+      <lastmod>2026-09-01</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-01</news:publication_date>
+          <news:title>Piazza Affari −1,33%: FTSE MIB sotto 52.000 punti, banche ko e rendimenti BTp in rialzo</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 31 Agosto 2026 (Lunedì — USA attaccano Iran a Larak nello Stretto di Hormuz; Brent $90,58; Wall Street S&P −0,3%; FTSE MIB energia in rally) -->
