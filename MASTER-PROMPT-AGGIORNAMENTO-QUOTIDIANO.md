@@ -93,6 +93,19 @@ e il credito fotografico si stampa da solo sotto l'immagine (obbligatorio per le
    licenza e autore), scaricala in img/repertorio/ e AGGIUNGI LA VOCE in
    img/repertorio/crediti.json con tutti i campi. Senza credito la foto non si pubblica.
 
+⛔ REGOLA ASSOLUTA — MAI LA STESSA FOTO SU DUE ARTICOLI:
+   Ogni fotografia si usa UNA VOLTA SOLA, su un solo articolo. Due articoli con la stessa
+   immagine — soprattutto in giornate vicine che trattano gli stessi temi — fanno sembrare
+   la homepage un blocco duplicato.
+
+   Lo script lo verifica da solo e si RIFIUTA di procedere se la foto è già impegnata,
+   suggerendo le alternative libere sullo stesso tema. Quando non ce ne sono:
+   1. cerca una foto nuova su Wikimedia Commons (deve essere ORIZZONTALE e ad alta risoluzione)
+   2. verifica licenza e autore aprendo la pagina del file
+   3. scaricala in img/repertorio/ con un nome parlante (es. nyse-3.jpg, oro.jpg)
+   4. registrala in crediti.json con soggetto, autore, licenza, fonte e temi
+   Non usare MAI --forza per aggirare il controllo negli aggiornamenti quotidiani.
+
    Per articoli su un'azienda o una persona specifica (Stellantis, Nvidia, un amministratore
    delegato) vale la pena cercare la foto dedicata: è molto più pertinente del repertorio.
 
@@ -388,6 +401,7 @@ Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibi
 - [ ] 3 articoli creati con dark mode + toggle + anti-flash + SEO + info-box
 - [ ] ogni articolo ha una FOTO di apertura con credito, firma "Alma Finanza" e tempo di lettura (FASE 2B)
 - [ ] ogni foto nuova è registrata in img/repertorio/crediti.json con autore e licenza
+- [ ] NESSUNA foto è ripetuta su due articoli (lo script blocca da solo: mai usare --forza)
 - [ ] ogni articolo e ogni card hanno il blocco "Perché conta:" (FASE 2C)
 - [ ] le card in homepage mostrano la miniatura dell'immagine dell'articolo
 - [ ] index.html: ticker, stats bar, data, hero, 5 nuove theme-cards, sitemap

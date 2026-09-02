@@ -107,6 +107,8 @@ def main():
     ap.add_argument("--sostituisci", action="store_true",
                     help="rimpiazza un'immagine generata già presente")
     ap.add_argument("--elenco", action="store_true", help="mostra le foto disponibili")
+    ap.add_argument("--forza", action="store_true",
+                    help="usa la foto anche se è già presente in un altro articolo")
     args = ap.parse_args()
 
     crediti = carica_crediti()
@@ -139,6 +141,31 @@ def main():
 
     if not (LIB / meta["file"]).exists():
         sys.exit(f"✗ manca il file {LIB / meta['file']}")
+
+    # REGOLA: mai la stessa foto su due articoli diversi.
+    gia_usata = []
+    for altro in sorted(BASE.glob("articolo-*.html")):
+        if altro.name == p.name:
+            continue
+        try:
+            if f'img/repertorio/{meta["file"]}' in altro.read_text(encoding="utf-8"):
+                gia_usata.append(altro.name)
+        except Exception:
+            pass
+    if gia_usata and not args.forza:
+        liberi = [k for k, m in crediti.items()
+                  if set(m["temi"]) & set(meta["temi"])
+                  and not any(f'img/repertorio/{m["file"]}' in a.read_text(encoding="utf-8", errors="ignore")
+                              for a in BASE.glob("articolo-*.html"))]
+        msg = [f"✗ la foto '{chiave}' è già usata in: {', '.join(gia_usata[:3])}",
+               "  Regola: mai la stessa foto su due articoli."]
+        if liberi:
+            msg.append(f"  Alternative libere sullo stesso tema: {', '.join(liberi)}")
+        else:
+            msg.append("  Nessuna alternativa libera sul tema: cercane una nuova su Wikimedia Commons,")
+            msg.append("  scaricala in img/repertorio/ e registrala in crediti.json.")
+        msg.append("  (--forza per procedere comunque)")
+        sys.exit("\n".join(msg))
 
     # Caso 1: sostituisci l'immagine generata già presente
     generata = re.search(r'<figure[^>]*>\s*<img src="img/articoli/[^"]+"[\s\S]*?</figure>', html)
