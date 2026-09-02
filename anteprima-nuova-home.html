@@ -32,21 +32,21 @@
   .lobster{font-family:'Lobster',cursive}
   .mont{font-family:'Montserrat',sans-serif}
   img{display:block;max-width:100%}
+  .up{color:var(--up)} .down{color:var(--down)}
 
-  /* ---------- ticker (invariato nello spirito) ---------- */
+  /* ---------- ticker ---------- */
   .ticker{background:var(--sunken);border-bottom:1px solid var(--rule);overflow:hidden}
-  .ticker .in{display:flex;gap:0;max-width:var(--maxw);margin:0 auto;padding:0 24px;
+  .ticker .in{display:flex;max-width:var(--maxw);margin:0 auto;padding:0 24px;
     overflow-x:auto;scrollbar-width:none}
   .ticker .in::-webkit-scrollbar{display:none}
   .tk{display:flex;align-items:baseline;gap:7px;padding:9px 18px 9px 0;margin-right:18px;
     border-right:1px solid var(--rule);white-space:nowrap;font-size:12.5px}
   .tk b{font-weight:600;color:var(--ink-2)}
   .tk span{font-variant-numeric:tabular-nums;font-weight:600}
-  .up{color:var(--up)} .down{color:var(--down)}
 
   /* ---------- masthead ---------- */
   header.mast{border-bottom:1px solid var(--rule);background:var(--surface);
-    position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)}
+    position:sticky;top:0;z-index:50}
   .mast-in{max-width:var(--maxw);margin:0 auto;padding:14px 24px;
     display:flex;align-items:center;justify-content:space-between;gap:16px}
   .logo{display:flex;align-items:center;gap:6px;min-width:0}
@@ -54,6 +54,7 @@
   .logo .n{font-weight:900;font-size:24px;letter-spacing:-.02em;white-space:nowrap}
   @media(max-width:520px){.logo .a{font-size:32px}.logo .n{font-size:18px}}
   .mast-right{display:flex;align-items:center;gap:14px;color:var(--ink-3);font-size:12.5px}
+  @media(max-width:640px){.mast-right .data{display:none}}
   .icon-btn{width:34px;height:34px;border:1px solid var(--rule);border-radius:8px;background:none;
     color:var(--ink-2);cursor:pointer;display:grid;place-items:center;font-size:14px}
   .icon-btn:hover{border-color:var(--rule-strong)}
@@ -73,7 +74,7 @@
   .mkt-in{max-width:var(--maxw);margin:0 auto;padding:14px 24px}
   .mkt-cap{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);
     font-weight:600;margin-bottom:9px}
-  .mkt-row{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+  .mkt-row{display:flex;overflow-x:auto;scrollbar-width:none}
   .mkt-row::-webkit-scrollbar{display:none}
   .mkt-it{padding-right:26px;margin-right:26px;border-right:1px solid var(--rule);white-space:nowrap}
   .mkt-it:last-child{border-right:0}
@@ -82,59 +83,43 @@
     display:flex;align-items:baseline;gap:8px;margin-top:1px}
   .mkt-it .d{font-size:12.5px;font-weight:600;font-variant-numeric:tabular-nums}
 
-  /* ---------- apertura ---------- */
+  /* ---------- intestazione giorno ---------- */
   main{padding-bottom:80px}
-  .lead-story{padding:38px 0 34px;border-bottom:1px solid var(--rule)}
-  .ls-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:start}
-  @media(max-width:860px){.ls-grid{grid-template-columns:1fr;gap:22px}}
-  .kicker{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
-    color:var(--down);display:flex;align-items:center;gap:8px;margin-bottom:14px}
-  .kicker i{width:6px;height:6px;border-radius:50%;background:var(--down);display:block}
-  .ls-title{font-family:'Montserrat',sans-serif;font-weight:900;letter-spacing:-.028em;
-    font-size:clamp(32px,4.4vw,50px);line-height:1.03;text-wrap:balance}
-  .ls-why{margin-top:18px;font-size:17px;line-height:1.6;color:var(--ink-2);max-width:54ch}
-  .ls-why b{color:var(--ink);font-weight:700}
-  .byline{margin-top:20px;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-3)}
-  .byline .a{font-family:'Lobster',cursive;font-size:18px;color:var(--teal);line-height:1}
-  .byline .who{font-weight:600;color:var(--ink-2)}
-  .ls-fig figcaption{margin-top:8px;font-size:11.5px;color:var(--ink-3);line-height:1.45}
-  .ls-fig img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:3px}
-
-  /* ---------- griglia notizie ---------- */
-  .day{padding:30px 0 8px;display:flex;align-items:baseline;gap:14px}
+  .day{padding:34px 0 18px;display:flex;align-items:baseline;gap:14px}
   .day h2{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;letter-spacing:.1em;
     text-transform:uppercase;color:var(--ink)}
   .day .line{flex:1;height:1px;background:var(--rule)}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 30px}
-  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:620px){.grid{grid-template-columns:1fr}}
-  .card{padding:22px 0;border-top:1px solid var(--rule);display:flex;flex-direction:column;gap:11px}
-  .card img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:3px}
-  .cat{font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3)}
-  .card h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:19px;line-height:1.18;
-    letter-spacing:-.015em;text-wrap:balance}
-  .card:hover h3{color:var(--teal-ink)}
-  .why{font-size:14px;line-height:1.55;color:var(--ink-2)}
-  .why b{color:var(--ink);font-weight:700}
-  .meta{margin-top:auto;padding-top:4px;font-size:11.5px;color:var(--ink-3);
-    display:flex;gap:8px;font-variant-numeric:tabular-nums}
 
-  /* elenco compatto per i giorni precedenti */
-  .list{border-top:1px solid var(--rule)}
-  .li{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:18px 0;
-    border-bottom:1px solid var(--rule);align-items:start}
-  @media(max-width:620px){.li{grid-template-columns:76px 1fr;gap:14px}}
-  .li img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:3px}
-  .li .ph{width:100%;aspect-ratio:3/2;border-radius:3px;background:var(--sunken);
+  /* ---------- GRIGLIA UNIFORME ----------
+     Tutte le schede identiche: stessa colonna, stessa foto 3:2,
+     stessa altezza. Titolo e sommario tagliati a un numero fisso di righe. */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr);gap:26px}}
+  @media(max-width:620px){.grid{grid-template-columns:1fr;gap:24px}}
+
+  .card{display:flex;flex-direction:column;height:100%;
+    border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:var(--surface);
+    transition:border-color .18s}
+  .card:hover{border-color:var(--rule-strong)}
+  .card .thumb{width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--sunken);flex:none}
+  .card .ph{width:100%;aspect-ratio:3/2;background:var(--sunken);flex:none;
     display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-weight:800;
-    font-size:11px;color:var(--ink-3);letter-spacing:.06em}
-  .li h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16.5px;line-height:1.25;
-    letter-spacing:-.01em}
-  .li:hover h3{color:var(--teal-ink)}
-  .li .cat{margin-bottom:5px}
-  .li .meta{margin-top:6px}
+    font-size:12px;color:var(--ink-3);letter-spacing:.08em}
+  .card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .cat{font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3)}
+  .card h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;line-height:1.22;
+    letter-spacing:-.015em;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+    min-height:calc(1.22em * 3)}
+  .card:hover h3{color:var(--teal-ink)}
+  .why{font-size:13.5px;line-height:1.5;color:var(--ink-2);
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+    min-height:calc(1.5em * 3)}
+  .why b{color:var(--ink);font-weight:700}
+  .meta{margin-top:auto;padding-top:10px;border-top:1px solid var(--rule);
+    font-size:11.5px;color:var(--ink-3);display:flex;gap:8px;font-variant-numeric:tabular-nums}
 
-  .quiz{margin:34px 0 0;border:1px solid var(--rule);border-radius:6px;padding:20px 22px;
+  .quiz{margin:38px 0 0;border:1px solid var(--rule);border-radius:6px;padding:20px 22px;
     display:flex;align-items:center;gap:18px;background:var(--sunken)}
   .quiz .t{font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px}
   .quiz .s{font-size:13.5px;color:var(--ink-2);margin-top:2px}
@@ -142,13 +127,13 @@
   @media(max-width:620px){.quiz{flex-wrap:wrap}.quiz .go{margin-left:0}}
 
   footer.site{border-top:1px solid var(--rule);padding:30px 0 60px;text-align:center;color:var(--ink-3);font-size:12.5px}
-  .note{background:#fff8e6;border:1px solid #f0d9a0;color:#7a5b12;padding:11px 16px;font-size:13px;text-align:center}
+  .note{background:#fff8e6;border-bottom:1px solid #f0d9a0;color:#7a5b12;padding:10px 16px;font-size:13px;text-align:center}
   html.dark .note{background:#1e1806;border-color:#3d3210;color:#e0c473}
 </style>
 </head>
 <body>
 
-<div class="note">Anteprima della nuova impaginazione · i contenuti sono quelli reali del sito · questa pagina non è indicizzata</div>
+<div class="note">Anteprima della nuova impaginazione · contenuti reali · pagina non indicizzata</div>
 
 <!-- TICKER -->
 <div class="ticker"><div class="in">
@@ -168,7 +153,7 @@
     <span class="a lobster">A</span><span class="n mont">LMA FINANZA</span>
   </a>
   <div class="mast-right">
-    <span class="hide-sm">Martedì 1 settembre 2026</span>
+    <span class="data">Martedì 1 settembre 2026</span>
     <button class="icon-btn" aria-label="Cerca">⌕</button>
     <button class="icon-btn" onclick="tema()" aria-label="Cambia tema"><span id="ico">☾</span></button>
   </div>
@@ -201,88 +186,109 @@
 
 <main class="wrap">
 
-  <!-- APERTURA -->
-  <a class="lead-story" href="articolo-geopolitica-1set-usa-iran-hormuz-petrolio-92.html">
-    <div class="ls-grid">
-      <div>
-        <div class="kicker"><i></i> Geopolitica · In evidenza</div>
-        <h1 class="ls-title">USA colpiscono i Pasdaran nello Stretto di Hormuz: il Brent vola oltre 92 dollari</h1>
-        <p class="ls-why"><b>Perché conta:</b> da Hormuz passa circa un quinto del petrolio mondiale. Se il greggio resta sopra i 90 dollari l'inflazione torna a salire, e la Fed ha un motivo in più per non tagliare i tassi.</p>
-        <div class="byline">
-          <span class="a">A</span><span class="who">Alma Finanza</span>
-          <span>·</span><span>2 ore fa</span><span>·</span><span>Lettura 6 min</span>
-        </div>
-      </div>
-      <figure class="ls-fig">
-        <img src="img/repertorio/petrolio.jpg" alt="La petroliera Pericles al pontile di una raffineria">
-        <figcaption>La petroliera Pericles al pontile di una raffineria · Foto: Calistemon, CC BY-SA 4.0</figcaption>
-      </figure>
-    </div>
-  </a>
-
-  <!-- OGGI -->
   <div class="day"><h2>Martedì 1 settembre</h2><div class="line"></div></div>
   <div class="grid">
+
+    <a class="card" href="articolo-geopolitica-1set-usa-iran-hormuz-petrolio-92.html">
+      <img class="thumb" src="img/repertorio/petrolio.jpg" alt="La petroliera Pericles al pontile di una raffineria">
+      <div class="body">
+        <div class="cat">Geopolitica</div>
+        <h3>USA colpiscono i Pasdaran nello Stretto di Hormuz: il Brent vola oltre 92 dollari</h3>
+        <p class="why"><b>Perché conta:</b> da Hormuz passa un quinto del petrolio mondiale. Se il greggio resta sopra i 90 dollari l'inflazione risale e la Fed non taglia.</p>
+        <div class="meta"><span>2 ore fa</span><span>·</span><span>Lettura 6 min</span></div>
+      </div>
+    </a>
+
     <a class="card" href="articolo-piazza-affari-1set-ftse-mib-51915-banche-bond.html">
-      <img src="img/repertorio/piazza-affari.jpg" alt="Palazzo Mezzanotte, sede della Borsa Italiana">
-      <div class="cat">Piazza Affari</div>
-      <h3>FTSE MIB sotto 52.000: banche in rosso e rendimenti dei BTp in rialzo</h3>
-      <p class="why"><b>Perché conta:</b> le banche pesano un terzo dell'indice. Quando i BTp salgono per il rischio e non per la crescita, Milano scende più delle altre borse.</p>
-      <div class="meta"><span>MPS −0,85%</span><span>·</span><span>Lettura 5 min</span></div>
+      <img class="thumb" src="img/repertorio/piazza-affari.jpg" alt="Palazzo Mezzanotte, sede della Borsa Italiana">
+      <div class="body">
+        <div class="cat">Piazza Affari</div>
+        <h3>FTSE MIB sotto 52.000: banche in rosso e rendimenti dei BTp in rialzo</h3>
+        <p class="why"><b>Perché conta:</b> le banche pesano un terzo dell'indice. Quando i BTp salgono per il rischio e non per la crescita, Milano scende più delle altre borse.</p>
+        <div class="meta"><span>1 settembre</span><span>·</span><span>Lettura 5 min</span></div>
+      </div>
     </a>
 
     <a class="card" href="articolo-wall-street-1set-sp500-7686-iran-petrolio.html">
-      <img src="img/repertorio/nyse.jpg" alt="La facciata del New York Stock Exchange">
-      <div class="cat">Wall Street</div>
-      <h3>Wall Street in calo: il petrolio riaccende i timori sull'inflazione</h3>
-      <p class="why"><b>Perché conta:</b> il greggio caro sposta le attese sui tassi. Se l'inflazione risale la Fed rinvia i tagli, e la tecnologia è la prima a soffrirne.</p>
-      <div class="meta"><span>Dow −374 pt</span><span>·</span><span>Lettura 5 min</span></div>
+      <img class="thumb" src="img/repertorio/nyse.jpg" alt="La facciata del New York Stock Exchange">
+      <div class="body">
+        <div class="cat">Wall Street</div>
+        <h3>Wall Street in calo: il petrolio riaccende i timori sull'inflazione</h3>
+        <p class="why"><b>Perché conta:</b> il greggio caro sposta le attese sui tassi. Se l'inflazione risale la Fed rinvia i tagli, e la tecnologia è la prima a soffrirne.</p>
+        <div class="meta"><span>1 settembre</span><span>·</span><span>Lettura 5 min</span></div>
+      </div>
     </a>
 
-    <a class="card" href="articolo-corporate-31ago-stellantis-belloni-fiat-abarth-lancia.html">
-      <div class="ph" style="width:100%;aspect-ratio:3/2;border-radius:3px;background:var(--sunken);display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;color:var(--ink-3);letter-spacing:.08em">STELLANTIS</div>
-      <div class="cat">Corporate · Automotive</div>
-      <h3>Stellantis affida Fiat, Abarth e Lancia ad Arnaud Belloni</h3>
-      <p class="why"><b>Perché conta:</b> mettere un uomo di marketing al vertice dei tre marchi significa dire che il problema non è il prodotto, ma il posizionamento.</p>
-      <div class="meta"><span>Quota Europa 17,5%</span><span>·</span><span>Lettura 7 min</span></div>
-    </a>
   </div>
 
-  <!-- GIORNI PRECEDENTI -->
   <div class="day"><h2>Lunedì 31 agosto</h2><div class="line"></div></div>
-  <div class="list">
-    <a class="li" href="articolo-geopolitica-31ago-iran-usa-stretto-hormuz-petrolio.html">
-      <img src="img/repertorio/petrolio-2.jpg" alt="Serbatoi di stoccaggio in una raffineria">
-      <div>
+  <div class="grid">
+
+    <a class="card" href="articolo-geopolitica-31ago-iran-usa-stretto-hormuz-petrolio.html">
+      <img class="thumb" src="img/repertorio/petrolio-2.jpg" alt="Serbatoi di stoccaggio in una raffineria">
+      <div class="body">
         <div class="cat">Geopolitica</div>
         <h3>USA colpiscono l'Iran a Larak: il Brent balza a 90,58 dollari</h3>
-        <div class="meta"><span>Brent +2,80%</span><span>·</span><span>Lettura 6 min</span></div>
+        <p class="why"><b>Perché conta:</b> l'Iran ha risposto con missili su Giordania ed Emirati. Ogni escalation nello stretto si scarica subito sul prezzo del greggio.</p>
+        <div class="meta"><span>31 agosto</span><span>·</span><span>Lettura 6 min</span></div>
       </div>
     </a>
-    <a class="li" href="articolo-piazza-affari-31ago-ftse-mib-energia-saipem-eni.html">
-      <img src="img/repertorio/piazza-affari-2.jpg" alt="Palazzo Mezzanotte con la scultura L.O.V.E.">
-      <div>
+
+    <a class="card" href="articolo-piazza-affari-31ago-ftse-mib-energia-saipem-eni.html">
+      <img class="thumb" src="img/repertorio/piazza-affari-2.jpg" alt="Palazzo Mezzanotte con la scultura L.O.V.E.">
+      <div class="body">
         <div class="cat">Piazza Affari</div>
         <h3>FTSE MIB piatto, ma il petrolio fa volare Tenaris, Saipem ed Eni</h3>
-        <div class="meta"><span>Tenaris +2,97%</span><span>·</span><span>Lettura 4 min</span></div>
+        <p class="why"><b>Perché conta:</b> quando il greggio corre, il peso dell'energia in listino sostiene l'indice anche in una giornata storta per il resto del mercato.</p>
+        <div class="meta"><span>31 agosto</span><span>·</span><span>Lettura 4 min</span></div>
       </div>
     </a>
-    <a class="li" href="articolo-wall-street-31ago-borse-giu-iran-us-hormuz.html">
-      <img src="img/repertorio/nyse-2.jpg" alt="Il New York Stock Exchange a Wall Street">
-      <div>
+
+    <a class="card" href="articolo-wall-street-31ago-borse-giu-iran-us-hormuz.html">
+      <img class="thumb" src="img/repertorio/nyse-2.jpg" alt="Il New York Stock Exchange a Wall Street">
+      <div class="body">
         <div class="cat">Wall Street</div>
         <h3>Wall Street chiude agosto in rosso, ma il mese resta positivo</h3>
-        <div class="meta"><span>S&amp;P −0,33%</span><span>·</span><span>Lettura 6 min</span></div>
+        <p class="why"><b>Perché conta:</b> una seduta negativa non cancella un mese di rialzi. Il Dow chiude il quinto mese consecutivo in positivo nonostante il finale.</p>
+        <div class="meta"><span>31 agosto</span><span>·</span><span>Lettura 6 min</span></div>
       </div>
     </a>
-    <a class="li" href="articolo-macro-28ago-warsh-jackson-hole-svolta-falco-rialzo-settembre.html">
-      <div class="ph">FED</div>
-      <div>
+
+  </div>
+
+  <div class="day"><h2>Prima</h2><div class="line"></div></div>
+  <div class="grid">
+
+    <a class="card" href="articolo-corporate-31ago-stellantis-belloni-fiat-abarth-lancia.html">
+      <div class="ph">STELLANTIS</div>
+      <div class="body">
+        <div class="cat">Corporate · 31 agosto</div>
+        <h3>Stellantis affida Fiat, Abarth e Lancia ad Arnaud Belloni</h3>
+        <p class="why"><b>Perché conta:</b> mettere un uomo di marketing al vertice dei tre marchi significa dire che il problema non è il prodotto, ma il posizionamento.</p>
+        <div class="meta"><span>31 agosto</span><span>·</span><span>Lettura 7 min</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="articolo-macro-28ago-warsh-jackson-hole-svolta-falco-rialzo-settembre.html">
+      <img class="thumb" src="img/repertorio/fed.jpg" alt="L'Eccles Building, sede della Federal Reserve">
+      <div class="body">
         <div class="cat">Macro · Fed · 28 agosto</div>
         <h3>Warsh ribalta le attese a Jackson Hole: dal taglio atteso al rialzo prezzato al 57%</h3>
-        <div class="meta"><span>Treasury 2 anni 4,31%</span><span>·</span><span>Lettura 7 min</span></div>
+        <p class="why"><b>Perché conta:</b> il mercato non aspetta più un taglio ma teme un rialzo. Cambia il segno di ogni valutazione, a partire dalla tecnologia.</p>
+        <div class="meta"><span>28 agosto</span><span>·</span><span>Lettura 7 min</span></div>
       </div>
     </a>
+
+    <a class="card" href="articolo-tech-26ago-nvidia-q2-fy2027-jensen-huang-96-miliardi.html">
+      <img class="thumb" src="img/repertorio/semiconduttori.jpg" alt="Lo stabilimento TSMC di Taichung">
+      <div class="body">
+        <div class="cat">Tech · 26 agosto</div>
+        <h3>Nvidia raddoppia se stessa: 96,2 miliardi di ricavi in un trimestre</h3>
+        <p class="why"><b>Perché conta:</b> i conti di Nvidia sono il termometro della spesa in intelligenza artificiale di tutta l'industria, non solo del singolo titolo.</p>
+        <div class="meta"><span>26 agosto</span><span>·</span><span>Lettura 6 min</span></div>
+      </div>
+    </a>
+
   </div>
 
   <a class="quiz" href="quiz.html">
