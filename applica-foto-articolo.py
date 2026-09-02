@@ -167,14 +167,17 @@ def main():
         msg.append("  (--forza per procedere comunque)")
         sys.exit("\n".join(msg))
 
-    # Caso 1: sostituisci l'immagine generata già presente
-    generata = re.search(r'<figure[^>]*>\s*<img src="img/articoli/[^"]+"[\s\S]*?</figure>', html)
-    if generata:
+    # Caso 1: c'è già una figura di apertura (immagine generata o altra foto) → sostituiscila.
+    # Cerca sia img/articoli/ (grafiche) sia img/repertorio/ (fotografie), così non si
+    # finisce mai con due immagini nello stesso articolo.
+    esistente = re.search(
+        r'<figure[^>]*>\s*<img src="img/(?:articoli|repertorio)/[^"]+"[\s\S]*?</figure>', html)
+    if esistente:
         if not args.sostituisci:
-            sys.exit(f"↷ {p.name}: c'è già un'immagine generata. Usa --sostituisci per rimpiazzarla")
-        html = html[:generata.start()] + figura(meta).strip() + html[generata.end():]
+            sys.exit(f"↷ {p.name}: c'è già un'immagine di apertura. Usa --sostituisci per rimpiazzarla")
+        html = html[:esistente.start()] + figura(meta).strip() + html[esistente.end():]
         p.write_text(html, encoding="utf-8")
-        print(f"✅ {p.name} — foto '{chiave}' al posto dell'immagine generata")
+        print(f"✅ {p.name} — foto '{chiave}' al posto dell'immagine precedente")
         return
 
     # Caso 2: nessuna immagine, inserisci firma (se manca) e foto
