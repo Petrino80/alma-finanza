@@ -7,7 +7,7 @@
 ## IL PROMPT DA USARE:
 
 ```
-Aggiornamento quotidiano Alma Finanza — [DATA 06 maggio 2026 - aggiornamento borse/news real time]
+Aggiornamento quotidiano Alma Finanza — [DATA 15 giugno 2026 - aggiornamento borse/news real time]
 
 FASE 1 — RICERCA DATI REALI (OBBLIGATORIA — NON SALTARE MAI):
 ⛔ PRIMA di scrivere qualsiasi articolo, esegui WebSearch per TUTTI i dati. Non esiste eccezione.
@@ -41,7 +41,7 @@ Crea 3 articoli HTML seguendo queste regole INVIOLABILI:
 Distribuzione consigliata (adattabile alle notizie del giorno):
 1. Wall Street / mercati USA (obbligatorio)
 2. Piazza Affari / FTSE MIB (obbligatorio)
-3. Uno su INTEL 
+3. Uno su azienda piu' interessante delle sedute 
 
 
 Formato articoli — REGOLE FISSE, MAI CAMBIARE:
@@ -66,6 +66,42 @@ Formato articoli — REGOLE FISSE, MAI CAMBIARE:
   • Twitter Card: twitter:card, twitter:title, twitter:description
   • Canonical: <link rel="canonical" href="https://www.almafinanza.com/[nome-file].html">
   • Schema.org JSON-LD: @type NewsArticle con headline, description, url, datePublished, author, publisher, inLanguage
+
+FASE 2B — IMMAGINE, FIRMA E TEMPO DI LETTURA (per OGNI articolo, obbligatorio):
+
+Ogni articolo deve aprirsi con un'immagine, la firma di testata e il tempo di lettura stimato.
+Si fa con due script già pronti, senza scrivere HTML a mano.
+
+1) Genera l'immagine (JPG 1200x630, costruita dai dati — niente foto esterne, nessun problema di licenza):
+
+   python3 genera-immagine-articolo.py \
+     --slug <nome-file-articolo-senza-estensione> \
+     --categoria "Wall Street" --colore blue \
+     --occhiello "Chiusura del 2 settembre 2026" \
+     --titolo "Titolo breve, 40-110 caratteri" \
+     --numero "7.686" --numero-label "S&P 500" --numero-var "−0,30%" --numero-dir down \
+     --dato "Dow|−0,70%|down" --dato "Nasdaq|−0,12%|down" --dato "Energia|in rally|up"
+
+   • --colore deve corrispondere al banner della categoria:
+     blue = Wall Street · emerald = Piazza Affari · red = Macro/Geopolitica
+     amber = Commodities/Energia · purple = Tech/AI · sky = Corporate
+   • --numero-dir: up (verde) / down (rosso) / flat
+   • --slug DEVE coincidere esattamente col nome del file HTML, altrimenti l'immagine non si collega
+   • Usa SOLO dati verificati in FASE 1
+
+2) Inserisci firma e immagine nell'articolo:
+
+   python3 aggiungi-firma-immagine.py <articolo>.html --data 2026-09-02T18:30
+
+   Lo script calcola da solo il tempo di lettura sul testo reale (200 parole al minuto),
+   inserisce la riga "A Alma Finanza · <data> · Lettura N min" e l'immagine a piena larghezza,
+   e rende la data relativa ("3 ore fa") per le prime 24 ore. È idempotente: se la firma
+   c'è già, non tocca nulla.
+
+   --data va messa all'ora reale di pubblicazione. Per gli articoli sulla chiusura USA
+   usa un orario dopo le 22:00 italiane; per Piazza Affari dopo le 17:30.
+
+⚠️ La firma è sempre di testata ("Alma Finanza"), mai di un autore singolo.
 
 FASE 3 — AGGIORNA HOMEPAGE (index.html):
 ⚠️ NON CAMBIARE MAI IL FORMATO/LAYOUT DELLA HOMEPAGE. Solo aggiornare i contenuti.
@@ -307,6 +343,8 @@ Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibi
 ## CHECKLIST RAPIDA POST-AGGIORNAMENTO:
 
 - [ ] 3 articoli creati con dark mode + toggle + anti-flash + SEO + info-box
+- [ ] ogni articolo ha immagine di apertura, firma "Alma Finanza" e tempo di lettura (FASE 2B)
+- [ ] immagini generate in img/articoli/ con slug identico al nome del file HTML
 - [ ] index.html: ticker, stats bar, data, hero, 5 nuove theme-cards, sitemap
 - [ ] categoria-wall-street.html aggiornata
 - [ ] categoria-borsa-milano.html aggiornata
