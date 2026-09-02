@@ -115,6 +115,19 @@
 
             <div class="accent-line"></div>
 
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-400 dark:text-slate-500 mb-6">
+                <span class="lobster-font text-xl text-teal-500 leading-none">A</span>
+                <span class="font-semibold text-gray-600 dark:text-slate-300">Alma Finanza</span>
+                <span aria-hidden="true">·</span>
+                <time datetime="2026-09-01T18:30" data-pub>1 settembre 2026</time>
+                <span aria-hidden="true">·</span>
+                <span>Lettura 6 min</span>
+            </div>
+            <figure class="-mx-6 md:-mx-10 mb-7">
+                <img src="img/articoli/articolo-geopolitica-1set-usa-iran-hormuz-petrolio-92.jpg" alt="USA colpiscono i Pasdaran nello Stretto di Hormuz: Brent a $92, WTI +4,54%. Mercati sotto shock"
+                     class="w-full h-auto block" width="1200" height="630" loading="eager">
+            </figure>
+
             <p class="lead mb-6">
                 Un'escalation militare improvvisa sconvolge i mercati energetici globali: il <strong>Comando Centrale degli Stati Uniti (CENTCOM)</strong> ha condotto <strong>attacchi mirati</strong> contro infrastrutture e posizioni del <strong>Corpo delle Guardie Rivoluzionarie Islamiche (Pasdaran)</strong> nell'area dello <strong>Stretto di Hormuz (Strait of Hormuz)</strong> il 1° settembre 2026. Nella notte precedente, due petroliere erano state colpite da proiettili iraniani. La risposta militare americana ha fatto schizzare il <strong>Brent</strong> — il benchmark europeo del greggio — a oltre <strong>$92 al barile</strong> (+4,50%), mentre il <strong>WTI (West Texas Intermediate)</strong> ha toccato circa <strong>$87,30 al barile</strong> (+4,54%), il livello più alto da mesi. I mercati azionari globali hanno immediatamente reagito con forti vendite.
             </p>
@@ -224,5 +237,18 @@
             }
         });
     </script>
+
+<script>
+(function(){
+  document.querySelectorAll('time[data-pub]').forEach(function(el){
+    var d = new Date(el.getAttribute('datetime'));
+    if (isNaN(d)) return;
+    var min = Math.floor((Date.now() - d.getTime())/60000);
+    if (min < 1) { el.textContent = 'adesso'; }
+    else if (min < 60) { el.textContent = min + (min===1?' minuto fa':' minuti fa'); }
+    else if (min < 1440) { var h = Math.floor(min/60); el.textContent = h + (h===1?' ora fa':' ore fa'); }
+  });
+})();
+</script>
 </body>
 </html>

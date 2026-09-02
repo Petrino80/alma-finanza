@@ -115,6 +115,19 @@
 
             <div class="accent-line"></div>
 
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-400 dark:text-slate-500 mb-6">
+                <span class="lobster-font text-xl text-teal-500 leading-none">A</span>
+                <span class="font-semibold text-gray-600 dark:text-slate-300">Alma Finanza</span>
+                <span aria-hidden="true">·</span>
+                <time datetime="2026-09-01T17:45" data-pub>1 settembre 2026</time>
+                <span aria-hidden="true">·</span>
+                <span>Lettura 5 min</span>
+            </div>
+            <figure class="-mx-6 md:-mx-10 mb-7">
+                <img src="img/articoli/articolo-piazza-affari-1set-ftse-mib-51915-banche-bond.jpg" alt="Piazza Affari −1,33%: FTSE MIB sotto 52.000 punti, banche ko e rendimenti BTp in rialzo"
+                     class="w-full h-auto block" width="1200" height="630" loading="eager">
+            </figure>
+
             <p class="lead mb-6">
                 Piazza Affari apre settembre 2026 con una seduta decisamente negativa. Il <strong>FTSE MIB</strong> chiude a <strong>51.915 punti</strong> (−1,33%), scivolando sotto la soglia psicologica dei <strong>52.000 punti</strong> per la prima volta da settimane. Il doppio colpo dei <strong>rendimenti obbligazionari (Bond Yield)</strong> in rialzo — a causa dell'impennata del petrolio per la crisi USA-Iran — e della pressione globale sui mercati schiaccia i titoli bancari italiani. In controtendenza i titoli del settore energetico, che beneficiano del petrolio ai massimi. Il <strong>DAX</strong> tedesco cede lo <strong>0,24%</strong>, mentre il <strong>CAC 40</strong> francese rimane marginalmente positivo (+0,24%).
             </p>
@@ -208,5 +221,18 @@
             }
         });
     </script>
+
+<script>
+(function(){
+  document.querySelectorAll('time[data-pub]').forEach(function(el){
+    var d = new Date(el.getAttribute('datetime'));
+    if (isNaN(d)) return;
+    var min = Math.floor((Date.now() - d.getTime())/60000);
+    if (min < 1) { el.textContent = 'adesso'; }
+    else if (min < 60) { el.textContent = min + (min===1?' minuto fa':' minuti fa'); }
+    else if (min < 1440) { var h = Math.floor(min/60); el.textContent = h + (h===1?' ora fa':' ore fa'); }
+  });
+})();
+</script>
 </body>
 </html>

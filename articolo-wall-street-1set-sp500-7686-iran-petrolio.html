@@ -115,6 +115,19 @@
 
             <div class="accent-line"></div>
 
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-400 dark:text-slate-500 mb-6">
+                <span class="lobster-font text-xl text-teal-500 leading-none">A</span>
+                <span class="font-semibold text-gray-600 dark:text-slate-300">Alma Finanza</span>
+                <span aria-hidden="true">·</span>
+                <time datetime="2026-09-01T22:15" data-pub>1 settembre 2026</time>
+                <span aria-hidden="true">·</span>
+                <span>Lettura 5 min</span>
+            </div>
+            <figure class="-mx-6 md:-mx-10 mb-7">
+                <img src="img/articoli/articolo-wall-street-1set-sp500-7686-iran-petrolio.jpg" alt="Wall Street in calo: S&amp;P 500 −0,3% a 7.686, petrolio +4,54% con raid USA in Iran"
+                     class="w-full h-auto block" width="1200" height="630" loading="eager">
+            </figure>
+
             <p class="lead mb-6">
                 Wall Street apre settembre con una seduta in ribasso, condizionata dall'escalation militare tra <strong>USA e Iran</strong> nello <strong>Stretto di Hormuz (Strait of Hormuz)</strong>. Gli attacchi americani contro le Guardie Rivoluzionarie Islamiche (Pasdaran) iraniane hanno fatto schizzare il <strong>petrolio WTI (West Texas Intermediate)</strong> di oltre il <strong>4,54%</strong>, riaccendendo i timori sull'inflazione e sui tassi di interesse. L'<strong>S&amp;P 500</strong> chiude a <strong>7.686,14</strong> (−0,3%), il <strong>Dow Jones</strong> perde <strong>374 punti</strong> a <strong>53.185,90</strong> (−0,70%), il <strong>Nasdaq</strong> cede lo <strong>0,1%</strong> a <strong>26.370,89</strong>. L'oro cala a <strong>$4.360/oz</strong>, Bitcoin tratta intorno a <strong>$78.000</strong>.
             </p>
@@ -218,5 +231,18 @@
             }
         });
     </script>
+
+<script>
+(function(){
+  document.querySelectorAll('time[data-pub]').forEach(function(el){
+    var d = new Date(el.getAttribute('datetime'));
+    if (isNaN(d)) return;
+    var min = Math.floor((Date.now() - d.getTime())/60000);
+    if (min < 1) { el.textContent = 'adesso'; }
+    else if (min < 60) { el.textContent = min + (min===1?' minuto fa':' minuti fa'); }
+    else if (min < 1440) { var h = Math.floor(min/60); el.textContent = h + (h===1?' ora fa':' ore fa'); }
+  });
+})();
+</script>
 </body>
 </html>
