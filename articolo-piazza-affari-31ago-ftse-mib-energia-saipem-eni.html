@@ -107,6 +107,19 @@
 <!-- ARTICLE CONTENT -->
 <article class="max-w-4xl mx-auto px-4 py-10 article-content">
 
+                        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-400 dark:text-slate-500 mb-6">
+                <span class="lobster-font text-xl text-teal-500 leading-none">A</span>
+                <span class="font-semibold text-gray-600 dark:text-slate-300">Alma Finanza</span>
+                <span aria-hidden="true">·</span>
+                <time datetime="2026-08-31T17:50" data-pub>31 agosto 2026</time>
+                <span aria-hidden="true">·</span>
+                <span>Lettura 4 min</span>
+            </div>
+            <figure class="-mx-6 md:-mx-10 mb-7">
+                <img src="img/articoli/articolo-piazza-affari-31ago-ftse-mib-energia-saipem-eni.jpg" alt="FTSE MIB piatto a 52.612: il petrolio trascina Tenaris +2,97%, Saipem +2,29%, Eni +2,26%"
+                     class="w-full h-auto block" width="1200" height="630" loading="eager">
+            </figure>
+
     <p class="lead">Piazza Affari chiude agosto sulla parità assoluta: il <strong>FTSE MIB</strong> segna <span class="negative">−0,01%</span> a <strong>52.612 punti</strong>, un risultato che nasconde una giornata fortemente biforcuta. Da un lato, i titoli energetici volano sull'onda dell'impennata del petrolio provocata dall'escalation militare tra USA e Iran nello Stretto di Hormuz. Dall'altro, difesa e industriale cedono terreno, con <strong>Avio</strong> in calo del <span class="negative">−2,9%</span> e <strong>Leonardo</strong> del <span class="negative">−2,18%</span>.</p>
 
     <h2>Il driver del giorno: il petrolio sopra $85 (WTI) e $90 (Brent)</h2>
@@ -253,6 +266,19 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e =
         updateIcons();
     }
 });
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('time[data-pub]').forEach(function(el){
+    var d = new Date(el.getAttribute('datetime'));
+    if (isNaN(d)) return;
+    var min = Math.floor((Date.now() - d.getTime())/60000);
+    if (min < 1) { el.textContent = 'adesso'; }
+    else if (min < 60) { el.textContent = min + (min===1?' minuto fa':' minuti fa'); }
+    else if (min < 1440) { var h = Math.floor(min/60); el.textContent = h + (h===1?' ora fa':' ore fa'); }
+  });
+})();
 </script>
 </body>
 </html>

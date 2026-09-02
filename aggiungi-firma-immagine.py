@@ -21,6 +21,13 @@ import sys
 
 ANCORA = '<div class="accent-line"></div>'
 
+# Sul sito convivono due impaginazioni di articolo. La firma va inserita
+# subito dopo l'apertura del corpo, qualunque sia il template.
+ANCORE_ALTERNATIVE = [
+    re.compile(r'<article[^>]*class="[^"]*article-content[^"]*"[^>]*>'),
+    re.compile(r'<div[^>]*class="[^"]*article-content[^"]*"[^>]*>'),
+]
+
 SCRIPT_TEMPO = """
 <script>
 (function(){
@@ -85,15 +92,25 @@ def main():
 
     if "data-pub" in html:
         sys.exit(f"↷ {p.name}: la firma c'è già, non tocco nulla")
-    if ANCORA not in html:
-        sys.exit(f"✗ {p.name}: non trovo il punto di inserimento ({ANCORA})")
 
     slug = p.stem
     minuti = tempo_lettura(html)
     titolo = re.search(r"<title>([^<]*)", html)
     alt = (titolo.group(1).split("|")[0].strip() if titolo else slug).replace('"', "'")
+    corpo = blocco(slug, args.data, minuti, alt, not args.senza_immagine)
 
-    html = html.replace(ANCORA, blocco(slug, args.data, minuti, alt, not args.senza_immagine), 1)
+    if ANCORA in html:
+        html = html.replace(ANCORA, corpo, 1)
+    else:
+        # Template senza filetto: inserisci subito dopo l'apertura del corpo articolo
+        for rx in ANCORE_ALTERNATIVE:
+            m = rx.search(html)
+            if m:
+                inserto = corpo.replace(ANCORA, "", 1).lstrip("\n")
+                html = html[: m.end()] + "\n\n            " + inserto + html[m.end():]
+                break
+        else:
+            sys.exit(f"✗ {p.name}: non trovo un punto di inserimento riconoscibile")
     html = html.replace("</body>", SCRIPT_TEMPO + "\n</body>", 1)
 
     p.write_text(html, encoding="utf-8")

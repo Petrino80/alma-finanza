@@ -107,6 +107,19 @@
 <!-- ARTICLE CONTENT -->
 <article class="max-w-4xl mx-auto px-4 py-10 article-content">
 
+                        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-400 dark:text-slate-500 mb-6">
+                <span class="lobster-font text-xl text-teal-500 leading-none">A</span>
+                <span class="font-semibold text-gray-600 dark:text-slate-300">Alma Finanza</span>
+                <span aria-hidden="true">·</span>
+                <time datetime="2026-08-31T22:20" data-pub>31 agosto 2026</time>
+                <span aria-hidden="true">·</span>
+                <span>Lettura 6 min</span>
+            </div>
+            <figure class="-mx-6 md:-mx-10 mb-7">
+                <img src="img/articoli/articolo-wall-street-31ago-borse-giu-iran-us-hormuz.jpg" alt="Wall Street in calo: S&amp;P 500 −0,3%, Dow −0,7% per l'escalation Iran-USA nello Stretto di Hormuz"
+                     class="w-full h-auto block" width="1200" height="630" loading="eager">
+            </figure>
+
     <p class="lead">Wall Street chiude l'ultimo giorno di agosto con un calo generalizzato, schiacciata dalla ripresa del conflitto militare tra USA e Iran nello Stretto di Hormuz. L'<strong>S&amp;P 500</strong> scende dello <span class="negative">0,3%</span> a <strong>7.686,14</strong>, il <strong>Dow Jones</strong> cede lo <span class="negative">0,9%</span> (−374 punti) a <strong>53.185,90</strong>, il <strong>Nasdaq</strong> lascia lo <span class="negative">0,5%</span> a <strong>26.370,89</strong>. L'unico settore in verde è l'energia, trainato dal Brent in rialzo del <span class="positive">+2,8%</span> a <strong>$90,58</strong>.</p>
 
     <h2>Il contesto: attacchi USA in Iran e ritorsioni su Giordania e UAE</h2>
@@ -265,6 +278,19 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e =
         updateIcons();
     }
 });
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('time[data-pub]').forEach(function(el){
+    var d = new Date(el.getAttribute('datetime'));
+    if (isNaN(d)) return;
+    var min = Math.floor((Date.now() - d.getTime())/60000);
+    if (min < 1) { el.textContent = 'adesso'; }
+    else if (min < 60) { el.textContent = min + (min===1?' minuto fa':' minuti fa'); }
+    else if (min < 1440) { var h = Math.floor(min/60); el.textContent = h + (h===1?' ora fa':' ore fa'); }
+  });
+})();
 </script>
 </body>
 </html>

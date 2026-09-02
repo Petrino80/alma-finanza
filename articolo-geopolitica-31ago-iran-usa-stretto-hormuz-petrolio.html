@@ -107,6 +107,19 @@
 <!-- ARTICLE CONTENT -->
 <article class="max-w-4xl mx-auto px-4 py-10 article-content">
 
+                        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-400 dark:text-slate-500 mb-6">
+                <span class="lobster-font text-xl text-teal-500 leading-none">A</span>
+                <span class="font-semibold text-gray-600 dark:text-slate-300">Alma Finanza</span>
+                <span aria-hidden="true">·</span>
+                <time datetime="2026-08-31T19:20" data-pub>31 agosto 2026</time>
+                <span aria-hidden="true">·</span>
+                <span>Lettura 6 min</span>
+            </div>
+            <figure class="-mx-6 md:-mx-10 mb-7">
+                <img src="img/articoli/articolo-geopolitica-31ago-iran-usa-stretto-hormuz-petrolio.jpg" alt="USA colpiscono l'Iran a Larak: il Brent balza a $90,58. L'Iran risponde con missili su Giordania e UAE"
+                     class="w-full h-auto block" width="1200" height="630" loading="eager">
+            </figure>
+
     <p class="lead">Il conflitto tra Stati Uniti e Iran riprende dopo un mese di pausa con la ripresa del fuoco diretto sullo <strong>Stretto di Hormuz</strong>. Domenica 30 agosto le forze armate USA hanno colpito due rampe di lancio iraniane sull'isola di <strong>Larak</strong>, dopo che i servizi d'intelligence avevano rilevato preparativi per il lancio di mine marine nel passaggio strategico. L'Iran ha risposto nella notte con missili balistici contro due basi USA in Giordania e una struttura negli Emirati Arabi Uniti. Il greggio balza del <span class="positive">+2,8%</span>. I mercati azionari scendono. Sei mesi di guerra raggiungono il loro momento più teso da luglio.</p>
 
     <h2>Cronologia: cosa è successo tra domenica e lunedì</h2>
@@ -253,6 +266,19 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e =
         updateIcons();
     }
 });
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('time[data-pub]').forEach(function(el){
+    var d = new Date(el.getAttribute('datetime'));
+    if (isNaN(d)) return;
+    var min = Math.floor((Date.now() - d.getTime())/60000);
+    if (min < 1) { el.textContent = 'adesso'; }
+    else if (min < 60) { el.textContent = min + (min===1?' minuto fa':' minuti fa'); }
+    else if (min < 1440) { var h = Math.floor(min/60); el.textContent = h + (h===1?' ora fa':' ore fa'); }
+  });
+})();
 </script>
 </body>
 </html>
