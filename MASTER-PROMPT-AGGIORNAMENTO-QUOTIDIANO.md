@@ -103,6 +103,29 @@ Si fa con due script già pronti, senza scrivere HTML a mano.
 
 ⚠️ La firma è sempre di testata ("Alma Finanza"), mai di un autore singolo.
 
+FASE 2C — "PERCHÉ CONTA" (obbligatorio in ogni articolo e in ogni card):
+
+Ogni articolo e ogni scheda in homepage deve dire al lettore non specialista perché la
+notizia lo riguarda. Due righe, subito dopo il titolo, nella forma:
+
+    <strong class="text-gray-700 dark:text-slate-300 font-semibold">Perché conta:</strong> spiegazione...
+
+Regole di scrittura:
+- Deve collegare il fatto a una conseguenza concreta, non ripetere il dato.
+  ✗ "Il Brent sale del 4,50% oltre i 92 dollari" (è già nel titolo)
+  ✓ "Da Hormuz passa circa un quinto del petrolio mondiale. Se il greggio resta sopra
+     i 90 dollari l'inflazione torna a salire, e la Fed ha un motivo in più per non
+     tagliare i tassi."
+- Massimo due frasi, in italiano piano, senza gergo.
+- Va SOSTITUITO al vecchio sommario denso fatto di dati separati da "·".
+  I numeri di dettaglio si spostano nella riga in fondo alla card, insieme alla data
+  e al tempo di lettura ("Brent +4,50% · WTI ~$87,30 · 1 Set" / "Leggi · 6 min →").
+
+Nelle card della homepage, sopra il testo va la miniatura dell'immagine dell'articolo:
+
+    <img src="img/articoli/<slug>.jpg" alt="" width="1200" height="630" loading="lazy"
+         class="w-full block object-cover" style="aspect-ratio:1200/630">
+
 FASE 3 — AGGIORNA HOMEPAGE (index.html):
 ⚠️ NON CAMBIARE MAI IL FORMATO/LAYOUT DELLA HOMEPAGE. Solo aggiornare i contenuti.
 Design: Modern Minimal con switch light/dark.
@@ -345,6 +368,8 @@ Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibi
 - [ ] 3 articoli creati con dark mode + toggle + anti-flash + SEO + info-box
 - [ ] ogni articolo ha immagine di apertura, firma "Alma Finanza" e tempo di lettura (FASE 2B)
 - [ ] immagini generate in img/articoli/ con slug identico al nome del file HTML
+- [ ] ogni articolo e ogni card hanno il blocco "Perché conta:" (FASE 2C)
+- [ ] le card in homepage mostrano la miniatura dell'immagine dell'articolo
 - [ ] index.html: ticker, stats bar, data, hero, 5 nuove theme-cards, sitemap
 - [ ] categoria-wall-street.html aggiornata
 - [ ] categoria-borsa-milano.html aggiornata
