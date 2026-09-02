@@ -37,6 +37,33 @@
     "temi": ["petrolio", "brent", "wti", "energia", "hormuz", "geopolitica", "commodities"]
   },
 
+  "piazza-affari-2": {
+    "file": "piazza-affari-2.jpg",
+    "soggetto": "Palazzo Mezzanotte con la scultura L.O.V.E. in Piazza Affari a Milano",
+    "autore": "Chabe01",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Palais_Mezzanotte_-_Milan_(IT25)_-_2022-09-03_-_3.jpg",
+    "temi": ["piazza affari", "borsa milano", "ftse mib", "italia"]
+  },
+
+  "nyse-2": {
+    "file": "nyse-2.jpg",
+    "soggetto": "Il New York Stock Exchange al numero 11 di Wall Street",
+    "autore": "Ken Lund",
+    "licenza": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange,_Manhattan,_New_York_(7236984682).jpg",
+    "temi": ["wall street", "usa", "s&p 500", "dow jones", "nasdaq"]
+  },
+
+  "petrolio-2": {
+    "file": "petrolio-2.jpg",
+    "soggetto": "Serbatoi di stoccaggio in una raffineria",
+    "autore": "Carl Young",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Refinery_Tanks_5.jpg",
+    "temi": ["petrolio", "brent", "wti", "energia", "raffineria", "commodities"]
+  },
+
   "semiconduttori": {
     "file": "semiconduttori.jpg",
     "soggetto": "Lo stabilimento TSMC nel Central Taiwan Science Park di Taichung",
