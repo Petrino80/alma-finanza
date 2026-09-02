@@ -186,7 +186,17 @@
 
         /* === MODERN MINIMAL === */
         .stats-bar{display:flex;gap:1px;border-radius:12px;overflow:hidden;}
-        .stat-item{flex:1;padding:1rem;text-align:center;transition:background 0.4s;}
+        .stat-item{flex:1;padding:1rem;text-align:center;transition:background 0.4s;min-width:0;}
+        .stat-item .stat-val,.stat-item .stat-chg{font-variant-numeric:tabular-nums;white-space:nowrap;}
+        .stats-caption{font-size:0.68rem;letter-spacing:0.09em;text-transform:uppercase;font-weight:600;}
+        @media (max-width:640px){
+            .stat-item{padding:0.7rem 0.35rem;}
+            .stat-item .stat-lbl{font-size:0.6rem;line-height:1.2;}
+            .stat-item .stat-val{font-size:0.95rem;}
+            .stat-item .stat-chg{font-size:0.65rem;}
+        }
+        .nav-scroll{scrollbar-width:none;-ms-overflow-style:none;}
+        .nav-scroll::-webkit-scrollbar{display:none;}
         .theme-card{border-radius:12px;overflow:hidden;transition:all 0.3s ease;}
         .theme-card:hover{transform:translateY(-3px);}
         .hero-box{border-radius:16px;overflow:hidden;transition:background 0.4s,border-color 0.4s;}
@@ -254,9 +264,9 @@
     <!-- Header -->
     <header class="sticky top-0 z-50 bg-white/92 dark:bg-[#0c1017]/92 backdrop-blur-xl border-b border-gray-100 dark:border-slate-800/20 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <span class="lobster-font text-5xl text-teal-500">A</span>
-                <span class="montserrat-font text-3xl font-black text-gray-900 dark:text-white">LMA FINANZA</span>
+            <div class="flex items-center space-x-2 min-w-0">
+                <span class="lobster-font text-4xl sm:text-5xl text-teal-500 leading-none flex-shrink-0">A</span>
+                <span class="montserrat-font text-xl sm:text-2xl md:text-3xl font-black text-gray-900 dark:text-white whitespace-nowrap">LMA FINANZA</span>
             </div>
             <div class="flex items-center gap-4">
                 <div class="text-xs text-gray-400 dark:text-slate-600 hidden md:block">Martedì 1 Settembre 2026</div>
@@ -312,24 +322,17 @@
                     <a href="in-costruzione.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Analisi Tecnica</a>
                 </div>
             </div>
-            <!-- Mobile Layout - Compact Grid -->
-            <div class="md:hidden grid grid-cols-2 gap-3">
-                <div>
-                    <span class="text-xs font-bold text-gray-900 dark:text-slate-300 montserrat-font block mb-2">Sezioni</span>
-                    <div class="space-y-1">
-                        <a href="categoria-wall-street.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Wall Street</a>
-                        <a href="categoria-borsa-milano.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Borsa Milano</a>
-                        <a href="categoria-crypto.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Crypto</a>
-                        <a href="categoria-commodities.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Commodities</a>
-                    </div>
-                </div>
-                <div>
-                    <span class="text-xs font-bold text-gray-900 dark:text-slate-300 montserrat-font block mb-2">Risorse</span>
-                    <div class="space-y-1">
-                        <a href="impara-finanza.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Impara la Finanza</a>
-                        <a href="glossario.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Glossario</a>
-                        <a href="in-costruzione.html" class="text-xs text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition block">Analisi Tecnica</a>
-                    </div>
+            <!-- Mobile Layout — striscia scorrevole su una riga -->
+            <div class="md:hidden -mx-4 px-4 overflow-x-auto nav-scroll">
+                <div class="flex items-center gap-2 w-max">
+                    <a href="dashboard.html" class="text-xs font-semibold bg-gradient-to-r from-teal-600 to-emerald-600 text-white px-3 py-1.5 rounded-full whitespace-nowrap">Dashboard Live</a>
+                    <a href="categoria-wall-street.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Wall Street</a>
+                    <a href="categoria-borsa-milano.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Borsa Milano</a>
+                    <a href="categoria-crypto.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Crypto</a>
+                    <a href="categoria-commodities.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Commodities</a>
+                    <a href="impara-finanza.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Impara la Finanza</a>
+                    <a href="glossario.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Glossario</a>
+                    <a href="in-costruzione.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Analisi Tecnica</a>
                 </div>
             </div>
         </div>
@@ -337,36 +340,37 @@
 
     <!-- Stats Bar -->
     <div class="max-w-6xl mx-auto px-4 pt-8">
+        <div class="stats-caption text-gray-400 dark:text-slate-600 mb-2">Chiusura di martedì 1 settembre 2026</div>
         <div class="stats-bar bg-gray-100 dark:bg-slate-800/40 mb-8">
             <div class="stat-item bg-white dark:bg-[#0f172a]/80">
-                <div class="text-xs text-gray-400 dark:text-slate-600 mb-1">Dow Jones</div>
-                <div class="text-lg font-bold text-gray-900 dark:text-white">53.185</div>
-                <div class="text-xs negative">−0,70% ✓ 1 set</div>
+                <div class="stat-lbl text-xs text-gray-400 dark:text-slate-600 mb-1">FTSE MIB</div>
+                <div class="stat-val text-lg font-bold text-gray-900 dark:text-white">51.915</div>
+                <div class="stat-chg text-xs negative">−1,33%</div>
             </div>
             <div class="stat-item bg-white dark:bg-[#0f172a]/80">
-                <div class="text-xs text-gray-400 dark:text-slate-600 mb-1">S&amp;P 500</div>
-                <div class="text-lg font-bold text-gray-900 dark:text-white">7.686</div>
-                <div class="text-xs negative">−0,30% ✓ 1 set</div>
+                <div class="stat-lbl text-xs text-gray-400 dark:text-slate-600 mb-1">S&amp;P 500</div>
+                <div class="stat-val text-lg font-bold text-gray-900 dark:text-white">7.686</div>
+                <div class="stat-chg text-xs negative">−0,30%</div>
             </div>
             <div class="stat-item bg-white dark:bg-[#0f172a]/80">
-                <div class="text-xs text-gray-400 dark:text-slate-600 mb-1">FTSE MIB</div>
-                <div class="text-lg font-bold text-gray-900 dark:text-white">51.915</div>
-                <div class="text-xs negative">−1,33% ✓ 1 set</div>
+                <div class="stat-lbl text-xs text-gray-400 dark:text-slate-600 mb-1">Dow Jones</div>
+                <div class="stat-val text-lg font-bold text-gray-900 dark:text-white">53.185</div>
+                <div class="stat-chg text-xs negative">−0,70%</div>
             </div>
             <div class="stat-item bg-white dark:bg-[#0f172a]/80">
-                <div class="text-xs text-gray-400 dark:text-slate-600 mb-1">Oro</div>
-                <div class="text-lg font-bold text-gray-900 dark:text-white">$4.360</div>
-                <div class="text-xs negative">−1,86% ✓ 1 set</div>
+                <div class="stat-lbl text-xs text-gray-400 dark:text-slate-600 mb-1">WTI Crude</div>
+                <div class="stat-val text-lg font-bold text-gray-900 dark:text-white">$87,30</div>
+                <div class="stat-chg text-xs positive">+4,54% 🔥</div>
             </div>
             <div class="stat-item bg-white dark:bg-[#0f172a]/80 hidden md:block">
-                <div class="text-xs text-gray-400 dark:text-slate-600 mb-1">WTI Crude</div>
-                <div class="text-lg font-bold text-gray-900 dark:text-white">$87,30</div>
-                <div class="text-xs positive">+4,54% 🔥 Iran</div>
+                <div class="stat-lbl text-xs text-gray-400 dark:text-slate-600 mb-1">Oro</div>
+                <div class="stat-val text-lg font-bold text-gray-900 dark:text-white">$4.360</div>
+                <div class="stat-chg text-xs negative">−1,86%</div>
             </div>
             <div class="stat-item bg-white dark:bg-[#0f172a]/80 hidden md:block">
-                <div class="text-xs text-gray-400 dark:text-slate-600 mb-1">Bitcoin</div>
-                <div class="text-lg font-bold text-gray-900 dark:text-white">$78.000</div>
-                <div class="text-xs negative">−1,50% ✓ 1 set</div>
+                <div class="stat-lbl text-xs text-gray-400 dark:text-slate-600 mb-1">Bitcoin</div>
+                <div class="stat-val text-lg font-bold text-gray-900 dark:text-white">$78.000</div>
+                <div class="stat-chg text-xs negative">−1,50%</div>
             </div>
         </div>
     </div>
