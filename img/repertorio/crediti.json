@@ -1,0 +1,48 @@
+{
+  "_nota": "Libreria fotografica di repertorio di Alma Finanza. Ogni foto è a licenza libera, verificata su Wikimedia Commons. Il credito è OBBLIGATORIO per le licenze CC BY e CC BY-SA e viene stampato in automatico sotto l'immagine da applica-foto-articolo.py. Non aggiungere foto senza compilare tutti i campi.",
+
+  "piazza-affari": {
+    "file": "piazza-affari.jpg",
+    "soggetto": "Palazzo Mezzanotte, sede della Borsa Italiana in Piazza Affari a Milano",
+    "autore": "Stefano Stabile",
+    "licenza": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Palazzo_Mezzanotte_-_Piazza_Affari_-_Milano_-_Italy.JPG",
+    "temi": ["piazza affari", "borsa milano", "ftse mib", "italia"]
+  },
+
+  "nyse": {
+    "file": "nyse.jpg",
+    "soggetto": "La facciata del New York Stock Exchange a Wall Street",
+    "autore": "Donatingpictures",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange_Facade_-_New_York_City,_USA.jpg",
+    "temi": ["wall street", "usa", "s&p 500", "dow jones", "nasdaq"]
+  },
+
+  "fed": {
+    "file": "fed.jpg",
+    "soggetto": "L'Eccles Building di Washington, sede della Federal Reserve",
+    "autore": "AgnosticPreachersKid",
+    "licenza": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Eccles_Building_-_north_side.JPG",
+    "temi": ["fed", "tassi", "banca centrale", "inflazione", "macro"]
+  },
+
+  "petrolio": {
+    "file": "petrolio.jpg",
+    "soggetto": "La petroliera Pericles ormeggiata al pontile di una raffineria",
+    "autore": "Calistemon",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Crude_Oil_Tanker_Pericles_at_BP_Oil_Refinery_Jetty_and_General_Cargo_Ship_Jannes_at_Kwinana_Bulk_Jetty,_December_2020_01.jpg",
+    "temi": ["petrolio", "brent", "wti", "energia", "hormuz", "geopolitica", "commodities"]
+  },
+
+  "semiconduttori": {
+    "file": "semiconduttori.jpg",
+    "soggetto": "Lo stabilimento TSMC nel Central Taiwan Science Park di Taichung",
+    "autore": "Briáxis F. Mendes",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:TSMC_logo_on_Taichung_factory_building.jpg",
+    "temi": ["chip", "semiconduttori", "tech", "ai", "nvidia", "stm", "tsmc"]
+  }
+}

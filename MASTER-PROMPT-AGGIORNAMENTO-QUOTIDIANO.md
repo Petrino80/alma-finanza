@@ -67,12 +67,37 @@ Formato articoli — REGOLE FISSE, MAI CAMBIARE:
   • Canonical: <link rel="canonical" href="https://www.almafinanza.com/[nome-file].html">
   • Schema.org JSON-LD: @type NewsArticle con headline, description, url, datePublished, author, publisher, inLanguage
 
-FASE 2B — IMMAGINE, FIRMA E TEMPO DI LETTURA (per OGNI articolo, obbligatorio):
+FASE 2B — FOTO, FIRMA E TEMPO DI LETTURA (per OGNI articolo, obbligatorio):
 
-Ogni articolo deve aprirsi con un'immagine, la firma di testata e il tempo di lettura stimato.
-Si fa con due script già pronti, senza scrivere HTML a mano.
+Ogni articolo deve aprirsi con una FOTOGRAFIA, la firma di testata e il tempo di lettura.
 
-1) Genera l'immagine (JPG 1200x630, costruita dai dati — niente foto esterne, nessun problema di licenza):
+⚠️ SUL SITO SI USANO FOTO VERE, non immagini generate. Le foto stanno nella libreria
+di repertorio img/repertorio/, sono tutte a licenza libera verificata su Wikimedia Commons,
+e il credito fotografico si stampa da solo sotto l'immagine (obbligatorio per le licenze CC).
+
+   # vedi le foto disponibili e i loro temi
+   python3 applica-foto-articolo.py --elenco
+
+   # applica la foto e scrivi la firma
+   python3 applica-foto-articolo.py <articolo>.html --foto piazza-affari --data 2026-09-02T17:50
+
+   Corrispondenze tipiche:
+     piazza-affari   → articoli su FTSE MIB / Borsa di Milano
+     nyse            → articoli su Wall Street / S&P 500 / Dow / Nasdaq
+     fed             → articoli su tassi, Fed, inflazione, banche centrali
+     petrolio        → petrolio, Brent, WTI, energia, Stretto di Hormuz, geopolitica
+     semiconduttori  → chip, tech, AI, Nvidia, STM
+
+   Senza --foto lo script prova a dedurre il tema dal titolo. Se nessuna foto è pertinente,
+   NON forzarne una a caso: cerca una foto dedicata su Wikimedia Commons (verificando
+   licenza e autore), scaricala in img/repertorio/ e AGGIUNGI LA VOCE in
+   img/repertorio/crediti.json con tutti i campi. Senza credito la foto non si pubblica.
+
+   Per articoli su un'azienda o una persona specifica (Stellantis, Nvidia, un amministratore
+   delegato) vale la pena cercare la foto dedicata: è molto più pertinente del repertorio.
+
+L'IMMAGINE GENERATA DAI DATI resta utile per i SOCIAL (LinkedIn), dove il testo
+sull'immagine funziona meglio. Si crea così, e NON va inserita nell'articolo:
 
    python3 genera-immagine-articolo.py \
      --slug <nome-file-articolo-senza-estensione> \
@@ -89,14 +114,9 @@ Si fa con due script già pronti, senza scrivere HTML a mano.
    • --slug DEVE coincidere esattamente col nome del file HTML, altrimenti l'immagine non si collega
    • Usa SOLO dati verificati in FASE 1
 
-2) Inserisci firma e immagine nell'articolo:
-
-   python3 aggiungi-firma-immagine.py <articolo>.html --data 2026-09-02T18:30
-
-   Lo script calcola da solo il tempo di lettura sul testo reale (200 parole al minuto),
-   inserisce la riga "A Alma Finanza · <data> · Lettura N min" e l'immagine a piena larghezza,
-   e rende la data relativa ("3 ore fa") per le prime 24 ore. È idempotente: se la firma
-   c'è già, non tocca nulla.
+La firma e il tempo di lettura li scrive applica-foto-articolo.py insieme alla foto:
+la riga "A Alma Finanza · <data> · Lettura N min", con i minuti calcolati sul testo reale
+(200 parole al minuto) e la data che diventa relativa ("3 ore fa") per le prime 24 ore.
 
    --data va messa all'ora reale di pubblicazione. Per gli articoli sulla chiusura USA
    usa un orario dopo le 22:00 italiane; per Piazza Affari dopo le 17:30.
@@ -121,10 +141,10 @@ Regole di scrittura:
   I numeri di dettaglio si spostano nella riga in fondo alla card, insieme alla data
   e al tempo di lettura ("Brent +4,50% · WTI ~$87,30 · 1 Set" / "Leggi · 6 min →").
 
-Nelle card della homepage, sopra il testo va la miniatura dell'immagine dell'articolo:
+Nelle card della homepage, sopra il testo va la stessa foto dell'articolo:
 
-    <img src="img/articoli/<slug>.jpg" alt="" width="1200" height="630" loading="lazy"
-         class="w-full block object-cover" style="aspect-ratio:1200/630">
+    <img src="img/repertorio/<foto>.jpg" alt="<soggetto della foto>" width="1200" height="630"
+         loading="lazy" class="w-full block object-cover" style="aspect-ratio:1200/630">
 
 FASE 3 — AGGIORNA HOMEPAGE (index.html):
 ⚠️ NON CAMBIARE MAI IL FORMATO/LAYOUT DELLA HOMEPAGE. Solo aggiornare i contenuti.
@@ -366,8 +386,8 @@ Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibi
 ## CHECKLIST RAPIDA POST-AGGIORNAMENTO:
 
 - [ ] 3 articoli creati con dark mode + toggle + anti-flash + SEO + info-box
-- [ ] ogni articolo ha immagine di apertura, firma "Alma Finanza" e tempo di lettura (FASE 2B)
-- [ ] immagini generate in img/articoli/ con slug identico al nome del file HTML
+- [ ] ogni articolo ha una FOTO di apertura con credito, firma "Alma Finanza" e tempo di lettura (FASE 2B)
+- [ ] ogni foto nuova è registrata in img/repertorio/crediti.json con autore e licenza
 - [ ] ogni articolo e ogni card hanno il blocco "Perché conta:" (FASE 2C)
 - [ ] le card in homepage mostrano la miniatura dell'immagine dell'articolo
 - [ ] index.html: ticker, stats bar, data, hero, 5 nuove theme-cards, sitemap
