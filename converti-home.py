@@ -134,6 +134,15 @@ def main():
     # Solo le schede articolo. I contenitori, i separatori e i widget restano intatti.
     s = re.sub(r'<a href="articolo-[^"]+" class="theme-card[\s\S]*?</a>', converti, s)
 
+    # L'hero con il riquadro colorato dei numeri non esiste più: l'articolo in evidenza
+    # compare come prima scheda della griglia, così tutte le voci hanno la stessa misura.
+    hero = re.search(r'\s*<!-- Hero -->[\s\S]*?<!-- Quiz Teaser Card -->', s)
+    if hero:
+        s = s[:hero.start()] + "\n\n        <!-- Quiz Teaser Card -->" + s[hero.end():]
+        print("  hero rimosso: si entra direttamente nella griglia")
+    else:
+        print("  ⚠️  hero non trovato: controlla il markup")
+
     dopo = len(re.findall(r'class="n-card', s))
     div_dopo = s.count("<div"), s.count("</div>")
 
