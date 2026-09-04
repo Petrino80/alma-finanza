@@ -27,6 +27,48 @@ TINTE = {
     "energia": ("#b45309", "ENERGIA"), "corporate": ("#0369a1", "CORPORATE"),
 }
 
+# Fotografie di repertorio usate come ripiego quando l'articolo non ne ha una propria.
+# Le varianti si alternano, così due schede vicine dello stesso tema restano distinte.
+RIPIEGO = {
+    "piazza affari":  ["piazza-affari.jpg", "piazza-affari-2.jpg"],
+    "borsa milano":   ["piazza-affari.jpg", "piazza-affari-2.jpg"],
+    "milano":         ["piazza-affari.jpg", "piazza-affari-2.jpg"],
+    "wall street":    ["nyse.jpg", "nyse-2.jpg"],
+    "nasdaq":         ["nyse.jpg", "nyse-2.jpg"],
+    "macro":          ["fed.jpg", "nyse-2.jpg"],
+    "fed":            ["fed.jpg"],
+    "geopolitica":    ["petrolio.jpg", "petrolio-2.jpg"],
+    "commodities":    ["petrolio-2.jpg", "petrolio.jpg"],
+    "energia":        ["petrolio-2.jpg", "petrolio.jpg"],
+    "petrolio":       ["petrolio.jpg", "petrolio-2.jpg"],
+    "tech":           ["semiconduttori.jpg"],
+    "ai":             ["semiconduttori.jpg"],
+    "corporate":      ["nyse-2.jpg", "semiconduttori.jpg"],
+    "crypto":         ["nyse.jpg"],
+}
+ALT = {
+    "piazza-affari.jpg": "Palazzo Mezzanotte, sede della Borsa Italiana",
+    "piazza-affari-2.jpg": "Palazzo Mezzanotte con la scultura L.O.V.E. a Milano",
+    "nyse.jpg": "La facciata del New York Stock Exchange",
+    "nyse-2.jpg": "Il New York Stock Exchange a Wall Street",
+    "petrolio.jpg": "La petroliera Pericles al pontile di una raffineria",
+    "petrolio-2.jpg": "Serbatoi di stoccaggio in una raffineria",
+    "fed.jpg": "L'Eccles Building, sede della Federal Reserve",
+    "semiconduttori.jpg": "Lo stabilimento TSMC di Taichung",
+}
+_giro = {}
+
+
+def ripiego(cat):
+    """Sceglie una foto per tema, alternando le varianti disponibili."""
+    c = cat.lower()
+    for chiave, lista in RIPIEGO.items():
+        if chiave in c:
+            i = _giro.get(chiave, 0)
+            _giro[chiave] = i + 1
+            return lista[i % len(lista)]
+    return None
+
 
 def tinta(cat):
     c = cat.lower()
@@ -104,8 +146,13 @@ def converti(m):
         media = (f'<img class="n-thumb" src="{foto.group(1)}" alt="{foto.group(2)}" '
                  f'loading="lazy" width="1200" height="800">')
     else:
-        col, sigla = tinta(categoria)
-        media = f'<div class="n-ph" style="background:{col}14;color:{col}">{sigla}</div>'
+        f = ripiego(categoria)
+        if f:
+            media = (f'<img class="n-thumb" src="img/repertorio/{f}" alt="{ALT.get(f,"")}" '
+                     f'loading="lazy" width="1200" height="800">')
+        else:
+            col, sigla = tinta(categoria)
+            media = f'<div class="n-ph" style="background:{col}14;color:{col}">{sigla}</div>'
 
     return (f'<a href="{href}" class="n-card group">\n'
             f'                {media}\n'
