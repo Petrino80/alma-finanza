@@ -109,6 +109,33 @@ e il credito fotografico si stampa da solo sotto l'immagine (obbligatorio per le
    Per articoli su un'azienda o una persona specifica (Stellantis, Nvidia, un amministratore
    delegato) vale la pena cercare la foto dedicata: è molto più pertinente del repertorio.
 
+   VIETATO ANCHE LO STESSO SOGGETTO RIPETUTO. Non basta che il file sia diverso: due schede
+   vicine non devono mostrare la stessa cosa da un'altra angolazione (niente «Wall Street da
+   cinquanta inquadrature»). Se l'articolo cita un titolo, un'azienda o un luogo, la foto di
+   QUELLO è sempre preferibile a una veduta generica di borsa. Esempi già in libreria:
+   Micron/AMD → wafer di silicio; Moderna → sede di Cambridge; Ifo tedesco → skyline di
+   Francoforte; rendimenti Treasury → Tesoro americano; Banca Generali → palazzo Generali;
+   Hormuz → portacontainer; retail USA → Walmart o Home Depot; Prysmian → rete elettrica;
+   guidance AI → centro dati.
+
+⛔ PESO DELLE IMMAGINI — SEMPRE 1600 px DI LARGHEZZA MASSIMA:
+   Le foto di Wikimedia arrivano anche a 12 MB l'una: così la homepage diventa illeggibile
+   su rete mobile. Ogni foto va salvata ridimensionata a 1600 px sul lato lungo, JPEG
+   qualità 84, progressiva. Circa 100-500 KB a foto.
+
+     python3 -c "
+     from PIL import Image
+     im = Image.open('img/repertorio/<foto>.jpg').convert('RGB')
+     if im.width > 1600: im = im.resize((1600, round(im.height*1600/im.width)), Image.LANCZOS)
+     im.save('img/repertorio/<foto>.jpg', 'JPEG', quality=84, optimize=True, progressive=True)"
+
+   Scarica preferibilmente la miniatura già ridotta dall'API di Commons (iiurlwidth=1600)
+   invece del file originale.
+
+⚠️  ATTENZIONE ai fotogrammi verticali: la scheda taglia in orizzontale, quindi un ritratto
+   o una foto in verticale viene sfigurata. Controlla sempre larghezza > altezza prima di
+   scaricare.
+
 L'IMMAGINE GENERATA DAI DATI resta utile per i SOCIAL (LinkedIn), dove il testo
 sull'immagine funziona meglio. Si crea così, e NON va inserita nell'articolo:
 
@@ -222,6 +249,19 @@ Regole:
      un titolo troppo lungo viene troncato con i puntini
    - In .n-meta va la data, eventualmente con un dato chiave ("Brent +4,50% · 1 set")
    - La foto è la STESSA dell'articolo (vedi FASE 2B), mai una diversa
+
+Per rifare in blocco le schede della homepage (per esempio dopo aver assegnato foto nuove
+a un gruppo di articoli) si usa converti-home.py, che è RIESEGUIBILE quante volte serve:
+
+   python3 converti-home.py            # scrive index-nuovo.html, per controllare prima
+   python3 converti-home.py --applica  # sovrascrive index.html (backup in index-backup.html)
+
+   La mappa DEDICATE in cima allo script associa ogni articolo alla sua foto: aggiungi lì
+   le voci nuove. Lo script riconosce sia le schede storiche (.theme-card) sia quelle già
+   convertite (.n-card), quindi non serve ripartire dal backup.
+
+   Prima di applicare, verifica sempre con un diff che le uniche righe cambiate siano
+   quelle delle immagini, e che il bilanciamento dei <div> resti ✅ ok.
 
 ⛔ FOTO: una per scheda, MAI ripetuta e MAI con lo stesso soggetto di un'altra scheda
    vicina. Non mettere Wall Street fotografata da più angolazioni: se due articoli

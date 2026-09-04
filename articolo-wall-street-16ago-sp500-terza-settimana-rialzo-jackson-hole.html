@@ -108,6 +108,21 @@
 
     <!-- Article Content -->
     <main class="max-w-4xl mx-auto px-6 py-10 article-content">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-400 dark:text-slate-500 mb-6">
+                <span class="lobster-font text-xl text-teal-500 leading-none">A</span>
+                <span class="font-semibold text-gray-600 dark:text-slate-300">Alma Finanza</span>
+                <span aria-hidden="true">·</span>
+                <time datetime="2026-08-16T10:00" data-pub>16 agosto 2026</time>
+                <span aria-hidden="true">·</span>
+                <span>Lettura 5 min</span>
+            </div>
+            <figure class="-mx-6 md:-mx-10 mb-7">
+                <img src="img/repertorio/wall-street-sign.jpg" alt="Il cartello stradale di Wall Street a New York"
+                     class="w-full block object-cover" style="aspect-ratio:1200/560" loading="eager">
+                <figcaption class="px-6 md:px-10 pt-2 text-xs text-gray-400 dark:text-slate-500">
+                    Il cartello stradale di Wall Street a New York · Foto: Alex Proimos, CC BY 2.0
+                </figcaption>
+            </figure>
 
         <p class="lead mb-8">
             Wall Street chiude la settimana 11-14 agosto 2026 con la sua <strong>terza settimana consecutiva di guadagno</strong>. L'S&P 500 (Standard &amp; Poor's 500 — il principale indice azionario americano) ha segnato nuovi massimi storici intraweek prima di cedere venerdì, chiudendo a <strong>7.785,76 punti (+0,4% settimanale)</strong>. Il Nasdaq Composite (l'indice tecnologico di New York) ha aggiunto +0,1% nella settimana, mentre il Dow Jones Industrial Average (il più antico indice USA, formato da 30 blue chip) ha perso -0,6%. Il mercato guarda già avanti al simposio di Jackson Hole del 27-29 agosto, il primo con il nuovo presidente della Fed (Federal Reserve — Banca Centrale degli Stati Uniti).
@@ -256,5 +271,18 @@
             }
         });
     </script>
+
+<script>
+(function(){
+  document.querySelectorAll('time[data-pub]').forEach(function(el){
+    var d = new Date(el.getAttribute('datetime'));
+    if (isNaN(d)) return;
+    var min = Math.floor((Date.now() - d.getTime())/60000);
+    if (min < 1) { el.textContent = 'adesso'; }
+    else if (min < 60) { el.textContent = min + (min===1?' minuto fa':' minuti fa'); }
+    else if (min < 1440) { var h = Math.floor(min/60); el.textContent = h + (h===1?' ora fa':' ore fa'); }
+  });
+})();
+</script>
 </body>
 </html>

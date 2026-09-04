@@ -119,6 +119,21 @@
 
     <main class="max-w-4xl mx-auto px-4 py-8">
         <article class="article-content bg-white dark:bg-[#0f172a]/60 rounded-lg shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)] border border-transparent dark:border-slate-700/30 p-6 md:p-10 transition-colors duration-300">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-400 dark:text-slate-500 mb-6">
+                <span class="lobster-font text-xl text-teal-500 leading-none">A</span>
+                <span class="font-semibold text-gray-600 dark:text-slate-300">Alma Finanza</span>
+                <span aria-hidden="true">·</span>
+                <time datetime="2026-08-25T08:00" data-pub>25 agosto 2026</time>
+                <span aria-hidden="true">·</span>
+                <span>Lettura 17 min</span>
+            </div>
+            <figure class="-mx-6 md:-mx-10 mb-7">
+                <img src="img/repertorio/treasury.jpg" alt="Il Treasury Building di Washington, sede del Dipartimento del Tesoro americano"
+                     class="w-full block object-cover" style="aspect-ratio:1200/560" loading="eager">
+                <figcaption class="px-6 md:px-10 pt-2 text-xs text-gray-400 dark:text-slate-500">
+                    Il Treasury Building di Washington, sede del Dipartimento del Tesoro americano · Foto: MeanieHyaena, CC BY 4.0
+                </figcaption>
+            </figure>
 
             <!-- LEAD -->
             <p class="lead">Il <strong>25 agosto 2026</strong> porta sui mercati globali tre segnali macro di primo piano che meritano attenzione separata ma vanno letti insieme. Primo: a tre giorni dall'apertura del <strong>Jackson Hole Economic Symposium (simposio economico di Jackson Hole)</strong> &mdash; il convegno annuale pi&ugrave; seguito dai banchieri centrali del mondo &mdash; i mercati trattengono il fiato in attesa del discorso di <strong>Kevin Warsh</strong>, presidente della <strong>Federal Reserve (banca centrale statunitense)</strong> dal 13 maggio 2026. Secondo: i <strong>Treasury yield (rendimenti dei titoli di Stato USA)</strong> mostrano il primo segnale concreto di allentamento delle tensioni obbligazionarie, con il trentennale che scende da 5,285% a <strong>5,2%</strong>. Terzo: dalla Germania arriva una sorpresa positiva &mdash; l'<strong>Ifo Business Climate Index (indice del clima di fiducia delle imprese tedesche)</strong> di agosto sale a <strong>88,8</strong>, sopra le attese, mentre il <strong>PIL (Prodotto Interno Lordo)</strong> del secondo trimestre viene rivisto al rialzo a <strong>+0,3% trimestrale</strong>. In controluce, tuttavia, il <strong>Consumer Confidence (fiducia dei consumatori)</strong> USA di agosto scende a <strong>89,4</strong> con un <strong>Expectations Index (indice delle aspettative)</strong> a <strong>68,2</strong>, sotto la soglia dei 80 che gli economisti considerano segnale di pericolo recessivo.</p>
@@ -397,5 +412,18 @@
     })();
     </script>
 
+
+<script>
+(function(){
+  document.querySelectorAll('time[data-pub]').forEach(function(el){
+    var d = new Date(el.getAttribute('datetime'));
+    if (isNaN(d)) return;
+    var min = Math.floor((Date.now() - d.getTime())/60000);
+    if (min < 1) { el.textContent = 'adesso'; }
+    else if (min < 60) { el.textContent = min + (min===1?' minuto fa':' minuti fa'); }
+    else if (min < 1440) { var h = Math.floor(min/60); el.textContent = h + (h===1?' ora fa':' ore fa'); }
+  });
+})();
+</script>
 </body>
 </html>

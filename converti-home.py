@@ -50,6 +50,21 @@ DEDICATE = {
  "articolo-macro-27ago-jackson-hole-warsh-fed-taglio-settembre.html": "jackson-hole",
  "articolo-tech-26ago-nvidia-q2-fy2027-jensen-huang-96-miliardi.html":"jensen-huang",
  "articolo-piazza-affari-26ago-ftse-mib-buzzi-stm-nvidia-effect.html":"piazza-affari",
+ "articolo-wall-street-26ago-sp500-nasdaq-attesa-nvidia.html":        "chip-wafer",
+ "articolo-wall-street-25ago-sp500-moderna-consumer-confidence.html": "moderna",
+ "articolo-piazza-affari-25ago-ftse-mib-banche-ifo-germania.html":    "francoforte",
+ "articolo-macro-25ago-jackson-hole-treasury-ifo-economia.html":      "treasury",
+ "articolo-wall-street-24ago-chip-selloff-micron-iran-sanctions.html":"semiconduttori",
+ "articolo-piazza-affari-24ago-mps-banca-generali-banco-bpm-saipem.html":"generali",
+ "articolo-tech-24ago-nvidia-q2-fy2027-jackson-hole-warsh-settimana.html":"warsh",
+ "articolo-macro-18ago-petrolio-88-iran-hormuz-verbali-fomc.html":    "portacontainer",
+ "articolo-piazza-affari-18ago-ftse-mib-banco-bpm-generali-eni.html": "eni",
+ "articolo-wall-street-18ago-mercati-usa-iran-verbali-fed.html":      "federal-hall",
+ "articolo-macro-17ago-settimana-consumatore-usa-retail-jackson-hole.html":"walmart",
+ "articolo-piazza-affari-17ago-ftse-mib-stm-prysmian-leonardo.html":  "rete-elettrica",
+ "articolo-wall-street-17ago-seduta-interlocutoria-retail-jackson-hole.html":"home-depot",
+ "articolo-tech-ai-16ago-nvidia-preview-q2-fy2027.html":              "data-center",
+ "articolo-wall-street-16ago-sp500-terza-settimana-rialzo-jackson-hole.html":"wall-street-sign",
 }
 
 # Fotografie di repertorio usate come ripiego quando l'articolo non ne ha una propria.
@@ -158,9 +173,14 @@ def converti(m):
         return blocco
 
     foto = re.search(r'src="(img/repertorio/[^"]+)"[^>]*alt="([^"]*)"', blocco)
-    cat = re.search(r'cat-tag[^>]*>([\s\S]*?)</span>', blocco)
-    som = re.search(r'<p class="text-sm[^"]*"[^>]*>([\s\S]*?)</p>', blocco)
-    dat = re.search(r'<span class="text-xs text-gray-300[^"]*">([^<]*)</span>', blocco)
+    # I due formati convivono: quello storico (theme-card) e quello già convertito
+    # (n-card), così lo script si può rilanciare quante volte serve.
+    cat = (re.search(r'cat-tag[^>]*>([\s\S]*?)</span>', blocco)
+           or re.search(r'<div class="n-cat">([\s\S]*?)</div>', blocco))
+    som = (re.search(r'<p class="text-sm[^"]*"[^>]*>([\s\S]*?)</p>', blocco)
+           or re.search(r'<p class="n-why">([\s\S]*?)</p>', blocco))
+    dat = (re.search(r'<span class="text-xs text-gray-300[^"]*">([^<]*)</span>', blocco)
+           or re.search(r'<div class="n-meta"><span>([^<]*)</span>', blocco))
 
     categoria = pulisci(cat.group(1)) if cat else "Alma Finanza"
     titolo = re.sub(r"\s+", " ", tit.group(1)).strip()
@@ -201,7 +221,7 @@ def main():
     args = ap.parse_args()
 
     s = SRC.read_text(encoding="utf-8")
-    prima = len(re.findall(r'<a href="articolo-[^"]+" class="theme-card', s))
+    prima = len(re.findall(r'<a href="articolo-[^"]+" class="(?:theme-card|n-card)', s))
     div_prima = s.count("<div"), s.count("</div>")
 
     if "n-card" not in s:
@@ -209,7 +229,7 @@ def main():
         s = s[:i] + CSS_NUOVO + "\n    " + s[i:]
 
     # Solo le schede articolo. I contenitori, i separatori e i widget restano intatti.
-    s = re.sub(r'<a href="articolo-[^"]+" class="theme-card[\s\S]*?</a>', converti, s)
+    s = re.sub(r'<a href="articolo-[^"]+" class="(?:theme-card|n-card)[\s\S]*?</a>', converti, s)
 
     # L'hero con il riquadro colorato dei numeri non esiste più: l'articolo in evidenza
     # compare come prima scheda della griglia, così tutte le voci hanno la stessa misura.

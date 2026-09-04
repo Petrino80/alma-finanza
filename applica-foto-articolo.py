@@ -31,6 +31,7 @@ ANCORA = '<div class="accent-line"></div>'
 ANCORE_ALTERNATIVE = [
     re.compile(r'<article[^>]*class="[^"]*article-content[^"]*"[^>]*>'),
     re.compile(r'<div[^>]*class="[^"]*article-content[^"]*"[^>]*>'),
+    re.compile(r'<main[^>]*class="[^"]*article-content[^"]*"[^>]*>'),
 ]
 
 

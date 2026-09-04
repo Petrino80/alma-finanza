@@ -238,5 +238,199 @@
       "stmicroelectronics",
       "semiconduttori europei"
     ]
+  },
+  "chip-wafer": {
+    "file": "chip-wafer.jpg",
+    "soggetto": "Un wafer di silicio su cui vengono realizzati i microchip",
+    "autore": "2x910",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ASi_wafer.jpg",
+    "temi": [
+      "chip",
+      "wafer",
+      "silicio",
+      "semiconduttori",
+      "micron",
+      "amd"
+    ]
+  },
+  "moderna": {
+    "file": "moderna.jpg",
+    "soggetto": "La sede di Moderna a Cambridge, Massachusetts",
+    "autore": "Fletcher",
+    "licenza": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AModerna_Headquarters%2C_December_2020.jpg",
+    "temi": [
+      "moderna",
+      "farmaceutici",
+      "biotech",
+      "vaccini",
+      "salute"
+    ]
+  },
+  "francoforte": {
+    "file": "francoforte.jpg",
+    "soggetto": "Lo skyline finanziario di Francoforte sul Meno",
+    "autore": "Sneha G Gupta",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AFrankfurt_skyline_at_Main_river_bank.jpg",
+    "temi": [
+      "germania",
+      "francoforte",
+      "dax",
+      "ifo",
+      "bce",
+      "europa"
+    ]
+  },
+  "treasury": {
+    "file": "treasury.jpg",
+    "soggetto": "Il Treasury Building di Washington, sede del Dipartimento del Tesoro americano",
+    "autore": "MeanieHyaena",
+    "licenza": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AUs-treasury-building.jpg",
+    "temi": [
+      "treasury",
+      "titoli di stato",
+      "rendimenti",
+      "obbligazioni",
+      "tesoro usa"
+    ]
+  },
+  "generali": {
+    "file": "generali.jpg",
+    "soggetto": "Il Palazzo delle Assicurazioni Generali a Trieste",
+    "autore": "Fred Romero",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ATrieste_-_Palazzo_delle_Assicurazioni_Generali_%2838698207781%29.jpg",
+    "temi": [
+      "generali",
+      "banca generali",
+      "assicurazioni",
+      "risparmio gestito"
+    ]
+  },
+  "warsh": {
+    "file": "warsh.jpg",
+    "soggetto": "Kevin Warsh, presidente della Federal Reserve",
+    "autore": "The White House",
+    "licenza": "pubblico dominio",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AKevin_Warsh_webtake.jpg",
+    "temi": [
+      "kevin warsh",
+      "fed",
+      "presidente fed",
+      "politica monetaria"
+    ]
+  },
+  "portacontainer": {
+    "file": "portacontainer.jpg",
+    "soggetto": "La portacontainer CSCL Indian Ocean in navigazione",
+    "autore": "John Fielding",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AContainer_ship_The_CSCL_Indian_Ocean_in_the_Port_of_Felixstowe_%2843954818414%29.jpg",
+    "temi": [
+      "navigazione",
+      "commercio",
+      "hormuz",
+      "logistica",
+      "container",
+      "noli"
+    ]
+  },
+  "eni": {
+    "file": "eni.jpg",
+    "soggetto": "Il quinto palazzo uffici di Eni a San Donato Milanese",
+    "autore": "Marcuscalabresus",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AQuinto_palazzo_degli_uffici_dell%27ENI_lato_via_Emilia_a_San_Donato_Milanese_%2829_gennaio_2023%29.jpg",
+    "temi": [
+      "eni",
+      "energia italia",
+      "oil&gas",
+      "san donato"
+    ]
+  },
+  "walmart": {
+    "file": "walmart.jpg",
+    "soggetto": "Un punto vendita Walmart Supercenter negli Stati Uniti",
+    "autore": "JJBers Public",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AWalmart_Supercenter%2C_North_Windham%2C_CT.jpg",
+    "temi": [
+      "walmart",
+      "retail",
+      "consumi usa",
+      "grande distribuzione"
+    ]
+  },
+  "rete-elettrica": {
+    "file": "rete-elettrica.jpg",
+    "soggetto": "Tralicci e cavi dell'alta tensione",
+    "autore": "Stefan Andrej Shambora (St_A_Sh)",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AHigh_voltage_transmission_towers_and_lines.jpg",
+    "temi": [
+      "prysmian",
+      "terna",
+      "cavi",
+      "rete elettrica",
+      "utility",
+      "infrastrutture"
+    ]
+  },
+  "home-depot": {
+    "file": "home-depot.jpg",
+    "soggetto": "Un negozio Home Depot negli Stati Uniti",
+    "autore": "Tony Webster",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AThe_Home_Depot_-_Store_%2828026779519%29.jpg",
+    "temi": [
+      "home depot",
+      "bricolage",
+      "retail usa",
+      "edilizia",
+      "consumi"
+    ]
+  },
+  "data-center": {
+    "file": "data-center.jpg",
+    "soggetto": "Armadi di server in un centro dati",
+    "autore": "Carl Lender",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ADatacenter_Server_Racks_%2822370909788%29.jpg",
+    "temi": [
+      "data center",
+      "intelligenza artificiale",
+      "cloud",
+      "infrastruttura ai",
+      "server"
+    ]
+  },
+  "wall-street-sign": {
+    "file": "wall-street-sign.jpg",
+    "soggetto": "Il cartello stradale di Wall Street a New York",
+    "autore": "Alex Proimos",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AWall_Street_Sign_%285899884048%29.jpg",
+    "temi": [
+      "wall street",
+      "new york",
+      "borsa usa",
+      "indici"
+    ]
+  },
+  "federal-hall": {
+    "file": "federal-hall.jpg",
+    "soggetto": "Il Federal Hall National Memorial in Wall Street, di fronte alla Borsa di New York",
+    "autore": "Ajay Suresh",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Federal_Hall_(48126566178).jpg",
+    "temi": [
+      "wall street",
+      "new york",
+      "borsa usa",
+      "verbali fed"
+    ]
   }
 }
