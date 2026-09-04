@@ -169,9 +169,10 @@ STRUTTURA FISSA DELLA HOMEPAGE (dall'alto in basso, MAI modificare l'ordine):
 3. Navigation Bar con due gruppi:
    - Sezioni: Dashboard Live | Wall Street | Borsa Milano | Crypto | Commodities
    - Risorse: Impara la Finanza | Glossario | Analisi Tecnica
-4. Stats Bar (6 riquadri: Dow, S&P, MIB, WTI, Oro, BTC)
-5. Hero Article (notizia del giorno)
-6. Griglia articoli (theme-cards, 3 colonne)
+4. Stats Bar (6 riquadri: MIB, S&P, Dow, WTI, Oro, BTC) con la didascalia
+   "Chiusura di <giorno> <data>" sopra i numeri
+5. Griglia articoli uniforme — NON esiste più l'hero
+6. Griglia articoli (schede .n-card, 3 colonne)
 7. Mission Section ("Perché Alma Finanza")
 8. Disclaimer Legale
 9. Newsletter CTA + EmailJS
@@ -192,12 +193,43 @@ c) STATS BAR (6 riquadri sotto header):
    - Aggiorna: Dow Jones, S&P 500, FTSE MIB, WTI Crude, Oro, Bitcoin
    - Valori + variazione giornaliera con classi .positive/.negative
 
-d) HERO ARTICLE (articolo principale):
-   - Cambia OGNI GIORNO con la notizia più importante
-   - Pannello sinistro: dot pulsante, badge "Breaking · [DATA]", titolo h1, accent-line, descrizione, "Leggi l'articolo completo →"
-   - Pannello destro: dato numerico grande (es: $83, +2.67%), sottotitolo, badge variazione, dati riassuntivi
-   - Link al nuovo articolo
-   - Colore dot/badge: emerald per positivo, red per negativo
+d) SCHEDE ARTICOLO — impaginazione a griglia uniforme (dal 3 settembre 2026):
+
+⛔ L'HERO NON ESISTE PIÙ. Niente riquadro colorato col numero grande: dopo la barra
+   dei mercati si entra direttamente nella griglia. La notizia principale è la PRIMA
+   SCHEDA, della stessa identica misura di tutte le altre.
+
+⛔ TUTTE LE SCHEDE HANNO LA STESSA DIMENSIONE. Mai usare md:col-span-2 o col-span-3:
+   creano schede più larghe e rompono la regolarità della griglia.
+
+Markup di ogni scheda (classe .n-card, non più .theme-card):
+
+   <a href="<articolo>.html" class="n-card group">
+       <img class="n-thumb" src="img/repertorio/<foto>.jpg" alt="<soggetto della foto>"
+            loading="lazy" width="1200" height="800">
+       <div class="n-body">
+           <div class="n-cat">Piazza Affari</div>
+           <h3>Titolo della notizia</h3>
+           <p class="n-why"><b>Perché conta:</b> due righe che spiegano al lettore
+              perché la notizia lo riguarda</p>
+           <div class="n-meta"><span>1 settembre</span></div>
+       </div>
+   </a>
+
+Regole:
+   - La categoria in .n-cat va SENZA emoji (l'etichetta è già in maiuscoletto)
+   - Titolo e "Perché conta" sono tagliati automaticamente a tre righe: scrivili brevi,
+     un titolo troppo lungo viene troncato con i puntini
+   - In .n-meta va la data, eventualmente con un dato chiave ("Brent +4,50% · 1 set")
+   - La foto è la STESSA dell'articolo (vedi FASE 2B), mai una diversa
+
+⛔ FOTO: una per scheda, MAI ripetuta e MAI con lo stesso soggetto di un'altra scheda
+   vicina. Non mettere Wall Street fotografata da più angolazioni: se due articoli
+   dello stesso giorno parlano di mercati americani, uno prende il NYSE e l'altro il
+   Nasdaq MarketSite, oppure il titolo citato nel pezzo (Nvidia, Jensen Huang, l'oro).
+   La scelta migliore è sempre il SOGGETTO CITATO nell'articolo: MPS per un pezzo sulle
+   banche, Fiat 500 per Stellantis, la piattaforma offshore per Saipem ed Eni.
+   Vedi l'elenco completo con: python3 applica-foto-articolo.py --elenco
 
 e) GRIGLIA ARTICOLI (theme-cards):
    - Aggiungi 5 nuove theme-card IN CIMA alla griglia
