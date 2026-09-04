@@ -1,75 +1,242 @@
 {
   "_nota": "Libreria fotografica di repertorio di Alma Finanza. Ogni foto è a licenza libera, verificata su Wikimedia Commons. Il credito è OBBLIGATORIO per le licenze CC BY e CC BY-SA e viene stampato in automatico sotto l'immagine da applica-foto-articolo.py. Non aggiungere foto senza compilare tutti i campi.",
-
   "piazza-affari": {
     "file": "piazza-affari.jpg",
     "soggetto": "Palazzo Mezzanotte, sede della Borsa Italiana in Piazza Affari a Milano",
     "autore": "Stefano Stabile",
     "licenza": "CC BY-SA 3.0",
     "fonte": "https://commons.wikimedia.org/wiki/File:Palazzo_Mezzanotte_-_Piazza_Affari_-_Milano_-_Italy.JPG",
-    "temi": ["piazza affari", "borsa milano", "ftse mib", "italia"]
+    "temi": [
+      "piazza affari",
+      "borsa milano",
+      "ftse mib",
+      "italia"
+    ]
   },
-
   "nyse": {
     "file": "nyse.jpg",
     "soggetto": "La facciata del New York Stock Exchange a Wall Street",
     "autore": "Donatingpictures",
     "licenza": "CC BY-SA 4.0",
     "fonte": "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange_Facade_-_New_York_City,_USA.jpg",
-    "temi": ["wall street", "usa", "s&p 500", "dow jones", "nasdaq"]
+    "temi": [
+      "wall street",
+      "usa",
+      "s&p 500",
+      "dow jones",
+      "nasdaq"
+    ]
   },
-
   "fed": {
     "file": "fed.jpg",
     "soggetto": "L'Eccles Building di Washington, sede della Federal Reserve",
     "autore": "AgnosticPreachersKid",
     "licenza": "CC BY-SA 3.0",
     "fonte": "https://commons.wikimedia.org/wiki/File:Eccles_Building_-_north_side.JPG",
-    "temi": ["fed", "tassi", "banca centrale", "inflazione", "macro"]
+    "temi": [
+      "fed",
+      "tassi",
+      "banca centrale",
+      "inflazione",
+      "macro"
+    ]
   },
-
   "petrolio": {
     "file": "petrolio.jpg",
     "soggetto": "La petroliera Pericles ormeggiata al pontile di una raffineria",
     "autore": "Calistemon",
     "licenza": "CC BY-SA 4.0",
     "fonte": "https://commons.wikimedia.org/wiki/File:Crude_Oil_Tanker_Pericles_at_BP_Oil_Refinery_Jetty_and_General_Cargo_Ship_Jannes_at_Kwinana_Bulk_Jetty,_December_2020_01.jpg",
-    "temi": ["petrolio", "brent", "wti", "energia", "hormuz", "geopolitica", "commodities"]
+    "temi": [
+      "petrolio",
+      "brent",
+      "wti",
+      "energia",
+      "hormuz",
+      "geopolitica",
+      "commodities"
+    ]
   },
-
   "piazza-affari-2": {
     "file": "piazza-affari-2.jpg",
     "soggetto": "Palazzo Mezzanotte con la scultura L.O.V.E. in Piazza Affari a Milano",
     "autore": "Chabe01",
     "licenza": "CC BY-SA 4.0",
     "fonte": "https://commons.wikimedia.org/wiki/File:Palais_Mezzanotte_-_Milan_(IT25)_-_2022-09-03_-_3.jpg",
-    "temi": ["piazza affari", "borsa milano", "ftse mib", "italia"]
+    "temi": [
+      "piazza affari",
+      "borsa milano",
+      "ftse mib",
+      "italia"
+    ]
   },
-
   "nyse-2": {
     "file": "nyse-2.jpg",
     "soggetto": "Il New York Stock Exchange al numero 11 di Wall Street",
     "autore": "Ken Lund",
     "licenza": "CC BY-SA 2.0",
     "fonte": "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange,_Manhattan,_New_York_(7236984682).jpg",
-    "temi": ["wall street", "usa", "s&p 500", "dow jones", "nasdaq"]
+    "temi": [
+      "wall street",
+      "usa",
+      "s&p 500",
+      "dow jones",
+      "nasdaq"
+    ]
   },
-
   "petrolio-2": {
     "file": "petrolio-2.jpg",
     "soggetto": "Serbatoi di stoccaggio in una raffineria",
     "autore": "Carl Young",
     "licenza": "CC BY-SA 4.0",
     "fonte": "https://commons.wikimedia.org/wiki/File:Refinery_Tanks_5.jpg",
-    "temi": ["petrolio", "brent", "wti", "energia", "raffineria", "commodities"]
+    "temi": [
+      "petrolio",
+      "brent",
+      "wti",
+      "energia",
+      "raffineria",
+      "commodities"
+    ]
   },
-
   "semiconduttori": {
     "file": "semiconduttori.jpg",
     "soggetto": "Lo stabilimento TSMC nel Central Taiwan Science Park di Taichung",
     "autore": "Briáxis F. Mendes",
     "licenza": "CC BY-SA 4.0",
     "fonte": "https://commons.wikimedia.org/wiki/File:TSMC_logo_on_Taichung_factory_building.jpg",
-    "temi": ["chip", "semiconduttori", "tech", "ai", "nvidia", "stm", "tsmc"]
+    "temi": [
+      "chip",
+      "semiconduttori",
+      "tech",
+      "ai",
+      "nvidia",
+      "stm",
+      "tsmc"
+    ]
+  },
+  "mps": {
+    "file": "mps.jpg",
+    "soggetto": "La sede storica di Banca Monte dei Paschi di Siena",
+    "autore": "DV",
+    "licenza": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Banca_Monte_dei_Paschi_di_Siena._Siena,_Italy.JPG",
+    "temi": [
+      "banche",
+      "mps",
+      "monte dei paschi",
+      "credito"
+    ]
+  },
+  "nasdaq": {
+    "file": "nasdaq.jpg",
+    "soggetto": "Il tabellone del Nasdaq MarketSite a Times Square",
+    "autore": "ajay_suresh",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Nasdaq_MarketSite_(51494550508).jpg",
+    "temi": [
+      "nasdaq",
+      "tecnologia usa",
+      "listino"
+    ]
+  },
+  "fiat500": {
+    "file": "fiat500.jpg",
+    "soggetto": "Una Fiat 500 elettrica",
+    "autore": "Daniel Przygoda",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Fiat-500-3%2B1.jpg",
+    "temi": [
+      "stellantis",
+      "fiat",
+      "lancia",
+      "abarth",
+      "automotive"
+    ]
+  },
+  "leonardo": {
+    "file": "leonardo.jpg",
+    "soggetto": "Un elicottero Leonardo AW139",
+    "autore": "James",
+    "licenza": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:G-XXEE_Leonardo_AW139_Helicopter.jpg",
+    "temi": [
+      "leonardo",
+      "difesa",
+      "aerospazio"
+    ]
+  },
+  "jackson-hole": {
+    "file": "jackson-hole.jpg",
+    "soggetto": "Il fienile di Mormon Row ai piedi dei Grand Teton, a Jackson Hole",
+    "autore": "Jon Sullivan",
+    "licenza": "pubblico dominio",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Barns_grand_tetons.jpg",
+    "temi": [
+      "jackson hole",
+      "simposio",
+      "wyoming"
+    ]
+  },
+  "nvidia": {
+    "file": "nvidia.jpg",
+    "soggetto": "La sede di Nvidia a Santa Clara",
+    "autore": "Coolcaesar",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:NVIDIA_Headquarters.jpg",
+    "temi": [
+      "nvidia",
+      "intelligenza artificiale",
+      "chip usa"
+    ]
+  },
+  "jensen-huang": {
+    "file": "jensen-huang.jpg",
+    "soggetto": "Jensen Huang, amministratore delegato di Nvidia",
+    "autore": "NVIDIA Taiwan",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Jensen_Huang_at_Computex_Taipei_20160531b.jpg",
+    "temi": [
+      "jensen huang",
+      "trimestrale nvidia"
+    ]
+  },
+  "oro": {
+    "file": "oro.jpg",
+    "soggetto": "Lingotti d'oro da 400 once",
+    "autore": "Andrzej Barabasz",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:400-oz-Gold-Bars-AB-01.jpg",
+    "temi": [
+      "oro",
+      "bene rifugio",
+      "metalli"
+    ]
+  },
+  "piattaforma": {
+    "file": "piattaforma.jpg",
+    "soggetto": "Una piattaforma di perforazione nel Mare del Nord",
+    "autore": "Erik Christensen",
+    "licenza": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Oil_platform_in_the_North_Sea.jpg",
+    "temi": [
+      "saipem",
+      "tenaris",
+      "eni",
+      "estrazione",
+      "offshore"
+    ]
+  },
+  "stm": {
+    "file": "stm.jpg",
+    "soggetto": "Uno stabilimento STMicroelectronics",
+    "autore": "Alexey M.",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:STMicroelectronics-building.JPG",
+    "temi": [
+      "stm",
+      "stmicroelectronics",
+      "semiconduttori europei"
+    ]
   }
 }

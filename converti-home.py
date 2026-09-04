@@ -14,8 +14,12 @@ import argparse
 import pathlib
 import re
 import shutil
+import json
 
 BASE = pathlib.Path(__file__).parent
+CREDITI = {k: v for k, v in json.load(
+    open(pathlib.Path(__file__).parent / "img" / "repertorio" / "crediti.json", encoding="utf-8")
+).items() if not k.startswith("_")}
 SRC = BASE / "index.html"
 
 TINTE = {
@@ -25,6 +29,27 @@ TINTE = {
     "tech": ("#6d28d9", "TECH"), "ai": ("#6d28d9", "AI"),
     "crypto": ("#b45309", "CRYPTO"), "commodities": ("#b45309", "MATERIE"),
     "energia": ("#b45309", "ENERGIA"), "corporate": ("#0369a1", "CORPORATE"),
+}
+
+
+# Assegnazione dedicata per i 15 articoli più recenti: una foto unica ciascuno,
+# con soggetti tutti diversi fra loro (l'azienda o il luogo citato nel pezzo).
+DEDICATE = {
+ "articolo-geopolitica-1set-usa-iran-hormuz-petrolio-92.html":        "petrolio",
+ "articolo-piazza-affari-1set-ftse-mib-51915-banche-bond.html":       "mps",
+ "articolo-wall-street-1set-sp500-7686-iran-petrolio.html":           "nyse",
+ "articolo-geopolitica-31ago-iran-usa-stretto-hormuz-petrolio.html":  "petrolio-2",
+ "articolo-piazza-affari-31ago-ftse-mib-energia-saipem-eni.html":     "piattaforma",
+ "articolo-wall-street-31ago-borse-giu-iran-us-hormuz.html":          "nasdaq",
+ "articolo-corporate-31ago-stellantis-belloni-fiat-abarth-lancia.html":"fiat500",
+ "articolo-macro-28ago-warsh-jackson-hole-svolta-falco-rialzo-settembre.html":"fed",
+ "articolo-piazza-affari-28ago-ftse-mib-lottomatica-stellantis-leonardo.html":"leonardo",
+ "articolo-wall-street-28ago-indici-giu-warsh-settimana-positiva.html":"oro",
+ "articolo-wall-street-27ago-nasdaq-nvidia-effect-sp500-7727.html":   "nvidia",
+ "articolo-piazza-affari-27ago-ftse-mib-stm-banche.html":             "stm",
+ "articolo-macro-27ago-jackson-hole-warsh-fed-taglio-settembre.html": "jackson-hole",
+ "articolo-tech-26ago-nvidia-q2-fy2027-jensen-huang-96-miliardi.html":"jensen-huang",
+ "articolo-piazza-affari-26ago-ftse-mib-buzzi-stm-nvidia-effect.html":"piazza-affari",
 }
 
 # Fotografie di repertorio usate come ripiego quando l'articolo non ne ha una propria.
@@ -142,7 +167,12 @@ def converti(m):
     sommario = re.sub(r"\s+", " ", som.group(1)).strip() if som else ""
     data = dat.group(1).strip() if dat else ""
 
-    if foto:
+    ded = DEDICATE.get(href)
+    if ded and ded in CREDITI:
+        mt = CREDITI[ded]
+        media = (f'<img class="n-thumb" src="img/repertorio/{mt["file"]}" alt="{mt["soggetto"]}" '
+                 f'loading="lazy" width="1200" height="800">')
+    elif foto:
         media = (f'<img class="n-thumb" src="{foto.group(1)}" alt="{foto.group(2)}" '
                  f'loading="lazy" width="1200" height="800">')
     else:
