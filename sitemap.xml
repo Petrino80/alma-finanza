@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 2 Settembre 2026 (Mercoledì — Wall Street rimbalza S&P 500 a 7.667 +0,41%; FTSE MIB −0,24% a 51.792 Lottomatica −7,63% accordo Cirsa; WTI verso $90 Iran Hormuz) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-2set-sp500-7667-rimbalzo.html</loc>
+      <lastmod>2026-09-02</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-02</news:publication_date>
+          <news:title>Wall Street rimbalza: S&amp;P 500 a 7.667, Dow +324 punti dopo due sedute in rosso</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-2set-lottomatica-cirsa-banche.html</loc>
+      <lastmod>2026-09-02</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-02</news:publication_date>
+          <news:title>Piazza Affari −0,24%: Lottomatica crolla con accordo Cirsa, banche in rally</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-geopolitica-2set-petrolio-90-hormuz-iran.html</loc>
+      <lastmod>2026-09-02</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-02</news:publication_date>
+          <news:title>Petrolio verso $90: lo Stretto di Hormuz e l'Iran tengono alta la pressione sui mercati globali</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 1 Settembre 2026 (Martedì — USA colpiscono Pasdaran in Stretto di Hormuz; Brent >$92 +4,50%; Wall Street S&P −0,3%; FTSE MIB −1,33% banche ko) -->
