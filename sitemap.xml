@@ -5,9 +5,48 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 8 Settembre 2026 (Martedì — BCE pronta al rialzo, inflazione 3,3%, Bitcoin $79K, Wall Street riapre dopo Labor Day) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-macro-8set-bce-inflazione-agosto-bitcoin-80k.html</loc>
+      <lastmod>2026-09-08</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-08</news:publication_date>
+          <news:title>BCE pronta al rialzo: inflazione agosto 3,3%, Bitcoin sotto $80K, Wall Street riapre</news:title>
+      </news:news>
+  </url>
+
+  <!-- Articoli 7 Settembre 2026 (Lunedì — FTSE MIB +0,25% a 52.229 con Wall Street chiusa per Labor Day; TIM −3,56%, Moncler +0,79%, BCE attesa al rialzo) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-borsa-milano-7set-ftse-mib-tim-moncler-bce.html</loc>
+      <lastmod>2026-09-07</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-07</news:publication_date>
+          <news:title>Piazza Affari +0,25% mentre l'America dorme: TIM −3,56%, Moncler brilla, banche giù</news:title>
+      </news:news>
+  </url>
+
+  <!-- Articoli 4 Settembre 2026 (Venerdì — Jobs Report 162K vs 53K attesi, Dow −271, S&P 500 −0,38%, probabilità rialzo Fed al 58%) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-4set-jobs-report-fed-rialzo.html</loc>
+      <lastmod>2026-09-04</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-04</news:publication_date>
+          <news:title>Wall Street cede dopo il Jobs Report: 162.000 posti a sorpresa, Fed pronta a rialzare</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 2 Settembre 2026 (Mercoledì — Wall Street rimbalza S&P 500 a 7.667 +0,41%; FTSE MIB −0,24% a 51.792 Lottomatica −7,63% accordo Cirsa; WTI verso $90 Iran Hormuz) -->
