@@ -5,12 +5,46 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Articoli 8 Settembre 2026 (Martedì — BCE pronta al rialzo, inflazione 3,3%, Bitcoin $79K, Wall Street riapre dopo Labor Day) -->
+  <!-- Articoli 8 Settembre 2026 (Martedì — Wall Street −1,18%, petrolio $94 Houthi attacchi Arabia Saudita, FTSE MIB −0,10% TIM +2,9% INWIT +3,1%) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-8set-dow-ribasso-petrolio-94-amgen.html</loc>
+      <lastmod>2026-09-08</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-08</news:publication_date>
+          <news:title>Wall Street torna dai festivi e cede: Dow −1,18%, petrolio a $94, Amgen crolla del 10%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-8set-ftse-mib-tim-inwit-stm.html</loc>
+      <lastmod>2026-09-08</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-08</news:publication_date>
+          <news:title>Piazza Affari quasi invariata (−0,10%): TIM e INWIT volano, STM in rosso per i chip</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-geopolitica-8set-petrolio-94-houthi-arabia-saudita.html</loc>
+      <lastmod>2026-09-08</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-08</news:publication_date>
+          <news:title>Petrolio a $94: gli Houthi attaccano l'Arabia Saudita, sesto giorno consecutivo di rialzi</news:title>
+      </news:news>
+  </url>
+  <!-- BCE pronta al rialzo, inflazione 3,3%, Bitcoin $79K -->
   <url>
       <loc>https://www.almafinanza.com/articolo-macro-8set-bce-inflazione-agosto-bitcoin-80k.html</loc>
       <lastmod>2026-09-08</lastmod>
