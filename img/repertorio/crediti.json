@@ -432,5 +432,19 @@
       "borsa usa",
       "verbali fed"
     ]
+  },
+  "tim": {
+    "file": "tim.jpg",
+    "soggetto": "La sede di Telecom Italia (TIM) in Corso d'Italia a Roma",
+    "autore": "Carlo Dani",
+    "licenza": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Telecom_Italia_-_Sede_Corso_Italia.jpg",
+    "temi": [
+      "tim",
+      "telecom italia",
+      "telecomunicazioni",
+      "piazza affari",
+      "ftse mib"
+    ]
   }
 }
