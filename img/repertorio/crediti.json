@@ -446,5 +446,19 @@
       "piazza affari",
       "ftse mib"
     ]
+  },
+  "nyse-trading-floor": {
+    "file": "nyse-trading-floor.jpg",
+    "soggetto": "Il trading floor avanzato del New York Stock Exchange, progettato da Asymptote Architecture",
+    "autore": "Eduard Hueber / Asymptote Architecture",
+    "licenza": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:NYSE_Advanced_Trading_Floor.jpg",
+    "temi": [
+      "wall street",
+      "nyse",
+      "trading floor",
+      "borsa usa",
+      "mercati azionari"
+    ]
   }
 }
