@@ -89,9 +89,19 @@ e il credito fotografico si stampa da solo sotto l'immagine (obbligatorio per le
      semiconduttori  → chip, tech, AI, Nvidia, STM
 
    Senza --foto lo script prova a dedurre il tema dal titolo. Se nessuna foto è pertinente,
-   NON forzarne una a caso: cerca una foto dedicata su Wikimedia Commons (verificando
-   licenza e autore), scaricala in img/repertorio/ e AGGIUNGI LA VOCE in
-   img/repertorio/crediti.json con tutti i campi. Senza credito la foto non si pubblica.
+   NON forzarne una a caso: cerca una foto dedicata su una delle fonti autorizzate sotto,
+   scaricala in img/repertorio/ e AGGIUNGI LA VOCE in img/repertorio/crediti.json con
+   tutti i campi. Senza credito la foto non si pubblica.
+
+   FONTI AUTORIZZATE PER FOTO NUOVE (in ordine di preferenza per qualità):
+   1. Unsplash (unsplash.com) — licenza Unsplash, uso commerciale e editoriale OK, attribuzione
+      facoltativa ma raccomandata. Cerca in inglese (es. "NYSE trading floor", "oil refinery",
+      "Wall Street trader"). Scarica la versione "Full" o almeno 1600 px di larghezza.
+      In crediti.json: licenza "Unsplash License", fonte = URL della foto su unsplash.com.
+   2. Pexels (pexels.com) — licenza Pexels (CC0 equivalente), nessun obbligo di attribuzione.
+      Ottima per business, finanza, economia. In crediti.json: licenza "Pexels License".
+   3. Wikimedia Commons (commons.wikimedia.org) — preferire foto CC BY o CC BY-SA ≥ 4.0;
+      verificare sempre licenza e autore aprendo la pagina del file.
 
 ⛔ REGOLA ASSOLUTA — MAI LA STESSA FOTO SU DUE ARTICOLI:
    Ogni fotografia si usa UNA VOLTA SOLA, su un solo articolo. Due articoli con la stessa
@@ -100,9 +110,10 @@ e il credito fotografico si stampa da solo sotto l'immagine (obbligatorio per le
 
    Lo script lo verifica da solo e si RIFIUTA di procedere se la foto è già impegnata,
    suggerendo le alternative libere sullo stesso tema. Quando non ce ne sono:
-   1. cerca una foto nuova su Wikimedia Commons (deve essere ORIZZONTALE e ad alta risoluzione)
-   2. verifica licenza e autore aprendo la pagina del file
-   3. scaricala in img/repertorio/ con un nome parlante (es. nyse-3.jpg, oro.jpg)
+   1. cerca una foto nuova su Unsplash o Pexels (preferiti) oppure Wikimedia Commons
+      — deve essere ORIZZONTALE (larghezza > altezza) e ad alta risoluzione
+   2. verifica autore e licenza
+   3. scaricala in img/repertorio/ con un nome parlante (es. wall-street-trader.jpg, oil-refinery.jpg)
    4. registrala in crediti.json con soggetto, autore, licenza, fonte e temi
    Non usare MAI --forza per aggirare il controllo negli aggiornamenti quotidiani.
 
@@ -119,8 +130,8 @@ e il credito fotografico si stampa da solo sotto l'immagine (obbligatorio per le
    Se meno di 10 giorni separano l'aggiornamento odierno dall'ultimo uso di quel soggetto:
    ✓ Usa invece la foto dell'azienda o del titolo protagonista dell'articolo (Stellantis,
      Moncler, Nvidia, ecc.) — è sempre più specifica e più interessante.
-   ✓ Oppure scarica da Wikimedia Commons una foto alternativa sullo stesso tema
-     (un'altra piazza finanziaria, un altro edificio della Fed, un grafico di borsa).
+   ✓ Oppure scarica una foto alternativa da Unsplash, Pexels o Wikimedia Commons
+     (un'altra piazza finanziaria, un trader, un grafico di borsa, la sede della banca).
 
    Per articoli su un'azienda o una persona specifica (Stellantis, Nvidia, un amministratore
    delegato) vale la pena cercare la foto dedicata: è molto più pertinente del repertorio.
