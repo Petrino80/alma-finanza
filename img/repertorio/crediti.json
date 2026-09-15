@@ -460,5 +460,21 @@
       "borsa usa",
       "mercati azionari"
     ]
+  },
+  "vega-c": {
+    "file": "vega-c.jpg",
+    "soggetto": "Il modulo propulsivo superiore AVUM+ del razzo Vega-C durante test di vibrazione all'ESTEC di Noordwijk",
+    "autore": "ESA–G. Porter",
+    "licenza": "CC BY-SA 3.0 IGO",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Vega-C_upper_stage_shaker_test.jpg",
+    "temi": [
+      "avio",
+      "vega-c",
+      "ariane 6",
+      "propulsione spaziale",
+      "aerospazio",
+      "difesa",
+      "razzi"
+    ]
   }
 }
