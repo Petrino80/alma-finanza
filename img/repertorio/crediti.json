@@ -523,5 +523,33 @@
       "oil services",
       "piazza affari"
     ]
+  },
+  "intesa-sanpaolo": {
+    "file": "intesa-sanpaolo.jpg",
+    "soggetto": "Il grattacielo di Intesa Sanpaolo a Torino, progettato da Renzo Piano",
+    "autore": "Incola",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AIntesa_Sanpaolo_Building_Turin_05.jpg",
+    "temi": [
+      "intesa sanpaolo",
+      "banche",
+      "torino",
+      "risiko bancario",
+      "opas"
+    ]
+  },
+  "dario-amodei": {
+    "file": "dario-amodei.jpg",
+    "soggetto": "Dario Amodei, amministratore delegato di Anthropic",
+    "autore": "TechCrunch",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ADario_Amodei_at_TechCrunch_Disrupt_2023_01.jpg",
+    "temi": [
+      "anthropic",
+      "dario amodei",
+      "intelligenza artificiale",
+      "sicurezza ai",
+      "regolamentazione"
+    ]
   }
 }

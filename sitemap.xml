@@ -10,7 +10,29 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Articoli 16 Settembre 2026 (Mercoledì — FOMC annuncia tassi: +25 pb attesi al 78,5%, tasso Fed verso 3,75–4,00%. Wall Street S&P −0,45% 7.585, Dow −0,63% 52.093, Nasdaq −0,78% 25.981. FTSE MIB −1,68% 51.628, Prysmian −7%, STM −6,5%. Chip crash: PHLX −6%, Nvidia −3,26%, appello Amodei-Altman al rallentamento IA) -->
+  <!-- Articoli 16 Settembre 2026 (Mercoledì — FOMC annuncia tassi: +25 pb attesi al 78,5%, tasso Fed verso 3,75–4,00%. Wall Street S&P −0,45% 7.585, Dow −0,63% 52.093, Nasdaq −0,78% 25.981. FTSE MIB −1,68% 51.628, Prysmian −7%, STM −6,5%. Chip crash: PHLX −6%, Nvidia −3,36%, appello Amodei-Altman al rallentamento IA) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-corporate-16set-intesa-opas-mps-antitrust-delfin-caltagirone.html</loc>
+      <lastmod>2026-09-16</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-16</news:publication_date>
+          <news:title>Intesa-MPS, l'OPAS da 30,6 miliardi entra nel vivo: soci al 96,96%, ora decide l'Antitrust</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-16set-dopo-appello-amodei-quali-prospettive-ai.html</loc>
+      <lastmod>2026-09-16</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-16</news:publication_date>
+          <news:title>Dopo l'appello di Amodei: che cosa cambia davvero per l'AI, e quali prospettive si aprono</news:title>
+      </news:news>
+  </url>
   <url>
       <loc>https://www.almafinanza.com/articolo-wall-street-16set-fomc-sp500-7585-attesa-fed.html</loc>
       <lastmod>2026-09-16</lastmod>
