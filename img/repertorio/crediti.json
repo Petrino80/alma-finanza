@@ -476,5 +476,52 @@
       "difesa",
       "razzi"
     ]
+  },
+  "fed-board-room": {
+    "file": "fed-board-room.jpg",
+    "soggetto": "La sala del Consiglio della Federal Reserve, dove si riunisce il FOMC",
+    "autore": "Federalreserve",
+    "licenza": "pubblico dominio",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AEc_35_%2825841504020%29.jpg",
+    "temi": [
+      "fomc",
+      "fed",
+      "tassi",
+      "decisione",
+      "banca centrale",
+      "treasury",
+      "rendimenti"
+    ]
+  },
+  "oleodotto-arabia": {
+    "file": "oleodotto-arabia.jpg",
+    "soggetto": "Oleodotti nel deserto di Jubail, in Arabia Saudita",
+    "autore": "Suresh Babunair",
+    "licenza": "CC BY 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AOil_pipelines%2C_jubail_desert%2C_Saudi_Arabia_-_panoramio.jpg",
+    "temi": [
+      "oleodotto",
+      "arabia saudita",
+      "petrolio",
+      "greggio",
+      "export",
+      "geopolitica",
+      "energia"
+    ]
+  },
+  "tenaris": {
+    "file": "tenaris.jpg",
+    "soggetto": "Una locomotiva di manovra Tenaris Dalmine con un carico di tubi d'acciaio",
+    "autore": "Adriano Bassignana",
+    "licenza": "CC BY 2.5",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ADraisine-Tenaris-Dalmine-GEKO-IX.jpg",
+    "temi": [
+      "tenaris",
+      "dalmine",
+      "tubi",
+      "acciaio",
+      "oil services",
+      "piazza affari"
+    ]
   }
 }

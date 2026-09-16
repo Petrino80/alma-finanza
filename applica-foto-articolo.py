@@ -181,11 +181,15 @@ def main():
         print(f"✅ {p.name} — foto '{chiave}' al posto dell'immagine precedente")
         return
 
-    # Caso 2: nessuna immagine, inserisci firma (se manca) e foto
-    if not args.data and "data-pub" not in html:
+    # Caso 2: nessuna immagine, inserisci firma (se manca) e foto.
+    # La firma si riconosce dal tag <time data-pub>, non dalla semplice presenza della
+    # stringa "data-pub": quella compare anche nello script che rende la data relativa,
+    # e cercarla lì faceva saltare la firma negli articoli nuovi.
+    ha_firma = re.search(r'<time[^>]*\bdata-pub\b', html) is not None
+    if not args.data and not ha_firma:
         sys.exit("Serve --data per scrivere la firma")
 
-    blocco = ("" if "data-pub" in html else firma(args.data, tempo_lettura(html))) + figura(meta)
+    blocco = ("" if ha_firma else firma(args.data, tempo_lettura(html))) + figura(meta)
 
     if ANCORA in html:
         html = html.replace(ANCORA, ANCORA + blocco, 1)
@@ -198,7 +202,7 @@ def main():
         else:
             sys.exit(f"✗ {p.name}: non trovo un punto di inserimento riconoscibile")
 
-    if "data-pub" in html and "data-pub'" not in html and SCRIPT_TEMPO.strip() not in html:
+    if re.search(r'<time[^>]*\bdata-pub\b', html) and SCRIPT_TEMPO.strip() not in html:
         html = html.replace("</body>", SCRIPT_TEMPO + "\n</body>", 1)
 
     p.write_text(html, encoding="utf-8")

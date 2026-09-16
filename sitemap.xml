@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 15 Settembre 2026 (Martedì — Treasury 10Y 5,04% massimo dal 2007, Dow −0,63% 52.093, S&P −0,45% 7.586, Nasdaq −0,78% 25.982, FTSE MIB −0,14% 51.555, petrolio oltre 105 $, oleodotto East-West saudita fermo) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-15set-treasury-5-percento-vigilia-fed.html</loc>
+      <lastmod>2026-09-15</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-15</news:publication_date>
+          <news:title>Il Treasury decennale tocca il 5,04%, massimo dal 2007: Wall Street in rosso alla vigilia della Fed</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-15set-ftse-mib-51555-tenaris-unicredit.html</loc>
+      <lastmod>2026-09-15</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-15</news:publication_date>
+          <news:title>FTSE MIB −0,14% a 51.555: Tenaris ed Eni salgono col petrolio, UniCredit −2,2%. Spread a 88</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-commodities-15set-petrolio-105-oleodotto-saudita-yanbu.html</loc>
+      <lastmod>2026-09-15</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-09-15</news:publication_date>
+          <news:title>Petrolio oltre 105 dollari: l'oleodotto saudita East-West resta fermo per settimane</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 11 Settembre 2026 (Venerdì — CPI agosto 2,4% sotto attese, S&P +0,86% 7.657, Dow +509 52.573, FTSE MIB +1,36% 52.512, Avio +5,64% semestrale, Oracle +12%) -->
@@ -19,7 +54,7 @@
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
           <news:publication_date>2026-09-11</news:publication_date>
-          <news:title>CPI agosto sotto le attese: Wall Street in rally, S&P +0,86% a 7.657, Dow +509 punti</news:title>
+          <news:title>CPI agosto sotto le attese: Wall Street in rally, S&amp;P +0,86% a 7.657, Dow +509 punti</news:title>
       </news:news>
   </url>
   <url>
