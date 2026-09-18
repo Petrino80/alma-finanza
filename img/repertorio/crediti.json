@@ -551,5 +551,21 @@
       "sicurezza ai",
       "regolamentazione"
     ]
+  },
+  "ecb": {
+    "file": "ecb.jpg",
+    "soggetto": "La sede della Banca Centrale Europea (BCE) a Francoforte sul Meno",
+    "autore": "Ank Kumar",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:European_Central_Bank_Headquarters_(Ank_Kumar,_Infosys_Limited)_02.jpg",
+    "temi": [
+      "bce",
+      "banca centrale europea",
+      "tassi",
+      "euro",
+      "macro",
+      "francoforte",
+      "politica monetaria"
+    ]
   }
 }
