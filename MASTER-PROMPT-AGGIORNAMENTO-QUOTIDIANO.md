@@ -4,6 +4,43 @@
 
 ---
 
+## ✅ OPERAZIONI PRE-AUTORIZZATE — NON CHIEDERE MAI CONFERMA PER QUESTE:
+
+Tutte le operazioni qui sotto sono approvate in anticipo per ogni aggiornamento quotidiano.
+Claude NON deve chiedere conferma, approvazione o permesso per nessuna di queste azioni.
+
+**Ricerca dati e foto:**
+- WebSearch per dati di mercato, notizie, chiusure borse
+- WebSearch per cercare foto su Unsplash, Pexels, Wikimedia Commons
+- Scaricare foto da Unsplash, Pexels o Wikimedia Commons (licenza libera verificata)
+- Navigare pagine web per verificare dati o trovare foto
+
+**Creazione e modifica file:**
+- Creare nuovi file articolo HTML (articolo-*.html)
+- Modificare index.html (homepage)
+- Modificare sitemap.xml
+- Modificare categoria-wall-street.html, categoria-borsa-milano.html, categoria-crypto.html, categoria-commodities.html
+- Modificare impara-finanza.html
+- Modificare glossario.html
+- Modificare img/repertorio/crediti.json (registro crediti fotografici)
+- Salvare nuove foto in img/repertorio/ (dopo verifica licenza)
+
+**Script Python:**
+- Eseguire applica-foto-articolo.py (applica foto + firma + tempo lettura agli articoli)
+- Eseguire applica-foto-articolo.py --elenco (mostra foto disponibili)
+- Eseguire converti-home.py e converti-home.py --applica (aggiorna schede homepage)
+- Qualsiasi script Python di utilità già presente nel progetto
+
+**Ridimensionamento immagini:**
+- Ridimensionare foto a 1600px con PIL/Pillow (qualità 84, progressiva)
+
+**Git:**
+- git add per i file dell'aggiornamento quotidiano
+- git commit con messaggio descrittivo
+- git push origin main
+
+---
+
 ## IL PROMPT DA USARE:
 
 ```
