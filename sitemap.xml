@@ -4347,5 +4347,89 @@
     <changefreq>never</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-wall-street-21set-sp500-7650-settimana-post-fed.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>Alma Finanza</news:name>
+        <news:language>it</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-21</news:publication_date>
+      <news:title>Wall Street — S&amp;P 500 7.650 dopo la Fed: settimana positiva, prossima settimana</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-piazza-affari-21set-ftse-mib-51411-tripla-scadenza.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>Alma Finanza</news:name>
+        <news:language>it</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-21</news:publication_date>
+      <news:title>FTSE MIB 51.411 — Tripla Scadenza: Technoprobe, STM e banche nell'aggiornamento del 19 settembre</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-corporate-21set-saipem-bluenzyme-co2-finlandia.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>Alma Finanza</news:name>
+        <news:language>it</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-21</news:publication_date>
+      <news:title>Saipem: Bluenzyme 200 in Finlandia — e-metano e decarbonizzazione industriale</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-tech-22set-arm-holdings-neoverse-agi-cpu.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication>
+        <news:name>Alma Finanza</news:name>
+        <news:language>it</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-22</news:publication_date>
+      <news:title>ARM Holdings +17%: Neoverse CSS N4 e AGI CPU — la rivoluzione dei chip AI cambia Wall Street</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-wall-street-22set-sp500-7764-rally-ai-arm-amd.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication>
+        <news:name>Alma Finanza</news:name>
+        <news:language>it</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-22</news:publication_date>
+      <news:title>Wall Street — S&amp;P 500 7.764: rally AI e diplomazia ONU sgonfiano il War Premium</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.almafinanza.com/articolo-piazza-affari-22set-ftse-mib-52371-technoprobe-banco-bpm.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication>
+        <news:name>Alma Finanza</news:name>
+        <news:language>it</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-22</news:publication_date>
+      <news:title>Piazza Affari — FTSE MIB 52.371: Technoprobe debutta, banche volano con risiko Crédit Agricole</news:title>
+    </news:news>
+  </url>
 
 </urlset>

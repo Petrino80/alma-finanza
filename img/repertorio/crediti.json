@@ -567,5 +567,50 @@
       "francoforte",
       "politica monetaria"
     ]
+  },
+  "charging-bull": {
+    "file": "charging-bull.jpg",
+    "soggetto": "Il Charging Bull (Toro Caricante) in Bowling Green a Manhattan, simbolo di Wall Street",
+    "autore": "Ken Lund",
+    "licenza": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Charging_Bull_(7754768316).jpg",
+    "temi": [
+      "wall street",
+      "new york",
+      "borsa usa",
+      "s&p 500",
+      "dow jones",
+      "nasdaq"
+    ]
+  },
+  "milano-skyline-finanziario": {
+    "file": "milano-skyline-finanziario.jpg",
+    "soggetto": "Lo skyline del distretto finanziario di Milano (Porta Nuova) con la stazione di Porta Garibaldi",
+    "autore": "FlavMi",
+    "licenza": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Milano_Garibaldi_area_from_above.jpg",
+    "temi": [
+      "milano",
+      "piazza affari",
+      "borsa milano",
+      "ftse mib",
+      "italia"
+    ]
+  },
+  "tampere-industrial": {
+    "file": "tampere-industrial.jpg",
+    "soggetto": "Area industriale di Lielahti a Tampere, Finlandia",
+    "autore": "Methem (Mikko J. Putkonen)",
+    "licenza": "pubblico dominio",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Lielahti_industrial_area_Apr2009.jpg",
+    "temi": [
+      "saipem",
+      "finlandia",
+      "tampere",
+      "industria",
+      "energia",
+      "gas",
+      "impianto industriale"
+    ]
   }
 }
