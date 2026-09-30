@@ -1,0 +1,40 @@
+RACE −5,9% il giorno del lancio della Luce. Il mercato ha venduto. Ma stava vendendo la cosa giusta?
+
+Ecco cosa i titoli non ti dicono.
+
+→ Ferrari ha speso ~€1 miliardo in 5 anni per sviluppare la Luce.
+→ Produrrà 50–150 unità/anno a €550.000 l'una.
+→ Costo R&D per unità: ~€6–20 milioni per auto.
+→ Porsche Taycan: ~€50.000 per unità (volume 30x superiore).
+
+Il costo per unità è astronomico. E non è il punto.
+
+Il punto sono i 60+ brevetti.
+
+💡 Concetto del giorno: IP Moat (fossato competitivo dei brevetti)
+La Luce non è un'auto. È un laboratorio da €1 miliardo che ha prodotto:
+— piattaforma 880V proprietaria (vs 800V Taycan)
+— motori PMSM derivati dall'F80, con tecnologia F1 e WEC
+— torque vectoring (vettorializzazione della coppia) per-ruota su entrambi gli assi
+— batteria strutturale da 122 kWh brevettata
+— power electronics con efficienza >98%
+
+Tutto questo IP (proprietà intellettuale) entra nella gamma ibrida Ferrari nei prossimi 5 anni: il futuro SF90, il 296, i Grand Tourer. Su quel fronte Ferrari vende 13.000 auto l'anno, non 100.
+
+⚠️ Il mercato ha prezzato il rischio brand dilution (diluizione del marchio).
+Il rischio esiste: Ferrari costruisce identità sul suono di un V12, e la Luce è silenziosa.
+Ma Porsche ci ha messo 6 anni e €2B per convincere il mercato col Taycan.
+Ferrari ha messo 5 anni e ~€1B — con una piattaforma più avanzata e più esclusiva.
+
+📌 Cosa guardare:
+— Order book della Luce: Ferrari annuncia solitamente lo sold-out entro 60 giorni dal lancio
+— Q4 2026: prime consegne e margin disclosure
+— 2027: effetti del trasferimento tecnologico sulla prossima generazione ibrida
+
+Ferrari FY2025: €7,1 miliardi di ricavi, €1,6B di utile netto, ordini confermati fino a fine 2027.
+La Luce non sposta i ricavi del prossimo trimestre. Sposta il posizionamento dei prossimi 10 anni.
+
+📊 Analisi completa dei costi R&D, confronto con Taycan/EQS/Lanzador e outlook RACE su almafinanza.com
+→ https://www.almafinanza.com/articolo-corporate-26mag-ferrari-luce-analisi-rd-costi-investitori.html
+
+#AlmaFinanza #Ferrari #FerrariLuce #RACE #Investimenti #AutoElettrica #EV #Maranello #MercatiFinanziari

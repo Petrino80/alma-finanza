@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 1200px 630px; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: #000; }
+
+.card {
+  width: 1200px; height: 630px;
+  position: relative; overflow: hidden;
+  background: #05000F;
+  display: flex; flex-direction: row;
+}
+.bg-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,193,124,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,193,124,0.07) 1px, transparent 1px);
+  background-size: 48px 48px; z-index: 0;
+}
+.bg-glow {
+  position: absolute; top: -100px; left: -60px;
+  width: 520px; height: 520px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,193,124,0.20) 0%, transparent 70%);
+  z-index: 0;
+}
+.left-border {
+  position: absolute; left: 0; top: 8%; bottom: 8%; width: 3px;
+  background: linear-gradient(to bottom, transparent, #00C17C 30%, #4FE3AD 70%, transparent);
+  border-radius: 2px; z-index: 3;
+}
+.left {
+  flex: 0 0 56%;
+  padding: 48px 44px 40px 52px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  position: relative; z-index: 2;
+}
+.tag-row { display: flex; align-items: center; gap: 12px; margin-bottom: 26px; }
+.tag {
+  background: rgba(0,193,124,0.25);
+  color: #7DEBC0;
+  border: 1px solid rgba(0,193,124,0.40);
+  border-radius: 999px; padding: 6px 16px;
+  font-size: 11px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase;
+}
+.date { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 1.2px; }
+.headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 47px; font-weight: 900; line-height: 1.08;
+  color: #FFFFFF; letter-spacing: -1.4px; margin-bottom: 20px;
+}
+.headline .accent { color: #00C17C; }
+.sub {
+  font-size: 16px; line-height: 1.55; font-weight: 500;
+  color: rgba(255,255,255,0.55); max-width: 92%;
+}
+.metrics {
+  display: flex; gap: 34px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding-top: 20px; margin-bottom: 22px;
+}
+.kpi-label {
+  font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.32); margin-bottom: 6px;
+}
+.kpi-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 27px; font-weight: 900; letter-spacing: -1px; line-height: 1;
+  margin-bottom: 4px;
+}
+.kpi-sub { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.38); }
+.logo-row { display: flex; align-items: baseline; gap: 3px; }
+
+.right { flex: 0 0 44%; position: relative; overflow: hidden; }
+.right img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center center;
+  opacity: 0.55; display: block;
+}
+.right::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to right, #05000F 0%, rgba(5,0,15,0.55) 25%, rgba(5,0,15,0.15) 60%, transparent 100%);
+  z-index: 1;
+}
+.right::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
+  background: linear-gradient(to top, rgba(5,0,15,0.85) 0%, transparent 100%);
+  z-index: 1;
+}
+.big-number {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -54%); z-index: 4;
+  text-align: center;
+}
+.big-number-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 96px; font-weight: 900; letter-spacing: -4px; line-height: 1;
+  color: #34D399;
+  text-shadow: 0 0 40px rgba(52,211,153,0.5), 0 4px 24px rgba(0,0,0,0.8);
+}
+.big-number-sub {
+  font-size: 13px; font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 2px; text-transform: uppercase; margin-top: 6px;
+}
+.ticker-badge {
+  position: absolute; top: 22px; right: 22px; z-index: 5;
+  background: rgba(0,193,124,0.80);
+  border: 1px solid rgba(79,227,173,0.40);
+  border-radius: 10px; padding: 8px 18px;
+  font-size: 14px; font-weight: 800; color: #fff; letter-spacing: 1px;
+}
+.pill-row {
+  position: absolute; bottom: 22px; left: 0; right: 0;
+  padding: 0 16px; z-index: 5;
+  display: flex; gap: 7px; justify-content: center;
+}
+.pill {
+  padding: 5px 12px; border-radius: 999px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+  background: rgba(0,0,0,0.50); border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.70); white-space: nowrap;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="left-border"></div>
+
+  <!-- SINISTRA: testo -->
+  <div class="left">
+    <div>
+      <div class="tag-row">
+        <span class="tag">Piazza Affari</span>
+        <span class="date">22 SETTEMBRE 2026</span>
+      </div>
+      <div class="headline">Technoprobe entra<br>nel <span class="accent">FTSE MIB</span>.</div>
+      <div class="sub">Al posto di Diasorin, con un debutto a +5,3%. L'unica italiana tra i leader mondiali del collaudo chip entra nel paniere delle quaranta big.</div>
+    </div>
+    <div>
+      <div class="metrics">
+        <div>
+          <div class="kpi-label">FTSE MIB</div>
+          <div class="kpi-value" style="color:#34D399;">52.371</div>
+          <div class="kpi-sub">+1,6% · seduta del 21</div>
+        </div>
+        <div>
+          <div class="kpi-label">Banco BPM</div>
+          <div class="kpi-value" style="color:#34D399;">+4,3%</div>
+          <div class="kpi-sub">Crédit Agricole al 9,1%</div>
+        </div>
+        <div>
+          <div class="kpi-label">STM</div>
+          <div class="kpi-value" style="color:#34D399;">+3,0%</div>
+          <div class="kpi-sub">effetto ARM</div>
+        </div>
+      </div>
+      <div class="logo-row">
+        <span style="font-family:'Lobster',cursive;font-size:34px;color:#14B8A6;line-height:1;">A</span>
+        <span style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:900;color:rgba(255,255,255,0.78);letter-spacing:1.8px;">LMA FINANZA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESTRA: foto tematica + big number -->
+  <div class="right">
+    <img src="../img/repertorio/probe-card.jpg" alt="Gli aghi di una probe card, la scheda che collauda i chip ancora sul wafer">
+    <div class="ticker-badge">TECHNOPROBE</div>
+    <div class="big-number">
+      <div class="big-number-value">+5,3%</div>
+      <div class="big-number-sub">Debutto FTSE MIB</div>
+    </div>
+    <div class="pill-row">
+      <span class="pill">Corsa ai chip IA</span>
+      <span class="pill">ARM +17%</span>
+      <span class="pill">Risiko bancario</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

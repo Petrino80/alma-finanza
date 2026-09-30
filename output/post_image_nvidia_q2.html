@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 1200px 630px; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: #000; }
+
+.card {
+  width: 1200px; height: 630px;
+  position: relative; overflow: hidden;
+  background: #05000F;
+  display: flex; flex-direction: row;
+}
+.bg-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(139,92,246,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139,92,246,0.07) 1px, transparent 1px);
+  background-size: 48px 48px; z-index: 0;
+}
+.bg-glow {
+  position: absolute; top: -100px; left: -60px;
+  width: 540px; height: 540px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,246,0.22) 0%, transparent 70%);
+  z-index: 0;
+}
+.left-border {
+  position: absolute; left: 0; top: 8%; bottom: 8%; width: 3px;
+  background: linear-gradient(to bottom, transparent, #8B5CF6 30%, #a78bfa 70%, transparent);
+  border-radius: 2px; z-index: 3;
+}
+.left {
+  flex: 0 0 56%;
+  padding: 44px 40px 38px 52px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  position: relative; z-index: 2;
+}
+.tag-row {
+  display: inline-flex; align-items: center;
+  background: rgba(139,92,246,0.25);
+  border: 1px solid rgba(139,92,246,0.40);
+  border-radius: 999px; padding: 6px 18px;
+  font-size: 11px; font-weight: 800;
+  color: #c4b5fd; letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 18px; width: fit-content;
+}
+.headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px; font-weight: 900;
+  color: #ffffff; line-height: 1.15;
+  margin-bottom: 14px;
+}
+.headline .accent {
+  color: #a78bfa;
+}
+.attribution {
+  font-size: 15px; font-weight: 700;
+  color: rgba(196,181,253,0.65);
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  font-style: normal;
+}
+.sub {
+  font-size: 16px; line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 0;
+}
+.divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(to right, rgba(139,92,246,0.35), transparent);
+  margin: 22px 0;
+}
+.metrics {
+  display: flex; gap: 0;
+}
+.metric {
+  flex: 1;
+  border-right: 1px solid rgba(139,92,246,0.20);
+  padding-right: 16px; margin-right: 16px;
+}
+.metric:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+.metric-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px; font-weight: 900;
+  color: #34D399;
+  line-height: 1.1; margin-bottom: 4px;
+}
+.metric-value.neutral { color: #a78bfa; }
+.metric-label {
+  font-size: 11px; font-weight: 800; color: rgba(255,255,255,0.38);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px;
+}
+.metric-sub {
+  font-size: 13px; color: rgba(255,255,255,0.45);
+}
+.logo-row {
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 20px;
+}
+
+/* DESTRA */
+.right {
+  flex: 0 0 44%;
+  position: relative; overflow: hidden;
+}
+.right img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center center;
+  opacity: 0.52; display: block;
+}
+.right::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, #05000F 0%, rgba(5,0,15,0.55) 25%, rgba(5,0,15,0.15) 60%, transparent 100%);
+  z-index: 1;
+}
+.right::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 42%;
+  background: linear-gradient(to top, rgba(5,0,15,0.90) 0%, transparent 100%);
+  z-index: 1;
+}
+.ticker-badge {
+  position: absolute; top: 20px; right: 20px; z-index: 5;
+  background: rgba(139,92,246,0.82); backdrop-filter: blur(8px);
+  border-radius: 10px; padding: 8px 18px;
+  font-size: 14px; font-weight: 800; color: #fff; letter-spacing: 1px;
+  border: 1px solid rgba(196,181,253,0.40);
+  font-family: 'Montserrat', sans-serif;
+}
+.big-number {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -54%); z-index: 4;
+  text-align: center;
+}
+.big-number-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 96px; font-weight: 900; letter-spacing: -4px; line-height: 1;
+  color: #34D399;
+  text-shadow: 0 0 40px rgba(52,211,153,0.50), 0 4px 24px rgba(0,0,0,0.8);
+}
+.big-number-sub {
+  font-size: 13px; font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 2px; text-transform: uppercase; margin-top: 8px;
+  font-family: 'Montserrat', sans-serif;
+}
+.pill-row {
+  position: absolute; bottom: 20px; left: 0; right: 0;
+  padding: 0 16px; z-index: 5;
+  display: flex; gap: 7px; justify-content: center;
+}
+.pill {
+  padding: 6px 15px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.75); backdrop-filter: blur(6px);
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="left-border"></div>
+
+  <!-- SINISTRA -->
+  <div class="left">
+    <div>
+      <div class="tag-row">⚡ TECH &amp; AI · 26 AGOSTO 2026</div>
+      <div class="headline">
+        <span class="accent">«Il compute</span><br>
+        <span class="accent">è diventato</span><br>
+        <span class="accent">revenue.»</span>
+      </div>
+      <div class="attribution">— Jensen Huang, CEO Nvidia · Q2 FY2027 Earnings Call</div>
+      <div class="sub">
+        $96,2 miliardi in un trimestre. +106% anno su anno.<br>
+        Data Center $89B. Guidance Q3: $108B.
+      </div>
+    </div>
+    <div>
+      <div class="divider"></div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-label">Ricavi Q2</div>
+          <div class="metric-value">$96,2B</div>
+          <div class="metric-sub">beat +4,3% vs stima</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Data Center</div>
+          <div class="metric-value">$89B</div>
+          <div class="metric-sub">+117% anno su anno</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Guidance Q3</div>
+          <div class="metric-value neutral">$108B</div>
+          <div class="metric-sub">vs $104,2B atteso</div>
+        </div>
+      </div>
+      <div class="logo-row">
+        <span style="font-family:'Lobster',cursive;font-size:22px;color:#14B8A6;">A</span>
+        <span style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;color:rgba(255,255,255,0.68);letter-spacing:1.5px;">LMA FINANZA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESTRA: foto chip -->
+  <div class="right">
+    <img src="slide1_img_chip_semiconductor.jpg" alt="Chip semiconduttore Nvidia">
+    <div class="ticker-badge">NVDA +5% AH</div>
+    <div class="big-number">
+      <div class="big-number-value">+106%</div>
+      <div class="big-number-sub">YoY RECORD</div>
+    </div>
+    <div class="pill-row">
+      <span class="pill">Q2 FY2027 RECORD</span>
+      <span class="pill">DATA CENTER $89B</span>
+      <span class="pill">GUIDANCE $108B</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

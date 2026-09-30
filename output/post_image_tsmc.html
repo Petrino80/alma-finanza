@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Lobster&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { width:1200px; height:630px; overflow:hidden; font-family:'Inter',sans-serif; }
+  .card { width:1200px; height:630px; display:flex; background:#0f172a; position:relative; }
+
+  /* LEFT */
+  .left { width:56%; padding:52px 44px 40px 52px; display:flex; flex-direction:column; justify-content:space-between; position:relative; z-index:2; }
+  .top-row { display:flex; align-items:center; gap:14px; }
+  .tag { background:#8B5CF6; color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:14px; letter-spacing:1.5px; text-transform:uppercase; padding:7px 15px; border-radius:6px; }
+  .date { color:#94a3b8; font-size:15px; font-weight:600; letter-spacing:.5px; }
+
+  .headline { font-family:'Montserrat',sans-serif; font-weight:900; font-size:47px; line-height:1.08; color:#f8fafc; margin-top:26px; }
+  .headline .accent { color:#A78BFA; }
+  .sub { color:#cbd5e1; font-size:19px; line-height:1.42; margin-top:20px; font-weight:400; max-width:96%; }
+
+  .metrics { display:flex; gap:14px; margin-top:26px; }
+  .metric { background:rgba(255,255,255,.05); border:1px solid rgba(139,92,246,.25); border-radius:11px; padding:13px 16px; flex:1; }
+  .metric .v { font-family:'Montserrat',sans-serif; font-weight:800; font-size:25px; color:#f8fafc; }
+  .metric .v.down { color:#f87171; }
+  .metric .v.up { color:#34d399; }
+  .metric .l { color:#94a3b8; font-size:12.5px; font-weight:600; margin-top:3px; letter-spacing:.3px; }
+
+  .brand { display:flex; align-items:center; gap:11px; margin-top:26px; }
+  .brand .logo-a { font-family:'Lobster',cursive; font-size:34px; color:#14B8A6; line-height:1; }
+  .brand .name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:21px; color:#f8fafc; letter-spacing:.3px; }
+  .brand .name span { color:#14B8A6; }
+  .brand .dom { color:#64748b; font-size:13.5px; font-weight:600; margin-left:2px; }
+
+  /* RIGHT */
+  .right { width:44%; position:relative; overflow:hidden; }
+  .right img { width:100%; height:100%; object-fit:cover; }
+  .overlay { position:absolute; inset:0; background:linear-gradient(105deg,#0f172a 0%,rgba(15,23,42,.72) 22%,rgba(15,23,42,.12) 55%,rgba(15,23,42,0) 100%); }
+  .big { position:absolute; top:52px; right:40px; text-align:right; z-index:3; }
+  .big .num { font-family:'Montserrat',sans-serif; font-weight:900; font-size:74px; color:#fff; line-height:.95; text-shadow:0 3px 22px rgba(0,0,0,.55); }
+  .big .cap { font-family:'Montserrat',sans-serif; font-weight:700; font-size:16px; color:#e9d5ff; letter-spacing:.5px; margin-top:6px; text-shadow:0 2px 10px rgba(0,0,0,.6); }
+  .ticker { position:absolute; bottom:64px; right:40px; z-index:3; display:flex; gap:9px; }
+  .pill { background:rgba(15,23,42,.82); border:1px solid rgba(248,113,113,.4); color:#fecaca; font-family:'Montserrat',sans-serif; font-weight:700; font-size:14.5px; padding:7px 13px; border-radius:20px; backdrop-filter:blur(4px); }
+  .credit { position:absolute; bottom:12px; right:14px; z-index:3; color:rgba(226,232,240,.62); font-size:10px; font-weight:500; text-shadow:0 1px 4px rgba(0,0,0,.8); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="left">
+      <div>
+        <div class="top-row">
+          <span class="tag">Tech / AI</span>
+          <span class="date">16 Luglio 2026</span>
+        </div>
+        <div class="headline">Trimestre record.<br>E il titolo <span class="accent">crolla.</span></div>
+        <div class="sub">TSMC batte ogni stima, poi alza il capex 2026 a 64 miliardi. Il mercato legge il costo della corsa all'AI e vende tutta la filiera dei chip.</div>
+        <div class="metrics">
+          <div class="metric"><div class="v up">+8 mld</div><div class="l">Capex 2026 rivisto</div></div>
+          <div class="metric"><div class="v down">−4%</div><div class="l">ETF semiconduttori</div></div>
+          <div class="metric"><div class="v down">−4,8%</div><div class="l">STM a Milano</div></div>
+        </div>
+      </div>
+      <div class="brand">
+        <span class="logo-a">A</span>
+        <span class="name">Alma <span>Finanza</span></span>
+        <span class="dom">almafinanza.com</span>
+      </div>
+    </div>
+    <div class="right">
+      <img src="tsmc_taichung.jpg" alt="Fabbrica TSMC">
+      <div class="overlay"></div>
+      <div class="big">
+        <div class="num">$64<span style="font-size:38px;">mld</span></div>
+        <div class="cap">IL PREZZO DELLA CORSA ALL'AI</div>
+      </div>
+      <div class="ticker">
+        <span class="pill">Arm −5%</span>
+        <span class="pill">Nasdaq −1,47%</span>
+      </div>
+      <div class="credit">Foto: Briáxis F. Mendes · CC BY-SA 4.0</div>
+    </div>
+  </div>
+</body>
+</html>

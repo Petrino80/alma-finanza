@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Lobster&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { width:1200px; height:630px; overflow:hidden; font-family:'Inter',sans-serif; }
+  .card { width:1200px; height:630px; display:flex; background:#0f172a; position:relative; }
+
+  /* LEFT */
+  .left { width:56%; padding:50px 42px 36px 52px; display:flex; flex-direction:column; justify-content:space-between; position:relative; z-index:2; }
+  .top-row { display:flex; align-items:center; gap:12px; }
+  .tag { background:#0284c7; color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:13.5px; letter-spacing:1.4px; text-transform:uppercase; padding:7px 14px; border-radius:6px; }
+  .date { color:#94a3b8; font-size:15px; font-weight:600; letter-spacing:.5px; }
+
+  .headline { font-family:'Montserrat',sans-serif; font-weight:900; font-size:44px; line-height:1.07; color:#f8fafc; margin-top:22px; }
+  .headline .accent { color:#38bdf8; }
+  .sub { color:#cbd5e1; font-size:17.5px; line-height:1.42; margin-top:18px; font-weight:400; max-width:98%; }
+
+  .metrics { display:flex; gap:12px; margin-top:24px; }
+  .metric { background:rgba(255,255,255,.05); border:1px solid rgba(2,132,199,.3); border-radius:11px; padding:12px 14px; flex:1; }
+  .metric .v { font-family:'Montserrat',sans-serif; font-weight:800; font-size:22px; color:#f8fafc; }
+  .metric .v.up { color:#34d399; }
+  .metric .l { color:#94a3b8; font-size:11.5px; font-weight:600; margin-top:3px; letter-spacing:.2px; }
+
+  .brand { display:flex; align-items:center; gap:11px; margin-top:22px; }
+  .brand .logo-a { font-family:'Lobster',cursive; font-size:33px; color:#14B8A6; line-height:1; }
+  .brand .name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:20px; color:#f8fafc; letter-spacing:.3px; }
+  .brand .name span { color:#14B8A6; }
+  .brand .dom { color:#64748b; font-size:13px; font-weight:600; margin-left:2px; }
+
+  /* RIGHT — split */
+  .right { width:44%; position:relative; overflow:hidden; display:flex; flex-direction:column; }
+  .half { position:relative; height:50%; overflow:hidden; }
+  .half img { width:100%; height:100%; object-fit:cover; }
+  .half.rocket img { object-position:center 40%; }
+  .half.car img { object-position:center 55%; }
+  .blend { position:absolute; inset:0; background:linear-gradient(90deg,#0f172a 0%,rgba(15,23,42,.55) 14%,rgba(15,23,42,0) 40%); }
+  .divider { position:absolute; top:50%; left:0; right:0; height:3px; background:#0ea5e9; transform:translateY(-1.5px); z-index:4; box-shadow:0 0 16px rgba(14,165,233,.7); }
+  .cap { position:absolute; z-index:5; font-family:'Montserrat',sans-serif; font-weight:800; font-size:16px; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,.75); }
+  .cap .co { display:block; font-size:12px; font-weight:700; color:#bae6fd; letter-spacing:1px; }
+  .cap.top { top:22px; right:24px; text-align:right; }
+  .cap.bot { bottom:52px; right:24px; text-align:right; }
+  .combined { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:6; background:#0284c7; color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:15px; padding:8px 16px; border-radius:22px; box-shadow:0 4px 18px rgba(0,0,0,.5); white-space:nowrap; border:2px solid rgba(255,255,255,.25); }
+  .credit { position:absolute; bottom:9px; right:12px; z-index:6; color:rgba(226,232,240,.72); font-size:9.5px; font-weight:500; text-shadow:0 1px 4px rgba(0,0,0,.9); text-align:right; line-height:1.35; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="left">
+      <div>
+        <div class="top-row">
+          <span class="tag">Corporate · M&A</span>
+          <span class="date">17 Agosto 2026</span>
+        </div>
+        <div class="headline">A luglio impossibile.<br>Ora di nuovo <span class="accent">probabile.</span></div>
+        <div class="sub">SpaceX ha recuperato e oggi vale più di Tesla. Le trattative sulla fusione dell'impero di Musk accelerano — ma il vero nodo resta chi comanda.</div>
+        <div class="metrics">
+          <div class="metric"><div class="v up">fino al 90%</div><div class="l">Probabilità fusione</div></div>
+          <div class="metric"><div class="v">~85%</div><div class="l">Voto di Musk</div></div>
+          <div class="metric"><div class="v">~$3.200 mld</div><div class="l">Valore combinato</div></div>
+        </div>
+      </div>
+      <div class="brand">
+        <span class="logo-a">A</span>
+        <span class="name">Alma <span>Finanza</span></span>
+        <span class="dom">almafinanza.com</span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="half rocket">
+        <img src="spacex_falcon9.jpg" alt="Lancio Falcon 9 di SpaceX">
+        <div class="blend"></div>
+        <div class="cap top"><span class="co">SPACEX</span>~$1.840 mld</div>
+      </div>
+      <div class="half car">
+        <img src="tesla_model3.jpg" alt="Tesla Model 3">
+        <div class="blend"></div>
+        <div class="cap bot"><span class="co">TESLA</span>~$1.350 mld</div>
+      </div>
+      <div class="divider"></div>
+      <div class="combined">insieme ~$3.200 mld</div>
+      <div class="credit">Falcon 9: U.S. Space Force · pubblico dominio<br>Tesla: Elise240SX · CC BY-SA 4.0</div>
+    </div>
+  </div>
+</body>
+</html>
