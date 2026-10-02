@@ -612,5 +612,68 @@
       "gas",
       "impianto industriale"
     ]
+  },
+  "probe-card": {
+    "file": "probe-card.jpg",
+    "soggetto": "Gli aghi di una probe card, la scheda che collauda i chip ancora sul wafer",
+    "autore": "Jasycheng",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ACIS_probe_card.jpg",
+    "temi": [
+      "technoprobe",
+      "probe card",
+      "collaudo chip",
+      "semiconduttori",
+      "test wafer"
+    ]
+  },
+  "banca-italia": {
+    "file": "banca-italia.jpg",
+    "soggetto": "Palazzo Koch, sede della Banca d'Italia a Roma in Via Nazionale",
+    "autore": "Szilas",
+    "licenza": "CC0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Palazzo_Koch,_Roma,_2014-11-08.jpg",
+    "temi": [
+      "banca d'italia",
+      "banche",
+      "spread",
+      "btp",
+      "tassi",
+      "piazza affari",
+      "italia"
+    ]
+  },
+  "corsa-amatoriale": {
+    "file": "corsa-amatoriale.jpg",
+    "soggetto": "Partecipanti a una corsa su strada amatoriale",
+    "autore": "Wilfredor",
+    "licenza": "CC0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ARunners_in_a_race%2C_Vieux-Limoilou.jpg",
+    "temi": [
+      "nike",
+      "lululemon",
+      "on holding",
+      "athleisure",
+      "running",
+      "abbigliamento sportivo",
+      "consumi"
+    ]
+  },
+  "petroliera-golden-gate": {
+    "file": "petroliera-golden-gate.jpg",
+    "soggetto": "La petroliera M/T Alaskan Navigator in navigazione verso San Francisco, sotto il Golden Gate Bridge",
+    "autore": "Jon DiNisio",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:AK_Navigator_Inbound_Golden_Gate.jpg",
+    "temi": [
+      "petrolio",
+      "petroliera",
+      "wti",
+      "brent",
+      "energia",
+      "hormuz",
+      "navigazione",
+      "commodities"
+    ]
   }
 }
