@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 6 Ottobre 2026 (Martedì — FTSE MIB +0,87% a 51.261, terza seduta in rialzo, migliore piazza europea. Spread BTP-Bund a circa 106 pb, BTP 10 anni 4,54% contro OAT francese 4,72%: sorpasso storico. Inwit +3,56%, Nexi +2,9%, Technoprobe +2,8% con JP Morgan Overweight target 45 euro. Allarme Banca di Francia: debito 3.595 mld, 119% del PIL, deficit 5,4%. S&P 500 a nuovo record, rendimenti Treasury ai massimi da 24 anni, Prices Paid ISM 77,9%. Brent $100,84, oro $4.121,39.) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-06ott-record-sp500-rendimenti-24-anni.html</loc>
+      <lastmod>2026-10-06</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-06</news:publication_date>
+          <news:title>Wall Street: nuovo record per l'S&amp;P 500 mentre i rendimenti restano ai massimi da 24 anni</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-06ott-ftse-mib-51261-spread-106-banche.html</loc>
+      <lastmod>2026-10-06</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-06</news:publication_date>
+          <news:title>Piazza Affari a 51.261 (+0,87%): lo spread scende a 106 punti base e l'Italia paga meno della Francia</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-macro-06ott-francia-debito-119-pil-sorpasso-btp.html</loc>
+      <lastmod>2026-10-06</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-06</news:publication_date>
+          <news:title>Francia "strozzata dai tassi": debito al 119% del PIL e per la prima volta paga più dell'Italia</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 2 Ottobre 2026 (Venerdì — Jobs Report settembre: 29.000 posti vs 90.000 attesi, disoccupazione 4,2%, revisioni −60.000. S&P 500 +0,73% a 7.722,72, Dow +0,50% a 51.176,46, Nasdaq +1,19% a 27.190,86. Pausa Fed ottobre all'84%. Treasury 10Y 5,281%. FTSE MIB +0,49% a 50.483, spread 114,6 pb, STM +6,67%, Technoprobe +5,99%. Brent $99,68 −2,57% su riserve strategiche, oro $4.217,22, Bitcoin $85.300.) -->
