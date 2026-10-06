@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREVIEW A — Dark Premium | Alma Finanza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .lobster-font{font-family:'Lobster',cursive;}
+        .montserrat-font{font-family:'Montserrat',sans-serif;}
+        body{font-family:'Inter',sans-serif;background:#0b1120;color:#e2e8f0;}
+
+        /* Ticker */
+        .ticker-tape{overflow:hidden;background:rgba(15,23,42,0.95);border-bottom:1px solid rgba(20,184,166,0.3);backdrop-filter:blur(10px);}
+        .ticker-content{display:flex;animation:scroll 30s linear infinite;}
+        @keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+        .ticker-item{padding:0 2rem;white-space:nowrap;color:#94a3b8;font-weight:600;font-size:0.85rem;}
+        .ticker-item a{color:#94a3b8;text-decoration:none;}
+        .ticker-item a:hover{color:#14b8a6;}
+        .positive{color:#34d399;}
+        .negative{color:#f87171;}
+
+        /* Glass cards */
+        .glass-card{
+            background:rgba(30,41,59,0.6);
+            backdrop-filter:blur(12px);
+            border:1px solid rgba(100,116,139,0.2);
+            border-radius:16px;
+            transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .glass-card:hover{
+            border-color:rgba(20,184,166,0.5);
+            box-shadow:0 0 30px rgba(20,184,166,0.1),0 20px 40px rgba(0,0,0,0.3);
+            transform:translateY(-6px);
+        }
+
+        /* Hero glow */
+        .hero-glow{
+            position:relative;
+            overflow:hidden;
+        }
+        .hero-glow::before{
+            content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+            background:radial-gradient(circle at 30% 50%,rgba(20,184,166,0.15) 0%,transparent 50%);
+            animation:glow-rotate 20s linear infinite;
+        }
+        @keyframes glow-rotate{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+
+        /* Neon text */
+        .neon-teal{color:#14b8a6;text-shadow:0 0 10px rgba(20,184,166,0.5),0 0 40px rgba(20,184,166,0.2);}
+
+        /* Category pills */
+        .cat-pill{
+            display:inline-block;padding:0.25rem 0.75rem;border-radius:9999px;
+            font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;
+            border:1px solid;
+        }
+        .cat-wall-street{color:#60a5fa;border-color:rgba(96,165,250,0.3);background:rgba(96,165,250,0.1);}
+        .cat-milano{color:#34d399;border-color:rgba(52,211,153,0.3);background:rgba(52,211,153,0.1);}
+        .cat-commodities{color:#fbbf24;border-color:rgba(251,191,36,0.3);background:rgba(251,191,36,0.1);}
+        .cat-macro{color:#f87171;border-color:rgba(248,113,113,0.3);background:rgba(248,113,113,0.1);}
+        .cat-tech{color:#a78bfa;border-color:rgba(167,139,250,0.3);background:rgba(167,139,250,0.1);}
+
+        /* Data strip */
+        .data-strip{
+            display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+            background:rgba(100,116,139,0.15);border-radius:12px;overflow:hidden;margin:2rem 0;
+        }
+        .data-strip-item{
+            background:rgba(30,41,59,0.8);padding:1.25rem;text-align:center;
+        }
+
+        /* Preview banner */
+        .preview-banner{
+            background:linear-gradient(90deg,#f59e0b,#ef4444);color:white;
+            text-align:center;padding:8px;font-weight:700;font-size:0.85rem;
+            letter-spacing:0.1em;text-transform:uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preview Banner -->
+    <div class="preview-banner">PREVIEW A — "Dark Premium" — Solo anteprima, non pubblicata</div>
+
+    <!-- Ticker -->
+    <div class="ticker-tape py-2">
+        <div class="ticker-content">
+            <div class="ticker-item">🇺🇸 Dow <span class="negative">47.501 (-0.9%)</span></div>
+            <div class="ticker-item">🇺🇸 S&P 500 <span class="negative">6.740 (-1.3%)</span></div>
+            <div class="ticker-item">🇺🇸 Nasdaq <span class="negative">22.387 (-1.6%)</span></div>
+            <div class="ticker-item">🇮🇹 FTSE MIB <span class="negative">44.152 (-1.0%)</span></div>
+            <div class="ticker-item">🚀 Marvell <span class="positive">$87.88 (+16%)</span></div>
+            <div class="ticker-item">🚀 AVIO <span class="positive">+8%</span></div>
+            <div class="ticker-item">🛢️ WTI <span class="negative">$90.90 (+12%)</span></div>
+            <div class="ticker-item">Oro <span class="negative">$5.085</span></div>
+            <div class="ticker-item">BTC <span class="negative">$68.300 (-3.5%)</span></div>
+            <!-- duplicate -->
+            <div class="ticker-item">🇺🇸 Dow <span class="negative">47.501 (-0.9%)</span></div>
+            <div class="ticker-item">🇺🇸 S&P 500 <span class="negative">6.740 (-1.3%)</span></div>
+            <div class="ticker-item">🇺🇸 Nasdaq <span class="negative">22.387 (-1.6%)</span></div>
+            <div class="ticker-item">🇮🇹 FTSE MIB <span class="negative">44.152 (-1.0%)</span></div>
+            <div class="ticker-item">🚀 Marvell <span class="positive">$87.88 (+16%)</span></div>
+            <div class="ticker-item">🚀 AVIO <span class="positive">+8%</span></div>
+            <div class="ticker-item">🛢️ WTI <span class="negative">$90.90 (+12%)</span></div>
+            <div class="ticker-item">Oro <span class="negative">$5.085</span></div>
+            <div class="ticker-item">BTC <span class="negative">$68.300 (-3.5%)</span></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50" style="background:rgba(11,17,32,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(100,116,139,0.15);">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="lobster-font text-5xl text-teal-500">A</span>
+                <span class="montserrat-font text-3xl font-black text-white">LMA FINANZA</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 text-sm text-slate-400">
+                <a href="#" class="hover:text-teal-400 transition">Wall Street</a>
+                <a href="#" class="hover:text-teal-400 transition">Borsa Milano</a>
+                <a href="#" class="hover:text-teal-400 transition">Crypto</a>
+                <a href="#" class="hover:text-teal-400 transition">Commodities</a>
+                <a href="#" class="px-4 py-2 bg-teal-600 text-white rounded-full font-semibold hover:bg-teal-500 transition">📊 Dashboard</a>
+            </div>
+            <div class="text-xs text-slate-500 montserrat-font">
+                <span class="hidden md:inline">Venerdì, 6 Marzo 2026</span>
+                <span class="md:hidden">6 Mar 2026</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+
+        <!-- Hero -->
+        <div class="hero-glow glass-card p-0 mb-8 overflow-hidden">
+            <div class="grid md:grid-cols-5 gap-0">
+                <div class="md:col-span-3 p-8 md:p-12 relative z-10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="cat-pill cat-macro">🚨 Breaking</span>
+                        <span class="text-xs text-slate-500">6 Marzo 2026</span>
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-black mb-4 leading-tight text-white montserrat-font">
+                        Jobs Report shock: <span class="neon-teal">-92K posti</span>, WTI a $90
+                    </h1>
+                    <p class="text-slate-400 text-lg mb-6 leading-relaxed">
+                        Petrolio record settimanale +35% (mai dal 1983). Disoccupazione USA 4,4%. Marvell +16%. Difesa vola: AVIO +8%.
+                    </p>
+                    <a href="#" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-white rounded-full font-bold text-sm hover:from-teal-400 hover:to-emerald-400 transition shadow-lg shadow-teal-500/25">
+                        Leggi l'articolo →
+                    </a>
+                </div>
+                <div class="md:col-span-2 bg-gradient-to-br from-red-900/50 to-slate-900 flex items-center justify-center p-8">
+                    <div class="text-center">
+                        <div class="text-6xl font-black neon-teal mb-2">$90.90</div>
+                        <div class="text-xl font-semibold text-slate-300 mb-4">WTI / barile</div>
+                        <div class="inline-block px-4 py-2 rounded-full bg-red-500/20 border border-red-500/30 text-red-400 text-sm font-bold">
+                            Sett. +35.63% Record
+                        </div>
+                        <div class="mt-4 text-sm text-slate-500">
+                            NFP -92K • Dow -453 • BTC $68K
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Strip -->
+        <div class="data-strip">
+            <div class="data-strip-item">
+                <div class="text-xs text-slate-500 mb-1">Dow Jones</div>
+                <div class="text-xl font-bold text-white">47.501</div>
+                <div class="text-sm negative">-0.9%</div>
+            </div>
+            <div class="data-strip-item">
+                <div class="text-xs text-slate-500 mb-1">S&P 500</div>
+                <div class="text-xl font-bold text-white">6.740</div>
+                <div class="text-sm negative">-1.3%</div>
+            </div>
+            <div class="data-strip-item">
+                <div class="text-xs text-slate-500 mb-1">FTSE MIB</div>
+                <div class="text-xl font-bold text-white">44.152</div>
+                <div class="text-sm negative">-1.0%</div>
+            </div>
+            <div class="data-strip-item">
+                <div class="text-xs text-slate-500 mb-1">WTI Crude</div>
+                <div class="text-xl font-bold text-white">$90.90</div>
+                <div class="text-sm negative">+12.2%</div>
+            </div>
+        </div>
+
+        <!-- Section title -->
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold montserrat-font text-white flex items-center gap-2">
+                <span class="w-1 h-6 bg-teal-500 rounded-full inline-block"></span>
+                Ultimi Articoli
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">LIVE • 6 Mar 2026</span>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <!-- Card 1 -->
+            <a href="#" class="block glass-card overflow-hidden group">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="cat-pill cat-wall-street">Wall Street</span>
+                        <span class="text-xs text-slate-500">6 Mar</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 leading-snug group-hover:text-teal-400 transition">
+                        Dow -453, Jobs Report shock e petrolio $90: peggior settimana da mesi
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">S&P -1,3%, Nasdaq -1,6%. NFP -92K, disoccupazione 4,4%. VIX a 29. Marvell +16%.</p>
+                </div>
+                <div class="h-1 bg-gradient-to-r from-blue-500 to-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="#" class="block glass-card overflow-hidden group">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="cat-pill cat-milano">Piazza Affari</span>
+                        <span class="text-xs text-slate-500">6 Mar</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 leading-snug group-hover:text-teal-400 transition">
+                        FTSE MIB -1% a 44.152 — Difesa vola: AVIO +8%, Leonardo +3,4%
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Settimana -6,5%. Fincantieri +2,6%, ENI +1,5%. STM -5%, BPER -3,8%.</p>
+                </div>
+                <div class="h-1 bg-gradient-to-r from-emerald-500 to-green-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="#" class="block glass-card overflow-hidden group">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="cat-pill cat-commodities">Commodities</span>
+                        <span class="text-xs text-slate-500">6 Mar</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 leading-snug group-hover:text-teal-400 transition">
+                        WTI $90,90: settimana record +35%, la più grande dal 1983
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Brent $92,69. Hormuz fermo. Iraq chiude 1,5M bpd. Trump chiede resa Iran.</p>
+                </div>
+                <div class="h-1 bg-gradient-to-r from-amber-500 to-yellow-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
+
+            <!-- Card 4 -->
+            <a href="#" class="block glass-card overflow-hidden group">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="cat-pill cat-macro">Macroeconomia</span>
+                        <span class="text-xs text-slate-500">6 Mar</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 leading-snug group-hover:text-teal-400 transition">
+                        Jobs Report shock: USA perdono 92.000 posti, disoccupazione 4,4%
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">NFP -92K vs +59K attesi. Salari +3,8%. Stagflazione in vista? Fed in trappola.</p>
+                </div>
+                <div class="h-1 bg-gradient-to-r from-red-500 to-rose-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
+
+            <!-- Card 5 -->
+            <a href="#" class="block glass-card overflow-hidden group">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="cat-pill cat-tech">Tech & AI</span>
+                        <span class="text-xs text-slate-500">6 Mar</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 leading-snug group-hover:text-teal-400 transition">
+                        Marvell Technology vola +16%: earnings record, chip AI da $1,5B
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Ricavi Q4 $2,22B (+22%). Data center $1,65B record. BofA upgrade Buy $110.</p>
+                </div>
+                <div class="h-1 bg-gradient-to-r from-purple-500 to-indigo-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
+
+            <!-- Card 6 (old) -->
+            <a href="#" class="block glass-card overflow-hidden group opacity-70">
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="cat-pill cat-wall-street">Wall Street</span>
+                        <span class="text-xs text-slate-500">5 Mar</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 leading-snug group-hover:text-teal-400 transition">
+                        Dow crolla -785 punti, petrolio a $81: Iran colpisce petroliera
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">S&P -0,56%, Russell -2,7%. Difesa in rally. Airlines -5%. WTI +8%.</p>
+                </div>
+                <div class="h-1 bg-gradient-to-r from-blue-500 to-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 py-12" style="background:rgba(15,23,42,0.95);border-top:1px solid rgba(100,116,139,0.15);">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <span class="lobster-font text-4xl text-teal-400">Alma Finanza</span>
+            <p class="text-slate-500 mt-4">&copy; 2026 Alma Finanza. Tutti i diritti riservati.</p>
+            <p class="text-slate-600 text-sm mt-2">Le informazioni fornite sono a scopo informativo e non costituiscono consulenza finanziaria.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

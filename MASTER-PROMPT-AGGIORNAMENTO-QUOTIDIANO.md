@@ -154,17 +154,17 @@ e il credito fotografico si stampa da solo sotto l'immagine (obbligatorio per le
    4. registrala in crediti.json con soggetto, autore, licenza, fonte e temi
    Non usare MAI --forza per aggirare il controllo negli aggiornamenti quotidiani.
 
-⛔ REGOLA FREQUENZA SOGGETTO — MAX 1 VOLTA OGNI 10 GIORNI PER SOGGETTO GENERICO:
+⛔ REGOLA FREQUENZA SOGGETTO — MAX 1 VOLTA OGNI 25 GIORNI PER SOGGETTO GENERICO:
    Alcuni soggetti fotografici rappresentano categorie intere (NYSE per Wall Street,
    Palazzo Mezzanotte / Piazza Affari per la Borsa di Milano, la Fed di Washington per
    le banche centrali). Usarli ogni giorno satura la homepage e la fa sembrare un archivio.
 
-   SOGGETTI CON LIMITE 1/10gg (verificare la data dell'ultimo utilizzo prima di usarli):
+   SOGGETTI CON LIMITE 1/25gg (verificare la data dell'ultimo utilizzo prima di usarli):
    - piazza-affari.jpg / palazzo-mezzanotte → Borsa di Milano generica
    - nyse.jpg / nyse-2.jpg → Wall Street / NYSE generica
    - fed.jpg / fed-washington.jpg → sede della Federal Reserve
 
-   Se meno di 10 giorni separano l'aggiornamento odierno dall'ultimo uso di quel soggetto:
+   Se meno di 25 giorni separano l'aggiornamento odierno dall'ultimo uso di quel soggetto:
    ✓ Usa invece la foto dell'azienda o del titolo protagonista dell'articolo (Stellantis,
      Moncler, Nvidia, ecc.) — è sempre più specifica e più interessante.
    ✓ Oppure scarica una foto alternativa da Unsplash, Pexels o Wikimedia Commons
