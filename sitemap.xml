@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 2 Ottobre 2026 (Venerdì — Jobs report settembre delude: NFP +29K vs +84K atteso, disoccupazione 4,2%. S&P 500 +0,70% a 7.778, Nasdaq record a 30.808 (+1,00%), Dow +0,50% a 51.176. Treasury 10Y scende a 5,18%. FTSE MIB +0,49% a 50.483, Stellantis +3,78%, banche in calo. Nvidia +3%, AMD massimo storico.) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-02ott-jobs-report-sp500-nasdaq-record.html</loc>
+      <lastmod>2026-10-02</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-02</news:publication_date>
+          <news:title>Lavoro debole, Wall Street vola: S&P 500 +0,70%, Nasdaq record a 30.808</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-02ott-ftse-mib-50483-banche-stellantis.html</loc>
+      <lastmod>2026-10-02</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-02</news:publication_date>
+          <news:title>Piazza Affari +0,49% a 50.483: Stellantis vola, banche sotto pressione</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-02ott-nvidia-amd-massimi-nasdaq-record.html</loc>
+      <lastmod>2026-10-02</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-02</news:publication_date>
+          <news:title>Nvidia e AMD ai massimi storici: Nasdaq vola a 30.808, record assoluto</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 1 Ottobre 2026 (Giovedì — S&P 500 −0,25% a 7.651, Dow −0,86% a 50.906, Nasdaq +0,24% a 26.861. PCE agosto core 3,0% sotto attese. FTSE MIB −2,21% a 50.238, spread BTP-Bund 118 pb, banche in calo. WTI $90,06 −0,40%, negoziati Iran-USA su Hormuz.) -->

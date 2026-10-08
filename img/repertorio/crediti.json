@@ -675,5 +675,35 @@
       "navigazione",
       "commodities"
     ]
+  },
+  "manhattan-financial-district": {
+    "file": "manhattan-financial-district.jpg",
+    "soggetto": "Il Financial District di Lower Manhattan visto dall'alto, con i grattacieli di Wall Street",
+    "autore": "Don Ramey Logan",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Financial_District_Lower_Manhattan_photo_Don_Ramey_Logan.jpg",
+    "temi": [
+      "wall street",
+      "new york",
+      "borsa usa",
+      "financial district",
+      "manhattan",
+      "indici usa"
+    ]
+  },
+  "alfa-romeo-giulia": {
+    "file": "alfa-romeo-giulia.jpg",
+    "soggetto": "Una Alfa Romeo Giulia Quadrifoglio Verde, berlina sportiva del gruppo Stellantis",
+    "autore": "Calreyn88",
+    "licenza": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:2023_Alfa_Romeo_Giulia_Quadrifoglio_Verde.jpg",
+    "temi": [
+      "stellantis",
+      "alfa romeo",
+      "automotive",
+      "auto",
+      "fca",
+      "piazza affari"
+    ]
   }
 }
