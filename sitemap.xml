@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 14 Ottobre 2026 (Mercoledì — CPI settembre USA al 3,7% annuo da 3,4%, +0,6% m/m, core 2,6%, energia +5,2%: oltre il 3,6% atteso. S&P 500 −1,11% a 7.718,94, Nasdaq −1,88% a 26.692,87, Dow −0,09% a 51.621,48, Russell 2000 −1,93%. Interrotta la serie piu' lunga da oltre sei anni senza un calo dell'1%. Treasury 10 anni fino al 5,33% poi di nuovo al 5,20%. FTSE MIB −0,61% a 49.753, sotto i 50.000, unica Borsa europea negativa: Parigi +0,58%, Francoforte +0,14%. Spread BTP-Bund a 108 pb. Prysmian −5,5%, STM −1,77% a 43,05 euro con settimana a −13,7%. WTI $95,09 +1,01%, oro $4.083,22 −1,88%, Bitcoin circa $81.800 −2%.) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-14ott-cpi-37-sp500-7718-selloff-chip.html</loc>
+      <lastmod>2026-10-14</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-14</news:publication_date>
+          <news:title>Inflazione al 3,7% e Wall Street cede: S&amp;P 500 −1,11%, Nasdaq −1,88%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-14ott-ftse-mib-49753-sotto-50mila-banche.html</loc>
+      <lastmod>2026-10-14</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-14</news:publication_date>
+          <news:title>Milano sotto i 50.000: FTSE MIB −0,61%, unica Borsa negativa d'Europa</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-stm-14ott-43-euro-settimana-nera-chery-upgrade.html</loc>
+      <lastmod>2026-10-14</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-14</news:publication_date>
+          <news:title>STMicroelectronics a 43 euro: −13,7% in una settimana, e arriva un upgrade a Buy</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 6 Ottobre 2026 (Martedì — FTSE MIB +0,87% a 51.261, terza seduta in rialzo, migliore piazza europea. Spread BTP-Bund a circa 106 pb, BTP 10 anni 4,54% contro OAT francese 4,72%: sorpasso storico. Inwit +3,56%, Nexi +2,9%, Technoprobe +2,8% con JP Morgan Overweight target 45 euro. Allarme Banca di Francia: debito 3.595 mld, 119% del PIL, deficit 5,4%. S&P 500 a nuovo record, rendimenti Treasury ai massimi da 24 anni, Prices Paid ISM 77,9%. Brent $100,84, oro $4.121,39.) -->
