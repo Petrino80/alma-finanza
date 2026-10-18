@@ -5,9 +5,22 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articolo Speciale 18 Ottobre 2026 — 256 giorni di Alma Finanza -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-speciale-18ott-256-giorni-alma-finanza.html</loc>
+      <lastmod>2026-10-18</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-18</news:publication_date>
+          <news:title>256 giorni di Alma Finanza: tutto quello che i mercati ci hanno insegnato</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 16 Ottobre 2026 (Venerdì — Nasdaq −2,1% a 26.140, S&P 500 −1,1% a 7.659, Dow −0,3% a 52.002. Intel −5,8%, AMD −5,95%, CoreWeave −12%, $1.640T chip stocks bruciati in 6 sedute. FTSE MIB +0,93% a 49.857: Leonardo +4,7% (DRS $500M, Iveco Defence UE), UniCredit ok BCE >30% Commerzbank, Technoprobe −5,2%. Summit UE Bruxelles: riarmo europeo accelera, Hensoldt +6%, Rheinmetall +4,4%. WTI $101,41 +3,51%.) -->
