@@ -738,5 +738,29 @@
       "geopolitica",
       "commodities"
     ]
+  },
+  "intel-hq": {
+    "file": "intel-hq.jpg",
+    "soggetto": "La sede di Intel a 2200 Mission College Boulevard, Santa Clara, California",
+    "autore": "Coolcaesar",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Intel_Headquarters_in_2023.jpg",
+    "temi": ["intel", "chip", "semiconduttori", "wall street", "tech", "nasdaq", "ai", "california"]
+  },
+  "eurofighter": {
+    "file": "eurofighter.jpg",
+    "soggetto": "Un Eurofighter Typhoon al RAF Museum di Hendon, Londra. Il Typhoon è prodotto dal consorzio Airbus, BAE Systems e Leonardo",
+    "autore": "Ad Meskens",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:London_RAF_Museum_Hendon_Eurofighter_Typhoon_04.jpg",
+    "temi": ["eurofighter", "typhoon", "leonardo", "difesa", "aerospazio", "nato", "piazza affari", "ftse mib", "aeronautica"]
+  },
+  "rheinmetall-lynx": {
+    "file": "rheinmetall-lynx.jpg",
+    "soggetto": "Il veicolo da combattimento Lynx IFV di Rheinmetall alla fiera IDET 2017 a Brno, Repubblica Ceca",
+    "autore": "Karel Šubrt",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Lynx_IFV_-_IDET_2017.JPG",
+    "temi": ["rheinmetall", "difesa", "forze armate", "nato", "europa", "armamenti", "geopolitica", "ucraina"]
   }
 }
