@@ -705,5 +705,38 @@
       "fca",
       "piazza affari"
     ]
+  },
+  "unicredit-tower": {
+    "file": "unicredit-tower.jpg",
+    "soggetto": "La Torre UniCredit nel distretto di Porta Nuova a Milano, sede principale di UniCredit",
+    "autore": "Luca Nebuloni",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Unicredit_Tower_(17591820908).jpg",
+    "temi": [
+      "unicredit",
+      "banche",
+      "milano",
+      "piazza affari",
+      "ftse mib",
+      "credito",
+      "italia"
+    ]
+  },
+  "piattaforma-mare": {
+    "file": "piattaforma-mare.jpg",
+    "soggetto": "Piattaforma di perforazione offshore nel Mare di Okhotsk",
+    "autore": "Maksim Safiullin",
+    "licenza": "CC BY 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Drilling_Platform_In_The_Okhotsk_Sea_(172197429).jpeg",
+    "temi": [
+      "petrolio",
+      "brent",
+      "wti",
+      "energia",
+      "offshore",
+      "perforazione",
+      "geopolitica",
+      "commodities"
+    ]
   }
 }
