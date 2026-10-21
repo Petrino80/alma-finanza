@@ -5,9 +5,44 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Articoli 21 Ottobre 2026 (Mercoledì — trimestrali Q3 di SpaceX e Netflix pubblicate il 20 ottobre dopo la chiusura, il 21 e' la seduta di reazione. SpaceX: ricavi 14,58 mld $ (+161%) contro 12,72 attesi, primo utile netto da quotata a 4,4 mld da −1,1 mld, EBITDA rettificato 8,8 mld (+306%), segmento Super Intelligence a 7,56 mld da 813 mln, backlog 63 mld, capex Q4 35-40 mld, titolo +8,4%, lock-up su 1,3 mld azioni il 22. Netflix: EPS 0,87 $ vs 0,82, ricavi 12,87 mld in linea, target pubblicita' tagliato 10%, guidance Q4 13,4 mld (+11,5%), titolo 65,04 $ −5,31%, nuovo minimo 52 settimane. Indici: S&P 500 7.757,17 +0,58%, Dow 52.856,09 +0,69%, Nasdaq 26.702,86 +1,05%, terza seduta in rialzo. FTSE MIB 49.643 +1,17%. WTI $97,52, oro $4.118, Bitcoin $83.400.) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-spacex-21ott-q3-ricavi-146-miliardi-primo-utile.html</loc>
+      <lastmod>2026-10-21</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-21</news:publication_date>
+          <news:title>SpaceX +8,4%: ricavi a 14,58 miliardi (+161%) e primo utile da quando è in Borsa</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-netflix-21ott-q3-batte-attese-crolla-guidance-pubblicita.html</loc>
+      <lastmod>2026-10-21</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-21</news:publication_date>
+          <news:title>Netflix batte le attese e perde il 5,31%: il problema è la pubblicità</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-21ott-sp500-7757-spacex-netflix-due-velocita.html</loc>
+      <lastmod>2026-10-21</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-21</news:publication_date>
+          <news:title>Wall Street a due velocità: S&amp;P 500 +0,58%, SpaceX +8,4% e Netflix −5,31%</news:title>
+      </news:news>
   </url>
 
   <!-- Articoli 14 Ottobre 2026 (Mercoledì — CPI settembre USA al 3,7% annuo da 3,4%, +0,6% m/m, core 2,6%, energia +5,2%: oltre il 3,6% atteso. S&P 500 −1,11% a 7.718,94, Nasdaq −1,88% a 26.692,87, Dow −0,09% a 51.621,48, Russell 2000 −1,93%. Interrotta la serie piu' lunga da oltre sei anni senza un calo dell'1%. Treasury 10 anni fino al 5,33% poi di nuovo al 5,20%. FTSE MIB −0,61% a 49.753, sotto i 50.000, unica Borsa europea negativa: Parigi +0,58%, Francoforte +0,14%. Spread BTP-Bund a 108 pb. Prysmian −5,5%, STM −1,77% a 43,05 euro con settimana a −13,7%. WTI $95,09 +1,01%, oro $4.083,22 −1,88%, Bitcoin circa $81.800 −2%.) -->
