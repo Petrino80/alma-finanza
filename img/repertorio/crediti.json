@@ -658,5 +658,62 @@
       "abbigliamento sportivo",
       "consumi"
     ]
+  },
+  "falcon9-starlink": {
+    "file": "falcon9-starlink.jpg",
+    "soggetto": "Un razzo Falcon 9 di SpaceX al decollo per una missione Starlink",
+    "autore": "U.S. Space Force / Joshua Conti",
+    "licenza": "pubblico dominio",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Falcon_9_Starlink_8-10_Launch_(8623019).jpg",
+    "temi": [
+      "spacex",
+      "starlink",
+      "razzi",
+      "lanci",
+      "spazio",
+      "aerospazio"
+    ]
+  },
+  "netflix-sede": {
+    "file": "netflix-sede.jpg",
+    "soggetto": "L'edificio di 100 Winchester Circle a Los Gatos, in California, con l'insegna di Netflix",
+    "autore": "Coolcaesar",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:100_Winchester_Circle.jpg",
+    "temi": [
+      "netflix",
+      "streaming",
+      "media",
+      "abbonamenti",
+      "corporate usa"
+    ]
+  },
+  "supermercato-prezzi": {
+    "file": "supermercato-prezzi.jpg",
+    "soggetto": "Cartellini dei prezzi nel reparto ortofrutta di un supermercato a Clearwater, in Florida",
+    "autore": "MatthewHoobin",
+    "licenza": "CC0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Parsley_for_99_cents,_and_other_vegetables,_in_supermarket_in_Clearwater,_Florida,_US_on_25_September_2020.jpg",
+    "temi": [
+      "inflazione",
+      "cpi",
+      "prezzi al consumo",
+      "consumi usa",
+      "spesa"
+    ]
+  },
+  "unicredit-tower": {
+    "file": "unicredit-tower.jpg",
+    "soggetto": "La UniCredit Tower vista da Piazza Gae Aulenti a Milano",
+    "autore": "MauriTz3",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Punta_in_alto.jpg",
+    "temi": [
+      "unicredit",
+      "banche",
+      "milano",
+      "porta nuova",
+      "piazza affari"
+    ]
   }
 }
