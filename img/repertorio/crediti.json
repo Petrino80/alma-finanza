@@ -715,5 +715,19 @@
       "porta nuova",
       "piazza affari"
     ]
+  },
+  "tesla-gigafactory": {
+    "file": "tesla-gigafactory.jpg",
+    "soggetto": "La Gigafactory Tesla di Grünheide, in Brandeburgo, vista dall'alto al tramonto",
+    "autore": "MEHR8000",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Tesla_Giga_Factory_BerlinBrandenburg_Drohne_2.jpg",
+    "temi": [
+      "tesla",
+      "automotive",
+      "gigafactory",
+      "elon musk",
+      "corporate usa"
+    ]
   }
 }
