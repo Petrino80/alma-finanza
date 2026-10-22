@@ -861,5 +861,20 @@
       "presidente fed",
       "politica monetaria"
     ]
+  },
+  "datacenter-iowa": {
+    "file": "datacenter-iowa.jpg",
+    "soggetto": "Il centro dati di Google a Council Bluffs, in Iowa",
+    "autore": "Chad Davis",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AGoogle_Data_Center%2C_Council_Bluffs_Iowa_%2849062863796%29.jpg",
+    "temi": [
+      "data center",
+      "neocloud",
+      "capex ai",
+      "infrastruttura ai",
+      "hyperscaler",
+      "coreweave"
+    ]
   }
 }

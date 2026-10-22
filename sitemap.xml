@@ -5,10 +5,23 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- Articoli 22 Ottobre 2026 (Giovedì — Nasdaq −2,6% 26.008,86, S&P 500 −1,21% 7.663,43, Dow +0,02% 52.867,98; Huang: capitale scarso per i neocloud; CoreWeave −10%, Meta −7%) -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-22ott-nasdaq-26008-huang-capitale-neocloud.html</loc>
+      <lastmod>2026-10-22</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-10-22</news:publication_date>
+          <news:title>Nasdaq −2,6% a 26.008 mentre il Dow resta fermo: Huang dice che all'AI manca il capitale</news:title>
+      </news:news>
+  </url>
+
   <url>
       <loc>https://www.almafinanza.com/articolo-technoprobe-02ott-probe-card-rally-chip-ai.html</loc>
       <lastmod>2026-10-02</lastmod>
