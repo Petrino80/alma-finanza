@@ -876,5 +876,34 @@
       "hyperscaler",
       "coreweave"
     ]
+  },
+  "prysmian-nave": {
+    "file": "prysmian-nave.jpg",
+    "soggetto": "La nave posacavi Leonardo da Vinci del gruppo Prysmian",
+    "autore": "Ian Gratton",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ALeonardo_Da_Vinci%2C_Prysmian_Group.jpg",
+    "temi": [
+      "prysmian",
+      "cavi",
+      "posacavi",
+      "data center",
+      "elettrificazione",
+      "ftse mib"
+    ]
+  },
+  "meta-hq": {
+    "file": "meta-hq.jpg",
+    "soggetto": "Un campus di Meta a Bellevue, nello stato di Washington",
+    "autore": "Exilexi",
+    "licenza": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AMeta_%28Facebook%29_campus_in_Bellevue%2C_Washington.jpg",
+    "temi": [
+      "meta",
+      "facebook",
+      "capex ai",
+      "free cash flow",
+      "big tech"
+    ]
   }
 }
