@@ -34,3 +34,12 @@ Temporary Items
 
 # Claude
 .claude/
+
+# Output di generazione (immagini post LinkedIn, carousel, foto di stock).
+# Non e' referenziato da nessuna pagina del sito: i file gia' tracciati
+# restano in versione, i nuovi vengono ignorati per non gonfiare il repo.
+output/
+
+# Cache Python degli script di aggiornamento
+__pycache__/
+*.pyc

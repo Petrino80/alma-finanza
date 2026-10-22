@@ -1,30 +1,170 @@
 {
   "_nota": "Libreria fotografica di repertorio di Alma Finanza. Ogni foto è a licenza libera, verificata su Wikimedia Commons. Il credito è OBBLIGATORIO per le licenze CC BY e CC BY-SA e viene stampato in automatico sotto l'immagine da applica-foto-articolo.py. Non aggiungere foto senza compilare tutti i campi.",
-  "piazza-affari": {
-    "file": "piazza-affari.jpg",
-    "soggetto": "Palazzo Mezzanotte, sede della Borsa Italiana in Piazza Affari a Milano",
-    "autore": "Stefano Stabile",
-    "licenza": "CC BY-SA 3.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Palazzo_Mezzanotte_-_Piazza_Affari_-_Milano_-_Italy.JPG",
+  "alfa-romeo-giulia": {
+    "file": "alfa-romeo-giulia.jpg",
+    "soggetto": "Una Alfa Romeo Giulia Quadrifoglio Verde, berlina sportiva del gruppo Stellantis",
+    "autore": "Calreyn88",
+    "licenza": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:2023_Alfa_Romeo_Giulia_Quadrifoglio_Verde.jpg",
     "temi": [
+      "stellantis",
+      "alfa romeo",
+      "automotive",
+      "auto",
+      "fca",
+      "piazza affari"
+    ]
+  },
+  "banca-italia": {
+    "file": "banca-italia.jpg",
+    "soggetto": "Palazzo Koch, sede della Banca d'Italia a Roma in Via Nazionale",
+    "autore": "Szilas",
+    "licenza": "CC0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Palazzo_Koch,_Roma,_2014-11-08.jpg",
+    "temi": [
+      "banca d'italia",
+      "banche",
+      "spread",
+      "btp",
+      "tassi",
       "piazza affari",
-      "borsa milano",
-      "ftse mib",
       "italia"
     ]
   },
-  "nyse": {
-    "file": "nyse.jpg",
-    "soggetto": "La facciata del New York Stock Exchange a Wall Street",
-    "autore": "Donatingpictures",
-    "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange_Facade_-_New_York_City,_USA.jpg",
+  "charging-bull": {
+    "file": "charging-bull.jpg",
+    "soggetto": "Il Charging Bull (Toro Caricante) in Bowling Green a Manhattan, simbolo di Wall Street",
+    "autore": "Ken Lund",
+    "licenza": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Charging_Bull_(7754768316).jpg",
     "temi": [
       "wall street",
-      "usa",
+      "new york",
+      "borsa usa",
       "s&p 500",
       "dow jones",
       "nasdaq"
+    ]
+  },
+  "chip-wafer": {
+    "file": "chip-wafer.jpg",
+    "soggetto": "Un wafer di silicio su cui vengono realizzati i microchip",
+    "autore": "2x910",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ASi_wafer.jpg",
+    "temi": [
+      "chip",
+      "wafer",
+      "silicio",
+      "semiconduttori",
+      "micron",
+      "amd"
+    ]
+  },
+  "corsa-amatoriale": {
+    "file": "corsa-amatoriale.jpg",
+    "soggetto": "Partecipanti a una corsa su strada amatoriale",
+    "autore": "Wilfredor",
+    "licenza": "CC0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ARunners_in_a_race%2C_Vieux-Limoilou.jpg",
+    "temi": [
+      "nike",
+      "lululemon",
+      "on holding",
+      "athleisure",
+      "running",
+      "abbigliamento sportivo",
+      "consumi"
+    ]
+  },
+  "dario-amodei": {
+    "file": "dario-amodei.jpg",
+    "soggetto": "Dario Amodei, amministratore delegato di Anthropic",
+    "autore": "TechCrunch",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ADario_Amodei_at_TechCrunch_Disrupt_2023_01.jpg",
+    "temi": [
+      "anthropic",
+      "dario amodei",
+      "intelligenza artificiale",
+      "sicurezza ai",
+      "regolamentazione"
+    ]
+  },
+  "data-center": {
+    "file": "data-center.jpg",
+    "soggetto": "Armadi di server in un centro dati",
+    "autore": "Carl Lender",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ADatacenter_Server_Racks_%2822370909788%29.jpg",
+    "temi": [
+      "data center",
+      "intelligenza artificiale",
+      "cloud",
+      "infrastruttura ai",
+      "server"
+    ]
+  },
+  "ecb": {
+    "file": "ecb.jpg",
+    "soggetto": "La sede della Banca Centrale Europea (BCE) a Francoforte sul Meno",
+    "autore": "Ank Kumar",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:European_Central_Bank_Headquarters_(Ank_Kumar,_Infosys_Limited)_02.jpg",
+    "temi": [
+      "bce",
+      "banca centrale europea",
+      "tassi",
+      "euro",
+      "macro",
+      "francoforte",
+      "politica monetaria"
+    ]
+  },
+  "eni": {
+    "file": "eni.jpg",
+    "soggetto": "Il quinto palazzo uffici di Eni a San Donato Milanese",
+    "autore": "Marcuscalabresus",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AQuinto_palazzo_degli_uffici_dell%27ENI_lato_via_Emilia_a_San_Donato_Milanese_%2829_gennaio_2023%29.jpg",
+    "temi": [
+      "eni",
+      "energia italia",
+      "oil&gas",
+      "san donato"
+    ]
+  },
+  "eurofighter": {
+    "file": "eurofighter.jpg",
+    "soggetto": "Un Eurofighter Typhoon al RAF Museum di Hendon, Londra. Il Typhoon è prodotto dal consorzio Airbus, BAE Systems e Leonardo",
+    "autore": "Ad Meskens",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:London_RAF_Museum_Hendon_Eurofighter_Typhoon_04.jpg",
+    "temi": [
+      "eurofighter",
+      "typhoon",
+      "leonardo",
+      "difesa",
+      "aerospazio",
+      "nato",
+      "piazza affari",
+      "ftse mib",
+      "aeronautica"
+    ]
+  },
+  "falcon9-starlink": {
+    "file": "falcon9-starlink.jpg",
+    "soggetto": "Un razzo Falcon 9 di SpaceX al decollo per una missione Starlink",
+    "autore": "U.S. Space Force / Joshua Conti",
+    "licenza": "pubblico dominio",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Falcon_9_Starlink_8-10_Launch_(8623019).jpg",
+    "temi": [
+      "spacex",
+      "starlink",
+      "razzi",
+      "lanci",
+      "spazio",
+      "aerospazio"
     ]
   },
   "fed": {
@@ -41,78 +181,198 @@
       "macro"
     ]
   },
-  "petrolio": {
-    "file": "petrolio.jpg",
-    "soggetto": "La petroliera Pericles ormeggiata al pontile di una raffineria",
-    "autore": "Calistemon",
-    "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Crude_Oil_Tanker_Pericles_at_BP_Oil_Refinery_Jetty_and_General_Cargo_Ship_Jannes_at_Kwinana_Bulk_Jetty,_December_2020_01.jpg",
+  "fed-board-room": {
+    "file": "fed-board-room.jpg",
+    "soggetto": "La sala del Consiglio della Federal Reserve, dove si riunisce il FOMC",
+    "autore": "Federalreserve",
+    "licenza": "pubblico dominio",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AEc_35_%2825841504020%29.jpg",
     "temi": [
-      "petrolio",
-      "brent",
-      "wti",
-      "energia",
-      "hormuz",
-      "geopolitica",
-      "commodities"
+      "fomc",
+      "fed",
+      "tassi",
+      "decisione",
+      "banca centrale",
+      "treasury",
+      "rendimenti"
     ]
   },
-  "piazza-affari-2": {
-    "file": "piazza-affari-2.jpg",
-    "soggetto": "Palazzo Mezzanotte con la scultura L.O.V.E. in Piazza Affari a Milano",
-    "autore": "Chabe01",
-    "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Palais_Mezzanotte_-_Milan_(IT25)_-_2022-09-03_-_3.jpg",
+  "federal-hall": {
+    "file": "federal-hall.jpg",
+    "soggetto": "Il Federal Hall National Memorial in Wall Street, di fronte alla Borsa di New York",
+    "autore": "Ajay Suresh",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Federal_Hall_(48126566178).jpg",
     "temi": [
+      "wall street",
+      "new york",
+      "borsa usa",
+      "verbali fed"
+    ]
+  },
+  "fiat500": {
+    "file": "fiat500.jpg",
+    "soggetto": "Una Fiat 500 elettrica",
+    "autore": "Daniel Przygoda",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Fiat-500-3%2B1.jpg",
+    "temi": [
+      "stellantis",
+      "fiat",
+      "lancia",
+      "abarth",
+      "automotive"
+    ]
+  },
+  "francoforte": {
+    "file": "francoforte.jpg",
+    "soggetto": "Lo skyline finanziario di Francoforte sul Meno",
+    "autore": "Sneha G Gupta",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AFrankfurt_skyline_at_Main_river_bank.jpg",
+    "temi": [
+      "germania",
+      "francoforte",
+      "dax",
+      "ifo",
+      "bce",
+      "europa"
+    ]
+  },
+  "generali": {
+    "file": "generali.jpg",
+    "soggetto": "Il Palazzo delle Assicurazioni Generali a Trieste",
+    "autore": "Fred Romero",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ATrieste_-_Palazzo_delle_Assicurazioni_Generali_%2838698207781%29.jpg",
+    "temi": [
+      "generali",
+      "banca generali",
+      "assicurazioni",
+      "risparmio gestito"
+    ]
+  },
+  "home-depot": {
+    "file": "home-depot.jpg",
+    "soggetto": "Un negozio Home Depot negli Stati Uniti",
+    "autore": "Tony Webster",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AThe_Home_Depot_-_Store_%2828026779519%29.jpg",
+    "temi": [
+      "home depot",
+      "bricolage",
+      "retail usa",
+      "edilizia",
+      "consumi"
+    ]
+  },
+  "intel-hq": {
+    "file": "intel-hq.jpg",
+    "soggetto": "La sede di Intel a 2200 Mission College Boulevard, Santa Clara, California",
+    "autore": "Coolcaesar",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Intel_Headquarters_in_2023.jpg",
+    "temi": [
+      "intel",
+      "chip",
+      "semiconduttori",
+      "wall street",
+      "tech",
+      "nasdaq",
+      "ai",
+      "california"
+    ]
+  },
+  "intesa-sanpaolo": {
+    "file": "intesa-sanpaolo.jpg",
+    "soggetto": "Il grattacielo di Intesa Sanpaolo a Torino, progettato da Renzo Piano",
+    "autore": "Incola",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AIntesa_Sanpaolo_Building_Turin_05.jpg",
+    "temi": [
+      "intesa sanpaolo",
+      "banche",
+      "torino",
+      "risiko bancario",
+      "opas"
+    ]
+  },
+  "jackson-hole": {
+    "file": "jackson-hole.jpg",
+    "soggetto": "Il fienile di Mormon Row ai piedi dei Grand Teton, a Jackson Hole",
+    "autore": "Jon Sullivan",
+    "licenza": "pubblico dominio",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Barns_grand_tetons.jpg",
+    "temi": [
+      "jackson hole",
+      "simposio",
+      "wyoming"
+    ]
+  },
+  "jensen-huang": {
+    "file": "jensen-huang.jpg",
+    "soggetto": "Jensen Huang, amministratore delegato di Nvidia",
+    "autore": "NVIDIA Taiwan",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Jensen_Huang_at_Computex_Taipei_20160531b.jpg",
+    "temi": [
+      "jensen huang",
+      "trimestrale nvidia"
+    ]
+  },
+  "leonardo": {
+    "file": "leonardo.jpg",
+    "soggetto": "Un elicottero Leonardo AW139",
+    "autore": "James",
+    "licenza": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:G-XXEE_Leonardo_AW139_Helicopter.jpg",
+    "temi": [
+      "leonardo",
+      "difesa",
+      "aerospazio"
+    ]
+  },
+  "manhattan-financial-district": {
+    "file": "manhattan-financial-district.jpg",
+    "soggetto": "Il Financial District di Lower Manhattan visto dall'alto, con i grattacieli di Wall Street",
+    "autore": "Don Ramey Logan",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Financial_District_Lower_Manhattan_photo_Don_Ramey_Logan.jpg",
+    "temi": [
+      "wall street",
+      "new york",
+      "borsa usa",
+      "financial district",
+      "manhattan",
+      "indici usa"
+    ]
+  },
+  "milano-skyline-finanziario": {
+    "file": "milano-skyline-finanziario.jpg",
+    "soggetto": "Lo skyline del distretto finanziario di Milano (Porta Nuova) con la stazione di Porta Garibaldi",
+    "autore": "FlavMi",
+    "licenza": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Milano_Garibaldi_area_from_above.jpg",
+    "temi": [
+      "milano",
       "piazza affari",
       "borsa milano",
       "ftse mib",
       "italia"
     ]
   },
-  "nyse-2": {
-    "file": "nyse-2.jpg",
-    "soggetto": "Il New York Stock Exchange al numero 11 di Wall Street",
-    "autore": "Ken Lund",
-    "licenza": "CC BY-SA 2.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange,_Manhattan,_New_York_(7236984682).jpg",
+  "moderna": {
+    "file": "moderna.jpg",
+    "soggetto": "La sede di Moderna a Cambridge, Massachusetts",
+    "autore": "Fletcher",
+    "licenza": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AModerna_Headquarters%2C_December_2020.jpg",
     "temi": [
-      "wall street",
-      "usa",
-      "s&p 500",
-      "dow jones",
-      "nasdaq"
-    ]
-  },
-  "petrolio-2": {
-    "file": "petrolio-2.jpg",
-    "soggetto": "Serbatoi di stoccaggio in una raffineria",
-    "autore": "Carl Young",
-    "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Refinery_Tanks_5.jpg",
-    "temi": [
-      "petrolio",
-      "brent",
-      "wti",
-      "energia",
-      "raffineria",
-      "commodities"
-    ]
-  },
-  "semiconduttori": {
-    "file": "semiconduttori.jpg",
-    "soggetto": "Lo stabilimento TSMC nel Central Taiwan Science Park di Taichung",
-    "autore": "Briáxis F. Mendes",
-    "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:TSMC_logo_on_Taichung_factory_building.jpg",
-    "temi": [
-      "chip",
-      "semiconduttori",
-      "tech",
-      "ai",
-      "nvidia",
-      "stm",
-      "tsmc"
+      "moderna",
+      "farmaceutici",
+      "biotech",
+      "vaccini",
+      "salute"
     ]
   },
   "mps": {
@@ -140,42 +400,18 @@
       "listino"
     ]
   },
-  "fiat500": {
-    "file": "fiat500.jpg",
-    "soggetto": "Una Fiat 500 elettrica",
-    "autore": "Daniel Przygoda",
+  "netflix-sede": {
+    "file": "netflix-sede.jpg",
+    "soggetto": "L'edificio di 100 Winchester Circle a Los Gatos, in California, con l'insegna di Netflix",
+    "autore": "Coolcaesar",
     "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Fiat-500-3%2B1.jpg",
+    "fonte": "https://commons.wikimedia.org/wiki/File:100_Winchester_Circle.jpg",
     "temi": [
-      "stellantis",
-      "fiat",
-      "lancia",
-      "abarth",
-      "automotive"
-    ]
-  },
-  "leonardo": {
-    "file": "leonardo.jpg",
-    "soggetto": "Un elicottero Leonardo AW139",
-    "autore": "James",
-    "licenza": "CC BY-SA 2.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:G-XXEE_Leonardo_AW139_Helicopter.jpg",
-    "temi": [
-      "leonardo",
-      "difesa",
-      "aerospazio"
-    ]
-  },
-  "jackson-hole": {
-    "file": "jackson-hole.jpg",
-    "soggetto": "Il fienile di Mormon Row ai piedi dei Grand Teton, a Jackson Hole",
-    "autore": "Jon Sullivan",
-    "licenza": "pubblico dominio",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Barns_grand_tetons.jpg",
-    "temi": [
-      "jackson hole",
-      "simposio",
-      "wyoming"
+      "netflix",
+      "streaming",
+      "media",
+      "abbonamenti",
+      "corporate usa"
     ]
   },
   "nvidia": {
@@ -190,261 +426,32 @@
       "chip usa"
     ]
   },
-  "jensen-huang": {
-    "file": "jensen-huang.jpg",
-    "soggetto": "Jensen Huang, amministratore delegato di Nvidia",
-    "autore": "NVIDIA Taiwan",
-    "licenza": "CC BY 2.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Jensen_Huang_at_Computex_Taipei_20160531b.jpg",
-    "temi": [
-      "jensen huang",
-      "trimestrale nvidia"
-    ]
-  },
-  "oro": {
-    "file": "oro.jpg",
-    "soggetto": "Lingotti d'oro da 400 once",
-    "autore": "Andrzej Barabasz",
+  "nyse": {
+    "file": "nyse.jpg",
+    "soggetto": "La facciata del New York Stock Exchange a Wall Street",
+    "autore": "Donatingpictures",
     "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:400-oz-Gold-Bars-AB-01.jpg",
-    "temi": [
-      "oro",
-      "bene rifugio",
-      "metalli"
-    ]
-  },
-  "piattaforma": {
-    "file": "piattaforma.jpg",
-    "soggetto": "Una piattaforma di perforazione nel Mare del Nord",
-    "autore": "Erik Christensen",
-    "licenza": "CC BY-SA 3.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Oil_platform_in_the_North_Sea.jpg",
-    "temi": [
-      "saipem",
-      "tenaris",
-      "eni",
-      "estrazione",
-      "offshore"
-    ]
-  },
-  "stm": {
-    "file": "stm.jpg",
-    "soggetto": "Uno stabilimento STMicroelectronics",
-    "autore": "Alexey M.",
-    "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:STMicroelectronics-building.JPG",
-    "temi": [
-      "stm",
-      "stmicroelectronics",
-      "semiconduttori europei"
-    ]
-  },
-  "chip-wafer": {
-    "file": "chip-wafer.jpg",
-    "soggetto": "Un wafer di silicio su cui vengono realizzati i microchip",
-    "autore": "2x910",
-    "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3ASi_wafer.jpg",
-    "temi": [
-      "chip",
-      "wafer",
-      "silicio",
-      "semiconduttori",
-      "micron",
-      "amd"
-    ]
-  },
-  "moderna": {
-    "file": "moderna.jpg",
-    "soggetto": "La sede di Moderna a Cambridge, Massachusetts",
-    "autore": "Fletcher",
-    "licenza": "CC BY 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3AModerna_Headquarters%2C_December_2020.jpg",
-    "temi": [
-      "moderna",
-      "farmaceutici",
-      "biotech",
-      "vaccini",
-      "salute"
-    ]
-  },
-  "francoforte": {
-    "file": "francoforte.jpg",
-    "soggetto": "Lo skyline finanziario di Francoforte sul Meno",
-    "autore": "Sneha G Gupta",
-    "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3AFrankfurt_skyline_at_Main_river_bank.jpg",
-    "temi": [
-      "germania",
-      "francoforte",
-      "dax",
-      "ifo",
-      "bce",
-      "europa"
-    ]
-  },
-  "treasury": {
-    "file": "treasury.jpg",
-    "soggetto": "Il Treasury Building di Washington, sede del Dipartimento del Tesoro americano",
-    "autore": "MeanieHyaena",
-    "licenza": "CC BY 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3AUs-treasury-building.jpg",
-    "temi": [
-      "treasury",
-      "titoli di stato",
-      "rendimenti",
-      "obbligazioni",
-      "tesoro usa"
-    ]
-  },
-  "generali": {
-    "file": "generali.jpg",
-    "soggetto": "Il Palazzo delle Assicurazioni Generali a Trieste",
-    "autore": "Fred Romero",
-    "licenza": "CC BY 2.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3ATrieste_-_Palazzo_delle_Assicurazioni_Generali_%2838698207781%29.jpg",
-    "temi": [
-      "generali",
-      "banca generali",
-      "assicurazioni",
-      "risparmio gestito"
-    ]
-  },
-  "warsh": {
-    "file": "warsh.jpg",
-    "soggetto": "Kevin Warsh, presidente della Federal Reserve",
-    "autore": "The White House",
-    "licenza": "pubblico dominio",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3AKevin_Warsh_webtake.jpg",
-    "temi": [
-      "kevin warsh",
-      "fed",
-      "presidente fed",
-      "politica monetaria"
-    ]
-  },
-  "portacontainer": {
-    "file": "portacontainer.jpg",
-    "soggetto": "La portacontainer CSCL Indian Ocean in navigazione",
-    "autore": "John Fielding",
-    "licenza": "CC BY 2.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3AContainer_ship_The_CSCL_Indian_Ocean_in_the_Port_of_Felixstowe_%2843954818414%29.jpg",
-    "temi": [
-      "navigazione",
-      "commercio",
-      "hormuz",
-      "logistica",
-      "container",
-      "noli"
-    ]
-  },
-  "eni": {
-    "file": "eni.jpg",
-    "soggetto": "Il quinto palazzo uffici di Eni a San Donato Milanese",
-    "autore": "Marcuscalabresus",
-    "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3AQuinto_palazzo_degli_uffici_dell%27ENI_lato_via_Emilia_a_San_Donato_Milanese_%2829_gennaio_2023%29.jpg",
-    "temi": [
-      "eni",
-      "energia italia",
-      "oil&gas",
-      "san donato"
-    ]
-  },
-  "walmart": {
-    "file": "walmart.jpg",
-    "soggetto": "Un punto vendita Walmart Supercenter negli Stati Uniti",
-    "autore": "JJBers Public",
-    "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3AWalmart_Supercenter%2C_North_Windham%2C_CT.jpg",
-    "temi": [
-      "walmart",
-      "retail",
-      "consumi usa",
-      "grande distribuzione"
-    ]
-  },
-  "rete-elettrica": {
-    "file": "rete-elettrica.jpg",
-    "soggetto": "Tralicci e cavi dell'alta tensione",
-    "autore": "Stefan Andrej Shambora (St_A_Sh)",
-    "licenza": "CC BY 2.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3AHigh_voltage_transmission_towers_and_lines.jpg",
-    "temi": [
-      "prysmian",
-      "terna",
-      "cavi",
-      "rete elettrica",
-      "utility",
-      "infrastrutture"
-    ]
-  },
-  "home-depot": {
-    "file": "home-depot.jpg",
-    "soggetto": "Un negozio Home Depot negli Stati Uniti",
-    "autore": "Tony Webster",
-    "licenza": "CC BY 2.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3AThe_Home_Depot_-_Store_%2828026779519%29.jpg",
-    "temi": [
-      "home depot",
-      "bricolage",
-      "retail usa",
-      "edilizia",
-      "consumi"
-    ]
-  },
-  "data-center": {
-    "file": "data-center.jpg",
-    "soggetto": "Armadi di server in un centro dati",
-    "autore": "Carl Lender",
-    "licenza": "CC BY 2.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3ADatacenter_Server_Racks_%2822370909788%29.jpg",
-    "temi": [
-      "data center",
-      "intelligenza artificiale",
-      "cloud",
-      "infrastruttura ai",
-      "server"
-    ]
-  },
-  "wall-street-sign": {
-    "file": "wall-street-sign.jpg",
-    "soggetto": "Il cartello stradale di Wall Street a New York",
-    "autore": "Alex Proimos",
-    "licenza": "CC BY 2.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3AWall_Street_Sign_%285899884048%29.jpg",
+    "fonte": "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange_Facade_-_New_York_City,_USA.jpg",
     "temi": [
       "wall street",
-      "new york",
-      "borsa usa",
-      "indici"
+      "usa",
+      "s&p 500",
+      "dow jones",
+      "nasdaq"
     ]
   },
-  "federal-hall": {
-    "file": "federal-hall.jpg",
-    "soggetto": "Il Federal Hall National Memorial in Wall Street, di fronte alla Borsa di New York",
-    "autore": "Ajay Suresh",
-    "licenza": "CC BY 2.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Federal_Hall_(48126566178).jpg",
+  "nyse-2": {
+    "file": "nyse-2.jpg",
+    "soggetto": "Il New York Stock Exchange al numero 11 di Wall Street",
+    "autore": "Ken Lund",
+    "licenza": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange,_Manhattan,_New_York_(7236984682).jpg",
     "temi": [
       "wall street",
-      "new york",
-      "borsa usa",
-      "verbali fed"
-    ]
-  },
-  "tim": {
-    "file": "tim.jpg",
-    "soggetto": "La sede di Telecom Italia (TIM) in Corso d'Italia a Roma",
-    "autore": "Carlo Dani",
-    "licenza": "CC BY-SA 3.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Telecom_Italia_-_Sede_Corso_Italia.jpg",
-    "temi": [
-      "tim",
-      "telecom italia",
-      "telecomunicazioni",
-      "piazza affari",
-      "ftse mib"
+      "usa",
+      "s&p 500",
+      "dow jones",
+      "nasdaq"
     ]
   },
   "nyse-trading-floor": {
@@ -459,38 +466,6 @@
       "trading floor",
       "borsa usa",
       "mercati azionari"
-    ]
-  },
-  "vega-c": {
-    "file": "vega-c.jpg",
-    "soggetto": "Il modulo propulsivo superiore AVUM+ del razzo Vega-C durante test di vibrazione all'ESTEC di Noordwijk",
-    "autore": "ESA–G. Porter",
-    "licenza": "CC BY-SA 3.0 IGO",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Vega-C_upper_stage_shaker_test.jpg",
-    "temi": [
-      "avio",
-      "vega-c",
-      "ariane 6",
-      "propulsione spaziale",
-      "aerospazio",
-      "difesa",
-      "razzi"
-    ]
-  },
-  "fed-board-room": {
-    "file": "fed-board-room.jpg",
-    "soggetto": "La sala del Consiglio della Federal Reserve, dove si riunisce il FOMC",
-    "autore": "Federalreserve",
-    "licenza": "pubblico dominio",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3AEc_35_%2825841504020%29.jpg",
-    "temi": [
-      "fomc",
-      "fed",
-      "tassi",
-      "decisione",
-      "banca centrale",
-      "treasury",
-      "rendimenti"
     ]
   },
   "oleodotto-arabia": {
@@ -509,154 +484,16 @@
       "energia"
     ]
   },
-  "tenaris": {
-    "file": "tenaris.jpg",
-    "soggetto": "Una locomotiva di manovra Tenaris Dalmine con un carico di tubi d'acciaio",
-    "autore": "Adriano Bassignana",
-    "licenza": "CC BY 2.5",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3ADraisine-Tenaris-Dalmine-GEKO-IX.jpg",
-    "temi": [
-      "tenaris",
-      "dalmine",
-      "tubi",
-      "acciaio",
-      "oil services",
-      "piazza affari"
-    ]
-  },
-  "intesa-sanpaolo": {
-    "file": "intesa-sanpaolo.jpg",
-    "soggetto": "Il grattacielo di Intesa Sanpaolo a Torino, progettato da Renzo Piano",
-    "autore": "Incola",
+  "oro": {
+    "file": "oro.jpg",
+    "soggetto": "Lingotti d'oro da 400 once",
+    "autore": "Andrzej Barabasz",
     "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3AIntesa_Sanpaolo_Building_Turin_05.jpg",
+    "fonte": "https://commons.wikimedia.org/wiki/File:400-oz-Gold-Bars-AB-01.jpg",
     "temi": [
-      "intesa sanpaolo",
-      "banche",
-      "torino",
-      "risiko bancario",
-      "opas"
-    ]
-  },
-  "dario-amodei": {
-    "file": "dario-amodei.jpg",
-    "soggetto": "Dario Amodei, amministratore delegato di Anthropic",
-    "autore": "TechCrunch",
-    "licenza": "CC BY 2.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3ADario_Amodei_at_TechCrunch_Disrupt_2023_01.jpg",
-    "temi": [
-      "anthropic",
-      "dario amodei",
-      "intelligenza artificiale",
-      "sicurezza ai",
-      "regolamentazione"
-    ]
-  },
-  "ecb": {
-    "file": "ecb.jpg",
-    "soggetto": "La sede della Banca Centrale Europea (BCE) a Francoforte sul Meno",
-    "autore": "Ank Kumar",
-    "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:European_Central_Bank_Headquarters_(Ank_Kumar,_Infosys_Limited)_02.jpg",
-    "temi": [
-      "bce",
-      "banca centrale europea",
-      "tassi",
-      "euro",
-      "macro",
-      "francoforte",
-      "politica monetaria"
-    ]
-  },
-  "charging-bull": {
-    "file": "charging-bull.jpg",
-    "soggetto": "Il Charging Bull (Toro Caricante) in Bowling Green a Manhattan, simbolo di Wall Street",
-    "autore": "Ken Lund",
-    "licenza": "CC BY-SA 2.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Charging_Bull_(7754768316).jpg",
-    "temi": [
-      "wall street",
-      "new york",
-      "borsa usa",
-      "s&p 500",
-      "dow jones",
-      "nasdaq"
-    ]
-  },
-  "milano-skyline-finanziario": {
-    "file": "milano-skyline-finanziario.jpg",
-    "soggetto": "Lo skyline del distretto finanziario di Milano (Porta Nuova) con la stazione di Porta Garibaldi",
-    "autore": "FlavMi",
-    "licenza": "CC BY-SA 3.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Milano_Garibaldi_area_from_above.jpg",
-    "temi": [
-      "milano",
-      "piazza affari",
-      "borsa milano",
-      "ftse mib",
-      "italia"
-    ]
-  },
-  "tampere-industrial": {
-    "file": "tampere-industrial.jpg",
-    "soggetto": "Area industriale di Lielahti a Tampere, Finlandia",
-    "autore": "Methem (Mikko J. Putkonen)",
-    "licenza": "pubblico dominio",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Lielahti_industrial_area_Apr2009.jpg",
-    "temi": [
-      "saipem",
-      "finlandia",
-      "tampere",
-      "industria",
-      "energia",
-      "gas",
-      "impianto industriale"
-    ]
-  },
-  "probe-card": {
-    "file": "probe-card.jpg",
-    "soggetto": "Gli aghi di una probe card, la scheda che collauda i chip ancora sul wafer",
-    "autore": "Jasycheng",
-    "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3ACIS_probe_card.jpg",
-    "temi": [
-      "technoprobe",
-      "probe card",
-      "collaudo chip",
-      "semiconduttori",
-      "test wafer"
-    ]
-  },
-  "banca-italia": {
-    "file": "banca-italia.jpg",
-    "soggetto": "Palazzo Koch, sede della Banca d'Italia a Roma in Via Nazionale",
-    "autore": "Szilas",
-    "licenza": "CC0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Palazzo_Koch,_Roma,_2014-11-08.jpg",
-    "temi": [
-      "banca d'italia",
-      "banche",
-      "spread",
-      "btp",
-      "tassi",
-      "piazza affari",
-      "italia"
-    ]
-  },
-  "corsa-amatoriale": {
-    "file": "corsa-amatoriale.jpg",
-    "soggetto": "Partecipanti a una corsa su strada amatoriale",
-    "autore": "Wilfredor",
-    "licenza": "CC0",
-    "fonte": "https://commons.wikimedia.org/wiki/File%3ARunners_in_a_race%2C_Vieux-Limoilou.jpg",
-    "temi": [
-      "nike",
-      "lululemon",
-      "on holding",
-      "athleisure",
-      "running",
-      "abbigliamento sportivo",
-      "consumi"
+      "oro",
+      "bene rifugio",
+      "metalli"
     ]
   },
   "petroliera-golden-gate": {
@@ -676,50 +513,49 @@
       "commodities"
     ]
   },
-  "manhattan-financial-district": {
-    "file": "manhattan-financial-district.jpg",
-    "soggetto": "Il Financial District di Lower Manhattan visto dall'alto, con i grattacieli di Wall Street",
-    "autore": "Don Ramey Logan",
+  "petrolio": {
+    "file": "petrolio.jpg",
+    "soggetto": "La petroliera Pericles ormeggiata al pontile di una raffineria",
+    "autore": "Calistemon",
     "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Financial_District_Lower_Manhattan_photo_Don_Ramey_Logan.jpg",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Crude_Oil_Tanker_Pericles_at_BP_Oil_Refinery_Jetty_and_General_Cargo_Ship_Jannes_at_Kwinana_Bulk_Jetty,_December_2020_01.jpg",
     "temi": [
-      "wall street",
-      "new york",
-      "borsa usa",
-      "financial district",
-      "manhattan",
-      "indici usa"
+      "petrolio",
+      "brent",
+      "wti",
+      "energia",
+      "hormuz",
+      "geopolitica",
+      "commodities"
     ]
   },
-  "alfa-romeo-giulia": {
-    "file": "alfa-romeo-giulia.jpg",
-    "soggetto": "Una Alfa Romeo Giulia Quadrifoglio Verde, berlina sportiva del gruppo Stellantis",
-    "autore": "Calreyn88",
-    "licenza": "CC BY 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:2023_Alfa_Romeo_Giulia_Quadrifoglio_Verde.jpg",
+  "petrolio-2": {
+    "file": "petrolio-2.jpg",
+    "soggetto": "Serbatoi di stoccaggio in una raffineria",
+    "autore": "Carl Young",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Refinery_Tanks_5.jpg",
     "temi": [
-      "stellantis",
-      "alfa romeo",
-      "automotive",
-      "auto",
-      "fca",
-      "piazza affari"
+      "petrolio",
+      "brent",
+      "wti",
+      "energia",
+      "raffineria",
+      "commodities"
     ]
   },
-  "unicredit-tower": {
-    "file": "unicredit-tower.jpg",
-    "soggetto": "La Torre UniCredit nel distretto di Porta Nuova a Milano, sede principale di UniCredit",
-    "autore": "Luca Nebuloni",
-    "licenza": "CC BY 2.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Unicredit_Tower_(17591820908).jpg",
+  "piattaforma": {
+    "file": "piattaforma.jpg",
+    "soggetto": "Una piattaforma di perforazione nel Mare del Nord",
+    "autore": "Erik Christensen",
+    "licenza": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Oil_platform_in_the_North_Sea.jpg",
     "temi": [
-      "unicredit",
-      "banche",
-      "milano",
-      "piazza affari",
-      "ftse mib",
-      "credito",
-      "italia"
+      "saipem",
+      "tenaris",
+      "eni",
+      "estrazione",
+      "offshore"
     ]
   },
   "piattaforma-mare": {
@@ -739,21 +575,75 @@
       "commodities"
     ]
   },
-  "intel-hq": {
-    "file": "intel-hq.jpg",
-    "soggetto": "La sede di Intel a 2200 Mission College Boulevard, Santa Clara, California",
-    "autore": "Coolcaesar",
-    "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:Intel_Headquarters_in_2023.jpg",
-    "temi": ["intel", "chip", "semiconduttori", "wall street", "tech", "nasdaq", "ai", "california"]
+  "piazza-affari": {
+    "file": "piazza-affari.jpg",
+    "soggetto": "Palazzo Mezzanotte, sede della Borsa Italiana in Piazza Affari a Milano",
+    "autore": "Stefano Stabile",
+    "licenza": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Palazzo_Mezzanotte_-_Piazza_Affari_-_Milano_-_Italy.JPG",
+    "temi": [
+      "piazza affari",
+      "borsa milano",
+      "ftse mib",
+      "italia"
+    ]
   },
-  "eurofighter": {
-    "file": "eurofighter.jpg",
-    "soggetto": "Un Eurofighter Typhoon al RAF Museum di Hendon, Londra. Il Typhoon è prodotto dal consorzio Airbus, BAE Systems e Leonardo",
-    "autore": "Ad Meskens",
+  "piazza-affari-2": {
+    "file": "piazza-affari-2.jpg",
+    "soggetto": "Palazzo Mezzanotte con la scultura L.O.V.E. in Piazza Affari a Milano",
+    "autore": "Chabe01",
     "licenza": "CC BY-SA 4.0",
-    "fonte": "https://commons.wikimedia.org/wiki/File:London_RAF_Museum_Hendon_Eurofighter_Typhoon_04.jpg",
-    "temi": ["eurofighter", "typhoon", "leonardo", "difesa", "aerospazio", "nato", "piazza affari", "ftse mib", "aeronautica"]
+    "fonte": "https://commons.wikimedia.org/wiki/File:Palais_Mezzanotte_-_Milan_(IT25)_-_2022-09-03_-_3.jpg",
+    "temi": [
+      "piazza affari",
+      "borsa milano",
+      "ftse mib",
+      "italia"
+    ]
+  },
+  "portacontainer": {
+    "file": "portacontainer.jpg",
+    "soggetto": "La portacontainer CSCL Indian Ocean in navigazione",
+    "autore": "John Fielding",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AContainer_ship_The_CSCL_Indian_Ocean_in_the_Port_of_Felixstowe_%2843954818414%29.jpg",
+    "temi": [
+      "navigazione",
+      "commercio",
+      "hormuz",
+      "logistica",
+      "container",
+      "noli"
+    ]
+  },
+  "probe-card": {
+    "file": "probe-card.jpg",
+    "soggetto": "Gli aghi di una probe card, la scheda che collauda i chip ancora sul wafer",
+    "autore": "Jasycheng",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ACIS_probe_card.jpg",
+    "temi": [
+      "technoprobe",
+      "probe card",
+      "collaudo chip",
+      "semiconduttori",
+      "test wafer"
+    ]
+  },
+  "rete-elettrica": {
+    "file": "rete-elettrica.jpg",
+    "soggetto": "Tralicci e cavi dell'alta tensione",
+    "autore": "Stefan Andrej Shambora (St_A_Sh)",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AHigh_voltage_transmission_towers_and_lines.jpg",
+    "temi": [
+      "prysmian",
+      "terna",
+      "cavi",
+      "rete elettrica",
+      "utility",
+      "infrastrutture"
+    ]
   },
   "rheinmetall-lynx": {
     "file": "rheinmetall-lynx.jpg",
@@ -761,6 +651,215 @@
     "autore": "Karel Šubrt",
     "licenza": "CC BY-SA 4.0",
     "fonte": "https://commons.wikimedia.org/wiki/File:Lynx_IFV_-_IDET_2017.JPG",
-    "temi": ["rheinmetall", "difesa", "forze armate", "nato", "europa", "armamenti", "geopolitica", "ucraina"]
+    "temi": [
+      "rheinmetall",
+      "difesa",
+      "forze armate",
+      "nato",
+      "europa",
+      "armamenti",
+      "geopolitica",
+      "ucraina"
+    ]
+  },
+  "semiconduttori": {
+    "file": "semiconduttori.jpg",
+    "soggetto": "Lo stabilimento TSMC nel Central Taiwan Science Park di Taichung",
+    "autore": "Briáxis F. Mendes",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:TSMC_logo_on_Taichung_factory_building.jpg",
+    "temi": [
+      "chip",
+      "semiconduttori",
+      "tech",
+      "ai",
+      "nvidia",
+      "stm",
+      "tsmc"
+    ]
+  },
+  "stm": {
+    "file": "stm.jpg",
+    "soggetto": "Uno stabilimento STMicroelectronics",
+    "autore": "Alexey M.",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:STMicroelectronics-building.JPG",
+    "temi": [
+      "stm",
+      "stmicroelectronics",
+      "semiconduttori europei"
+    ]
+  },
+  "supermercato-prezzi": {
+    "file": "supermercato-prezzi.jpg",
+    "soggetto": "Cartellini dei prezzi nel reparto ortofrutta di un supermercato a Clearwater, in Florida",
+    "autore": "MatthewHoobin",
+    "licenza": "CC0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Parsley_for_99_cents,_and_other_vegetables,_in_supermarket_in_Clearwater,_Florida,_US_on_25_September_2020.jpg",
+    "temi": [
+      "inflazione",
+      "cpi",
+      "prezzi al consumo",
+      "consumi usa",
+      "spesa"
+    ]
+  },
+  "tampere-industrial": {
+    "file": "tampere-industrial.jpg",
+    "soggetto": "Area industriale di Lielahti a Tampere, Finlandia",
+    "autore": "Methem (Mikko J. Putkonen)",
+    "licenza": "pubblico dominio",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Lielahti_industrial_area_Apr2009.jpg",
+    "temi": [
+      "saipem",
+      "finlandia",
+      "tampere",
+      "industria",
+      "energia",
+      "gas",
+      "impianto industriale"
+    ]
+  },
+  "tenaris": {
+    "file": "tenaris.jpg",
+    "soggetto": "Una locomotiva di manovra Tenaris Dalmine con un carico di tubi d'acciaio",
+    "autore": "Adriano Bassignana",
+    "licenza": "CC BY 2.5",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3ADraisine-Tenaris-Dalmine-GEKO-IX.jpg",
+    "temi": [
+      "tenaris",
+      "dalmine",
+      "tubi",
+      "acciaio",
+      "oil services",
+      "piazza affari"
+    ]
+  },
+  "tesla-gigafactory": {
+    "file": "tesla-gigafactory.jpg",
+    "soggetto": "La Gigafactory Tesla di Grünheide, in Brandeburgo, vista dall'alto al tramonto",
+    "autore": "MEHR8000",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Tesla_Giga_Factory_BerlinBrandenburg_Drohne_2.jpg",
+    "temi": [
+      "tesla",
+      "automotive",
+      "gigafactory",
+      "elon musk",
+      "corporate usa"
+    ]
+  },
+  "tim": {
+    "file": "tim.jpg",
+    "soggetto": "La sede di Telecom Italia (TIM) in Corso d'Italia a Roma",
+    "autore": "Carlo Dani",
+    "licenza": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Telecom_Italia_-_Sede_Corso_Italia.jpg",
+    "temi": [
+      "tim",
+      "telecom italia",
+      "telecomunicazioni",
+      "piazza affari",
+      "ftse mib"
+    ]
+  },
+  "treasury": {
+    "file": "treasury.jpg",
+    "soggetto": "Il Treasury Building di Washington, sede del Dipartimento del Tesoro americano",
+    "autore": "MeanieHyaena",
+    "licenza": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AUs-treasury-building.jpg",
+    "temi": [
+      "treasury",
+      "titoli di stato",
+      "rendimenti",
+      "obbligazioni",
+      "tesoro usa"
+    ]
+  },
+  "unicredit-tower": {
+    "file": "unicredit-tower.jpg",
+    "soggetto": "La Torre UniCredit nel distretto di Porta Nuova a Milano, sede principale di UniCredit",
+    "autore": "Luca Nebuloni",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Unicredit_Tower_(17591820908).jpg",
+    "temi": [
+      "unicredit",
+      "banche",
+      "milano",
+      "piazza affari",
+      "ftse mib",
+      "credito",
+      "italia"
+    ]
+  },
+  "unicredit-tower-gae-aulenti": {
+    "file": "unicredit-tower-gae-aulenti.jpg",
+    "soggetto": "La UniCredit Tower vista da Piazza Gae Aulenti a Milano",
+    "autore": "MauriTz3",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Punta_in_alto.jpg",
+    "temi": [
+      "unicredit",
+      "banche",
+      "milano",
+      "porta nuova",
+      "piazza affari"
+    ]
+  },
+  "vega-c": {
+    "file": "vega-c.jpg",
+    "soggetto": "Il modulo propulsivo superiore AVUM+ del razzo Vega-C durante test di vibrazione all'ESTEC di Noordwijk",
+    "autore": "ESA–G. Porter",
+    "licenza": "CC BY-SA 3.0 IGO",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Vega-C_upper_stage_shaker_test.jpg",
+    "temi": [
+      "avio",
+      "vega-c",
+      "ariane 6",
+      "propulsione spaziale",
+      "aerospazio",
+      "difesa",
+      "razzi"
+    ]
+  },
+  "wall-street-sign": {
+    "file": "wall-street-sign.jpg",
+    "soggetto": "Il cartello stradale di Wall Street a New York",
+    "autore": "Alex Proimos",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AWall_Street_Sign_%285899884048%29.jpg",
+    "temi": [
+      "wall street",
+      "new york",
+      "borsa usa",
+      "indici"
+    ]
+  },
+  "walmart": {
+    "file": "walmart.jpg",
+    "soggetto": "Un punto vendita Walmart Supercenter negli Stati Uniti",
+    "autore": "JJBers Public",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AWalmart_Supercenter%2C_North_Windham%2C_CT.jpg",
+    "temi": [
+      "walmart",
+      "retail",
+      "consumi usa",
+      "grande distribuzione"
+    ]
+  },
+  "warsh": {
+    "file": "warsh.jpg",
+    "soggetto": "Kevin Warsh, presidente della Federal Reserve",
+    "autore": "The White House",
+    "licenza": "pubblico dominio",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AKevin_Warsh_webtake.jpg",
+    "temi": [
+      "kevin warsh",
+      "fed",
+      "presidente fed",
+      "politica monetaria"
+    ]
   }
 }

@@ -522,7 +522,7 @@ output/
 ## CHIAMATA STANDARD
 
 ```
-Articolo: [URL o path file HTML]
+Articolo: [https://www.almafinanza.com/articolo-geopolitica-15giu-accordo-usa-iran-firma-svizzera-mercati.html]
 
 → Leggi l'articolo, estrai le variabili dallo STEP 1,
   genera output/linkedin_post.txt (formato Yahoo Finance, 20–100 parole)
