@@ -905,5 +905,49 @@
       "free cash flow",
       "big tech"
     ]
+  },
+  "memoria-ram": {
+    "file": "memoria-ram.jpg",
+    "soggetto": "Moduli di memoria RAM",
+    "autore": "Mister rf",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AF11636S.jpg",
+    "temi": [
+      "memoria",
+      "dram",
+      "ram",
+      "chip",
+      "costi componenti",
+      "apple",
+      "margini"
+    ]
+  },
+  "apple-store": {
+    "file": "apple-store.jpg",
+    "soggetto": "Il cubo di vetro dell'Apple Store sulla Fifth Avenue a New York",
+    "autore": "Jorge Láscar",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AApple_Store_-_Fifth_Avenue_%287181848534%29.jpg",
+    "temi": [
+      "apple",
+      "iphone",
+      "big tech",
+      "trimestrale",
+      "consumi"
+    ]
+  },
+  "ferrari-maranello": {
+    "file": "ferrari-maranello.jpg",
+    "soggetto": "Lo stabilimento Ferrari di Maranello",
+    "autore": "CAPTAIN RAJU",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AFerrari_Factory_%28Maranello%2C_Modena%29_in_2018.01.jpg",
+    "temi": [
+      "ferrari",
+      "maranello",
+      "lusso",
+      "automotive",
+      "ftse mib"
+    ]
   }
 }
