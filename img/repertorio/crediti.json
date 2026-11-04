@@ -978,5 +978,20 @@
       "politica usa",
       "mercati"
     ]
+  },
+  "solare-texas": {
+    "file": "solare-texas.jpg",
+    "soggetto": "L'impianto solare di Webberville, vicino ad Austin in Texas, visto dall'alto",
+    "autore": "The tdog",
+    "licenza": "CC0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AWebberville_Solar_Farm_Near_Austin_Texas_from_the_Air.JPG",
+    "temi": [
+      "rinnovabili",
+      "solare",
+      "texas",
+      "energia",
+      "rotazione settoriale",
+      "midterm"
+    ]
   }
 }
