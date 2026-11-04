@@ -949,5 +949,34 @@
       "automotive",
       "ftse mib"
     ]
+  },
+  "cabine-voto": {
+    "file": "cabine-voto.jpg",
+    "soggetto": "Cabine elettorali in un seggio del Minnesota nel giorno del voto",
+    "autore": "Lorie Shaull",
+    "licenza": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AVoting_booths_inside_Combined_Polling_Place_Zion_Lutheran_Church_in_Grand_Rapids%2C_Minnesota_on_Election_Day_%2853317086671%29.jpg",
+    "temi": [
+      "elezioni",
+      "midterm",
+      "voto",
+      "congresso",
+      "politica usa"
+    ]
+  },
+  "campidoglio": {
+    "file": "campidoglio.jpg",
+    "soggetto": "Il Campidoglio di Washington, sede del Congresso degli Stati Uniti",
+    "autore": "Trendscope",
+    "licenza": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AExterior_Of_The_United_States_Capitol_Building.jpg",
+    "temi": [
+      "congresso",
+      "camera",
+      "senato",
+      "washington",
+      "politica usa",
+      "mercati"
+    ]
   }
 }
