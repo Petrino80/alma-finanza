@@ -993,5 +993,47 @@
       "rotazione settoriale",
       "midterm"
     ]
+  },
+  "qualcomm": {
+    "file": "qualcomm.jpg",
+    "soggetto": "La sede di Qualcomm a La Jolla, San Diego",
+    "autore": "Coolcaesar",
+    "licenza": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AQualcomm_Headquarters_La_Jolla.jpg",
+    "temi": [
+      "qualcomm",
+      "chip",
+      "semiconduttori",
+      "trimestrale",
+      "guidance"
+    ]
+  },
+  "milano-porta-nuova": {
+    "file": "milano-porta-nuova.jpg",
+    "soggetto": "Lo skyline di Milano con la Torre Unicredit e il Bosco Verticale",
+    "autore": "Daniel Case",
+    "licenza": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AMilan_skyline_with_Unicredit_Tower_and_Bosco_Verticale.jpg",
+    "temi": [
+      "piazza affari",
+      "milano",
+      "ftse mib",
+      "banche",
+      "italia"
+    ]
+  },
+  "lavoro-cantiere": {
+    "file": "lavoro-cantiere.jpg",
+    "soggetto": "Operai al lavoro in un cantiere edile",
+    "autore": "Boudoirphotographyguide",
+    "licenza": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File%3AConstruction_Photography_of_Workers_on_Site_by_Construction_Photographer_Daniel_Mekis.jpg",
+    "temi": [
+      "occupazione",
+      "jobs report",
+      "mercato del lavoro",
+      "macro usa",
+      "fed"
+    ]
   }
 }
