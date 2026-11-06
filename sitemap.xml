@@ -4,6 +4,42 @@
 
   <!-- Homepage -->
   <url>
+      <loc>https://www.almafinanza.com/articolo-macro-6nov-occupazione-165mila-fed-rialzo-dicembre.html</loc>
+      <lastmod>2026-11-06</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-06</news:publication_date>
+          <news:title>Il copione ribaltato: 165.000 posti di lavoro e ora il mercato scommette su un rialzo dei tassi</news:title>
+      </news:news>
+  </url>
+
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-6nov-rimbalzo-chip-nasdaq-dow-in-calo.html</loc>
+      <lastmod>2026-11-06</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-06</news:publication_date>
+          <news:title>Il rimbalzo a metà: il Nasdaq recupera l'1,09%, il Dow scende ancora e la settimana resta la peggiore dell'anno</news:title>
+      </news:news>
+  </url>
+
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-6nov-ftse-mib-50052-banche-tenaris.html</loc>
+      <lastmod>2026-11-06</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-06</news:publication_date>
+          <news:title>Milano cede lo 0,90% sotto quota 50.100 ma salva la settimana: giù le banche dopo i conti, Tenaris il migliore</news:title>
+      </news:news>
+  </url>
+
+  <url>
     <loc>https://www.almafinanza.com/</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>daily</changefreq>
