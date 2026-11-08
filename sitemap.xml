@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
 
+  <!-- Articoli 8 novembre 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-8nov-settimana-correzione-nasdaq-ai-bubble.html</loc>
+      <lastmod>2026-11-08</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-08</news:publication_date>
+          <news:title>La settimana nera dell'AI: Nasdaq in correzione dopo il -5,5% — poi il rimbalzo di venerdì</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-8nov-settimana-ftse-mib-banche.html</loc>
+      <lastmod>2026-11-08</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-08</news:publication_date>
+          <news:title>FTSE MIB +1,1% nella settimana della tempesta AI: le banche italiane fanno la differenza</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-macro-8nov-fed-dicembre-rialzo-treasury-jobs.html</loc>
+      <lastmod>2026-11-08</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-08</news:publication_date>
+          <news:title>Fed e Treasury: il jobs report da +165.000 cambia i piani di dicembre</news:title>
+      </news:news>
+  </url>
+
   <!-- Homepage -->
   <url>
       <loc>https://www.almafinanza.com/articolo-macro-6nov-occupazione-165mila-fed-rialzo-dicembre.html</loc>
@@ -41,7 +76,7 @@
 
   <url>
     <loc>https://www.almafinanza.com/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
