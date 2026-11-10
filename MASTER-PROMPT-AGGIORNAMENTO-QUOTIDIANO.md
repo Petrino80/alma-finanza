@@ -18,6 +18,7 @@ Claude NON deve chiedere conferma, approvazione o permesso per nessuna di queste
 **Creazione e modifica file:**
 - Creare nuovi file articolo HTML (articolo-*.html)
 - Modificare index.html (homepage)
+- Creare e modificare le pagine archivio (archivio.html, archivio-AAAA-MM.html)
 - Modificare sitemap.xml
 - Modificare categoria-wall-street.html, categoria-borsa-milano.html, categoria-crypto.html, categoria-commodities.html
 - Modificare impara-finanza.html
@@ -251,51 +252,101 @@ Nelle card della homepage, sopra il testo va la stessa foto dell'articolo:
          loading="lazy" class="w-full block object-cover" style="aspect-ratio:1200/630">
 
 FASE 3 — AGGIORNA HOMEPAGE (index.html):
-⚠️ NON CAMBIARE MAI IL FORMATO/LAYOUT DELLA HOMEPAGE. Solo aggiornare i contenuti.
+⚠️ NON CAMBIARE MAI LA DISPOSIZIONE DELLA HOMEPAGE descritta qui sotto. Solo aggiornare i contenuti.
 Design: Modern Minimal con switch light/dark.
 
+📐 DISPOSIZIONE APPROVATA IL 10 NOVEMBRE 2026 (sostituisce la griglia uniforme del 3 settembre).
+   Riguarda SOLO la disposizione degli elementi nella pagina. Il DESIGN dei riquadri NON cambia:
+   restano le schede .n-card di oggi (foto in alto 3:2, spigoli da 6px, etichetta di categoria
+   grigia, riga dei dati in grigio). Logo, font, colori e stile delle schede non si toccano
+   finché l'utente non lo chiede espressamente.
+
+⏳ REGIME TRANSITORIO — CONTROLLARE PRIMA DI TOCCARE index.html:
+   La conversione di index.html alla nuova disposizione è un'operazione UNA TANTUM: si esegue
+   solo su richiesta esplicita dell'utente, MAI dentro un aggiornamento quotidiano.
+   Per sapere in che stato è la pagina:
+
+      grep -c "DISPOSIZIONE-2026-11" index.html
+
+   • 0 → homepage NON ancora convertita. Aggiorna come si è sempre fatto: nuova sezione del
+         giorno in cima alla griglia, sezione precedente declassata a separatore, didascalia
+         "Chiusura di <giorno> <data>" e i 6 valori della Stats Bar aggiornati (se un dato non
+         c'è, "—"). NON creare il primo piano, NON spostare articoli in archivio. Vale già
+         la regola f): mai classi col-span scritte a mano sulle schede.
+   • 1 o più → homepage convertita: segui tutta la FASE 3 qui sotto.
+
 STRUTTURA FISSA DELLA HOMEPAGE (dall'alto in basso, MAI modificare l'ordine):
-1. Ticker scorrevole (barra dati live)
-2. Header: solo Logo "ALMA FINANZA" + Data + Toggle ☀️/🌙 (NO link navigazione nell'header)
-3. Navigation Bar con due gruppi:
+1. Ticker Live (widget TradingView) — è l'UNICA barra dei mercati
+2. Header: Logo "ALMA FINANZA" + Data + Cerca + Toggle ☀️/🌙 (invariato)
+3. Navigation Bar con due gruppi (invariata):
    - Sezioni: Dashboard Live | Wall Street | Borsa Milano | Crypto | Commodities
    - Risorse: Impara la Finanza | Glossario | Analisi Tecnica
-4. Stats Bar (6 riquadri: MIB, S&P, Dow, WTI, Oro, BTC) con la didascalia
-   "Chiusura di <giorno> <data>" sopra i numeri
-5. Griglia articoli uniforme — NON esiste più l'hero
-6. Griglia articoli (schede .n-card, 3 colonne)
-7. Mission Section ("Perché Alma Finanza")
-8. Disclaimer Legale
-9. Newsletter CTA + EmailJS
-10. Footer 4 colonne (Logo+desc | Sezioni | Risorse | Legal) + disclaimer esteso
+4. IN PRIMO PIANO — gli articoli del giorno più recente: uno grande e due a fianco
+5. ULTIME NOTIZIE — titolo + filtri per categoria
+6. Sezioni giorno — una per ogni giornata precedente, fino a 10 giornate in tutto
+7. Fascia Quiz + Parola del giorno — subito dopo la PRIMA sezione giorno
+8. Blocco Archivio — titolo, conteggio articoli, pillole dei mesi e pulsante "Mostra i giorni precedenti"
+9. Mission Section ("Perché Alma Finanza")
+10. Disclaimer Legale
+11. Newsletter CTA + EmailJS
+12. Footer 4 colonne (Logo+desc | Sezioni | Risorse | Legal) + disclaimer esteso
 
-a) TICKER (barra scorrevole in alto):
-   - Aggiorna tutti i valori con dati reali di chiusura
-   - Minimo: Dow, S&P 500, Nasdaq, FTSE MIB + 5-8 titoli/indici protagonisti del giorno
-   - Usa valori INDICE (es: Dow 49.174), MAI prezzi ETF (es: DIA 491.74)
-   - Duplica gli item per il loop continuo (seamless scroll)
-   - Classe .positive o .negative in base alla direzione
+⛔ LA STATS BAR STATICA NON ESISTE PIÙ nella nuova disposizione (i 6 riquadri di chiusura
+   sotto la navigazione): ripeteva gli indici del ticker e restava con caselle "—" quando un
+   dato mancava. I mercati li mostra solo il Ticker Live. Il banner grande del Quiz in cima
+   alla pagina non esiste più: il Quiz è la fascia sottile al punto 7.
+
+a) TICKER LIVE (barra scorrevole in alto):
+   - È un widget TradingView: i dati sono in tempo reale e NON si aggiornano a mano
+   - Non sostituirlo con valori statici e non aggiungere una seconda barra di mercato
+   - Si tocca solo se l'utente chiede di cambiare l'elenco dei simboli
 
 b) DATA nell'header:
    - Formato: "Mercoledì 26 Febbraio 2026"
    - Giorno della settimana CORRETTO in italiano
 
-c) STATS BAR (6 riquadri sotto header):
-   - Aggiorna: Dow Jones, S&P 500, FTSE MIB, WTI Crude, Oro, Bitcoin
-   - Valori + variazione giornaliera con classi .positive/.negative
+c) IN PRIMO PIANO (subito sotto la navigazione):
+   - Contiene gli articoli della giornata di OGGI, al massimo 3: la notizia principale in
+     grande a sinistra (circa tre quinti della larghezza) e due riquadri impilati a fianco
+   - Sopra, l'occhiello: "In primo piano · <giorno> <data>"
+   - La principale è la notizia più importante del giorno (di norma Wall Street o macro):
+     è la PRIMA nell'ordine. Mostra foto, categoria, titolo, "Perché conta" e riga dei dati.
+     I due riquadri a fianco mostrano foto, categoria, titolo e riga dei dati
+   - Se oggi c'è 1 solo articolo: la principale occupa tutta la larghezza
+     Se oggi ce ne sono 2: principale + un solo riquadro a fianco, alto quanto la principale
+     Se oggi ce ne sono 4 o più: i primi 3 in primo piano, gli altri in una sezione giorno
+     "Oggi" in cima a Ultime notizie, con la regola f)
+   - Quando arriva una giornata nuova, gli articoli che erano in primo piano SCENDONO nella
+     prima sezione giorno di Ultime notizie (non si cancellano, non si riscrivono)
+   - Le schede sono sempre .n-card: stesso design, cambia solo la misura
 
-d) SCHEDE ARTICOLO — impaginazione a griglia uniforme (dal 3 settembre 2026):
+d) ULTIME NOTIZIE e filtri per categoria:
+   - Titolo "Ultime notizie" e, sulla stessa riga, i pulsanti filtro:
+     Tutte | Wall Street | Piazza Affari | Macro | Tech / AI | Commodities
+   - Ogni scheda porta l'attributo data-cat con UNO di questi valori:
+     wall (Wall Street) · milano (Piazza Affari) · macro (Macro, Fed, Geopolitica)
+     tech (Tech / AI) · commod (Commodities, Crypto) · corp (Corporate)
+   - Il filtro mostra o nasconde le schede; una sezione giorno rimasta senza schede visibili
+     si nasconde tutta; il conteggio "N articoli" del giorno si aggiorna
+   - Dopo ogni filtro le righe si ricalcolano con la regola f) sulle sole schede visibili:
+     nemmeno a filtro attivo devono restare spazi vuoti
 
-⛔ L'HERO NON ESISTE PIÙ. Niente riquadro colorato col numero grande: dopo la barra
-   dei mercati si entra direttamente nella griglia. La notizia principale è la PRIMA
-   SCHEDA, della stessa identica misura di tutte le altre.
+e) SEZIONI GIORNO e schede articolo:
+   - Una sezione per ogni giornata, dalla più recente alla più vecchia. Ogni sezione ha la
+     sua intestazione e il SUO contenitore griglia, che contiene SOLO le schede di quel giorno
+   - Intestazione del giorno (stile separatore, uguale per tutte le giornate):
+     ```html
+     <div class="col-span-full flex items-center gap-3 mt-6 mb-2">
+         <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
+         <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">[GIORNO E DATA]</h2>
+         <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
+     </div>
+     ```
+     ⚠️ UNA sola intestazione per giornata: mai due titoli con la stessa data uno sotto l'altro
 
-⛔ TUTTE LE SCHEDE HANNO LA STESSA DIMENSIONE. Mai usare md:col-span-2 o col-span-3:
-   creano schede più larghe e rompono la regolarità della griglia.
+Markup di ogni scheda (classe .n-card, design invariato):
 
-Markup di ogni scheda (classe .n-card, non più .theme-card):
-
-   <a href="<articolo>.html" class="n-card group">
+   <a href="<articolo>.html" class="n-card group" data-cat="milano">
        <img class="n-thumb" src="img/repertorio/<foto>.jpg" alt="<soggetto della foto>"
             loading="lazy" width="1200" height="800">
        <div class="n-body">
@@ -309,10 +360,80 @@ Markup di ogni scheda (classe .n-card, non più .theme-card):
 
 Regole:
    - La categoria in .n-cat va SENZA emoji (l'etichetta è già in maiuscoletto)
-   - Titolo e "Perché conta" sono tagliati automaticamente a tre righe: scrivili brevi,
-     un titolo troppo lungo viene troncato con i puntini
+   - Titolo e "Perché conta" sono tagliati automaticamente a tre righe: scrivili brevi.
+     Per la scheda il titolo deve stare entro 85 caratteri circa: oltre viene troncato con
+     i puntini. Se il titolo dell'articolo è più lungo, nella scheda usane una versione breve
    - In .n-meta va la data, eventualmente con un dato chiave ("Brent +4,50% · 1 set")
    - La foto è la STESSA dell'articolo (vedi FASE 2B), mai una diversa
+   - L'ORDINE delle schede dentro il giorno conta: la prima è la più importante (vedi f)
+
+f) GIORNI CON 1, 2, 4, 5 ARTICOLI — MAI SPAZI VUOTI (regola adattiva):
+   La griglia è a 3 colonne. Quando gli articoli del giorno non sono un multiplo di 3, quelli
+   "in più" si allargano nella PRIMA riga del giorno, che è quella delle notizie più importanti:
+
+     1 articolo   → 1 riquadro a tutta larghezza, in orizzontale (foto a sinistra, testo a destra)
+     2 articoli   → 2 riquadri a metà larghezza
+     3 articoli   → 3 riquadri normali
+     4 articoli   → il primo a tutta larghezza, poi 3 normali
+     5 articoli   → i primi 2 a metà larghezza, poi 3 normali
+     6, 7, 8…     → stesso schema: resto 1 = il primo a tutta larghezza; resto 2 = i primi due a metà
+
+   ⛔ La larghezza la decide il CSS in base al NUMERO di schede nel contenitore del giorno.
+      NON scrivere MAI a mano classi col-span / md:col-span-2 sulle schede e NON inserire
+      schede vuote o segnaposto per pareggiare la riga.
+
+      Regola CSS di riferimento (griglia a 6 colonne, una scheda normale ne occupa 2):
+      ```css
+      .giorno-griglia { display:grid; grid-template-columns:repeat(6,1fr); }
+      .giorno-griglia > .n-card { grid-column:span 2; }
+      /* resto 2: i primi due a metà larghezza */
+      .giorno-griglia > .n-card:first-child:nth-last-child(3n+2),
+      .giorno-griglia > .n-card:first-child:nth-last-child(3n+2) + .n-card { grid-column:span 3; }
+      /* resto 1: il primo a tutta larghezza, in orizzontale */
+      .giorno-griglia > .n-card:first-child:nth-last-child(3n+1) { grid-column:span 6; flex-direction:row; }
+      ```
+   - Per funzionare, il contenitore del giorno deve avere come figli diretti SOLO le schede
+   - Tablet: 2 colonne; con un numero dispari di articoli la prima scheda prende tutta la riga
+     Telefono: 1 colonna, nessuna regola speciale
+   - La stessa regola vale nelle pagine archivio mensile (vedi g)
+   - Verifica dopo ogni aggiornamento: nessuna riga della homepage deve finire con uno spazio vuoto
+
+g) ULTIMI 10 GIORNI IN HOMEPAGE, IL RESTO NELL'ARCHIVIO MENSILE:
+   - La homepage mostra gli articoli delle ULTIME 10 GIORNATE DI PUBBLICAZIONE: la giornata in
+     primo piano più 9 sezioni giorno. Si contano le giornate in cui è uscito almeno un
+     articolo, non i giorni di calendario (così la pagina non si svuota dopo una pausa)
+   - A ogni aggiornamento, se le giornate in homepage diventano 11, la più VECCHIA si SPOSTA
+     (sezione intera: intestazione + schede, senza modificarle) in cima alla pagina archivio
+     del suo mese
+   - Pagine archivio: archivio-AAAA-MM.html, una per mese (es. archivio-2026-11.html).
+     Stessa testata e stesso footer della homepage, titolo "Archivio · Novembre 2026",
+     sezioni giorno dalla più recente alla più vecchia, stesse schede .n-card, stessa regola f).
+     Se la pagina del mese non esiste ancora: crearla, aggiungerla ad archivio.html (indice
+     dei mesi, dal più recente) e alla sitemap
+   - Blocco Archivio in fondo alla homepage (dopo l'ultima sezione giorno), in un riquadro unico
+     con questi quattro elementi, in quest'ordine:
+       1. il titolo "Archivio"
+       2. una riga di testo: "<N> articoli dal marzo 2026, ordinati per giorno."
+          dove <N> è il totale degli articoli pubblicati (homepage + archivi): va ricalcolato
+          a ogni aggiornamento, mai lasciato fermo al valore del giorno prima
+       3. le pillole dei mesi: i 4 mesi più recenti (es. Novembre | Ottobre | Settembre | Agosto),
+          ognuna collegata alla sua pagina archivio-AAAA-MM.html, più una pillola "…" che porta
+          ad archivio.html (indice di tutti i mesi)
+       4. il pulsante scuro "Mostra i giorni precedenti", che porta alla pagina archivio del
+          mese in cui cade la giornata appena uscita dalla homepage
+     Il sito è statico: pillole e pulsante sono collegamenti, non un caricamento dinamico.
+     Su telefono gli elementi si impilano: titolo, riga di testo, pillole, pulsante
+   - ⛔ SPOSTARE NON È CANCELLARE. Nessun articolo sparisce: dopo ogni aggiornamento il numero
+     totale di schede (homepage + tutte le pagine archivio) non deve mai diminuire, e ogni
+     file articolo-*.html deve essere raggiungibile da almeno una di queste pagine
+   - Le pagine categoria NON hanno il limite dei 10 giorni: restano complete
+
+h) FASCIA QUIZ + PAROLA DEL GIORNO (dopo la prima sezione giorno):
+   - Quiz: fascia sottile su una riga (icona, "Quiz del mese", una frase, pulsante "Inizia"),
+     collegata a quiz.html. Sostituisce il banner grande in cima alla pagina
+   - Parola del giorno: un riquadro accanto al Quiz con UN termine del glossario — termine
+     inglese, traduzione italiana, collegamento a glossario.html. Si aggiorna a ogni
+     aggiornamento: preferire un termine aggiunto oggi (FASE 5B) o legato alla notizia principale
 
 Per rifare in blocco le schede della homepage (per esempio dopo aver assegnato foto nuove
 a un gruppo di articoli) si usa converti-home.py, che è RIESEGUIBILE quante volte serve:
@@ -335,35 +456,8 @@ a un gruppo di articoli) si usa converti-home.py, che è RIESEGUIBILE quante vol
    banche, Fiat 500 per Stellantis, la piattaforma offshore per Saipem ed Eni.
    Vedi l'elenco completo con: python3 applica-foto-articolo.py --elenco
 
-e) GRIGLIA ARTICOLI (theme-cards):
-   - Aggiungi 5 nuove theme-card IN CIMA alla griglia
-   - Section header: "Oggi, [GIORNO] [MESE]" aggiornato
-   - Commento separatore per data precedente
-   - Ogni card segue il formato theme-card:
-     ```html
-     <a href="URL" class="theme-card bg-white dark:bg-[#0f172a]/60 border border-gray-100 dark:border-slate-700/30 hover:border-teal-500 dark:hover:border-teal-500/40 hover:shadow-lg dark:hover:shadow-[0_4px_24px_rgba(0,0,0,0.3)] group">
-         <div class="h-1.5 bg-COLOR-500"></div>
-         <div class="p-5">
-             <span class="cat-tag bg-COLOR-50 dark:bg-COLOR-500/15 text-COLOR-700 dark:text-COLOR-400">CATEGORIA</span>
-             <h3 class="text-base font-bold text-gray-900 dark:text-white mt-3 mb-2 leading-snug group-hover:text-teal-600 dark:group-hover:text-teal-400 transition">TITOLO</h3>
-             <p class="text-sm text-gray-400 dark:text-slate-500 leading-relaxed">DESCRIZIONE</p>
-             <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-50 dark:border-slate-700/20">
-                 <span class="text-xs text-gray-300 dark:text-slate-600">DATA</span>
-                 <span class="text-xs text-teal-500 font-semibold opacity-0 group-hover:opacity-100 transition">Leggi →</span>
-             </div>
-         </div>
-     </a>
-     ```
-   - Day separator tra date diverse:
-     ```html
-     <div class="col-span-full flex items-center gap-3 mt-6 mb-2">
-         <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
-         <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">[DATA PRECEDENTE]</h2>
-         <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
-     </div>
-     ```
-
-Schema colori per categorie (accent line + cat-tag):
+Schema colori per categorie (banner degli articoli e badge delle pagine categoria; le schede
+della homepage restano con l'etichetta grigia):
 - Wall Street: blue-500, bg-blue-50, text-blue-700
 - Piazza Affari: emerald-500, bg-green-50, text-green-700
 - Macro/Fed: red-500, bg-red-50, text-red-700
@@ -374,12 +468,16 @@ Schema colori per categorie (accent line + cat-tag):
 - Corporate: sky-500, bg-sky-50, text-sky-700
 - Crypto: amber-500, bg-amber-50, text-amber-700
 
-f) SITEMAP (sitemap.xml):
+i) SITEMAP (sitemap.xml):
    - Aggiungi i 3 nuovi articoli nella sitemap.xml
    - Ogni articolo con <url>, <loc>, <lastmod>, <changefreq>never</changefreq>, <priority>0.9</priority>
    - Includere <news:news> con publication name "Alma Finanza", language "it", publication_date e title
    - Aggiornare <lastmod> della homepage alla data odierna
    - I nuovi URL vanno SOPRA quelli precedenti (articoli più recenti prima)
+   - Nei <news:title> il carattere & va scritto &amp; (es. S&amp;P 500): senza, la sitemap non è XML valido
+   - Pagine archivio (FASE 3g): archivio.html e ogni archivio-AAAA-MM.html vanno in sitemap,
+     senza blocco <news:news>, changefreq monthly, priority 0.5; aggiornare <lastmod> quando
+     vi si sposta una giornata
 
 FASE 4 — AGGIORNA PAGINE CATEGORIA:
 Per OGNI nuovo articolo, aggiungilo alla pagina categoria corrispondente:
@@ -490,20 +588,20 @@ Regole glossario:
 - La spiegazione deve essere EDUCATIVA: spiegare il concetto come se il lettore fosse un principiante
 
 FASE 6 — COMMIT E PUSH:
-git add [3 articoli] index.html sitemap.xml categoria-wall-street.html categoria-borsa-milano.html categoria-crypto.html categoria-commodities.html impara-finanza.html glossario.html && git commit && git push origin main
+git add [3 articoli] index.html archivio.html archivio-AAAA-MM.html [foto nuove] img/repertorio/crediti.json sitemap.xml categoria-wall-street.html categoria-borsa-milano.html categoria-crypto.html categoria-commodities.html impara-finanza.html glossario.html && git commit && git push origin main
 
 ⚠️ ERRORI DA NON FARE MAI:
 1. NON inventare dati — cerca SEMPRE con WebSearch prima di scrivere (FASE 1 non è opzionale)
 2. NON saltare FASE 1 nemmeno quando si usano agenti background — i dati vanno cercati PRIMA di passarli agli agenti
 3. NON usare dati da training/memoria come fonte per numeri finanziari — sono inaffidabili
 4. NON inventare EPS, revenue, guidance di aziende specifiche — sono dati pubblici verificabili, cercali
-5. NON cambiare il layout della homepage (stats bar + 3 colonne theme-cards)
+5. NON cambiare la disposizione della homepage (FASE 3): ticker live, primo piano, ultime notizie con filtri, sezioni giorno, archivio
 6. NON cambiare logo/header/footer degli articoli
 7. NON dimenticare le info-box educative (minimo 2 per articolo)
 8. NON usare prezzi ETF al posto dei valori indice nel ticker
 9. NON omettere l'intervallo temporale nelle variazioni %
 10. NON usare link con petrino80.github.io — solo almafinanza.com
-11. NON cancellare articoli vecchi dalla homepage
+11. NON cancellare articoli: quelli oltre le 10 giornate si SPOSTANO nell'archivio mensile (FASE 3g), mai eliminati
 12. NON modificare mission/newsletter/footer della homepage
 13. Date sulle card DEVONO corrispondere alle date dentro gli articoli
 14. NON dimenticare di aggiornare le 4 pagine categoria con i nuovi articoli
@@ -512,6 +610,10 @@ git add [3 articoli] index.html sitemap.xml categoria-wall-street.html categoria
 17. NON dimenticare le dark mode classes (dark:bg-*, dark:text-*) in ogni elemento
 18. NON dimenticare di aggiornare glossario.html con i nuovi termini finanziari inglesi
 19. NON duplicare termini già presenti nel glossario — controlla PRIMA di aggiungere
+20. NON lasciare spazi vuoti nelle righe dei giorni e NON scrivere a mano classi col-span sulle schede: la larghezza la decide la regola adattiva (FASE 3f)
+21. NON reintrodurre la Stats Bar statica e NON sostituire il Ticker Live con valori scritti a mano
+22. NON cambiare il design delle schede (.n-card), il logo o i font: la nuova disposizione riguarda solo dove stanno gli elementi
+23. NON convertire index.html alla nuova disposizione dentro un aggiornamento quotidiano: è un'operazione una tantum su richiesta (FASE 3, regime transitorio)
 
 📌 LEZIONE APPRESA (20/05/2026 — caso Nvidia):
 - EPS Nvidia Q1 FY2027 era $1,87 vs $1,77 atteso. Fu pubblicato erroneamente come $9,82 vs $9,10.
@@ -540,7 +642,12 @@ Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibi
 - [ ] NESSUNA foto è ripetuta su due articoli (lo script blocca da solo: mai usare --forza)
 - [ ] ogni articolo e ogni card hanno il blocco "Perché conta:" (FASE 2C)
 - [ ] le card in homepage mostrano la miniatura dell'immagine dell'articolo
-- [ ] index.html: ticker, stats bar, data, hero, 5 nuove theme-cards, sitemap
+- [ ] index.html: data nell'header, articoli di oggi in primo piano, giornata precedente scesa in Ultime notizie, Parola del giorno aggiornata
+- [ ] nessuna riga dei giorni con spazi vuoti (regola adattiva, FASE 3f) e nessuna intestazione di giorno doppia
+- [ ] homepage con al massimo 10 giornate; la più vecchia spostata nell'archivio mensile, nessun articolo perso (FASE 3g)
+- [ ] blocco Archivio: conteggio articoli ricalcolato, pillole dei 4 mesi più recenti, pulsante "Mostra i giorni precedenti"
+- [ ] sitemap.xml aggiornata e valida come XML
+- [ ] se la homepage non è ancora convertita (regime transitorio): sezione del giorno in cima e Stats Bar aggiornate come prima
 - [ ] categoria-wall-street.html aggiornata
 - [ ] categoria-borsa-milano.html aggiornata
 - [ ] categoria-crypto.html aggiornata (se ci sono articoli crypto)
