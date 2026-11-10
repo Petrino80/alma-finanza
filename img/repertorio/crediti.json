@@ -1130,5 +1130,63 @@
       "italia",
       "finanza italiana"
     ]
+  },
+  "inflazione-euro-blocks": {
+    "file": "inflazione-euro-blocks.jpg",
+    "soggetto": "Banconote da 20 euro con la parola «inflation» scritta in blocchi di legno",
+    "autore": "Paul ACat",
+    "licenza": "Unsplash License",
+    "fonte": "https://unsplash.com/photos/euro-banknotes-and-inflation-blocks-mRyD2DGDfPs",
+    "temi": [
+      "inflazione",
+      "cpi",
+      "prezzi al consumo",
+      "euro",
+      "bce",
+      "politica monetaria",
+      "tassi",
+      "macro",
+      "fed",
+      "banca centrale"
+    ]
+  },
+  "marina-militare-cacciatorpediniere": {
+    "file": "marina-militare-cacciatorpediniere.jpg",
+    "soggetto": "Il cacciatorpediniere Durand de la Penne (D 560) della Marina Militare Italiana, costruito da Fincantieri nel cantiere di Riva Trigoso",
+    "autore": "Piergiuliano Chesi",
+    "licenza": "CC BY 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Durand_de_la_Penne_(D_560)_01.JPG",
+    "temi": [
+      "marina militare",
+      "fincantieri",
+      "difesa",
+      "cacciatorpediniere",
+      "ddx",
+      "nave da guerra",
+      "piazza affari",
+      "italia",
+      "nato",
+      "orizzonte sistemi navali"
+    ]
+  },
+  "pump-jack-california": {
+    "file": "pump-jack-california.jpg",
+    "soggetto": "Pompe estrattive (pump jack) al Lost Hills Oil Field in California centrale",
+    "autore": "Richard Masoner / Cyclelicious",
+    "licenza": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Pump_Jack_at_the_Lost_Hills_Oil_Field_In_Central_California.jpg",
+    "temi": [
+      "petrolio",
+      "pump jack",
+      "pozzi petroliferi",
+      "shale oil",
+      "brent",
+      "wti",
+      "california",
+      "energia",
+      "commodities",
+      "estrazione",
+      "usa"
+    ]
   }
 }
