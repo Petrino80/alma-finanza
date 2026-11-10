@@ -30,6 +30,7 @@ Claude NON deve chiedere conferma, approvazione o permesso per nessuna di queste
 - Eseguire applica-foto-articolo.py (applica foto + firma + tempo lettura agli articoli)
 - Eseguire applica-foto-articolo.py --elenco (mostra foto disponibili)
 - Eseguire converti-home.py e converti-home.py --applica (aggiorna schede homepage)
+- Eseguire impagina-home.py e impagina-home.py --applica (impagina homepage e archivi)
 - Qualsiasi script Python di utilità già presente nel progetto
 
 **Ridimensionamento immagini:**
@@ -261,19 +262,35 @@ Design: Modern Minimal con switch light/dark.
    grigia, riga dei dati in grigio). Logo, font, colori e stile delle schede non si toccano
    finché l'utente non lo chiede espressamente.
 
-⏳ REGIME TRANSITORIO — CONTROLLARE PRIMA DI TOCCARE index.html:
-   La conversione di index.html alla nuova disposizione è un'operazione UNA TANTUM: si esegue
-   solo su richiesta esplicita dell'utente, MAI dentro un aggiornamento quotidiano.
-   Per sapere in che stato è la pagina:
+⚙️ COME SI AGGIORNA LA HOMEPAGE (convertita alla nuova disposizione il 10 novembre 2026):
+   La homepage e le pagine archivio le impagina lo script impagina-home.py. A mano si fa UNA cosa:
 
-      grep -c "DISPOSIZIONE-2026-11" index.html
+   1. In index.html, subito sotto il commento <!-- NUOVO-GIORNO -->, incolla il blocco del giorno,
+      con una scheda .n-card per articolo (la più importante PER PRIMA):
 
-   • 0 → homepage NON ancora convertita. Aggiorna come si è sempre fatto: nuova sezione del
-         giorno in cima alla griglia, sezione precedente declassata a separatore, didascalia
-         "Chiusura di <giorno> <data>" e i 6 valori della Stats Bar aggiornati (se un dato non
-         c'è, "—"). NON creare il primo piano, NON spostare articoli in archivio. Vale già
-         la regola f): mai classi col-span scritte a mano sulle schede.
-   • 1 o più → homepage convertita: segui tutta la FASE 3 qui sotto.
+         <!-- GIORNO 2026-11-11 | Mercoledì 11 Novembre 2026 -->
+         <a href="articolo-....html" class="n-card group"> ... </a>
+         <a href="articolo-....html" class="n-card group"> ... </a>
+         <a href="articolo-....html" class="n-card group"> ... </a>
+         <!-- /GIORNO -->
+
+   2. Esegui lo script:
+
+         python3 impagina-home.py              # scrive index-nuovo.html, per controllare
+         python3 impagina-home.py --applica --parola "Termine|traduzione italiana"
+
+   Lo script fa tutto il resto: porta in primo piano la giornata più recente, fa scendere la
+   precedente in Ultime notizie, sposta in archivio la giornata oltre la decima, rigenera le
+   pagine archivio e il loro indice, ricalcola il conteggio degli articoli, aggiorna la data
+   in testata, assegna data-cat alle schede, toglie i doppioni e aggiorna la sitemap.
+   Il GIORNO DELLA SETTIMANA lo ricava dalla data (AAAA-MM-GG): se nel commento è sbagliato
+   lo corregge da solo. La DATA invece deve essere giusta: controllala.
+
+   ⛔ NON modificare a mano primo piano, sezioni giorno, blocco archivio e pagine archivio-*.html:
+      sono generati e alla prossima esecuzione verrebbero riscritti. Per correggere una scheda
+      già pubblicata si modifica la scheda dentro il suo blocco GIORNO e si riesegue lo script.
+   ⛔ Dopo --applica lo script stampa quante schede ha verificato: il numero deve essere quello
+      di prima più gli articoli di oggi. Se si ferma con un errore, non fare commit.
 
 STRUTTURA FISSA DELLA HOMEPAGE (dall'alto in basso, MAI modificare l'ordine):
 1. Ticker Live (widget TradingView) — è l'UNICA barra dei mercati
@@ -322,7 +339,9 @@ c) IN PRIMO PIANO (subito sotto la navigazione):
 
 d) ULTIME NOTIZIE e filtri per categoria:
    - Titolo "Ultime notizie" e, sulla stessa riga, i pulsanti filtro:
-     Tutte | Wall Street | Piazza Affari | Macro | Tech / AI | Commodities
+     Tutte | Wall Street | Piazza Affari | Macro | Tech / AI | Commodities | Aziende
+     Compaiono solo i filtri che hanno almeno un articolo nelle giornate in homepage:
+     un filtro non deve mai lasciare la pagina vuota
    - Ogni scheda porta l'attributo data-cat con UNO di questi valori:
      wall (Wall Street) · milano (Piazza Affari) · macro (Macro, Fed, Geopolitica)
      tech (Tech / AI) · commod (Commodities, Crypto) · corp (Corporate)
@@ -413,9 +432,9 @@ g) ULTIMI 10 GIORNI IN HOMEPAGE, IL RESTO NELL'ARCHIVIO MENSILE:
    - Blocco Archivio in fondo alla homepage (dopo l'ultima sezione giorno), in un riquadro unico
      con questi quattro elementi, in quest'ordine:
        1. il titolo "Archivio"
-       2. una riga di testo: "<N> articoli dal marzo 2026, ordinati per giorno."
-          dove <N> è il totale degli articoli pubblicati (homepage + archivi): va ricalcolato
-          a ogni aggiornamento, mai lasciato fermo al valore del giorno prima
+       2. una riga di testo: "<N> articoli dal febbraio 2026, ordinati per giorno."
+          dove <N> è il totale degli articoli pubblicati (homepage + archivi) e il mese è
+          quello del primo articolo: li ricalcola lo script a ogni esecuzione
        3. le pillole dei mesi: i 4 mesi più recenti (es. Novembre | Ottobre | Settembre | Agosto),
           ognuna collegata alla sua pagina archivio-AAAA-MM.html, più una pillola "…" che porta
           ad archivio.html (indice di tutti i mesi)
@@ -588,7 +607,7 @@ Regole glossario:
 - La spiegazione deve essere EDUCATIVA: spiegare il concetto come se il lettore fosse un principiante
 
 FASE 6 — COMMIT E PUSH:
-git add [3 articoli] index.html archivio.html archivio-AAAA-MM.html [foto nuove] img/repertorio/crediti.json sitemap.xml categoria-wall-street.html categoria-borsa-milano.html categoria-crypto.html categoria-commodities.html impara-finanza.html glossario.html && git commit && git push origin main
+git add [3 articoli] index.html archivio.html archivio-*.html [foto nuove] img/repertorio/crediti.json sitemap.xml categoria-wall-street.html categoria-borsa-milano.html categoria-crypto.html categoria-commodities.html impara-finanza.html glossario.html && git commit && git push origin main
 
 ⚠️ ERRORI DA NON FARE MAI:
 1. NON inventare dati — cerca SEMPRE con WebSearch prima di scrivere (FASE 1 non è opzionale)
@@ -613,7 +632,8 @@ git add [3 articoli] index.html archivio.html archivio-AAAA-MM.html [foto nuove]
 20. NON lasciare spazi vuoti nelle righe dei giorni e NON scrivere a mano classi col-span sulle schede: la larghezza la decide la regola adattiva (FASE 3f)
 21. NON reintrodurre la Stats Bar statica e NON sostituire il Ticker Live con valori scritti a mano
 22. NON cambiare il design delle schede (.n-card), il logo o i font: la nuova disposizione riguarda solo dove stanno gli elementi
-23. NON convertire index.html alla nuova disposizione dentro un aggiornamento quotidiano: è un'operazione una tantum su richiesta (FASE 3, regime transitorio)
+23. NON modificare a mano le parti generate (primo piano, sezioni giorno, blocco archivio, pagine archivio): si incolla il blocco del giorno e si esegue impagina-home.py (FASE 3)
+24. NON sbagliare il giorno della settimana: va ricavato dalla data, mai scritto a memoria (il 10 novembre 2026 fu pubblicato come lunedì: era martedì). Vale per la testata degli articoli e per le pagine categoria, che lo script non tocca
 
 📌 LEZIONE APPRESA (20/05/2026 — caso Nvidia):
 - EPS Nvidia Q1 FY2027 era $1,87 vs $1,77 atteso. Fu pubblicato erroneamente come $9,82 vs $9,10.
@@ -642,12 +662,13 @@ Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibi
 - [ ] NESSUNA foto è ripetuta su due articoli (lo script blocca da solo: mai usare --forza)
 - [ ] ogni articolo e ogni card hanno il blocco "Perché conta:" (FASE 2C)
 - [ ] le card in homepage mostrano la miniatura dell'immagine dell'articolo
-- [ ] index.html: data nell'header, articoli di oggi in primo piano, giornata precedente scesa in Ultime notizie, Parola del giorno aggiornata
+- [ ] index.html: blocco del giorno incollato sotto <!-- NUOVO-GIORNO -->; dopo lo script gli articoli di oggi sono in primo piano e la Parola del giorno è aggiornata
 - [ ] nessuna riga dei giorni con spazi vuoti (regola adattiva, FASE 3f) e nessuna intestazione di giorno doppia
 - [ ] homepage con al massimo 10 giornate; la più vecchia spostata nell'archivio mensile, nessun articolo perso (FASE 3g)
 - [ ] blocco Archivio: conteggio articoli ricalcolato, pillole dei 4 mesi più recenti, pulsante "Mostra i giorni precedenti"
 - [ ] sitemap.xml aggiornata e valida come XML
-- [ ] se la homepage non è ancora convertita (regime transitorio): sezione del giorno in cima e Stats Bar aggiornate come prima
+- [ ] impagina-home.py --applica eseguito senza errori; il numero di schede verificate è quello di ieri più gli articoli di oggi
+- [ ] giorno della settimana giusto negli articoli e nelle pagine categoria (ricavato dalla data)
 - [ ] categoria-wall-street.html aggiornata
 - [ ] categoria-borsa-milano.html aggiornata
 - [ ] categoria-crypto.html aggiornata (se ci sono articoli crypto)

@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E88FFDTPMP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-E88FFDTPMP');
+    </script>
+    <script>(function(){var t=localStorage.getItem('alma-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')})()</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivio · Giugno 2026 | Alma Finanza</title>
+    <meta name="description" content="Tutti gli articoli di Alma Finanza di giugno 2026: 34 articoli in 12 giornate su Wall Street, Piazza Affari, macroeconomia, tech e materie prime.">
+    <meta name="keywords" content="Alma Finanza, alma finanza, notizie finanziarie, mercati finanziari, borsa oggi, Wall Street oggi, FTSE MIB oggi, Dow Jones, S&P 500, Nasdaq, Borsa Milano, Piazza Affari, azioni, trading, investimenti, crypto, Bitcoin, oro, petrolio, analisi mercati, notizie borsa italiana">
+    <meta name="author" content="Alma Finanza">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="googlebot" content="index, follow">
+    <!-- SEO: Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Archivio · Giugno 2026 | Alma Finanza">
+    <meta property="og:description" content="Tutti gli articoli di Alma Finanza di giugno 2026: 34 articoli in 12 giornate su Wall Street, Piazza Affari, macroeconomia, tech e materie prime.">
+    <meta property="og:url" content="https://www.almafinanza.com/archivio-2026-06.html">
+    <meta property="og:site_name" content="Alma Finanza">
+    <meta property="og:locale" content="it_IT">
+    <!-- SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Archivio · Giugno 2026 | Alma Finanza">
+    <meta name="twitter:description" content="Tutti gli articoli di Alma Finanza di giugno 2026: 34 articoli in 12 giornate su Wall Street, Piazza Affari, macroeconomia, tech e materie prime.">
+    <!-- SEO: Canonical -->
+    <link rel="canonical" href="https://www.almafinanza.com/archivio-2026-06.html">
+    <!-- SEO: Schema.org WebSite -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={darkMode:"class"}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Previeni scroll orizzontale */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .lobster-font {
+            font-family: 'Lobster', cursive;
+        }
+        .montserrat-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .tv-ticker-wrap {
+            border-bottom: 2px solid #14b8a6;
+            overflow: hidden;
+        }
+        .tv-ticker-wrap .tradingview-widget-container { margin: 0; }
+        .dark .tv-ticker-wrap { border-color: rgba(20,184,166,0.2); }
+        .positive { color: #10b981; }
+        .negative { color: #ef4444; }
+        .article-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #14b8a6;
+        }
+        .category-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cat-wall-street { background: #dbeafe; color: #1e40af; }
+        .cat-milano { background: #dcfce7; color: #166534; }
+        .cat-crypto { background: #fef3c7; color: #92400e; }
+        .cat-europa { background: #e0e7ff; color: #3730a3; }
+        .cat-macro { background: #fce7f3; color: #9f1239; }
+        .cat-tech { background: #f3e8ff; color: #6b21a8; }
+        .cat-commodities { background: #fef3c7; color: #92400e; }
+
+        .read-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
+            animation: pulse-green 2s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes pulse-green {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+                box-shadow: 0 4px 6px rgba(20, 184, 166, 0.3);
+            }
+            50% {
+                opacity: 0.85;
+                transform: scale(1.05);
+                box-shadow: 0 6px 12px rgba(20, 184, 166, 0.5);
+            }
+        }
+        
+        .vertical-switch {
+            display: inline-flex;
+            background: #f1f5f9;
+            border-radius: 9999px;
+            padding: 0.25rem;
+        }
+        .vertical-switch button {
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        .vertical-switch button.active {
+            background: #14b8a6;
+            color: white;
+        }
+
+        /* === DARK MODE === */
+        .dark .positive{color:#34d399!important;}
+        .dark .negative{color:#f87171!important;}
+        .dark .article-card{background:rgba(15,23,42,0.6)!important;border-color:rgba(51,65,85,0.3)!important;}
+        .dark .article-card:hover{border-color:rgba(20,184,166,0.4)!important;box-shadow:0 4px 24px rgba(0,0,0,0.3)!important;}
+        .dark .article-card p{color:#94a3b8!important;}
+        .dark .article-card h3{color:#f1f5f9!important;}
+        .dark .shadow-sm,.dark .shadow-md,.dark .shadow-lg{box-shadow:0 4px 24px rgba(0,0,0,0.3)!important;}
+        .dark .bg-gray-50{background:#0c1017!important;}
+        .dark .bg-white{background:rgba(15,23,42,0.6)!important;}
+        .dark .text-gray-900{color:#f1f5f9!important;}
+        .dark .text-gray-600,.dark .text-gray-700{color:#94a3b8!important;}
+        .dark .text-gray-500{color:#64748b!important;}
+        .dark .text-gray-400{color:#475569!important;}
+        .dark .border-gray-200,.dark .border-gray-100{border-color:rgba(51,65,85,0.2)!important;}
+        .dark .vertical-switch{background:rgba(30,41,59,0.6)!important;}
+        .dark .vertical-switch button{color:#94a3b8;}
+        .dark .vertical-switch button.active{background:#14b8a6;color:white;}
+        .dark .category-badge{opacity:0.9;}
+        .dark .read-badge{box-shadow:0 4px 6px rgba(20,184,166,0.2)!important;}
+        .theme-toggle{position:relative;width:52px;height:28px;border-radius:14px;cursor:pointer;transition:background 0.4s;display:inline-flex;align-items:center;}
+        .theme-toggle .toggle-circle{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;transition:transform 0.4s cubic-bezier(0.68,-0.55,0.27,1.55),background 0.4s;display:flex;align-items:center;justify-content:center;font-size:12px;}
+        .dark .theme-toggle .toggle-circle{transform:translateX(24px);}
+
+        /* === MODERN MINIMAL === */
+        .stats-bar{display:flex;gap:1px;border-radius:12px;overflow:hidden;}
+        .stat-item{flex:1;padding:1rem;text-align:center;transition:background 0.4s;min-width:0;}
+        .stat-item .stat-val,.stat-item .stat-chg{font-variant-numeric:tabular-nums;white-space:nowrap;}
+        .stats-caption{font-size:0.68rem;letter-spacing:0.09em;text-transform:uppercase;font-weight:600;}
+        @media (max-width:640px){
+            .stat-item{padding:0.7rem 0.35rem;}
+            .stat-item .stat-lbl{font-size:0.6rem;line-height:1.2;}
+            .stat-item .stat-val{font-size:0.95rem;}
+            .stat-item .stat-chg{font-size:0.65rem;}
+        }
+        .nav-scroll{scrollbar-width:none;-ms-overflow-style:none;}
+        .nav-scroll::-webkit-scrollbar{display:none;}
+        .theme-card{border-radius:12px;overflow:hidden;transition:all 0.3s ease;}
+        .theme-card:hover{transform:translateY(-3px);}
+        .hero-box{border-radius:16px;overflow:hidden;transition:background 0.4s,border-color 0.4s;}
+        .cat-tag{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:0.2rem 0.6rem;border-radius:4px;display:inline-block;}
+        .accent-line{width:40px;height:3px;background:#14b8a6;border-radius:2px;}
+        .dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+    
+        /* ===== SCHEDE UNIFORMI ===== */
+        :root{ --n-surface:#ffffff; --n-sunken:#f6f7f8; --n-ink:#0d1117;
+               --n-ink2:#4d5860; --n-ink3:#8a949c; --n-rule:#e6e9eb; --n-rule2:#d2d7da; --n-teal:#0d8f81; }
+        .dark{ --n-surface:#111721; --n-sunken:#151c26; --n-ink:#eef2f5;
+               --n-ink2:#9fadb8; --n-ink3:#6d7a85; --n-rule:#1e2733; --n-rule2:#2a3542; --n-teal:#2dd4bf; }
+        .n-card{display:flex !important;flex-direction:column;height:100%;
+          border:1px solid var(--n-rule);border-radius:6px;overflow:hidden;
+          background:var(--n-surface);transition:border-color .18s;text-decoration:none}
+        .n-card:hover{border-color:var(--n-rule2);transform:none}
+        .n-card .n-thumb{width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--n-sunken);flex:none}
+        .n-card .n-ph{width:100%;aspect-ratio:3/2;flex:none;display:grid;place-items:center;
+          font-family:'Montserrat',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.1em}
+        .n-card .n-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
+        .n-cat{font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--n-ink3)}
+        .n-card h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;line-height:1.22;
+          letter-spacing:-.015em;color:var(--n-ink);
+          display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+          min-height:calc(1.22em*3);margin:0}
+        .n-card:hover h3{color:var(--n-teal)}
+        .n-why{font-size:13.5px;line-height:1.5;color:var(--n-ink2);margin:0;
+          display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+          min-height:calc(1.5em*3)}
+        .n-why b{color:var(--n-ink);font-weight:700}
+        .n-meta{margin-top:auto;padding-top:10px;border-top:1px solid var(--n-rule);
+          font-size:11.5px;color:var(--n-ink3);display:flex;gap:8px;font-variant-numeric:tabular-nums}
+        /* ===== DISPOSIZIONE 2026-11 (generata da impagina-home.py: non modificare a mano) ===== */
+        /* contenitori storici di schede, fuori dalla nuova disposizione: griglia uniforme come prima */
+        div:has(> .n-card):not(.giorno-griglia):not(.primo-piano){display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:30px !important;align-items:stretch !important;float:none !important}
+        div:has(> .n-card):not(.giorno-griglia):not(.primo-piano) > .n-card{grid-column:auto !important}
+        @media(max-width:900px){div:has(> .n-card):not(.giorno-griglia):not(.primo-piano){grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:26px !important}}
+        @media(max-width:620px){div:has(> .n-card):not(.giorno-griglia):not(.primo-piano){grid-template-columns:minmax(0,1fr) !important;gap:24px !important}}
+        .n-card[hidden]{display:none !important}
+
+        /* primo piano: la notizia principale e due a fianco */
+        .pp-occhiello{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--n-ink3);margin:22px 0 12px}
+        .pp-occhiello b{color:var(--n-teal)}
+        .primo-piano{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:22px}
+        .primo-piano > .n-card:first-child{grid-row:1 / span 2}
+        .primo-piano > .n-card:first-child .n-thumb, .primo-piano > .n-card:first-child .n-ph{aspect-ratio:2/1}
+        .primo-piano > .n-card:first-child .n-body{padding:20px 22px 20px}
+        .primo-piano > .n-card:first-child h3{font-size:26px;line-height:1.18;min-height:0;-webkit-line-clamp:4}
+        .primo-piano > .n-card:first-child .n-why{font-size:15px;min-height:0;-webkit-line-clamp:4}
+        .primo-piano > .n-card:not(:first-child) .n-thumb, .primo-piano > .n-card:not(:first-child) .n-ph{aspect-ratio:16/6}
+        .primo-piano > .n-card:not(:first-child) .n-body{padding:13px 16px 14px;gap:7px}
+        .primo-piano > .n-card:not(:first-child) h3{font-size:15.5px;line-height:1.25;min-height:0}
+        .primo-piano > .n-card:not(:first-child) .n-why{display:none}
+        .primo-piano > .n-card:nth-child(2):last-child{grid-row:1 / span 2}
+        .primo-piano > .n-card:nth-child(2):last-child .n-thumb, .primo-piano > .n-card:nth-child(2):last-child .n-ph{aspect-ratio:3/2}
+        .primo-piano > .n-card:only-child{grid-column:1 / -1}
+        .pp-resto{margin-top:22px}
+
+        /* ultime notizie e filtri */
+        .un-bar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:40px 0 2px}
+        .un-bar h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;letter-spacing:-.01em;color:var(--n-ink);margin-right:auto}
+        .filtri{display:flex;gap:8px;flex-wrap:wrap}
+        .filtri button{font:600 13px 'Inter',sans-serif;color:var(--n-ink2);background:var(--n-surface);border:1px solid var(--n-rule);padding:7px 13px;border-radius:6px;cursor:pointer;transition:border-color .15s,color .15s}
+        .filtri button:hover{border-color:var(--n-ink3);color:var(--n-ink)}
+        .filtri button.on{background:var(--n-ink);color:var(--n-surface);border-color:var(--n-ink)}
+        .giorno-n{font-size:11px;font-weight:600;color:var(--n-ink3);white-space:nowrap}
+        .giorno[hidden]{display:none}
+
+        /* giornate: gli articoli in più rispetto ai multipli di tre si allargano nella prima riga */
+        .giorno-griglia{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:30px;align-items:stretch}
+        .giorno-griglia > .n-card{grid-column:span 2}
+        @media(min-width:901px){
+          .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2), .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2) + .n-card, .giorno-griglia.filtrata > .n-card.ad-meta{grid-column:span 3}
+          .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2) .n-thumb, .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2) + .n-card .n-thumb, .giorno-griglia.filtrata > .n-card.ad-meta .n-thumb, .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2) .n-ph, .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2) + .n-card .n-ph, .giorno-griglia.filtrata > .n-card.ad-meta .n-ph{aspect-ratio:16/9}
+          .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+1), .giorno-griglia.filtrata > .n-card.ad-tutta, .primo-piano > .n-card:only-child{grid-column:1 / -1;flex-direction:row;height:340px}
+          .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+1) .n-thumb, .giorno-griglia.filtrata > .n-card.ad-tutta .n-thumb, .primo-piano > .n-card:only-child .n-thumb, .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+1) .n-ph, .giorno-griglia.filtrata > .n-card.ad-tutta .n-ph, .primo-piano > .n-card:only-child .n-ph{width:52%;height:100%;aspect-ratio:auto}
+          .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+1) .n-body, .giorno-griglia.filtrata > .n-card.ad-tutta .n-body, .primo-piano > .n-card:only-child .n-body{justify-content:center;padding:26px 30px 24px}
+          .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+1) h3, .giorno-griglia.filtrata > .n-card.ad-tutta h3, .primo-piano > .n-card:only-child h3{font-size:23px;line-height:1.2;min-height:0}
+          .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+1) .n-why, .giorno-griglia.filtrata > .n-card.ad-tutta .n-why, .primo-piano > .n-card:only-child .n-why{font-size:14.5px;min-height:0;-webkit-line-clamp:4}
+          .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+1) .n-meta, .giorno-griglia.filtrata > .n-card.ad-tutta .n-meta, .primo-piano > .n-card:only-child .n-meta{margin-top:14px}
+        }
+        @media(max-width:900px){
+          .primo-piano{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+          .primo-piano > .n-card:first-child{grid-column:1 / -1;grid-row:auto}
+          .primo-piano > .n-card:nth-child(2):last-child{grid-column:1 / -1;grid-row:auto}
+          .primo-piano > .n-card:first-child h3{font-size:22px}
+          .giorno-griglia{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+          .giorno-griglia > .n-card{grid-column:auto}
+          .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(odd), .giorno-griglia.filtrata > .n-card.ad-dispari{grid-column:1 / -1}
+        }
+        @media(max-width:620px){
+          .primo-piano{grid-template-columns:minmax(0,1fr)}
+          .primo-piano > .n-card:not(:first-child) .n-thumb, .primo-piano > .n-card:not(:first-child) .n-ph{aspect-ratio:3/2}
+          .giorno-griglia{grid-template-columns:minmax(0,1fr);gap:24px}
+          .un-bar{margin-top:30px}
+          .filtri{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px;max-width:100vw}
+          .filtri button{flex-shrink:0}
+        }
+
+        /* fascia quiz + parola del giorno */
+        .fascia{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:22px;margin:30px 0 8px}
+        .fascia-quiz{display:flex;align-items:center;gap:16px;padding:18px 22px;border-radius:8px;color:#fff;background:linear-gradient(120deg,#0f766e,#14b8a6 70%,#2dd4bf);text-decoration:none}
+        .fq-ico{font-size:32px}
+        .fq-txt{display:flex;flex-direction:column;gap:3px;margin-right:auto;font-size:13.5px;color:rgba(255,255,255,.88)}
+        .fq-txt b{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:#fff}
+        .fq-btn{font-size:13.5px;font-weight:700;background:#fff;color:#0f766e;padding:10px 18px;border-radius:999px;white-space:nowrap}
+        .fascia-parola{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:16px 20px;border-radius:8px;background:#f0fdfa;border:1px solid #99e0d6;text-decoration:none}
+        .dark .fascia-parola{background:rgba(20,184,166,.10);border-color:rgba(45,212,191,.28)}
+        .fp-lbl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--n-teal)}
+        .fascia-parola b{font-family:'Montserrat',sans-serif;font-size:21px;font-weight:800;color:var(--n-ink)}
+        .fp-it{font-size:13px;color:var(--n-ink2)}
+        .fp-go{font-size:12.5px;font-weight:600;color:var(--n-teal);margin-top:6px}
+        @media(max-width:620px){.fascia{grid-template-columns:minmax(0,1fr);gap:14px} .fq-txt span{display:none}}
+
+        /* blocco archivio e pagine archivio */
+        .arch{margin:44px 0 24px;padding:24px 26px;background:var(--n-surface);border:1px solid var(--n-rule);border-radius:8px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+        .arch h2{font-family:'Montserrat',sans-serif;font-size:19px;font-weight:800;color:var(--n-ink)}
+        .arch p{font-size:13.5px;color:var(--n-ink2);margin-top:3px}
+        .arch-mesi{display:flex;gap:8px;flex-wrap:wrap}
+        .arch > .arch-mesi{margin-left:auto}
+        .arch-mesi a{font-size:13px;font-weight:600;color:var(--n-ink2);background:var(--n-sunken);padding:8px 15px;border-radius:999px;text-decoration:none}
+        .arch-mesi a:hover, .arch-mesi a.qui{background:var(--n-ink);color:var(--n-surface)}
+        .arch-btn{font-size:13.5px;font-weight:700;background:var(--n-ink);color:var(--n-surface);padding:11px 20px;border-radius:999px;text-decoration:none;white-space:nowrap}
+        .arch-pista{font-size:12.5px;color:var(--n-ink3);margin:22px 0 10px}
+        .arch-pista a{color:var(--n-teal);font-weight:600;text-decoration:none}
+        .arch-titolo{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:800;letter-spacing:-.015em;color:var(--n-ink)}
+        .arch-sotto{font-size:14px;color:var(--n-ink2);margin:4px 0 18px}
+        .arch-indice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:8px 0 40px}
+        .arch-indice a{display:block;padding:20px 22px;border:1px solid var(--n-rule);border-radius:6px;background:var(--n-surface);text-decoration:none;transition:border-color .18s}
+        .arch-indice a:hover{border-color:var(--n-rule2)}
+        .arch-indice b{display:block;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:var(--n-ink)}
+        .arch-indice span{font-size:13px;color:var(--n-ink2)}
+        .arch-piede{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:36px 0 30px}
+        @media(max-width:900px){.arch-indice{grid-template-columns:repeat(2,minmax(0,1fr))}}
+        @media(max-width:620px){.arch{padding:20px} .arch > .arch-mesi{margin-left:0} .arch-indice{grid-template-columns:minmax(0,1fr)} .arch-titolo{font-size:25px}}
+        /* ===== /DISPOSIZIONE 2026-11 ===== */
+
+    </style>
+</head>
+<body class="bg-white dark:bg-[#0c1017] transition-colors duration-300">
+    
+    <!-- Ticker Tape Live — TradingView Widget -->
+    <div class="tv-ticker-wrap" id="tv-ticker-light">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+                "symbols": [
+                    {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
+                    {"proName":"FOREXCOM:DJI","title":"Dow Jones"},
+                    {"proName":"FOREXCOM:NSXUSD","title":"Nasdaq"},
+                    {"proName":"MIL:FTSEMIB","title":"FTSE MIB"},
+                    {"proName":"XETR:DAX","title":"DAX"},
+                    {"proName":"TVC:USOIL","title":"Petrolio WTI"},
+                    {"proName":"TVC:GOLD","title":"Oro"},
+                    {"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},
+                    {"proName":"BITSTAMP:ETHUSD","title":"Ethereum"},
+                    {"proName":"FX:EURUSD","title":"EUR/USD"}
+                ],
+                "showSymbolLogo": true,
+                "isTransparent": true,
+                "displayMode": "adaptive",
+                "colorTheme": "light",
+                "locale": "it"
+            }
+            </script>
+        </div>
+    </div>
+    <div class="tv-ticker-wrap" id="tv-ticker-dark" style="display:none;">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+                "symbols": [
+                    {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
+                    {"proName":"FOREXCOM:DJI","title":"Dow Jones"},
+                    {"proName":"FOREXCOM:NSXUSD","title":"Nasdaq"},
+                    {"proName":"MIL:FTSEMIB","title":"FTSE MIB"},
+                    {"proName":"XETR:DAX","title":"DAX"},
+                    {"proName":"TVC:USOIL","title":"Petrolio WTI"},
+                    {"proName":"TVC:GOLD","title":"Oro"},
+                    {"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},
+                    {"proName":"BITSTAMP:ETHUSD","title":"Ethereum"},
+                    {"proName":"FX:EURUSD","title":"EUR/USD"}
+                ],
+                "showSymbolLogo": true,
+                "isTransparent": true,
+                "displayMode": "adaptive",
+                "colorTheme": "dark",
+                "locale": "it"
+            }
+            </script>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/92 dark:bg-[#0c1017]/92 backdrop-blur-xl border-b border-gray-100 dark:border-slate-800/20 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2 min-w-0">
+                <span class="lobster-font text-4xl sm:text-5xl text-teal-500 leading-none flex-shrink-0">A</span>
+                <span class="montserrat-font text-xl sm:text-2xl md:text-3xl font-black text-gray-900 dark:text-white whitespace-nowrap">LMA FINANZA</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="text-xs text-gray-400 dark:text-slate-600 hidden md:block">Martedì 10 Novembre 2026</div>
+                <button onclick="openSearch()" title="Cerca su Alma Finanza" aria-label="Cerca" class="p-2 rounded-full text-gray-400 dark:text-slate-500 hover:text-teal-500 dark:hover:text-teal-400 hover:bg-gray-100 dark:hover:bg-slate-800/60 transition-all duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </button>
+                <div class="theme-toggle bg-gray-200 dark:bg-slate-700" onclick="toggleTheme()" title="Cambia tema">
+                    <div class="toggle-circle bg-white dark:bg-slate-900 shadow-md">
+                        <span class="ico-sun">☀️</span><span class="ico-moon" style="display:none">🌙</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" onclick="if(event.target===this)closeSearch()" style="display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;background:rgba(8,12,22,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);opacity:0;transition:opacity 0.2s ease;">
+        <div style="width:100%;max-width:640px;margin:0 16px;" onclick="event.stopPropagation()">
+            <div style="text-align:center;margin-bottom:28px;">
+                <span class="lobster-font" style="font-size:26px;color:#2dd4bf;">A</span><span class="montserrat-font" style="font-size:15px;font-weight:900;color:rgba(255,255,255,0.55);letter-spacing:3px;">LMA FINANZA</span>
+            </div>
+            <form onsubmit="doSearch(event)" style="position:relative;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.28);pointer-events:none;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input id="search-input" type="text" placeholder="Cerca su Alma Finanza…" autocomplete="off" spellcheck="false"
+                    style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:20px 120px 20px 56px;color:#fff;font-size:19px;font-family:'Inter',sans-serif;outline:none;letter-spacing:0.01em;transition:border-color 0.2s,background 0.2s;"
+                    onfocus="this.style.borderColor='rgba(45,212,191,0.5)';this.style.background='rgba(255,255,255,0.09)'"
+                    onblur="this.style.borderColor='rgba(255,255,255,0.12)';this.style.background='rgba(255,255,255,0.06)'">
+                <button type="submit" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);padding:8px 18px;border-radius:10px;background:rgba(45,212,191,0.18);color:#2dd4bf;font-size:13px;font-weight:700;border:1px solid rgba(45,212,191,0.25);cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(45,212,191,0.32)'" onmouseout="this.style.background='rgba(45,212,191,0.18)'">Cerca</button>
+            </form>
+            <p style="text-align:center;color:rgba(255,255,255,0.18);font-size:11px;margin-top:18px;letter-spacing:0.05em;">Premi <kbd style="padding:2px 6px;border-radius:4px;background:rgba(255,255,255,0.08);font-family:monospace;color:rgba(255,255,255,0.25);">Esc</kbd> per chiudere &nbsp;·&nbsp; <kbd style="padding:2px 6px;border-radius:4px;background:rgba(255,255,255,0.08);font-family:monospace;color:rgba(255,255,255,0.25);">⌘K</kbd> per aprire</p>
+        </div>
+    </div>
+
+    <!-- Navigation Bar - Sezioni e Risorse -->
+    <nav class="bg-gray-50 dark:bg-[#0f1520] border-b border-gray-200 dark:border-slate-800/20 py-3 overflow-x-auto transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4">
+            <!-- Desktop Layout -->
+            <div class="hidden md:flex items-center justify-between">
+                <!-- Sezioni -->
+                <div class="flex items-center space-x-6">
+                    <span class="text-sm font-bold text-gray-900 dark:text-slate-300 montserrat-font">Sezioni:</span>
+                    <a href="dashboard.html" class="text-sm font-semibold bg-gradient-to-r from-teal-600 to-emerald-600 text-white px-3 py-1 rounded-full hover:shadow-lg transition">Dashboard Live</a>
+                    <a href="categoria-wall-street.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Wall Street</a>
+                    <a href="categoria-borsa-milano.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Borsa Milano</a>
+                    <a href="categoria-crypto.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Crypto</a>
+                    <a href="categoria-commodities.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Commodities</a>
+                </div>
+                <!-- Risorse -->
+                <div class="flex items-center space-x-6">
+                    <span class="text-sm font-bold text-gray-900 dark:text-slate-300 montserrat-font">Risorse:</span>
+                    <a href="impara-finanza.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Impara la Finanza</a>
+                    <a href="glossario.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Glossario</a>
+                    <a href="in-costruzione.html" class="text-sm text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition">Analisi Tecnica</a>
+                </div>
+            </div>
+            <!-- Mobile Layout — striscia scorrevole su una riga -->
+            <div class="md:hidden -mx-4 px-4 overflow-x-auto nav-scroll">
+                <div class="flex items-center gap-2 w-max">
+                    <a href="dashboard.html" class="text-xs font-semibold bg-gradient-to-r from-teal-600 to-emerald-600 text-white px-3 py-1.5 rounded-full whitespace-nowrap">Dashboard Live</a>
+                    <a href="categoria-wall-street.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Wall Street</a>
+                    <a href="categoria-borsa-milano.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Borsa Milano</a>
+                    <a href="categoria-crypto.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Crypto</a>
+                    <a href="categoria-commodities.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Commodities</a>
+                    <a href="impara-finanza.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Impara la Finanza</a>
+                    <a href="glossario.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Glossario</a>
+                    <a href="in-costruzione.html" class="text-xs text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/40 px-3 py-1.5 rounded-full whitespace-nowrap">Analisi Tecnica</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-4">
+        <!-- Pagina archivio generata da impagina-home.py: non modificare a mano -->
+        <div class="arch-pista"><a href="index.html">Home</a> · <a href="archivio.html">Archivio</a> · Giugno 2026</div>
+        <h1 class="arch-titolo">Archivio · Giugno 2026</h1>
+        <p class="arch-sotto">34 articoli in 12 giornate</p>
+        <div class="arch-mesi"><a href="archivio-2026-10.html">Ottobre 2026</a><a href="archivio-2026-09.html">Settembre 2026</a><a href="archivio-2026-08.html">Agosto 2026</a><a href="archivio-2026-07.html">Luglio 2026</a><a href="archivio-2026-06.html" class="qui">Giugno 2026</a><a href="archivio-2026-05.html">Maggio 2026</a><a href="archivio-2026-04.html">Aprile 2026</a><a href="archivio-2026-03.html">Marzo 2026</a><a href="archivio-2026-02.html">Febbraio 2026</a></div>
+
+        <!-- GIORNO 2026-06-25 | Giovedì 25 Giugno 2026 -->
+        <section class="giorno" id="g-2026-06-25" data-giorno="2026-06-25">
+            <div class="giorno-testa flex items-center gap-3 mt-6 mb-4">
+                <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
+                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">Giovedì 25 Giugno 2026</h2>
+                <span class="giorno-n">3 articoli</span>
+                <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
+            </div>
+            <div class="giorno-griglia">
+                <a href="articolo-tech-24giu-micron-trimestrale-record-hbm-apple-ramageddon.html" class="n-card group" data-cat="tech">
+                <img class="n-thumb" src="img/repertorio/semiconduttori.jpg" alt="Lo stabilimento TSMC di Taichung" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Tech/AI</div>
+                    <h3>Micron, trimestrale record: ricavi $41 miliardi, utili oltre le attese, titolo +14,5%. E il caro-memorie travolge Apple.</h3>
+                    <p class="n-why">EPS $25,11 vs $20,49 attesi · ricavi $41,46 mld · guidance Q4 record $50 mld · HBM esaurita oltre il 2027 · cap. oltre $1.000 mld. Lo stesso "RAMageddon" fa −6% Apple.</p>
+                    <div class="n-meta"><span>25 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-wall-street-24giu-apple-caro-memorie-nasdaq-quarto-calo.html" class="n-card group" data-cat="wall">
+                <img class="n-thumb" src="img/repertorio/nyse-2.jpg" alt="Il New York Stock Exchange a Wall Street" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Wall Street</div>
+                    <h3>Quarto calo del Nasdaq: Apple −6% per il caro-memorie. Il Dow tiene, petrolio sotto i 70 dollari.</h3>
+                    <p class="n-why">Nasdaq −0,46% a 25.358,60 · Dow +0,14% a 51.920,62 · S&amp;P piatto · WTI sotto $70 (min da marzo) · oro sotto $4.000. In serata l'effetto-Micron.</p>
+                    <div class="n-meta"><span>25 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-piazza-affari-24giu-ftse-mib-sotto-52000-seconda-seduta-calo.html" class="n-card group" data-cat="milano">
+                <img class="n-thumb" src="img/repertorio/piazza-affari.jpg" alt="Palazzo Mezzanotte, sede della Borsa Italiana" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Piazza Affari</div>
+                    <h3>Piazza Affari sotto i 52.000: il FTSE MIB cede lo 0,74%. Pesano tecnologici e petrolio.</h3>
+                    <p class="n-why">Seconda seduta in calo a 51.639 punti · avversione al rischio globale · energetici penalizzati dal greggio sotto $70. Volumi a €3,75 mld.</p>
+                    <div class="n-meta"><span>25 Giugno 2026</span></div>
+                </div>
+            </a>
+            </div>
+        </section>
+        <!-- /GIORNO -->
+
+        <!-- GIORNO 2026-06-24 | Mercoledì 24 Giugno 2026 -->
+        <section class="giorno" id="g-2026-06-24" data-giorno="2026-06-24">
+            <div class="giorno-testa flex items-center gap-3 mt-6 mb-4">
+                <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
+                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">Mercoledì 24 Giugno 2026</h2>
+                <span class="giorno-n">1 articolo</span>
+                <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
+            </div>
+            <div class="giorno-griglia">
+                <a href="articolo-tech-23giu-micron-crollo-chip-nasdaq-timori-bolla-ai.html" class="n-card group" data-cat="tech">
+                <img class="n-thumb" src="img/repertorio/semiconduttori.jpg" alt="Lo stabilimento TSMC di Taichung" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Tech/AI</div>
+                    <h3>Crollo dei chip: Micron −11% e Nasdaq giù, i timori da bolla dell'AI travolgono i semiconduttori.</h3>
+                    <p class="n-why">Micron −11,4% a $1.074,60 alla vigilia dei conti · indice Philadelphia Semiconductor −7,9% · Nvidia −4,1% sotto i 5.000 mld · Samsung e SK Hynix −12%. Pesano la guidance di Broadcom e i timori sulla spesa AI.</p>
+                    <div class="n-meta"><span>24 Giugno 2026</span></div>
+                </div>
+            </a>
+            </div>
+        </section>
+        <!-- /GIORNO -->
+
+        <!-- GIORNO 2026-06-23 | Martedì 23 Giugno 2026 -->
+        <section class="giorno" id="g-2026-06-23" data-giorno="2026-06-23">
+            <div class="giorno-testa flex items-center gap-3 mt-6 mb-4">
+                <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
+                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">Martedì 23 Giugno 2026</h2>
+                <span class="giorno-n">3 articoli</span>
+                <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
+            </div>
+            <div class="giorno-griglia">
+                <a href="articolo-wall-street-22giu-grande-rotazione-russell-2000-record-big-tech.html" class="n-card group" data-cat="wall">
+                <img class="n-thumb" src="img/repertorio/nyse.jpg" alt="La facciata del New York Stock Exchange" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Wall Street</div>
+                    <h3>La grande rotazione: Big Tech crolla, il Russell 2000 tocca quota 3.000 per la prima volta. Pesa la Fed da falco di Warsh.</h3>
+                    <p class="n-why">Nasdaq −1,32% a 26.166,60 (Alphabet −5%, Amazon −4,8%) · Dow +0,29% a 51.712,71 · Russell 2000 a 3.000, record storico · dot plot rivisto: 9 membri vedono rialzi.</p>
+                    <div class="n-meta"><span>23 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-piazza-affari-22giu-ftse-mib-primo-pullback-dopo-sette-sedute.html" class="n-card group" data-cat="milano">
+                <img class="n-thumb" src="img/repertorio/piazza-affari-2.jpg" alt="Palazzo Mezzanotte con la scultura L.O.V.E. a Milano" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Piazza Affari</div>
+                    <h3>FTSE MIB: primo pullback dopo sette sedute record. Il listino prende fiato sotto i 52.500.</h3>
+                    <p class="n-why">Indice in calo di circa lo 0,5% in area 52.400 · presa di beneficio fisiologica · pesano la Fed da falco e il petrolio in calo (WTI ~$74).</p>
+                    <div class="n-meta"><span>23 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-tech-22giu-alphabet-fuga-talenti-ai-openai-anthropic.html" class="n-card group" data-cat="tech">
+                <img class="n-thumb" src="img/repertorio/semiconduttori.jpg" alt="Lo stabilimento TSMC di Taichung" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Tech/AI</div>
+                    <h3>Alphabet −5%: la fuga di talenti dell'AI verso OpenAI e Anthropic spaventa Wall Street.</h3>
+                    <p class="n-why">Noam Shazeer (co-lead Gemini) va a OpenAI, John Jumper (DeepMind, Nobel) ad Anthropic. Nel settore AI il capitale umano vale quanto la tecnologia.</p>
+                    <div class="n-meta"><span>23 Giugno 2026</span></div>
+                </div>
+            </a>
+            </div>
+        </section>
+        <!-- /GIORNO -->
+
+        <!-- GIORNO 2026-06-15 | Lunedì 15 Giugno 2026 -->
+        <section class="giorno" id="g-2026-06-15" data-giorno="2026-06-15">
+            <div class="giorno-testa flex items-center gap-3 mt-6 mb-4">
+                <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
+                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">Lunedì 15 Giugno 2026</h2>
+                <span class="giorno-n">4 articoli</span>
+                <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
+            </div>
+            <div class="giorno-griglia">
+                <a href="articolo-geopolitica-15giu-accordo-usa-iran-firma-svizzera-mercati.html" class="n-card group" data-cat="macro">
+                <img class="n-thumb" src="img/repertorio/petrolio.jpg" alt="La petroliera Pericles al pontile di una raffineria" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Geopolitica</div>
+                    <h3>Accordo USA-Iran: firma il 19 giugno in Svizzera. Memorandum 14 punti — Hormuz riapre, WTI −6% a $79,79, FTSE MIB +1,52% a 52.279. I rischi residui: Israele, nucleare e i 60 giorni.</h3>
+                    <p class="n-why">Mediazione Pakistan e Qatar · Witkoff e Kushner per USA · Araghchi per Iran · Sanzioni petrolio sospese · $24 mld asset sbloccati · Stellantis +5% · Spread BTP-Bund 71 pb.</p>
+                    <div class="n-meta"><span>15 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-wall-street-15giu-nasdaq-record-deal-iran-rally-ai.html" class="n-card group" data-cat="wall">
+                <img class="n-thumb" src="img/repertorio/nyse-2.jpg" alt="Il New York Stock Exchange a Wall Street" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Wall Street</div>
+                    <h3>Wall Street vola sul deal Iran: Nasdaq +3,07%, miglior seduta del mese. S&amp;P 500 e Dow verso i record.</h3>
+                    <p class="n-why">Nasdaq 26.683,94 (+3,07%) · S&amp;P 500 7.554,54 (+1,66%) · Dow 51.671,83 (+0,92%). Petrolio giù, semiconduttori AI su. Mercoledì il FOMC.</p>
+                    <div class="n-meta"><span>15 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-piazza-affari-15giu-ftse-mib-record-52000-stellantis-banche.html" class="n-card group" data-cat="milano">
+                <img class="n-thumb" src="img/repertorio/piazza-affari.jpg" alt="Palazzo Mezzanotte, sede della Borsa Italiana" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Piazza Affari</div>
+                    <h3>Piazza Affari record: il FTSE MIB sfonda quota 52.000 per la prima volta. Volano Stellantis e banche.</h3>
+                    <p class="n-why">FTSE MIB +1,52% a 52.279, nuovo massimo storico · Stellantis +5% · Generali ai massimi (Berenberg target €71) · Eni e Tenaris giù sul petrolio.</p>
+                    <div class="n-meta"><span>15 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-tech-15giu-nvidia-n1x-chip-ai-pc-huang-stack.html" class="n-card group" data-cat="tech">
+                <img class="n-thumb" src="img/repertorio/semiconduttori.jpg" alt="Lo stabilimento TSMC di Taichung" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Tech/AI</div>
+                    <h3>Nvidia N1X: il chip per i PC con intelligenza artificiale con cui Huang vuole controllare l'intera filiera dell'AI.</h3>
+                    <p class="n-why">20 core Arm, 6.144 CUDA core come una RTX 5070, memoria unificata. Con MediaTek e Microsoft, Nvidia entra nei PC. Volumi nella seconda metà 2026.</p>
+                    <div class="n-meta"><span>15 Giugno 2026</span></div>
+                </div>
+            </a>
+            </div>
+        </section>
+        <!-- /GIORNO -->
+
+        <!-- GIORNO 2026-06-14 | Weekend, 13–14 Giugno 2026 -->
+        <section class="giorno" id="g-2026-06-14" data-giorno="2026-06-14">
+            <div class="giorno-testa flex items-center gap-3 mt-6 mb-4">
+                <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
+                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">Weekend, 13–14 Giugno 2026</h2>
+                <span class="giorno-n">3 articoli</span>
+                <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
+            </div>
+            <div class="giorno-griglia">
+                <a href="articolo-wall-street-14giu-sesta-settimana-consecutiva.html" class="n-card group" data-cat="wall">
+                <img class="n-thumb" src="img/repertorio/nyse.jpg" alt="La facciata del New York Stock Exchange" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Wall Street</div>
+                    <h3>Wall Street: Sesta Settimana Consecutiva Positiva. S&amp;P 500 a 7.431, Dow a 51.202, SpaceX SPCX IPO (Offerta Pubblica Iniziale) +19,3%.</h3>
+                    <p class="n-why">S&amp;P +0,6% settimanale &middot; Dow +0,65% &middot; Nasdaq +0,3% &middot; SPCX $161,11 &middot; WTI $84,86 &minus;3,25% &middot; Gold ~$4.200 &middot; BTC $105.056.</p>
+                    <div class="n-meta"><span>14 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-piazza-affari-14giu-ftse-mib-outlook-settimana-fomc.html" class="n-card group" data-cat="milano">
+                <img class="n-thumb" src="img/repertorio/piazza-affari-2.jpg" alt="Palazzo Mezzanotte con la scultura L.O.V.E. a Milano" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Piazza Affari</div>
+                    <h3>FTSE MIB: Record Assoluto 51.497. Banche, M&amp;A (Fusioni e Acquisizioni) e Risiko Bancario Spingono verso 52.000.</h3>
+                    <p class="n-why">Mediobanca +4,59% &middot; Intesa +4,3% &middot; UniCredit +4,1% &middot; Buzzi +5,67% &middot; ENI &minus;2,25% &middot; DAX 24.682 &middot; CAC 40 8.391.</p>
+                    <div class="n-meta"><span>14 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-geopolitica-14giu-iran-deal-firma-rinviata-qatar.html" class="n-card group" data-cat="macro">
+                <img class="n-thumb" src="img/repertorio/petrolio-2.jpg" alt="Serbatoi di stoccaggio in una raffineria" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Geopolitica</div>
+                    <h3>Deal USA-Iran: Firma Domenica Rinviata. Qatar Invia Mediatori a Teheran. WTI verso $70&ndash;75.</h3>
+                    <p class="n-why">Iran FM: firma "improbabile" domenica &middot; Pakistan: testo MOU (Memorandum d'Intesa) pronto &middot; Qatar negoziatori a Teheran &middot; WTI da $100+ verso $70&ndash;75.</p>
+                    <div class="n-meta"><span>14 Giugno 2026</span></div>
+                </div>
+            </a>
+            </div>
+        </section>
+        <!-- /GIORNO -->
+
+        <!-- GIORNO 2026-06-14 | Domenica 14 Giugno 2026 -->
+        <section class="giorno" id="g-2026-06-14-2" data-giorno="2026-06-14">
+            <div class="giorno-testa flex items-center gap-3 mt-6 mb-4">
+                <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
+                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">Domenica 14 Giugno 2026</h2>
+                <span class="giorno-n">2 articoli</span>
+                <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
+            </div>
+            <div class="giorno-griglia">
+                <a href="articolo-macro-14giu-recap-settimana-spacex-ipo-ftse-mib-record.html" class="n-card group" data-cat="wall">
+                <div class="n-ph" style="background:#4d586014;color:#4d5860">ALMA</div>
+                <div class="n-body">
+                    <div class="n-cat">Weekly Review</div>
+                    <h3>La Settimana dei Mercati 9&ndash;13 Giugno: SpaceX IPO (Offerta Pubblica Iniziale) Storica +19,3%, FTSE MIB Record 51.497, Deal Iran e WTI &minus;3,25%.</h3>
+                    <p class="n-why">Dow +0,65% settimanale &middot; S&amp;P +0,6% &middot; SPCX $161,11 +19,3% &middot; FTSE MIB ATH 51.497 &middot; WTI $84,86 &minus;3,25% &middot; 6&ordf; settimana consecutiva positiva.</p>
+                    <div class="n-meta"><span>14 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-macro-14giu-outlook-settimana-fomc-iran-spacex.html" class="n-card group" data-cat="wall">
+                <div class="n-ph" style="background:#4d586014;color:#4d5860">ALMA</div>
+                <div class="n-body">
+                    <div class="n-cat">Outlook Settimana</div>
+                    <h3>Outlook 16&ndash;20 Giugno: FOMC (Comitato Federale del Mercato Aperto) con Kevin Warsh, Firma Deal Iran Lunedì, SpaceX SPCX Settimana 2 e FTSE MIB verso 52.000.</h3>
+                    <p class="n-why">Fed hold 89% probabilità &middot; Tasso 3,65% &middot; Dot Plot aggiornato &middot; Hormuz riapre &middot; WTI verso $70&ndash;75 &middot; FTSE MIB target 51.950&ndash;52.000.</p>
+                    <div class="n-meta"><span>14 Giugno 2026</span></div>
+                </div>
+            </a>
+            </div>
+        </section>
+        <!-- /GIORNO -->
+
+        <!-- GIORNO 2026-06-13 | Sabato 13 Giugno 2026 -->
+        <section class="giorno" id="g-2026-06-13" data-giorno="2026-06-13">
+            <div class="giorno-testa flex items-center gap-3 mt-6 mb-4">
+                <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
+                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">Sabato 13 Giugno 2026</h2>
+                <span class="giorno-n">3 articoli</span>
+                <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
+            </div>
+            <div class="giorno-griglia">
+                <a href="articolo-geopolitica-13giu-trump-deal-iran-firma-domenica.html" class="n-card group" data-cat="macro">
+                <img class="n-thumb" src="img/repertorio/petrolio.jpg" alt="La petroliera Pericles al pontile di una raffineria" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Geopolitica</div>
+                    <h3>Trump Annuncia Firma Deal USA-Iran per Domenica 14 Giugno: Stretto di Hormuz Riapre. Petrolio WTI (West Texas Intermediate) Atteso verso $70&ndash;75.</h3>
+                    <p class="n-why">WTI $83,84 &minus;4% venerdì &middot; Deal: denuclearizzazione + riapertura Hormuz + revoca sanzioni &middot; Oro $4.216 in calo &middot; Borse attese positive lunedì.</p>
+                    <div class="n-meta"><span>13 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-commodities-13giu-petrolio-wti-deal-iran-hormuz.html" class="n-card group" data-cat="commod">
+                <img class="n-thumb" src="img/repertorio/petrolio.jpg" alt="La petroliera Pericles al pontile di una raffineria" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Commodities</div>
+                    <h3>Petrolio WTI (West Texas Intermediate) verso $70: Cosa Cambia con la Pace USA-Iran e la Riapertura dello Stretto di Hormuz. Chi Vince e Chi Perde.</h3>
+                    <p class="n-why">WTI $83,84 &minus;24% dai picchi &middot; Brent $87,44 &middot; Oro $4.216 &minus;0,5% &middot; ENI sotto pressione &middot; Trasporti e consumer avvantaggiati &middot; OPEC+ in difficoltà.</p>
+                    <div class="n-meta"><span>13 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-wall-street-13giu-preview-settimana-fed-iran-deal.html" class="n-card group" data-cat="wall">
+                <img class="n-thumb" src="img/repertorio/nyse-2.jpg" alt="Il New York Stock Exchange a Wall Street" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Wall Street</div>
+                    <h3>Preview Settimana 16&ndash;20 Giugno: Fed FOMC (Federal Open Market Committee) il 16&ndash;17 Giu (Tassi Fermi al 3,5%), SpaceX SPCX Prima Settimana Completa, Firma Deal Iran.</h3>
+                    <p class="n-why">S&amp;P 500 7.431 &middot; FTSE MIB 51.497 ATH &middot; Fed: tassi invariati al 3,5&ndash;3,75% &middot; SpaceX SPCX $160,95 &middot; WTI $83,84 &minus;4% &middot; Setup favorevole.</p>
+                    <div class="n-meta"><span>13 Giugno 2026</span></div>
+                </div>
+            </a>
+            </div>
+        </section>
+        <!-- /GIORNO -->
+
+        <!-- GIORNO 2026-06-12 | Venerdì 12 Giugno 2026 -->
+        <section class="giorno" id="g-2026-06-12" data-giorno="2026-06-12">
+            <div class="giorno-testa flex items-center gap-3 mt-6 mb-4">
+                <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
+                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">Venerdì 12 Giugno 2026</h2>
+                <span class="giorno-n">3 articoli</span>
+                <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
+            </div>
+            <div class="giorno-griglia">
+                <a href="articolo-piazza-affari-12giu-ftse-mib-record-assoluto-51497.html" class="n-card group" data-cat="milano">
+                <img class="n-thumb" src="img/repertorio/piazza-affari.jpg" alt="Palazzo Mezzanotte, sede della Borsa Italiana" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Piazza Affari</div>
+                    <h3>FTSE MIB: Nuovo Massimo Storico (All-Time High) a 51.497 Punti (+1,97%). Banche Protagoniste sul Risiko Bancario (M&amp;A) e Deal USA-Iran.</h3>
+                    <p class="n-why">FTSE MIB 51.497 +1,97% record &middot; Mediobanca +4,59% &middot; Intesa +4,3% &middot; Unicredit +4,1% &middot; Buzzi +5,67% &middot; ENI &minus;2,25%.</p>
+                    <div class="n-meta"><span>12 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-wall-street-12giu-spacex-ipo-storico-dow-record.html" class="n-card group" data-cat="wall">
+                <img class="n-thumb" src="img/repertorio/nyse.jpg" alt="La facciata del New York Stock Exchange" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Wall Street</div>
+                    <h3>SpaceX IPO (Offerta Pubblica Iniziale) Storico: SPCX +19% il Primo Giorno. $75 Miliardi Raccolti, Valutazione $2 Trilioni. Dow Jones +0,70% a 51.202.</h3>
+                    <p class="n-why">SPCX chiude a $160,95 (+19%) &middot; Dow 51.202 +0,70% &middot; S&amp;P 500 7.431 +0,50% &middot; Nasdaq 25.888 +0,31% &middot; Deal Iran supporta i mercati.</p>
+                    <div class="n-meta"><span>12 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-macro-12giu-usa-iran-deal-petrolio-crollo-hormuz.html" class="n-card group" data-cat="macro">
+                <img class="n-thumb" src="img/repertorio/petrolio-2.jpg" alt="Serbatoi di stoccaggio in una raffineria" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Geopolitica</div>
+                    <h3>Deal USA-Iran Confermato: Stretto di Hormuz Riapre. Petrolio WTI (West Texas Intermediate) &minus;4% ai Minimi di 8 Settimane a $83.</h3>
+                    <p class="n-why">WTI $83,84 &minus;4% &middot; War Premium (premio di guerra) in calo &middot; Borse europee in rally &middot; Oro $4.216 &middot; BTC $63.000 +3%.</p>
+                    <div class="n-meta"><span>12 Giugno 2026</span></div>
+                </div>
+            </a>
+            </div>
+        </section>
+        <!-- /GIORNO -->
+
+        <!-- GIORNO 2026-06-09 | Martedì 9 Giugno 2026 -->
+        <section class="giorno" id="g-2026-06-09" data-giorno="2026-06-09">
+            <div class="giorno-testa flex items-center gap-3 mt-6 mb-4">
+                <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
+                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">Martedì 9 Giugno 2026</h2>
+                <span class="giorno-n">3 articoli</span>
+                <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
+            </div>
+            <div class="giorno-griglia">
+                <a href="articolo-piazza-affari-09giu-ftse-mib-massimo-storico-unipol-stm.html" class="n-card group" data-cat="milano">
+                <img class="n-thumb" src="img/repertorio/piazza-affari-2.jpg" alt="Palazzo Mezzanotte con la scultura L.O.V.E. a Milano" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Piazza Affari</div>
+                    <h3>FTSE MIB aggiorna il Massimo Storico (All-Time High) a 51.240 punti intraday, chiude a 50.262 +0,11%. Unipol +4,7% sul Risiko Bancario MPS. STMicroelectronics &minus;5,94%.</h3>
+                    <p class="n-why">FTSE MIB 50.262 +0,11% &middot; Max storico 51.240 &middot; Unipol +4,7% &middot; Mediobanca +3% &middot; BPER +2,9% &middot; STM &minus;5,94% &middot; Spread 76bp.</p>
+                    <div class="n-meta"><span>9 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-wall-street-09giu-dow-sp500-nasdaq-iran-trump.html" class="n-card group" data-cat="wall">
+                <img class="n-thumb" src="img/repertorio/nyse-2.jpg" alt="Il New York Stock Exchange a Wall Street" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Wall Street</div>
+                    <h3>Wall Street divisa: Dow +0,17% a 50.872, Nasdaq &minus;0,97% a 25.678. Trump rilancia sull'Iran. Intel esplode +11,2% sul maxiordine AI di Google Alphabet (3M TPU).</h3>
+                    <p class="n-why">Dow 50.872 +0,17% &middot; S&amp;P 500 7.386 &minus;0,26% &middot; Nasdaq 25.678 &minus;0,97% &middot; Intel +11,2% &middot; Oro $4.329 &middot; WTI $90.</p>
+                    <div class="n-meta"><span>9 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-tech-09giu-intel-alphabet-tpu-ai-chip-google.html" class="n-card group" data-cat="tech">
+                <img class="n-thumb" src="img/repertorio/semiconduttori.jpg" alt="Lo stabilimento TSMC di Taichung" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Tech &amp; AI</div>
+                    <h3>Intel +11,2%: Google Alphabet ordina 3 milioni di TPU (Tensor Processing Unit — chip AI) dalla Fonderia Intel entro il 2028. Nvidia valuta il processo 18A. Intel +168% YTD.</h3>
+                    <p class="n-why">Intel +11,2% &middot; Google: 3M TPU su fonderia Intel &middot; Nvidia valuta 18A &middot; XLK +2,15% &middot; Intel +168% da inizio 2026.</p>
+                    <div class="n-meta"><span>9 Giugno 2026</span></div>
+                </div>
+            </a>
+            </div>
+        </section>
+        <!-- /GIORNO -->
+
+        <!-- GIORNO 2026-06-05 | Venerdì 5 Giugno 2026 -->
+        <section class="giorno" id="g-2026-06-05" data-giorno="2026-06-05">
+            <div class="giorno-testa flex items-center gap-3 mt-6 mb-4">
+                <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
+                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">Venerdì 5 Giugno 2026</h2>
+                <span class="giorno-n">3 articoli</span>
+                <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
+            </div>
+            <div class="giorno-griglia">
+                <a href="articolo-wall-street-05giu-nasdaq-chip-selloff.html" class="n-card group" data-cat="wall">
+                <img class="n-thumb" src="img/repertorio/nyse.jpg" alt="La facciata del New York Stock Exchange" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Wall Street</div>
+                    <h3>Nasdaq &minus;4,18%: peggior seduta da aprile 2025. AMD &minus;10,86%, Intel &minus;11,28%, Nvidia &minus;6%. Guidance Miss (mancata previsione) Broadcom Q3 AI ($16B vs $17,2B attesi) + Jobs Report boom allontanano i tagli Fed.</h3>
+                    <p class="n-why">Nasdaq 25.709 &minus;4,18% &middot; S&amp;P 500 7.383 &minus;2,64% &middot; Dow 50.866 &minus;1,35% &middot; AMD &minus;10,86% &middot; Intel &minus;11,28% &middot; Nvidia &minus;6% &middot; Oro $4.366.</p>
+                    <div class="n-meta"><span>5 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-piazza-affari-05giu-ftse-mib-stm-chip-selloff.html" class="n-card group" data-cat="milano">
+                <img class="n-thumb" src="img/repertorio/piazza-affari.jpg" alt="Palazzo Mezzanotte, sede della Borsa Italiana" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Piazza Affari</div>
+                    <h3>FTSE MIB &minus;0,56% a 49.893: STMicroelectronics &minus;5,9% per Contagion Effect (effetto contagio) dai chip USA. INWIT miglior titolo +3,3%. Terna +1,8%. Utility come porto sicuro.</h3>
+                    <p class="n-why">FTSE MIB 49.893 &minus;0,56% &middot; STM &minus;5,9% &middot; Prysmian &minus;3,5% &middot; INWIT +3,3% &middot; Terna +1,8% &middot; DAX &minus;0,55% &middot; CAC &minus;0,05%.</p>
+                    <div class="n-meta"><span>5 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-macro-05giu-jobs-report-maggio-2026-fed.html" class="n-card group" data-cat="macro">
+                <img class="n-thumb" src="img/repertorio/fed.jpg" alt="L'Eccles Building, sede della Federal Reserve" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Macro / Fed</div>
+                    <h3>Jobs Report (rapporto lavoro) maggio 2026: +172.000 Nonfarm Payrolls (buste paga non agricole), il doppio delle attese (+80K consensus). Disoccupazione 4,3%. La Fed rimane in modalità Higher for Longer (tassi più alti per più tempo).</h3>
+                    <p class="n-why">+172K vs +80K atteso &middot; Disoccupazione 4,3% &middot; PIL Q2 tracking +3% &middot; Fed: nessun taglio in vista &middot; Nasdaq &minus;4,18% &middot; Treasury yields salgono.</p>
+                    <div class="n-meta"><span>5 Giugno 2026</span></div>
+                </div>
+            </a>
+            </div>
+        </section>
+        <!-- /GIORNO -->
+
+        <!-- GIORNO 2026-06-04 | Giovedì 4 Giugno 2026 -->
+        <section class="giorno" id="g-2026-06-04" data-giorno="2026-06-04">
+            <div class="giorno-testa flex items-center gap-3 mt-6 mb-4">
+                <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
+                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">Giovedì 4 Giugno 2026</h2>
+                <span class="giorno-n">3 articoli</span>
+                <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
+            </div>
+            <div class="giorno-griglia">
+                <a href="articolo-wall-street-04giu-dow-50776-broadcom-crash.html" class="n-card group" data-cat="wall">
+                <img class="n-thumb" src="img/repertorio/nyse-2.jpg" alt="Il New York Stock Exchange a Wall Street" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Wall Street</div>
+                    <h3>Dow Jones a 51.561 (+1,73%): nuovo record storico (ATH) grazie alla Rotation Trade (rotazione di portafoglio) verso UnitedHealth +5%, JPMorgan +3%. Broadcom crolla &minus;15%. Nasdaq quasi invariato (&minus;0,09%).</h3>
+                    <p class="n-why">Dow 51.561 +1,73% ATH &middot; S&amp;P 500 7.584 +0,41% &middot; Nasdaq 26.830 &minus;0,09% &middot; AVGO &minus;15% &middot; UNH +5% &middot; JPM +3% &middot; Oro $4.479.</p>
+                    <div class="n-meta"><span>4 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-piazza-affari-04giu-ftse-mib-50038-stellantis.html" class="n-card group" data-cat="milano">
+                <img class="n-thumb" src="img/repertorio/piazza-affari-2.jpg" alt="Palazzo Mezzanotte con la scultura L.O.V.E. a Milano" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Piazza Affari</div>
+                    <h3>FTSE MIB 50.038 (&minus;1,07%): STMicroelectronics peggiore del listino &minus;5,47% a &euro;64,76 per Contagion Effect (effetto contagio) da Broadcom. Stellantis &minus;3%. Maire +2,04% su contratto Tecnimont $900M.</h3>
+                    <p class="n-why">FTSE MIB 50.038 &minus;1,07% &middot; STM &minus;5,47% &euro;64,76 &middot; Stellantis &minus;3% &middot; Maire +2,04% &euro;15 &middot; WTI $95 &middot; Oro $4.479.</p>
+                    <div class="n-meta"><span>4 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-tech-04giu-broadcom-avgo-q2-earnings-ai-record.html" class="n-card group" data-cat="tech">
+                <img class="n-thumb" src="img/repertorio/semiconduttori.jpg" alt="Lo stabilimento TSMC di Taichung" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Tech &amp; AI</div>
+                    <h3>Broadcom Q2 FY2026: AI Revenue (ricavi AI) $10,8 miliardi +143% YoY &mdash; record assoluto. EPS (utile per azione) non-GAAP $2,44 batte le attese. Ma Guidance (previsioni) Q3 AI a $16B sotto le attese pi&ugrave; aggressive e AVGO crolla &minus;15%: il paradosso del &ldquo;Sell the News&rdquo;.</h3>
+                    <p class="n-why">AVGO &minus;15% &middot; Revenue $22,19B +48% YoY &middot; EPS non-GAAP $2,44 vs $2,32 &middot; AI Revenue $10,8B +143% &middot; AI Guidance Q3 $16B &middot; FCF $10,3B.</p>
+                    <div class="n-meta"><span>4 Giugno 2026</span></div>
+                </div>
+            </a>
+            </div>
+        </section>
+        <!-- /GIORNO -->
+
+        <!-- GIORNO 2026-06-03 | Mercoledì 3 Giugno 2026 -->
+        <section class="giorno" id="g-2026-06-03" data-giorno="2026-06-03">
+            <div class="giorno-testa flex items-center gap-3 mt-6 mb-4">
+                <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
+                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">Mercoledì 3 Giugno 2026</h2>
+                <span class="giorno-n">3 articoli</span>
+                <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
+            </div>
+            <div class="giorno-griglia">
+                <a href="articolo-wall-street-03giu-sp500-iran-oil-record.html" class="n-card group" data-cat="wall">
+                <img class="n-thumb" src="img/repertorio/nyse.jpg" alt="La facciata del New York Stock Exchange" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Wall Street</div>
+                    <h3>S&amp;P 500 7.599 (&minus;0,14%) arretra dai massimi storici: petrolio WTI (West Texas Intermediate) a $95 con l&rsquo;Iran che attacca Kuwait e Bahrain. PMI (Indice dei Direttori degli Acquisti) Eurozona 47,5. Jobs Report (rapporto lavoro) venerd&igrave;.</h3>
+                    <p class="n-why">S&amp;P 500 7.599 &minus;0,14% &middot; Dow 51.020 &minus;0,56% &middot; Nasdaq 27.097 +0,01% &middot; WTI $95 +2,2% &middot; BTC $67.000 &minus;6,5% &middot; Stretto di Hormuz, strike USA su Qeshm Island.</p>
+                    <div class="n-meta"><span>3 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-piazza-affari-03giu-ftse-mib-50482-eni-saipem.html" class="n-card group" data-cat="milano">
+                <img class="n-thumb" src="img/repertorio/piazza-affari.jpg" alt="Palazzo Mezzanotte, sede della Borsa Italiana" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Piazza Affari</div>
+                    <h3>FTSE MIB 50.482 (&minus;0,37%): ritraccia dal record storico di 50.578. Eni e Saipem volano con il petrolio a $95. STMicroelectronics +15% sulla guidance (previsioni) Data Center da $1 miliardo. Leonardo e Avio in calo.</h3>
+                    <p class="n-why">FTSE MIB 50.482 &minus;0,37% &middot; Eni +0,97% &middot; Saipem +0,97% &middot; STM +15,19% a &euro;68,31 &middot; Avio &minus;3,61% &middot; Leonardo &minus;1,78% &middot; Stellantis &minus;1,54%.</p>
+                    <div class="n-meta"><span>3 Giugno 2026</span></div>
+                </div>
+            </a>
+                <a href="articolo-tech-03giu-stm-datacenter-miliardo-morgan-stanley.html" class="n-card group" data-cat="tech">
+                <img class="n-thumb" src="img/repertorio/semiconduttori.jpg" alt="Lo stabilimento TSMC di Taichung" loading="lazy" width="1200" height="800">
+                <div class="n-body">
+                    <div class="n-cat">Tech &amp; AI</div>
+                    <h3>STMicroelectronics +15,19% a &euro;68,31: guidance (previsioni ufficiali) Data Center (centro dati) rivista a ~$1 miliardo nel 2026, il doppio di prima. Morgan Stanley alza il Target Price (prezzo obiettivo) a &euro;83. Il semiconduttore europeo nella corsa AI.</h3>
+                    <p class="n-why">STM &euro;68,31 +15,19% &middot; Precedente &euro;59,30 &middot; Target MS &euro;83 &middot; Guidance data center ~$1B 2026 &middot; Overweight (sovrappeso) &middot; Titolo migliore FTSE MIB nella seduta.</p>
+                    <div class="n-meta"><span>3 Giugno 2026</span></div>
+                </div>
+            </a>
+            </div>
+        </section>
+        <!-- /GIORNO -->
+
+        <div class="arch-piede"><a class="arch-btn" href="archivio-2026-07.html">← Luglio 2026</a><a class="arch-btn" href="archivio-2026-05.html">Maggio 2026 →</a></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-transparent border-t border-gray-100 dark:border-slate-800/20 text-gray-900 dark:text-white transition-colors duration-300 mt-16">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="lobster-font text-4xl text-teal-500">A</span>
+                        <span class="montserrat-font text-xl font-bold dark:text-white">lma Finanza</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-slate-500 text-sm">
+                        Le notizie dei mercati finanziari, aggiornate in tempo reale.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font dark:text-white">Sezioni</h3>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-slate-500">
+                        <li><a href="categoria-wall-street.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Wall Street</a></li>
+                        <li><a href="categoria-borsa-milano.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Borsa Milano</a></li>
+                        <li><a href="categoria-crypto.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Crypto</a></li>
+                        <li><a href="categoria-commodities.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Commodities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font dark:text-white">Risorse</h3>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-slate-500">
+                        <li><a href="impara-finanza.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Impara la Finanza</a></li>
+                        <li><a href="glossario.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Glossario Finanza</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Analisi Tecnica</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4 montserrat-font dark:text-white">Legal</h3>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-slate-500">
+                        <li><a href="in-costruzione.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Privacy Policy</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Cookie Policy</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Disclaimer</a></li>
+                        <li><a href="in-costruzione.html" class="hover:text-teal-500 dark:hover:text-teal-400 transition">Contatti</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-100 dark:border-slate-800/20 mt-8 pt-8 text-center text-sm text-gray-500 dark:text-slate-500">
+                <p>&copy; 2026 Alma Finanza. Tutti i diritti riservati.</p>
+                <p class="mt-4 text-xs max-w-3xl mx-auto leading-relaxed text-gray-400 dark:text-slate-600">
+                    Alma Finanza è una piattaforma di informazione ed educazione finanziaria. I contenuti pubblicati hanno scopo esclusivamente informativo, educativo e giornalistico. Non costituiscono consulenza finanziaria, raccomandazioni di investimento o sollecitazioni all'acquisto/vendita di strumenti finanziari. Le analisi presentate non tengono conto della situazione personale del lettore. Gli investimenti comportano rischi, inclusa la perdita del capitale. I rendimenti passati non garantiscono risultati futuri. Prima di prendere decisioni finanziarie, consulta sempre un professionista autorizzato.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    function syncTickerTheme(){
+        var d=document.documentElement.classList.contains('dark');
+        var tl=document.getElementById('tv-ticker-light');
+        var td=document.getElementById('tv-ticker-dark');
+        if(tl)tl.style.display=d?'none':'block';
+        if(td)td.style.display=d?'block':'none';
+    }
+    function toggleTheme(){var h=document.documentElement,d=h.classList.contains('dark');if(d){h.classList.remove('dark');localStorage.setItem('alma-theme','light')}else{h.classList.add('dark');localStorage.setItem('alma-theme','dark')}updateIcons();syncTickerTheme()}
+    function updateIcons(){var d=document.documentElement.classList.contains('dark');document.querySelectorAll('.ico-sun').forEach(function(e){e.style.display=d?'none':'inline'});document.querySelectorAll('.ico-moon').forEach(function(e){e.style.display=d?'inline':'none'})}
+    window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){if(!localStorage.getItem('alma-theme')){if(e.matches)document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark');updateIcons();syncTickerTheme()}});
+    updateIcons();
+    syncTickerTheme();
+    function openSearch(){var o=document.getElementById('search-overlay');o.style.display='flex';requestAnimationFrame(function(){requestAnimationFrame(function(){o.style.opacity='1';});});setTimeout(function(){document.getElementById('search-input').focus();},50);document.body.style.overflow='hidden';}
+    function closeSearch(){var o=document.getElementById('search-overlay');o.style.opacity='0';setTimeout(function(){o.style.display='none';document.body.style.overflow='';},200);}
+    function doSearch(e){e.preventDefault();var q=document.getElementById('search-input').value.trim();if(q)window.open('https://www.google.com/search?q=site%3Aalmafinanza.com+'+encodeURIComponent(q),'_blank');}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSearch();if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openSearch();}});
+    </script>
+    <!-- JS-DISPOSIZIONE: filtri per categoria (generato da impagina-home.py) -->
+    <script>
+    (function(){
+        var bottoni=document.querySelectorAll('.filtri button');
+        if(!bottoni.length)return;
+        function filtra(f){
+            document.querySelectorAll('.giorno').forEach(function(g){
+                var griglia=g.querySelector('.giorno-griglia'),visibili=[];
+                griglia.querySelectorAll('.n-card').forEach(function(c){
+                    var ok=f==='tutte'||c.getAttribute('data-cat')===f;
+                    c.hidden=!ok;c.classList.remove('ad-tutta','ad-meta','ad-dispari');
+                    if(ok)visibili.push(c);
+                });
+                // la riga si ricalcola sulle sole schede visibili: nessuno spazio vuoto nemmeno a filtro attivo
+                griglia.classList.toggle('filtrata',f!=='tutte');
+                if(f!=='tutte'&&visibili.length){
+                    if(visibili.length%3===1)visibili[0].classList.add('ad-tutta');
+                    if(visibili.length%3===2){visibili[0].classList.add('ad-meta');visibili[1].classList.add('ad-meta');}
+                    if(visibili.length%2===1)visibili[0].classList.add('ad-dispari');
+                }
+                g.hidden=!visibili.length;
+                var n=g.querySelector('.giorno-n');
+                if(n)n.textContent=visibili.length+(visibili.length===1?' articolo':' articoli');
+            });
+        }
+        bottoni.forEach(function(b){b.addEventListener('click',function(){
+            bottoni.forEach(function(x){x.classList.remove('on');});b.classList.add('on');filtra(b.getAttribute('data-f'));
+        });});
+    })();
+    </script>
+    <!-- /JS-DISPOSIZIONE -->
+</body>
+</html>

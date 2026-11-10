@@ -35,3 +35,10 @@ Questa regola si applica a: articoli, titoli, card homepage, info-box, sezione "
 - 5 articoli per aggiornamento, generati in parallelo con agenti background
 - Verificare sempre che l'hero sia stato aggiornato correttamente dopo l'esecuzione dello script
 - Verificare che i nuovi termini finanziari siano stati aggiunti al glossario
+
+## Homepage e Archivio (disposizione del novembre 2026)
+- Homepage: Ticker Live, "In primo piano" con gli articoli di oggi, "Ultime notizie" con filtri, ultime 10 giornate; il resto nelle pagine `archivio-AAAA-MM.html`
+- Le impagina `impagina-home.py`: si incolla il blocco `<!-- GIORNO AAAA-MM-GG | ... -->` sotto `<!-- NUOVO-GIORNO -->` in index.html e si esegue `python3 impagina-home.py --applica`
+- Mai modificare a mano primo piano, sezioni giorno, blocco archivio e pagine archivio: sono generati
+- Mai classi col-span scritte a mano sulle schede: la larghezza la decide il numero di articoli del giorno
+- Il giorno della settimana si ricava sempre dalla data, mai a memoria
