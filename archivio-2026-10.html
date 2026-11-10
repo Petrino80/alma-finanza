@@ -147,7 +147,7 @@
         .dark .article-card h3{color:#f1f5f9!important;}
         .dark .shadow-sm,.dark .shadow-md,.dark .shadow-lg{box-shadow:0 4px 24px rgba(0,0,0,0.3)!important;}
         .dark .bg-gray-50{background:#0c1017!important;}
-        .dark .bg-white{background:rgba(15,23,42,0.6)!important;}
+        .dark .bg-white{background:rgba(15,23,42,0.6)!important;} .dark body.bg-white{background:#0c1017!important;}
         .dark .text-gray-900{color:#f1f5f9!important;}
         .dark .text-gray-600,.dark .text-gray-700{color:#94a3b8!important;}
         .dark .text-gray-500{color:#64748b!important;}
@@ -246,6 +246,8 @@
         /* giornate: gli articoli in più rispetto ai multipli di tre si allargano nella prima riga */
         .giorno-griglia{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:30px;align-items:stretch}
         .giorno-griglia > .n-card{grid-column:span 2}
+        /* la riga dei dati occupa sempre due righe: così tutti i riquadri hanno la stessa altezza, anche fra righe diverse */
+        .giorno-griglia > .n-card .n-meta > span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.5;min-height:calc(1.5em * 2)}
         @media(min-width:901px){
           .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2), .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2) + .n-card, .giorno-griglia.filtrata > .n-card.ad-meta{grid-column:span 3}
           .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2) .n-thumb, .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2) + .n-card .n-thumb, .giorno-griglia.filtrata > .n-card.ad-meta .n-thumb, .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2) .n-ph, .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2) + .n-card .n-ph, .giorno-griglia.filtrata > .n-card.ad-meta .n-ph{aspect-ratio:16/9}
@@ -255,6 +257,7 @@
           .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+1) h3, .giorno-griglia.filtrata > .n-card.ad-tutta h3, .primo-piano > .n-card:only-child h3{font-size:23px;line-height:1.2;min-height:0}
           .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+1) .n-why, .giorno-griglia.filtrata > .n-card.ad-tutta .n-why, .primo-piano > .n-card:only-child .n-why{font-size:14.5px;min-height:0;-webkit-line-clamp:4}
           .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+1) .n-meta, .giorno-griglia.filtrata > .n-card.ad-tutta .n-meta, .primo-piano > .n-card:only-child .n-meta{margin-top:14px}
+          .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+1) .n-meta > span, .giorno-griglia.filtrata > .n-card.ad-tutta .n-meta > span, .primo-piano > .n-card:only-child .n-meta > span{min-height:0}
         }
         @media(max-width:900px){
           .primo-piano{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}

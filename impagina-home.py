@@ -338,6 +338,8 @@ CSS = f'''        /* ===== DISPOSIZIONE 2026-11 (generata da impagina-home.py: n
         /* giornate: gli articoli in più rispetto ai multipli di tre si allargano nella prima riga */
         .giorno-griglia{{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:30px;align-items:stretch}}
         .giorno-griglia > .n-card{{grid-column:span 2}}
+        /* la riga dei dati occupa sempre due righe: così tutti i riquadri hanno la stessa altezza, anche fra righe diverse */
+        .giorno-griglia > .n-card .n-meta > span{{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.5;min-height:calc(1.5em * 2)}}
         @media(min-width:901px){{
           {META}{{grid-column:span 3}}
           {con(META, " .n-thumb")}, {con(META, " .n-ph")}{{aspect-ratio:16/9}}
@@ -347,6 +349,7 @@ CSS = f'''        /* ===== DISPOSIZIONE 2026-11 (generata da impagina-home.py: n
           {con(TUTTA, " h3")}{{font-size:23px;line-height:1.2;min-height:0}}
           {con(TUTTA, " .n-why")}{{font-size:14.5px;min-height:0;-webkit-line-clamp:4}}
           {con(TUTTA, " .n-meta")}{{margin-top:14px}}
+          {con(TUTTA, " .n-meta > span")}{{min-height:0}}
         }}
         @media(max-width:900px){{
           .primo-piano{{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
