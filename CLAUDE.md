@@ -42,3 +42,5 @@ Questa regola si applica a: articoli, titoli, card homepage, info-box, sezione "
 - Mai modificare a mano primo piano, sezioni giorno, blocco archivio e pagine archivio: sono generati
 - Mai classi col-span scritte a mano sulle schede: la larghezza la decide il numero di articoli del giorno
 - Il giorno della settimana si ricava sempre dalla data, mai a memoria
+- Stile dei riquadri (dall'11 novembre 2026): la foto sfuma nel fondo scuro, generato dal CSS di `impagina-home.py`; il markup `.n-card` non cambia
+- `impagina-home-stile-precedente.py` e `index-stile-precedente.html` sono copie di riserva ferme dello stile chiaro: non usarle negli aggiornamenti e non aggiornarle

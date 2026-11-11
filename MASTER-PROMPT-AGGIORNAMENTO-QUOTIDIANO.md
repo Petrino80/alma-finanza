@@ -257,10 +257,18 @@ FASE 3 — AGGIORNA HOMEPAGE (index.html):
 Design: Modern Minimal con switch light/dark.
 
 📐 DISPOSIZIONE APPROVATA IL 10 NOVEMBRE 2026 (sostituisce la griglia uniforme del 3 settembre).
-   Riguarda SOLO la disposizione degli elementi nella pagina. Il DESIGN dei riquadri NON cambia:
-   restano le schede .n-card di oggi (foto in alto 3:2, spigoli da 6px, etichetta di categoria
-   grigia, riga dei dati in grigio). Logo, font, colori e stile delle schede non si toccano
-   finché l'utente non lo chiede espressamente.
+   Decide dove stanno gli elementi nella pagina.
+
+🎨 STILE DEI RIQUADRI (dall'11 novembre 2026): la foto sfuma nel fondo scuro.
+   Riquadro scuro, foto nella parte alta che sfuma nel nero, categoria in pillola colorata,
+   titolo e "Perché conta" in chiaro, dati in pillole (verdi se salgono, rosse se scendono).
+   Nel primo piano il titolo sta sopra la foto. Spigoli da 6px. Logo e font NON si toccano.
+   ⛔ Lo stile sta tutto nel CSS generato da impagina-home.py: il MARKUP delle schede resta
+      quello di sempre (vedi sotto). Non scrivere colori, altezze o stili a mano sulle schede.
+   ⛔ Lo stile precedente (riquadri chiari) è conservato in due copie di riserva FERME, che non
+      si usano e non si aggiornano negli aggiornamenti quotidiani:
+        - impagina-home-stile-precedente.py  (con --applica ripristina lo stile chiaro)
+        - index-stile-precedente.html        (fotografia della homepage dell'11 novembre, noindex)
 
 ⚙️ COME SI AGGIORNA LA HOMEPAGE (convertita alla nuova disposizione il 10 novembre 2026):
    La homepage e le pagine archivio le impagina lo script impagina-home.py. A mano si fa UNA cosa:
@@ -382,7 +390,11 @@ Regole:
    - Titolo e "Perché conta" sono tagliati automaticamente a tre righe: scrivili brevi.
      Per la scheda il titolo deve stare entro 85 caratteri circa: oltre viene troncato con
      i puntini. Se il titolo dell'articolo è più lungo, nella scheda usane una versione breve
-   - In .n-meta va la data, eventualmente con un dato chiave ("Brent +4,50% · 1 set")
+   - In .n-meta va UNA riga di testo: prima la data, poi i dati chiave, separati da " · "
+     es. "11 novembre · S&P −0,4% · Nasdaq −0,7% · CPI +3,8% a/a"
+     La pagina la trasforma da sola: la data a sinistra e i dati in pillole. Nei riquadri
+     normali si vedono i PRIMI DUE dati: metti per primi i più importanti. Un dato con "+"
+     diventa verde, con "−" rosso: scrivi sempre il segno davanti alla variazione
    - La foto è la STESSA dell'articolo (vedi FASE 2B), mai una diversa
    - L'ORDINE delle schede dentro il giorno conta: la prima è la più importante (vedi f)
 
@@ -475,8 +487,8 @@ a un gruppo di articoli) si usa converti-home.py, che è RIESEGUIBILE quante vol
    banche, Fiat 500 per Stellantis, la piattaforma offshore per Saipem ed Eni.
    Vedi l'elenco completo con: python3 applica-foto-articolo.py --elenco
 
-Schema colori per categorie (banner degli articoli e badge delle pagine categoria; le schede
-della homepage restano con l'etichetta grigia):
+Schema colori per categorie (banner degli articoli, badge delle pagine categoria e pillola
+di categoria nei riquadri della homepage, che la colora da sola in base a data-cat):
 - Wall Street: blue-500, bg-blue-50, text-blue-700
 - Piazza Affari: emerald-500, bg-green-50, text-green-700
 - Macro/Fed: red-500, bg-red-50, text-red-700
@@ -631,7 +643,7 @@ git add [3 articoli] index.html archivio.html archivio-*.html [foto nuove] img/r
 19. NON duplicare termini già presenti nel glossario — controlla PRIMA di aggiungere
 20. NON lasciare spazi vuoti nelle righe dei giorni e NON scrivere a mano classi col-span sulle schede: la larghezza la decide la regola adattiva (FASE 3f)
 21. NON reintrodurre la Stats Bar statica e NON sostituire il Ticker Live con valori scritti a mano
-22. NON cambiare il design delle schede (.n-card), il logo o i font: la nuova disposizione riguarda solo dove stanno gli elementi
+22. NON cambiare a mano lo stile dei riquadri, il logo o i font: lo stile lo genera impagina-home.py. NON usare impagina-home-stile-precedente.py e NON toccare index-stile-precedente.html: sono copie di riserva ferme
 23. NON modificare a mano le parti generate (primo piano, sezioni giorno, blocco archivio, pagine archivio): si incolla il blocco del giorno e si esegue impagina-home.py (FASE 3)
 24. NON sbagliare il giorno della settimana: va ricavato dalla data, mai scritto a memoria (il 10 novembre 2026 fu pubblicato come lunedì: era martedì). Vale per la testata degli articoli e per le pagine categoria, che lo script non tocca
 
