@@ -4,6 +4,30 @@
 
   <!-- Articoli 10 novembre 2026 -->
   <url>
+      <loc>https://www.almafinanza.com/articolo-tech-11nov-coreweave-ricavi-168-debito-modello-business.html</loc>
+      <lastmod>2026-11-11</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-11</news:publication_date>
+          <news:title>CoreWeave, ricavi +168% e 47 miliardi di debito: come guadagna chi affitta l'AI</news:title>
+      </news:news>
+  </url>
+
+  <url>
+      <loc>https://www.almafinanza.com/articolo-corporate-11nov-siemens-energy-anno-record-ordini-dividendo.html</loc>
+      <lastmod>2026-11-11</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-11</news:publication_date>
+          <news:title>Siemens Energy, anno record: 164 miliardi di ordini e dividendo triplicato a 2,30 euro</news:title>
+      </news:news>
+  </url>
+
+  <url>
       <loc>https://www.almafinanza.com/articolo-wall-street-11nov-cpi-ottobre-fed.html</loc>
       <lastmod>2026-11-10</lastmod>
       <changefreq>never</changefreq>
