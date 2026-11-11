@@ -59,6 +59,33 @@ Dati da cercare:
 - Titoli protagonisti della giornata (top gainers/losers)
 - Notizie macro principali (Fed, dazi, earnings, geopolitica)
 
+📅 DATA DI RIFERIMENTO — UNA SOLA DATA PER ARTICOLO, UGUALE OVUNQUE:
+La data di un articolo è il GIORNO A CUI SONO AGGIORNATI I DATI E LE INFORMAZIONI USATI,
+non il giorno in cui l'articolo viene scritto o pubblicato.
+- Articolo su una seduta di borsa → la data è il giorno di QUELLA seduta.
+  Esempio: l'aggiornamento parte all'una di notte di mercoledì 11 novembre con le chiusure
+  di martedì 10 → la data è MARTEDÌ 10 NOVEMBRE, in tutti i punti elencati sotto.
+- Articolo che usa anche notizie successive alla chiusura (weekend, analisi) → la data è il
+  giorno dell'ULTIMA informazione usata.
+- La data si stabilisce QUI, in FASE 1, leggendola dalle fonti ("chiusura di lunedì 9"),
+  mai dall'orologio. Va scritta prima di cominciare gli articoli e non si cambia più.
+- Il giorno della settimana si ricava da quella data con un calendario, mai a memoria.
+- ECCEZIONE: se l'utente indica espressamente un'altra data nella richiesta ("con data
+  12 novembre"), vale la data chiesta dall'utente. In assenza di indicazioni vale la regola.
+
+⛔ LA STESSA DATA deve comparire, identica, in TUTTI questi punti:
+   1. nome del file (articolo-...-10nov-....html)
+   2. banner dell'articolo: occhiello e riga "Redazione Alma Finanza · <data>"
+   3. data nella testata dell'articolo (con il giorno della settimana giusto)
+   4. meta article:published_time e datePublished nello Schema.org (stesso giorno)
+   5. firma: il --data di applica-foto-articolo.py (stesso giorno)
+   6. riga .n-meta del riquadro in homepage ("10 novembre · ...")
+   7. blocco <!-- GIORNO AAAA-MM-GG | ... --> in index.html
+   8. sezione del giorno nelle pagine categoria
+   9. publication_date e lastmod nella sitemap
+   Se anche uno solo è diverso, il lettore vede una data sul riquadro e un'altra dentro
+   l'articolo: è un errore da correggere PRIMA del commit.
+
 ⚠️ REGOLA ASSOLUTA — NON INVENTARE MAI NESSUN DATO:
 - Se non trovi un dato con WebSearch → scrivilo come "—" nell'articolo
 - MAI usare dati da training/memoria come fonte — sono inaffidabili
@@ -85,6 +112,7 @@ Distribuzione consigliata (adattabile alle notizie del giorno):
 
 Formato articoli — REGOLE FISSE, MAI CAMBIARE:
 - File: articolo-[topic]-[DDmese]-[dettaglio].html (es: articolo-wall-street-26feb-nvidia-rally.html)
+  [DDmese] è la DATA DI RIFERIMENTO stabilita in FASE 1 (il giorno dei dati), non il giorno in cui si scrive
 - Google Analytics: G-E88FFDTPMP in ogni file
 - Anti-flash dark mode script subito dopo GA: <script>(function(){var t=localStorage.getItem('alma-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')})()</script>
 - Tailwind CSS con darkMode:'class': <script>tailwind.config={darkMode:"class"}</script>
@@ -224,8 +252,10 @@ La firma e il tempo di lettura li scrive applica-foto-articolo.py insieme alla f
 la riga "A Alma Finanza · <data> · Lettura N min", con i minuti calcolati sul testo reale
 (200 parole al minuto) e la data che diventa relativa ("3 ore fa") per le prime 24 ore.
 
-   --data va messa all'ora reale di pubblicazione. Per gli articoli sulla chiusura USA
-   usa un orario dopo le 22:00 italiane; per Piazza Affari dopo le 17:30.
+   --data: il GIORNO è sempre la DATA DI RIFERIMENTO stabilita in FASE 1 (il giorno dei dati),
+   anche se l'articolo viene scritto dopo mezzanotte o il giorno seguente. L'ORA è quella
+   della chiusura raccontata: dopo le 22:00 italiane per la chiusura USA, dopo le 17:30 per
+   Piazza Affari.
 
 ⚠️ La firma è sempre di testata ("Alma Finanza"), mai di un autore singolo.
 
@@ -299,6 +329,10 @@ Design: Modern Minimal con switch light/dark.
       già pubblicata si modifica la scheda dentro il suo blocco GIORNO e si riesegue lo script.
    ⛔ Dopo --applica lo script stampa quante schede ha verificato: il numero deve essere quello
       di prima più gli articoli di oggi. Se si ferma con un errore, non fare commit.
+   ⛔ Lo script controlla anche le DATE delle giornate in homepage: per gli articoli di oggi non
+      deve comparire nessuna riga "DATE DIVERSE". Se compare, correggi il punto sbagliato
+      (riquadro, blocco GIORNO o articolo) e riesegui. Se la riga riguarda articoli di giornate
+      PRECEDENTI, non correggerla di tua iniziativa: segnalala all'utente.
 
 STRUTTURA FISSA DELLA HOMEPAGE (dall'alto in basso, MAI modificare l'ordine):
 1. Ticker Live (widget TradingView) — è l'UNICA barra dei mercati
@@ -396,6 +430,9 @@ Regole:
      normali si vedono i PRIMI DUE dati: metti per primi i più importanti. Un dato con "+"
      diventa verde, con "−" rosso: scrivi sempre il segno davanti alla variazione
    - La foto è la STESSA dell'articolo (vedi FASE 2B), mai una diversa
+   - La DATA in .n-meta e quella del blocco GIORNO sono la DATA DI RIFERIMENTO dell'articolo
+     (FASE 1): identiche a quella scritta dentro l'articolo. impagina-home.py lo controlla
+     e stampa "DATE DIVERSE" per ogni riquadro che non coincide
    - L'ORDINE delle schede dentro il giorno conta: la prima è la più importante (vedi f)
 
 f) GIORNI CON 1, 2, 4, 5 ARTICOLI — MAI SPAZI VUOTI (regola adattiva):
@@ -634,7 +671,7 @@ git add [3 articoli] index.html archivio.html archivio-*.html [foto nuove] img/r
 10. NON usare link con petrino80.github.io — solo almafinanza.com
 11. NON cancellare articoli: quelli oltre le 10 giornate si SPOSTANO nell'archivio mensile (FASE 3g), mai eliminati
 12. NON modificare mission/newsletter/footer della homepage
-13. Date sulle card DEVONO corrispondere alle date dentro gli articoli
+13. La data sul riquadro DEVE essere identica a quella dentro l'articolo, ed è il giorno a cui sono aggiornati i dati usati, non il giorno in cui si scrive (FASE 1, DATA DI RIFERIMENTO). Unica eccezione: una data diversa chiesta espressamente dall'utente
 14. NON dimenticare di aggiornare le 4 pagine categoria con i nuovi articoli
 15. NON dimenticare di aggiornare impara-finanza.html con i nuovi concetti educativi
 16. NON dimenticare anti-flash script e dark mode toggle in ogni nuovo articolo
@@ -662,6 +699,7 @@ Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibi
 ## NOTE PER L'USO:
 
 - **Quando usarlo**: Ogni giorno dopo la chiusura delle borse (dopo le 22:00 ora italiana per avere sia Europa che USA)
+- **Data**: se non scrivi nulla, ogni articolo prende la data del giorno a cui si riferiscono i dati (per esempio la seduta di ieri, se lanci l'aggiornamento dopo mezzanotte). Se vuoi una data diversa, scrivila nella richiesta: vale quella
 - **Personalizzare**: Puoi aggiungere al prompt richieste specifiche come "un articolo su [azienda X]" o "focus su [tema Y]"
 - **Esempio rapido**: Se hai fretta, puoi scrivere semplicemente: "Aggiornamento quotidiano Alma Finanza — 11 marzo 2026" e il sistema seguirà tutte le regole sopra
 - **Se qualcosa va storto**: Controlla che il sito sia online su www.almafinanza.com dopo il push
@@ -681,6 +719,7 @@ Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibi
 - [ ] sitemap.xml aggiornata e valida come XML
 - [ ] impagina-home.py --applica eseguito senza errori; il numero di schede verificate è quello di ieri più gli articoli di oggi
 - [ ] giorno della settimana giusto negli articoli e nelle pagine categoria (ricavato dalla data)
+- [ ] UNA sola data per articolo, quella dei dati usati, identica su riquadro, articolo, nome file, pagine categoria e sitemap; nessuna riga "DATE DIVERSE" per gli articoli di oggi
 - [ ] categoria-wall-street.html aggiornata
 - [ ] categoria-borsa-milano.html aggiornata
 - [ ] categoria-crypto.html aggiornata (se ci sono articoli crypto)

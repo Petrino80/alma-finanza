@@ -171,6 +171,39 @@ def ripulisci(gruppi):
     return puliti
 
 
+# ---------------------------------------------------------------- controllo delle date
+
+MESI_BREVI = [m[:3].lower() for m in MESI]
+
+
+def giorno_mese(testo):
+    """(giorno, mese) della prima data scritta in un testo («10 novembre · Nasdaq…» → (10, 11))."""
+    m = re.search(r"(\d{1,2})\s+(" + "|".join(MESI_BREVI) + ")", html.unescape(testo).lower())
+    return (int(m.group(1)), MESI_BREVI.index(m.group(2)) + 1) if m else None
+
+
+def controlla_date(gruppi):
+    """La data sul riquadro, quella dentro l'articolo e quella della giornata devono coincidere."""
+    problemi = []
+    for g in gruppi:
+        giornata = (int(g["data"][8:10]), int(g["data"][5:7]))
+        for s in g["schede"]:
+            meta = re.search(r'class="n-meta"[^>]*>([\s\S]*?)</div>', s)
+            riquadro = giorno_mese(re.sub(r"<[^>]+>", "", meta.group(1))) if meta else None
+            articolo, f = None, BASE / href(s)
+            if f.exists():
+                testo = f.read_text(encoding="utf-8")
+                m = re.search(r"Redazione Alma Finanza\s*·\s*([^<]+)<", testo)
+                articolo = giorno_mese(m.group(1)) if m else None
+                if articolo is None:
+                    m = re.search(r'article:published_time" content="\d{4}-(\d{2})-(\d{2})', testo)
+                    articolo = (int(m.group(2)), int(m.group(1))) if m else None
+            if len({d for d in (giornata, riquadro, articolo) if d}) > 1:
+                scrivi = lambda d: "%d/%d" % d if d else "—"
+                problemi.append(f"{href(s)}: giornata {scrivi(giornata)} · riquadro {scrivi(riquadro)} · articolo {scrivi(articolo)}")
+    return problemi
+
+
 # ---------------------------------------------------------------- markup
 
 def rientra(schede, spazi):
@@ -649,6 +682,11 @@ def main():
     print(f"giornate: {len(gruppi)} · articoli: {totale} · in homepage: {sum(len(g['schede']) for g in in_home)} "
           f"in {len(in_home)} giornate · in archivio: {totale - sum(len(g['schede']) for g in in_home)} in {len(mesi)} mesi")
     print("primo piano:", gruppi[0]["titolo"], "·", len(gruppi[0]["schede"]), "articoli")
+    diverse = controlla_date(in_home)
+    for riga in diverse:
+        print("⚠️  DATE DIVERSE —", riga)
+    print(f"date: {len(diverse)} riquadri con date diverse nelle {len(in_home)} giornate in homepage" if diverse
+          else f"date: riquadro, articolo e giornata coincidono in tutte le {len(in_home)} giornate in homepage")
 
     if not args.applica:
         (BASE / "index-nuovo.html").write_text(nuova, encoding="utf-8")
