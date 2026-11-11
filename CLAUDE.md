@@ -43,5 +43,7 @@ Questa regola si applica a: articoli, titoli, card homepage, info-box, sezione "
 - Mai classi col-span scritte a mano sulle schede: la larghezza la decide il numero di articoli del giorno
 - Data di un articolo = giorno a cui sono aggiornati i dati usati (non il giorno in cui si scrive), identica su riquadro, articolo, nome file, categorie e sitemap; salvo data diversa chiesta espressamente dall'utente
 - Il giorno della settimana si ricava sempre dalla data, mai a memoria
+- Telefono: nessuno scorrimento orizzontale (verificare a 390 e 360px), riga dati entro ~34 caratteri, tabelle degli articoli compatte senza display:block, foto di testa con -mx-4; regole complete nel Master Prompt (blocco TELEFONO)
+- Con più di 3 articoli nel giorno, i primi 3 vanno in primo piano e gli altri nella sezione "Oggi" sotto "Ultime notizie"
 - Stile dei riquadri (dall'11 novembre 2026): la foto sfuma nel fondo scuro, generato dal CSS di `impagina-home.py`; il markup `.n-card` non cambia
 - `impagina-home-stile-precedente.py` e `index-stile-precedente.html` sono copie di riserva ferme dello stile chiaro: non usarle negli aggiornamenti e non aggiornarle

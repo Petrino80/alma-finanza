@@ -374,7 +374,9 @@ c) IN PRIMO PIANO (subito sotto la navigazione):
    - Se oggi c'è 1 solo articolo: la principale occupa tutta la larghezza
      Se oggi ce ne sono 2: principale + un solo riquadro a fianco, alto quanto la principale
      Se oggi ce ne sono 4 o più: i primi 3 in primo piano, gli altri in una sezione giorno
-     "Oggi" in cima a Ultime notizie, con la regola f)
+     "Oggi · <giorno> <data>" in cima a Ultime notizie, con la regola f). La sezione "Oggi" sta
+     SOTTO il titolo "Ultime notizie", MAI dentro o subito sotto il primo piano: lo fa da solo
+     impagina-home.py, che mette la fascia Quiz + Parola del giorno subito dopo di essa
    - Quando arriva una giornata nuova, gli articoli che erano in primo piano SCENDONO nella
      prima sezione giorno di Ultime notizie (non si cancellano, non si riscrivono)
    - Le schede sono sempre .n-card: stesso design, cambia solo la misura
@@ -465,6 +467,29 @@ f) GIORNI CON 1, 2, 4, 5 ARTICOLI — MAI SPAZI VUOTI (regola adattiva):
      Telefono: 1 colonna, nessuna regola speciale
    - La stessa regola vale nelle pagine archivio mensile (vedi g)
    - Verifica dopo ogni aggiornamento: nessuna riga della homepage deve finire con uno spazio vuoto
+
+📱 TELEFONO — DIMENSIONI E REGOLE (valgono per ogni aggiornamento, verificarle prima del commit):
+   Una sola colonna, nessuno scorrimento orizzontale: la pagina deve essere larga quanto lo schermo.
+   - Primo piano: la notizia principale è alta 380px, le altre due 200px (titolo sopra la foto)
+   - Riquadri delle sezioni giorno (anche "Oggi"): 424px di altezza, tutti uguali, un riquadro per riga
+   - Titolo della scheda: al massimo 85 caratteri circa; "Perché conta": due righe
+   - Riga dei dati (.n-meta): la data e POI I PRIMI DUE DATI, che insieme non devono superare
+     circa 34 caratteri, altrimenti su telefono la pillola viene troncata con i puntini.
+     ✓ "Nasdaq +1,60% · S&P +1,31%"   ✓ "Ricavi +68,8% · Cassa 800 mln €"
+     ✗ "Ricavi nove mesi +68,8% · Cassa netta ~800 mln €"   (niente "~", niente nomi lunghi)
+     Metti in testa i due dati più importanti: gli altri non si vedono nei riquadri normali
+   - Articoli (pagina dell'articolo) a 390px e a 360px di larghezza:
+       • la foto di testa non deve uscire dallo schermo: nella <figure> usare "-mx-4 md:-mx-10"
+         (applica-foto-articolo.py lo scrive già così); "-mx-6" fa scorrere la pagina di lato
+       • le tabelle .data-table restano DENTRO lo schermo, senza colonne nascoste e senza scorrimento
+         interno. Aggiungere sempre nel <style> dell'articolo:
+         @media (max-width:640px){ .data-table{table-layout:auto;} .data-table th,.data-table td{padding:.5rem .4rem;font-size:.74rem;line-height:1.35;overflow-wrap:break-word;} .data-table th{font-size:.7rem;} }
+         e, per le tabelle con 5 colonne o più: @media (max-width:380px){ .data-table th,.data-table td{overflow-wrap:anywhere;font-size:.68rem;padding:.45rem .3rem;} }
+       • ⛔ MAI "display:block" o "overflow-x:auto" sulle tabelle: nasconde le colonne a destra e
+         allunga le righe. Le tabelle con più di 4 colonne vanno evitate: meglio due tabelle strette
+   - VERIFICA OBBLIGATORIA prima del commit, con il browser a 390px e a 360px: sulla homepage, sugli
+     articoli nuovi e sulle pagine categoria deve essere vero che larghezza della pagina = larghezza
+     dello schermo, nessuna pillola troncata, nessun titolo tagliato, nessuna tabella che esce
 
 g) ULTIMI 10 GIORNI IN HOMEPAGE, IL RESTO NELL'ARCHIVIO MENSILE:
    - La homepage mostra gli articoli delle ULTIME 10 GIORNATE DI PUBBLICAZIONE: la giornata in
@@ -683,6 +708,7 @@ git add [3 articoli] index.html archivio.html archivio-*.html [foto nuove] img/r
 22. NON cambiare a mano lo stile dei riquadri, il logo o i font: lo stile lo genera impagina-home.py. NON usare impagina-home-stile-precedente.py e NON toccare index-stile-precedente.html: sono copie di riserva ferme
 23. NON modificare a mano le parti generate (primo piano, sezioni giorno, blocco archivio, pagine archivio): si incolla il blocco del giorno e si esegue impagina-home.py (FASE 3)
 24. NON sbagliare il giorno della settimana: va ricavato dalla data, mai scritto a memoria (il 10 novembre 2026 fu pubblicato come lunedì: era martedì). Vale per la testata degli articoli e per le pagine categoria, che lo script non tocca
+25. NON scrivere le tabelle degli articoli con display:block o overflow-x e NON dimenticare la regola per telefono nel <style> (FASE 3, blocco TELEFONO): le colonne a destra spariscono
 
 📌 LEZIONE APPRESA (20/05/2026 — caso Nvidia):
 - EPS Nvidia Q1 FY2027 era $1,87 vs $1,77 atteso. Fu pubblicato erroneamente come $9,82 vs $9,10.
@@ -714,6 +740,7 @@ Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibi
 - [ ] le card in homepage mostrano la miniatura dell'immagine dell'articolo
 - [ ] index.html: blocco del giorno incollato sotto <!-- NUOVO-GIORNO -->; dopo lo script gli articoli di oggi sono in primo piano e la Parola del giorno è aggiornata
 - [ ] nessuna riga dei giorni con spazi vuoti (regola adattiva, FASE 3f) e nessuna intestazione di giorno doppia
+- [ ] TELEFONO (390 e 360px): pagina larga come lo schermo, riga dei dati entro 34 caratteri e senza pillole troncate, tabelle degli articoli dentro lo schermo, foto con -mx-4, sezione "Oggi" sotto "Ultime notizie" (FASE 3, blocco TELEFONO)
 - [ ] homepage con al massimo 10 giornate; la più vecchia spostata nell'archivio mensile, nessun articolo perso (FASE 3g)
 - [ ] blocco Archivio: conteggio articoli ricalcolato, pillole dei 4 mesi più recenti, pulsante "Mostra i giorni precedenti"
 - [ ] sitemap.xml aggiornata e valida come XML

@@ -210,13 +210,13 @@ def rientra(schede, spazi):
     return "\n".join(" " * spazi + s for s in schede)
 
 
-def sezione(g, ident):
+def sezione(g, ident, etichetta=""):
     n = len(g["schede"])
     return f'''        <!-- GIORNO {g["data"]} | {g["titolo"]} -->
         <section class="giorno" id="{ident}" data-giorno="{g["data"]}">
             <div class="giorno-testa flex items-center gap-3 mt-6 mb-4">
                 <div class="w-10 h-0.5 rounded-full bg-gray-200 dark:bg-slate-700/40"></div>
-                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">{g["titolo"]}</h2>
+                <h2 class="text-sm font-bold montserrat-font text-gray-400 dark:text-slate-600 uppercase tracking-wider">{etichetta}{g["titolo"]}</h2>
                 <span class="giorno-n">{n} articol{"o" if n == 1 else "i"}</span>
                 <div class="flex-1 h-0.5 rounded-full bg-gray-100 dark:bg-slate-800/20"></div>
             </div>
@@ -238,17 +238,11 @@ def sezioni(gruppi):
 
 
 def primo_piano(g):
-    resto = ""
-    if len(g["schede"]) > 3:
-        resto = f'''
-        <div class="giorno-griglia pp-resto">
-{rientra(g["schede"][3:], 12)}
-        </div>'''
     return f'''        <!-- PRIMO-PIANO {g["data"]} | {g["titolo"]} -->
         <div class="pp-occhiello"><b>In primo piano</b> · {g["titolo"]}</div>
         <div class="primo-piano">
 {rientra(g["schede"][:3], 12)}
-        </div>{resto}
+        </div>
         <!-- /PRIMO-PIANO -->
 '''
 
@@ -295,11 +289,12 @@ def corpo_home(gruppi, parola):
     mesi = sorted({g["data"][:7] for g in in_archivio}, reverse=True)
     totale = sum(len(g["schede"]) for g in gruppi)
     # si mostrano solo i filtri che hanno almeno un articolo nelle giornate in homepage: mai un filtro che svuota la pagina
-    presenti = {re.search(r'data-cat="(\w+)"', sch).group(1) for g in in_home[1:] for sch in g["schede"]}
+    oggi = {"data": in_home[0]["data"], "titolo": in_home[0]["titolo"], "schede": in_home[0]["schede"][3:]} if len(in_home[0]["schede"]) > 3 else None
+    presenti = {re.search(r'data-cat="(\w+)"', sch).group(1) for g in in_home[1:] + ([oggi] if oggi else []) for sch in g["schede"]}
     bottoni = "".join(
         '<button type="button" data-f="%s"%s>%s</button>' % (k, ' class="on"' if k == "tutte" else "", e)
         for k, e in FILTRI if k == "tutte" or k in presenti)
-    blocchi = sezioni(in_home[1:])
+    blocchi = ([sezione(oggi, "g-" + oggi["data"], "Oggi · ")] if oggi else []) + sezioni(in_home[1:])
     prima, altre = "\n".join(blocchi[:1]), "\n".join(blocchi[1:])
     bersaglio = file_mese(in_archivio[0]["data"][:7]) + "#g-" + in_archivio[0]["data"] if in_archivio else "archivio.html"
     return f'''{INIZIO}: primo piano, ultime notizie con filtri, {GIORNATE_IN_HOME} giornate, archivio mensile.

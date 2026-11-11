@@ -64,7 +64,7 @@ def data_estesa(iso: str) -> str:
 
 def figura(meta: dict) -> str:
     return f"""
-            <figure class="-mx-6 md:-mx-10 mb-7">
+            <figure class="-mx-4 md:-mx-10 mb-7">
                 <img src="img/repertorio/{meta['file']}" alt="{meta['soggetto']}"
                      class="w-full block object-cover" style="aspect-ratio:1200/560" loading="eager">
                 <figcaption class="px-6 md:px-10 pt-2 text-xs text-gray-400 dark:text-slate-500">
