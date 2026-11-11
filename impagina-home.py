@@ -319,6 +319,8 @@ def corpo_home(gruppi, parola):
 # ---------------------------------------------------------------- stile e script della disposizione
 
 STORICO = "div:has(> .n-card):not(.giorno-griglia):not(.primo-piano)"
+PPN = ".primo-piano > .n-card:not(:first-child)"
+PPT = ".primo-piano > .n-card:first-child, .primo-piano > .n-card:not(:first-child)"
 TUTTA = ".giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+1), .giorno-griglia.filtrata > .n-card.ad-tutta"
 META = (".giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2), "
         ".giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(3n+2) + .n-card, "
@@ -412,18 +414,26 @@ CSS = f'''        /* ===== DISPOSIZIONE 2026-11 (generata da impagina-home.py: n
           .primo-piano > .n-card:first-child{{grid-column:1 / -1;grid-row:auto}}
           .primo-piano > .n-card:nth-child(2):last-child{{grid-column:1 / -1;grid-row:auto}}
           .primo-piano > .n-card:first-child h3{{font-size:25px}}
-          .primo-piano > .n-card:not(:first-child){{min-height:230px}}
+          {PPN}{{height:424px;min-height:0}}
+          {PPN} .n-thumb, {PPN} .n-ph{{height:56%}}
+          {PPN}::after{{background:linear-gradient(180deg,rgba(11,15,22,0) 34%,rgba(11,15,22,.60) 47%,#0b0f16 58%)}}
+          {PPN} .n-body{{padding:20px 20px 17px}}
+          {PPN} h3{{font-size:17px;line-height:1.28;min-height:calc(1.28em * 3);margin:11px 0 9px}}
+          {PPN} .n-why{{display:-webkit-box;font-size:13.5px;min-height:calc(1.5em * 2);-webkit-line-clamp:2;margin:0 0 12px}}
+          {PPN} .n-meta{{border-top:1px solid rgba(255,255,255,.14);padding-top:12px;min-height:37px}}
           .giorno-griglia{{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}}
           .giorno-griglia > .n-card{{grid-column:auto}}
           .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(odd), .giorno-griglia.filtrata > .n-card.ad-dispari{{grid-column:1 / -1}}
         }}
         @media(max-width:620px){{
-          .primo-piano{{grid-template-columns:minmax(0,1fr);gap:14px}}
-          .primo-piano > .n-card:first-child{{min-height:380px}}
-          .primo-piano > .n-card:first-child .n-body{{padding:22px 20px 18px}}
-          .primo-piano > .n-card:first-child h3{{font-size:22.5px}}
-          .primo-piano > .n-card:first-child .n-why{{display:none}}
-          .primo-piano > .n-card:not(:first-child){{min-height:200px}}
+          .primo-piano{{grid-template-columns:minmax(0,1fr);gap:16px}}
+          {con(PPT, "")}{{height:424px;min-height:0;grid-row:auto}}
+          {con(PPT, " .n-thumb")}, {con(PPT, " .n-ph")}{{height:56%}}
+          {con(PPT, "::after")}{{background:linear-gradient(180deg,rgba(11,15,22,0) 34%,rgba(11,15,22,.60) 47%,#0b0f16 58%)}}
+          {con(PPT, " .n-body")}{{padding:20px 20px 17px}}
+          {con(PPT, " h3")}{{font-size:17px;font-weight:700;line-height:1.28;letter-spacing:-.005em;min-height:calc(1.28em * 3);margin:11px 0 9px;-webkit-line-clamp:3}}
+          {con(PPT, " .n-why")}{{display:-webkit-box;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.76);max-width:none;min-height:calc(1.5em * 2);-webkit-line-clamp:2;margin:0 0 12px}}
+          {con(PPT, " .n-meta")}{{border-top:1px solid rgba(255,255,255,.14);padding-top:12px;min-height:37px}}
           .giorno-griglia{{grid-template-columns:minmax(0,1fr);gap:16px}}
           .n-card{{height:424px}}
           .n-card .n-thumb, .n-card .n-ph{{height:56%}}

@@ -370,7 +370,8 @@ c) IN PRIMO PIANO (subito sotto la navigazione):
    - Sopra, l'occhiello: "In primo piano · <giorno> <data>"
    - La principale è la notizia più importante del giorno (di norma Wall Street o macro):
      è la PRIMA nell'ordine. Mostra foto, categoria, titolo, "Perché conta" e riga dei dati.
-     I due riquadri a fianco mostrano foto, categoria, titolo e riga dei dati
+     I due riquadri a fianco mostrano foto, categoria, titolo e riga dei dati (su computer);
+     su telefono e tablet tutti e tre mostrano anche "Perché conta" e hanno la stessa altezza
    - Se oggi c'è 1 solo articolo: la principale occupa tutta la larghezza
      Se oggi ce ne sono 2: principale + un solo riquadro a fianco, alto quanto la principale
      Se oggi ce ne sono 4 o più: i primi 3 in primo piano, gli altri in una sezione giorno
@@ -470,7 +471,13 @@ f) GIORNI CON 1, 2, 4, 5 ARTICOLI — MAI SPAZI VUOTI (regola adattiva):
 
 📱 TELEFONO — DIMENSIONI E REGOLE (valgono per ogni aggiornamento, verificarle prima del commit):
    Una sola colonna, nessuno scorrimento orizzontale: la pagina deve essere larga quanto lo schermo.
-   - Primo piano: la notizia principale è alta 380px, le altre due 200px (titolo sopra la foto)
+   - Primo piano: i TRE riquadri sono identici ai riquadri normali: tutti alti 424px, tutti con la
+     foto sfumata, il titolo, il "Perché conta" (due righe) e la riga dei dati. Mai un riquadro
+     più piccolo o senza "Perché conta"
+   - Tablet (fino a 900px): la principale a tutta larghezza (452px), il 2º e il 3º affiancati e alti
+     424px, tutti con "Perché conta"
+   - Computer: resta la disposizione approvata, la principale grande a sinistra con "Perché conta" e
+     due riquadri più bassi impilati a destra (senza "Perché conta")
    - Riquadri delle sezioni giorno (anche "Oggi"): 424px di altezza, tutti uguali, un riquadro per riga
    - Titolo della scheda: al massimo 85 caratteri circa; "Perché conta": due righe
    - Riga dei dati (.n-meta): la data e POI I PRIMI DUE DATI, che insieme non devono superare
