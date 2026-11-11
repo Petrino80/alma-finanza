@@ -4,6 +4,42 @@
 
   <!-- Articoli 10 novembre 2026 -->
   <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-11nov-coreweave-ai-memoria-nasdaq-risale.html</loc>
+      <lastmod>2026-11-11</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-11</news:publication_date>
+          <news:title>Wall Street risale con l'AI: CoreWeave +24%, la memoria in rally e il Nasdaq torna sopra il livello pre-voto</news:title>
+      </news:news>
+  </url>
+
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-11nov-ftse-mib-51947-stm-prysmian-bff-cerberus.html</loc>
+      <lastmod>2026-11-11</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-11</news:publication_date>
+          <news:title>Milano sale con i chip: STM +5,16% e Prysmian +4,29%. Crolla BFF Bank (−22%) dopo i conti e la trattativa con Cerberus</news:title>
+      </news:news>
+  </url>
+
+  <url>
+      <loc>https://www.almafinanza.com/articolo-corporate-11nov-technoprobe-ricavi-130-cassa-800-milioni-quarto-trimestre.html</loc>
+      <lastmod>2026-11-11</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-11</news:publication_date>
+          <news:title>Technoprobe, ricavi +130% nel terzo trimestre e 800 milioni di cassa: come guadagna chi collauda i chip dell'AI</news:title>
+      </news:news>
+  </url>
+
+  <url>
       <loc>https://www.almafinanza.com/articolo-tech-11nov-coreweave-ricavi-168-debito-modello-business.html</loc>
       <lastmod>2026-11-11</lastmod>
       <changefreq>never</changefreq>

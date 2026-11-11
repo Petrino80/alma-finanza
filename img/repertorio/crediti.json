@@ -1218,5 +1218,49 @@
    "europa",
    "reti elettriche"
   ]
+ },
+ "technoprobe-sede": {
+  "file": "technoprobe-sede.jpg",
+  "autore": "Smtjc",
+  "licenza": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:1500x1040-ingresso-Technoprobe-Slider-diviso.jpg",
+  "soggetto": "La sede di Technoprobe a Cernusco Lombardone, in provincia di Lecco",
+  "temi": [
+   "technoprobe",
+   "probe card",
+   "semiconduttori",
+   "lecco",
+   "piazza affari"
+  ]
+ },
+ "micron-fab-taichung": {
+  "file": "micron-fab-taichung.jpg",
+  "autore": "Thingreenline4546",
+  "licenza": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Micron_Fab_in_Taichung,_Taiwan.jpeg",
+  "soggetto": "Lo stabilimento di Micron a Taichung, a Taiwan, dove si producono chip di memoria",
+  "temi": [
+   "micron",
+   "memoria",
+   "dram",
+   "hbm",
+   "semiconduttori",
+   "wall street",
+   "ai"
+  ]
+ },
+ "prysmian-stabilimento": {
+  "file": "prysmian-stabilimento.jpg",
+  "autore": "Chris.sherlock2",
+  "licenza": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Prysmian_Cables_&_Systems_12.jpg",
+  "soggetto": "Lo stabilimento Prysmian di Moorebank, in Australia, dove si producono cavi per l'energia",
+  "temi": [
+   "prysmian",
+   "cavi",
+   "energia",
+   "piazza affari",
+   "industria"
+  ]
  }
 }
