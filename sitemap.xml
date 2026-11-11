@@ -4,35 +4,71 @@
 
   <!-- Articoli 10 novembre 2026 -->
   <url>
-      <loc>https://www.almafinanza.com/articolo-wall-street-10nov-tech-rimbalzo-amd-nvidia.html</loc>
+      <loc>https://www.almafinanza.com/articolo-wall-street-11nov-cpi-ottobre-fed.html</loc>
       <lastmod>2026-11-10</lastmod>
       <changefreq>never</changefreq>
       <priority>0.9</priority>
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
           <news:publication_date>2026-11-10</news:publication_date>
+          <news:title>CPI ottobre sopra le attese: Wall Street cede e la Fed prepara il rialzo di dicembre</news:title>
+      </news:news>
+  </url>
+
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-11nov-difesa-leonardo-fincantieri.html</loc>
+      <lastmod>2026-11-10</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-10</news:publication_date>
+          <news:title>Difesa e banche trascinano il FTSE MIB: Leonardo +2,2%, Fincantieri +3,3% dopo il contratto DDX</news:title>
+      </news:news>
+  </url>
+
+  <url>
+      <loc>https://www.almafinanza.com/articolo-petrolio-11nov-brent-calo-trump-iran.html</loc>
+      <lastmod>2026-11-10</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-10</news:publication_date>
+          <news:title>Il Brent scende a 90,8 dollari: Trump parla di accordo con l'Iran e il premio di rischio si allenta</news:title>
+      </news:news>
+  </url>
+
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-10nov-tech-rimbalzo-amd-nvidia.html</loc>
+      <lastmod>2026-11-09</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-09</news:publication_date>
           <news:title>Wall Street rimbalza: Nasdaq +2,74%, AMD vola +9,6% mentre Nvidia cede −3,9%</news:title>
       </news:news>
   </url>
   <url>
       <loc>https://www.almafinanza.com/articolo-piazza-affari-10nov-banche-rimbalzo-ftse-mib.html</loc>
-      <lastmod>2026-11-10</lastmod>
+      <lastmod>2026-11-09</lastmod>
       <changefreq>never</changefreq>
       <priority>0.9</priority>
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
-          <news:publication_date>2026-11-10</news:publication_date>
+          <news:publication_date>2026-11-09</news:publication_date>
           <news:title>Piazza Affari balza del 2,7%: le banche volano, Banco BPM +10% dopo i conti record</news:title>
       </news:news>
   </url>
   <url>
       <loc>https://www.almafinanza.com/articolo-nvidia-jensen-huang-spia-cinese-10nov.html</loc>
-      <lastmod>2026-11-10</lastmod>
+      <lastmod>2026-11-09</lastmod>
       <changefreq>never</changefreq>
       <priority>0.9</priority>
       <news:news>
           <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
-          <news:publication_date>2026-11-10</news:publication_date>
+          <news:publication_date>2026-11-09</news:publication_date>
           <news:title>Nvidia sotto inchiesta: il board indaga Jensen Huang per rapporto con presunta spia cinese</news:title>
       </news:news>
   </url>
