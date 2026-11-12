@@ -1262,5 +1262,83 @@
    "piazza affari",
    "industria"
   ]
+ },
+ "nyse-facciata-2017": {
+  "file": "nyse-facciata-2017.jpg",
+  "autore": "Arild Vågen",
+  "licenza": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange_August_2017_02.jpg",
+  "soggetto": "La facciata del New York Stock Exchange a Wall Street, a New York",
+  "temi": [
+   "wall street",
+   "new york",
+   "borsa usa",
+   "s&p 500",
+   "dow jones",
+   "nasdaq"
+  ]
+ },
+ "pirelli-sede-bicocca": {
+  "file": "pirelli-sede-bicocca.jpg",
+  "autore": "Ema vinadio",
+  "licenza": "CC BY-SA 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Pirelli_headquarters.jpg",
+  "soggetto": "La sede di Pirelli a Milano, nel quartiere Bicocca",
+  "temi": [
+   "pirelli",
+   "piazza affari",
+   "ftse mib",
+   "milano",
+   "pneumatici",
+   "automotive"
+  ]
+ },
+ "nvidia-h100-gpu": {
+  "file": "nvidia-h100-gpu.jpg",
+  "autore": "极客湾Geekerwan",
+  "licenza": "CC BY 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:NVIDIA_H100_(%E6%9E%81%E5%AE%A2%E6%B9%BEGeekerwan)_004.png",
+  "soggetto": "Un acceleratore NVIDIA H100, la scheda per l'intelligenza artificiale prodotta da Nvidia",
+  "temi": [
+   "nvidia",
+   "gpu",
+   "h100",
+   "chip",
+   "ai",
+   "intelligenza artificiale",
+   "semiconduttori"
+  ]
+ },
+ "fed-new-york": {
+  "file": "fed-new-york.jpg",
+  "autore": "Kidfly182",
+  "licenza": "CC BY 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Federal_Reserve_Bank_of_New_York_Building_004.jpg",
+  "soggetto": "La sede della Federal Reserve Bank di New York, a Lower Manhattan",
+  "temi": [
+   "fed",
+   "new york fed",
+   "tassi",
+   "rendimenti",
+   "treasury",
+   "bond",
+   "banca centrale",
+   "macro"
+  ]
+ },
+ "piattaforma-mare-del-nord": {
+  "file": "piattaforma-mare-del-nord.jpg",
+  "autore": "Supercarwaar",
+  "licenza": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Paragon_C20052_oil_platform_in_the_North_Sea.jpg",
+  "soggetto": "Una piattaforma petrolifera nel Mare del Nord, l'area di estrazione da cui prende il nome il petrolio Brent",
+  "temi": [
+   "brent",
+   "petrolio",
+   "mare del nord",
+   "energia",
+   "commodities",
+   "greggio"
+  ]
  }
 }

@@ -282,6 +282,48 @@ Nelle card della homepage, sopra il testo va la stessa foto dell'articolo:
     <img src="img/repertorio/<foto>.jpg" alt="<soggetto della foto>" width="1200" height="630"
          loading="lazy" class="w-full block object-cover" style="aspect-ratio:1200/630">
 
+FASE 2D — LAYOUT "D" DEGLI ARTICOLI (dal 12 novembre 2026, SOLO per gli articoli nuovi):
+
+Gli articoli già pubblicati NON si convertono e non si toccano. I nuovi si scrivono come sempre (FASE 2: modello,
+dati, "Perché conta", tabelle, info-box, SEO, GA) e poi lo script li trasforma nel layout D: testata blu scuro con
+le sezioni del sito, titolo in Manrope, colonna destra con "In sintesi", indice e riquadro "Impara", schede dei
+numeri, articoli della stessa giornata. Stile in articolo-d.css, comportamenti in articolo-d.js (un solo file
+per tutti: una modifica grafica si fa lì). Intoccabile solo la "A" del logo (Lobster); gli altri font possono cambiare.
+
+ORDINE DELLE OPERAZIONI (per OGNI giornata di aggiornamento):
+  1. scrivi gli articoli col modello (FASE 2) e inserisci i BLOCCHI qui sotto
+  2. python3 applica-foto-articolo.py <articolo>.html --foto <chiave> --data AAAA-MM-GGTHH:MM   (per ognuno)
+  3. python3 impagina-articolo.py articolo-*-DDmese-*.html            # PROVA: elenca cosa trova, non scrive
+  4. python3 impagina-articolo.py articolo-*-DDmese-*.html --applica  # una volta sola, su TUTTI gli articoli del giorno
+  (lo script salta i file già in layout D e si ferma se manca la foto/firma, la sintesi o il banner)
+
+BLOCCHI DA METTERE NEL TESTO, DOPO il paragrafo <p class="lead"> (sono commenti HTML):
+  • SINTESI (obbligatoria): 4-5 punti, il riepilogo del giorno. Diventa il riquadro "In sintesi".
+        <!-- SINTESI --><ul><li><b>Dato</b> ...</li>...</ul><!-- /SINTESI -->
+    Il vecchio riquadro finale "Da ricordare" non serve più: lo script lo toglie perché ripete la sintesi.
+    Se manca il blocco ma c'è "Da ricordare" con al massimo 6 voci separate da " · ", lo usa; altrimenti si ferma.
+  • INDICI (solo articoli di chiusura Wall Street / Piazza Affari): schede con valore, variazione e andamento reale
+    della seduta. Campi: simbolo | nome | chiusura ufficiale | variazione in punti (con segno).
+        <!-- INDICI | 2026-11-12 | ^GSPC|S&P 500|7592.40|-26.98 ; ^IXIC|Nasdaq Composite|25366.09|-100.10 ; ^DJI|Dow Jones|52297.09|-189.40 -->
+        Piazza Affari: FTSEMIB.MI|FTSE MIB|51808.67|-137.87
+    La serie a 5 minuti si scarica da sola; l'ultimo punto deve stare entro lo 0,1% dalla chiusura ufficiale, che
+    lo script usa per allinearlo. Se la serie manca o non torna, la scheda esce SENZA grafico (mai grafici inventati).
+    Gli articoli che non parlano di indici NON hanno questo blocco: niente grafici degli indici dove non c'entrano.
+  • SCHEDA (facoltativo, articoli su un'azienda): tre numeri chiave già presenti nell'articolo, nel punto del commento.
+        <!-- SCHEDA | CoreWeave | Dati del trimestre | Ricavi trimestrali|3,661 mld $|+168% su base annua ; Contratti in portafoglio|132,5 mld $ -->
+
+REGOLE:
+  - La data in cima al blocco INDICI deve coincidere con la data dell'articolo (lo script avvisa se diverge).
+  - Colore: l'accento dell'articolo è quello della categoria (Wall Street blu, Piazza Affari verde smeraldo,
+    Macro rosso, Commodities ambra, Tech/AI viola, Corporate azzurro). Il banner del modello serve solo a indicarla.
+  - Foto in testa: stesse regole di FASE 2B (una sola volta, 1600 px, credito sotto l'immagine).
+  - La data in cima è assoluta ("12 novembre 2026, 22:30"): non si usa più il "N ore fa".
+  - Gli avvisi dello script (meno di 5 sezioni, meno di 2 tabelle, meno di 2 riquadri educativi, manca il Perché conta)
+    vanno risolti PRIMA di --applica: sono le regole di FASE 2.
+  - Verifica obbligatoria a 390 e 360 px: nessuno scorrimento orizzontale (come da blocco TELEFONO di FASE 3).
+  - Mai modificare a mano la pagina dopo --applica: si corregge il testo sorgente e si rigenera, oppure si interviene
+    su articolo-d.css / articolo-d.js / impagina-articolo.py.
+
 FASE 3 — AGGIORNA HOMEPAGE (index.html):
 ⚠️ NON CAMBIARE MAI LA DISPOSIZIONE DELLA HOMEPAGE descritta qui sotto. Solo aggiornare i contenuti.
 Design: Modern Minimal con switch light/dark.
@@ -716,6 +758,9 @@ git add [3 articoli] index.html archivio.html archivio-*.html [foto nuove] img/r
 23. NON modificare a mano le parti generate (primo piano, sezioni giorno, blocco archivio, pagine archivio): si incolla il blocco del giorno e si esegue impagina-home.py (FASE 3)
 24. NON sbagliare il giorno della settimana: va ricavato dalla data, mai scritto a memoria (il 10 novembre 2026 fu pubblicato come lunedì: era martedì). Vale per la testata degli articoli e per le pagine categoria, che lo script non tocca
 25. NON scrivere le tabelle degli articoli con display:block o overflow-x e NON dimenticare la regola per telefono nel <style> (FASE 3, blocco TELEFONO): le colonne a destra spariscono
+26. NON convertire in layout D gli articoli già pubblicati e NON eseguire impagina-articolo.py separatamente su un solo articolo della giornata: va eseguito una volta, su tutti, perché costruisce "Dalla stessa giornata".
+27. NON mettere il blocco INDICI in articoli che non parlano di indici e NON scrivere grafici o serie a mano: se la serie reale non torna con la chiusura ufficiale, la scheda esce senza grafico.
+28. NON usare nel Ticker Live i simboli XETR:DAX e MIL:FTSEMIB: il primo mostra dati di fine giornata (valore diverso dalla pagina collegata), il secondo non è valido. Usare FOREXCOM:GRXEUR e FOREXCOM:ITA40; il simbolo del Nasdaq (FOREXCOM:NSXUSD) è il Nasdaq 100.
 
 📌 LEZIONE APPRESA (20/05/2026 — caso Nvidia):
 - EPS Nvidia Q1 FY2027 era $1,87 vs $1,77 atteso. Fu pubblicato erroneamente come $9,82 vs $9,10.

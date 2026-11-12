@@ -2,6 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
 
+  <!-- Articoli 12 novembre 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-12nov-nvidia-senza-huang-treasury-oltre-5-indici-in-calo.html</loc>
+      <lastmod>2026-11-12</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-12</news:publication_date>
+          <news:title>Wall Street in calo: Nvidia senza Huang e Treasury a 10 anni oltre il 5%</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-12nov-nvidia-dimissioni-huang-kress-ad-interim-cosa-cambia.html</loc>
+      <lastmod>2026-11-12</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-12</news:publication_date>
+          <news:title>Nvidia senza Huang: cosa cambia dopo le dimissioni, con Kress al timone ad interim</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-macro-12nov-treasury-10-anni-sopra-5-per-cento-azioni-mutui-fed.html</loc>
+      <lastmod>2026-11-12</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-12</news:publication_date>
+          <news:title>Il Treasury a 10 anni torna sopra il 5%: perché i rendimenti pesano su azioni e mutui</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-12nov-ftse-mib-51809-stellantis-amplifon-pirelli-rientra.html</loc>
+      <lastmod>2026-11-12</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-12</news:publication_date>
+          <news:title>Milano −0,27% a 51.809: Stellantis e Amplifon in calo, Pirelli rientra nel FTSE MIB</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-commodities-12nov-brent-96-trump-iran-oro-meno-3-per-cento.html</loc>
+      <lastmod>2026-11-12</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-12</news:publication_date>
+          <news:title>Brent a 96 dollari dopo le parole di Trump sull'Iran; l'oro perde il 3%</news:title>
+      </news:news>
+  </url>
+
   <!-- Articoli 10 novembre 2026 -->
   <url>
       <loc>https://www.almafinanza.com/articolo-wall-street-11nov-coreweave-ai-memoria-nasdaq-risale.html</loc>

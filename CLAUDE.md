@@ -24,6 +24,12 @@ Questa regola si applica a: articoli, titoli, card homepage, info-box, sezione "
 - Minimo 5 sezioni di contenuto, 2 tabelle dati, 2 info-box educativi
 - Disclaimer e nota metodologica nel footer
 
+## Layout articoli "D" (dal 12 novembre 2026, solo articoli nuovi)
+- Si scrive l'articolo col modello, si applica foto/firma (`applica-foto-articolo.py`) e poi si impagina: `python3 impagina-articolo.py articolo-*-DDmese-*.html --applica` (prima senza `--applica` per la prova), una volta sola su tutti gli articoli del giorno
+- Blocchi nel testo dopo il lead: `<!-- SINTESI -->` (obbligatorio, 4-5 punti), `<!-- INDICI | data | simbolo|nome|chiusura|variazione ; ... -->` (solo articoli di chiusura Wall Street/Piazza Affari, grafici reali della seduta), `<!-- SCHEDA | ... -->` (opzionale, articoli aziendali). Dettagli in FASE 2D del Master Prompt
+- Stile in `articolo-d.css`, comportamenti in `articolo-d.js`; titoli Manrope, corpo Inter. Gli articoli vecchi non si convertono
+- Mai grafici o serie inventati: se la serie non torna con la chiusura ufficiale la scheda esce senza grafico
+
 ## Glossario Finanziario (glossario.html)
 - Ogni termine tecnico inglese usato negli articoli deve essere presente nel glossario
 - Ad ogni aggiornamento quotidiano, i nuovi termini vengono aggiunti automaticamente al glossario
