@@ -311,18 +311,26 @@
           .primo-piano > .n-card:first-child{grid-column:1 / -1;grid-row:auto}
           .primo-piano > .n-card:nth-child(2):last-child{grid-column:1 / -1;grid-row:auto}
           .primo-piano > .n-card:first-child h3{font-size:25px}
-          .primo-piano > .n-card:not(:first-child){min-height:230px}
+          .primo-piano > .n-card:not(:first-child){height:424px;min-height:0}
+          .primo-piano > .n-card:not(:first-child) .n-thumb, .primo-piano > .n-card:not(:first-child) .n-ph{height:56%}
+          .primo-piano > .n-card:not(:first-child)::after{background:linear-gradient(180deg,rgba(11,15,22,0) 34%,rgba(11,15,22,.60) 47%,#0b0f16 58%)}
+          .primo-piano > .n-card:not(:first-child) .n-body{padding:20px 20px 17px}
+          .primo-piano > .n-card:not(:first-child) h3{font-size:17px;line-height:1.28;min-height:calc(1.28em * 3);margin:11px 0 9px}
+          .primo-piano > .n-card:not(:first-child) .n-why{display:-webkit-box;font-size:13.5px;min-height:calc(1.5em * 2);-webkit-line-clamp:2;margin:0 0 12px}
+          .primo-piano > .n-card:not(:first-child) .n-meta{border-top:1px solid rgba(255,255,255,.14);padding-top:12px;min-height:37px}
           .giorno-griglia{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
           .giorno-griglia > .n-card{grid-column:auto}
           .giorno-griglia:not(.filtrata) > .n-card:first-child:nth-last-child(odd), .giorno-griglia.filtrata > .n-card.ad-dispari{grid-column:1 / -1}
         }
         @media(max-width:620px){
-          .primo-piano{grid-template-columns:minmax(0,1fr);gap:14px}
-          .primo-piano > .n-card:first-child{min-height:380px}
-          .primo-piano > .n-card:first-child .n-body{padding:22px 20px 18px}
-          .primo-piano > .n-card:first-child h3{font-size:22.5px}
-          .primo-piano > .n-card:first-child .n-why{display:none}
-          .primo-piano > .n-card:not(:first-child){min-height:200px}
+          .primo-piano{grid-template-columns:minmax(0,1fr);gap:16px}
+          .primo-piano > .n-card:first-child, .primo-piano > .n-card:not(:first-child){height:424px;min-height:0;grid-row:auto}
+          .primo-piano > .n-card:first-child .n-thumb, .primo-piano > .n-card:not(:first-child) .n-thumb, .primo-piano > .n-card:first-child .n-ph, .primo-piano > .n-card:not(:first-child) .n-ph{height:56%}
+          .primo-piano > .n-card:first-child::after, .primo-piano > .n-card:not(:first-child)::after{background:linear-gradient(180deg,rgba(11,15,22,0) 34%,rgba(11,15,22,.60) 47%,#0b0f16 58%)}
+          .primo-piano > .n-card:first-child .n-body, .primo-piano > .n-card:not(:first-child) .n-body{padding:20px 20px 17px}
+          .primo-piano > .n-card:first-child h3, .primo-piano > .n-card:not(:first-child) h3{font-size:17px;font-weight:700;line-height:1.28;letter-spacing:-.005em;min-height:calc(1.28em * 3);margin:11px 0 9px;-webkit-line-clamp:3}
+          .primo-piano > .n-card:first-child .n-why, .primo-piano > .n-card:not(:first-child) .n-why{display:-webkit-box;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.76);max-width:none;min-height:calc(1.5em * 2);-webkit-line-clamp:2;margin:0 0 12px}
+          .primo-piano > .n-card:first-child .n-meta, .primo-piano > .n-card:not(:first-child) .n-meta{border-top:1px solid rgba(255,255,255,.14);padding-top:12px;min-height:37px}
           .giorno-griglia{grid-template-columns:minmax(0,1fr);gap:16px}
           .n-card{height:424px}
           .n-card .n-thumb, .n-card .n-ph{height:56%}
@@ -384,9 +392,9 @@
                 "symbols": [
                     {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
                     {"proName":"FOREXCOM:DJI","title":"Dow Jones"},
-                    {"proName":"FOREXCOM:NSXUSD","title":"Nasdaq"},
-                    {"proName":"MIL:FTSEMIB","title":"FTSE MIB"},
-                    {"proName":"XETR:DAX","title":"DAX"},
+                    {"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},
+                    {"proName":"FOREXCOM:ITA40","title":"FTSE MIB"},
+                    {"proName":"FOREXCOM:GRXEUR","title":"DAX"},
                     {"proName":"TVC:USOIL","title":"Petrolio WTI"},
                     {"proName":"TVC:GOLD","title":"Oro"},
                     {"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},
@@ -410,9 +418,9 @@
                 "symbols": [
                     {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
                     {"proName":"FOREXCOM:DJI","title":"Dow Jones"},
-                    {"proName":"FOREXCOM:NSXUSD","title":"Nasdaq"},
-                    {"proName":"MIL:FTSEMIB","title":"FTSE MIB"},
-                    {"proName":"XETR:DAX","title":"DAX"},
+                    {"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},
+                    {"proName":"FOREXCOM:ITA40","title":"FTSE MIB"},
+                    {"proName":"FOREXCOM:GRXEUR","title":"DAX"},
                     {"proName":"TVC:USOIL","title":"Petrolio WTI"},
                     {"proName":"TVC:GOLD","title":"Oro"},
                     {"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},

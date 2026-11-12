@@ -15,7 +15,7 @@ Questa regola si applica a: articoli, titoli, card homepage, info-box, sezione "
 ## Stack Tecnico
 - HTML statico + Tailwind CSS (CDN) con `darkMode:'class'`
 - Anti-flash dark mode script nel `<head>`
-- Font: Lobster (logo), Montserrat (titoli), Inter (corpo)
+- Font attuali: Lobster (logo), Montserrat (titoli), Inter (corpo). Intoccabile solo la "A" del logo (Lobster): tutti gli altri font di homepage e articoli si possono cambiare nei restyling
 - Theme toggle con animazione spring: `cubic-bezier(0.68,-0.55,0.27,1.55)`
 - SEO: Open Graph, Twitter Card, Schema.org NewsArticle, canonical URL, sitemap.xml con news:news
 
@@ -43,6 +43,7 @@ Questa regola si applica a: articoli, titoli, card homepage, info-box, sezione "
 - Mai classi col-span scritte a mano sulle schede: la larghezza la decide il numero di articoli del giorno
 - Data di un articolo = giorno a cui sono aggiornati i dati usati (non il giorno in cui si scrive), identica su riquadro, articolo, nome file, categorie e sitemap; salvo data diversa chiesta espressamente dall'utente
 - Il giorno della settimana si ricava sempre dalla data, mai a memoria
+- Ticker Live (TradingView): usare solo simboli in tempo reale che mostrano lo stesso valore nella pagina collegata: DAX = `FOREXCOM:GRXEUR`, FTSE MIB = `FOREXCOM:ITA40`, Nasdaq = `FOREXCOM:NSXUSD` con titolo "Nasdaq 100". Mai `XETR:DAX` (dati di fine giornata, valore diverso dalla pagina) né `MIL:FTSEMIB` (simbolo non valido nel widget)
 - Telefono: nessuno scorrimento orizzontale (verificare a 390 e 360px), riga dati entro ~34 caratteri, tabelle degli articoli compatte senza display:block, foto di testa con -mx-4; regole complete nel Master Prompt (blocco TELEFONO)
 - Telefono: i tre riquadri del primo piano sono tutti alti 424px e tutti con "Perché conta" (come i riquadri normali)
 - Con più di 3 articoli nel giorno, i primi 3 vanno in primo piano e gli altri nella sezione "Oggi" sotto "Ultime notizie"
