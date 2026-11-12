@@ -205,8 +205,9 @@ def trasforma(d, correlati):
     dt = datetime.datetime.fromisoformat(d['dt'])
     data_lunga = '%d %s %d' % (dt.day, MESI[dt.month - 1], dt.year)
     # schede indici
-    kp, tick = '', ''
+    kp, tick, marker = '', '', ''
     if indici:
+        marker = mi.group(0)  # resta nella pagina: la homepage legge da qui i dati della striscia Mercati
         giorno, righe = indici
         gd = datetime.date.fromisoformat(giorno)
         if gd != dt.date():
@@ -251,12 +252,12 @@ def trasforma(d, correlati):
         '<div class="wrap"><div class="crumb">%s</div><div class="grid"><main>\n'
         '<div class="cat">%s%s</div><h1>%s</h1><p class="deck">%s</p>\n'
         '<div class="by"><span class="av">A</span><b>Redazione Alma Finanza</b><span>·</span><time datetime="%s">%s, %s</time><span>·</span><span>Lettura %s min</span><span class="sp"></span>%s</div>\n'
-        '%s\n%s\n<div class="sint-m">%s</div>\n<div class="prose">\n%s\n</div></main>\n'
+        '%s\n%s\n%s\n<div class="sint-m">%s</div>\n<div class="prose">\n%s\n</div></main>\n'
         '<aside class="rail">%s%s%s</aside></div>\n%s</div>\n'
         '<footer><a class="logo" href="index.html"><span class="a">A</span><span class="t">LMA FINANZA</span></a><p>%s</p></footer>\n'
         '<script src="articolo-d.js?v=%s"></script>\n') % (
         nav, tick, crumb, catl, sotto, d['h1'], d['deck'], d['dt'], data_lunga, dt.strftime('%H:%M'), d['min'], share,
-        figura, kp, sint_card, b, sint_card, toc, imp_card, corr, d['disclaimer'], CSS_V)
+        figura, kp, marker, sint_card, b, sint_card, toc, imp_card, corr, d['disclaimer'], CSS_V)
     # head: via Tailwind e stile inline, dentro il foglio condiviso e i font nuovi
     s = d['src']
     head = s[:s.index('</head>')]

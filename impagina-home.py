@@ -28,7 +28,9 @@ settimana nelle intestazioni (lo ricava dalla data).
 
 import argparse
 import datetime
+import glob
 import html
+import importlib.util
 import pathlib
 import re
 import shutil
@@ -284,6 +286,66 @@ def blocco_archivio(totale, mesi, primo_mese, bersaglio):
 '''
 
 
+# ---------------------------------------------------------------- striscia "Mercati" (dati dai blocchi INDICI degli articoli di chiusura)
+
+ORDINE_INDICI = ["^GSPC", "^IXIC", "^DJI", "FTSEMIB.MI"]
+MERCATO = {"^GSPC": "Wall Street", "^IXIC": "Wall Street", "^DJI": "Wall Street", "FTSEMIB.MI": "Piazza Affari"}
+INDICI = re.compile(r'<!--\s*INDICI\s*\|\s*(\d{4}-\d{2}-\d{2})\s*\|(.*?)-->', re.S)
+
+
+def _lib_articolo():
+    """Riusa serie() e svg() di impagina-articolo.py (stesso controllo sulla chiusura ufficiale)."""
+    spec = importlib.util.spec_from_file_location("impagina_articolo", BASE / "impagina-articolo.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def giorno_lungo(iso):
+    d = datetime.date.fromisoformat(iso)
+    return "%s %d %s %d" % (GIORNI[d.weekday()].lower(), d.day, MESI[d.month - 1].lower(), d.year)
+
+
+def mercati():
+    """Quattro indici all'ultima chiusura con grafico reale della seduta. Se mancano i dati non scrive nulla."""
+    ultimo = {}
+    for f in sorted(glob.glob(str(BASE / "articolo-*.html"))):
+        t = pathlib.Path(f).read_text(encoding="utf-8")
+        if "INDICI |" not in t:
+            continue
+        for m in INDICI.finditer(t):
+            for riga in m.group(2).split(";"):
+                c = [x.strip() for x in riga.split("|")]
+                if len(c) == 4 and (c[0] not in ultimo or m.group(1) >= ultimo[c[0]][0]):
+                    ultimo[c[0]] = (m.group(1), c[1], float(c[2]), float(c[3]), pathlib.Path(f).name)
+    if not ultimo:
+        return ""
+    lib = _lib_articolo()
+    carte = ""
+    for sim in [x for x in ORDINE_INDICI if x in ultimo]:
+        giorno, nome, chius, var, art = ultimo[sim]
+        prec = chius - var
+        pts = lib.serie(sim, chius, giorno)
+        classe = "su" if var >= 0 else "giu"
+        carte += ('<a class="mk-c" href="%s"><div class="mk-t"><small>%s</small><strong>%s</strong><span class="%s">%s %s%%</span></div>%s</a>'
+                  % (art, html.escape(nome), lib.it(chius), classe, "▲" if var >= 0 else "▼", lib.it(var / prec * 100, 2, True),
+                     lib.svg(pts, prec) if pts else ""))
+    date = {}
+    for sim in [x for x in ORDINE_INDICI if x in ultimo]:
+        date.setdefault(MERCATO[sim], ultimo[sim][0])
+    if len(set(date.values())) == 1:
+        quando = "%s, chiusura di %s" % (" e ".join(date), giorno_lungo(next(iter(date.values()))))
+    else:
+        quando = " · ".join("%s, chiusura di %s" % (k, giorno_lungo(v)) for k, v in date.items())
+    return f'''        <section class="mk" aria-label="Mercati all'ultima chiusura">
+            <div class="mk-h"><b>Mercati · ultima chiusura</b><span>{quando} · linea tratteggiata = chiusura precedente</span></div>
+            <div class="mk-g">{carte}</div>
+            <p class="mk-n">Valori di chiusura da fonti pubbliche di mercato. Il Ticker Live in alto mostra invece prezzi in tempo reale di strumenti sugli indici, che possono differire di qualche decina di punti dalla chiusura ufficiale.</p>
+        </section>
+
+'''
+
+
 def corpo_home(gruppi, parola):
     in_home, in_archivio = gruppi[:GIORNATE_IN_HOME], gruppi[GIORNATE_IN_HOME:]
     mesi = sorted({g["data"][:7] for g in in_archivio}, reverse=True)
@@ -301,7 +363,7 @@ def corpo_home(gruppi, parola):
              Pagina generata da impagina-home.py: per aggiungere un giorno incolla il blocco qui sotto ed esegui lo script. -->
         <!-- NUOVO-GIORNO -->
 
-{primo_piano(in_home[0])}
+{mercati()}{primo_piano(in_home[0])}
         <div class="un-bar">
             <h2>Ultime notizie</h2>
             <div class="filtri">{bottoni}</div>
@@ -388,7 +450,7 @@ CSS = f'''        /* ===== DISPOSIZIONE 2026-11 (generata da impagina-home.py: n
 
         /* ultime notizie e filtri */
         .un-bar{{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:40px 0 2px}}
-        .un-bar h2{{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;letter-spacing:-.01em;color:var(--n-ink);margin-right:auto}}
+        .un-bar h2{{font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;letter-spacing:-.01em;color:var(--n-ink);margin-right:auto}}
         .filtri{{display:flex;gap:8px;flex-wrap:wrap}}
         .filtri button{{font:600 13px 'Inter',sans-serif;color:var(--n-ink2);background:var(--n-surface);border:1px solid var(--n-rule);padding:7px 13px;border-radius:6px;cursor:pointer;transition:border-color .15s,color .15s}}
         .filtri button:hover{{border-color:var(--n-ink3);color:var(--n-ink)}}
@@ -449,19 +511,19 @@ CSS = f'''        /* ===== DISPOSIZIONE 2026-11 (generata da impagina-home.py: n
         .fascia-quiz{{display:flex;align-items:center;gap:16px;padding:18px 22px;border-radius:8px;color:#fff;background:linear-gradient(120deg,#0f766e,#14b8a6 70%,#2dd4bf);text-decoration:none}}
         .fq-ico{{font-size:32px}}
         .fq-txt{{display:flex;flex-direction:column;gap:3px;margin-right:auto;font-size:13.5px;color:rgba(255,255,255,.88)}}
-        .fq-txt b{{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:#fff}}
+        .fq-txt b{{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#fff}}
         .fq-btn{{font-size:13.5px;font-weight:700;background:#fff;color:#0f766e;padding:10px 18px;border-radius:999px;white-space:nowrap}}
         .fascia-parola{{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:16px 20px;border-radius:8px;background:#f0fdfa;border:1px solid #99e0d6;text-decoration:none}}
         .dark .fascia-parola{{background:rgba(20,184,166,.10);border-color:rgba(45,212,191,.28)}}
         .fp-lbl{{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--n-teal)}}
-        .fascia-parola b{{font-family:'Montserrat',sans-serif;font-size:21px;font-weight:800;color:var(--n-ink)}}
+        .fascia-parola b{{font-family:'Manrope',sans-serif;font-size:21px;font-weight:800;color:var(--n-ink)}}
         .fp-it{{font-size:13px;color:var(--n-ink2)}}
         .fp-go{{font-size:12.5px;font-weight:600;color:var(--n-teal);margin-top:6px}}
         @media(max-width:620px){{.fascia{{grid-template-columns:minmax(0,1fr);gap:14px}} .fq-txt span{{display:none}}}}
 
         /* blocco archivio e pagine archivio */
         .arch{{margin:44px 0 24px;padding:24px 26px;background:var(--n-surface);border:1px solid var(--n-rule);border-radius:8px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}}
-        .arch h2{{font-family:'Montserrat',sans-serif;font-size:19px;font-weight:800;color:var(--n-ink)}}
+        .arch h2{{font-family:'Manrope',sans-serif;font-size:19px;font-weight:800;color:var(--n-ink)}}
         .arch p{{font-size:13.5px;color:var(--n-ink2);margin-top:3px}}
         .arch-mesi{{display:flex;gap:8px;flex-wrap:wrap}}
         .arch > .arch-mesi{{margin-left:auto}}
@@ -470,16 +532,31 @@ CSS = f'''        /* ===== DISPOSIZIONE 2026-11 (generata da impagina-home.py: n
         .arch-btn{{font-size:13.5px;font-weight:700;background:var(--n-ink);color:var(--n-surface);padding:11px 20px;border-radius:999px;text-decoration:none;white-space:nowrap}}
         .arch-pista{{font-size:12.5px;color:var(--n-ink3);margin:22px 0 10px}}
         .arch-pista a{{color:var(--n-teal);font-weight:600;text-decoration:none}}
-        .arch-titolo{{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:800;letter-spacing:-.015em;color:var(--n-ink)}}
+        .arch-titolo{{font-family:'Manrope',sans-serif;font-size:30px;font-weight:800;letter-spacing:-.015em;color:var(--n-ink)}}
         .arch-sotto{{font-size:14px;color:var(--n-ink2);margin:4px 0 18px}}
         .arch-indice{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:8px 0 40px}}
         .arch-indice a{{display:block;padding:20px 22px;border:1px solid var(--n-rule);border-radius:6px;background:var(--n-surface);text-decoration:none;transition:border-color .18s}}
         .arch-indice a:hover{{border-color:var(--n-rule2)}}
-        .arch-indice b{{display:block;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:var(--n-ink)}}
+        .arch-indice b{{display:block;font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:var(--n-ink)}}
         .arch-indice span{{font-size:13px;color:var(--n-ink2)}}
         .arch-piede{{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:36px 0 30px}}
         @media(max-width:900px){{.arch-indice{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}
         @media(max-width:620px){{.arch{{padding:20px}} .arch > .arch-mesi{{margin-left:0}} .arch-indice{{grid-template-columns:minmax(0,1fr)}} .arch-titolo{{font-size:25px}}}}
+        /* striscia Mercati */
+        .mk{{margin:0 0 18px}}
+        .mk-h{{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 9px;font-size:12px;color:#64748b;flex-wrap:wrap}}
+        .dark .mk-h{{color:#94a3b8}}
+        .mk-h b{{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#0f172a}}.dark .mk-h b{{color:#e2e8f0}}
+        .mk-g{{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}}
+        .mk-c{{display:flex;justify-content:space-between;align-items:flex-end;gap:8px;background:#0b0f16;border:1px solid #1c2433;border-radius:6px;padding:12px 12px 10px;text-decoration:none;color:#f1f5f9;min-width:0;transition:border-color .2s,transform .2s}}
+        .mk-c:hover{{border-color:#334155;transform:translateY(-1px)}}
+        .mk-t{{display:flex;flex-direction:column;gap:1px;min-width:0}}.mk-t small{{font-size:12px;color:#94a3b8;font-weight:600}}
+        .mk-t strong{{font-family:'Inter',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.01em;font-variant-numeric:tabular-nums;white-space:nowrap}}
+        .mk-t span{{font-size:13px;font-weight:700}}.mk-t .su{{color:#22c55e}}.mk-t .giu{{color:#ef4444}}
+        .mk-c .spk{{width:42%;min-width:64px;height:44px;flex:none}}
+        .mk-n{{margin:7px 0 0;font-size:11px;color:#64748b}}.dark .mk-n{{color:#7c8799}}
+        @media(max-width:820px){{.mk-g{{grid-template-columns:1fr 1fr}}.mk-t strong{{font-size:17px}}}}
+        @media(max-width:420px){{.mk-c{{padding:10px}}.mk-t strong{{font-size:16px}}.mk-c .spk{{width:38%;min-width:52px;height:38px}}}}
         /* ===== /DISPOSIZIONE 2026-11 ===== */
 '''
 

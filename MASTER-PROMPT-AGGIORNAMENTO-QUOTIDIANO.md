@@ -325,6 +325,7 @@ REGOLE:
     su articolo-d.css / articolo-d.js / impagina-articolo.py.
 
 FASE 3 — AGGIORNA HOMEPAGE (index.html):
+🆕 STRISCIA "MERCATI" (dal 12 novembre 2026): sopra "In primo piano" la homepage mostra S&P 500, Nasdaq Composite, Dow Jones e FTSE MIB all'ultima chiusura, con grafico reale della seduta. La genera impagina-home.py leggendo i blocchi `<!-- INDICI | ... -->` degli articoli di chiusura (FASE 2D): non si scrive a mano e non serve nessun passaggio in più. Se un indice non ha un blocco recente, la scheda mostra l'ultimo disponibile con la sua data. Il Ticker Live resta com'è. Font dei titoli di homepage e archivi: Manrope (la A e la scritta del logo non cambiano).
 ⚠️ NON CAMBIARE MAI LA DISPOSIZIONE DELLA HOMEPAGE descritta qui sotto. Solo aggiornare i contenuti.
 Design: Modern Minimal con switch light/dark.
 
