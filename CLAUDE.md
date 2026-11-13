@@ -54,5 +54,6 @@ Questa regola si applica a: articoli, titoli, card homepage, info-box, sezione "
 - Telefono: nessuno scorrimento orizzontale (verificare a 390 e 360px), riga dati entro ~34 caratteri, tabelle degli articoli compatte senza display:block, foto di testa con -mx-4; regole complete nel Master Prompt (blocco TELEFONO)
 - Telefono: i tre riquadri del primo piano sono tutti alti 424px e tutti con "Perché conta" (come i riquadri normali)
 - Con più di 3 articoli nel giorno, i primi 3 vanno in primo piano e gli altri nella sezione "Oggi" sotto "Ultime notizie"
+- Ordine dentro la giornata = data e ora di pubblicazione, il più recente per primo (dal 12 novembre 2026): lo applica `impagina-home.py` leggendo l'orario dell'articolo, non conta l'ordine in cui si incollano i riquadri. Mai un articolo più recente dietro a uno più vecchio
 - Stile dei riquadri (dall'11 novembre 2026): la foto sfuma nel fondo scuro, generato dal CSS di `impagina-home.py`; il markup `.n-card` non cambia
 - `impagina-home-stile-precedente.py` e `index-stile-precedente.html` sono copie di riserva ferme dello stile chiaro: non usarle negli aggiornamenti e non aggiornarle

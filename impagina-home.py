@@ -173,6 +173,35 @@ def ripulisci(gruppi):
     return puliti
 
 
+# ---------------------------------------------------------------- ordine per pubblicazione
+
+ORDINE_PER_ORARIO_DAL = "2026-11-12"    # le giornate precedenti restano nell'ordine in cui sono state pubblicate
+
+
+def pubblicato(scheda):
+    """Data e ora di pubblicazione scritte nell'articolo (AAAA-MM-GGTHH:MM); stringa vuota se mancano."""
+    try:
+        testo = (BASE / href(scheda).split("#")[0].split("?")[0]).read_text(encoding="utf-8")
+    except OSError:
+        return ""
+    m = re.search(r'"datePublished"\s*:\s*"([^"]+)"', testo) or re.search(r'<time datetime="([^"]+)"', testo)
+    return m.group(1)[:16] if m else ""
+
+
+def ordina_per_pubblicazione(gruppi):
+    """Dentro ogni giornata il più recente va per primo: è l'orario dell'articolo a decidere il posto,
+    non l'ordine in cui i riquadri sono stati incollati. A parità di orario resta l'ordine del blocco."""
+    for g in gruppi:
+        if g["data"] < ORDINE_PER_ORARIO_DAL:
+            continue
+        orari = {href(s): pubblicato(s) for s in g["schede"]}
+        for h, o in orari.items():
+            if not o:
+                print(f"⚠️  ORARIO MANCANTE — {h}: senza data di pubblicazione finisce in fondo alla giornata")
+        g["schede"] = sorted(g["schede"], key=lambda s: orari[href(s)], reverse=True)
+    return gruppi
+
+
 # ---------------------------------------------------------------- controllo delle date
 
 MESI_BREVI = [m[:3].lower() for m in MESI]
@@ -724,7 +753,7 @@ def main():
     else:
         gruppi = leggi_storico(pagina)
     prima = {href(s) for g in gruppi for s in g["schede"]}
-    gruppi = ripulisci(gruppi)
+    gruppi = ordina_per_pubblicazione(ripulisci(gruppi))
     dopo = [href(s) for g in gruppi for s in g["schede"]]
     assert set(dopo) == prima and len(dopo) == len(set(dopo)), "le schede non tornano: nessun articolo deve sparire o raddoppiare"
     assert len(gruppi) > 1, "servono almeno due giornate"

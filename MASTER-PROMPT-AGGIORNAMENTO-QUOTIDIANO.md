@@ -349,7 +349,7 @@ Design: Modern Minimal con switch light/dark.
    La homepage e le pagine archivio le impagina lo script impagina-home.py. A mano si fa UNA cosa:
 
    1. In index.html, subito sotto il commento <!-- NUOVO-GIORNO -->, incolla il blocco del giorno,
-      con una scheda .n-card per articolo (la più importante PER PRIMA):
+      con una scheda .n-card per articolo (l'ordine in homepage lo decide l'orario di pubblicazione, non l'ordine del blocco):
 
          <!-- GIORNO 2026-11-11 | Mercoledì 11 Novembre 2026 -->
          <a href="articolo-....html" class="n-card group"> ... </a>
@@ -413,8 +413,13 @@ c) IN PRIMO PIANO (subito sotto la navigazione):
    - Contiene gli articoli della giornata di OGGI, al massimo 3: la notizia principale in
      grande a sinistra (circa tre quinti della larghezza) e due riquadri impilati a fianco
    - Sopra, l'occhiello: "In primo piano · <giorno> <data>"
-   - La principale è la notizia più importante del giorno (di norma Wall Street o macro):
-     è la PRIMA nell'ordine. Mostra foto, categoria, titolo, "Perché conta" e riga dei dati.
+   - ORDINE = DATA E ORA DI PUBBLICAZIONE (dal 12 novembre 2026): dentro la giornata il più
+     recente va per primo, quindi la principale è l'ULTIMO articolo pubblicato. Lo decide da solo
+     impagina-home.py leggendo l'orario scritto nell'articolo (quello dato con --data ad
+     applica-foto-articolo.py): l'ordine in cui si incollano i riquadri nel blocco non conta.
+     Un articolo aggiunto dopo, con orario successivo, sale in testa. MAI mettere un articolo
+     più recente dietro a uno più vecchio. Le giornate prima del 12 novembre 2026 restano com'erano.
+     La principale mostra foto, categoria, titolo, "Perché conta" e riga dei dati.
      I due riquadri a fianco mostrano foto, categoria, titolo e riga dei dati (su computer);
      su telefono e tablet tutti e tre mostrano anche "Perché conta" e hanno la stessa altezza
    - Se oggi c'è 1 solo articolo: la principale occupa tutta la larghezza
