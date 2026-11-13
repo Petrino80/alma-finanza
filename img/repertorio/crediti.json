@@ -1372,5 +1372,54 @@
    "investimento di valore",
    "omaha"
   ]
+ },
+ "generali-torre-citylife": {
+  "file": "generali-torre-citylife.jpg",
+  "autore": "Antonio199cro",
+  "licenza": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:MilanocitylifeG.jpg",
+  "soggetto": "La Torre Generali nel quartiere CityLife di Milano, sede italiana del gruppo assicurativo",
+  "temi": [
+   "generali",
+   "assicurazioni",
+   "citylife",
+   "milano",
+   "piazza affari",
+   "trimestrale",
+   "solvency"
+  ]
+ },
+ "francoforte-toro-orso-borsa": {
+  "file": "francoforte-toro-orso-borsa.jpg",
+  "autore": "Dietmar Rabich",
+  "licenza": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Frankfurt_am_Main,_Skulptur_-Bulle_%26_B%C3%A4r-_--_2015_--_6763.jpg",
+  "soggetto": "Il toro e l'orso, simboli dei mercati in rialzo e in ribasso, davanti alla Borsa di Francoforte",
+  "temi": [
+   "europa",
+   "borse europee",
+   "stoxx 600",
+   "dax",
+   "francoforte",
+   "toro",
+   "orso",
+   "indici"
+  ]
+ },
+ "nasdaq-marketsite-studio": {
+  "file": "nasdaq-marketsite-studio.jpg",
+  "autore": "Luca Marfè at Italia all'ONU",
+  "licenza": "CC BY 2.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:NASDAQ_Market_Site_201506.jpg",
+  "soggetto": "Lo studio del Nasdaq MarketSite a Times Square, New York, in una foto del 2015",
+  "temi": [
+   "nasdaq",
+   "wall street",
+   "tecnologia",
+   "chip",
+   "semiconduttori",
+   "indici",
+   "new york"
+  ]
  }
 }
