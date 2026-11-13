@@ -296,6 +296,8 @@ ORDINE DELLE OPERAZIONI (per OGNI giornata di aggiornamento):
   3. python3 impagina-articolo.py articolo-*-DDmese-*.html            # PROVA: elenca cosa trova, non scrive
   4. python3 impagina-articolo.py articolo-*-DDmese-*.html --applica  # una volta sola, su TUTTI gli articoli del giorno
   (lo script salta i file già in layout D e si ferma se manca la foto/firma, la sintesi o il banner)
+  Se il modello articolo-*-DDmese-*.html prende anche articoli di anni precedenti con lo stesso giorno (vecchio formato: lo script li segnala come ERRORE e non scrive nulla), passare i nomi dei file del giorno uno per uno.
+  Per aggiungere un articolo a una giornata già impaginata: passare il nuovo file insieme a quelli già in layout D (vengono saltati, ma servono per "Dalla stessa giornata").
 
 BLOCCHI DA METTERE NEL TESTO, DOPO il paragrafo <p class="lead"> (sono commenti HTML):
   • SINTESI (obbligatoria): 4-5 punti, il riepilogo del giorno. Diventa il riquadro "In sintesi".
