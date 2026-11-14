@@ -1421,5 +1421,52 @@
    "indici",
    "new york"
   ]
+ },
+ "faa-torre-controllo-msp": {
+  "file": "faa-torre-controllo-msp.jpg",
+  "autore": "Tony Webster",
+  "licenza": "CC BY-SA 2.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:FAA_Air_Traffic_Control_Tower_at_MSP_Airport_(50258861466).jpg",
+  "soggetto": "La torre di controllo della FAA all'aeroporto di Minneapolis-Saint Paul, negli Stati Uniti",
+  "temi": [
+   "faa",
+   "controllo aereo",
+   "voli",
+   "aeroporto",
+   "compagnie aeree",
+   "stati uniti",
+   "trasporto aereo"
+  ]
+ },
+ "ferrari-f40-salon-prive": {
+  "file": "ferrari-f40-salon-prive.jpg",
+  "autore": "MrWalkr",
+  "licenza": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:1991_Red_Ferrari_F40.jpg",
+  "soggetto": "Una Ferrari F40 del 1991 esposta al Salon Privé nel 2022",
+  "temi": [
+   "ferrari",
+   "f40",
+   "supercar",
+   "auto da collezione",
+   "hypercar",
+   "investimenti alternativi",
+   "aste"
+  ]
+ },
+ "charlie-munger-2010": {
+  "file": "charlie-munger-2010.jpg",
+  "autore": "Nick Webb",
+  "licenza": "CC BY 2.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Charlie_Munger_2.jpg",
+  "soggetto": "Charlie Munger, vicepresidente di Berkshire Hathaway, nel 2010",
+  "temi": [
+   "munger",
+   "buffett",
+   "berkshire hathaway",
+   "value investing",
+   "omaha",
+   "storia"
+  ]
  }
 }
