@@ -2,6 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
 
+  <url>
+      <loc>https://www.almafinanza.com/newsletter.html</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/privacy.html</loc>
+      <lastmod>2026-11-16</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.3</priority>
+  </url>
+
   <!-- Articoli 14 novembre 2026 -->
   <url>
       <loc>https://www.almafinanza.com/articolo-macro-14nov-blocco-voli-usa-faa-cause-scenari-mercati-compagnie-aeree.html</loc>
