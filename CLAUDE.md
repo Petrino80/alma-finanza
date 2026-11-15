@@ -9,7 +9,9 @@ Esempi: "Relief Rally (rally di sollievo)", "War Premium (premio di guerra)", "T
 Questa regola si applica a: articoli, titoli, card homepage, info-box, sezione "Impara la Finanza", categorie.
 
 ## Git
-- Commit con: `git -c user.name="Ferrara Petrino" -c user.email="ferrarapetrino@Petrinos-MacBook-Pro.local" commit`
+- Commit sempre firmati come Alma Finanza: `git -c user.name="Alma Finanza" -c user.email="pf@almafinanza.com" commit`
+- Mai dati personali del proprietario (nome, cognome, nome utente del computer, email personali, percorsi tipo `/Users/...`) nei file versionati né nei messaggi di commit: tutto ciò che è nel repository è leggibile su GitHub e su almafinanza.com. Dove serve un nome si scrive "Alma Finanza"
+- Documenti interni e script usa e getta non si versionano: restano sul computer e vanno elencati in `.gitignore`
 - Google Analytics: G-E88FFDTPMP
 
 ## Stack Tecnico

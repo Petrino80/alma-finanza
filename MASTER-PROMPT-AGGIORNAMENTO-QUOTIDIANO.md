@@ -38,7 +38,8 @@ Claude NON deve chiedere conferma, approvazione o permesso per nessuna di queste
 
 **Git:**
 - git add per i file dell'aggiornamento quotidiano
-- git commit con messaggio descrittivo
+- git commit con messaggio descrittivo, sempre firmato come Alma Finanza:
+  git -c user.name="Alma Finanza" -c user.email="pf@almafinanza.com" commit
 - git push origin main
 
 ---
@@ -738,7 +739,11 @@ Regole glossario:
 - La spiegazione deve essere EDUCATIVA: spiegare il concetto come se il lettore fosse un principiante
 
 FASE 6 — COMMIT E PUSH:
-git add [3 articoli] index.html archivio.html archivio-*.html [foto nuove] img/repertorio/crediti.json sitemap.xml categoria-wall-street.html categoria-borsa-milano.html categoria-crypto.html categoria-commodities.html impara-finanza.html glossario.html && git commit && git push origin main
+git add [3 articoli] index.html archivio.html archivio-*.html [foto nuove] img/repertorio/crediti.json sitemap.xml categoria-wall-street.html categoria-borsa-milano.html categoria-crypto.html categoria-commodities.html impara-finanza.html glossario.html && git -c user.name="Alma Finanza" -c user.email="pf@almafinanza.com" commit && git push origin main
+
+La firma dei commit è sempre "Alma Finanza" con email pf@almafinanza.com. Mai nome, cognome, nome utente
+del computer, email personali o percorsi tipo /Users/... nei file versionati né nei messaggi di commit:
+tutto ciò che è nel repository è leggibile su GitHub e su almafinanza.com.
 
 ⚠️ ERRORI DA NON FARE MAI:
 1. NON inventare dati — cerca SEMPRE con WebSearch prima di scrivere (FASE 1 non è opzionale)
@@ -750,7 +755,7 @@ git add [3 articoli] index.html archivio.html archivio-*.html [foto nuove] img/r
 7. NON dimenticare le info-box educative (minimo 2 per articolo)
 8. NON usare prezzi ETF al posto dei valori indice nel ticker
 9. NON omettere l'intervallo temporale nelle variazioni %
-10. NON usare link con petrino80.github.io — solo almafinanza.com
+10. NON usare link con indirizzi github.io — solo almafinanza.com
 11. NON cancellare articoli: quelli oltre le 10 giornate si SPOSTANO nell'archivio mensile (FASE 3g), mai eliminati
 12. NON modificare mission/newsletter/footer della homepage
 13. La data sul riquadro DEVE essere identica a quella dentro l'articolo, ed è il giorno a cui sono aggiornati i dati usati, non il giorno in cui si scrive (FASE 1, DATA DI RIFERIMENTO). Unica eccezione: una data diversa chiesta espressamente dall'utente

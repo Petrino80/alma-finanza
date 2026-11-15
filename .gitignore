@@ -43,3 +43,23 @@ output/
 # Cache Python degli script di aggiornamento
 __pycache__/
 *.pyc
+
+# Documenti interni e vecchi script non piu' usati: restano sul computer,
+# ma non si versionano (tutto cio' che e' nel repository e' leggibile su
+# GitHub e sul sito pubblicato).
+COME_AGGIORNARE.md
+SETUP_EMAILJS.md
+PROMPT-LINKEDIN-CAROUSEL.md
+prompt-claude-code-almafinanza.md
+aggiorna.sh
+aggiungi-analytics.sh
+aggiungi-firma-immagine.py
+add-dark-mode*.py
+add_*.py
+fix-*.py
+fix_index.py
+insert_new_articles.py
+redesign-*.py
+reorder_articles.py
+update-*.py
+update_articles_grid.py
