@@ -30,6 +30,7 @@ Questa regola si applica a: articoli, titoli, card homepage, info-box, sezione "
 - Si scrive l'articolo col modello, si applica foto/firma (`applica-foto-articolo.py`) e poi si impagina: `python3 impagina-articolo.py articolo-*-DDmese-*.html --applica` (prima senza `--applica` per la prova), una volta sola su tutti gli articoli del giorno
 - Blocchi nel testo dopo il lead: `<!-- SINTESI -->` (obbligatorio, 4-5 punti), `<!-- INDICI | data | simbolo|nome|chiusura|variazione ; ... -->` (solo articoli di chiusura Wall Street/Piazza Affari, grafici reali della seduta), `<!-- SCHEDA | ... -->` (opzionale, articoli aziendali). Dettagli in FASE 2D del Master Prompt
 - Stile in `articolo-d.css`, comportamenti in `articolo-d.js`; titoli Manrope, corpo Inter. Gli articoli vecchi non si convertono
+- Newsletter (Brevo, pagine `newsletter.html`, `newsletter-confermata.html`, `privacy.html`): link "Newsletter" nella testata e box "Iscriviti" a fine articolo generati da `impagina-articolo.py`; fascia newsletter in homepage generata da `impagina-home.py`. Mai nome o dati personali del proprietario nelle pagine: solo "Alma Finanza", P. IVA e città
 - Mai grafici o serie inventati: se la serie non torna con la chiusura ufficiale la scheda esce senza grafico
 
 ## Glossario Finanziario (glossario.html)

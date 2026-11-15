@@ -98,3 +98,11 @@ footer p{max-width:42rem;margin:.9rem auto 0}
  .prose{font-size:1.02rem}.prose h2{font-size:1.28rem}.data-table{table-layout:auto}.data-table th,.data-table td{padding:.5rem .4rem;font-size:.74rem;line-height:1.35;overflow-wrap:break-word}.data-table th{font-size:.6rem;letter-spacing:.03em}
  .tick div{gap:14px}.tick span.s{padding-left:14px}.by .ic{display:none}figure.hero{margin:0 -20px;border-radius:0}.top-in{gap:14px}.prose .lead:first-letter{font-size:3.4rem}.co-i b{font-size:1.15rem}}
 @media(max-width:380px){.data-table th,.data-table td{padding:.45rem .3rem;font-size:.7rem}}
+/* invito alla newsletter, in fondo all'articolo */
+.nl-cta{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:2.6rem 0 0;padding:20px 24px;border-radius:var(--r);background:var(--navy);color:#fff}
+.nl-cta div{display:flex;flex-direction:column;gap:4px;min-width:0}.nl-cta b{font-family:'Manrope',sans-serif;font-weight:800;font-size:1.1rem}
+.nl-cta span{font-size:.9rem;line-height:1.5;color:#c7d2e0}
+.nl-cta a{flex:none;text-decoration:none;font-weight:700;font-size:.92rem;padding:11px 18px;border-radius:99px;background:#14b8a6;color:#04201c;white-space:nowrap}
+.nl-cta a:hover{background:#2dd4bf}
+.nv a.nl{color:#5eead4;font-weight:700}
+@media(max-width:640px){.nl-cta{flex-direction:column;align-items:stretch;text-align:left}.nl-cta a{text-align:center}}

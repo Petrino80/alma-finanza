@@ -27,7 +27,7 @@ BLOCCHI DA METTERE NEL TESTO DELL'ARTICOLO, DOPO il paragrafo <p class="lead"> (
 import re, sys, os, json, html, subprocess, datetime
 
 B = os.path.dirname(os.path.abspath(__file__)) + '/'
-CSS_V = '1'
+CSS_V = '2'
 MARK = '<!-- LAYOUT-D v1 -->'
 
 CATEGORIE = {  # nome nel banner -> (data-cat, pagina categoria)
@@ -44,7 +44,9 @@ COLORE_BANNER = {'blue': 'wall', 'emerald': 'milano', 'red': 'macro', 'amber': '
 MESI = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre']
 NAV = [('Home', 'index.html'), ('Wall Street', 'categoria-wall-street.html'), ('Borsa Milano', 'categoria-borsa-milano.html'),
        ('Crypto', 'categoria-crypto.html'), ('Commodities', 'categoria-commodities.html'),
-       ('Impara la Finanza', 'impara-finanza.html'), ('Glossario', 'glossario.html')]
+       ('Impara la Finanza', 'impara-finanza.html'), ('Glossario', 'glossario.html'), ('Newsletter', 'newsletter.html')]
+CTA = ('<section class="nl-cta"><div><b>La settimana dei mercati</b><span>Ogni sabato i numeri, gli articoli da leggere e cosa guardare dopo. '
+       'Gratis, in italiano, senza gergo.</span></div><a href="newsletter.html?utm_source=sito&utm_medium=cta&utm_campaign=articolo">Iscriviti alla newsletter &rarr;</a></section>')
 
 
 def testo(s):
@@ -240,7 +242,7 @@ def trasforma(d, correlati):
     crumb += ('<a href="%s">%s</a>' % (pag, d['cat_nome']) if pag else d['cat_nome'])
     catl = ('<a href="%s">%s</a>' % (pag, d['cat_nome']) if pag else d['cat_nome'])
     sotto = '<span>%s</span>' % (d['cat_sotto'] + ' · ' + data_lunga if d['cat_sotto'] else data_lunga)
-    nav = ''.join('<a href="%s">%s</a>' % (h, n_) for n_, h in NAV)
+    nav = ''.join('<a href="%s"%s>%s</a>' % (h, ' class="nl"' if h == 'newsletter.html' else '', n_) for n_, h in NAV)
     corr = ''
     if correlati:
         corr = '<section class="more"><h3>Dalla stessa giornata</h3><div class="corr">%s</div></section>' % ''.join(
@@ -252,12 +254,12 @@ def trasforma(d, correlati):
         '<div class="wrap"><div class="crumb">%s</div><div class="grid"><main>\n'
         '<div class="cat">%s%s</div><h1>%s</h1><p class="deck">%s</p>\n'
         '<div class="by"><span class="av">A</span><b>Redazione Alma Finanza</b><span>·</span><time datetime="%s">%s, %s</time><span>·</span><span>Lettura %s min</span><span class="sp"></span>%s</div>\n'
-        '%s\n%s\n%s\n<div class="sint-m">%s</div>\n<div class="prose">\n%s\n</div></main>\n'
+        '%s\n%s\n%s\n<div class="sint-m">%s</div>\n<div class="prose">\n%s\n</div>%s</main>\n'
         '<aside class="rail">%s%s%s</aside></div>\n%s</div>\n'
         '<footer><a class="logo" href="index.html"><span class="a">A</span><span class="t">LMA FINANZA</span></a><p>%s</p></footer>\n'
         '<script src="articolo-d.js?v=%s"></script>\n') % (
         nav, tick, crumb, catl, sotto, d['h1'], d['deck'], d['dt'], data_lunga, dt.strftime('%H:%M'), d['min'], share,
-        figura, kp, marker, sint_card, b, sint_card, toc, imp_card, corr, d['disclaimer'], CSS_V)
+        figura, kp, marker, sint_card, b, CTA, sint_card, toc, imp_card, corr, d['disclaimer'], CSS_V)
     # head: via Tailwind e stile inline, dentro il foglio condiviso e i font nuovi
     s = d['src']
     head = s[:s.index('</head>')]

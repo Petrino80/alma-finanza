@@ -301,6 +301,12 @@ def fascia(parola):
                 <span class="fp-go">Apri il glossario →</span>
             </a>
         </div>
+        <!-- Fascia newsletter -->
+        <a class="fascia-nl" href="newsletter.html?utm_source=sito&utm_medium=cta&utm_campaign=homepage">
+            <span class="fn-ico">📬</span>
+            <span class="fn-txt"><b>La settimana dei mercati</b><span>La newsletter gratuita di Alma Finanza: ogni sabato i numeri, gli articoli da leggere e cosa guardare dopo.</span></span>
+            <span class="fn-btn">Iscriviti →</span>
+        </a>
 '''
 
 
@@ -548,6 +554,14 @@ CSS = f'''        /* ===== DISPOSIZIONE 2026-11 (generata da impagina-home.py: n
         .fascia-parola b{{font-family:'Manrope',sans-serif;font-size:21px;font-weight:800;color:var(--n-ink)}}
         .fp-it{{font-size:13px;color:var(--n-ink2)}}
         .fp-go{{font-size:12.5px;font-weight:600;color:var(--n-teal);margin-top:6px}}
+        .fascia-nl{{display:flex;align-items:center;gap:16px;margin:14px 0 8px;padding:15px 22px;border-radius:8px;background:#0f2540;color:#fff;text-decoration:none}}
+        .fn-ico{{font-size:26px;flex:none}}
+        .fn-txt{{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}}
+        .fn-txt b{{font-family:'Manrope',sans-serif;font-size:16px;font-weight:800}}
+        .fn-txt span{{font-size:13px;line-height:1.45;color:#c7d2e0}}
+        .fn-btn{{flex:none;font-size:13px;font-weight:700;padding:9px 16px;border-radius:99px;background:#14b8a6;color:#04201c;white-space:nowrap}}
+        .fascia-nl:hover .fn-btn{{background:#2dd4bf}}
+        @media(max-width:640px){{.fascia-nl{{flex-wrap:wrap;padding:14px 16px}}.fn-txt{{flex:1 1 calc(100% - 50px)}}.fn-btn{{flex:1 1 100%;text-align:center}}}}
         @media(max-width:620px){{.fascia{{grid-template-columns:minmax(0,1fr);gap:14px}} .fq-txt span{{display:none}}}}
 
         /* blocco archivio e pagine archivio */
