@@ -221,11 +221,11 @@ def componi(a, giorni, righe, par, lun, ultimo, campagna):
     # --- agenda
     if a.agenda:
         voci = [v.split("|", 1) for v in a.agenda.split(";") if v.strip()]
-        R.append(titolo_sez("Cosa guardare ora"))
+        R.append(titolo_sez("Cosa aspettarsi questa settimana"))
         R.append('<tr><td style="padding:2px 28px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">' + "".join(
             '<tr><td width="118" valign="top" style="padding:9px 10px 9px 0;font:700 14px %s;color:%s">%s</td><td valign="top" style="padding:9px 0;font:400 14.5px/1.5 %s;color:%s">%s</td></tr>'
             % (FONT, BLU, e(q.strip()), FONT, INK2, e(t.strip())) for q, t in voci) + '</table></td></tr>')
-        T.append("\nCOSA GUARDARE ORA\n" + "\n".join("%s: %s" % (q.strip(), t.strip()) for q, t in voci) + "\n")
+        T.append("\nCOSA ASPETTARSI QUESTA SETTIMANA\n" + "\n".join("%s: %s" % (q.strip(), t.strip()) for q, t in voci) + "\n")
 
     # --- parola
     if par and par[2]:
