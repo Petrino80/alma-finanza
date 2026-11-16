@@ -1133,79 +1133,14 @@
             </div>
         </section>
 
-        <!-- CTA Section - Newsletter -->
-        <section class="bg-gradient-to-r from-teal-500 to-teal-600 rounded-lg shadow-lg p-8 mt-12 text-white text-center">
-            <h2 class="text-3xl font-bold mb-4 montserrat-font">Non perdere nessuna notizia</h2>
-            <p class="text-lg mb-6 opacity-90">Iscriviti alla newsletter per ricevere le breaking news direttamente nella tua email</p>
-            <form id="newsletter-form" class="max-w-md mx-auto flex gap-2">
-                <input
-                    type="email"
-                    id="newsletter-email"
-                    name="email"
-                    placeholder="La tua email"
-                    class="flex-1 px-4 py-3 rounded-lg text-gray-900 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
-                    required
-                >
-                <button
-                    type="submit"
-                    id="newsletter-btn"
-                    class="bg-white dark:bg-slate-900 text-teal-600 dark:text-teal-400 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-slate-800 transition">
-                    Iscriviti
-                </button>
-            </form>
-            <p id="newsletter-status" class="mt-4 text-sm font-semibold" style="display: none;"></p>
-        </section>
-
-        <!-- EmailJS Script -->
-        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-        <script>
-            // Inizializza EmailJS con la tua Public Key
-            (function(){
-                emailjs.init("7AmMkNnmEBwPed3x4"); // Public Key Alma Finanza
-            })();
-
-            document.getElementById('newsletter-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-
-                const btn = document.getElementById('newsletter-btn');
-                const status = document.getElementById('newsletter-status');
-                const emailInput = document.getElementById('newsletter-email');
-
-                // Disabilita bottone
-                btn.disabled = true;
-                btn.textContent = 'Invio...';
-
-                // Parametri da inviare
-                const templateParams = {
-                    from_email: emailInput.value,
-                    reply_to: new Date().toLocaleString('it-IT')
-                };
-
-                // Invia 2 email: 1) Notifica a te, 2) Benvenuto all'utente
-                Promise.all([
-                    // Email 1: Notifica a newsletter@almafinanza.com
-                    emailjs.send('service_djf7pm4', 'template_j2e3mxm', templateParams),
-                    // Email 2: Benvenuto all'utente
-                    emailjs.send('service_djf7pm4', 'template_y9y3zd1', templateParams)
-                ])
-                    .then(function(responses) {
-                        status.style.display = 'block';
-                        status.style.color = '#10b981';
-                        status.textContent = '✅ Iscrizione completata! Controlla la tua email.';
-                        emailInput.value = '';
-                        btn.disabled = false;
-                        btn.textContent = 'Iscriviti';
-                    })
-                    .catch(function(error) {
-                        status.style.display = 'block';
-                        status.style.color = '#ef4444';
-                        status.textContent = '❌ Errore. Riprova più tardi.';
-                        btn.disabled = false;
-                        btn.textContent = 'Iscriviti';
-                        console.error('Errore invio email:', error);
-                    });
-            });
-        </script>
+        <!-- Newsletter a fine pagina -->
+        <div class="fascia-nl-fondo" style="margin-top:2.5rem">
+        <a class="fascia-nl" href="newsletter.html?utm_source=sito&utm_medium=cta&utm_campaign=homepage-fondo">
+            <span class="fn-ico">📬</span>
+            <span class="fn-txt"><b>La settimana dei mercati</b><span>La newsletter gratuita di Alma Finanza: i numeri della settimana, gli articoli da leggere e cosa guardare dopo.</span></span>
+            <span class="fn-btn">Iscriviti →</span>
+        </a>
+        </div>
 
     </main>
 
