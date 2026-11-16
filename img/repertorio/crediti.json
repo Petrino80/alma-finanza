@@ -1468,5 +1468,49 @@
    "omaha",
    "storia"
   ]
+ },
+ "nvidia-gm200-die": {
+  "file": "nvidia-gm200-die.jpg",
+  "soggetto": "Il chip GM200 di Nvidia fotografato al microscopio",
+  "autore": "Flickr - Fritzchens Fritz",
+  "licenza": "CC0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Nvidia_GM200_GeForce_GTX_980_Ti_die_shot.jpg",
+  "temi": [
+   "chip",
+   "semiconduttori",
+   "nvidia",
+   "gpu",
+   "export",
+   "esportazioni"
+  ]
+ },
+ "dario-amodei-2023": {
+  "file": "dario-amodei-2023.jpg",
+  "soggetto": "Dario Amodei, cofondatore e amministratore delegato di Anthropic, nel 2023",
+  "autore": "TechCrunch",
+  "licenza": "CC BY 2.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Dario_Amodei_at_TechCrunch_Disrupt_2023_04.jpg",
+  "temi": [
+   "anthropic",
+   "dario amodei",
+   "intelligenza artificiale",
+   "ipo",
+   "claude"
+  ]
+ },
+ "stellantis-mirafiori-torino": {
+  "file": "stellantis-mirafiori-torino.jpg",
+  "soggetto": "Lo stabilimento di Mirafiori a Torino, storica sede della Fiat e oggi di Stellantis",
+  "autore": "SurfAst",
+  "licenza": "CC BY-SA 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:FiatMirafiori1.jpg",
+  "temi": [
+   "stellantis",
+   "fiat",
+   "mirafiori",
+   "torino",
+   "automotive",
+   "auto"
+  ]
  }
 }
