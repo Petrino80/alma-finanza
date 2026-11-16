@@ -1133,14 +1133,43 @@
             </div>
         </section>
 
-        <!-- Newsletter a fine pagina -->
-        <div class="fascia-nl-fondo" style="margin-top:2.5rem">
-        <a class="fascia-nl" href="newsletter.html?utm_source=sito&utm_medium=cta&utm_campaign=homepage-fondo">
-            <span class="fn-ico">📬</span>
-            <span class="fn-txt"><b>La settimana dei mercati</b><span>La newsletter gratuita di Alma Finanza: i numeri della settimana, gli articoli da leggere e cosa guardare dopo.</span></span>
-            <span class="fn-btn">Iscriviti →</span>
-        </a>
-        </div>
+        <!-- Newsletter a fine pagina: modulo collegato a Brevo con doppia conferma -->
+        <section class="bg-gradient-to-r from-teal-500 to-teal-600 rounded-lg shadow-lg p-8 mt-12 text-white text-center">
+            <h2 class="text-3xl font-bold mb-4 montserrat-font">Non perdere nessuna notizia</h2>
+            <p class="text-lg mb-6 opacity-90">Iscriviti a «La settimana dei mercati», la newsletter gratuita di Alma Finanza: i numeri della settimana, gli articoli da leggere e cosa guardare dopo, direttamente nella tua email.</p>
+            <form id="newsletter-form" class="max-w-md mx-auto flex gap-2" novalidate>
+                <input type="email" id="newsletter-email" name="EMAIL" placeholder="La tua email" autocomplete="email" class="flex-1 min-w-0 px-4 py-3 rounded-lg text-gray-900 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500" required>
+                <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
+                <button type="submit" id="newsletter-btn" class="bg-white dark:bg-slate-900 text-teal-600 dark:text-teal-400 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-slate-800 transition">Iscriviti</button>
+            </form>
+            <p id="newsletter-status" role="status" class="mt-4 text-sm font-semibold inline-block rounded-lg px-4 py-2 bg-white text-gray-900" style="display:none"></p>
+            <p class="mt-4 text-xs opacity-80">Riceverai una email per confermare l'iscrizione. Puoi annullarla in ogni momento. <a href="privacy.html" class="underline">Informativa sulla privacy</a></p>
+        </section>
+        <script>
+        (function(){
+            var URL_MODULO = "https://8c710b82.sibforms.com/serve/MUIFACgBpv27Qic7cfKYw3sgVyKwH5Q7nYD6MNNcUYDgVGJi5n4I5CwXLrsfFYNA5vdg9tumBmJm9Kof289Lgpsk3922Uqu06WtAPY4UqEqHJFbhNM2XzTWXPaHaMTtlnZ-iJTu8p0eXwiLk3Q8qgyTTn_CcDQdBkqwO0kSD5wyTTZbcl_FSuAAm3KoZQKQtP1ECOkrL6l13_wOzkQ==?isAjax=1";
+            var f = document.getElementById('newsletter-form');
+            var btn = document.getElementById('newsletter-btn');
+            var st = document.getElementById('newsletter-status');
+            var inp = document.getElementById('newsletter-email');
+            function msg(t, ok){ st.style.display = 'inline-block'; st.style.color = ok ? '#047857' : '#b91c1c'; st.textContent = t; }
+            f.addEventListener('submit', function(ev){
+                ev.preventDefault();
+                var v = (inp.value || '').trim();
+                if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){ msg('Scrivi un indirizzo email valido.', false); return; }
+                btn.disabled = true; btn.textContent = 'Invio...';
+                var d = new FormData(f); d.set('EMAIL', v); d.set('locale', 'it');
+                fetch(URL_MODULO, { method: 'POST', body: d })
+                    .then(function(r){ return r.json(); })
+                    .then(function(j){
+                        if(j && j.success){ msg('✅ Quasi fatto! Ti abbiamo scritto: apri l\'email e clicca sul link per confermare l\'iscrizione.', true); inp.value = ''; }
+                        else { msg('Non è stato possibile completare l\'iscrizione: controlla l\'indirizzo e riprova.', false); }
+                    })
+                    .catch(function(){ msg('Errore di connessione. Riprova tra poco, oppure iscriviti da questa pagina: newsletter.html', false); })
+                    .then(function(){ btn.disabled = false; btn.textContent = 'Iscriviti'; });
+            });
+        })();
+        </script>
 
     </main>
 
