@@ -27,7 +27,7 @@ BLOCCHI DA METTERE NEL TESTO DELL'ARTICOLO, DOPO il paragrafo <p class="lead"> (
 import re, sys, os, json, html, subprocess, datetime
 
 B = os.path.dirname(os.path.abspath(__file__)) + '/'
-CSS_V = '2'
+CSS_V = '3'
 MARK = '<!-- LAYOUT-D v1 -->'
 
 CATEGORIE = {  # nome nel banner -> (data-cat, pagina categoria)
