@@ -299,7 +299,7 @@ def fascia_nl(campagna, a_parte=False):
 
 
 def assicura_stile_fascia(pagina):
-    riga = '<link rel="stylesheet" href="fascia-nl.css?v=1">'
+    riga = '<link rel="stylesheet" href="fascia-nl.css?v=2">'
     return pagina if riga in pagina else pagina.replace("</head>", riga + "\n</head>", 1)
 
 
