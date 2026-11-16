@@ -267,7 +267,7 @@ def componi(a, giorni, righe, par, lun, ultimo, campagna):
 {corpo}
 <tr><td style="padding:30px 28px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;border-radius:10px"><tr><td align="center" style="padding:20px 18px">
 <div style="font:800 16px {FONT_T};color:{INK}">Ti è stata utile?</div>
-<div style="font:400 14px/1.5 {FONT};color:{INK2};padding-top:6px">Inoltrala a chi vuole capire i mercati senza gergo. Per iscriversi basta andare su <a href="{SITO}?utm_source=newsletter&utm_medium=email&utm_campaign={campagna}" style="color:#0f766e;font-weight:700;text-decoration:none">almafinanza.com</a>.</div></td></tr></table></td></tr>
+<div style="font:400 14px/1.5 {FONT};color:{INK2};padding-top:6px">Inoltrala a chi vuole capire i mercati senza gergo. Per iscriversi basta andare su <a href="{SITO}newsletter.html?utm_source=newsletter&utm_medium=email&utm_campaign={campagna}" style="color:#0f766e;font-weight:700;text-decoration:none">almafinanza.com/newsletter</a>.</div></td></tr></table></td></tr>
 </table></td></tr>
 <tr><td style="padding:22px 20px 0;font:400 12px/1.6 {FONT};color:#64748b" align="center">
 Alma Finanza pubblica contenuti informativi ed educativi: non sono consigli di investimento né sollecitazione al pubblico risparmio. Ogni decisione di investimento è personale e comporta rischi.<br><br>

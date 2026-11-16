@@ -45,7 +45,7 @@ MESI = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 
 NAV = [('Home', 'index.html'), ('Wall Street', 'categoria-wall-street.html'), ('Borsa Milano', 'categoria-borsa-milano.html'),
        ('Crypto', 'categoria-crypto.html'), ('Commodities', 'categoria-commodities.html'),
        ('Impara la Finanza', 'impara-finanza.html'), ('Glossario', 'glossario.html'), ('Newsletter', 'newsletter.html')]
-CTA = ('<section class="nl-cta"><div><b>La settimana dei mercati</b><span>Ogni sabato i numeri, gli articoli da leggere e cosa guardare dopo. '
+CTA = ('<section class="nl-cta"><div><b>La settimana dei mercati</b><span>I numeri della settimana, gli articoli da leggere e cosa guardare dopo. '
        'Gratis, in italiano, senza gergo.</span></div><a href="newsletter.html?utm_source=sito&utm_medium=cta&utm_campaign=articolo">Iscriviti alla newsletter &rarr;</a></section>')
 
 
