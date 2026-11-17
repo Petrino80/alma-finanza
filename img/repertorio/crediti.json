@@ -1512,5 +1512,51 @@
    "automotive",
    "auto"
   ]
+ },
+ "nyse-trader-tuchman-2021": {
+  "file": "nyse-trader-tuchman-2021.jpg",
+  "soggetto": "Un operatore al lavoro sul parterre della Borsa di New York",
+  "autore": "Bear Bull Traders",
+  "licenza": "CC BY 2.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Peter_Tuchman_in_NYSE,_2021.jpg",
+  "temi": [
+   "wall street",
+   "nyse",
+   "borsa",
+   "dow jones",
+   "seduta",
+   "indici"
+  ]
+ },
+ "avio-vega-c-stadio-superiore": {
+  "file": "avio-vega-c-stadio-superiore.jpg",
+  "soggetto": "Lo stadio superiore del razzo Vega-C, costruito da Avio, durante un test dell'Agenzia spaziale europea",
+  "autore": "European Space Agency",
+  "licenza": "CC BY-SA 3.0 igo",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Vega-C_upper_stage_shaker_test.jpg",
+  "temi": [
+   "avio",
+   "vega",
+   "vega-c",
+   "spazio",
+   "lanciatori",
+   "razzi",
+   "esa"
+  ]
+ },
+ "salesforce-tower-ingresso": {
+  "file": "salesforce-tower-ingresso.jpg",
+  "soggetto": "L'ingresso della Salesforce Tower",
+  "autore": "ajay_suresh",
+  "licenza": "CC BY 2.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Salesforce_(51493533132).jpg",
+  "temi": [
+   "salesforce",
+   "software",
+   "saas",
+   "cloud",
+   "crm",
+   "intelligenza artificiale"
+  ]
  }
 }
