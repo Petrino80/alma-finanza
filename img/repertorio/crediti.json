@@ -1558,5 +1558,19 @@
    "crm",
    "intelligenza artificiale"
   ]
+ },
+ "anthropic-uffici-san-francisco": {
+  "file": "anthropic-uffici-san-francisco.jpg",
+  "soggetto": "Gli uffici di Anthropic a San Francisco, durante la visita del ministro britannico Peter Kyle",
+  "autore": "Department for Science, Innovation and Technology",
+  "licenza": "CC BY 2.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Secretary_of_State_Peter_Kyle_visits_Anthropic_in_San_Francisco._(54099081629).jpg",
+  "temi": [
+   "anthropic",
+   "intelligenza artificiale",
+   "ipo",
+   "claude",
+   "san francisco"
+  ]
  }
 }
