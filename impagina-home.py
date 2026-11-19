@@ -31,10 +31,13 @@ import datetime
 import glob
 import html
 import importlib.util
+import json
 import pathlib
 import re
 import shutil
+import subprocess
 import sys
+import time
 import xml.dom.minidom
 
 BASE = pathlib.Path(__file__).parent
@@ -349,6 +352,34 @@ def _lib_articolo():
     return mod
 
 
+NOME_INDICE = {"^GSPC": "S&P 500", "^IXIC": "Nasdaq Composite", "^DJI": "Dow Jones", "FTSEMIB.MI": "FTSE MIB"}
+PAGINA_MERCATO = {"Wall Street": "categoria-wall-street.html", "Piazza Affari": "categoria-borsa-milano.html"}
+
+
+def chiusura_yahoo(sim):
+    """Ultima seduta conclusa da Yahoo Finance: (giorno, chiusura, variazione in punti), oppure None.
+    Serve quando per un mercato non c'è l'articolo di chiusura del giorno: la striscia non resta ferma a una seduta vecchia."""
+    try:
+        raw = subprocess.run(['curl', '-s', '-m', '25', '-A', 'Mozilla/5.0',
+                              'https://query1.finance.yahoo.com/v8/finance/chart/%s?range=10d&interval=1d' % sim.replace('^', '%5E')],
+                             capture_output=True, text=True).stdout
+        d = json.loads(raw)['chart']['result'][0]
+        m = d['meta']
+        off = m.get('gmtoffset', 0)
+        righe = [(datetime.datetime.fromtimestamp(t + off, datetime.timezone.utc).strftime('%Y-%m-%d'), c)
+                 for t, c in zip(d['timestamp'], d['indicators']['quote'][0]['close']) if c is not None]
+        oggi = datetime.datetime.fromtimestamp(time.time() + off, datetime.timezone.utc).strftime('%Y-%m-%d')
+        if righe and righe[-1][0] == oggi and time.time() < m['currentTradingPeriod']['regular']['end'] + 20 * 60:
+            righe = righe[:-1]          # seduta di oggi non ancora conclusa (o chiusura non ancora consolidata)
+        if len(righe) < 2:
+            return None
+        (g, c), (_, p) = righe[-1], righe[-2]
+        return g, c, c - p
+    except Exception as e:
+        print('   chiusura non disponibile per', sim, '(' + str(e)[:50] + ')')
+        return None
+
+
 def giorno_lungo(iso):
     d = datetime.date.fromisoformat(iso)
     return "%s %d %s %d" % (GIORNI[d.weekday()].lower(), d.day, MESI[d.month - 1].lower(), d.year)
@@ -366,6 +397,11 @@ def mercati():
                 c = [x.strip() for x in riga.split("|")]
                 if len(c) == 4 and (c[0] not in ultimo or m.group(1) >= ultimo[c[0]][0]):
                     ultimo[c[0]] = (m.group(1), c[1], float(c[2]), float(c[3]), pathlib.Path(f).name)
+    for sim in ORDINE_INDICI:            # se manca l'articolo di chiusura della seduta più recente, il dato ufficiale da Yahoo Finance
+        y = chiusura_yahoo(sim)
+        if y and (sim not in ultimo or y[0] > ultimo[sim][0]):
+            print('   striscia Mercati: %s alla chiusura del %s da Yahoo Finance (nessun articolo di chiusura)' % (sim, y[0]))
+            ultimo[sim] = (y[0], NOME_INDICE[sim], y[1], y[2], PAGINA_MERCATO[MERCATO[sim]])
     if not ultimo:
         return ""
     lib = _lib_articolo()
