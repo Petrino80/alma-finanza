@@ -1572,5 +1572,20 @@
    "claude",
    "san francisco"
   ]
+ },
+ "nyse-parterre-highsmith": {
+  "file": "nyse-parterre-highsmith.jpg",
+  "soggetto": "Il parterre della Borsa di New York, a Wall Street",
+  "autore": "Carol M. Highsmith",
+  "licenza": "pubblico dominio",
+  "fonte": "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange_trading_floor_on_Wall_Street,_New_York,_New_York_LCCN2011634218.tif",
+  "temi": [
+   "wall street",
+   "nyse",
+   "borsa",
+   "correzione",
+   "vendite",
+   "indici"
+  ]
  }
 }
