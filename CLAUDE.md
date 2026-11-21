@@ -44,6 +44,7 @@ Questa regola si applica a: articoli, titoli, card homepage, info-box, sezione "
 - 5 articoli per aggiornamento, generati in parallelo con agenti background
 - Verificare sempre che l'hero sia stato aggiornato correttamente dopo l'esecuzione dello script
 - Verificare che i nuovi termini finanziari siano stati aggiunti al glossario
+- Qualità dei dati (dal 21 novembre 2026): numeri di mercato solo dall'API Yahoo Finance calcolati da uno script con controlli (seduta chiusa, data giusta), FTSE MIB confrontato con la chiusura ufficiale; mai cifre dai riassunti di WebSearch, mai fatti o citazioni a memoria; verifica FASE 2E prima di pubblicare. Dettagli nel Master Prompt («QUALITÀ DEI DATI»)
 
 ## Homepage e Archivio (disposizione del novembre 2026)
 - Homepage: Ticker Live, "In primo piano" con gli articoli di oggi, "Ultime notizie" con filtri, ultime 10 giornate; il resto nelle pagine `archivio-AAAA-MM.html`

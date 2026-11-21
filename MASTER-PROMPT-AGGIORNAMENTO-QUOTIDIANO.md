@@ -10,7 +10,8 @@ Tutte le operazioni qui sotto sono approvate in anticipo per ogni aggiornamento 
 Claude NON deve chiedere conferma, approvazione o permesso per nessuna di queste azioni.
 
 **Ricerca dati e foto:**
-- WebSearch per dati di mercato, notizie, chiusure borse
+- Scaricare chiusure, serie storiche e dati di valutazione dall'API di Yahoo Finance (chart v8 e quoteSummary) con script Python
+- WebSearch per notizie, cause dei movimenti, dichiarazioni e chiusure ufficiali di Piazza Affari
 - WebSearch per cercare foto su Unsplash, Pexels, Wikimedia Commons
 - Scaricare foto da Unsplash, Pexels o Wikimedia Commons (licenza libera verificata)
 - Navigare pagine web per verificare dati o trovare foto
@@ -50,7 +51,8 @@ Claude NON deve chiedere conferma, approvazione o permesso per nessuna di queste
 Aggiornamento quotidiano Alma Finanza — [DATA 15 giugno 2026 - aggiornamento borse/news real time]
 
 FASE 1 — RICERCA DATI REALI (OBBLIGATORIA — NON SALTARE MAI):
-⛔ PRIMA di scrivere qualsiasi articolo, esegui WebSearch per TUTTI i dati. Non esiste eccezione.
+⛔ PRIMA di scrivere qualsiasi articolo, raccogli TUTTI i dati: i numeri di mercato dall'API Yahoo Finance con uno
+   script, le notizie con WebSearch (vedi «QUALITÀ DEI DATI» qui sotto). Non esiste eccezione.
 
 Dati da cercare:
 - Indici USA: Dow Jones, S&P 500, Nasdaq (valori indice, NON prezzi ETF)
@@ -59,6 +61,64 @@ Dati da cercare:
 - Bitcoin
 - Titoli protagonisti della giornata (top gainers/losers)
 - Notizie macro principali (Fed, dazi, earnings, geopolitica)
+
+📊 QUALITÀ DEI DATI — GERARCHIA DELLE FONTI (dal 21 novembre 2026, vincolante):
+Il 20 novembre 2026 un aggiornamento automatico ha scritto tre articoli con chiusure sbagliate
+(Nasdaq −5,13% invece di −5,28%, S&P 500 6.918 invece di 6.910), variazioni europee inventate
+e fatti mai avvenuti (un messaggio di Sam Altman, i conti Nvidia «a gennaio 2027»). Causa: numeri
+presi dai riassunti di WebSearch pochi minuti dopo la chiusura, quando le pagine riportavano ancora
+valori di metà seduta, e nessun confronto con una fonte ufficiale. Da qui le regole seguenti.
+
+1. NUMERI DI MERCATO (indici, titoli, rendimenti, materie prime, cambi, criptovalute):
+   - Fonte primaria: API Yahoo Finance, scaricata e calcolata da uno script Python
+     (https://query1.finance.yahoo.com/v8/finance/chart/<SIMBOLO>?range=1mo&interval=1d;
+     simboli: ^GSPC, ^IXIC, ^DJI, ^NDX, ^VIX, ^TNX, FTSEMIB.MI, ^GDAXI, ^FCHI, ^STOXX50E,
+     GC=F, CL=F, BZ=F, BTC-USD, titoli con il loro ticker, i titoli di Milano con .MI).
+   - Lo script deve controllare con assert: (a) che l'ultima barra abbia la data dell'articolo;
+     (b) che la seduta sia chiusa (meta.regularMarketTime successivo a currentTradingPeriod.regular.end);
+     (c) che i valori siano plausibili (variazione giornaliera di un indice entro ±15%).
+     Se un controllo fallisce, l'articolo non si scrive.
+   - Le variazioni (giorno, settimana, da inizio anno, dal record) si CALCOLANO dalle chiusure,
+     non si copiano da un articolo di giornale.
+   - MAI prendere un numero di mercato dal riassunto di una ricerca web: nelle prime ore dopo la
+     chiusura le pagine riportano spesso valori di metà seduta, provvisori o di un altro giorno.
+   - Piazza Affari: la chiusura ufficiale del FTSE MIB e dei singoli titoli è quella pubblicata a fine
+     seduta da ANSA, Money.it o Il Sole 24 Ore; va confrontata con Yahoo. Differenza oltre lo 0,1%:
+     si usa la fonte ufficiale e lo si scrive nella nota metodologica.
+   - Bitcoin e criptovalute: la barra giornaliera di Yahoo può mancare; in quel caso si usa il dato
+     citato da una fonte giornalistica, indicandola.
+   - Un numero che non si riesce a verificare si scrive «—» o si toglie la frase: mai «circa», «~» o
+     una stima al posto di un dato che dovrebbe esistere.
+
+2. NOTIZIE, CAUSE E DICHIARAZIONI:
+   - Ogni fatto non numerico (perché un titolo è sceso, chi ha detto cosa, date di eventi, nomi,
+     cariche, età) deve comparire in almeno una fonte letta in QUESTA sessione e va citato nella nota
+     metodologica. Se le fonti sono in contrasto, si scrive la versione prudente o non si scrive.
+   - Citazioni tra virgolette: solo frasi brevi realmente lette in una fonte, tradotte fedelmente.
+     Mai attribuire a una persona reale parole, messaggi sui social o intenzioni non documentate.
+   - Indiscrezioni, inchieste e accuse: sempre attribuite («secondo Reuters…») e al condizionale;
+     va scritto se non ci sono accuse formali.
+   - Prima di raccontare una notizia, controllare se il sito l'ha già raccontata negli ultimi 7 giorni
+     (titoli degli articoli recenti): niente doppioni, al massimo un collegamento.
+
+3. AFFERMAZIONI «RECORD» E CONFRONTI STORICI («la peggiore da…», «il minimo da…», «la prima volta…»):
+   - Si scrivono solo se calcolate sulla serie storica scaricata (indicando nella nota metodologica
+     come) oppure se riportate da una fonte autorevole citata. Altrimenti si toglie l'affermazione.
+
+4. DATI DI VALUTAZIONE (P/E, P/E atteso, PEG, prezzi obiettivo, crescita, debito):
+   - Dall'API quoteSummary di Yahoo (moduli summaryDetail, financialData, defaultKeyStatistics),
+     indicando nella nota il giorno di consultazione. Valori incoerenti (es. P/E sotto 1 dopo un
+     frazionamento di azioni) si escludono e si spiega perché.
+   - I prezzi obiettivo degli analisti si presentano sempre con la data e l'avvertenza che possono
+     non essere aggiornati: mai come previsione.
+
+5. NUMERI NEL TESTO: tutti i numeri dell'articolo devono essere inseriti dallo script a partire dai dati
+   scaricati (testo con segnaposti riempiti dallo script), non battuti a mano. Così una correzione del
+   dato si propaga ovunque (titolo, sintesi, tabelle, riquadro homepage, pagine categoria).
+
+6. ORARIO: l'aggiornamento serale parte non prima delle 23:00 italiane, quando le chiusure ufficiali
+   americane sono disponibili; un articolo scritto prima della chiusura va dichiarato «a seduta in corso»
+   con l'ora dei dati, e va aggiornato dopo la chiusura con una nota.
 
 📅 DATA DI RIFERIMENTO — UNA SOLA DATA PER ARTICOLO, UGUALE OVUNQUE:
 La data di un articolo è il GIORNO A CUI SONO AGGIORNATI I DATI E LE INFORMAZIONI USATI,
@@ -326,6 +386,19 @@ REGOLE:
   - Verifica obbligatoria a 390 e 360 px: nessuno scorrimento orizzontale (come da blocco TELEFONO di FASE 3).
   - Mai modificare a mano la pagina dopo --applica: si corregge il testo sorgente e si rigenera, oppure si interviene
     su articolo-d.css / articolo-d.js / impagina-articolo.py.
+
+FASE 2E — VERIFICA DEI DATI PRIMA DI PUBBLICARE (obbligatoria, dal 21 novembre 2026):
+  1. Estrarre il testo visibile di ogni articolo dall'HTML impaginato e confrontare OGNI numero con i dati
+     dello script: chiusure, punti, variazioni giornaliere e settimanali, livelli di VIX, rendimenti,
+     prezzi dei titoli. Una sola cifra diversa: correggere la fonte e rigenerare l'articolo.
+  2. Controllare che ogni fatto non numerico abbia una fonte nella nota metodologica (FASE 1, punto 2).
+  3. Controllare la grammatica dei numeri: «l'8%», «l'11%», «lo 0,5%», «dell'1%» (non «il 8%», «il 0,5%»);
+     date con «l'8 aprile», «il 1° maggio».
+  4. Controllare giorni della settimana e date degli appuntamenti citati (calcolati con Python, non a memoria).
+  5. Rileggere titolo, «Perché conta» e sintesi: non devono contenere numeri diversi da quelli del corpo.
+  6. Se un controllo fallisce e non si riesce a correggere: l'articolo NON si pubblica. Gli aggiornamenti
+     automatici spostano le bozze in output/lavoro/bozze-automatiche/ (cartella non versionata), ripristinano
+     i file del sito e lo scrivono nel resoconto.
 
 FASE 3 — AGGIORNA HOMEPAGE (index.html):
 🆕 STRISCIA "MERCATI" (dal 12 novembre 2026): sopra "In primo piano" la homepage mostra S&P 500, Nasdaq Composite, Dow Jones e FTSE MIB all'ultima chiusura, con grafico reale della seduta. La genera impagina-home.py leggendo i blocchi `<!-- INDICI | ... -->` degli articoli di chiusura (FASE 2D): non si scrive a mano e non serve nessun passaggio in più. Se un indice non ha un blocco recente, la scheda mostra l'ultimo disponibile con la sua data. Il Ticker Live resta com'è. Font dei titoli di homepage e archivi: Manrope (la A e la scritta del logo non cambiano).
@@ -774,6 +847,22 @@ tutto ciò che è nel repository è leggibile su GitHub e su almafinanza.com.
 26. NON convertire in layout D gli articoli già pubblicati e NON eseguire impagina-articolo.py separatamente su un solo articolo della giornata: va eseguito una volta, su tutti, perché costruisce "Dalla stessa giornata".
 27. NON mettere il blocco INDICI in articoli che non parlano di indici e NON scrivere grafici o serie a mano: se la serie reale non torna con la chiusura ufficiale, la scheda esce senza grafico.
 28. NON usare nel Ticker Live i simboli XETR:DAX e MIL:FTSEMIB: il primo mostra dati di fine giornata (valore diverso dalla pagina collegata), il secondo non è valido. Usare FOREXCOM:GRXEUR e FOREXCOM:ITA40; il simbolo del Nasdaq (FOREXCOM:NSXUSD) è il Nasdaq 100.
+29. NON prendere numeri di mercato dai riassunti di WebSearch: le cifre vengono dall'API Yahoo (o, per Piazza Affari, dalla chiusura ufficiale pubblicata) e sono calcolate da uno script con controlli (FASE 1, «QUALITÀ DEI DATI»)
+30. NON scrivere «circa», «~» o stime al posto di un dato che dovrebbe esistere: o si verifica, o «—», o si toglie la frase
+31. NON scrivere nulla a memoria: citazioni, messaggi sui social, date di trimestrali, età e carriere vanno lette in una fonte nella stessa sessione e citate nella nota metodologica
+32. NON scrivere «il peggiore da…», «il minimo da…», «la prima volta…» senza averlo calcolato sulla serie storica o letto in una fonte citata
+33. NON pubblicare senza la verifica di FASE 2E (ogni numero del testo confrontato con i dati dello script)
+34. NON riscrivere notizie già pubblicate negli ultimi 7 giorni e NON lavorare in parallelo a un'altra sessione: se esistono già articoli con la data di oggi o file modificati non versionati, fermarsi e controllare
+
+📌 LEZIONE APPRESA (20/11/2026 — aggiornamento automatico non verificato):
+- Alle 22:55, a meno di un'ora dalla chiusura, un aggiornamento automatico ha preso le chiusure dai riassunti
+  di WebSearch (Nasdaq −5,13% invece di −5,28%, S&P 500 6.918 invece di 6.910, Dow 48.188 invece di 48.147),
+  ha scritto variazioni europee mai avvenute e un articolo su Nvidia con fatti inventati (un messaggio di
+  Sam Altman, i conti «a gennaio 2027», le dimissioni di Huang datate 17 novembre invece che 11-12 novembre).
+- Gli articoli non sono stati pubblicati perché la sessione si è interrotta; l'errore è stato trovato confrontando
+  le cifre con l'API Yahoo e con il documento depositato da Nvidia alla SEC.
+- Prevenzione: gerarchia delle fonti di FASE 1, verifica di FASE 2E, partenza non prima delle 23:00, nessuna
+  pubblicazione automatica se un controllo non passa.
 
 📌 LEZIONE APPRESA (20/05/2026 — caso Nvidia):
 - EPS Nvidia Q1 FY2027 era $1,87 vs $1,77 atteso. Fu pubblicato erroneamente come $9,82 vs $9,10.
@@ -789,7 +878,7 @@ Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibi
 
 ## NOTE PER L'USO:
 
-- **Quando usarlo**: Ogni giorno dopo la chiusura delle borse (dopo le 22:00 ora italiana per avere sia Europa che USA)
+- **Quando usarlo**: Ogni giorno di Borsa dopo le 23:00 ora italiana, quando le chiusure ufficiali di Europa e USA sono disponibili (Wall Street chiude alle 22:00; nei minuti successivi le fonti riportano spesso dati provvisori)
 - **Data**: se non scrivi nulla, ogni articolo prende la data del giorno a cui si riferiscono i dati (per esempio la seduta di ieri, se lanci l'aggiornamento dopo mezzanotte). Se vuoi una data diversa, scrivila nella richiesta: vale quella
 - **Personalizzare**: Puoi aggiungere al prompt richieste specifiche come "un articolo su [azienda X]" o "focus su [tema Y]"
 - **Esempio rapido**: Se hai fretta, puoi scrivere semplicemente: "Aggiornamento quotidiano Alma Finanza — 11 marzo 2026" e il sistema seguirà tutte le regole sopra
@@ -818,4 +907,7 @@ Sia per homepage che per nuovi articoli usa il design Minimal Modern con possibi
 - [ ] categoria-commodities.html aggiornata (se ci sono articoli commodities)
 - [ ] impara-finanza.html: nuovi concetti educativi aggiunti
 - [ ] glossario.html: nuovi termini finanziari inglesi aggiunti (se presenti)
+- [ ] numeri di mercato scaricati dall'API Yahoo con uno script con controlli (seduta chiusa, data giusta), nessuno preso dai riassunti di WebSearch; FTSE MIB confrontato con la chiusura ufficiale
+- [ ] verifica FASE 2E fatta: ogni numero del testo confrontato con i dati, ogni fatto con una fonte nella nota metodologica, nessun «circa» al posto di un dato
+- [ ] nessuna notizia già raccontata negli ultimi 7 giorni, nessun'altra sessione al lavoro sullo stesso giorno
 - [ ] git commit + push riuscito
