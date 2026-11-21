@@ -1632,5 +1632,20 @@
    "catania",
    "piazza affari"
   ]
+ },
+ "tsmc-fab-18-tainan": {
+  "file": "tsmc-fab-18-tainan.jpg",
+  "soggetto": "La Fab 18 di TSMC nel parco scientifico di Tainan, a Taiwan",
+  "autore": "4300streetcar",
+  "licenza": "CC BY 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:TSMC_Fab_18_May_2025.jpg",
+  "temi": [
+   "tsmc",
+   "chip",
+   "semiconduttori",
+   "taiwan",
+   "valutazioni",
+   "p/e"
+  ]
  }
 }
