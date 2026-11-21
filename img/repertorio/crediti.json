@@ -1587,5 +1587,50 @@
    "vendite",
    "indici"
   ]
+ },
+ "borsa-amsterdam-crollo-1987": {
+  "file": "borsa-amsterdam-crollo-1987.jpg",
+  "soggetto": "Operatori alla Borsa di Amsterdam il 21 ottobre 1987, dopo il crollo del «lunedì nero»",
+  "autore": "Bart Molendijk / Anefo (Nationaal Archief)",
+  "licenza": "CC0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Effectenbeurs_Amsterdam_na_koersval,_Bestanddeelnr_934-1094.jpg",
+  "temi": [
+   "crollo",
+   "storia",
+   "1987",
+   "borsa",
+   "panico",
+   "nasdaq"
+  ]
+ },
+ "nvidia-dgx-server": {
+  "file": "nvidia-dgx-server.jpg",
+  "soggetto": "Un computer Nvidia DGX Spark per l'intelligenza artificiale",
+  "autore": "Daniel Lu",
+  "licenza": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Nvidia_DGX_front_view_dllu.jpg",
+  "temi": [
+   "nvidia",
+   "intelligenza artificiale",
+   "chip",
+   "gpu",
+   "nasdaq",
+   "semiconduttori"
+  ]
+ },
+ "stmicroelectronics-catania": {
+  "file": "stmicroelectronics-catania.jpg",
+  "soggetto": "Lo stabilimento di STMicroelectronics a Catania",
+  "autore": "Webonline2007",
+  "licenza": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:STMicroelectronics_Catania_Italy.png",
+  "temi": [
+   "stmicroelectronics",
+   "stm",
+   "chip",
+   "semiconduttori",
+   "catania",
+   "piazza affari"
+  ]
  }
 }
