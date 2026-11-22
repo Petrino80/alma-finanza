@@ -181,6 +181,15 @@ def componi(a, giorni, righe, par, lun, ultimo, campagna):
     pill = lambda s: '<span style="font:700 10px %s;letter-spacing:.1em;text-transform:uppercase;color:%s">%s</span>' % (FONT, COLORI.get(s["cat"], BLU), e(s["etichetta"]))
     R, T = [], []   # html e solo testo
 
+    # --- agenda
+    if a.agenda:
+        voci = [v.split("|", 1) for v in a.agenda.split(";") if v.strip()]
+        R.append(titolo_sez("Cosa aspettarsi questa settimana"))
+        R.append('<tr><td style="padding:2px 28px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">' + "".join(
+            '<tr><td width="118" valign="top" style="padding:9px 10px 9px 0;font:700 14px %s;color:%s">%s</td><td valign="top" style="padding:9px 0;font:400 14.5px/1.5 %s;color:%s">%s</td></tr>'
+            % (FONT, BLU, e(q.strip()), FONT, INK2, e(t.strip())) for q, t in voci) + '</table></td></tr>')
+        T.append("COSA ASPETTARSI QUESTA SETTIMANA\n" + "\n".join("%s: %s" % (q.strip(), t.strip()) for q, t in voci) + "\n\n")
+
     # --- in evidenza
     R.append(titolo_sez("Da leggere"))
     T.append("DA LEGGERE\n")
@@ -217,15 +226,6 @@ def componi(a, giorni, righe, par, lun, ultimo, campagna):
                  '<td align="right" style="font:700 11px %s;letter-spacing:.08em;text-transform:uppercase;color:#94a3b8;padding-bottom:4px">Settimana</td></tr>%s</table></td></tr>'
                  % (FONT, FONT, gg.day, MESI[gg.month - 1][:3], FONT, tab))
         T.append("\nI NUMERI DELLA SETTIMANA\n" + "\n".join("%s: %s (%s%s%% nella settimana)" % (n, it(c), "+" if s >= 0 else "−", it(s)) for n, c, s, _ in righe) + "\n")
-
-    # --- agenda
-    if a.agenda:
-        voci = [v.split("|", 1) for v in a.agenda.split(";") if v.strip()]
-        R.append(titolo_sez("Cosa aspettarsi questa settimana"))
-        R.append('<tr><td style="padding:2px 28px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">' + "".join(
-            '<tr><td width="118" valign="top" style="padding:9px 10px 9px 0;font:700 14px %s;color:%s">%s</td><td valign="top" style="padding:9px 0;font:400 14.5px/1.5 %s;color:%s">%s</td></tr>'
-            % (FONT, BLU, e(q.strip()), FONT, INK2, e(t.strip())) for q, t in voci) + '</table></td></tr>')
-        T.append("\nCOSA ASPETTARSI QUESTA SETTIMANA\n" + "\n".join("%s: %s" % (q.strip(), t.strip()) for q, t in voci) + "\n")
 
     # --- parola
     if par and par[2]:
