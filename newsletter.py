@@ -8,7 +8,8 @@ settimanale si calcola sulla chiusura del venerdì precedente (Yahoo Finance). S
 
 Uso:
   python3 newsletter.py --numero 1 --oggetto "..." --anteprima-testo "..." --intro "..." \\
-      [--settimana 2026-11-14] [--evidenza slug1,slug2,...] [--agenda "Lunedì 16|testo;Martedì 17|testo"]
+      [--settimana 2026-11-14] [--evidenza slug1,slug2,...] [--agenda "Lunedì 16|testo;Martedì 17|testo"] \\
+      [--impara "P/E atteso,circuit breaker"]   (schede di Impara la Finanza in «Cosa abbiamo imparato»)
 
 Scrive in output/newsletter/ (cartella non pubblicata):
   AAAA-MM-GG-email.html      il codice da incollare in Brevo (editor "Incolla il tuo codice")
@@ -121,6 +122,43 @@ def parola():
     return (termine, trad, testo(c.group(1)) if c else "")
 
 
+def imparato(hrefs, scelta=None, quanti=6):
+    """Concetti spiegati nella settimana: schede di Impara la Finanza e voci del glossario che rimandano agli articoli della settimana."""
+    ordine = {h: i for i, h in enumerate(hrefs)}
+    I = (BASE / "impara-finanza.html").read_text(encoding="utf-8")
+    schede = [(h, testo(t), testo(p)) for h, t, p in re.findall(
+        r'<a href="([^"]+)" class="concept-card[^"]*"[^>]*>\s*<h3[^>]*>([\s\S]*?)</h3>\s*<p[^>]*>([\s\S]*?)</p>', I) if h in ordine]
+    schede.sort(key=lambda s: ordine[s[0]])
+    if scelta:
+        prese = []
+        for x in scelta.split(","):
+            trovate = [s for s in schede if x.strip().lower() in s[1].lower()]
+            assert len(trovate) == 1, "--impara: «%s» corrisponde a %d schede" % (x, len(trovate))
+            prese.append(trovate[0])
+    else:   # una per articolo, dal più recente, poi le altre
+        prese, viste = [], set()
+        for s in schede:
+            if s[0] not in viste:
+                prese.append(s); viste.add(s[0])
+        prese += [s for s in schede if s not in prese]
+        prese = prese[:quanti]
+    # una o due frasi bastano (fino a ~230 caratteri): il resto è nell'articolo
+    def breve(p):
+        frasi = re.findall(r".+?[.!?](?=\s|$)", p) or [p]
+        r = frasi[0].strip()
+        for f in frasi[1:]:
+            if len(r) + len(f) > 230:
+                break
+            r += f
+        return r
+    prese = [(h, t, breve(p)) for h, t, p in prese]
+    G = (BASE / "glossario.html").read_text(encoding="utf-8")
+    voci = [(testo(t), testo(tr), h) for t, tr, h in re.findall(
+        r'<h3 class="font-bold text-gray-900 text-lg">([^<]*)</h3>\s*<p[^>]*>([^<]*)</p>\s*<p[^>]*>[\s\S]*?</p>\s*<a href="([^"]+)"', G) if h in ordine]
+    voci.sort(key=lambda v: v[0].lower())
+    return prese, voci
+
+
 def miniatura(src, w, h):
     """Ritaglio leggero della foto di repertorio, salvato in img/newsletter/ (le email non devono scaricare foto da 1600px)."""
     from PIL import Image
@@ -227,6 +265,31 @@ def componi(a, giorni, righe, par, lun, ultimo, campagna):
                  % (FONT, FONT, gg.day, MESI[gg.month - 1][:3], FONT, tab))
         T.append("\nI NUMERI DELLA SETTIMANA\n" + "\n".join("%s: %s (%s%s%% nella settimana)" % (n, it(c), "+" if s >= 0 else "−", it(s)) for n, c, s, _ in righe) + "\n")
 
+    # --- cosa abbiamo imparato (Impara la Finanza e glossario)
+    concetti, voci = imparato([s["href"] for s in tutte], a.impara)
+    sez = lambda pagina: "%s%s?utm_source=newsletter&utm_medium=email&utm_campaign=%s" % (SITO, pagina, campagna)
+    art = lambda h: SITO + h + "?utm_source=newsletter&utm_medium=email&utm_campaign=" + campagna
+    if concetti:
+        R.append(titolo_sez("Cosa abbiamo imparato"))
+        R.append('<tr><td style="padding:0 28px;font:400 14.5px/1.55 %s;color:%s">I concetti spiegati negli articoli della settimana, raccolti in <a href="%s" style="color:#0f766e;font-weight:700;text-decoration:none">Impara la Finanza</a>.</td></tr>'
+                 % (FONT, INK2, sez("impara-finanza.html")))
+        R.append('<tr><td style="padding:6px 28px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">' + "".join(
+            '<tr><td width="14" valign="top" style="padding:13px 0 0;font:800 15px %s;color:%s">&#9656;</td>'
+            '<td valign="top" style="padding:12px 0 0 6px"><a href="%s" style="font:700 15px/1.35 %s;color:%s;text-decoration:none">%s</a>'
+            '<div style="font:400 14px/1.5 %s;color:%s;padding-top:3px">%s <a href="%s" style="font-weight:700;color:#0f766e;text-decoration:none;white-space:nowrap">Rileggi &rarr;</a></div></td></tr>'
+            % (FONT, TEAL, art(h), FONT_T, INK, e(t), FONT, INK2, e(p), art(h)) for h, t, p in concetti) + '</table></td></tr>')
+        T.append("\nCOSA ABBIAMO IMPARATO\n" + "\n".join("- %s: %s\n  %s" % (t, p, art(h)) for h, t, p in concetti)
+                 + "\nTutti i concetti: %s\n" % sez("impara-finanza.html"))
+    if voci:
+        R.append('<tr><td style="padding:16px 28px 0"><table role="presentation" width="100%%" cellpadding="0" cellspacing="0" style="background:#f8fafc;border-radius:8px"><tr><td style="padding:14px 16px">'
+                 '<div style="font:700 13px %s;color:%s">%d nuovi termini nel glossario</div>'
+                 '<div style="font:400 13.5px/1.6 %s;color:%s;padding-top:6px">%s</div>'
+                 '<div style="padding-top:8px"><a href="%s" style="font:700 13px %s;color:#0f766e;text-decoration:none">Apri il glossario &rarr;</a></div></td></tr></table></td></tr>'
+                 % (FONT, INK, len(voci), FONT, INK2,
+                    " · ".join('<a href="%s" style="color:%s;text-decoration:underline;text-decoration-color:#cbd5e1">%s</a> (%s)' % (art(h), INK2, e(t), e(tr)) for t, tr, h in voci),
+                    sez("glossario.html"), FONT))
+        T.append("Nuovi termini nel glossario: %s\n%s\n" % ("; ".join("%s (%s)" % (t, tr) for t, tr, _ in voci), sez("glossario.html")))
+
     # --- parola
     if par and par[2]:
         R.append(titolo_sez("La parola della settimana"))
@@ -290,6 +353,7 @@ def main():
     ap.add_argument("--intro", required=True, help="due-quattro frasi di apertura, scritte sui dati degli articoli")
     ap.add_argument("--evidenza", help="parti del nome file degli articoli in evidenza, separate da virgola (il primo ha la foto grande)")
     ap.add_argument("--agenda", help='appuntamenti, nella forma "Quando|che cosa;Quando|che cosa"')
+    ap.add_argument("--impara", help="parti dei titoli delle schede di Impara la Finanza da mettere in «Cosa abbiamo imparato», separate da virgola (predefinito: una per articolo, al massimo 6)")
     a = ap.parse_args()
 
     idx = (BASE / "index.html").read_text(encoding="utf-8")
