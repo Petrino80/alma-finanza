@@ -1647,5 +1647,21 @@
    "valutazioni",
    "p/e"
   ]
+ },
+ "grafico-candele-ribasso": {
+  "file": "grafico-candele-ribasso.jpg",
+  "soggetto": "Un grafico a candele in ribasso con le medie mobili, su uno schermo di trading",
+  "autore": "Maxim Hopman",
+  "licenza": "Unsplash License",
+  "fonte": "https://unsplash.com/photos/stock-market-candlestick-chart-on-dark-screen-fiXLQXAhCfk",
+  "temi": [
+   "grafico",
+   "ribasso",
+   "crollo",
+   "borsa",
+   "candele",
+   "medie mobili",
+   "titoli"
+  ]
  }
 }
