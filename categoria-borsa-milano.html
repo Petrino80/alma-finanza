@@ -106,6 +106,7 @@
         .theme-toggle{position:relative;width:52px;height:28px;border-radius:14px;cursor:pointer;transition:background 0.4s;display:inline-flex;align-items:center;}
         .theme-toggle .toggle-circle{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;transition:transform 0.4s cubic-bezier(0.68,-0.55,0.27,1.55),background 0.4s;display:flex;align-items:center;justify-content:center;font-size:12px;}
         .dark .theme-toggle .toggle-circle{transform:translateX(24px);}
+        .cat-nav{scrollbar-width:none;}.cat-nav::-webkit-scrollbar{display:none;}
     </style>
 <link rel="stylesheet" href="fascia-nl.css?v=2">
 </head>
@@ -114,7 +115,7 @@
     <!-- Header -->
     <header class="bg-white/92 dark:bg-[#0c1017]/92 backdrop-blur-xl border-b border-gray-100 dark:border-slate-800/20 sticky top-0 z-50 shadow-sm dark:shadow-none transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
+            <div class="flex flex-wrap md:flex-nowrap items-center justify-between gap-y-3">
                 <!-- Logo -->
                 <a href="index.html" class="flex items-center space-x-2">
                     <span class="lobster-font text-5xl text-teal-500">A</span>
@@ -124,14 +125,14 @@
                 </a>
 
                 <!-- Navigation + Toggle -->
-                <div class="flex items-center gap-4">
-                    <nav class="flex space-x-6 text-sm font-semibold">
+                <div class="contents md:flex md:items-center md:gap-4">
+                    <nav class="cat-nav order-last md:order-none w-full md:w-auto flex space-x-4 md:space-x-6 text-[13px] md:text-sm font-semibold whitespace-nowrap overflow-x-auto md:overflow-visible">
                         <a href="categoria-wall-street.html" class="text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400">Wall Street</a>
                         <a href="categoria-borsa-milano.html" class="text-teal-600 border-b-2 border-teal-600 pb-1">Borsa Milano</a>
                         <a href="categoria-crypto.html" class="text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400">Crypto</a>
                         <a href="categoria-commodities.html" class="text-gray-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400">Commodities</a>
                     </nav>
-                    <div class="theme-toggle bg-gray-200 dark:bg-slate-700" onclick="toggleTheme()" title="Cambia tema">
+                    <div class="theme-toggle shrink-0 bg-gray-200 dark:bg-slate-700" onclick="toggleTheme()" title="Cambia tema">
                         <div class="toggle-circle bg-white dark:bg-slate-900 shadow-md">
                             <span class="ico-sun">☀️</span><span class="ico-moon" style="display:none">🌙</span>
                         </div>
