@@ -149,7 +149,10 @@ def main():
         if altro.name == p.name:
             continue
         try:
-            if f'img/repertorio/{meta["file"]}' in altro.read_text(encoding="utf-8"):
+            testo = altro.read_text(encoding="utf-8")
+            # le miniature di "Dalla stessa giornata" (layout D) rimandano ad altri articoli: non sono un uso della foto
+            testo = re.sub(r'<section class="more">[\s\S]*?</section>', '', testo)
+            if f'img/repertorio/{meta["file"]}' in testo:
                 gia_usata.append(altro.name)
         except Exception:
             pass

@@ -1676,5 +1676,50 @@
    "casa bianca",
    "amministratore delegato"
   ]
+ },
+ "nasdaq-times-square-torre": {
+  "file": "nasdaq-times-square-torre.jpg",
+  "soggetto": "La torre del Nasdaq MarketSite a Times Square, New York, illuminata di verde",
+  "autore": "Roman SUZUKI",
+  "licenza": "CC BY 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:NASDAQ_Times_Square_-_panoramio.jpg",
+  "temi": [
+   "nasdaq",
+   "wall street",
+   "times square",
+   "new york",
+   "rialzo",
+   "indici"
+  ]
+ },
+ "asml-sede-veldhoven": {
+  "file": "asml-sede-veldhoven.jpg",
+  "soggetto": "La sede di ASML a Veldhoven, nei Paesi Bassi",
+  "autore": "A ansems",
+  "licenza": "Pubblico dominio",
+  "fonte": "https://commons.wikimedia.org/wiki/File:ASML_headquarters_Veldhoven.jpg",
+  "temi": [
+   "asml",
+   "chip",
+   "semiconduttori",
+   "europa",
+   "paesi bassi",
+   "borse europee"
+  ]
+ },
+ "shanghai-lujiazui-notte": {
+  "file": "shanghai-lujiazui-notte.jpg",
+  "soggetto": "Il quartiere finanziario di Lujiazui, a Shanghai, di notte",
+  "autore": "Larry Qian",
+  "licenza": "CC0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Shanghai_Lujiazui_night_skyline_2017_-_Flickr.jpg",
+  "temi": [
+   "cina",
+   "shanghai",
+   "lujiazui",
+   "borsa cinese",
+   "asia",
+   "banche cinesi"
+  ]
  }
 }
