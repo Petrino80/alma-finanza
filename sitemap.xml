@@ -15,6 +15,41 @@
       <priority>0.3</priority>
   </url>
 
+  <!-- Articoli 24 novembre 2026 -->
+  <url>
+      <loc>https://www.almafinanza.com/articolo-tech-24nov-anthropic-sotto-prezzo-ipo-83-dollari-facebook-uber-spacex.html</loc>
+      <lastmod>2026-11-24</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-24</news:publication_date>
+          <news:title>Anthropic scende sotto gli 83 dollari del collocamento: che cosa è successo a Facebook, Uber e SpaceX dopo lo stesso scivolone</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-wall-street-24nov-chip-meno-7-88-dow-sale-divergenza-come-nel-2000.html</loc>
+      <lastmod>2026-11-24</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-24</news:publication_date>
+          <news:title>Il rally di Huang dura un giorno: chip −7,9, ma il Dow sale. Una divergenza vista quasi solo nel 2000</news:title>
+      </news:news>
+  </url>
+  <url>
+      <loc>https://www.almafinanza.com/articolo-piazza-affari-24nov-ftse-mib-48121-stm-montagne-russe-opas-intesa-mps.html</loc>
+      <lastmod>2026-11-24</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.9</priority>
+      <news:news>
+          <news:publication><news:name>Alma Finanza</news:name><news:language>it</news:language></news:publication>
+          <news:publication_date>2026-11-24</news:publication_date>
+          <news:title>Piazza Affari −1,84%: STM sulle montagne russe, e l&#x27;offerta di Intesa su MPS parte senza premio</news:title>
+      </news:news>
+  </url>
+
   <!-- Articoli 23 novembre 2026 -->
   <url>
       <loc>https://www.almafinanza.com/articolo-wall-street-23nov-nasdaq-piu-6-5-per-cento-rialzo-storico-cosa-e-successo-dopo.html</loc>
@@ -5248,67 +5283,67 @@
 
   <url>
       <loc>https://www.almafinanza.com/archivio.html</loc>
-      <lastmod>2026-11-23</lastmod>
+      <lastmod>2026-11-24</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
   </url>
   <url>
       <loc>https://www.almafinanza.com/archivio-2026-10.html</loc>
-      <lastmod>2026-11-23</lastmod>
+      <lastmod>2026-11-24</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
   </url>
   <url>
       <loc>https://www.almafinanza.com/archivio-2026-09.html</loc>
-      <lastmod>2026-11-23</lastmod>
+      <lastmod>2026-11-24</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
   </url>
   <url>
       <loc>https://www.almafinanza.com/archivio-2026-08.html</loc>
-      <lastmod>2026-11-23</lastmod>
+      <lastmod>2026-11-24</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
   </url>
   <url>
       <loc>https://www.almafinanza.com/archivio-2026-07.html</loc>
-      <lastmod>2026-11-23</lastmod>
+      <lastmod>2026-11-24</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
   </url>
   <url>
       <loc>https://www.almafinanza.com/archivio-2026-06.html</loc>
-      <lastmod>2026-11-23</lastmod>
+      <lastmod>2026-11-24</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
   </url>
   <url>
       <loc>https://www.almafinanza.com/archivio-2026-05.html</loc>
-      <lastmod>2026-11-23</lastmod>
+      <lastmod>2026-11-24</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
   </url>
   <url>
       <loc>https://www.almafinanza.com/archivio-2026-04.html</loc>
-      <lastmod>2026-11-23</lastmod>
+      <lastmod>2026-11-24</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
   </url>
   <url>
       <loc>https://www.almafinanza.com/archivio-2026-03.html</loc>
-      <lastmod>2026-11-23</lastmod>
+      <lastmod>2026-11-24</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
   </url>
   <url>
       <loc>https://www.almafinanza.com/archivio-2026-02.html</loc>
-      <lastmod>2026-11-23</lastmod>
+      <lastmod>2026-11-24</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
   </url>
   <url>
       <loc>https://www.almafinanza.com/archivio-2026-11.html</loc>
-      <lastmod>2026-11-23</lastmod>
+      <lastmod>2026-11-24</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
   </url>

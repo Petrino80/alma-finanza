@@ -1721,5 +1721,50 @@
    "asia",
    "banche cinesi"
   ]
+ },
+ "jack-clark-anthropic-2026": {
+  "file": "jack-clark-anthropic-2026.jpg",
+  "soggetto": "Jack Clark, cofondatore di Anthropic, durante una conferenza sull'intelligenza artificiale allo Schwarzman Centre di Oxford",
+  "autore": "Mvolz",
+  "licenza": "CC0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Jack_Clark,_co-founder_of_Anthropic,_giving_a_talk_on_AI_at_the_Schwarzman_Centre_in_Oxford.jpg",
+  "temi": [
+   "anthropic",
+   "intelligenza artificiale",
+   "ipo",
+   "claude",
+   "tech"
+  ]
+ },
+ "siena-piazza-salimbeni-mps": {
+  "file": "siena-piazza-salimbeni-mps.jpg",
+  "soggetto": "Piazza Salimbeni a Siena, sede storica del Monte dei Paschi, imbandierata per il Palio del 2016",
+  "autore": "Nikolai Karaneschev",
+  "licenza": "CC BY 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Siena_-_Piazza_Salimbeni_-_panoramio.jpg",
+  "temi": [
+   "mps",
+   "monte dei paschi",
+   "siena",
+   "banche",
+   "intesa",
+   "opas",
+   "piazza affari"
+  ]
+ },
+ "abercrombie-fitch-negozio": {
+  "file": "abercrombie-fitch-negozio.jpg",
+  "soggetto": "L'insegna di un negozio Abercrombie & Fitch a Monaco di Baviera",
+  "autore": "Henning Schlottmann (User:H-stt)",
+  "licenza": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Abercrombie_and_Fitch_6515.jpg",
+  "temi": [
+   "abercrombie",
+   "retail",
+   "consumi",
+   "dow jones",
+   "wall street",
+   "negozi"
+  ]
  }
 }
