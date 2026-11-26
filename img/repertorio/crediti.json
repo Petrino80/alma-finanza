@@ -1766,5 +1766,20 @@
    "wall street",
    "negozi"
   ]
+ },
+ "tacchino-selvatico-ruota": {
+  "file": "tacchino-selvatico-ruota.jpg",
+  "soggetto": "Un maschio di tacchino selvatico con la coda aperta a ruota, ai Matthaei Botanical Gardens di Ann Arbor, nel Michigan",
+  "autore": "Paul Danese",
+  "licenza": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:20260428_tom_wild_turkey_matthaei_botanical_gardens_PD08908_1.jpg",
+  "temi": [
+   "ringraziamento",
+   "thanksgiving",
+   "tacchino",
+   "stati uniti",
+   "festività",
+   "stagionalità"
+  ]
  }
 }
